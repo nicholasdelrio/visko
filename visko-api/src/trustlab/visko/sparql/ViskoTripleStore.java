@@ -344,10 +344,8 @@ public class ViskoTripleStore {
 
 		return endpoint.executeQuery(stringQuery);
 	}
-
-	public static void main(String[] args) {
-		ViskoTripleStore ts = new ViskoTripleStore("http://rio.cs.utep.edu/ciserver/");
-		System.out.println(ts.canBeVisualizedWithViewerSet("http://rio.cs.utep.edu/ciserver/ciprojects/formats/TABDELIMITEDDATASET.owl#TABDELIMITEDDATASET","http://rio.cs.utep.edu/ciserver/ciprojects/visko/mozilla-firefox1.owl#mozilla-firefox1"));
-
+	
+	public ResultSet submitQuery(String query){
+		return endpoint.executeQuery(query);
 	}
 }
