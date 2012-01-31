@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import trustlab.visko.web.html.provenance.DataProvenanceHTML;
-import trustlab.visko.web.html.provenance.VisualizationProvenanceHTML;
+//import trustlab.visko.web.html.provenance.DataProvenanceHTML;
+//import trustlab.visko.web.html.provenance.VisualizationProvenanceHTML;
 import trustlab.visko.execution.Pipeline;
 import trustlab.visko.execution.QueryEngine;
 
@@ -41,8 +41,10 @@ public class ExecutePipelineServlet extends HttpServlet {
 		
 		String result;
 		String html = "";
+		
 		if(captureProvenance != null)
 		{
+			/*
 			html +=  "<html><head><title>Resultant Visualization And Provenance</title></head><body>";
 			result = pipe.executePath(true);
 			
@@ -60,6 +62,7 @@ public class ExecutePipelineServlet extends HttpServlet {
 			}	
 			else
 				html += "<h1>ERROR: visualization or provenance could not be generated!</h1>";
+				*/
 		}
 		
 		else

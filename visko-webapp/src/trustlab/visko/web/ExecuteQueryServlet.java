@@ -66,7 +66,7 @@ public class ExecuteQueryServlet extends HttpServlet {
 		System.out.println(query.getViewerSetURI());
 		System.out.println(query.getViewURI());
 		
-		QueryEngine engine = new QueryEngine(ViskoContext.VISKO_TRIPLE_STORE_LOCATION, query);
+		QueryEngine engine = new QueryEngine(query);
 	
 		String html = "<html><head><title>Visualization Knowledge Query Result</title></head><body>";
 		
@@ -90,7 +90,6 @@ public class ExecuteQueryServlet extends HttpServlet {
 			html += "<hr>";
 		}
 
-		engine.closeEngine();
 		String errors = QueryMessages.getQueryErrorsHTML(query);
 		String warns = QueryMessages.getQueryWarningsHTML(query);
 		

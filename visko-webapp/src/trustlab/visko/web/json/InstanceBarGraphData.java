@@ -1,8 +1,6 @@
 package trustlab.visko.web.json;
 import java.util.ArrayList;
-import java.util.HashMap;
 
-import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 import org.json.*;
 
@@ -10,14 +8,14 @@ import org.json.*;
 import trustlab.server.Server;
 import trustlab.visko.knowledge.NickCIServer;
 import trustlab.visko.sparql.ViskoTripleStore;
-import trustlab.visko.web.context.ViskoContext;
+
 public class InstanceBarGraphData
 {	
 	public static String getBarGraph()
 	{
 		Server.setServer(NickCIServer.getServer());
 		
-		ViskoTripleStore ts = new ViskoTripleStore("http://iw.cs.utep.edu:8080/joseki/visko");
+		ViskoTripleStore ts = new ViskoTripleStore();
 		
 		int paramCount = numResults(ts.getAllParameters());
 		int viewerSetCount = numResults(ts.getViewerSets());

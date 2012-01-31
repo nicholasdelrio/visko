@@ -16,9 +16,9 @@ public class SelectionOptionsHTML
 	private ViskoTripleStore viskoStore;
 	private RDFStore store;
 	
-	public SelectionOptionsHTML(String location)
+	public SelectionOptionsHTML()
 	{
-		viskoStore = ViskoTripleStore.getInstance(location);
+		viskoStore = new ViskoTripleStore();
 		setUp();
 	}
 	
@@ -99,11 +99,6 @@ public class SelectionOptionsHTML
 		return options;
 	}
 	
-	public void closeStore()
-	{
-		viskoStore.releaseResources();
-	}
-
 	public String getParameters()
 	{		
 		ResultSet parameters = viskoStore.getAllParameters();

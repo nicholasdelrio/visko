@@ -10,7 +10,6 @@ import trustlab.server.Server;
 import trustlab.visko.sparql.ViskoTripleStore;
 import trustlab.visko.util.RedirectURI;
 import trustlab.visko.util.ResultSetToVector;
-import trustlab.visko.web.context.ViskoContext;
 import trustlab.visko.execution.Pipeline;
 import trustlab.visko.ontology.operator.Viewer;
 import trustlab.visko.ontology.pmlp.Format;
@@ -35,7 +34,7 @@ public class PipelineHTML
 			html += "<li><b>Operator Type:</b> ";
 	
 			String operatorURI = service.getConceptualOperator().getURI();
-			ViskoTripleStore ts = mew ViskoTripleStore();
+			ViskoTripleStore ts = new ViskoTripleStore();
 			
 			if(!ts.isMapper(operatorURI))
 			{html += "<a href=\"http://trust.utep.edu/visko/ontology/visko-operator-v3.owl#Transformer\">Transformer</a>";}
@@ -57,7 +56,7 @@ public class PipelineHTML
 				for(Input inputParameter : paramList)
 				{
 					parameterURI = inputParameter.getURI().toASCIIString();
-					parameterResolvableURI = RedirectURI.redirect(parameterURI);
+					parameterResolvableURI = RedirectURI.redirectHack(parameterURI, Server.getServer().getBaseURL());
 					parameterValue = bindings.get(parameterURI);
 	
 					if(!parameterURI.contains("url") && !parameterURI.contains("datasetURL"))

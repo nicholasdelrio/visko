@@ -55,7 +55,7 @@ public class ExecuteQueryServiceServlet extends HttpServlet {
 			System.out.println(query.getViewURI());
 			System.out.println(query.getNodesetURI());
 		
-			QueryEngine engine = new QueryEngine(ViskoContext.VISKO_TRIPLE_STORE_LOCATION, query);
+			QueryEngine engine = new QueryEngine(query);
 		
 			if(query.isValidQuery())
 			{
@@ -68,7 +68,6 @@ public class ExecuteQueryServiceServlet extends HttpServlet {
 				returnMessage = "<html><body>" + errors + "</body></html>";
 				//String warns = QueryMessages.getQueryWarningsHTML(query);
 			}
-			engine.closeEngine();
 		}
 		else
 			returnMessage = "<html><body><p>Failed to Specify Query via the query parameter</p></body></html>";

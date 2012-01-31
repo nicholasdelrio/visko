@@ -18,7 +18,7 @@ public class FormatGraphData
 	public static String getPathsGraphJSON()
 	{
 		formats = new HashMap<String,Integer>();
-		ViskoTripleStore ts = ViskoTripleStore.getInstance(ViskoContext.VISKO_TRIPLE_STORE_LOCATION);
+		ViskoTripleStore ts = new ViskoTripleStore();
 		
 		JSONObject pathsGraph = new JSONObject();
 		try

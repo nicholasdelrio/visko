@@ -2,14 +2,12 @@ package trustlab.visko.web.context;
 
 import javax.servlet.http.HttpServlet;
 
-import trustlab.ciclient.ViskoCIServerInterface;
+import trustlab.server.CIServer;
+import trustlab.server.Server;
+import trustlab.visko.sparql.ViskoTripleStore;
 
 public class ViskoContext
-{	
-	public static String CI_SERVER_CONTEXT;
-	public static String VISKO_TRIPLE_STORE_LOCATION;
-
-	
+{
 	public static void setContext(HttpServlet servlet)
 	{
 		setCIServerContext(servlet);
@@ -18,16 +16,17 @@ public class ViskoContext
 	
     private static void setCIServerContext(HttpServlet servlet)
     {
-    	CI_SERVER_CONTEXT = servlet.getInitParameter("ci-server-context");
-    	ViskoCIServerInterface.setCIServerContext(CI_SERVER_CONTEXT);
+    	String ciServerURL = servlet.getInitParameter("ci-server-url");
+    	Server.setServer(new CIServer(ciServerURL));
     	
-    	System.out.println("ci-server context: " + CI_SERVER_CONTEXT);
+    	System.out.println("ci-server-url: " + Server.getServer());
     }
     
     private static void setViskoTripleStoreLocation(HttpServlet servlet)
     {
-    	VISKO_TRIPLE_STORE_LOCATION = servlet.getInitParameter("visko-tdb-path");
+    	String viskoEndpoint = servlet.getInitParameter("visko-tdb-path");
+    	ViskoTripleStore.setEndpointURL(viskoEndpoint);
     	
-    	System.out.println("visko tdb store: " + VISKO_TRIPLE_STORE_LOCATION);
+    	System.out.println("visko tdb endpoint: " + ViskoTripleStore.getEndpontURL());
     } 
 }
