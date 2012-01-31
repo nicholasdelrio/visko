@@ -180,7 +180,7 @@ public class ViskoTripleStore {
 		return endpoint.executeQuery(stringQuery);
 	}
 
-	public ResultSet isMapper(String uri) {
+	public boolean isMapper(String uri) {
 		uri = "<" + uri + ">";
 
 		String stringQuery = QUERY_PREFIX
@@ -189,7 +189,7 @@ public class ViskoTripleStore {
 				+ uri
 				+ " rdf:type <http://trust.utep.edu/visko/ontology/visko-operator-v3.owl#Mapper> . }";
 
-		return endpoint.executeQuery(stringQuery);
+		return endpoint.executeAskQuery(stringQuery);
 	}
 
 	public boolean canBeVisualizedWithTargetFormat(String formatURI,
