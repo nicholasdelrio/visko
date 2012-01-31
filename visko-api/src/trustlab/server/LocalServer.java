@@ -12,6 +12,10 @@ public class LocalServer extends Server{
 		path = serverPath;
 	}
 	
+	public LocalServer(String serverURL){
+		url = serverURL;
+	}
+	
 	public String getBaseURL(){
 		return url;
 	}
