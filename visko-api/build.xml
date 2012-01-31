@@ -28,7 +28,7 @@
 				<fileset dir="./lib/axis4/">
 					<include name="*.jar"/>
 				</fileset>
-				<fileset dir="./lib/jena262/">
+				<fileset dir="./lib/jena264/">
 					<include name="*.jar"/>
 				</fileset>	
 				<fileset dir="./lib/util/">
@@ -56,7 +56,7 @@
 				<fileset dir="./lib/axis4/">
 					<include name="*.jar"/>
 				</fileset>
-				<fileset dir="./lib/jena262/">
+				<fileset dir="./lib/jena264/">
 					<include name="*.jar"/>
 				</fileset>	
 				<fileset dir="./lib/util/">
