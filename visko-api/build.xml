@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project basedir="." default="build" name="VisKo API">	
 	<property name="jarfile" value="visko-api.jar" />
-	<property name="dist-zipfile" value="visko-api.zip" />
 	<property name="build" value="${basedir}/build"/>
-	<property name="dist" value="${basedir}/visko"/>
 	<property name="lib" value="${basedir}/lib"/>
 	<property name="src" value="${basedir}/src"/>
 	<property name="doc" value="${basedir}/doc"/>	
@@ -76,8 +74,6 @@
 	
 	<target name="clean" description="Delete the Build Directory and the Jar File">
 		<delete dir="${build}" />
-		<delete dir="${dist}" />
-		<delete dir="${lib}" />
 		<delete dir="${doc}" />
 		<delete file="${basedir}/${jarfile}" />
 	</target>
