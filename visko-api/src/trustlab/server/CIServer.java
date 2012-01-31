@@ -23,6 +23,10 @@ public class CIServer extends Server {
 		connect();
 	}
 	
+	public CIServer(String serverURL){
+		url = serverURL;
+	}
+	
 	public String getBaseURL() {
 		String viskoCIServerURL;
 		if (url.endsWith("/")) {
