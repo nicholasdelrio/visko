@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head><title>VisKo Knowledge Base SPARQL Endpoint</title>
+  <link rel="stylesheet" type="text/css" href="StyleSheets/joseki.css" />
+  </head>
+
+  <body>
+    <h1>VisKo SPARQLer - A VisKo RDF Query Interface</h1>
+    <p>Example queries (or edit and write your own!).</p>
+    <hr/>
+
+    <div class="moreindent">
+
+      <form action="visko" method="get">
+	<p>List Views VisKo Knows how to Generate</p>
+<p><textarea name="query" cols="100" rows="15">
+PREFIX viskoV: &lt;http://trust.utep.edu/visko/ontology/visko-view-v3.owl#&gt;
+PREFIX viskoO: &lt;http://trust.utep.edu/visko/ontology/visko-operator-v3.owl#&gt;
+PREFIX viskoS: &lt;http://trust.utep.edu/visko/ontology/visko-service-v3.owl#&gt;
+PREFIX owlsService: &lt;http://www.daml.org/services/owl-s/1.2/Service.owl#&gt;
+PREFIX owlsProcess: &lt;http://www.daml.org/services/owl-s/1.2/Process.owl#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+
+select ?view
+where
+{?view a viskoV:View. }</textarea>
+	  <br/>
+	  Output XML: <input type="radio" name="output" value="xml" checked/>
+	  with XSLT style sheet (leave blank for none): 
+	  <input name="stylesheet" size="25" value="./xml-to-html.xsl" /> <br/>
+	  or JSON output: <input type="radio" name="output" value="json"/> <br/>
+	  or text output: <input type="radio" name="output" value="text"/> <br/>
+	  or CSV output: <input type="radio" name="output" value="csv"/> <br/>
+	  or TSV output: <input type="radio" name="output" value="tsv"/> <br/>
+	  Force the accept header to <tt>text/plain</tt> regardless 
+ 	  <input type="checkbox" name="force-accept" value="text/plain"/>
+	  <br/>
+	   
+	  <input type="submit" value="Get Results" />
+	</p>
+      </form>
+      <hr/>
+    </div>
+  </body>
+</html>
