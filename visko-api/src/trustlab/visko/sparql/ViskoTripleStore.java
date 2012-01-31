@@ -4,10 +4,20 @@ import com.hp.hpl.jena.query.*;
 
 public class ViskoTripleStore {
 	
+	private static String endpointURL;
+	
+	public static void setEndpointURL(String url){
+		endpointURL = url;
+	}
+	
+	public static String getEndpontURL(){
+		return endpointURL;
+	}
+	
 	private ViskoSPARQLEndpoint endpoint;
 	
-	public ViskoTripleStore(String sparqlEndpointURL){
-		endpoint = new ViskoSPARQLEndpoint(sparqlEndpointURL);
+	public ViskoTripleStore(){
+		endpoint = new ViskoSPARQLEndpoint(endpointURL);
 	}
 	
 	public static String QUERY_PREFIX = "PREFIX viskoV: <http://trust.utep.edu/visko/ontology/visko-view-v3.owl#> "

@@ -22,9 +22,9 @@ public class QueryEngine {
 	private HashMap<String, String> parameterBindings;
 	private PipelineSet pipelines;
 
-	public QueryEngine(String sparqlEndpoint, Query q) {
+	public QueryEngine(Query q) {
 		query = q;
-		builder = new PipelineSetBuilder(sparqlEndpoint);
+		builder = new PipelineSetBuilder();
 		parameterBindings = new HashMap<String, String>();
 	}
 
@@ -163,6 +163,7 @@ public class QueryEngine {
 	public static void main(String[] args) {
 		
 		Server.setServer(NickCIServer.getServer());
+		ViskoTripleStore.setEndpointURL("http://iw.cs.utep.edu:8080/joseki/visko");
 		
 		// String viewerSetURI =
 		// "http://rio.cs.utep.edu/ciserver/ciprojects/visko-operator/probeit.owl#probeit";
@@ -223,7 +224,7 @@ public class QueryEngine {
 		// query.setTargetFormatURI(targetFormat);
 		query.setViewURI(viewURI);
 
-		QueryEngine engine = new QueryEngine("http://iw.cs.utep.edu:8080/joseki/visko", query);
+		QueryEngine engine = new QueryEngine(query);
 
 		PipelineSet pipes = engine.getPipelines();
 

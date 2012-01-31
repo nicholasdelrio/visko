@@ -19,8 +19,8 @@ public class PipelineSetBuilder {
 	private OperatorPaths operatorPaths;
 	private PipelineSet pipelines;
 
-	public PipelineSetBuilder(String viskoSPARQLEndpointURL) {
-		ts = new ViskoTripleStore(viskoSPARQLEndpointURL);
+	public PipelineSetBuilder() {
+		ts = new ViskoTripleStore();
 	}
 
 	public PipelineSet getPipelines() {
