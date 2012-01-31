@@ -145,14 +145,14 @@ public class ViskoTripleStore {
 		return endpoint.executeAskQuery(stringQuery);
 	}
 
-	public ResultSet isAlreadyVisualizable(String formatURI) {
+	public boolean isAlreadyVisualizable(String formatURI) {
 
 		formatURI = "<" + formatURI + ">";
 
 		String stringQuery = QUERY_PREFIX + "ASK " + "WHERE { "
 				+ "?viewer a viskoO:Viewer. " + "?viewer viskoO:operatesOn "
 				+ formatURI + " . }";
-		return endpoint.executeQuery(stringQuery);
+		return endpoint.executeAskQuery(stringQuery);
 	}
 
 	public ResultSet getTargetViewerOfViewerSet(String formatURI,
