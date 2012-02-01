@@ -7,16 +7,21 @@
 	<property name="doc" value="doc"/>
 	<property name="visko-api" value="../visko-api"/>
 	<property name="visko-api-jar" value="../visko-api/visko-api.jar"/>
-	
+	<property name="config-file" value="WebContent/WEB-INF/web.xml"/>
+	<property name="web-content" value="WebContent"/>
 	
 	<target name="build" depends="compile" description="Creates the VisKo Webapp WAR file">
 	
-		<war destfile="${warfile}" webxml="WebContent/WEB-INF/web.xml">
+		<war destfile="${warfile}" webxml="${config-file}">
+			
+			<lib file="${visko-api-jar}"/>
 			<lib dir="${lib}/axis4"/>
 			<lib dir="${lib}/ciclient"/>
 			<lib dir="${lib}/apache"/>
 			<lib dir="${lib}/jena264"/>
 			<lib dir="${lib}/util"/>
+			
+			<fileset dir="${web-content}"/>
 			
 			<classes dir="${build}/"/>
 		</war>
