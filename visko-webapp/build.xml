@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="build" name="VisKo Webapp API">	
+	<property name="warfile" value="visko-webapp.jar" />
+	<property name="build" value="build"/>
+	<property name="lib" value="lib"/>
+	<property name="src" value="src"/>
+	<property name="doc" value="doc"/>
+	<property name="visko-api" value="../visko-api"/>
+	<property name="visko-api-jar" value="${visk-api}/visko-api.jar"/>
+	
+	<target name="build" depends="compile" description="Creates the VisKo Webapp WAR file">
+		<jar destfile="${warfile}">
+			<fileset dir="${build}" includes="**/*.*" />
+		</jar>
+	</target>	
+	
+	<target name="compile" depends="clean" description="Compile VisKo Webapp in build Directory">	
+		<ant antfile="${visko-api}/build.xml" target="build" inheritAll="false" />
+		<mkdir dir="${build}"/>
+		<javac destdir="${build}/" srcdir="${src}" target="1.6"> 
+	    	<include name="**/*.java"/>
+			<classpath>
+				<fileset dir="${lib}/ciclient/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/apache/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/axis4/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/jena264/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/util/">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>			
+		</javac> 
+	</target>
+	
+	<target name="javadoc" depends="compile" description="Generate VisKo Webapp JavaDoc" >
+	    <javadoc
+	           destdir="${basedir}/doc/"
+	           author="true"
+	           version="true"
+	           use="true"
+	           windowtitle="VisKo Javadoc">
+
+			<classpath>
+				<fileset dir="${lib}/ciclient/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/apache/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/axis4/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/jena264/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/util/">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>	
+	    	
+	      <fileset dir="${basedir}/src/" defaultexcludes="yes">
+	        <include name="trustlab/*.java" />
+	        <include name="trustlab/**/*.java" />
+	      </fileset>
+
+	      <doctitle><![CDATA[<h1>VisKo API Javadoc</h1>]]></doctitle>
+	      <link href="http://trust.utep.edu/visko/download/doc"/>
+	    </javadoc>
+	</target>	
+	
+	<target name="clean" description="Delete the Build Directory and the WAR File">
+		<delete dir="${build}" />
+		<delete dir="${doc}" />
+		<delete file="${basedir}/${warfile}" />
+	</target>
+</project>
