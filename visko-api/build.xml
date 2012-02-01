@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project basedir="." default="build" name="VisKo API">	
+<project default="build" name="VisKo API">	
 	<property name="jarfile" value="visko-api.jar" />
-	<property name="build" value="${basedir}/build"/>
-	<property name="lib" value="${basedir}/lib"/>
-	<property name="src" value="${basedir}/src"/>
-	<property name="doc" value="${basedir}/doc"/>	
+	<property name="build" value="build"/>
+	<property name="lib" value="lib"/>
+	<property name="src" value="src"/>
+	<property name="doc" value="doc"/>	
 	
 	<target name="build" depends="compile" description="Creates the VisKo API jar file">
 		<jar destfile="${jarfile}">
