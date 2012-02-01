@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="build" name="VisKo Webapp API">	
-	<property name="warfile" value="visko-webapp.jar" />
+	<property name="warfile" value="visko-webapp.war" />
 	<property name="build" value="build"/>
 	<property name="lib" value="../visko-api/lib"/>
 	<property name="src" value="src"/>
 	<property name="doc" value="doc"/>
 	<property name="visko-api" value="../visko-api"/>
-	<property name="visko-api-jar" value="$../visko-api/visko-api.jar"/>
+	<property name="visko-api-jar" value="../visko-api/visko-api.jar"/>
+	
 	
 	<target name="build" depends="compile" description="Creates the VisKo Webapp WAR file">
-		<jar destfile="${warfile}">
-			<fileset dir="${build}" includes="**/*.*" />
-		</jar>
+	
+		<war destfile="${warfile}" webxml="WebContent/WEB-INF/web.xml">
+			<lib dir="${lib}/axis4"/>
+			<lib dir="${lib}/ciclient"/>
+			<lib dir="${lib}/apache"/>
+			<lib dir="${lib}/jena264"/>
+			<lib dir="${lib}/util"/>
+			
+			<classes dir="${build}/"/>
+		</war>
 	</target>	
 	
 	<target name="compile" depends="clean" description="Compile VisKo Webapp in build Directory">	
@@ -20,6 +28,7 @@
 		<javac destdir="${build}/" srcdir="${src}" target="1.6"> 
 	    	<include name="**/*.java"/>
 			<classpath>
+				<pathelement location="${visko-api-jar}"/>
 				<fileset dir="${lib}/tomcat/">
 					<include name="*.jar"/>
 				</fileset>
