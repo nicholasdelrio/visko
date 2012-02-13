@@ -1,7 +1,7 @@
 package trustlab.visko.knowledge.gmt;
 
 
-import trustlab.server.Server;
+import trustlab.publish.Server;
 import trustlab.visko.knowledge.NickCIServer;
 import trustlab.visko.ontology.operator.writer.TransformerWriter;
 

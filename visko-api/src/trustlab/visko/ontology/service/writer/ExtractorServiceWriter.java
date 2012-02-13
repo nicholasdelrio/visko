@@ -1,6 +1,6 @@
 package trustlab.visko.ontology.service.writer;
 
-import trustlab.server.Server;
+import trustlab.publish.Server;
 import trustlab.visko.ontology.model.ViskoModel;
 import trustlab.visko.ontology.service.Extractor;
 import trustlab.visko.ontology.service.OWLSService;

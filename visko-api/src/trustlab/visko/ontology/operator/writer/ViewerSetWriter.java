@@ -1,6 +1,6 @@
 package trustlab.visko.ontology.operator.writer;
 
-import trustlab.server.Server;
+import trustlab.publish.Server;
 import trustlab.visko.ontology.operator.ViewerSet;
 import trustlab.visko.ontology.writer.ViskoWriter;
 

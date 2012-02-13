@@ -1,6 +1,6 @@
 package trustlab.visko.knowledge;
 
-import trustlab.server.CIServer;
+import trustlab.publish.CIServer;
 
 public class NickCIServer {
 	

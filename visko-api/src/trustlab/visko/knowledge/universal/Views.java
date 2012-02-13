@@ -1,7 +1,7 @@
 package trustlab.visko.knowledge.universal;
 
 
-import trustlab.server.Server;
+import trustlab.publish.Server;
 import trustlab.visko.ontology.view.writer.*;
 import trustlab.visko.knowledge.NickCIServer;
 

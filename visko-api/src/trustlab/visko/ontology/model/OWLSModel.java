@@ -11,7 +11,7 @@ import org.mindswap.owls.service.Service;
 import org.mindswap.owls.vocabulary.OWLS;
 
 //import trustlab.visko.ontology.vocabulary.ViskoO;
-import trustlab.server.Server;
+import trustlab.publish.Server;
 import trustlab.visko.ontology.JenaIndividual;
 import trustlab.visko.ontology.vocabulary.ViskoS;
 //import trustlab.visko.ontology.vocabulary.ViskoV;

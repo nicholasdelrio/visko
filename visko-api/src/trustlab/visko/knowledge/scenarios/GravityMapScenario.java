@@ -2,8 +2,8 @@ package trustlab.visko.knowledge.scenarios;
 
 
 
-import trustlab.server.CIServer;
-import trustlab.server.Server;
+import trustlab.publish.CIServer;
+import trustlab.publish.Server;
 import trustlab.visko.knowledge.NickCIServer;
 import trustlab.visko.ontology.operator.writer.TransformerWriter;
 import trustlab.visko.ontology.operator.writer.ViewerSetWriter;

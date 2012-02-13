@@ -2,7 +2,7 @@ package trustlab.visko.ontology.operator.writer;
 
 import java.util.Vector;
 
-import trustlab.server.Server;
+import trustlab.publish.Server;
 import trustlab.visko.ontology.model.ViskoModel;
 import trustlab.visko.ontology.operator.*;
 import trustlab.visko.ontology.pmlp.Format;

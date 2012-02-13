@@ -1,5 +1,5 @@
 package trustlab.visko.ontology.view.writer;
-import trustlab.server.Server;
+import trustlab.publish.Server;
 import trustlab.visko.ontology.view.Contour;
 import trustlab.visko.ontology.writer.ViskoWriter;
 
