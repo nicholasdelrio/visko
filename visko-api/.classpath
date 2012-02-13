@@ -34,5 +34,7 @@
 	<classpathentry kind="lib" path="lib/jena264/xercesImpl-2.7.1.jar"/>
 	<classpathentry kind="lib" path="lib/util/owls-api-3.0.jar"/>
 	<classpathentry kind="lib" path="lib/util/RDFStore2.jar"/>
+	<classpathentry kind="lib" path="lib/util/jsoup-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/util/tdb-0.8.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

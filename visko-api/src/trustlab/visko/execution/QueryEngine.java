@@ -11,7 +11,7 @@ import trustlab.publish.Server;
 import trustlab.visko.knowledge.NickCIServer;
 import trustlab.visko.ontology.model.OWLSModel;
 import trustlab.visko.ontology.service.OWLSService;
-import trustlab.visko.sparql.ProvenanceRDFStore;
+import trustlab.visko.sparql.UTEPProvenanceRDFStore;
 import trustlab.visko.sparql.ViskoTripleStore;
 import trustlab.visko.sparql.QueryRDFDocument;
 import trustlab.visko.util.ResultSetToVector;
@@ -201,7 +201,7 @@ public class QueryEngine {
 		// String nodesetURI =
 		// "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/DVelocityModelProduct_08987690948167472.owl#answer";
 
-		ProvenanceRDFStore s = new ProvenanceRDFStore();
+		UTEPProvenanceRDFStore s = new UTEPProvenanceRDFStore();
 		// String formatURI = s.getFormatFromArtifactURL(datasetURL);
 		// String typeURI = s.getTypeFromArtifactURL(datasetURL);
 
