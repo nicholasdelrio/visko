@@ -5,7 +5,7 @@ import com.hp.hpl.jena.query.ResultSet;
 import org.json.*;
 
 
-import trustlab.server.Server;
+import trustlab.publish.Server;
 import trustlab.visko.knowledge.NickCIServer;
 import trustlab.visko.sparql.ViskoTripleStore;
 

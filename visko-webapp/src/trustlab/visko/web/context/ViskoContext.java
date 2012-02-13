@@ -2,9 +2,9 @@ package trustlab.visko.web.context;
 
 import javax.servlet.http.HttpServlet;
 
-import trustlab.server.CIServer;
-import trustlab.server.LocalServer;
-import trustlab.server.Server;
+import trustlab.publish.CIServer;
+import trustlab.publish.LocalServer;
+import trustlab.publish.Server;
 import trustlab.visko.sparql.ViskoTripleStore;
 
 public class ViskoContext

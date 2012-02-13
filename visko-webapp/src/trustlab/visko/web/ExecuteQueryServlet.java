@@ -1,6 +1,6 @@
 package trustlab.visko.web;
 
-import trustlab.visko.sparql.ProvenanceRDFStore;
+import trustlab.visko.sparql.UTEPProvenanceRDFStore;
 import trustlab.visko.web.context.ViskoContext;
 import trustlab.visko.web.html.QueryMessages;
 import trustlab.visko.web.html.QueryHTML;
@@ -34,7 +34,7 @@ public class ExecuteQueryServlet extends HttpServlet {
     	String artifactURL = request.getParameter("artifactURL");
 		String viewerSetURI = request.getParameter("viewerSetURI");
 		
-		ProvenanceRDFStore rdfStore = new ProvenanceRDFStore();
+		UTEPProvenanceRDFStore rdfStore = new UTEPProvenanceRDFStore();
 		String formatURI = rdfStore.getFormatFromArtifactURL(artifactURL);
 		String typeURI = rdfStore.getTypeFromArtifactURL(artifactURL);
 		
