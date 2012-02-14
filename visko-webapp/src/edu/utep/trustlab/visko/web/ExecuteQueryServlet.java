@@ -1,11 +1,11 @@
-package trustlab.visko.web;
+package edu.utep.trustlab.visko.web;
 
-import trustlab.visko.sparql.UTEPProvenanceRDFStore;
-import trustlab.visko.web.context.ViskoContext;
-import trustlab.visko.web.html.QueryMessages;
-import trustlab.visko.web.html.QueryHTML;
-import trustlab.visko.web.html.ResultsTableHTML;
-import trustlab.visko.execution.*;
+import edu.utep.trustlab.visko.sparql.UTEPProvenanceRDFStore;
+import edu.utep.trustlab.visko.web.context.ViskoContext;
+import edu.utep.trustlab.visko.web.html.QueryMessages;
+import edu.utep.trustlab.visko.web.html.QueryHTML;
+import edu.utep.trustlab.visko.web.html.ResultsTableHTML;
+import edu.utep.trustlab.visko.execution.*;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

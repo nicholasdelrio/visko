@@ -1,8 +1,8 @@
-package trustlab.visko.web.html;
+package edu.utep.trustlab.visko.web.html;
 
 
-import trustlab.visko.execution.PipelineSet;
-import trustlab.visko.execution.QueryEngine;
+import edu.utep.trustlab.visko.execution.PipelineSet;
+import edu.utep.trustlab.visko.execution.QueryEngine;
 
 public class ResultsTableHTML
 {

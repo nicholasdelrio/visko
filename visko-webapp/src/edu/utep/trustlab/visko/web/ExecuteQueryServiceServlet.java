@@ -1,8 +1,8 @@
-package trustlab.visko.web;
+package edu.utep.trustlab.visko.web;
 
-import trustlab.visko.web.context.ViskoContext;
-import trustlab.visko.web.html.QueryMessages;
-import trustlab.visko.execution.*;
+import edu.utep.trustlab.visko.web.context.ViskoContext;
+import edu.utep.trustlab.visko.web.html.QueryMessages;
+import edu.utep.trustlab.visko.execution.*;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

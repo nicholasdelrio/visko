@@ -1,13 +1,13 @@
-package trustlab.visko.web.json;
+package edu.utep.trustlab.visko.web.json;
 import java.util.ArrayList;
 
 import com.hp.hpl.jena.query.ResultSet;
 import org.json.*;
 
 
-import trustlab.publish.Server;
-import trustlab.visko.knowledge.NickCIServer;
-import trustlab.visko.sparql.ViskoTripleStore;
+import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.visko.knowledge.NickCIServer;
+import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 
 public class InstanceBarGraphData
 {	

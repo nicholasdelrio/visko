@@ -1,4 +1,4 @@
-package trustlab.visko.web.html;
+package edu.utep.trustlab.visko.web.html;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -6,14 +6,14 @@ import org.mindswap.owl.OWLIndividualList;
 import org.mindswap.owls.process.variable.Input;
 
 
-import trustlab.publish.Server;
-import trustlab.visko.sparql.ViskoTripleStore;
-import trustlab.visko.util.RedirectURI;
-import trustlab.visko.util.ResultSetToVector;
-import trustlab.visko.execution.Pipeline;
-import trustlab.visko.ontology.operator.Viewer;
-import trustlab.visko.ontology.pmlp.Format;
-import trustlab.visko.ontology.service.OWLSService;
+import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
+import edu.utep.trustlab.visko.util.RedirectURI;
+import edu.utep.trustlab.visko.util.ResultSetToVector;
+import edu.utep.trustlab.visko.execution.Pipeline;
+import edu.utep.trustlab.visko.ontology.operator.Viewer;
+import edu.utep.trustlab.visko.ontology.pmlp.Format;
+import edu.utep.trustlab.visko.ontology.service.OWLSService;
 
 public class PipelineHTML
 {	

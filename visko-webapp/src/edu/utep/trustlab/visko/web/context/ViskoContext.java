@@ -1,11 +1,11 @@
-package trustlab.visko.web.context;
+package edu.utep.trustlab.visko.web.context;
 
 import javax.servlet.http.HttpServlet;
 
-import trustlab.publish.CIServer;
-import trustlab.publish.LocalServer;
-import trustlab.publish.Server;
-import trustlab.visko.sparql.ViskoTripleStore;
+import edu.utep.trustlab.publish.CIServer;
+import edu.utep.trustlab.publish.LocalServer;
+import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 
 public class ViskoContext
 {

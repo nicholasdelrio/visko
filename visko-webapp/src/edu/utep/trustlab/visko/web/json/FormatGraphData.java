@@ -1,4 +1,4 @@
-package trustlab.visko.web.json;
+package edu.utep.trustlab.visko.web.json;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,8 +8,7 @@ import org.json.JSONObject;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 
-import trustlab.visko.sparql.ViskoTripleStore;
-import trustlab.visko.web.context.ViskoContext;
+import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 
 public class FormatGraphData
 {

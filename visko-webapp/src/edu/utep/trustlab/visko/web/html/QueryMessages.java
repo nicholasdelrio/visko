@@ -1,6 +1,6 @@
-package trustlab.visko.web.html;
+package edu.utep.trustlab.visko.web.html;
 
-import trustlab.visko.execution.Query;
+import edu.utep.trustlab.visko.execution.Query;
 
 public class QueryMessages
 {

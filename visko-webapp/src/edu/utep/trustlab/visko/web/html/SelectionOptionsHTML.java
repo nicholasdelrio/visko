@@ -1,9 +1,9 @@
-package trustlab.visko.web.html;
+package edu.utep.trustlab.visko.web.html;
 
 import java.net.URI;
 
 
-import trustlab.visko.sparql.ViskoTripleStore;
+import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;

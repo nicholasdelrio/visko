@@ -1,5 +1,5 @@
 /*
-package trustlab.visko.web.html.provenance;
+package edu.utep.trustlab.visko.web.html.provenance;
 
 import java.util.List;
 import java.util.Vector;
@@ -8,9 +8,9 @@ import org.inference_web.pml.v2.pmlj.IWInferenceStep;
 import org.inference_web.pml.v2.pmlj.IWNodeSet;
 import org.inference_web.pml.v2.util.PMLObjectManager;
 
-import trustlab.visko.ontology.vocabulary.ViskoO;
-import trustlab.visko.util.ResultSetToVector;
-import trustlab.visko.web.context.ViskoContext;
+import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
+import edu.utep.trustlab.visko.util.ResultSetToVector;
+import edu.utep.trustlab.visko.web.context.ViskoContext;
 
 
 import com.hp.hpl.jena.ontology.OntModel;

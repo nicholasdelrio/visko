@@ -1,4 +1,4 @@
-package trustlab.visko.web;
+package edu.utep.trustlab.visko.web;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//import trustlab.visko.web.html.provenance.DataProvenanceHTML;
-//import trustlab.visko.web.html.provenance.VisualizationProvenanceHTML;
-import trustlab.visko.execution.Pipeline;
-import trustlab.visko.execution.QueryEngine;
+//import edu.utep.trustlab.visko.web.html.provenance.DataProvenanceHTML;
+//import edu.utep.trustlab.visko.web.html.provenance.VisualizationProvenanceHTML;
+import edu.utep.trustlab.visko.execution.Pipeline;
+import edu.utep.trustlab.visko.execution.QueryEngine;
 
 /**
  * Servlet implementation class ExecutePipelineServlet

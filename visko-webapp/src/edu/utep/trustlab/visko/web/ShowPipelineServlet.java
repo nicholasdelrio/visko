@@ -1,4 +1,4 @@
-package trustlab.visko.web;
+package edu.utep.trustlab.visko.web;
 
 import java.io.IOException;
 
@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import trustlab.visko.execution.Pipeline;
-import trustlab.visko.execution.QueryEngine;
-import trustlab.visko.web.html.PipelineHTML;
+import edu.utep.trustlab.visko.execution.Pipeline;
+import edu.utep.trustlab.visko.execution.QueryEngine;
+import edu.utep.trustlab.visko.web.html.PipelineHTML;
 
 /**
  * Servlet implementation class ShowPipelineServlet
@@ -17,6 +17,11 @@ import trustlab.visko.web.html.PipelineHTML;
 public class ShowPipelineServlet extends HttpServlet {
        
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * @see HttpServlet#HttpServlet()
      */
     public ShowPipelineServlet() {

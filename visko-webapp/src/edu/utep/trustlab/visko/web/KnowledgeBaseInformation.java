@@ -1,4 +1,4 @@
-package trustlab.visko.web;
+package edu.utep.trustlab.visko.web;
 
 
 import java.io.IOException;
@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import trustlab.visko.web.json.FormatGraphData;
-import trustlab.visko.web.json.OperatorGraphData;
-import trustlab.visko.web.json.InstanceBarGraphData;
-import trustlab.visko.web.context.ViskoContext;
+import edu.utep.trustlab.visko.web.json.FormatGraphData;
+import edu.utep.trustlab.visko.web.json.OperatorGraphData;
+import edu.utep.trustlab.visko.web.json.InstanceBarGraphData;
+import edu.utep.trustlab.visko.web.context.ViskoContext;
 
 /**
  * Servlet implementation class KnowledgeBaseIndividuals
