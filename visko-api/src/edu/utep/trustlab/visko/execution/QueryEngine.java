@@ -7,7 +7,7 @@ import java.util.Set;
 
 import com.hp.hpl.jena.query.ResultSet;
 
-import edu.utep.trustlab.publish.Repository;
+import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.knowledge.NickCIServer;
 import edu.utep.trustlab.visko.ontology.model.OWLSModel;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;

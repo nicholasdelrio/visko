@@ -11,7 +11,7 @@ import org.mindswap.owls.service.Service;
 import org.mindswap.owls.vocabulary.OWLS;
 
 //import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
-import edu.utep.trustlab.publish.Repository;
+import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoS;
 //import edu.utep.trustlab.visko.ontology.vocabulary.ViskoV;

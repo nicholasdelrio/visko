@@ -4,7 +4,7 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.Vector;
 
-import edu.utep.trustlab.publish.Repository;
+import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.vocabulary.ESIPData;
 import edu.utep.trustlab.visko.ontology.vocabulary.OWLS_Process;
 import edu.utep.trustlab.visko.ontology.vocabulary.OWLS_Service;

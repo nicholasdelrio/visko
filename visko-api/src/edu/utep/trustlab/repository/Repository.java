@@ -1,4 +1,4 @@
-package edu.utep.trustlab.publish;
+package edu.utep.trustlab.repository;
 
 public abstract class Repository {
 

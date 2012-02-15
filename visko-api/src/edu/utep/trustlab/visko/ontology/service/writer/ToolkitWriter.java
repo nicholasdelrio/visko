@@ -1,6 +1,6 @@
 package edu.utep.trustlab.visko.ontology.service.writer;
 
-import edu.utep.trustlab.publish.Repository;
+import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.service.Toolkit;
 import edu.utep.trustlab.visko.ontology.writer.ViskoWriter;
 

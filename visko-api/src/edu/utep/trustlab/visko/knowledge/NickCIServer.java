@@ -1,6 +1,6 @@
 package edu.utep.trustlab.visko.knowledge;
 
-import edu.utep.trustlab.publish.CIServer;
+import edu.utep.trustlab.repository.CIServer;
 
 public class NickCIServer {
 	

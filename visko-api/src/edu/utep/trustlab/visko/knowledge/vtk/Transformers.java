@@ -1,7 +1,7 @@
 package edu.utep.trustlab.visko.knowledge.vtk;
 
 
-import edu.utep.trustlab.publish.Repository;
+import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.knowledge.NickCIServer;
 import edu.utep.trustlab.visko.ontology.operator.writer.TransformerWriter;
 

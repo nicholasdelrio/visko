@@ -1,4 +1,4 @@
-package edu.utep.trustlab.publish;
+package edu.utep.trustlab.repository;
 
 import edu.utep.trustlab.visko.util.FileUtilities;
 

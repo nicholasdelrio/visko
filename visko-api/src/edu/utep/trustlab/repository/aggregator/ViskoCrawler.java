@@ -1,4 +1,4 @@
-package edu.utep.trustlab.publish.aggregator;
+package edu.utep.trustlab.repository.aggregator;
 import java.util.ArrayList;
 import java.util.List;
 

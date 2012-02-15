@@ -2,7 +2,7 @@ package edu.utep.trustlab.visko.ontology.service.writer;
 
 import java.util.Vector;
 
-import edu.utep.trustlab.publish.Repository;
+import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.service.Input;
 import edu.utep.trustlab.visko.ontology.service.InputBinding;
