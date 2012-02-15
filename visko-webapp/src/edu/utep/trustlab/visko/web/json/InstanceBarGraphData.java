@@ -5,7 +5,7 @@ import com.hp.hpl.jena.query.ResultSet;
 import org.json.*;
 
 
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.knowledge.NickCIServer;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 
@@ -13,7 +13,7 @@ public class InstanceBarGraphData
 {	
 	public static String getBarGraph()
 	{
-		Server.setServer(NickCIServer.getServer());
+		Repository.setServer(NickCIServer.getServer());
 		
 		ViskoTripleStore ts = new ViskoTripleStore();
 		

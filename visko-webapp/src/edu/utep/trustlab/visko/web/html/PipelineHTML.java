@@ -6,7 +6,7 @@ import org.mindswap.owl.OWLIndividualList;
 import org.mindswap.owls.process.variable.Input;
 
 
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.util.RedirectURI;
 import edu.utep.trustlab.visko.util.ResultSetToVector;
@@ -27,7 +27,7 @@ public class PipelineHTML
 		for(OWLSService service : pipe)
 		{	
 			String trueURI = service.getURI();
-			String resolvableURI = RedirectURI.redirectHack(trueURI, Server.getServer().getBaseURL());
+			String resolvableURI = RedirectURI.redirectHack(trueURI, Repository.getServer().getBaseURL());
 			html += "<li><b>Service Name:</b> <a href=\"" + resolvableURI + "\">" + trueURI + "</a></li>";
 			html += "<ul>";
 			
@@ -56,7 +56,7 @@ public class PipelineHTML
 				for(Input inputParameter : paramList)
 				{
 					parameterURI = inputParameter.getURI().toASCIIString();
-					parameterResolvableURI = RedirectURI.redirectHack(parameterURI, Server.getServer().getBaseURL());
+					parameterResolvableURI = RedirectURI.redirectHack(parameterURI, Repository.getServer().getBaseURL());
 					parameterValue = bindings.get(parameterURI);
 	
 					if(!parameterURI.contains("url") && !parameterURI.contains("datasetURL"))
