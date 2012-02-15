@@ -11,11 +11,11 @@
   </welcome-file-list>
   <servlet>
     <servlet-name>ExecutePipelineServlet</servlet-name>
-    <servlet-class>trustlab.visko.web.ExecutePipelineServlet</servlet-class>
+    <servlet-class>edu.utep.trustlab.visko.web.ExecutePipelineServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>ExecuteQueryServlet</servlet-name>
-    <servlet-class>trustlab.visko.web.ExecuteQueryServlet</servlet-class>
+    <servlet-class>edu.utep.trustlab.visko.web.ExecuteQueryServlet</servlet-class>
     <init-param>
       <param-name>server-url</param-name>
       <param-value>http://rio.cs.utep.edu/ciserver</param-value>

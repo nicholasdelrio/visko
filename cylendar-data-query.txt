@@ -1,0 +1,25 @@
+PREFIX formats http://rio.cs.utep.edu/ciserver/ciprojects/formats/ 
+PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
+PREFIX visko http://rio.cs.utep.edu/ciserver/ciprojects/visko/ 
+PREFIX dataParams http://trust.utep.edu/visko/services/vtkImageDataReaderFloatService.owl# 
+PREFIX contourParams http://trust.utep.edu/visko/services/vtkContourFilterService.owl# 
+PREFIX renderParams http://trust.utep.edu/visko/services/vtkPolyDataMapperService.owl# 
+SELECT * IN-VIEWER visko:mozilla-firefox1.owl#mozilla-firefox1 
+FROM http://rio.cs.utep.edu/ciserver/ciprojects/udata/cylinder-data.3d 
+	FORMAT formats:BINARYFLOATARRAY.owl#BINARYFLOATARRAY 
+	TYPE types:d2 
+WHERE dataParams:dataSpacing = 1/1/1 
+	AND dataParams:dim = 3 
+	AND dataParams:dataExtent = 0/49/0/49/0/49 
+	AND dataParams:littleEndian = false 
+	AND dataParams:readLowerLeft = false 
+	AND dataParams:dataOrigin = 0/0/0 
+	AND dataParams:numScalarComponents = 1 
+	AND contourParams:scalarRange = 0.0/12.0 
+	AND contourParams:numContours = 5 
+	AND renderParams:backgroundColor = 1/1/1 
+	AND renderParams:magnification = 3 
+	AND renderParams:xRotation = 105 
+	AND renderParams:yRotation = 0 
+	AND renderParams:zRotation = 0 
+	AND renderParams:scalarRange = 0.0/12.0
