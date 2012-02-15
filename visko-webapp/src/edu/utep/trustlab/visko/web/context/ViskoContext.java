@@ -2,9 +2,9 @@ package edu.utep.trustlab.visko.web.context;
 
 import javax.servlet.http.HttpServlet;
 
-import edu.utep.trustlab.publish.CIServer;
-import edu.utep.trustlab.publish.LocalFileSystem;
-import edu.utep.trustlab.publish.Repository;
+import edu.utep.trustlab.repository.CIServer;
+import edu.utep.trustlab.repository.LocalFileSystem;
+import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 
 public class ViskoContext

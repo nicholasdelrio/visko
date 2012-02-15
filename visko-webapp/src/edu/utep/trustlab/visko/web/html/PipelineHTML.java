@@ -6,7 +6,7 @@ import org.mindswap.owl.OWLIndividualList;
 import org.mindswap.owls.process.variable.Input;
 
 
-import edu.utep.trustlab.publish.Repository;
+import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.util.RedirectURI;
 import edu.utep.trustlab.visko.util.ResultSetToVector;
