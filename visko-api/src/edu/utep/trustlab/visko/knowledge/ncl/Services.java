@@ -1,7 +1,7 @@
 package edu.utep.trustlab.visko.knowledge.ncl;
 
 
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.knowledge.NickCIServer;
 import edu.utep.trustlab.visko.ontology.service.writer.ServiceWriter;
 
@@ -9,7 +9,7 @@ public class Services {
 	private static final String wsdlURL = "http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl";
 
 	public static void main(String[] args) {
-		Server.setServer(NickCIServer.getServer());
+		Repository.setServer(NickCIServer.getServer());
 
 		String operationName = "esriGridContour";
 

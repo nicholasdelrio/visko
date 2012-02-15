@@ -2,17 +2,17 @@ package edu.utep.trustlab.publish;
 
 import edu.utep.trustlab.visko.util.FileUtilities;
 
-public class LocalServer extends Server{
+public class LocalFileSystem extends Repository{
 	
 	private String url;
 	private String path;
 	
-	public LocalServer(String serverURL, String serverPath) {
+	public LocalFileSystem(String serverURL, String serverPath) {
 		url = serverURL;
 		path = serverPath;
 	}
 	
-	public LocalServer(String serverURL){
+	public LocalFileSystem(String serverURL){
 		url = serverURL;
 	}
 	

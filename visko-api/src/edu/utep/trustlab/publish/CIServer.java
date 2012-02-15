@@ -5,7 +5,7 @@ import edu.utep.cybershare.ciclient.CIReturnObject;
 import edu.utep.cybershare.ciclient.ciconnect.CIClient;
 import edu.utep.cybershare.ciclient.ciconnect.CIKnownServerTable;
 
-public class CIServer extends Server {
+public class CIServer extends Repository {
 	
 	private String uname;
 	private String pword;

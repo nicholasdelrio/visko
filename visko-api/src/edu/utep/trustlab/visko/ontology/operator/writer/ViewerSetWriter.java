@@ -1,6 +1,6 @@
 package edu.utep.trustlab.visko.ontology.operator.writer;
 
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.ontology.operator.ViewerSet;
 import edu.utep.trustlab.visko.ontology.writer.ViskoWriter;
 
@@ -9,7 +9,7 @@ public class ViewerSetWriter extends ViskoWriter {
 	ViewerSet viskoVS;
 
 	public ViewerSetWriter(String name) {
-		viskoVS = new ViewerSet(Server.getServer().getBaseURL(), name, viskoModel);
+		viskoVS = new ViewerSet(Repository.getServer().getBaseURL(), name, viskoModel);
 	}
 
 	public void setLabel(String label) {

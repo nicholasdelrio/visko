@@ -1,5 +1,5 @@
 package edu.utep.trustlab.visko.ontology.view.writer;
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.ontology.view.Point;
 import edu.utep.trustlab.visko.ontology.writer.ViskoWriter;
 
@@ -8,7 +8,7 @@ public class ViewPointsWriter extends ViskoWriter {
 	String label;
 
 	public ViewPointsWriter(String name) {
-		view = new Point(Server.getServer().getBaseURL(), name, viskoModel);
+		view = new Point(Repository.getServer().getBaseURL(), name, viskoModel);
 	}
 
 	public void setLabel(String label) {

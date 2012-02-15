@@ -2,7 +2,7 @@ package edu.utep.trustlab.visko.ontology.operator.writer;
 
 import java.util.Vector;
 
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.operator.*;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
@@ -22,7 +22,7 @@ public class OperatorSetWriter extends ViskoWriter {
 		operators = new Vector<Operator>();
 
 		nullFormat = new Format("http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/UNKNOWN.owl#UNKNOWN", loadingModel);
-		operatorSet = new OperatorSet(Server.getServer().getBaseURL(), name, viskoModel);
+		operatorSet = new OperatorSet(Repository.getServer().getBaseURL(), name, viskoModel);
 	}
 
 	public void setToolkit(String toolkitName, String label) {

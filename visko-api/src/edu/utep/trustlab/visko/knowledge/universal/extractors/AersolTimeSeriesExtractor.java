@@ -1,14 +1,14 @@
 package edu.utep.trustlab.visko.knowledge.universal.extractors;
 
 
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.knowledge.NickCIServer;
 import edu.utep.trustlab.visko.ontology.service.writer.ExtractorWriter;
 
 public class AersolTimeSeriesExtractor {
 
 	public static void main(String[] args) {
-		Server.setServer(NickCIServer.getServer());
+		Repository.setServer(NickCIServer.getServer());
 		String dumpURL;
 		ExtractorWriter extractor = new ExtractorWriter(
 				"AerosolTimeSeriesExtractor");

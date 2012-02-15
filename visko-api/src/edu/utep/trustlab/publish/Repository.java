@@ -1,14 +1,14 @@
 package edu.utep.trustlab.publish;
 
-public abstract class Server {
+public abstract class Repository {
 
-	private static Server SERVER;
+	private static Repository SERVER;
 	
-	public static void setServer(Server server){
+	public static void setServer(Repository server){
 		SERVER = server;
 	}
 	
-	public static Server getServer(){
+	public static Repository getServer(){
 		return SERVER;
 	}
 	

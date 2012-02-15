@@ -2,7 +2,7 @@ package edu.utep.trustlab.visko.ontology.operator.writer;
 
 import java.util.Vector;
 
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.operator.*;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
@@ -20,8 +20,8 @@ public class TransformerWriter extends ViskoWriter {
 	private ViskoModel loadingModel = new ViskoModel();
 
 	public TransformerWriter(String name) {
-		trans = new Transformer(Server.getServer().getBaseURL(), name, viskoModel);
-		mapper = new Mapper(Server.getServer().getBaseURL(), name, viskoModel);
+		trans = new Transformer(Repository.getServer().getBaseURL(), name, viskoModel);
+		mapper = new Mapper(Repository.getServer().getBaseURL(), name, viskoModel);
 		inputFormats = new Vector<Format>();
 	}
 

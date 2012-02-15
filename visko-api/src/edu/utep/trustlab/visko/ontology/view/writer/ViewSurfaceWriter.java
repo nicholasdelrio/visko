@@ -1,6 +1,6 @@
 package edu.utep.trustlab.visko.ontology.view.writer;
 
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.ontology.view.Surface;
 import edu.utep.trustlab.visko.ontology.writer.ViskoWriter;
 
@@ -9,7 +9,7 @@ public class ViewSurfaceWriter extends ViskoWriter {
 	String label;
 
 	public ViewSurfaceWriter(String name) {
-		view = new Surface(Server.getServer().getBaseURL(), name,
+		view = new Surface(Repository.getServer().getBaseURL(), name,
 				viskoModel);
 	}
 

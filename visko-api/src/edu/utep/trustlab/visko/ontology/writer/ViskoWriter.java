@@ -1,7 +1,7 @@
 package edu.utep.trustlab.visko.ontology.writer;
 
 
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.ontology.ViskoIndividual;
 import edu.utep.trustlab.visko.ontology.model.OWLSModel;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
@@ -20,6 +20,6 @@ public abstract class ViskoWriter {
 	
 	public String saveDocument() {
 		String fileContents = toRDFString();
-		return Server.getServer().saveDocument(fileContents, viskoIndividual.getFileName());
+		return Repository.getServer().saveDocument(fileContents, viskoIndividual.getFileName());
 	}
 }

@@ -1,5 +1,5 @@
 package edu.utep.trustlab.visko.ontology.view.writer;
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.ontology.view.Graph;
 import edu.utep.trustlab.visko.ontology.writer.ViskoWriter;
 
@@ -8,7 +8,7 @@ public class ViewGraphWriter extends ViskoWriter {
 	String label;
 
 	public ViewGraphWriter(String name) {
-		view = new Graph(Server.getServer().getBaseURL(), name, viskoModel);
+		view = new Graph(Repository.getServer().getBaseURL(), name, viskoModel);
 	}
 
 	public void setLabel(String label) {

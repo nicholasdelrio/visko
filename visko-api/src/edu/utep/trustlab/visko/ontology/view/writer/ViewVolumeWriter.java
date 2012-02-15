@@ -1,6 +1,6 @@
 package edu.utep.trustlab.visko.ontology.view.writer;
 
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.ontology.view.Volume;
 import edu.utep.trustlab.visko.ontology.writer.ViskoWriter;
 
@@ -9,7 +9,7 @@ public class ViewVolumeWriter extends ViskoWriter {
 	String label;
 
 	public ViewVolumeWriter(String name) {
-		view = new Volume(Server.getServer().getBaseURL(), name, viskoModel);
+		view = new Volume(Repository.getServer().getBaseURL(), name, viskoModel);
 	}
 
 	public void setLabel(String label) {

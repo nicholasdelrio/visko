@@ -1,13 +1,13 @@
 package edu.utep.trustlab.visko.knowledge.universal.profiles;
 
 
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.knowledge.NickCIServer;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class VelocityModelProfile {
 	public static void main(String[] args) {
-		Server.setServer(NickCIServer.getServer());
+		Repository.setServer(NickCIServer.getServer());
 		String documentURL;
 
 		/************ profile for velocity ******************************/

@@ -1,5 +1,5 @@
 package edu.utep.trustlab.visko.ontology.service.writer;
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.service.Input;
 import edu.utep.trustlab.visko.ontology.service.InputBinding;
@@ -13,7 +13,7 @@ public class InputBindingWriter extends ViskoWriter {
 	private ViskoModel readingModel;
 
 	public InputBindingWriter(String name) {
-		inBinding = new InputBinding(Server.getServer().getBaseURL(),
+		inBinding = new InputBinding(Repository.getServer().getBaseURL(),
 				name, viskoModel);
 	}
 

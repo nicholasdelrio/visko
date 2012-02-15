@@ -4,7 +4,7 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.Vector;
 
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.ontology.vocabulary.ESIPData;
 import edu.utep.trustlab.visko.ontology.vocabulary.OWLS_Process;
 import edu.utep.trustlab.visko.ontology.vocabulary.OWLS_Service;
@@ -99,8 +99,8 @@ public class ViskoModel{
 
 	public Individual getIndividual(String uri) {
 		
-		if(Server.getServer() != null)
-			uri = RedirectURI.redirectHack(uri, Server.getServer().getBaseURL());
+		if(Repository.getServer() != null)
+			uri = RedirectURI.redirectHack(uri, Repository.getServer().getBaseURL());
 		
 		model.read(uri);
 		return model.getIndividual(uri);

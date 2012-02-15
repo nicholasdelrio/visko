@@ -11,7 +11,7 @@ import org.mindswap.owls.service.Service;
 import org.mindswap.owls.vocabulary.OWLS;
 
 //import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoS;
 //import edu.utep.trustlab.visko.ontology.vocabulary.ViskoV;
@@ -32,8 +32,8 @@ public class OWLSModel {
 	public Service readService(String serviceURI) {
 		Service service = null;
 		
-		if(Server.getServer() != null)
-			serviceURI = RedirectURI.redirectHack(serviceURI, Server.getServer().getBaseURL());
+		if(Repository.getServer() != null)
+			serviceURI = RedirectURI.redirectHack(serviceURI, Repository.getServer().getBaseURL());
 		
 		URI uri = GetURLContents.getURI(serviceURI);
 		try {

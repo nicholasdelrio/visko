@@ -1,5 +1,5 @@
 package edu.utep.trustlab.visko.ontology.view.writer;
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.ontology.view.Contour;
 import edu.utep.trustlab.visko.ontology.writer.ViskoWriter;
 
@@ -8,7 +8,7 @@ public class ViewContourWriter extends ViskoWriter {
 	String label;
 
 	public ViewContourWriter(String name) {
-		view = new Contour(Server.getServer().getBaseURL(), name,
+		view = new Contour(Repository.getServer().getBaseURL(), name,
 				viskoModel);
 	}
 

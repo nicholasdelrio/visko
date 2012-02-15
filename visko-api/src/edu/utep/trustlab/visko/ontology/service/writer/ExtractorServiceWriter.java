@@ -1,6 +1,6 @@
 package edu.utep.trustlab.visko.ontology.service.writer;
 
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.service.Extractor;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
@@ -17,7 +17,7 @@ public class ExtractorServiceWriter extends ViskoWriter {
 	ViskoModel readingModel = new ViskoModel();
 
 	public ExtractorServiceWriter(String name) {
-		service = new OWLSService(Server.getServer().getBaseURL(), name, owlsModel);
+		service = new OWLSService(Repository.getServer().getBaseURL(), name, owlsModel);
 	}
 
 	public void setWSDLURL(String wsdlURL) {

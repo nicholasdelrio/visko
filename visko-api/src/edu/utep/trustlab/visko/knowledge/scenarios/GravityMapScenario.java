@@ -3,7 +3,7 @@ package edu.utep.trustlab.visko.knowledge.scenarios;
 
 
 import edu.utep.trustlab.publish.CIServer;
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.knowledge.NickCIServer;
 import edu.utep.trustlab.visko.ontology.operator.writer.TransformerWriter;
 import edu.utep.trustlab.visko.ontology.operator.writer.ViewerSetWriter;
@@ -38,9 +38,9 @@ public class GravityMapScenario {
 		String userName = null; // replace
 		String password = null; // replace
 
-		Server ciServer = new CIServer(serverURL, serverProject, userName, password);
+		Repository ciServer = new CIServer(serverURL, serverProject, userName, password);
 
-		Server.setServer(NickCIServer.getServer());
+		Repository.setServer(NickCIServer.getServer());
 		/****************************************************************************************************************
 		 * We need to generate knowledge about the different kinds of views that
 		 * our gravity data can be visualized as. This will include isolines

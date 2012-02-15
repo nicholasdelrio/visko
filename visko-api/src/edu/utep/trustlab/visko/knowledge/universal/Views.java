@@ -1,14 +1,14 @@
 package edu.utep.trustlab.visko.knowledge.universal;
 
 
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.ontology.view.writer.*;
 import edu.utep.trustlab.visko.knowledge.NickCIServer;
 
 public class Views {
 
 	public static void main(String[] args) {
-		Server.setServer(NickCIServer.getServer());
+		Repository.setServer(NickCIServer.getServer());
 		String documentURL;
 
 		/*

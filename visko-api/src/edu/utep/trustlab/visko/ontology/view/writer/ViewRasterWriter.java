@@ -1,6 +1,6 @@
 package edu.utep.trustlab.visko.ontology.view.writer;
 
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.ontology.view.Raster;
 import edu.utep.trustlab.visko.ontology.writer.ViskoWriter;
 
@@ -9,7 +9,7 @@ public class ViewRasterWriter extends ViskoWriter {
 	String label;
 
 	public ViewRasterWriter(String name) {
-		view = new Raster(Server.getServer().getBaseURL(), name, viskoModel);
+		view = new Raster(Repository.getServer().getBaseURL(), name, viskoModel);
 	}
 
 	public void setLabel(String label) {

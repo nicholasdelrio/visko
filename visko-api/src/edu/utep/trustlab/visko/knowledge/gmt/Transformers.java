@@ -1,13 +1,13 @@
 package edu.utep.trustlab.visko.knowledge.gmt;
 
 
-import edu.utep.trustlab.publish.Server;
+import edu.utep.trustlab.publish.Repository;
 import edu.utep.trustlab.visko.knowledge.NickCIServer;
 import edu.utep.trustlab.visko.ontology.operator.writer.TransformerWriter;
 
 public class Transformers {
 	public static void main(String[] args) {
-		Server.setServer(NickCIServer.getServer());
+		Repository.setServer(NickCIServer.getServer());
 		String name;
 
 		/*
