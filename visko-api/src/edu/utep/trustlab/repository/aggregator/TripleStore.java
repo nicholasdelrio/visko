@@ -49,4 +49,13 @@ import com.hp.hpl.jena.tdb.*;
 		
 		return storesDirectory.getAbsolutePath();
 	}
+	
+	public static void main(String[] args){
+		if(args.length != 2){
+			System.err.print("Need to specify the directory where your RDF is stored and the directory where the triple store will be created.");
+		}
+		
+		TripleStore ts = new TripleStore(args[0], args[1]);
+		System.out.println(ts.create());
+	}
 }
