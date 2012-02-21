@@ -5,15 +5,15 @@ import com.hp.hpl.jena.query.ResultSet;
 import org.json.*;
 
 
+import edu.utep.trustlab.knowledge.NickCIServer;
 import edu.utep.trustlab.repository.Repository;
-import edu.utep.trustlab.visko.knowledge.NickCIServer;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 
 public class InstanceBarGraphData
 {	
 	public static String getBarGraph()
 	{
-		Repository.setServer(NickCIServer.getServer());
+		Repository.setRepository(NickCIServer.getRepository());
 		
 		ViskoTripleStore ts = new ViskoTripleStore();
 		

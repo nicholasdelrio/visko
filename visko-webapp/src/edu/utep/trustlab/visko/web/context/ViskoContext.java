@@ -20,11 +20,11 @@ public class ViskoContext
     	String ciServerURL = servlet.getInitParameter("server-url");
     	
     	if(ciServerURL.contains("ciserver"))
-    		Repository.setServer(new CIServer(ciServerURL));
+    		Repository.setRepository(new CIServer(ciServerURL));
     	else
-    		Repository.setServer(new LocalFileSystem(ciServerURL));
+    		Repository.setRepository(new LocalFileSystem(ciServerURL));
     	
-    	System.out.println("server-url: " + Repository.getServer().getBaseURL());
+    	System.out.println("server-url: " + Repository.getRepository().getBaseURL());
     }
     
     private static void setViskoJosekiURL(HttpServlet servlet)

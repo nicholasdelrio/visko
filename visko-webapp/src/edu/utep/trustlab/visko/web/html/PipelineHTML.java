@@ -27,7 +27,7 @@ public class PipelineHTML
 		for(OWLSService service : pipe)
 		{	
 			String trueURI = service.getURI();
-			String resolvableURI = RedirectURI.redirectHack(trueURI, Repository.getServer().getBaseURL());
+			String resolvableURI = RedirectURI.redirectHack(trueURI, Repository.getRepository().getBaseURL());
 			html += "<li><b>Service Name:</b> <a href=\"" + resolvableURI + "\">" + trueURI + "</a></li>";
 			html += "<ul>";
 			
@@ -56,7 +56,7 @@ public class PipelineHTML
 				for(Input inputParameter : paramList)
 				{
 					parameterURI = inputParameter.getURI().toASCIIString();
-					parameterResolvableURI = RedirectURI.redirectHack(parameterURI, Repository.getServer().getBaseURL());
+					parameterResolvableURI = RedirectURI.redirectHack(parameterURI, Repository.getRepository().getBaseURL());
 					parameterValue = bindings.get(parameterURI);
 	
 					if(!parameterURI.contains("url") && !parameterURI.contains("datasetURL"))
