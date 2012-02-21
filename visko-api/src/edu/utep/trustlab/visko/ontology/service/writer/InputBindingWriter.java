@@ -13,7 +13,7 @@ public class InputBindingWriter extends ViskoWriter {
 	private ViskoModel readingModel;
 
 	public InputBindingWriter(String name) {
-		inBinding = new InputBinding(Repository.getServer().getBaseURL(),
+		inBinding = new InputBinding(Repository.getRepository().getBaseURL(),
 				name, viskoModel);
 	}
 

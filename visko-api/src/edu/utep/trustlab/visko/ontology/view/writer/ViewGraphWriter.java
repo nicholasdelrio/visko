@@ -8,7 +8,7 @@ public class ViewGraphWriter extends ViskoWriter {
 	String label;
 
 	public ViewGraphWriter(String name) {
-		view = new Graph(Repository.getServer().getBaseURL(), name, viskoModel);
+		view = new Graph(Repository.getRepository().getBaseURL(), name, viskoModel);
 	}
 
 	public void setLabel(String label) {

@@ -22,7 +22,7 @@ public class ToolkitProfileWriter extends ViskoWriter {
 
 	public ToolkitProfileWriter(String name) {
 		loadingModel = new ViskoModel();
-		profile = new ToolkitProfile(Repository.getServer().getBaseURL(),
+		profile = new ToolkitProfile(Repository.getRepository().getBaseURL(),
 				name, viskoModel);
 		counter = 0;
 		inputBindings = new Vector<InputBinding>();

@@ -2,13 +2,13 @@ package edu.utep.trustlab.visko.knowledge.universal;
 
 
 import edu.utep.trustlab.repository.Repository;
-import edu.utep.trustlab.visko.knowledge.NickCIServer;
+import edu.utep.trustlab.visko.knowledge.NickConfigurations;
 import edu.utep.trustlab.visko.ontology.operator.writer.ViewerSetWriter;
 
 public class ViewerSets {
 
 	public static void main(String[] args) {
-		Repository.setServer(NickCIServer.getServer());	
+		Repository.setRepository(NickConfigurations.getCIServer());	
 		ViewerSetWriter wtr = new ViewerSetWriter("probeit1");
 		wtr.setLabel("Probe-It!");
 		String documentURL = wtr.saveDocument();

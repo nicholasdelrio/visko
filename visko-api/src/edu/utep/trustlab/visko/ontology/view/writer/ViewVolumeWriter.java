@@ -9,7 +9,7 @@ public class ViewVolumeWriter extends ViskoWriter {
 	String label;
 
 	public ViewVolumeWriter(String name) {
-		view = new Volume(Repository.getServer().getBaseURL(), name, viskoModel);
+		view = new Volume(Repository.getRepository().getBaseURL(), name, viskoModel);
 	}
 
 	public void setLabel(String label) {

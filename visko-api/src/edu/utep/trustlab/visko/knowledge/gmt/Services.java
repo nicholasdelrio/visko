@@ -1,14 +1,14 @@
 package edu.utep.trustlab.visko.knowledge.gmt;
 
 import edu.utep.trustlab.repository.Repository;
-import edu.utep.trustlab.visko.knowledge.NickCIServer;
+import edu.utep.trustlab.visko.knowledge.NickConfigurations;
 import edu.utep.trustlab.visko.ontology.service.writer.ServiceWriter;
 
 public class Services {
 	private static final String wsdlURL = "http://iw.cs.utep.edu:8080/GMT-services/services/GMTGravityTransformersUsingParameters.GMTGravityTransformersUsingParametersPort?wsdl";
 
 	public static void main(String[] args) {
-		Repository.setServer(NickCIServer.getServer());
+		Repository.setRepository(NickConfigurations.getCIServer());
 
 		String operationName = "ESRIGriddedToContourMapPS";
 

@@ -2,13 +2,13 @@ package edu.utep.trustlab.visko.knowledge.universal;
 
 
 import edu.utep.trustlab.repository.Repository;
-import edu.utep.trustlab.visko.knowledge.NickCIServer;
+import edu.utep.trustlab.visko.knowledge.NickConfigurations;
 import edu.utep.trustlab.visko.ontology.operator.writer.ViewerWriter;
 
 public class Viewers {
 
 	public static void main(String[] args) {
-		Repository.setServer(NickCIServer.getServer());		String documentURL;
+		Repository.setRepository(NickConfigurations.getCIServer());		String documentURL;
 
 		ViewerWriter wtr = new ViewerWriter("imageJ-viewer1");
 		wtr.setLabel("ImageJ Viewer");

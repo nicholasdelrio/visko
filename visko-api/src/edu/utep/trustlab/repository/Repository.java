@@ -4,11 +4,11 @@ public abstract class Repository {
 
 	private static Repository SERVER;
 	
-	public static void setServer(Repository server){
+	public static void setRepository(Repository server){
 		SERVER = server;
 	}
 	
-	public static Repository getServer(){
+	public static Repository getRepository(){
 		return SERVER;
 	}
 	

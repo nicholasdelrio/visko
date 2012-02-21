@@ -9,7 +9,7 @@ public class ViewerSetWriter extends ViskoWriter {
 	ViewerSet viskoVS;
 
 	public ViewerSetWriter(String name) {
-		viskoVS = new ViewerSet(Repository.getServer().getBaseURL(), name, viskoModel);
+		viskoVS = new ViewerSet(Repository.getRepository().getBaseURL(), name, viskoModel);
 	}
 
 	public void setLabel(String label) {

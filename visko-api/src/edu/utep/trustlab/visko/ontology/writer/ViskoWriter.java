@@ -20,6 +20,6 @@ public abstract class ViskoWriter {
 	
 	public String saveDocument() {
 		String fileContents = toRDFString();
-		return Repository.getServer().saveDocument(fileContents, viskoIndividual.getFileName());
+		return Repository.getRepository().saveDocument(fileContents, viskoIndividual.getFileName());
 	}
 }

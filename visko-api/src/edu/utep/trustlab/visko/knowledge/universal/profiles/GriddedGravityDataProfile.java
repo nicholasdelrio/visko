@@ -2,7 +2,7 @@ package edu.utep.trustlab.visko.knowledge.universal.profiles;
 
 
 import edu.utep.trustlab.repository.Repository;
-import edu.utep.trustlab.visko.knowledge.NickCIServer;
+import edu.utep.trustlab.visko.knowledge.NickConfigurations;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class GriddedGravityDataProfile {
@@ -11,7 +11,7 @@ public class GriddedGravityDataProfile {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Repository.setServer(NickCIServer.getServer());
+		Repository.setRepository(NickConfigurations.getCIServer());
 		// gridded data
 		String dataTypeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d12";
 		ToolkitProfileWriter wtr1 = new ToolkitProfileWriter(

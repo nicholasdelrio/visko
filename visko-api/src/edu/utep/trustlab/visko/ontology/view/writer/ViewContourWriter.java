@@ -8,7 +8,7 @@ public class ViewContourWriter extends ViskoWriter {
 	String label;
 
 	public ViewContourWriter(String name) {
-		view = new Contour(Repository.getServer().getBaseURL(), name,
+		view = new Contour(Repository.getRepository().getBaseURL(), name,
 				viskoModel);
 	}
 

@@ -9,7 +9,7 @@ public class ViewSurfaceWriter extends ViskoWriter {
 	String label;
 
 	public ViewSurfaceWriter(String name) {
-		view = new Surface(Repository.getServer().getBaseURL(), name,
+		view = new Surface(Repository.getRepository().getBaseURL(), name,
 				viskoModel);
 	}
 

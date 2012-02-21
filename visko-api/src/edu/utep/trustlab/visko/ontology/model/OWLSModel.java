@@ -32,8 +32,8 @@ public class OWLSModel {
 	public Service readService(String serviceURI) {
 		Service service = null;
 		
-		if(Repository.getServer() != null)
-			serviceURI = RedirectURI.redirectHack(serviceURI, Repository.getServer().getBaseURL());
+		if(Repository.getRepository() != null)
+			serviceURI = RedirectURI.redirectHack(serviceURI, Repository.getRepository().getBaseURL());
 		
 		URI uri = GetURLContents.getURI(serviceURI);
 		try {

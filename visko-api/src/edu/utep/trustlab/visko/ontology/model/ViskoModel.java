@@ -99,8 +99,8 @@ public class ViskoModel{
 
 	public Individual getIndividual(String uri) {
 		
-		if(Repository.getServer() != null)
-			uri = RedirectURI.redirectHack(uri, Repository.getServer().getBaseURL());
+		if(Repository.getRepository() != null)
+			uri = RedirectURI.redirectHack(uri, Repository.getRepository().getBaseURL());
 		
 		model.read(uri);
 		return model.getIndividual(uri);

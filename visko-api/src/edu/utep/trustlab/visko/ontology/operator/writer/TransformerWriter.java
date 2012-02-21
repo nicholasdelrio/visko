@@ -20,8 +20,8 @@ public class TransformerWriter extends ViskoWriter {
 	private ViskoModel loadingModel = new ViskoModel();
 
 	public TransformerWriter(String name) {
-		trans = new Transformer(Repository.getServer().getBaseURL(), name, viskoModel);
-		mapper = new Mapper(Repository.getServer().getBaseURL(), name, viskoModel);
+		trans = new Transformer(Repository.getRepository().getBaseURL(), name, viskoModel);
+		mapper = new Mapper(Repository.getRepository().getBaseURL(), name, viskoModel);
 		inputFormats = new Vector<Format>();
 	}
 

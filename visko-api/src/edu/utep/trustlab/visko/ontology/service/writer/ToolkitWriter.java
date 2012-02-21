@@ -9,7 +9,7 @@ public class ToolkitWriter extends ViskoWriter {
 	String label;
 
 	public ToolkitWriter(String name) {
-		tk = new Toolkit(Repository.getServer().getBaseURL(), name, viskoModel);
+		tk = new Toolkit(Repository.getRepository().getBaseURL(), name, viskoModel);
 	}
 
 	public void setLabel(String label) {

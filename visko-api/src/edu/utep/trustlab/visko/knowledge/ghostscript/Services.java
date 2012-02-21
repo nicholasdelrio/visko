@@ -1,7 +1,7 @@
 package edu.utep.trustlab.visko.knowledge.ghostscript;
 
 import edu.utep.trustlab.repository.Repository;
-import edu.utep.trustlab.visko.knowledge.NickCIServer;
+import edu.utep.trustlab.visko.knowledge.NickConfigurations;
 import edu.utep.trustlab.visko.ontology.service.writer.ServiceWriter;
 
 public class Services {
@@ -9,7 +9,7 @@ public class Services {
 
 	public static void main(String[] args) {
 		
-		Repository.setServer(NickCIServer.getServer());
+		Repository.setRepository(NickConfigurations.getCIServer());
 		
 		String operationName = "PSToPDF";
 		ServiceWriter wtr1 = new ServiceWriter(operationName + 1);

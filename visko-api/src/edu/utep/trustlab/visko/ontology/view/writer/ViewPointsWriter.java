@@ -8,7 +8,7 @@ public class ViewPointsWriter extends ViskoWriter {
 	String label;
 
 	public ViewPointsWriter(String name) {
-		view = new Point(Repository.getServer().getBaseURL(), name, viskoModel);
+		view = new Point(Repository.getRepository().getBaseURL(), name, viskoModel);
 	}
 
 	public void setLabel(String label) {

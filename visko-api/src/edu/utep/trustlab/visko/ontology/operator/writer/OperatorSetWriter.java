@@ -22,7 +22,7 @@ public class OperatorSetWriter extends ViskoWriter {
 		operators = new Vector<Operator>();
 
 		nullFormat = new Format("http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/UNKNOWN.owl#UNKNOWN", loadingModel);
-		operatorSet = new OperatorSet(Repository.getServer().getBaseURL(), name, viskoModel);
+		operatorSet = new OperatorSet(Repository.getRepository().getBaseURL(), name, viskoModel);
 	}
 
 	public void setToolkit(String toolkitName, String label) {

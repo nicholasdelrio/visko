@@ -18,7 +18,7 @@ public class ExtractorWriter extends ViskoWriter {
 	public ExtractorWriter(String name) {
 		loadingModel = new ViskoModel();
 
-		extractor = new Extractor(Repository.getServer().getBaseURL(),
+		extractor = new Extractor(Repository.getRepository().getBaseURL(),
 				name, viskoModel);
 		dataTypes = new Vector<String>();
 	}

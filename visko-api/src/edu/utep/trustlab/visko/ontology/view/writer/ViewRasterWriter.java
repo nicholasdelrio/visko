@@ -9,7 +9,7 @@ public class ViewRasterWriter extends ViskoWriter {
 	String label;
 
 	public ViewRasterWriter(String name) {
-		view = new Raster(Repository.getServer().getBaseURL(), name, viskoModel);
+		view = new Raster(Repository.getRepository().getBaseURL(), name, viskoModel);
 	}
 
 	public void setLabel(String label) {
