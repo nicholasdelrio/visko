@@ -1,0 +1,13 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:esip="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <owl:Ontology rdf:about="http://somegithubdir.com/contour-lines.owl">
+    <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/esip-data.owl"/>
+  </owl:Ontology>
+  <esip:Contour rdf:about="http://somegithubdir.com/contour-lines.owl#contour-lines">
+    <rdfs:label>Contour Lines (Isolines)</rdfs:label>
+  </esip:Contour>
+</rdf:RDF>
