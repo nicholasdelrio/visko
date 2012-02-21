@@ -8,7 +8,6 @@ import java.util.Set;
 import com.hp.hpl.jena.query.ResultSet;
 
 import edu.utep.trustlab.repository.Repository;
-import edu.utep.trustlab.visko.knowledge.NickConfigurations;
 import edu.utep.trustlab.visko.ontology.model.OWLSModel;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
 import edu.utep.trustlab.visko.sparql.UTEPProvenanceRDFStore;
@@ -157,82 +156,6 @@ public class QueryEngine {
 		Set<String> keySet = query.getParameterBindings().keySet();
 		for (String key : keySet) {
 			parameterBindings.put(key, query.getParameterBindings().get(key));
-		}
-	}
-
-	public static void main(String[] args) {
-		
-		Repository.setRepository(NickConfigurations.getCIServer());
-		ViskoTripleStore.setEndpointURL("http://iw.cs.utep.edu:8080/joseki/visko");
-		
-		// String viewerSetURI =
-		// "http://rio.cs.utep.edu/ciserver/ciprojects/visko-operator/probeit.owl#probeit";
-		String viewerSetURI = "http://rio.cs.utep.edu/ciserver/ciprojects/visko/mozilla-firefox1.owl#mozilla-firefox1";
-		// String datasetURL =
-		// "http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/esriGrid.txt";
-		// String datasetURL =
-		// "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/05598217390126823_vel.3d";
-
-		// String viewURI =
-		// "http://rio.cs.utep.edu/ciserver/ciprojects/visko/XYPlot.owl#XYPlot";
-
-		// String datasetURL =
-		// "http://giovanni.gsfc.nasa.gov/session//4FD77C10-9D9F-11E0-8032-A256126F70C8/A838B4D2-9F84-11E0-9248-C3EBB5374347/A83C6D98-9F84-11E0-B803-A51811396DEC///NULL-AERONET_AOD_L2.2-MYD04_L2.051-MIL2ASAE.0022-20112506234225.nc";
-		// String formatURI =
-		// "http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/NETCDF.owl#NETCDF";
-		// String typeURI =
-		// "http://giovanni.gsfc.nasa.gov/data/aerosol/timeseries.owl#timeseries";
-
-		/*
-		 * String datasetURL =
-		 * "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/01146509090356318_icov.3d"
-		 * ; String formatURI =
-		 * "http://rio.cs.utep.edu/ciserver/ciprojects/formats/BINARYINTARRAY.owl#BINARYINTARRAY"
-		 * ; String typeURI =
-		 * "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d7-0"
-		 * ;
-		 */
-		String viewURI = "http://rio.cs.utep.edu/ciserver/ciprojects/visko/volume1.owl#volume1";
-
-		String datasetURL = "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/02029349145023569_vel.3d";
-		String formatURI = "http://rio.cs.utep.edu/ciserver/ciprojects/formats/BINARYFLOATARRAY.owl#BINARYFLOATARRAY";
-		String typeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d2";
-
-		// String nodesetURI =
-		// "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/DVelocityModelProduct_08987690948167472.owl#answer";
-
-		UTEPProvenanceRDFStore s = new UTEPProvenanceRDFStore();
-		// String formatURI = s.getFormatFromArtifactURL(datasetURL);
-		// String typeURI = s.getTypeFromArtifactURL(datasetURL);
-
-		// String formatURI = s.getFormatFromNodesetURI(nodesetURI);
-		// String typeURI = s.getTypeFromNodesetURI(nodesetURI);
-		// datasetURL = s.getDatasetURLFromNodesetURI(nodesetURI);
-
-		System.out.println(datasetURL);
-		System.out.println(typeURI);
-		System.out.println(formatURI);
-
-		Query query = new Query(datasetURL, formatURI, viewerSetURI);
-		query.setTypeURI(typeURI);
-
-		// query.addParameterBinding("http://trust.utep.edu/visko/services/ESRIGriddedToColoredImagePS.owl#C",
-		// "rainbow");
-		query.addParameterBinding(
-				"http://trust.utep.edu/visko/services/ESRIGriddedToColoredImagePS.owl#B",
-				"0.25");
-		// query.setTargetFormatURI(targetFormat);
-		query.setViewURI(viewURI);
-
-		QueryEngine engine = new QueryEngine(query);
-
-		PipelineSet pipes = engine.getPipelines();
-
-		for (Pipeline pipe : pipes) {
-			System.out.println("Next pipeline targetting: "
-					+ pipe.getViewer().getURI());
-			String resultURL = pipe.executePath(false);
-			System.out.println("resultant artifact: " + resultURL);
 		}
 	}
 }
