@@ -36,6 +36,18 @@
 		</javac> 
 	</target>
 	
+	<target name="build-triple-store" depends="build" description="Generate a TDB Triple Store From a Bundle of RDF Documents">
+		<java classname=" edu.utep.trustlab.repository.aggregator.TripleStore">
+			<arg value="../visko-rdf/"/>
+			<arg value="../visko-tdb/"/>
+			<classpath>
+				<pathelement location="dist/test.jar"/>
+				<pathelement path="${java.class.path}"/> 
+			</classpath>   
+		</java>	
+	</target>
+		
+		
 	<target name="javadoc" depends="compile" description="Generate VisKo API JavaDoc" >
 	    <javadoc
 	           destdir="${basedir}/doc/"
