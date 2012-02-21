@@ -4,11 +4,17 @@ import edu.utep.trustlab.visko.util.FileUtilities;
 
 public class LocalFileSystem extends Repository{
 	
+	public static final String VISKO_GITHUB_RDF_PATH = "../visko-rdf/";
+	
 	private String url;
 	private String path;
 	
 	public LocalFileSystem(String serverURL, String serverPath) {
 		url = serverURL;
+		
+		if(!url.endsWith("/"))
+			url = url + "/";
+		
 		path = serverPath;
 	}
 	

@@ -10,6 +10,6 @@ public class NickConfigurations {
 	}
 	
 	public static LocalFileSystem getLocalFileSystem(){
-		return new LocalFileSystem("http://somegithubdir.com", "../visko-rdf");
+		return new LocalFileSystem("http://somegithubdir.com", LocalFileSystem.VISKO_GITHUB_RDF_PATH);
 	}
 }
