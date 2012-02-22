@@ -7,7 +7,7 @@ import edu.utep.trustlab.visko.ontology.service.writer.ToolkitWriter;
 
 public class Toolkits {
 	public static void main(String[] args) {
-		Repository.setRepository(NickConfigurations.getCIServer());
+		Repository.setRepository(NickConfigurations.getLocalFileSystem());
 
 		
 		String documentURL;

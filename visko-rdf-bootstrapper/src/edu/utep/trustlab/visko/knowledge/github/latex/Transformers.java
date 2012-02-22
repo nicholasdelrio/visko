@@ -7,7 +7,7 @@ import edu.utep.trustlab.visko.ontology.operator.writer.TransformerWriter;
 public class Transformers {
 	public static void main(String[] args) {
 		
-		Repository.setRepository(NickConfigurations.getCIServer());
+		Repository.setRepository(NickConfigurations.getLocalFileSystem());
 		String name;
 		TransformerWriter wtr6 = new TransformerWriter("tex-to-pdf");
 		wtr6.addInputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/formats/VNDLATEXZ.owl#VNDLATEXZ");
