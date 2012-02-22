@@ -8,11 +8,12 @@ import edu.utep.trustlab.visko.ontology.operator.writer.ViewerWriter;
 public class Viewers {
 
 	public static void main(String[] args) {
-		Repository.setRepository(NickConfigurations.getCIServer());		String documentURL;
+		Repository.setRepository(NickConfigurations.getLocalFileSystem());
+		String documentURL;
 
-		ViewerWriter wtr = new ViewerWriter("imageJ-viewer1");
+		ViewerWriter wtr = new ViewerWriter("imageJ-viewer");
 		wtr.setLabel("ImageJ Viewer");
-		wtr.addPartOfSetURI("http://rio.cs.utep.edu/ciserver/ciprojects/visko/probeit1.owl#probeit1");
+		wtr.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/probeit.owl#probeit");
 		wtr.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/GIF.owl#GIF");
 		wtr.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/PNG.owl#PNG");
 		wtr.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/JPEG.owl#JPEG");
@@ -24,28 +25,28 @@ public class Viewers {
 		documentURL = wtr.saveDocument();
 		System.out.println(documentURL);
 
-		ViewerWriter wtr1 = new ViewerWriter("parvis-viewer1");
-		wtr1.addPartOfSetURI("http://rio.cs.utep.edu/ciserver/ciprojects/visko/probeit1.owl#probeit1");
+		ViewerWriter wtr1 = new ViewerWriter("parvis-viewer");
+		wtr1.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/probeit.owl#probeit");
 		wtr1.setLabel("Parvis Parallel Coordinates Viewer");
 		wtr1.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/VNDWTSTF.owl#VNDWTSTF");
 		wtr1.setViewerComment("Parvis is a tool for parallel coordinates (PC) visualisation of multidimensional data sets, as first described in [Inselberg 1981].");
 		documentURL = wtr1.saveDocument();
 		System.out.println(documentURL);
 
-		ViewerWriter wtr2 = new ViewerWriter("pdf-viewer1");
-		wtr2.addPartOfSetURI("http://rio.cs.utep.edu/ciserver/ciprojects/visko/probeit1.owl#probeit1");
-		wtr2.addPartOfSetURI("http://rio.cs.utep.edu/ciserver/ciprojects/visko/mozilla-firefox1.owl#mozilla-firefox1");
-		wtr2.addPartOfSetURI("http://rio.cs.utep.edu/ciserver/ciprojects/visko/internet-explorer1.owl#internet-explorer1");
+		ViewerWriter wtr2 = new ViewerWriter("pdf-viewer");
+		wtr2.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/probeit.owl#probeit");
+		wtr2.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/mozilla-firefox.owl#mozilla-firefox");
+		wtr2.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/internet-explorer.owl#internet-explorer");
 		wtr2.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/PDF.owl#PDF");
 		wtr2.setLabel("Adobe Portable Document Format (PDF) Viewer");
 		wtr2.setViewerComment("Renders PDF document and allows for zooming.");
 		documentURL = wtr2.saveDocument();
 		System.out.println(documentURL);
 
-		ViewerWriter wtr3 = new ViewerWriter("plain-text-viewer1");
-		wtr3.addPartOfSetURI("http://rio.cs.utep.edu/ciserver/ciprojects/visko/probeit1.owl#probeit1");
-		wtr3.addPartOfSetURI("http://rio.cs.utep.edu/ciserver/ciprojects/visko/mozilla-firefox1.owl#mozilla-firefox1");
-		wtr3.addPartOfSetURI("http://rio.cs.utep.edu/ciserver/ciprojects/visko/internet-explorer1.owl#internet-explorer1");
+		ViewerWriter wtr3 = new ViewerWriter("plain-text-viewer");
+		wtr3.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/probeit.owl#probeit");
+		wtr3.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/mozilla-firefox.owl#mozilla-firefox");
+		wtr3.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/internet-explorer.owl#internet-explorer");
 		wtr3.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/PLAIN.owl#PLAIN");
 		wtr3.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/PLAINTEXT.owl#PLAINTEXT");
 		wtr3.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/VNDLATEXZ.owl#VNDLATEXZ");
@@ -54,9 +55,9 @@ public class Viewers {
 		documentURL = wtr3.saveDocument();
 		System.out.println(documentURL);
 
-		ViewerWriter wtr4 = new ViewerWriter("browser-image-viewer1");
-		wtr4.addPartOfSetURI("http://rio.cs.utep.edu/ciserver/ciprojects/visko/mozilla-firefox1.owl#mozilla-firefox1");
-		wtr4.addPartOfSetURI("http://rio.cs.utep.edu/ciserver/ciprojects/visko/internet-explorer1.owl#internet-explorer1");
+		ViewerWriter wtr4 = new ViewerWriter("browser-image-viewer");
+		wtr4.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/mozilla-firefox.owl#mozilla-firefox");
+		wtr4.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/internet-explorer.owl#internet-explorer");
 		wtr4.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/GIF.owl#GIF");
 		wtr4.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/PNG.owl#PNG");
 		wtr4.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/JPEG.owl#JPEG");
@@ -65,8 +66,8 @@ public class Viewers {
 		documentURL = wtr4.saveDocument();
 		System.out.println(documentURL);
 
-		ViewerWriter wtr5 = new ViewerWriter("diva-graphics-viewer1");
-		wtr5.addPartOfSetURI("http://rio.cs.utep.edu/ciserver/ciprojects/visko/diva-graphics1.owl#diva-graphics1");
+		ViewerWriter wtr5 = new ViewerWriter("diva-graphics-viewer");
+		wtr5.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/diva-graphics.owl#diva-graphics");
 		wtr5.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/GIF.owl#GIF");
 		wtr5.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/PNG.owl#PNG");
 		wtr5.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/JPEG.owl#JPEG");
@@ -75,10 +76,10 @@ public class Viewers {
 		documentURL = wtr5.saveDocument();
 		System.out.println(documentURL);
 
-		ViewerWriter wtr6 = new ViewerWriter("html-viewer1");
-		wtr6.addPartOfSetURI("http://rio.cs.utep.edu/ciserver/ciprojects/visko/probeit1.owl#probeit1");
-		wtr6.addPartOfSetURI("http://rio.cs.utep.edu/ciserver/ciprojects/visko/mozilla-firefox1.owl#mozilla-firefox1");
-		wtr6.addPartOfSetURI("http://rio.cs.utep.edu/ciserver/ciprojects/visko/internet-explorer1.owl#internet-explorer1");
+		ViewerWriter wtr6 = new ViewerWriter("html-viewer");
+		wtr6.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/probeit.owl#probeit");
+		wtr6.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/mozilla-firefox.owl#mozilla-firefox");
+		wtr6.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/internet-explorer.owl#internet-explorer");
 		wtr6.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/HTML.owl#HTML");
 		wtr6.setLabel("HyperText Markup Language (HTML) Viewer");
 		wtr6.setViewerComment("Renders HTML documents.");

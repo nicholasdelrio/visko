@@ -40,7 +40,7 @@ public class GravityMapScenario {
 
 		Repository ciServer = new CIServer(serverURL, serverProject, userName, password);
 
-		Repository.setRepository(NickConfigurations.getCIServer());
+		Repository.setRepository(NickConfigurations.getLocalFileSystem());
 		/****************************************************************************************************************
 		 * We need to generate knowledge about the different kinds of views that
 		 * our gravity data can be visualized as. This will include isolines

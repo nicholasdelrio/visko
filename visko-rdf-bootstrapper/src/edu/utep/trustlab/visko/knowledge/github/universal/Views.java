@@ -7,30 +7,30 @@ import edu.utep.trustlab.visko.knowledge.NickConfigurations;
 public class Views {
 
 	public static void main(String[] args) {
-		Repository.setRepository(NickConfigurations.getCIServer());
+		Repository.setRepository(NickConfigurations.getLocalFileSystem());
 		String documentURL;
 
-		ViewContourWriter wtr = new ViewContourWriter("contour-lines1");
+		ViewContourWriter wtr = new ViewContourWriter("contour-lines");
 		wtr.setLabel("Contour Lines (Isolines)");
 		documentURL = wtr.saveDocument();
 		System.out.println(documentURL);
 
-		ViewPointsWriter wtr1 = new ViewPointsWriter("plot-2D1");
+		ViewPointsWriter wtr1 = new ViewPointsWriter("plot-2D");
 		wtr1.setLabel("2D Dimensional Plot");
 		documentURL = wtr1.saveDocument();
 		System.out.println(documentURL);
 
-		ViewVolumeWriter wtr3 = new ViewVolumeWriter("volume1");
+		ViewVolumeWriter wtr3 = new ViewVolumeWriter("volume");
 		wtr3.setLabel("Volume");
 		documentURL = wtr3.saveDocument();
 		System.out.println(documentURL);
 
-		ViewSurfaceWriter wtr4 = new ViewSurfaceWriter("iso-surfaces1");
+		ViewSurfaceWriter wtr4 = new ViewSurfaceWriter("iso-surfaces");
 		wtr4.setLabel("Isosurfaces");
 		documentURL = wtr4.saveDocument();
 		System.out.println(documentURL);
 
-		ViewRasterWriter wtr5 = new ViewRasterWriter("raster1");
+		ViewRasterWriter wtr5 = new ViewRasterWriter("raster");
 		wtr5.setLabel("Raster");
 		documentURL = wtr5.saveDocument();
 		System.out.println(documentURL);

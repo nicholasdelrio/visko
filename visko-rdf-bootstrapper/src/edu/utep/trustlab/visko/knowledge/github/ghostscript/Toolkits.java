@@ -9,9 +9,9 @@ public class Toolkits {
 	
 		String documentURL;
 
-		Repository.setRepository(NickConfigurations.getCIServer());
+		Repository.setRepository(NickConfigurations.getLocalFileSystem());
 		
-		ToolkitWriter wtr1 = new ToolkitWriter("ghostscript1");
+		ToolkitWriter wtr1 = new ToolkitWriter("ghostscript");
 		wtr1.setLabel("Ghostscript");
 		documentURL = wtr1.saveDocument();
 		System.out.println(documentURL);
