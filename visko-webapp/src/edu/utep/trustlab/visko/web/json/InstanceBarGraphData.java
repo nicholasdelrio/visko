@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import com.hp.hpl.jena.query.ResultSet;
 import org.json.*;
 
-
-import edu.utep.trustlab.knowledge.NickCIServer;
+import edu.utep.trustlab.repository.NickConfigurations;
 import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 
@@ -13,7 +12,7 @@ public class InstanceBarGraphData
 {	
 	public static String getBarGraph()
 	{
-		Repository.setRepository(NickCIServer.getRepository());
+		Repository.setRepository(NickConfigurations.getLocalFileSystem());
 		
 		ViskoTripleStore ts = new ViskoTripleStore();
 		
