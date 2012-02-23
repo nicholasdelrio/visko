@@ -13,7 +13,6 @@ public class RedirectURI {
 			String fileName = uri.substring(viskoOWLSPrefix.length());
 			redirectedURI = newURIPrefix + fileName;
 		}
-
 		return redirectedURI;
 	}
 }
