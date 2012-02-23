@@ -72,7 +72,7 @@
         <owlsProcess:toParam>http://trust.utep.edu/visko/services/netCDFGridContour.owl#cnFillOn</owlsProcess:toParam>
       </owlsProcess:InputBinding>
     </viskoS:declaresBindings>
-    <viskoS:basedOn rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/visko/ncl.owl#ncl"/>
+    <viskoS:basedOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ncl.owl#ncl"/>
     <viskoS:declaresBindings>
       <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/brightnessDataProfile.owl#binding6">
         <owlsProcess:valueData>False</owlsProcess:valueData>
