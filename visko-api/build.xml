@@ -26,7 +26,7 @@
 				<fileset dir="${lib}/axis4/">
 					<include name="*.jar"/>
 				</fileset>
-				<fileset dir="${lib}/jena264/">
+				<fileset dir="${lib}/jena262/">
 					<include name="*.jar"/>
 				</fileset>	
 				<fileset dir="${lib}/util/">
@@ -37,12 +37,26 @@
 	</target>
 	
 	<target name="build-triple-store" depends="build" description="Generate a TDB Triple Store From a Bundle of RDF Documents">
-		<java classname=" edu.utep.trustlab.repository.aggregator.TripleStore">
+		<java classname="edu.utep.trustlab.repository.aggregator.TripleStore">
 			<arg value="../visko-rdf/"/>
-			<arg value="../visko-tdb/"/>
+			<arg value="../visko-tdb/"/>			
 			<classpath>
-				<pathelement location="dist/test.jar"/>
-				<pathelement path="${java.class.path}"/> 
+				<pathelement location="${jarfile}"/>
+				<fileset dir="${lib}/ciclient/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/apache/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/axis4/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/jena262/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/util/">
+					<include name="*.jar"/>
+				</fileset>
 			</classpath>   
 		</java>	
 	</target>
@@ -66,7 +80,7 @@
 				<fileset dir="${lib}/axis4/">
 					<include name="*.jar"/>
 				</fileset>
-				<fileset dir="${lib}/jena264/">
+				<fileset dir="${lib}/jena262/">
 					<include name="*.jar"/>
 				</fileset>	
 				<fileset dir="${lib}/util/">
