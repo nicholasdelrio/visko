@@ -1,0 +1,185 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owlsProcess="http://www.daml.org/services/owl-s/1.2/Process.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:viskoS="http://trust.utep.edu/visko/ontology/visko-service-v3.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl">
+    <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Process.owl"/>
+    <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/visko-service-v3.owl"/>
+  </owl:Ontology>
+  <viskoS:ToolkitProfile rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#gravityDataProfile">
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding6">
+        <owlsProcess:valueData>0.02</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/GravityASCIIPointsToMinCurvatureESRIGridded.owl#I</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:basedOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gmt.owl#gmt"/>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding24">
+        <owlsProcess:valueData>False</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/esriGridContour.owl#cnLinesOn</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:profiles rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d19</viskoS:profiles>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding27">
+        <owlsProcess:valueData>helvetica</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/esriGridRaster.owl#font</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding14">
+        <owlsProcess:valueData>0.5</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/ESRIGriddedToContourMapPS.owl#B</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding20">
+        <owlsProcess:valueData>10</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/esriGridContour.owl#cnLevelSpacingF</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding17">
+        <owlsProcess:valueData>thinnest,black</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/ESRIGriddedToContourMapPS.owl#Wc</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding1">
+        <owlsProcess:valueData>x4c</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/GravityASCIIPointsTo2DPlotPS.owl#J</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding7">
+        <owlsProcess:valueData>0.25</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/GravityASCIIPointsToMinCurvatureESRIGridded.owl#T</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding4">
+        <owlsProcess:valueData>0.02</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/GravityASCIIPointsToNearNeightborESRIGridded.owl#I</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding25">
+        <owlsProcess:valueData>vertical</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/esriGridRaster.owl#lbOrientation</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding10">
+        <owlsProcess:valueData>x4c</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/ESRIGriddedToColoredImagePS.owl#J</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding12">
+        <owlsProcess:valueData>10</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/ESRIGriddedToContourMapPS.owl#C</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding0">
+        <owlsProcess:valueData>c0.04c</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/GravityASCIIPointsTo2DPlotPS.owl#S</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding21">
+        <owlsProcess:valueData>WhiteBlueGreenYellowRed</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/esriGridContour.owl#colorTable</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding18">
+        <owlsProcess:valueData>thinnest,black</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/ESRIGriddedToContourMapPS.owl#Wa</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding15">
+        <owlsProcess:valueData>5</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/ESRIGriddedToContourMapPS.owl#S</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding2">
+        <owlsProcess:valueData>blue</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/GravityASCIIPointsTo2DPlotPS.owl#G</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding9">
+        <owlsProcess:valueData>1</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/ESRIGriddedToColoredImagePS.owl#B</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding5">
+        <owlsProcess:valueData>0.2</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/GravityASCIIPointsToNearNeightborESRIGridded.owl#S</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding26">
+        <owlsProcess:valueData>WhiteBlueGreenYellowRed</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/esriGridRaster.owl#colorTable</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding11">
+        <owlsProcess:valueData>hot</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/ESRIGriddedToColoredImagePS.owl#C</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding23">
+        <owlsProcess:valueData>True</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/esriGridContour.owl#cnFillOn</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding8">
+        <owlsProcess:valueData>0.1</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/GravityASCIIPointsToMinCurvatureESRIGridded.owl#C</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding13">
+        <owlsProcess:valueData>20</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/ESRIGriddedToContourMapPS.owl#A</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding16">
+        <owlsProcess:valueData>x4c</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/ESRIGriddedToContourMapPS.owl#J</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding3">
+        <owlsProcess:valueData>1</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/GravityASCIIPointsTo2DPlotPS.owl#B</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding22">
+        <owlsProcess:valueData>helvetica</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/esriGridContour.owl#font</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gravityDataProfile.owl#binding19">
+        <owlsProcess:valueData>vertical</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/esriGridContour.owl#lbOrientation</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+  </viskoS:ToolkitProfile>
+</rdf:RDF>

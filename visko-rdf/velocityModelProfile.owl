@@ -1,0 +1,177 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owlsProcess="http://www.daml.org/services/owl-s/1.2/Process.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:viskoS="http://trust.utep.edu/visko/ontology/visko-service-v3.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl">
+    <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Process.owl"/>
+    <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/visko-service-v3.owl"/>
+  </owl:Ontology>
+  <viskoS:ToolkitProfile rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#velocityModelProfile">
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding18">
+        <owlsProcess:valueData>105</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkVolumeService.owl#xRotation</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding9">
+        <owlsProcess:valueData>35</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkContourFilterService.owl#numContours</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding6">
+        <owlsProcess:valueData>0/230/0/25/0/68</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#dataExtent</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding24">
+        <owlsProcess:valueData>3000,1,1,0/5000,0.5,0.95,0/5600,0,0,1/6500,0.28,0.2,0.5/7000,1,0,0</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkVolumeService.owl#colorFunction</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding21">
+        <owlsProcess:valueData>400/300</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkVolumeService.owl#size</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:profiles rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d14-0</viskoS:profiles>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding2">
+        <owlsProcess:valueData>true</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#littleEndian</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding14">
+        <owlsProcess:valueData>0</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkPolyDataMapperService.owl#zRotation</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding11">
+        <owlsProcess:valueData>0.0/9000.0</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkPolyDataMapperService.owl#scalarRange</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:basedOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtk.owl#vtk"/>
+    <viskoS:profiles rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d2</viskoS:profiles>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding16">
+        <owlsProcess:valueData>1/1/1</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkPolyDataMapperService.owl#backgroundColor</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding7">
+        <owlsProcess:valueData>1</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#numScalarComponents</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding25">
+        <owlsProcess:valueData>4000,0.2/8000,0.5</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkVolumeService.owl#opacityFunction</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding22">
+        <owlsProcess:valueData>1/1/1</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkVolumeService.owl#backgroundColor</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding15">
+        <owlsProcess:valueData>400/300</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkPolyDataMapperService.owl#size</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding3">
+        <owlsProcess:valueData>3</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#dim</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding0">
+        <owlsProcess:valueData>1000</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/Float2ShortThrService.owl#scalingFactor</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding12">
+        <owlsProcess:valueData>105</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkPolyDataMapperService.owl#xRotation</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding17">
+        <owlsProcess:valueData>3</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkPolyDataMapperService.owl#magnification</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding19">
+        <owlsProcess:valueData>0</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkVolumeService.owl#yRotation</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding8">
+        <owlsProcess:valueData>true</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#readLowerLeft</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding5">
+        <owlsProcess:valueData>1/1/1</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#dataSpacing</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:profiles rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d2-1</viskoS:profiles>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding23">
+        <owlsProcess:valueData>3</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkVolumeService.owl#magnification</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding20">
+        <owlsProcess:valueData>0</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkVolumeService.owl#zRotation</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding4">
+        <owlsProcess:valueData>0/0/0</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#dataOrigin</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding1">
+        <owlsProcess:valueData>0</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/Float2ShortThrService.owl#offset</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding13">
+        <owlsProcess:valueData>0</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkPolyDataMapperService.owl#yRotation</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/velocityModelProfile.owl#binding10">
+        <owlsProcess:valueData>0.0/9000.0</owlsProcess:valueData>
+        <owlsProcess:toParam>http://trust.utep.edu/visko/services/vtkContourFilterService.owl#scalarRange</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+  </viskoS:ToolkitProfile>
+</rdf:RDF>
