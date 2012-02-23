@@ -1,8 +1,8 @@
 package edu.utep.trustlab.visko.knowledge.ciserver.universal.extractors;
 
 
+import edu.utep.trustlab.repository.NickConfigurations;
 import edu.utep.trustlab.repository.Repository;
-import edu.utep.trustlab.visko.knowledge.NickConfigurations;
 import edu.utep.trustlab.visko.ontology.service.writer.ExtractorWriter;
 
 public class AersolTimeSeriesExtractor {

@@ -1,8 +1,8 @@
 package edu.utep.trustlab.visko.knowledge.ciserver.gmt;
 
 
+import edu.utep.trustlab.repository.NickConfigurations;
 import edu.utep.trustlab.repository.Repository;
-import edu.utep.trustlab.visko.knowledge.NickConfigurations;
 import edu.utep.trustlab.visko.ontology.operator.writer.TransformerWriter;
 
 public class Transformers {

@@ -3,8 +3,8 @@ package edu.utep.trustlab.visko.knowledge.ciserver.scenarios;
 
 
 import edu.utep.trustlab.repository.CIServer;
+import edu.utep.trustlab.repository.NickConfigurations;
 import edu.utep.trustlab.repository.Repository;
-import edu.utep.trustlab.visko.knowledge.NickConfigurations;
 import edu.utep.trustlab.visko.ontology.operator.writer.TransformerWriter;
 import edu.utep.trustlab.visko.ontology.operator.writer.ViewerSetWriter;
 import edu.utep.trustlab.visko.ontology.operator.writer.ViewerWriter;
