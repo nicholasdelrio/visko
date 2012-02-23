@@ -7,8 +7,7 @@ import com.hp.hpl.jena.rdf.model.*;
 import com.hp.hpl.jena.tdb.*;
 
 	public class TripleStore {
-	
-	private static String MODELNAME = "TDB-VISKO";
+
 	private String tsDirectory;
 	private String rdfDirectory;
 	
@@ -21,7 +20,7 @@ import com.hp.hpl.jena.tdb.*;
 	}
 
 	public String create(){
-		File storesDirectory = new File(tsDirectory + MODELNAME);
+		File storesDirectory = new File(tsDirectory);
 		
 		// If it exists then clean it, else create it.
 		if (storesDirectory.exists()){
@@ -32,7 +31,7 @@ import com.hp.hpl.jena.tdb.*;
 		else
 			storesDirectory.mkdir();
 
-		Model model = TDBFactory.createModel(MODELNAME);
+		Model model = TDBFactory.createModel(tsDirectory);
 
 		// Iterate through all files and load any pml data found
 		File rdf = new File(rdfDirectory);
@@ -48,6 +47,11 @@ import com.hp.hpl.jena.tdb.*;
 		model.close();
 		
 		return storesDirectory.getAbsolutePath();
+	}
+	
+	private static String getDirectoryNameFromPath(String dirPath){
+		File dir = new File(dirPath);
+		return dir.getName();
 	}
 	
 	public static void main(String[] args){
