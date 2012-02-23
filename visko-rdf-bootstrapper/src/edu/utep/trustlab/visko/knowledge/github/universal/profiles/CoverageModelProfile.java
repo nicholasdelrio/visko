@@ -1,44 +1,28 @@
 package edu.utep.trustlab.visko.knowledge.github.universal.profiles;
 
-
 import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.knowledge.NickConfigurations;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class CoverageModelProfile {
 	public static void main(String[] args) {
-		Repository.setRepository(NickConfigurations.getCIServer());
+		Repository.setRepository(NickConfigurations.getLocalFileSystem());
 		String documentURL;
 
 		/************ profile for velocity ******************************/
 		String dataTypeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d7-0";
 
-		ToolkitProfileWriter wtr = new ToolkitProfileWriter(
-				"coverageModelProfile");
+		ToolkitProfileWriter wtr = new ToolkitProfileWriter("coverageModelProfile");
 		wtr.addDataType(dataTypeURI);
 
 		// for vtkImageReader
-		wtr.addInputBinding(
-				"http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#littleEndian",
-				"true");
-		wtr.addInputBinding(
-				"http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#dim",
-				"3");
-		wtr.addInputBinding(
-				"http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#dataOrigin",
-				"0/0/0");
-		wtr.addInputBinding(
-				"http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#dataSpacing",
-				"1/1/1");
-		wtr.addInputBinding(
-				"http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#dataExtent",
-				"0/229/0/24/0/67");
-		wtr.addInputBinding(
-				"http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#numScalarComponents",
-				"1");
-		wtr.addInputBinding(
-				"http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#readLowerLeft",
-				"true");
+		wtr.addInputBinding("http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#littleEndian","true");
+		wtr.addInputBinding("http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#dim", "3");
+		wtr.addInputBinding("http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#dataOrigin", "0/0/0");
+		wtr.addInputBinding("http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#dataSpacing", "1/1/1");
+		wtr.addInputBinding("http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#dataExtent", "0/229/0/24/0/67");
+		wtr.addInputBinding("http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#numScalarComponents", "1");
+		wtr.addInputBinding("http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#readLowerLeft","true");
 
 		// for vtkContourFilter
 		wtr.addInputBinding(
@@ -97,7 +81,7 @@ public class CoverageModelProfile {
 				"http://trust.utep.edu/visko/services/vtkVolumeService.owl#opacityFunction",
 				"0,0.0/40,1.0");
 
-		wtr.setSupportingToolkit("http://rio.cs.utep.edu/ciserver/ciprojects/visko/vtk1.owl#vtk1");
+		wtr.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtk.owl#vtk");
 		documentURL = wtr.saveDocument();
 		System.out.println(documentURL);
 	}

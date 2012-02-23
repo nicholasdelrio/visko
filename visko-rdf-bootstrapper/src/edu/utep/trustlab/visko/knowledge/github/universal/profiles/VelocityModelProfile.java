@@ -1,13 +1,12 @@
 package edu.utep.trustlab.visko.knowledge.github.universal.profiles;
 
-
 import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.knowledge.NickConfigurations;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class VelocityModelProfile {
 	public static void main(String[] args) {
-		Repository.setRepository(NickConfigurations.getCIServer());
+		Repository.setRepository(NickConfigurations.getLocalFileSystem());
 		String documentURL;
 
 		/************ profile for velocity ******************************/
@@ -108,7 +107,7 @@ public class VelocityModelProfile {
 				"http://trust.utep.edu/visko/services/vtkVolumeService.owl#opacityFunction",
 				"4000,0.2/8000,0.5");
 
-		wtr.setSupportingToolkit("http://rio.cs.utep.edu/ciserver/ciprojects/visko/vtk1.owl#vtk1");
+		wtr.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtk.owl#vtk");
 		documentURL = wtr.saveDocument();
 		System.out.println(documentURL);
 	}

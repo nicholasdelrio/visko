@@ -1,6 +1,5 @@
 package edu.utep.trustlab.visko.knowledge.github.universal.profiles;
 
-
 import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.knowledge.NickConfigurations;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
@@ -11,7 +10,7 @@ public class GriddedTimeProfile {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Repository.setRepository(NickConfigurations.getCIServer());
+		Repository.setRepository(NickConfigurations.getLocalFileSystem());
 		/************ profile for time ******************************/
 		String dataTypeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d4-0";
 		String dataTypeURI1 = "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d4";
@@ -107,7 +106,7 @@ public class GriddedTimeProfile {
 				"http://trust.utep.edu/visko/services/vtkVolumeService.owl#opacityFunction",
 				"20,0.0/255,0.2");
 
-		wtr1.setSupportingToolkit("http://rio.cs.utep.edu/ciserver/ciprojects/visko/vtk1.owl#vtk1");
+		wtr1.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtk.owl#vtk");
 		String documentURL = wtr1.saveDocument();
 		System.out.println(documentURL);
 

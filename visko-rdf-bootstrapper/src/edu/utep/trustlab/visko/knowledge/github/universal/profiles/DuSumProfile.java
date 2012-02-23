@@ -10,7 +10,7 @@ public class DuSumProfile {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Repository.setRepository(NickConfigurations.getCIServer());
+		Repository.setRepository(NickConfigurations.getLocalFileSystem());
 		/************ profile for dusum ******************************/
 		String dataTypeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d8-0";
 		String dataTypeURI1 = "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d8";
@@ -107,7 +107,7 @@ public class DuSumProfile {
 				"http://trust.utep.edu/visko/services/vtkVolumeService.owl#opacityFunction",
 				"20,0.0/255,0.2");
 
-		wtr2.setSupportingToolkit("http://rio.cs.utep.edu/ciserver/ciprojects/visko/vtk1.owl#vtk1");
+		wtr2.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtk.owl#vtk");
 		String documentURL = wtr2.saveDocument();
 		System.out.println(documentURL);
 

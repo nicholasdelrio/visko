@@ -34,8 +34,8 @@ public class Services {
 		wtr4.setWSDLURL(wsdlURL);
 		wtr4.setLabel(operationName);
 		wtr4.setOperationName(operationName);
-		wtr4.setConceptualOperator("http://rio.cs.utep.edu/ciserver/ciprojects/visko/gridder.owl#gridder");
-		wtr4.setSupportingToolkit("http://rio.cs.utep.edu/ciserver/ciprojects/visko/gmt.owl#gmt");
+		wtr4.setConceptualOperator("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gridder.owl#gridder");
+		wtr4.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gmt.owl#gmt");
 		wtr4.saveDocument();
 
 		operationName = "GravityASCIIPointsTo2DPlotPS";
