@@ -1,0 +1,1 @@
+Please refer to the VisKo wiki at https://github.com/nicholasdelrio/visko/wiki
