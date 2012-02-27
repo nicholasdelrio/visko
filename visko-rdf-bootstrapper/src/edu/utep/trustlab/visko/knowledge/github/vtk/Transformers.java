@@ -59,5 +59,13 @@ public class Transformers {
 		wtr5.setLabel(name);
 		wtr5.setName(name);
 		wtr5.saveDocument();
+		
+		TransformerWriter wtr6 = new TransformerWriter("floatArrayToGriddedData");
+		wtr6.addInputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN");
+		wtr6.setOutputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/formats/VTKIMAGEDATA.owl#VTKIMAGEDATA");
+		name = "Floats to Image Data";
+		wtr6.setLabel(name);
+		wtr6.setName(name);
+		wtr6.saveDocument();
 	}
 }

@@ -64,5 +64,14 @@ public class Services {
 		wtr6.setConceptualOperator("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/volume-generator.owl#volume-generator");
 		wtr6.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtk.owl#vtk");
 		wtr6.saveDocument();
+		
+		operationName = "vtkImageDataReaderFloat";
+		ServiceWriter wtr7 = new ServiceWriter(operationName + "Service");
+		wtr7.setWSDLURL(wsdlURL);
+		wtr7.setLabel(operationName);
+		wtr7.setOperationName(operationName);
+		wtr7.setConceptualOperator("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/floatArrayToGriddedData.owl#floatArrayToGriddedData");
+		wtr7.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtk.owl#vtk");
+		wtr7.saveDocument();
 	}
 }
