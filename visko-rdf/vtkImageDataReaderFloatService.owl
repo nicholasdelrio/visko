@@ -11,44 +11,37 @@
     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
     xmlns:grounding="http://www.daml.org/services/owl-s/1.2/Grounding.owl#"
     xmlns:profile="http://www.daml.org/services/owl-s/1.2/Profile.owl#"
-    xmlns="http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xml:base="http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl">
+    xmlns="http://trust.utep.edu/visko/services/vtkImageDataReaderFloatService.owl"
+  xml:base="http://trust.utep.edu/visko/services/vtkImageDataReaderFloatService.owl">
   <owl:Ontology rdf:about="">
     <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Grounding.owl"/>
     <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Profile.owl"/>
     <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Service.owl"/>
   </owl:Ontology>
-  <service:Service rdf:ID="vtkImageDataReaderService">
-    <viskoS:implementsOperator rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/shortIntArrayToGriddedData.owl#shortIntArrayToGriddedData"/>
+  <service:Service rdf:ID="vtkImageDataReaderFloatService">
+    <viskoS:implementsOperator rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/floatArrayToGriddedData.owl#floatArrayToGriddedData"/>
     <viskoS:supportedBy rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtk.owl#vtk"/>
-    <rdfs:label>vtkImageDataReader</rdfs:label>
+    <rdfs:label>vtkImageDataReaderFloat</rdfs:label>
     <service:supports>
-      <grounding:WsdlGrounding rdf:ID="vtkImageDataReaderGrounding"/>
+      <grounding:WsdlGrounding rdf:ID="vtkImageDataReaderFloatGrounding"/>
     </service:supports>
     <service:describedBy>
-      <process:AtomicProcess rdf:ID="vtkImageDataReaderProcess"/>
+      <process:AtomicProcess rdf:ID="vtkImageDataReaderFloatProcess"/>
     </service:describedBy>
     <service:presents>
-      <profile:Profile rdf:ID="vtkImageDataReaderProfile"/>
+      <profile:Profile rdf:ID="vtkImageDataReaderFloatProfile"/>
     </service:presents>
   </service:Service>
-  <profile:Profile rdf:about="#vtkImageDataReaderProfile">
+  <profile:Profile rdf:about="#vtkImageDataReaderFloatProfile">
     <profile:hasInput>
-      <process:Input rdf:ID="dim">
+      <process:Input rdf:ID="dataExtent">
         <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
         >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
-        <rdfs:label>dim</rdfs:label>
+        <rdfs:label>dataExtent</rdfs:label>
       </process:Input>
     </profile:hasInput>
-    <profile:hasOutput>
-      <process:Output rdf:ID="return">
-        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
-        <rdfs:label>return</rdfs:label>
-      </process:Output>
-    </profile:hasOutput>
-    <service:presentedBy rdf:resource="#vtkImageDataReaderService"/>
+    <service:presentedBy rdf:resource="#vtkImageDataReaderFloatService"/>
     <profile:textDescription>This is an owl-s service referenced as by a VisKo OperationImpl.</profile:textDescription>
     <profile:hasInput>
       <process:Input rdf:ID="numScalarComponents">
@@ -58,27 +51,13 @@
       </process:Input>
     </profile:hasInput>
     <profile:hasInput>
-      <process:Input rdf:ID="littleEndian">
+      <process:Input rdf:ID="url">
         <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
         >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
-        <rdfs:label>littleEndian</rdfs:label>
+        <rdfs:label>url</rdfs:label>
       </process:Input>
     </profile:hasInput>
-    <profile:serviceName>vtkImageDataReader</profile:serviceName>
-    <profile:hasInput>
-      <process:Input rdf:ID="dataSpacing">
-        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
-        <rdfs:label>dataSpacing</rdfs:label>
-      </process:Input>
-    </profile:hasInput>
-    <profile:hasInput>
-      <process:Input rdf:ID="dataExtent">
-        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
-        <rdfs:label>dataExtent</rdfs:label>
-      </process:Input>
-    </profile:hasInput>
+    <profile:serviceName>vtkImageDataReaderFloat</profile:serviceName>
     <profile:hasInput>
       <process:Input rdf:ID="dataOrigin">
         <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
@@ -87,10 +66,24 @@
       </process:Input>
     </profile:hasInput>
     <profile:hasInput>
-      <process:Input rdf:ID="url">
+      <process:Input rdf:ID="dim">
         <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
         >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
-        <rdfs:label>url</rdfs:label>
+        <rdfs:label>dim</rdfs:label>
+      </process:Input>
+    </profile:hasInput>
+    <profile:hasInput>
+      <process:Input rdf:ID="littleEndian">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>littleEndian</rdfs:label>
+      </process:Input>
+    </profile:hasInput>
+    <profile:hasInput>
+      <process:Input rdf:ID="dataSpacing">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>dataSpacing</rdfs:label>
       </process:Input>
     </profile:hasInput>
     <profile:hasInput>
@@ -100,58 +93,38 @@
         <rdfs:label>readLowerLeft</rdfs:label>
       </process:Input>
     </profile:hasInput>
+    <profile:hasOutput>
+      <process:Output rdf:ID="return">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>return</rdfs:label>
+      </process:Output>
+    </profile:hasOutput>
   </profile:Profile>
-  <process:AtomicProcess rdf:about="#vtkImageDataReaderProcess">
+  <process:AtomicProcess rdf:about="#vtkImageDataReaderFloatProcess">
+    <process:hasOutput rdf:resource="#return"/>
+    <process:hasInput rdf:resource="#url"/>
+    <service:describes rdf:resource="#vtkImageDataReaderFloatService"/>
+    <process:hasInput rdf:resource="#littleEndian"/>
+    <rdfs:label>vtkImageDataReaderFloatProcess</rdfs:label>
+    <process:hasInput rdf:resource="#readLowerLeft"/>
+    <process:hasInput rdf:resource="#dataSpacing"/>
+    <process:hasInput rdf:resource="#dataOrigin"/>
     <process:hasInput rdf:resource="#dim"/>
     <process:hasInput rdf:resource="#dataExtent"/>
-    <process:hasInput rdf:resource="#readLowerLeft"/>
-    <service:describes rdf:resource="#vtkImageDataReaderService"/>
-    <process:hasInput rdf:resource="#dataOrigin"/>
-    <process:hasInput rdf:resource="#url"/>
-    <rdfs:label>vtkImageDataReaderProcess</rdfs:label>
-    <process:hasInput rdf:resource="#dataSpacing"/>
-    <process:hasOutput rdf:resource="#return"/>
     <process:hasInput rdf:resource="#numScalarComponents"/>
-    <process:hasInput rdf:resource="#littleEndian"/>
   </process:AtomicProcess>
-  <grounding:WsdlGrounding rdf:about="#vtkImageDataReaderGrounding">
+  <grounding:WsdlGrounding rdf:about="#vtkImageDataReaderFloatGrounding">
     <grounding:hasAtomicProcessGrounding>
-      <grounding:WsdlAtomicProcessGrounding rdf:ID="vtkImageDataReaderAtomicProcessGrounding"/>
+      <grounding:WsdlAtomicProcessGrounding rdf:ID="vtkImageDataReaderFloatAtomicProcessGrounding"/>
     </grounding:hasAtomicProcessGrounding>
-    <service:supportedBy rdf:resource="#vtkImageDataReaderService"/>
+    <service:supportedBy rdf:resource="#vtkImageDataReaderFloatService"/>
   </grounding:WsdlGrounding>
-  <grounding:WsdlAtomicProcessGrounding rdf:about="#vtkImageDataReaderAtomicProcessGrounding">
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/VTK-services/services/VTKHoleTransformersUsingParameters.VTKHoleTransformersUsingParametersPort?wsdl#littleEndian</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#littleEndian"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
+  <grounding:WsdlAtomicProcessGrounding rdf:about="#vtkImageDataReaderFloatAtomicProcessGrounding">
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
         <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/VTK-services/services/VTKHoleTransformersUsingParameters.VTKHoleTransformersUsingParametersPort?wsdl#dataExtent</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#dataExtent"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://gmtTrustLab/#vtkImageDataReader</grounding:wsdlInputMessage>
-    <grounding:owlsProcess rdf:resource="#vtkImageDataReaderProcess"/>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/VTK-services/services/VTKHoleTransformersUsingParameters.VTKHoleTransformersUsingParametersPort?wsdl#dataOrigin</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#dataOrigin"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlOperation>
-      <grounding:WsdlOperationRef>
-        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://iw.cs.utep.edu:8080/VTK-services/services/VTKHoleTransformersUsingParameters.VTKHoleTransformersUsingParametersPort?wsdl#vtkImageDataReader</grounding:operation>
-      </grounding:WsdlOperationRef>
-    </grounding:wsdlOperation>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/VTK-services/services/VTKHoleTransformersUsingParameters.VTKHoleTransformersUsingParametersPort?wsdl#url</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#url"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlInput>
@@ -160,6 +133,10 @@
         <grounding:owlsParameter rdf:resource="#dim"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
+    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://gmtTrustLab/#vtkImageDataReaderFloatResponse</grounding:wsdlOutputMessage>
+    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://gmtTrustLab/#vtkImageDataReaderFloat</grounding:wsdlInputMessage>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
         <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/VTK-services/services/VTKHoleTransformersUsingParameters.VTKHoleTransformersUsingParametersPort?wsdl#numScalarComponents</grounding:wsdlMessagePart>
@@ -168,8 +145,26 @@
     </grounding:wsdlInput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/VTK-services/services/VTKHoleTransformersUsingParameters.VTKHoleTransformersUsingParametersPort?wsdl#url</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#url"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/VTK-services/services/VTKHoleTransformersUsingParameters.VTKHoleTransformersUsingParametersPort?wsdl#dataOrigin</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#dataOrigin"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
         <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/VTK-services/services/VTKHoleTransformersUsingParameters.VTKHoleTransformersUsingParametersPort?wsdl#readLowerLeft</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#readLowerLeft"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/VTK-services/services/VTKHoleTransformersUsingParameters.VTKHoleTransformersUsingParametersPort?wsdl#littleEndian</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#littleEndian"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlOutput>
@@ -186,7 +181,12 @@
     </grounding:wsdlInput>
     <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >http://iw.cs.utep.edu:8080/VTK-services/services/VTKHoleTransformersUsingParameters.VTKHoleTransformersUsingParametersPort?wsdl</grounding:wsdlDocument>
-    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://gmtTrustLab/#vtkImageDataReaderResponse</grounding:wsdlOutputMessage>
+    <grounding:owlsProcess rdf:resource="#vtkImageDataReaderFloatProcess"/>
+    <grounding:wsdlOperation>
+      <grounding:WsdlOperationRef>
+        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://iw.cs.utep.edu:8080/VTK-services/services/VTKHoleTransformersUsingParameters.VTKHoleTransformersUsingParametersPort?wsdl#vtkImageDataReaderFloat</grounding:operation>
+      </grounding:WsdlOperationRef>
+    </grounding:wsdlOperation>
   </grounding:WsdlAtomicProcessGrounding>
 </rdf:RDF>
