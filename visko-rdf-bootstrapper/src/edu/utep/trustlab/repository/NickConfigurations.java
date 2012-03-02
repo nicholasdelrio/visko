@@ -4,7 +4,7 @@ package edu.utep.trustlab.repository;
 public class NickConfigurations {
 	
 	public static CIServer getCIServer() {		
-		return new CIServer("http://rio.cs.utep.edu/ciserver", "visko", "ndel2", "NDel209!");
+		return new CIServer("http://rio.cs.utep.edu/ciserver", "visko", "username", "password");
 	}
 	
 	public static LocalFileSystem getLocalFileSystem(){
