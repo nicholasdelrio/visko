@@ -1,0 +1,77 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owlsProcess="http://www.daml.org/services/owl-s/1.2/Process.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:viskoS="http://trust.utep.edu/visko/ontology/visko-service-v3.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/griddedGravityDataProfile.owl">
+    <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Process.owl"/>
+    <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/visko-service-v3.owl"/>
+  </owl:Ontology>
+  <viskoS:ToolkitProfile rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/griddedGravityDataProfile.owl#griddedGravityDataProfile">
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/griddedGravityDataProfile.owl#binding9">
+        <owlsProcess:valueData>thinnest,black</owlsProcess:valueData>
+        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#Wa</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/griddedGravityDataProfile.owl#binding5">
+        <owlsProcess:valueData>0.5</owlsProcess:valueData>
+        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#B</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/griddedGravityDataProfile.owl#binding6">
+        <owlsProcess:valueData>5</owlsProcess:valueData>
+        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#S</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:profiles rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d12</viskoS:profiles>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/griddedGravityDataProfile.owl#binding7">
+        <owlsProcess:valueData>x4c</owlsProcess:valueData>
+        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#J</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/griddedGravityDataProfile.owl#binding0">
+        <owlsProcess:valueData>1</owlsProcess:valueData>
+        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToColoredImagePS.owl#B</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/griddedGravityDataProfile.owl#binding1">
+        <owlsProcess:valueData>x4c</owlsProcess:valueData>
+        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToColoredImagePS.owl#J</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/griddedGravityDataProfile.owl#binding2">
+        <owlsProcess:valueData>hot</owlsProcess:valueData>
+        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToColoredImagePS.owl#C</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/griddedGravityDataProfile.owl#binding3">
+        <owlsProcess:valueData>10</owlsProcess:valueData>
+        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#C</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/griddedGravityDataProfile.owl#binding8">
+        <owlsProcess:valueData>thinnest,black</owlsProcess:valueData>
+        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#Wc</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:basedOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gmt.owl#gmt"/>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/griddedGravityDataProfile.owl#binding4">
+        <owlsProcess:valueData>20</owlsProcess:valueData>
+        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#A</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+  </viskoS:ToolkitProfile>
+</rdf:RDF>
