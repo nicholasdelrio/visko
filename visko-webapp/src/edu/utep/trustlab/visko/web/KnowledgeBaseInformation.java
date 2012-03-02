@@ -1,6 +1,5 @@
 package edu.utep.trustlab.visko.web;
 
-
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,45 +16,42 @@ import edu.utep.trustlab.visko.web.context.ViskoContext;
  */
 public class KnowledgeBaseInformation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public KnowledgeBaseInformation() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
+	public KnowledgeBaseInformation() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		ViskoContext.setContext(this);
 		String infoType = request.getParameter("info");
-		
-		if(infoType.equals("graph"))
-		{
+
+		if (infoType.equals("graph")) {
 			response.getWriter().write(InstanceBarGraphData.getBarGraph());
-		}
-		else if(infoType.equals("formatPaths"))
-		{
+		} else if (infoType.equals("formatPaths")) {
 			response.getWriter().write(FormatGraphData.getPathsGraphJSON());
-		}
-		else if(infoType.equals("pipelines"))
-		{
+		} else if (infoType.equals("pipelines")) {
 			response.getWriter().write(OperatorGraphData.getPathsGraphJSON());
 		}
-		
+
 		else
 			response.getWriter().write("{}");
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
 

@@ -17,10 +17,6 @@
     <servlet-name>ExecuteQueryServlet</servlet-name>
     <servlet-class>edu.utep.trustlab.visko.web.ExecuteQueryServlet</servlet-class>
     <init-param>
-      <param-name>server-url</param-name>
-      <param-value>http://rio.cs.utep.edu/ciserver</param-value>
-    </init-param>
-    <init-param>
       <param-name>visko-joseki-url</param-name>
       <param-value>http://iw.cs.utep.edu:8080/joseki/visko</param-value>
     </init-param>
@@ -30,10 +26,6 @@
     <display-name>ExecuteQueryServiceServlet</display-name>
     <servlet-name>ExecuteQueryServiceServlet</servlet-name>
     <servlet-class>trustlab.visko.web.ExecuteQueryServiceServlet</servlet-class>
-    <init-param>
-      <param-name>server-url</param-name>
-      <param-value>http://rio.cs.utep.edu/ciserver</param-value>
-    </init-param>
     <init-param>
       <param-name>visko-joseki-url</param-name>
       <param-value>http://iw.cs.utep.edu:8080/joseki/visko</param-value>
@@ -64,10 +56,6 @@
     <display-name>KnowledgeBaseInformation</display-name>
     <servlet-name>KnowledgeBaseInformation</servlet-name>
     <servlet-class>trustlab.visko.web.KnowledgeBaseInformation</servlet-class>
-    <init-param>
-      <param-name>server-url</param-name>
-      <param-value>http://rio.cs.utep.edu/ciserver</param-value>
-    </init-param>
     <init-param>
       <param-name>visko-joseki-url</param-name>
       <param-value>http://iw.cs.utep.edu:8080/joseki/visko</param-value>

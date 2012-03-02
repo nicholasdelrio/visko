@@ -9,43 +9,43 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 /**
  * Servlet implementation class GetTransformersServlet
  */
 public class ExecuteQueryServiceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    	
+
 	private Query query;
-	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ExecuteQueryServiceServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-    
+
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ExecuteQueryServiceServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+
 		ViskoContext.setContext(this);
-		
+
 		String stringQuery = request.getParameter("query");
 		String num = request.getParameter("maxResults");
-		
+
 		int maxResults = 100;
-		
-		if(num != null)
+
+		if (num != null)
 			maxResults = Integer.parseInt(num);
-		
+
 		String returnMessage;
-		
-		if(stringQuery != null)
-		{
+
+		if (stringQuery != null) {
 			query = new Query(stringQuery);
 
 			System.out.println(query.getArtifactURL());
@@ -54,30 +54,31 @@ public class ExecuteQueryServiceServlet extends HttpServlet {
 			System.out.println(query.getViewerSetURI());
 			System.out.println(query.getViewURI());
 			System.out.println(query.getNodesetURI());
-		
+
 			QueryEngine engine = new QueryEngine(query);
-		
-			if(query.isValidQuery())
-			{
+
+			if (query.isValidQuery()) {
 				PipelineSet pipelines = engine.getPipelines();
-				returnMessage = PipelineToXMLVisualizationSet.toXMLFromPipelineSet(pipelines, query.getNodesetURI(), maxResults);
-			}
-			else
-			{
+				returnMessage = PipelineToXMLVisualizationSet
+						.toXMLFromPipelineSet(pipelines, query.getNodesetURI(),
+								maxResults);
+			} else {
 				String errors = QueryMessages.getQueryErrorsHTML(query);
 				returnMessage = "<html><body>" + errors + "</body></html>";
-				//String warns = QueryMessages.getQueryWarningsHTML(query);
+				// String warns = QueryMessages.getQueryWarningsHTML(query);
 			}
-		}
-		else
+		} else
 			returnMessage = "<html><body><p>Failed to Specify Query via the query parameter</p></body></html>";
-		
+
 		response.getWriter().write(returnMessage);
 	}
+
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
