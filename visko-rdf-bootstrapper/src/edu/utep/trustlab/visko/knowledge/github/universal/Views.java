@@ -1,13 +1,10 @@
 package edu.utep.trustlab.visko.knowledge.github.universal;
 
-import edu.utep.trustlab.repository.NickConfigurations;
-import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.view.writer.*;
 
 public class Views {
 
-	public static void main(String[] args) {
-		Repository.setRepository(NickConfigurations.getLocalFileSystem());
+	public static void create() {
 		String documentURL;
 
 		ViewContourWriter wtr = new ViewContourWriter("contour-lines");
