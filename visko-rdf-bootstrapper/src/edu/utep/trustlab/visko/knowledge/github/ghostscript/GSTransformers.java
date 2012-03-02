@@ -3,7 +3,7 @@ package edu.utep.trustlab.visko.knowledge.github.ghostscript;
 
 import edu.utep.trustlab.visko.ontology.operator.writer.TransformerWriter;
 
-public class GhostScriptTransformers {
+public class GSTransformers {
 	public static void create() {
 		
 		String name;

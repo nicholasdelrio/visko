@@ -7,7 +7,7 @@ public class GriddedTimeProfile {
 	/**
 	 * @param args
 	 */
-	public static void main() {
+	public static void create() {
 		/************ profile for time ******************************/
 		String dataTypeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d4-0";
 		String dataTypeURI1 = "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d4";

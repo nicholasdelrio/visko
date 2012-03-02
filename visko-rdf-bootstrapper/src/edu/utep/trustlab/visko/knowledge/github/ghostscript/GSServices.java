@@ -2,10 +2,10 @@ package edu.utep.trustlab.visko.knowledge.github.ghostscript;
 
 import edu.utep.trustlab.visko.ontology.service.writer.ServiceWriter;
 
-public class GhostScriptServices {
+public class GSServices {
 	private static final String wsdlURL = "http://iw.cs.utep.edu:8080/GMT-services/services/GMTGravityTransformersUsingParameters.GMTGravityTransformersUsingParametersPort?wsdl";
 
-	public static void main(String[] args) {
+	public static void create() {
 		String operationName = "PSToPDF";
 		
 		/*

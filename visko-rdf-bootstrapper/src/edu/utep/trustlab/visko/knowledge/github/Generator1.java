@@ -2,8 +2,8 @@ package edu.utep.trustlab.visko.knowledge.github;
 
 import edu.utep.trustlab.repository.NickConfigurations;
 import edu.utep.trustlab.repository.Repository;
-import edu.utep.trustlab.visko.knowledge.github.ghostscript.GhostScriptToolkits;
-import edu.utep.trustlab.visko.knowledge.github.ghostscript.GhostScriptTransformers;
+import edu.utep.trustlab.visko.knowledge.github.ghostscript.GSToolkits;
+import edu.utep.trustlab.visko.knowledge.github.ghostscript.GSTransformers;
 import edu.utep.trustlab.visko.knowledge.github.gmt.GMTToolkits;
 import edu.utep.trustlab.visko.knowledge.github.gmt.GMTTransformers;
 import edu.utep.trustlab.visko.knowledge.github.ncl.NCLToolkits;
@@ -22,14 +22,14 @@ public class Generator1 {
 		ViewerSets.create();
 		
 		//create toolkits
-		GhostScriptToolkits.create();		
+		GSToolkits.create();		
 		GMTToolkits.create();
 		NCLToolkits.create();
 		VTKToolkits.create();
 
 		//create transformers
 		NCLTransformers.create();
-		GhostScriptTransformers.create();
+		GSTransformers.create();
 		GMTTransformers.create();
 		VTKTransformers.create();
 	}

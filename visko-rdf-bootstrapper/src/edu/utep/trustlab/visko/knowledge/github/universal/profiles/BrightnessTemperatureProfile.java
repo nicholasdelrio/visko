@@ -2,7 +2,7 @@ package edu.utep.trustlab.visko.knowledge.github.universal.profiles;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class BrightnessTemperatureProfile {
-	public static void create(String[] args) {
+	public static void create() {
 		String documentURL;
 
 		/************ profile for brightness data ******************************/
