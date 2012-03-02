@@ -4,7 +4,9 @@ import java.io.StringWriter;
 
 import org.mindswap.owl.OWLIndividual;
 
+import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.model.OWLSModel;
+import edu.utep.trustlab.visko.util.OWLSRDFCleanup;
 
 public abstract class OWLSIndividual implements ViskoIndividual {
 	private String name;
@@ -45,7 +47,10 @@ public abstract class OWLSIndividual implements ViskoIndividual {
 	public String toString() {
 		StringWriter wtr = new StringWriter();
 		model.getOntology().write(wtr, model.getOntology().getURI());
-		return wtr.toString();
+		String rdfString = wtr.toString();
+		rdfString = OWLSRDFCleanup.fixURIForImplementsOperator(rdfString, Repository.getRepository().getBaseURL());
+		rdfString = OWLSRDFCleanup.fixURIForSupportedByToolkit(rdfString, Repository.getRepository().getBaseURL());
+		return rdfString;
 	}
 
 	public String getFileName() {
@@ -66,8 +71,7 @@ public abstract class OWLSIndividual implements ViskoIndividual {
 
 	/********************* PRIVATE METHODS *****************************/
 	private void setURI(String base, String individualName) {
-		baseURL = "http://trust.utep.edu/visko/services/";
-		// baseURL = base;
+		baseURL = base;
 		name = individualName;
 		fileName = name + ".owl";
 		fullURL = baseURL + fileName;

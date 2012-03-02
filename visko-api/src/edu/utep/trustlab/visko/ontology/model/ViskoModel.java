@@ -13,7 +13,6 @@ import edu.utep.trustlab.visko.ontology.vocabulary.RDFS;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoS;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoV;
-import edu.utep.trustlab.visko.util.RedirectURI;
 
 import com.hp.hpl.jena.ontology.DatatypeProperty;
 import com.hp.hpl.jena.ontology.Individual;
@@ -98,11 +97,7 @@ public class ViskoModel{
 	}
 
 	public Individual getIndividual(String uri) {
-		String adjustedURI = uri;
-		if(Repository.getRepository() != null)
-			adjustedURI = RedirectURI.redirectHack(uri, Repository.getRepository().getBaseURL());
-		
-		model.read(adjustedURI);
+		model.read(uri);
 		return model.getIndividual(uri);
 	}
 
