@@ -12,35 +12,35 @@ public class GriddedGravityDataProfile {
 		wtr1.addDataType(dataTypeURI);
 		// for colored image
 		wtr1.addInputBinding(
-		"http://trust.utep.edu/visko/services/ESRIGriddedToColoredImagePS.owl#B",
+		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToColoredImagePS.owl#B",
 		"1");
 		wtr1.addInputBinding(
-		"http://trust.utep.edu/visko/services/ESRIGriddedToColoredImagePS.owl#J",
+		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToColoredImagePS.owl#J",
 		"x4c");
 		wtr1.addInputBinding(
-		"http://trust.utep.edu/visko/services/ESRIGriddedToColoredImagePS.owl#C",
+		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToColoredImagePS.owl#C",
 		"hot");
 		// for contour map
 		wtr1.addInputBinding(
-		"http://trust.utep.edu/visko/services/ESRIGriddedToContourMapPS.owl#C",
+		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#C",
 		"10");
 		wtr1.addInputBinding(
-		"http://trust.utep.edu/visko/services/ESRIGriddedToContourMapPS.owl#A",
+		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#A",
 		"20");
 		wtr1.addInputBinding(
-		"http://trust.utep.edu/visko/services/ESRIGriddedToContourMapPS.owl#B",
+		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#B",
 		"0.5");
 		wtr1.addInputBinding(
-		"http://trust.utep.edu/visko/services/ESRIGriddedToContourMapPS.owl#S",
+		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#S",
 		"5");
 		wtr1.addInputBinding(
-		"http://trust.utep.edu/visko/services/ESRIGriddedToContourMapPS.owl#J",
+		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#J",
 		"x4c");
 		wtr1.addInputBinding(
-		"http://trust.utep.edu/visko/services/ESRIGriddedToContourMapPS.owl#Wc",
+		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#Wc",
 		"thinnest,black");
 		wtr1.addInputBinding(
-		"http://trust.utep.edu/visko/services/ESRIGriddedToContourMapPS.owl#Wa",
+		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#Wa",
 		"thinnest,black");
 		// dump document
 		String documentURL = wtr1.saveDocument();
