@@ -1,7 +1,5 @@
 package edu.utep.trustlab.visko.knowledge.github.universal.profiles;
 
-import edu.utep.trustlab.repository.NickConfigurations;
-import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class DuSumProfile {
@@ -9,8 +7,7 @@ public class DuSumProfile {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		Repository.setRepository(NickConfigurations.getLocalFileSystem());
+	public static void create() {
 		/************ profile for dusum ******************************/
 		String dataTypeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d8-0";
 		String dataTypeURI1 = "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d8";

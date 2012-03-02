@@ -1,13 +1,8 @@
 package edu.utep.trustlab.visko.knowledge.github.universal.profiles;
-
-import edu.utep.trustlab.repository.NickConfigurations;
-import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class BrightnessTemperatureProfile {
-	public static void main(String[] args) {
-
-		Repository.setRepository(NickConfigurations.getLocalFileSystem());
+	public static void create(String[] args) {
 		String documentURL;
 
 		/************ profile for brightness data ******************************/

@@ -1,15 +1,10 @@
 package edu.utep.trustlab.visko.knowledge.github.vtk;
 
-import edu.utep.trustlab.repository.NickConfigurations;
-import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.operator.writer.TransformerWriter;
 
-public class Transformers {
-	public static void main(String[] args) {
+public class VTKTransformers {
+	public static void create() {
 		String name;
-
-		Repository.setRepository(NickConfigurations.getLocalFileSystem());
-
 		TransformerWriter wtr = new TransformerWriter("floatArrayToShortIntArray");
 		wtr.addInputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN");
 		wtr.setOutputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/BINARYSHORTINTARRAYLENDIAN.owl#BINARYSHORTINTARRAYLENDIAN");

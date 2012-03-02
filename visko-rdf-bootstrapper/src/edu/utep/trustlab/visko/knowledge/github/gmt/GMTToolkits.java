@@ -1,14 +1,8 @@
 package edu.utep.trustlab.visko.knowledge.github.gmt;
-
-import edu.utep.trustlab.repository.NickConfigurations;
-import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitWriter;
 
-public class Toolkits {
-	public static void main(String[] args) {
-
-		Repository.setRepository(NickConfigurations.getLocalFileSystem());
-
+public class GMTToolkits {
+	public static void create() {
 		String documentURL;
 		ToolkitWriter wtr1 = new ToolkitWriter("gmt");
 		wtr1.setLabel("Generic Mapping Tools");

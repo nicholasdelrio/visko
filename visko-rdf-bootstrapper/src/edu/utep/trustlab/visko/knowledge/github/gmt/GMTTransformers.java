@@ -1,12 +1,10 @@
 package edu.utep.trustlab.visko.knowledge.github.gmt;
 
-import edu.utep.trustlab.repository.NickConfigurations;
-import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.operator.writer.TransformerWriter;
 
-public class Transformers {
-	public static void main(String[] args) {
-		Repository.setRepository(NickConfigurations.getLocalFileSystem());
+public class GMTTransformers {
+	public static void create() {
+
 		String name;
 
 		TransformerWriter wtr = new TransformerWriter("contourer");

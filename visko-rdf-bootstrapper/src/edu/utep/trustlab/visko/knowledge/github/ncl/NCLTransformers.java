@@ -1,13 +1,8 @@
 package edu.utep.trustlab.visko.knowledge.github.ncl;
-
-import edu.utep.trustlab.repository.NickConfigurations;
-import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.operator.writer.TransformerWriter;
 
-public class Transformers {
-	public static void main(String[] args) {
-		Repository.setRepository(NickConfigurations.getLocalFileSystem());
-
+public class NCLTransformers {
+	public static void create() {
 		String name;
 		TransformerWriter wtr = new TransformerWriter("netCDFContourer");
 		wtr.setOutputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/formats/POSTSCRIPT.owl#POSTSCRIPT");

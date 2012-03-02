@@ -1,15 +1,10 @@
 package edu.utep.trustlab.visko.knowledge.github.universal;
 
-
-import edu.utep.trustlab.repository.NickConfigurations;
-import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.operator.writer.ViewerSetWriter;
 
 public class ViewerSets {
 
-	public static void main(String[] args) {
-		Repository.setRepository(NickConfigurations.getLocalFileSystem());	
-		
+	public static void create() {	
 		ViewerSetWriter wtr = new ViewerSetWriter("probeit");
 		wtr.setLabel("Probe-It!");
 		String documentURL = wtr.saveDocument();

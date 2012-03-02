@@ -1,14 +1,9 @@
 package edu.utep.trustlab.visko.knowledge.github.universal.extractors;
-
-import edu.utep.trustlab.repository.NickConfigurations;
-import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.service.writer.ExtractorWriter;
 
 public class AersolTimeSeriesExtractor {
 
-	public static void main(String[] args) {
-
-		Repository.setRepository(NickConfigurations.getCIServer());
+	public static void create(String[] args) {
 		String dumpURL;
 		ExtractorWriter extractor = new ExtractorWriter("AerosolTimeSeriesExtractor");
 		extractor.addDataType("http://giovanni.gsfc.nasa.gov/data/aerosol/timeseries.owl#timeseries");
