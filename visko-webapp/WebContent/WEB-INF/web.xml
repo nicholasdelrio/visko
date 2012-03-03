@@ -10,67 +10,15 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <servlet-name>ExecutePipelineServlet</servlet-name>
-    <servlet-class>edu.utep.trustlab.visko.web.ExecutePipelineServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>ExecuteQueryServlet</servlet-name>
-    <servlet-class>edu.utep.trustlab.visko.web.ExecuteQueryServlet</servlet-class>
-    <init-param>
-      <param-name>visko-joseki-url</param-name>
-      <param-value>http://iw.cs.utep.edu:8080/joseki/visko</param-value>
-    </init-param>
-  </servlet>
-  <servlet>
-    <description></description>
-    <display-name>ExecuteQueryServiceServlet</display-name>
-    <servlet-name>ExecuteQueryServiceServlet</servlet-name>
-    <servlet-class>trustlab.visko.web.ExecuteQueryServiceServlet</servlet-class>
-    <init-param>
-      <param-name>visko-joseki-url</param-name>
-      <param-value>http://iw.cs.utep.edu:8080/joseki/visko</param-value>
-    </init-param>
-  </servlet>
-  <servlet>
-    <servlet-name>ShowPipelineServlet</servlet-name>
-    <servlet-class>trustlab.visko.web.ShowPipelineServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ExecutePipelineServlet</servlet-name>
-    <url-pattern>/ExecutePipelineServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ExecuteQueryServlet</servlet-name>
-    <url-pattern>/ExecuteQueryServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ShowPipelineServlet</servlet-name>
-    <url-pattern>/ShowPipelineServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ExecuteQueryServiceServlet</servlet-name>
-    <url-pattern>/ExecuteQueryServiceServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>KnowledgeBaseInformation</display-name>
-    <servlet-name>KnowledgeBaseInformation</servlet-name>
-    <servlet-class>trustlab.visko.web.KnowledgeBaseInformation</servlet-class>
-    <init-param>
-      <param-name>visko-joseki-url</param-name>
-      <param-value>http://iw.cs.utep.edu:8080/joseki/visko</param-value>
-    </init-param>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>KnowledgeBaseInformation</servlet-name>
-    <url-pattern>/KnowledgeBaseInformation</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
+    <description>Processes VisKo Requests</description>
     <display-name>ViskoServletManager</display-name>
     <servlet-name>ViskoServletManager</servlet-name>
     <servlet-class>edu.utep.trustlab.visko.web.ViskoServletManager</servlet-class>
-  </servlet>
+       <init-param>
+          <param-name>visko-joseki-url</param-name>
+          <param-value>http://iw.cs.utep.edu:8080/joseki/visko</param-value>
+       </init-param>
+    </servlet>
   <servlet-mapping>
     <servlet-name>ViskoServletManager</servlet-name>
     <url-pattern>/ViskoServletManager</url-pattern>
