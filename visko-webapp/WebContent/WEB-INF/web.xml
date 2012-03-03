@@ -65,4 +65,14 @@
     <servlet-name>KnowledgeBaseInformation</servlet-name>
     <url-pattern>/KnowledgeBaseInformation</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViskoServletManager</display-name>
+    <servlet-name>ViskoServletManager</servlet-name>
+    <servlet-class>edu.utep.trustlab.visko.web.ViskoServletManager</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViskoServletManager</servlet-name>
+    <url-pattern>/ViskoServletManager</url-pattern>
+  </servlet-mapping>
 </web-app>

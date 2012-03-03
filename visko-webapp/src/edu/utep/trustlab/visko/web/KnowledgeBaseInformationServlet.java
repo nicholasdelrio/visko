@@ -14,13 +14,13 @@ import edu.utep.trustlab.visko.web.context.ViskoContext;
 /**
  * Servlet implementation class KnowledgeBaseIndividuals
  */
-public class KnowledgeBaseInformation extends HttpServlet {
+public class KnowledgeBaseInformationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public KnowledgeBaseInformation() {
+	public KnowledgeBaseInformationServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
