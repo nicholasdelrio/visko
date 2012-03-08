@@ -69,9 +69,6 @@ public class ExecuteQueryServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-		ViskoContext.setContext(this);
-
 		String stringQuery = request.getParameter("query");
 
 		if (stringQuery != null)

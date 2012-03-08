@@ -53,8 +53,6 @@ public class ExecuteQueryServiceServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		ViskoContext.setContext(this);
-
 		String stringQuery = request.getParameter("query");
 		String num = request.getParameter("maxResults");
 

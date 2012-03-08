@@ -23,17 +23,21 @@ package edu.utep.trustlab.visko.web.context;
 import javax.servlet.http.HttpServlet;
 
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
+import edu.utep.trustlab.visko.web.sparql.TDBTripleStore;
 
 public class ViskoContext {
 	public static void setContext(HttpServlet servlet) {
-		setViskoJosekiURL(servlet);
+		setViskoSPARQLEndpointURL(servlet);
+		setViskoTDBFilePath(servlet);
 	}
 
-	private static void setViskoJosekiURL(HttpServlet servlet) {
-		String viskoEndpoint = servlet.getInitParameter("visko-joseki-url");
+	private static void setViskoTDBFilePath(HttpServlet servlet){
+		String tdbFilePath = servlet.getInitParameter("visko-tdb-path");
+		TDBTripleStore.setTDBStoreFilePath(tdbFilePath);
+		
+	}
+	private static void setViskoSPARQLEndpointURL(HttpServlet servlet) {
+		String viskoEndpoint = servlet.getInitParameter("visko-sparql-endpoint");
 		ViskoTripleStore.setEndpointURL(viskoEndpoint);
-
-		System.out.println("visko tdb endpoint: "
-				+ ViskoTripleStore.getEndpontURL());
 	}
 }

@@ -49,9 +49,8 @@ public class KnowledgeBaseInformationServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		ViskoContext.setContext(this);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String infoType = request.getParameter("info");
 
 		if (infoType.equals("graph")) {

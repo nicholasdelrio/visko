@@ -26,6 +26,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.utep.trustlab.visko.web.context.ViskoContext;
+
 /**
  * Servlet implementation class ViskoServletManager
  */
@@ -44,6 +46,8 @@ public class ViskoServletManager extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ViskoContext.setContext(this);
+		
 		String requestType = request.getParameter("requestType");
 		
 		if(requestType.equalsIgnoreCase("execute-pipeline"))
@@ -56,6 +60,8 @@ public class ViskoServletManager extends HttpServlet {
 			new KnowledgeBaseInformationServlet().doGet(request, response);
 		else if(requestType.equalsIgnoreCase("show-pipeline"))
 			new ShowPipelineServlet().doGet(request, response);
+		else if(requestType.equals("queryTripleStore"))
+			new ExecuteSPARQLQueryServlet().doGet(request, response);
 		else
 			response.getOutputStream().println("<html><body><p>Invalid argument specified for <b>requestType</b></body></html>");
 	}
