@@ -20,7 +20,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.web;
 
-import edu.utep.trustlab.visko.web.context.ViskoContext;
+import edu.utep.trustlab.visko.web.context.ViskoTDBContext;
 import edu.utep.trustlab.visko.web.html.QueryMessages;
 import edu.utep.trustlab.visko.execution.*;
 import java.io.IOException;

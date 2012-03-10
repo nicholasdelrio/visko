@@ -29,7 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 import edu.utep.trustlab.visko.web.json.FormatGraphData;
 import edu.utep.trustlab.visko.web.json.OperatorGraphData;
 import edu.utep.trustlab.visko.web.json.InstanceBarGraphData;
-import edu.utep.trustlab.visko.web.context.ViskoContext;
+import edu.utep.trustlab.visko.web.context.ViskoTDBContext;
 
 /**
  * Servlet implementation class KnowledgeBaseIndividuals

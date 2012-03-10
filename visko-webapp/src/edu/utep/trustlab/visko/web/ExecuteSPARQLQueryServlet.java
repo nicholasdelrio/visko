@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.hp.hpl.jena.query.ResultSet;
 
-import edu.utep.trustlab.visko.web.context.ViskoContext;
+import edu.utep.trustlab.visko.web.context.ViskoTDBContext;
 import edu.utep.trustlab.visko.web.sparql.TDBTripleStore;
 
 /**

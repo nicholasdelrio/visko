@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.utep.trustlab.visko.web.context.ViskoContext;
+import edu.utep.trustlab.visko.web.context.ViskoTDBContext;
 
 /**
  * Servlet implementation class ViskoServletManager
@@ -46,7 +46,7 @@ public class ViskoServletManager extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ViskoContext.setContext(this);
+		ViskoTDBContext.setContext(this);
 		
 		String requestType = request.getParameter("requestType");
 		
