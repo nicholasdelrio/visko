@@ -59,6 +59,7 @@ public class ViewerWriter extends ViskoWriter {
 
 	public ViewerWriter(String name) {
 		viskoViewer = new Viewer(Repository.getRepository().getBaseURL(), name, viskoModel);
+		viskoViewer.setName(name);
 		formats = new Vector<Format>();
 		partOfSets = new Vector<ViewerSet>();
 	}

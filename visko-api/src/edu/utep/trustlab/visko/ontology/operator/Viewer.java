@@ -95,11 +95,7 @@ public class Viewer extends Operator {
 
 	@Override
 	protected boolean allFieldsPopulated() {
-		if (super.allFieldsPopulated() && belongsToSets.size() > 0 /*
-																	 * &&
-																	 * viewToPresent
-																	 * != null
-																	 */)
+		if (super.allFieldsPopulated() && belongsToSets.size() > 0)
 			return true;
 		return false;
 	}
