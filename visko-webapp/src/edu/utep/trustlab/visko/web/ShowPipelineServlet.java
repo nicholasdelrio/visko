@@ -20,41 +20,17 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.web;
 
+
 import java.io.IOException;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import edu.utep.trustlab.visko.execution.Pipeline;
 import edu.utep.trustlab.visko.execution.QueryEngine;
 import edu.utep.trustlab.visko.web.html.PipelineHTML;
+public class ShowPipelineServlet{
 
-/**
- * Servlet implementation class ShowPipelineServlet
- */
-public class ShowPipelineServlet extends HttpServlet {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ShowPipelineServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	public String doGet(HttpServletRequest request){
 
 		String stringIndex = request.getParameter("index");
 		int index = Integer.valueOf(stringIndex);
@@ -73,16 +49,6 @@ public class ShowPipelineServlet extends HttpServlet {
 		html += PipelineHTML.getViewerHTML(pipe);
 		html += "</body></html>";
 
-		response.getWriter().write(html);
+		return html;
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
 }

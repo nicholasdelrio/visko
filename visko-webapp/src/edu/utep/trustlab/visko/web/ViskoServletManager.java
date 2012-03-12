@@ -49,21 +49,23 @@ public class ViskoServletManager extends HttpServlet {
 		ViskoTDBContext.setContext(this);
 		
 		String requestType = request.getParameter("requestType");
-		
+		String html;
 		if(requestType.equalsIgnoreCase("execute-pipeline"))
-			new ExecutePipelineServlet().doGet(request, response);
+			html = new ExecutePipelineServlet().doGet(request);
 		else if(requestType.equalsIgnoreCase("execute-query-service"))
-			new ExecuteQueryServiceServlet().doGet(request, response);
+			html = new ExecuteQueryServiceServlet().doGet(request);
 		else if(requestType.equalsIgnoreCase("execute-query"))
-			new ExecuteQueryServlet().doGet(request, response);
+			html = new ExecuteQueryServlet().doGet(request);
 		else if(requestType.equalsIgnoreCase("knowledge-base-info"))
-			new KnowledgeBaseInformationServlet().doGet(request, response);
+			html = new KnowledgeBaseInformationServlet().doGet(request);
 		else if(requestType.equalsIgnoreCase("show-pipeline"))
-			new ShowPipelineServlet().doGet(request, response);
-		else if(requestType.equals("queryTripleStore"))
-			new ExecuteSPARQLQueryServlet().doGet(request, response);
+			html = new ShowPipelineServlet().doGet(request);
+		else if(requestType.equals("query-triple-store"))
+			html = new ExecuteSPARQLQueryServlet().doGet(request);
 		else
-			response.getOutputStream().println("<html><body><p>Invalid argument specified for <b>requestType</b></body></html>");
+			html = "<html><body><p>Invalid argument specified for <b>requestType</b></body></html>";
+		
+		response.getWriter().write(html);
 	}
 
 	/**

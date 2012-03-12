@@ -15,8 +15,12 @@
     <servlet-name>ViskoServletManager</servlet-name>
     <servlet-class>edu.utep.trustlab.visko.web.ViskoServletManager</servlet-class>
        <init-param>
-          <param-name>visko-joseki-url</param-name>
-          <param-value>http://iw.cs.utep.edu:8080/joseki/visko</param-value>
+          <param-name>visko-sparql-endpoint</param-name>
+          <param-value>http://localhost:8080/visko-webapp/VisKoServletManager?requestType=query-triple-store</param-value>
+       </init-param>
+       <init-param>
+          <param-name>visko-tdb-path</param-name>
+          <param-value>C:\Users\Public\git\visko\visko-tdb</param-value>
        </init-param>
     </servlet>
   <servlet-mapping>

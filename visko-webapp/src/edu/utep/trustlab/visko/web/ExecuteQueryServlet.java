@@ -20,33 +20,17 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.web;
 
+import javax.servlet.http.HttpServletRequest;
+
 import edu.utep.trustlab.visko.sparql.UTEPProvenanceRDFStore;
-import edu.utep.trustlab.visko.web.context.ViskoTDBContext;
 import edu.utep.trustlab.visko.web.html.QueryMessages;
 import edu.utep.trustlab.visko.web.html.QueryHTML;
 import edu.utep.trustlab.visko.web.html.ResultsTableHTML;
 import edu.utep.trustlab.visko.execution.*;
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class GetTransformersServlet
- */
-public class ExecuteQueryServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class ExecuteQueryServlet{
 
 	private Query query;
-
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ExecuteQueryServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	private void populateQueryForEntryPoint(HttpServletRequest request) {
 		String artifactURL = request.getParameter("artifactURL");
@@ -62,12 +46,7 @@ public class ExecuteQueryServlet extends HttpServlet {
 		query = new Query(stringQuery);
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	public String doGet(HttpServletRequest request){
 		// TODO Auto-generated method stub
 		String stringQuery = request.getParameter("query");
 
@@ -115,16 +94,6 @@ public class ExecuteQueryServlet extends HttpServlet {
 			html += warns;
 
 		html += "</body></html>";
-		response.getWriter().write(html);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		return html;
 	}
 }

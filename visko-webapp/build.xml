@@ -25,7 +25,11 @@
 			
 			<classes dir="${build}/"/>
 		</war>
-	</target>	
+	</target>
+	
+	<target name="build-triple-store" description="Generate a TDB Triple Store From a Bundle of RDF Documents">
+		<ant antfile="${visko-api}/build.xml" target="build-triple-store" inheritAll="false" />
+	</target>
 	
 	<target name="compile" depends="clean" description="Compile VisKo Webapp in build Directory">	
 		<ant antfile="${visko-api}/build.xml" target="build" inheritAll="false" />

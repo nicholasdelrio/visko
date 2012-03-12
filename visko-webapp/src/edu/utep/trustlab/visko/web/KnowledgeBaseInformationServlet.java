@@ -20,58 +20,29 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.web;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import edu.utep.trustlab.visko.web.json.FormatGraphData;
 import edu.utep.trustlab.visko.web.json.OperatorGraphData;
 import edu.utep.trustlab.visko.web.json.InstanceBarGraphData;
 import edu.utep.trustlab.visko.web.context.ViskoTDBContext;
 
-/**
- * Servlet implementation class KnowledgeBaseIndividuals
- */
-public class KnowledgeBaseInformationServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public KnowledgeBaseInformationServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class KnowledgeBaseInformationServlet{
+	public String doGet(HttpServletRequest request){
 		
 		String infoType = request.getParameter("info");
-
+		String json;
 		if (infoType.equals("graph")) {
-			response.getWriter().write(InstanceBarGraphData.getBarGraph());
+			json = InstanceBarGraphData.getBarGraph();
 		} else if (infoType.equals("formatPaths")) {
-			response.getWriter().write(FormatGraphData.getPathsGraphJSON());
+			json = FormatGraphData.getPathsGraphJSON();
 		} else if (infoType.equals("pipelines")) {
-			response.getWriter().write(OperatorGraphData.getPathsGraphJSON());
+			json = OperatorGraphData.getPathsGraphJSON();
 		}
 
 		else
-			response.getWriter().write("{}");
+			json = "{}";
+		
+		return json;
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
-
 }

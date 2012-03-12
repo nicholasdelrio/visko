@@ -20,52 +20,24 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.web;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import com.hp.hpl.jena.query.ResultSet;
 
-import edu.utep.trustlab.visko.web.context.ViskoTDBContext;
 import edu.utep.trustlab.visko.web.sparql.TDBTripleStore;
 
-/**
- * Servlet implementation class ExecutePipelineServlet
- */
-public class ExecuteSPARQLQueryServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class ExecuteSPARQLQueryServlet{
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ExecuteSPARQLQueryServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String doGet(HttpServletRequest request){
 		String query = request.getParameter("query");
 		TDBTripleStore viskoTripleStore = new TDBTripleStore();
 		ResultSet results = viskoTripleStore.execute(query);
 		if(results != null){
-			response.getWriter().append(TDBTripleStore.toXML(results));
+			System.out.println(TDBTripleStore.toXML(results));
+			return TDBTripleStore.toXML(results);
 		}
 		else{
-			response.getWriter().append("<html><body><p>Invalid argument specified for <b>requestType</b></body></html>");
+			return "<html><body><p>Invalid argument specified for <b>requestType</b></body></html>";
 		}
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 	}
 }

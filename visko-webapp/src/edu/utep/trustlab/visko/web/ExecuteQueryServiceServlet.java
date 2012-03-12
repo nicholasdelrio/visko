@@ -20,37 +20,15 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.web;
 
-import edu.utep.trustlab.visko.web.context.ViskoTDBContext;
+import javax.servlet.http.HttpServletRequest;
+
 import edu.utep.trustlab.visko.web.html.QueryMessages;
 import edu.utep.trustlab.visko.execution.*;
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class GetTransformersServlet
- */
-public class ExecuteQueryServiceServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
+public class ExecuteQueryServiceServlet{
 	private Query query;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ExecuteQueryServiceServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	public String doGet(HttpServletRequest request){
 		// TODO Auto-generated method stub
 
 		String stringQuery = request.getParameter("query");
@@ -88,16 +66,7 @@ public class ExecuteQueryServiceServlet extends HttpServlet {
 		} else
 			returnMessage = "<html><body><p>Failed to Specify Query via the query parameter</p></body></html>";
 
-		response.getWriter().write(returnMessage);
+		return returnMessage;
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
 }

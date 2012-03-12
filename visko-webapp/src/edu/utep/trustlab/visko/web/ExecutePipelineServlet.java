@@ -20,37 +20,17 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.web;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 //import edu.utep.trustlab.visko.web.html.provenance.DataProvenanceHTML;
 //import edu.utep.trustlab.visko.web.html.provenance.VisualizationProvenanceHTML;
+import javax.servlet.http.HttpServletRequest;
+
 import edu.utep.trustlab.visko.execution.Pipeline;
 import edu.utep.trustlab.visko.execution.QueryEngine;
 
-/**
- * Servlet implementation class ExecutePipelineServlet
- */
-public class ExecutePipelineServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class ExecutePipelineServlet {
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ExecutePipelineServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	public String doGet(HttpServletRequest request){
 		String captureProvenance = request.getParameter("provenance");
 
 		String stringIndex = request.getParameter("index");
@@ -96,15 +76,7 @@ public class ExecutePipelineServlet extends HttpServlet {
 		}
 
 		html += "</body></html>";
-		response.getWriter().write(html);
+		return html;
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
 }
