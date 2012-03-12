@@ -49,11 +49,13 @@ import com.hp.hpl.jena.tdb.*;
 	public class TripleStore {
 
 	private String tsDirectory;
+	private String owlDirectory;
 	private String rdfDirectory;
 	
-	public TripleStore(String inputRDFDirectory, String tripleStoreDirectory){
+	public TripleStore(String inputRDFDirectory, String inputOntologyDirectory, String tripleStoreDirectory){
 		rdfDirectory = inputRDFDirectory;
 		tsDirectory = tripleStoreDirectory;	
+		owlDirectory = inputOntologyDirectory;
 		
 		if(!tsDirectory.endsWith("/"))
 			tsDirectory = tsDirectory + "/";
@@ -73,7 +75,7 @@ import com.hp.hpl.jena.tdb.*;
 
 		Model model = TDBFactory.createModel(tsDirectory);
 
-		// Iterate through all files and load any pml data found
+		// Iterate through all instance data rdf files and load any pml data found
 		File rdf = new File(rdfDirectory);
 		for(File aFile : rdf.listFiles()){
 			try{
@@ -82,6 +84,17 @@ import com.hp.hpl.jena.tdb.*;
 				e.printStackTrace();
 			}
 		}
+
+		// Iterate through all ontology files and load any pml data found
+		File owl = new File(owlDirectory);
+		for(File aFile : owl.listFiles()){
+			try{
+			model.read(new FileInputStream(aFile), null);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		
 		
 		System.out.println("Model now has " + model.size() + " statements.");
 		model.close();
@@ -89,17 +102,12 @@ import com.hp.hpl.jena.tdb.*;
 		return storesDirectory.getAbsolutePath();
 	}
 	
-	private static String getDirectoryNameFromPath(String dirPath){
-		File dir = new File(dirPath);
-		return dir.getName();
-	}
-	
 	public static void main(String[] args){
 		if(args.length != 2){
 			System.err.print("Need to specify the directory where your RDF is stored and the directory where the triple store will be created.");
 		}
 		
-		TripleStore ts = new TripleStore(args[0], args[1]);
+		TripleStore ts = new TripleStore(args[0], args[1], args[2]);
 		System.out.println(ts.create());
 	}
 }

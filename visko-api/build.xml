@@ -39,7 +39,9 @@
 	<target name="build-triple-store" depends="build" description="Generate a TDB Triple Store From a Bundle of RDF Documents">
 		<java classname="edu.utep.trustlab.repository.aggregator.TripleStore">
 			<arg value="../visko-rdf/"/>
-			<arg value="../visko-tdb/"/>			
+			<arg value="../visko-rdf/ontology/"/>
+			<arg value="../visko-tdb/"/>
+			
 			<classpath>
 				<pathelement location="${jarfile}"/>
 				<fileset dir="${lib}/ciclient/">
