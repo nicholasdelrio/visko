@@ -33,7 +33,6 @@ public class ExecuteSPARQLQueryServlet{
 		TDBTripleStore viskoTripleStore = new TDBTripleStore();
 		ResultSet results = viskoTripleStore.execute(query);
 		if(results != null){
-			System.out.println(TDBTripleStore.toXML(results));
 			return TDBTripleStore.toXML(results);
 		}
 		else{
