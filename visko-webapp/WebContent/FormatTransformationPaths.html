@@ -46,7 +46,7 @@ text.shadow {
     
     
     
-    d3.json("KnowledgeBaseInformation?info=formatPaths", function(json) {
+    d3.json("ViskoServletManager?requestType=knowledge-base-info&info=formatPaths", function(json) {
 
     	var force = d3.layout.force()
     	.nodes(json.nodes)

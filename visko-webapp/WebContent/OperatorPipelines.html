@@ -46,7 +46,7 @@ text.shadow {
     
     
     
-    d3.json("KnowledgeBaseInformation?info=pipelines", function(json) {
+    d3.json("ViskoServletManager?requestType=knowledge-base-info&info=pipelines", function(json) {
 
     	var force = d3.layout.force()
     	.nodes(json.nodes)

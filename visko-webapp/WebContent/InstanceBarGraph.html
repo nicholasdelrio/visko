@@ -19,7 +19,7 @@ color: white;
 
 var jsonGraphData;
 $(document).ready(function(){
-	$.get("KnowledgeBaseInformation?info=graph", function(result){
+	$.get("ViskoServletManager?requestType=knowledge-base-info&info=graph", function(result){
     	jsonGraphData = result;	
 		var chart = d3.select("body")
 			.append("div")

@@ -7,7 +7,8 @@
 </head>
 
 <body>
-	<form action="ExecuteQueryServiceServlet">
+	<form action="ViskoServletManager">
+	<input type="hidden" name="requestType" value="execute-query" /> 
 	<table style="width: 1023px; ">
 	<tr><td colspan="2" align="center"><b>Enter VisKo Query In the Box Below</b></td></tr>
 	<tr>

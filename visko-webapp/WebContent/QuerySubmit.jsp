@@ -7,11 +7,14 @@
 </head>
 
 <body>
-	<form action="ExecuteQueryServlet">
+	<form action="ViskoServletManager">
+	<input type="hidden" name="requestType" value="execute-query" /> 
 	<table style="width: 1023px; ">
 	<tr><td colspan="2" align="center"><b>Enter VisKo Query In the Box Below</b></td></tr>
 	<tr>
-		<td style="width: 996px; " colspan="2" align="right"><textarea style="width: 989px; height: 152px" id="queryText" name="query"></textarea></td>
+		<td style="width: 996px; " colspan="2" align="right">
+			<textarea style="width: 989px; height: 152px" id="queryText" name="query"></textarea>
+		</td>
 	</tr>
 	<tr>
 		<td></td>
