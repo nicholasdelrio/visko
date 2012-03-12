@@ -20,8 +20,6 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge;
 
-import edu.utep.trustlab.repository.NickConfigurations;
-import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.knowledge.ghostscript.GSToolkits;
 import edu.utep.trustlab.visko.knowledge.gmt.GMTToolkits;
 import edu.utep.trustlab.visko.knowledge.ncl.NCLToolkits;
@@ -30,8 +28,7 @@ import edu.utep.trustlab.visko.knowledge.universal.Views;
 import edu.utep.trustlab.visko.knowledge.vtk.VTKToolkits;
 
 public class Generator1 {
-	public static void main(String[] args){
-		Repository.setRepository(NickConfigurations.getLocalFileSystem());
+	public static void gen(){
 		
 		//create views and viewersets
 		Views.create();

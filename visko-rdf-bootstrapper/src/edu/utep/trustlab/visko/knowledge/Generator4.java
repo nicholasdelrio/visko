@@ -20,8 +20,6 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge;
 
-import edu.utep.trustlab.repository.NickConfigurations;
-import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.knowledge.universal.profiles.BrightnessTemperatureProfile;
 import edu.utep.trustlab.visko.knowledge.universal.profiles.CoverageModelProfile;
 import edu.utep.trustlab.visko.knowledge.universal.profiles.DuSumProfile;
@@ -31,8 +29,7 @@ import edu.utep.trustlab.visko.knowledge.universal.profiles.GriddedTimeProfile;
 import edu.utep.trustlab.visko.knowledge.universal.profiles.VelocityModelProfile;
 
 public class Generator4 {
-	public static void main(String[] args){
-		Repository.setRepository(NickConfigurations.getLocalFileSystem());
+	public static void gen(){
 		
 		//create profiles
 		BrightnessTemperatureProfile.create();

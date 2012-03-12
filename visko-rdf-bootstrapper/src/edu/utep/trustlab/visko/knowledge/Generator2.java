@@ -30,7 +30,7 @@ import edu.utep.trustlab.visko.knowledge.vtk.VTKTransformers;
 
 public class Generator2 {
 
-	public static void main(String[] args){
+	public static void gen(){
 		Repository.setRepository(NickConfigurations.getLocalFileSystem());
 		
 		//create viewers that depend on ViewerSets created in Generator1
