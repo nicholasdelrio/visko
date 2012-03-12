@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project default="compile" name="VisKo RDF Boostrapper">	
+<project default="build" name="VisKo RDF Boostrapper">	
+	<property name="jarfile" value="bootstrapper.jar"/>
+	<property name="visko-rdf" value="../visko-rdf"/>
+	<property name="lib" value="../visko-api/lib/"/>
 	<property name="build" value="build"/>
 	<property name="src" value="src"/>
 	<property name="doc" value="doc"/>
@@ -8,8 +11,131 @@
 	<property name="config-file" value="WebContent/WEB-INF/web.xml"/>
 	<property name="web-content" value="WebContent"/>	
 	
-	<target name="compile" depends="clean" description="Compile VisKo Webapp in build Directory">	
+	<target name="build">
+		<jar destfile="${jarfile}">
+			<fileset dir="${build}" includes="**/*.*" />
+		</jar>
+	</target>
+	
+	<target name="generator1">
+		<java classname="edu.utep.trustlab.repository.aggregator.TripleStore">
+			<arg value="1"/>
+			<arg value="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/"/>
+			<arg value="${visko-rdf}"/>
+			
+			<classpath>
+				<pathelement location="${jarfile}"/>
+				<pathelement location="${visko-api-jar}"/>
+				
+				<fileset dir="${lib}/ciclient/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/apache/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/axis4/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/jena262/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/util/">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>   
+		</java>	
+	</target>
+	
+	<target name="generator2">
+		<java classname="edu.utep.trustlab.repository.aggregator.TripleStore">
+			<arg value="2"/>
+			<arg value="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/"/>
+			<arg value="${visko-rdf}"/>
+			
+			<classpath>
+				<pathelement location="${jarfile}"/>
+				<pathelement location="${visko-api-jar}"/>
+				
+				<fileset dir="${lib}/ciclient/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/apache/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/axis4/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/jena262/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/util/">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>   
+		</java>	
+	</target>
+	
+	<target name="generator3">
+		<java classname="edu.utep.trustlab.repository.aggregator.TripleStore">
+			<arg value="1"/>
+			<arg value="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/"/>
+			<arg value="${visko-rdf}"/>
+			
+			<classpath>
+				<pathelement location="${jarfile}"/>
+				<pathelement location="${visko-api-jar}"/>
+				
+				<fileset dir="${lib}/ciclient/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/apache/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/axis4/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/jena262/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/util/">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>   
+		</java>	
+	</target>
+			
+	<target name="generator4">
+	<java classname="edu.utep.trustlab.repository.aggregator.TripleStore">
+			<arg value="1"/>
+			<arg value="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/"/>
+			<arg value="${visko-rdf}"/>
+					
+			<classpath>
+				<pathelement location="${jarfile}"/>
+				<pathelement location="${visko-api-jar}"/>
+					
+				<fileset dir="${lib}/ciclient/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/apache/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/axis4/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/jena262/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/util/">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>   
+		</java>	
+	</target>
+	
+	<target name="compile" depends="clean" description="Compile VisKo Bootstrapper in build Directory">	
 		<ant antfile="${visko-api}/build.xml" target="build" inheritAll="false" />
+		
 		<mkdir dir="${build}"/>
 		<javac destdir="${build}/" srcdir="${src}" target="1.6"> 
 	    	<include name="**/*.java"/>
@@ -34,46 +160,7 @@
 					<include name="*.jar"/>
 				</fileset>
 			</classpath>			
-		</javac> 
-	</target>
-	
-	<target name="javadoc" depends="compile" description="Generate VisKo Webapp JavaDoc" >
-	    <javadoc
-	           destdir="${basedir}/doc/"
-	           author="true"
-	           version="true"
-	           use="true"
-	           windowtitle="VisKo Javadoc">
-
-			<classpath>
-				<fileset dir="${lib}/tomcat/">
-					<include name="*.jar"/>
-				</fileset>
-				<fileset dir="${lib}/ciclient/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/apache/">
-					<include name="*.jar"/>
-				</fileset>
-				<fileset dir="${lib}/axis4/">
-					<include name="*.jar"/>
-				</fileset>
-				<fileset dir="${lib}/jena264/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/util/">
-					<include name="*.jar"/>
-				</fileset>
-			</classpath>	
-	    	
-	      <fileset dir="${basedir}/src/" defaultexcludes="yes">
-	        <include name="trustlab/*.java" />
-	        <include name="trustlab/**/*.java" />
-	      </fileset>
-
-	      <doctitle><![CDATA[<h1>VisKo API Javadoc</h1>]]></doctitle>
-	      <link href="http://trust.utep.edu/visko/download/doc"/>
-	    </javadoc>
+		</javac>
 	</target>	
 	
 	<target name="clean" description="Delete the Build Directory and the WAR File">
