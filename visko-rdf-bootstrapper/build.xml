@@ -5,20 +5,19 @@
 	<property name="lib" value="../visko-api/lib/"/>
 	<property name="build" value="build"/>
 	<property name="src" value="src"/>
-	<property name="doc" value="doc"/>
 	<property name="visko-api" value="../visko-api"/>
 	<property name="visko-api-jar" value="../visko-api/visko-api.jar"/>
 	<property name="config-file" value="WebContent/WEB-INF/web.xml"/>
 	<property name="web-content" value="WebContent"/>	
 	
-	<target name="build">
+	<target name="build" depends="compile">
 		<jar destfile="${jarfile}">
 			<fileset dir="${build}" includes="**/*.*" />
 		</jar>
 	</target>
 	
-	<target name="generator1">
-		<java classname="edu.utep.trustlab.repository.aggregator.TripleStore">
+	<target name="generator1" depends="build">
+		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorManager">
 			<arg value="1"/>
 			<arg value="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/"/>
 			<arg value="${visko-rdf}"/>
@@ -46,37 +45,8 @@
 		</java>	
 	</target>
 	
-	<target name="generator2">
-		<java classname="edu.utep.trustlab.repository.aggregator.TripleStore">
-			<arg value="2"/>
-			<arg value="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/"/>
-			<arg value="${visko-rdf}"/>
-			
-			<classpath>
-				<pathelement location="${jarfile}"/>
-				<pathelement location="${visko-api-jar}"/>
-				
-				<fileset dir="${lib}/ciclient/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/apache/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/axis4/">
-					<include name="*.jar"/>
-				</fileset>
-				<fileset dir="${lib}/jena262/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/util/">
-					<include name="*.jar"/>
-				</fileset>
-			</classpath>   
-		</java>	
-	</target>
-	
-	<target name="generator3">
-		<java classname="edu.utep.trustlab.repository.aggregator.TripleStore">
+	<target name="generator2" depends="build">
+		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorManager">
 			<arg value="1"/>
 			<arg value="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/"/>
 			<arg value="${visko-rdf}"/>
@@ -103,17 +73,46 @@
 			</classpath>   
 		</java>	
 	</target>
-			
-	<target name="generator4">
-	<java classname="edu.utep.trustlab.repository.aggregator.TripleStore">
+
+	<target name="generator3" depends="build">
+		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorManager">
 			<arg value="1"/>
 			<arg value="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/"/>
 			<arg value="${visko-rdf}"/>
-					
+			
 			<classpath>
 				<pathelement location="${jarfile}"/>
 				<pathelement location="${visko-api-jar}"/>
-					
+				
+				<fileset dir="${lib}/ciclient/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/apache/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/axis4/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/jena262/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/util/">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>   
+		</java>	
+	</target>
+
+	<target name="generator4" depends="build">
+		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorManager">
+			<arg value="1"/>
+			<arg value="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/"/>
+			<arg value="${visko-rdf}"/>
+			
+			<classpath>
+				<pathelement location="${jarfile}"/>
+				<pathelement location="${visko-api-jar}"/>
+				
 				<fileset dir="${lib}/ciclient/">
 					<include name="*.jar"/>
 				</fileset>	
@@ -153,7 +152,7 @@
 				<fileset dir="${lib}/axis4/">
 					<include name="*.jar"/>
 				</fileset>
-				<fileset dir="${lib}/jena264/">
+				<fileset dir="${lib}/jena262/">
 					<include name="*.jar"/>
 				</fileset>	
 				<fileset dir="${lib}/util/">
