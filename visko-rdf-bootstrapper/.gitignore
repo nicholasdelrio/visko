@@ -2,3 +2,5 @@
 /.classpath
 /.project
 /bin
+/bootstrapper.jar
+/build
