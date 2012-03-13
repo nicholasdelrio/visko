@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="build" name="VisKo RDF Boostrapper">
 	<property name="server-url" value="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/"/>
-	<property name="jarfile" value="bootstrapper.jar"/>
+	<property name="jarfile" value="utep-rdf-generator.jar"/>
 	<property name="visko-rdf" value="../visko-rdf"/>
 	<property name="lib" value="../visko-api/lib/"/>
 	<property name="build" value="build"/>

@@ -2,5 +2,6 @@
 /.classpath
 /.project
 /bin
-/bootstrapper.jar
+
 /build
+/utep-rdf-generator.jar
