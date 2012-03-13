@@ -13,11 +13,20 @@ public class GeneratorManager {
 		Repository.setRepository(fs);
 		
 		switch(generatorID){
-			case 1: Generator1.gen(); 
-			case 2: Generator2.gen();
-			case 3: Generator3.gen();
-			case 4: Generator4.gen();
-			default: Generator1.gen();
+			case 1: 
+				Generator1.gen();
+				break;
+			case 2: 
+				Generator2.gen();
+				break;
+			case 3: 
+				Generator3.gen();
+				break;
+			case 4:
+				Generator4.gen();
+				break;
+			default: 
+				Generator1.gen();
 		}
 	}
 }
