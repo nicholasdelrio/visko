@@ -77,7 +77,11 @@ public class ViskoSPARQLEndpoint {
 
 	private String execute(String query) {
 		try {
-			String requestURL = endpointURL + "?query=" + URLEncoder.encode(query, "utf-8");
+			String requestURL;
+			if(query.contains("?"))
+				requestURL = endpointURL + "&query=" + URLEncoder.encode(query, "utf-8");
+			else
+				requestURL = endpointURL + "?query=" + URLEncoder.encode(query, "utf-8");				
 
 			URL someURL = new URL(requestURL);
 			URLConnection urlc = someURL.openConnection();
