@@ -18,7 +18,7 @@
 			<lib dir="${lib}/axis4"/>
 			<lib dir="${lib}/ciclient"/>
 			<lib dir="${lib}/apache"/>
-			<lib dir="${lib}/jena264"/>
+			<lib dir="${lib}/jena262"/>
 			<lib dir="${lib}/util"/>
 			
 			<fileset dir="${web-content}"/>
@@ -50,7 +50,7 @@
 				<fileset dir="${lib}/axis4/">
 					<include name="*.jar"/>
 				</fileset>
-				<fileset dir="${lib}/jena264/">
+				<fileset dir="${lib}/jena262/">
 					<include name="*.jar"/>
 				</fileset>	
 				<fileset dir="${lib}/util/">
@@ -81,7 +81,7 @@
 				<fileset dir="${lib}/axis4/">
 					<include name="*.jar"/>
 				</fileset>
-				<fileset dir="${lib}/jena264/">
+				<fileset dir="${lib}/jena262/">
 					<include name="*.jar"/>
 				</fileset>	
 				<fileset dir="${lib}/util/">
