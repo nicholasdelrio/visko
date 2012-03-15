@@ -25,7 +25,6 @@ import javax.servlet.http.HttpServletRequest;
 import edu.utep.trustlab.visko.web.json.FormatGraphData;
 import edu.utep.trustlab.visko.web.json.OperatorGraphData;
 import edu.utep.trustlab.visko.web.json.InstanceBarGraphData;
-import edu.utep.trustlab.visko.web.context.ViskoTDBContext;
 
 public class KnowledgeBaseInformationServlet{
 	public String doGet(HttpServletRequest request){

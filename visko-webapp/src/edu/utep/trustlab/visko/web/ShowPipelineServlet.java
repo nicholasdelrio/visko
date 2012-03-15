@@ -20,9 +20,6 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.web;
 
-
-import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
 
 import edu.utep.trustlab.visko.execution.Pipeline;
