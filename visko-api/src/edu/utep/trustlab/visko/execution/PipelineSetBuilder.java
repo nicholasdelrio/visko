@@ -251,19 +251,14 @@ public class PipelineSetBuilder {
 
 		if (ts.isAlreadyVisualizableWithViewerSet(formatURI, viewerSetURI)) {
 			System.out.println("already visualizable...");
-			Vector<String> targetViewer = ResultSetToVector
-					.getVectorFromResultSet(ts.getTargetViewerOfViewerSet(
-							formatURI, viewerSetURI), "viewer");
+			Vector<String> targetViewer = ResultSetToVector.getVectorFromResultSet(ts.getTargetViewerOfViewerSet(formatURI, viewerSetURI), "viewer");
 			formatPath = new FormatPath(targetViewer.get(0));
 			formatPath.add(formatURI);
 			formatPaths.add(formatPath);
 		}
 
-		ResultSet targetFormats = ts.getTargetFormatsFromViewerSet(formatURI,
-				viewerSetURI);
-		System.out.println(targetFormats.hasNext());
-		Vector<String[]> targetFormatsVector = ResultSetToVector
-				.getVectorPairsFromResultSet(targetFormats, "format", "viewer");
+		ResultSet targetFormats = ts.getTargetFormatsFromViewerSet(formatURI,viewerSetURI);
+		Vector<String[]> targetFormatsVector = ResultSetToVector.getVectorPairsFromResultSet(targetFormats, "format", "viewer");
 		System.out.println(targetFormatsVector.size());
 
 		for (String[] targetFormatAndViewer : targetFormatsVector) {

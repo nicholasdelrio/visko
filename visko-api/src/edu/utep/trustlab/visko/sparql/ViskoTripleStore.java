@@ -208,7 +208,7 @@ public class ViskoTripleStore {
 		return endpoint.executeQuery(stringQuery);
 	}
 
-	public ResultSet isTransformer(String uri) {
+	public boolean isTransformer(String uri) {
 		uri = "<" + uri + ">";
 
 		String stringQuery = QUERY_PREFIX
@@ -217,7 +217,7 @@ public class ViskoTripleStore {
 				+ uri
 				+ " rdf:type <http://trust.utep.edu/visko/ontology/visko-operator-v3.owl#Transformer> . }";
 
-		return endpoint.executeQuery(stringQuery);
+		return endpoint.executeAskQuery(stringQuery);
 	}
 
 	public boolean isMapper(String uri) {

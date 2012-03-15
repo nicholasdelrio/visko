@@ -48,10 +48,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
-
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.query.ResultSetFactory;
-import com.hp.hpl.jena.query.ResultSetFormatter;
+
 
 public class ViskoSPARQLEndpoint {
 	
@@ -74,7 +73,7 @@ public class ViskoSPARQLEndpoint {
 		String results = execute(query);
 		return ResultSetFactory.fromXML(results);
 	}
-
+	
 	private String execute(String query) {
 		try {
 			String requestURL;
