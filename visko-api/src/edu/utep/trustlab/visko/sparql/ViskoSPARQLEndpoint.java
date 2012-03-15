@@ -40,13 +40,10 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.sparql;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.LineNumberReader;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
+
 import java.net.URLEncoder;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.query.ResultSetFactory;
@@ -75,41 +72,28 @@ public class ViskoSPARQLEndpoint {
 	}
 	
 	private String execute(String query) {
-		try {
-			String requestURL;
+		String requestURL;
+		String content = "";
+		
+		try{
 			if(query.contains("?"))
 				requestURL = endpointURL + "&query=" + URLEncoder.encode(query, "utf-8");
 			else
-				requestURL = endpointURL + "?query=" + URLEncoder.encode(query, "utf-8");				
+				requestURL = endpointURL + "?query=" + URLEncoder.encode(query, "utf-8");
+		
+			URL myUrl = new URL(requestURL);
+			BufferedReader in = new BufferedReader(new InputStreamReader(myUrl.openStream()));
 
-			URL someURL = new URL(requestURL);
-			URLConnection urlc = someURL.openConnection();
-			urlc.setRequestProperty("Accept", "application/xml");
-			urlc.connect();
+			String line;
+	    
+			while ((line = in.readLine()) != null)
+	        content += line + "\n";
 
-			Object resp = urlc.getContent();
-			InputStream body = (InputStream) resp;
-			InputStreamReader isr = new InputStreamReader(body);
-			LineNumberReader lr = new LineNumberReader(isr);
-			StringBuffer ret = new StringBuffer();
-
-			while (true) {
-				String line = lr.readLine();
-				if (line == null) {
-					break;
-				}
-				ret.append(line).append("\n");
-			}
-
-			return ret.toString();
-
-		} catch (MalformedURLException u) {
-			u.printStackTrace();
-			return null;
-
-		} catch (IOException i) {
-
-			i.printStackTrace();
+			in.close();
+	    
+			return content;
+		}catch(Exception e){
+			e.printStackTrace();
 			return null;
 		}
 	}
