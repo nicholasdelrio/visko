@@ -29,7 +29,15 @@ public class TDBTripleStore {
 	public ResultSet execute(String queryString){
 		  Query query = QueryFactory.create(queryString) ;
 		  QueryExecution qexec = QueryExecutionFactory.create(query, model);
-		  return qexec.execSelect();
+		  ResultSet results = qexec.execSelect();
+		  return results;
+	}
+	
+	public boolean executeAsk(String askQueryString){
+		  Query query = QueryFactory.create(askQueryString) ;
+		  QueryExecution qexec = QueryExecutionFactory.create(query, model);
+		  boolean result = qexec.execAsk();
+		  return result;		
 	}
 	
 	public static String toXML(ResultSet results){

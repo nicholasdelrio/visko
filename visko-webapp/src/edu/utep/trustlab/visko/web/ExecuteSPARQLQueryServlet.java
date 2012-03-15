@@ -31,12 +31,19 @@ public class ExecuteSPARQLQueryServlet{
 	public String doGet(HttpServletRequest request){
 		String query = request.getParameter("query");
 		TDBTripleStore viskoTripleStore = new TDBTripleStore();
-		ResultSet results = viskoTripleStore.execute(query);
+		
+		ResultSet results;
+		if(query.toLowerCase().contains("ask"))
+			return "<?xml version=\"1.0\"?><result>" + viskoTripleStore.executeAsk(query) + "</result>";
+		else
+			results = viskoTripleStore.execute(query);
+		
 		if(results != null){
-			return TDBTripleStore.toXML(results);
+			String xml = TDBTripleStore.toXML(results);
+			return xml;
 		}
 		else{
-			return "<html><body><p>Invalid argument specified for <b>requestType</b></body></html>";
+			return "<?xml version=\"1.0\"?><message>Query Yielded a Null Response.</message>";
 		}
 	}
 }

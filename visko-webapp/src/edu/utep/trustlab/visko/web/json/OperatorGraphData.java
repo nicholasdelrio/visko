@@ -52,6 +52,8 @@ public class OperatorGraphData {
 		ResultSet viewers = ts.getViewers();
 		ResultSet transformers = ts.getTransformers();
 
+		System.out.println(transformers.hasNext());
+		
 		ArrayList<JSONObject> nodeList = new ArrayList<JSONObject>();
 		QuerySolution solution;
 		String viewerURI;

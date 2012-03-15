@@ -50,6 +50,7 @@ public class ViskoServletManager extends HttpServlet {
 		
 		String requestType = request.getParameter("requestType");
 		String html;
+		response.setContentType("text/html");
 		if(requestType.equalsIgnoreCase("execute-pipeline"))
 			html = new ExecutePipelineServlet().doGet(request);
 		else if(requestType.equalsIgnoreCase("execute-query-service"))
@@ -60,8 +61,10 @@ public class ViskoServletManager extends HttpServlet {
 			html = new KnowledgeBaseInformationServlet().doGet(request);
 		else if(requestType.equalsIgnoreCase("show-pipeline"))
 			html = new ShowPipelineServlet().doGet(request);
-		else if(requestType.equals("query-triple-store"))
+		else if(requestType.equals("query-triple-store")){
+			response.setContentType("application/sparql-results+xml ");
 			html = new ExecuteSPARQLQueryServlet().doGet(request);
+		}
 		else
 			html = "<html><body><p>Invalid argument specified for <b>requestType</b></body></html>";
 		
