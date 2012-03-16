@@ -76,11 +76,11 @@ public class OperatorGraphData {
 				transformerURI = solution.get("trans").toString();
 
 				if (OperatorGraphData.operators.get(transformerURI) == null) {
-					OperatorGraphData.operators.put(transformerURI,
-							nodeList.size());
-					if (ts.isMapper(transformerURI))
+					OperatorGraphData.operators.put(transformerURI, nodeList.size());
+					if (ts.isMapper(transformerURI)){
 						nodeList.add(new JSONObject().put("operatorURI",
 								transformerURI).put("viskoType", "Mapper"));
+					}
 					else
 						nodeList.add(new JSONObject().put("operatorURI",
 								transformerURI).put("viskoType", "Transformer"));
@@ -102,12 +102,7 @@ public class OperatorGraphData {
 		String outputOfOperator;
 		String inputToOperator;
 		String formatURI;
-
-		System.out.println("num vars: " + formatsInfo.getResultVars().size());
-
-		for (int i = 0; i < formatsInfo.getResultVars().size(); i++)
-			System.out.println(formatsInfo.getResultVars().get(i));
-
+		
 		int source;
 		int target;
 		try {

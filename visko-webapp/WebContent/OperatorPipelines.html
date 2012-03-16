@@ -87,11 +87,11 @@ text.shadow {
     	.attr("r", 5)
     	.style("fill", function(d) {
     		if(d.viskoType == "Viewer")
-    			return "blue";
+    			return "white";
     		else if(d.viskoType == "Transformer")
-    			return "red";
+    			return "purple";
     		else
-    			return "green";
+    			return "orange";
     		})
     	.call(force.drag);
 
