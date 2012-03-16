@@ -60,7 +60,7 @@ public class ViskoSPARQLEndpoint {
 	public boolean executeAskQuery(String query) {
 		String results = execute(query);
 
-		if (results.contains("true"))
+		if (results.toLowerCase().contains("true"))
 			return true;
 
 		return false;
@@ -76,7 +76,7 @@ public class ViskoSPARQLEndpoint {
 		String content = "";
 		
 		try{
-			if(query.contains("?"))
+			if(endpointURL.contains("?"))
 				requestURL = endpointURL + "&query=" + URLEncoder.encode(query, "utf-8");
 			else
 				requestURL = endpointURL + "?query=" + URLEncoder.encode(query, "utf-8");
