@@ -48,7 +48,7 @@
 	
 	<target name="generator2" depends="build">
 		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorManager">
-			<arg value="1"/>
+			<arg value="2"/>
 			<arg value="${server-url}"/>
 			<arg value="${visko-rdf}"/>
 			
@@ -77,7 +77,7 @@
 
 	<target name="generator3" depends="build">
 		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorManager">
-			<arg value="1"/>
+			<arg value="3"/>
 			<arg value="${server-url}"/>
 			<arg value="${visko-rdf}"/>
 			
@@ -106,7 +106,7 @@
 
 	<target name="generator4" depends="build">
 		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorManager">
-			<arg value="1"/>
+			<arg value="4"/>
 			<arg value="${server-url}"/>
 			<arg value="${visko-rdf}"/>
 			
