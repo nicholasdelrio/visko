@@ -14,6 +14,7 @@ public class SwitchRepositoryURL {
 		File rdf = new File(rdfDirectory);
 		for(File aFile : rdf.listFiles()){
 			if(aFile.getName().toLowerCase().endsWith(".owl")){
+				System.out.println("processing: " + aFile.getAbsolutePath());
 				String contents = FileUtilities.readTextFile(aFile.getAbsolutePath());
 				String updatedContents = contents.replaceAll(nicholasdelrio, github_username);
 				FileUtilities.writeTextFile(updatedContents, aFile.getAbsolutePath());
