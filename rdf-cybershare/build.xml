@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project default="build" name="VisKo RDF Boostrapper">
-	<property name="github-username" value="paulopinheiro1234"/>
+<project default="build" name="VisKo Cybershare RDF Manager">
+	<property name="github-username" value="nicholasdelrio"/>
 	<property name="server-url" value="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/"/>
 	<property name="jarfile" value="utep-rdf-generator.jar"/>
-	<property name="visko-rdf" value="../visko-rdf"/>
-	<property name="lib" value="../visko-api/lib/"/>
+	<property name="visko-rdf" value="../rdf/"/>
+	<property name="lib" value="../api/lib/"/>
 	<property name="build" value="build"/>
 	<property name="src" value="src"/>
-	<property name="visko-api" value="../visko-api"/>
-	<property name="visko-api-jar" value="../visko-api/visko-api.jar"/>
+	<property name="visko-api" value="../api"/>
+	<property name="visko-api-jar" value="../api/visko-api.jar"/>
 	<property name="config-file" value="WebContent/WEB-INF/web.xml"/>
 	<property name="web-content" value="WebContent"/>	
 		
@@ -190,7 +190,15 @@
 				</fileset>
 			</classpath>			
 		</javac>
-	</target>	
+	</target>
+	
+	<target name="clean-rdf" description="Delete the RDF Visko Instances">
+		<delete>
+			<fileset dir="${visko-rdf}">
+				<include name="*.owl"/>
+			</fileset>
+		</delete>
+	</target>
 	
 	<target name="clean" description="Delete the Build Directory">
 		<delete dir="${build}" />

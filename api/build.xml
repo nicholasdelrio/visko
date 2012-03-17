@@ -104,11 +104,6 @@
 	<target name="clean-triple-store" description="Delete the TDB Triple Store Instance">
 		<delete dir="../visko-tdb/" />
 	</target>
-
-	<target name="clean-rdf" description="Delete the RDF Visko Instances">
-		<delete dir="../visko-rdf/" />
-	</target>
-
 	
 	<target name="clean" description="Delete the Build Directory and the Jar File">
 		<delete dir="${build}" />

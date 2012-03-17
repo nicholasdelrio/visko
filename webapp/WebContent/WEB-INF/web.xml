@@ -20,7 +20,7 @@
     </init-param>
     <init-param>
       <param-name>visko-tdb-path</param-name>
-      <param-value>C:\Users\Public\git\visko\visko-tdb</param-value>
+      <param-value>C:\Users\Public\git\visko\tdb</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
