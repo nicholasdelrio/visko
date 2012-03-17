@@ -162,7 +162,7 @@
 		</java>	
 	</target>
 	
-	<target name="compile" depends="clean" description="Compile VisKo Bootstrapper in build Directory">	
+	<target name="compile" depends="clean" description="Compile visko-rdf-cybershare in build Directory">	
 		<ant antfile="${visko-api}/build.xml" target="build" inheritAll="false" />
 		
 		<mkdir dir="${build}"/>
@@ -192,9 +192,7 @@
 		</javac>
 	</target>	
 	
-	<target name="clean" description="Delete the Build Directory and the WAR File">
+	<target name="clean" description="Delete the Build Directory">
 		<delete dir="${build}" />
-		<delete dir="${doc}" />
-		<delete file="${basedir}/${warfile}" />
 	</target>
 </project>
