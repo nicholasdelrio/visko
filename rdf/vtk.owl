@@ -4,10 +4,10 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:viskoS="http://trust.utep.edu/visko/ontology/visko-service-v3.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-  <owl:Ontology rdf:about="https://raw.github.com/paulopinheiro1234/visko/master/visko-rdf/vtk.owl">
+  <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtk.owl">
     <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/visko-service-v3.owl"/>
   </owl:Ontology>
-  <viskoS:Toolkit rdf:about="https://raw.github.com/paulopinheiro1234/visko/master/visko-rdf/vtk.owl#vtk">
+  <viskoS:Toolkit rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtk.owl#vtk">
     <rdfs:label>Visualization Toolkit</rdfs:label>
   </viskoS:Toolkit>
 </rdf:RDF>

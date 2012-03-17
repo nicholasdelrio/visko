@@ -4,10 +4,10 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:esip="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-  <owl:Ontology rdf:about="https://raw.github.com/paulopinheiro1234/visko/master/visko-rdf/plot-2D.owl">
+  <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/plot-2D.owl">
     <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/esip-data.owl"/>
   </owl:Ontology>
-  <esip:Point rdf:about="https://raw.github.com/paulopinheiro1234/visko/master/visko-rdf/plot-2D.owl#plot-2D">
+  <esip:Point rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/plot-2D.owl#plot-2D">
     <rdfs:label>2D Dimensional Plot</rdfs:label>
   </esip:Point>
 </rdf:RDF>

@@ -4,10 +4,10 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:esip="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-  <owl:Ontology rdf:about="https://raw.github.com/paulopinheiro1234/visko/master/visko-rdf/volume.owl">
+  <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/volume.owl">
     <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/esip-data.owl"/>
   </owl:Ontology>
-  <esip:Volume rdf:about="https://raw.github.com/paulopinheiro1234/visko/master/visko-rdf/volume.owl#volume">
+  <esip:Volume rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/volume.owl#volume">
     <rdfs:label>Volume</rdfs:label>
   </esip:Volume>
 </rdf:RDF>

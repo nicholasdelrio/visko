@@ -4,10 +4,10 @@
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-  <owl:Ontology rdf:about="https://raw.github.com/paulopinheiro1234/visko/master/visko-rdf/mozilla-firefox.owl">
+  <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/mozilla-firefox.owl">
     <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/visko-operator-v3.owl"/>
   </owl:Ontology>
-  <viskoO:ViewerSet rdf:about="https://raw.github.com/paulopinheiro1234/visko/master/visko-rdf/mozilla-firefox.owl#mozilla-firefox">
+  <viskoO:ViewerSet rdf:about="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/mozilla-firefox.owl#mozilla-firefox">
     <rdfs:label>Mozilla Firefox</rdfs:label>
   </viskoO:ViewerSet>
 </rdf:RDF>
