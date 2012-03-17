@@ -1,0 +1,24 @@
+<rdf:RDF
+    xmlns:viskoO="http://trust.utep.edu/visko/ontology/visko-operator-v3.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:pmlp="http://inference-web.org/2.0/pml-provenance.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <owl:Ontology rdf:about="https://raw.github.com/paulopinheiro1234/visko/master/visko-rdf/plain-text-viewer.owl">
+    <owl:imports rdf:resource="http://inference-web.org/2.0/pml-provenance.owl"/>
+    <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/visko-operator-v3.owl"/>
+  </owl:Ontology>
+  <viskoO:Viewer rdf:about="https://raw.github.com/paulopinheiro1234/visko/master/visko-rdf/plain-text-viewer.owl#plain-text-viewer">
+    <viskoO:partOfViewerSet rdf:resource="https://raw.github.com/paulopinheiro1234/visko/master/visko-rdf/internet-explorer.owl#internet-explorer"/>
+    <rdfs:label>Plain Text Viewer</rdfs:label>
+    <viskoO:operatesOn rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/formats/VNDLATEXZ.owl#VNDLATEXZ"/>
+    <rdfs:comment>Does nothing really, just extracts the text from the PML conclusion...</rdfs:comment>
+    <viskoO:partOfViewerSet rdf:resource="https://raw.github.com/paulopinheiro1234/visko/master/visko-rdf/probeit.owl#probeit"/>
+    <viskoO:partOfViewerSet rdf:resource="https://raw.github.com/paulopinheiro1234/visko/master/visko-rdf/mozilla-firefox.owl#mozilla-firefox"/>
+    <viskoO:operatesOn rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/formats/PLAIN.owl#PLAIN"/>
+    <viskoO:operatesOn rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/formats/PLAINTEXT.owl#PLAINTEXT"/>
+    <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >plain-text-viewer</pmlp:hasName>
+  </viskoO:Viewer>
+</rdf:RDF>
