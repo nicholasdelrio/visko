@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="build" name="VisKo Cybershare RDF Manager">
 	<property name="github-username" value="nicholasdelrio"/>
-	<property name="server-url" value="https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/"/>
+	<property name="server-url" value="https://raw.github.com/nicholasdelrio/visko/master/rdf/"/>
 	<property name="jarfile" value="utep-rdf-generator.jar"/>
 	<property name="visko-rdf" value="../rdf/"/>
 	<property name="lib" value="../api/lib/"/>
