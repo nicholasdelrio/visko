@@ -19,16 +19,18 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 
 package edu.utep.trustlab.visko.knowledge.universal;
+import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.operator.writer.ViewerWriter;
 
 public class Viewers {
 
 	public static void create() {
 		String documentURL;
-
+		String baseURL = Repository.getRepository().getBaseURL();
 		ViewerWriter wtr = new ViewerWriter("imageJ-viewer");
 		wtr.setLabel("ImageJ Viewer");
-		wtr.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/probeit.owl#probeit");
+		System.out.println(baseURL);
+		wtr.addPartOfSetURI(baseURL + "probeit.owl#probeit");
 		wtr.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/GIF.owl#GIF");
 		wtr.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/PNG.owl#PNG");
 		wtr.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/JPEG.owl#JPEG");
@@ -41,7 +43,7 @@ public class Viewers {
 		System.out.println(documentURL);
 
 		ViewerWriter wtr1 = new ViewerWriter("parvis-viewer");
-		wtr1.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/probeit.owl#probeit");
+		wtr1.addPartOfSetURI(baseURL + "probeit.owl#probeit");
 		wtr1.setLabel("Parvis Parallel Coordinates Viewer");
 		wtr1.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/VNDWTSTF.owl#VNDWTSTF");
 		wtr1.setViewerComment("Parvis is a tool for parallel coordinates (PC) visualisation of multidimensional data sets, as first described in [Inselberg 1981].");
@@ -49,9 +51,9 @@ public class Viewers {
 		System.out.println(documentURL);
 
 		ViewerWriter wtr2 = new ViewerWriter("pdf-viewer");
-		wtr2.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/probeit.owl#probeit");
-		wtr2.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/mozilla-firefox.owl#mozilla-firefox");
-		wtr2.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/internet-explorer.owl#internet-explorer");
+		wtr2.addPartOfSetURI(baseURL + "probeit.owl#probeit");
+		wtr2.addPartOfSetURI(baseURL + "mozilla-firefox.owl#mozilla-firefox");
+		wtr2.addPartOfSetURI(baseURL + "internet-explorer.owl#internet-explorer");
 		wtr2.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/PDF.owl#PDF");
 		wtr2.setLabel("Adobe Portable Document Format (PDF) Viewer");
 		wtr2.setViewerComment("Renders PDF document and allows for zooming.");
@@ -59,9 +61,9 @@ public class Viewers {
 		System.out.println(documentURL);
 
 		ViewerWriter wtr3 = new ViewerWriter("plain-text-viewer");
-		wtr3.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/probeit.owl#probeit");
-		wtr3.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/mozilla-firefox.owl#mozilla-firefox");
-		wtr3.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/internet-explorer.owl#internet-explorer");
+		wtr3.addPartOfSetURI(baseURL + "probeit.owl#probeit");
+		wtr3.addPartOfSetURI(baseURL + "mozilla-firefox.owl#mozilla-firefox");
+		wtr3.addPartOfSetURI(baseURL + "internet-explorer.owl#internet-explorer");
 		wtr3.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/PLAIN.owl#PLAIN");
 		wtr3.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/PLAINTEXT.owl#PLAINTEXT");
 		wtr3.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/VNDLATEXZ.owl#VNDLATEXZ");
@@ -71,8 +73,8 @@ public class Viewers {
 		System.out.println(documentURL);
 
 		ViewerWriter wtr4 = new ViewerWriter("browser-image-viewer");
-		wtr4.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/mozilla-firefox.owl#mozilla-firefox");
-		wtr4.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/internet-explorer.owl#internet-explorer");
+		wtr4.addPartOfSetURI(baseURL + "mozilla-firefox.owl#mozilla-firefox");
+		wtr4.addPartOfSetURI(baseURL + "internet-explorer.owl#internet-explorer");
 		wtr4.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/GIF.owl#GIF");
 		wtr4.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/PNG.owl#PNG");
 		wtr4.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/JPEG.owl#JPEG");
@@ -82,7 +84,7 @@ public class Viewers {
 		System.out.println(documentURL);
 
 		ViewerWriter wtr5 = new ViewerWriter("diva-graphics-viewer");
-		wtr5.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/diva-graphics.owl#diva-graphics");
+		wtr5.addPartOfSetURI(baseURL + "diva-graphics.owl#diva-graphics");
 		wtr5.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/GIF.owl#GIF");
 		wtr5.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/PNG.owl#PNG");
 		wtr5.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/JPEG.owl#JPEG");
@@ -92,9 +94,9 @@ public class Viewers {
 		System.out.println(documentURL);
 
 		ViewerWriter wtr6 = new ViewerWriter("html-viewer");
-		wtr6.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/probeit.owl#probeit");
-		wtr6.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/mozilla-firefox.owl#mozilla-firefox");
-		wtr6.addPartOfSetURI("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/internet-explorer.owl#internet-explorer");
+		wtr6.addPartOfSetURI(baseURL + "probeit.owl#probeit");
+		wtr6.addPartOfSetURI(baseURL + "mozilla-firefox.owl#mozilla-firefox");
+		wtr6.addPartOfSetURI(baseURL + "internet-explorer.owl#internet-explorer");
 		wtr6.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/HTML.owl#HTML");
 		wtr6.setLabel("HyperText Markup Language (HTML) Viewer");
 		wtr6.setViewerComment("Renders HTML documents.");

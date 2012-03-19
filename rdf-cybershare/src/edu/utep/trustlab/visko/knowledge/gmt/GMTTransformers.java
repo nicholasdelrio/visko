@@ -20,20 +20,21 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge.gmt;
 
+import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.operator.writer.TransformerWriter;
 
 public class GMTTransformers {
 	public static void create() {
 
 		String name;
-
+		String baseURL = Repository.getRepository().getBaseURL();
 		TransformerWriter wtr = new TransformerWriter("contourer");
 		wtr.addInputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/formats/ESRIGRID.owl#ESRIGRID");
 		wtr.setOutputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/formats/POSTSCRIPT.owl#POSTSCRIPT");
 		name = "contour";
 		wtr.setLabel(name);
 		wtr.setName(name);
-		wtr.setMappedToView("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/contour-lines.owl#contour-lines");
+		wtr.setMappedToView(baseURL + "contour-lines.owl#contour-lines");
 		wtr.saveDocument();
 
 		System.out.println(wtr);
@@ -51,7 +52,7 @@ public class GMTTransformers {
 		name = "2D plotter";
 		wtr2.setLabel(name);
 		wtr2.setName(name);
-		wtr2.setMappedToView("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/plot-2D.owl#plot-2D");
+		wtr2.setMappedToView(baseURL + "plot-2D.owl#plot-2D");
 		wtr2.saveDocument();
 		
 		TransformerWriter wtr3 = new TransformerWriter("rasterer");
@@ -60,7 +61,7 @@ public class GMTTransformers {
 		name = "Raster Map Generator";
 		wtr3.setLabel(name);
 		wtr3.setName(name);
-		wtr3.setMappedToView("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/raster.owl#raster");
+		wtr3.setMappedToView(baseURL + "raster.owl#raster");
 		wtr3.saveDocument();
 
 		TransformerWriter wtr5 = new TransformerWriter("csv-to-tabular-ascii");

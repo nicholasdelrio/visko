@@ -1,0 +1,22 @@
+<rdf:RDF
+    xmlns:viskoO="http://trust.utep.edu/visko/ontology/visko-operator-v3.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:pmlp="http://inference-web.org/2.0/pml-provenance.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/rdf/pdf-viewer.owl">
+    <owl:imports rdf:resource="http://inference-web.org/2.0/pml-provenance.owl"/>
+    <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/visko-operator-v3.owl"/>
+  </owl:Ontology>
+  <viskoO:Viewer rdf:about="https://raw.github.com/nicholasdelrio/visko/master/rdf/pdf-viewer.owl#pdf-viewer">
+    <viskoO:partOfViewerSet rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/internet-explorer.owl#internet-explorer"/>
+    <viskoO:partOfViewerSet rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/mozilla-firefox.owl#mozilla-firefox"/>
+    <viskoO:partOfViewerSet rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/probeit.owl#probeit"/>
+    <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >pdf-viewer</pmlp:hasName>
+    <viskoO:operatesOn rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/formats/PDF.owl#PDF"/>
+    <rdfs:label>Adobe Portable Document Format (PDF) Viewer</rdfs:label>
+    <rdfs:comment>Renders PDF document and allows for zooming.</rdfs:comment>
+  </viskoO:Viewer>
+</rdf:RDF>

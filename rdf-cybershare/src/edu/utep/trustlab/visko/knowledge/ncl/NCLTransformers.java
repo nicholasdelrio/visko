@@ -19,10 +19,12 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 
 package edu.utep.trustlab.visko.knowledge.ncl;
+import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.operator.writer.TransformerWriter;
 
 public class NCLTransformers {
 	public static void create() {
+		String baseURL = Repository.getRepository().getBaseURL();
 		String name;
 		TransformerWriter wtr = new TransformerWriter("netCDFContourer");
 		wtr.setOutputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/formats/POSTSCRIPT.owl#POSTSCRIPT");
@@ -30,7 +32,7 @@ public class NCLTransformers {
 		name = "Contour Map Generation";
 		wtr.setLabel(name);
 		wtr.setName(name);
-		wtr.setMappedToView("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/contour-lines.owl#contour-lines");
+		wtr.setMappedToView(baseURL + "contour-lines.owl#contour-lines");
 		wtr.saveDocument();
 
 		TransformerWriter wtr1 = new TransformerWriter("netCDFRasterer");
@@ -39,7 +41,7 @@ public class NCLTransformers {
 		name = "Raster Map Generation";
 		wtr1.setLabel(name);
 		wtr1.setName(name);
-		wtr1.setMappedToView("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/raster.owl#raster");
+		wtr1.setMappedToView(baseURL + "raster.owl#raster");
 		wtr1.saveDocument();
 
 		TransformerWriter wtr2 = new TransformerWriter("netCDFTimeSeriesPlotter");
@@ -48,7 +50,7 @@ public class NCLTransformers {
 		name = "Time Series Plot Generator";
 		wtr2.setLabel(name);
 		wtr2.setName(name);
-		wtr2.setMappedToView("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/XYPlot.owl#XYPlot");
+		wtr2.setMappedToView(baseURL + "XYPlot.owl#XYPlot");
 		wtr2.saveDocument();
 	}
 }

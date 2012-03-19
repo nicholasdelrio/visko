@@ -20,12 +20,13 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge.universal.profiles;
 
+import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class CoverageModelProfile {
 	public static void create() {
 		String documentURL;
-
+		String baseURL = Repository.getRepository().getBaseURL();
 		/************ profile for velocity ******************************/
 		String dataTypeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d7-0";
 
@@ -33,72 +34,72 @@ public class CoverageModelProfile {
 		wtr.addDataType(dataTypeURI);
 
 		// for vtkImageReader
-		wtr.addInputBinding("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkImageDataReaderService.owl#littleEndian","true");
-		wtr.addInputBinding("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkImageDataReaderService.owl#dim", "3");
-		wtr.addInputBinding("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkImageDataReaderService.owl#dataOrigin", "0/0/0");
-		wtr.addInputBinding("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkImageDataReaderService.owl#dataSpacing", "1/1/1");
-		wtr.addInputBinding("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkImageDataReaderService.owl#dataExtent", "0/229/0/24/0/67");
-		wtr.addInputBinding("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkImageDataReaderService.owl#numScalarComponents", "1");
-		wtr.addInputBinding("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkImageDataReaderService.owl#readLowerLeft","true");
+		wtr.addInputBinding(baseURL + "vtkImageDataReaderService.owl#littleEndian","true");
+		wtr.addInputBinding(baseURL + "vtkImageDataReaderService.owl#dim", "3");
+		wtr.addInputBinding(baseURL + "vtkImageDataReaderService.owl#dataOrigin", "0/0/0");
+		wtr.addInputBinding(baseURL + "vtkImageDataReaderService.owl#dataSpacing", "1/1/1");
+		wtr.addInputBinding(baseURL + "vtkImageDataReaderService.owl#dataExtent", "0/229/0/24/0/67");
+		wtr.addInputBinding(baseURL + "vtkImageDataReaderService.owl#numScalarComponents", "1");
+		wtr.addInputBinding(baseURL + "vtkImageDataReaderService.owl#readLowerLeft","true");
 
 		// for vtkContourFilter
 		wtr.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkContourFilterService.owl#numContours",
+		baseURL + "vtkContourFilterService.owl#numContours",
 		"35");
 		wtr.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkContourFilterService.owl#scalarRange",
+		baseURL + "vtkContourFilterService.owl#scalarRange",
 		"0.0/9000.0");
 
 		// for vtkPolyDataMapper
 		wtr.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkPolyDataMapperService.owl#scalarRange",
+		baseURL + "vtkPolyDataMapperService.owl#scalarRange",
 		"0.0/9000.0");
 		wtr.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkPolyDataMapperService.owl#xRotation",
+		baseURL + "vtkPolyDataMapperService.owl#xRotation",
 		"105");
 		wtr.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkPolyDataMapperService.owl#yRotation",
+		baseURL + "vtkPolyDataMapperService.owl#yRotation",
 		"0");
 		wtr.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkPolyDataMapperService.owl#zRotation",
+		baseURL + "vtkPolyDataMapperService.owl#zRotation",
 		"0");
 		wtr.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkPolyDataMapperService.owl#size",
+		baseURL + "vtkPolyDataMapperService.owl#size",
 		"400/300");
 		wtr.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkPolyDataMapperService.owl#backgroundColor",
+		baseURL + "vtkPolyDataMapperService.owl#backgroundColor",
 		"1/1/1");
 		wtr.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkPolyDataMapperService.owl#magnification",
+		baseURL + "vtkPolyDataMapperService.owl#magnification",
 		"3");
 
 		// for vtkVolume
 		wtr.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkVolumeService.owl#xRotation",
+		baseURL + "vtkVolumeService.owl#xRotation",
 		"105");
 		wtr.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkVolumeService.owl#yRotation",
+		baseURL + "vtkVolumeService.owl#yRotation",
 		"0");
 		wtr.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkVolumeService.owl#zRotation",
+		baseURL + "vtkVolumeService.owl#zRotation",
 		"0");
 		wtr.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkVolumeService.owl#size",
+		baseURL + "vtkVolumeService.owl#size",
 		"400/300");
 		wtr.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkVolumeService.owl#backgroundColor",
+		baseURL + "vtkVolumeService.owl#backgroundColor",
 		"0/0/0");
 		wtr.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkVolumeService.owl#magnification",
+		baseURL + "vtkVolumeService.owl#magnification",
 		"3");
 		wtr.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkVolumeService.owl#colorFunction",
+		baseURL + "vtkVolumeService.owl#colorFunction",
 		"20,1.0,0.0,0.3/80,1.0,0.0,0.3");
 		wtr.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtkVolumeService.owl#opacityFunction",
+		baseURL + "vtkVolumeService.owl#opacityFunction",
 		"0,0.0/40,1.0");
 
-		wtr.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtk.owl#vtk");
+		wtr.setSupportingToolkit(baseURL + "vtk.owl#vtk");
 		documentURL = wtr.saveDocument();
 		System.out.println(documentURL);
 		}

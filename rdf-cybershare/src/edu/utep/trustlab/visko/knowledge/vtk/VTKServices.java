@@ -20,6 +20,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge.vtk;
 
+import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.service.writer.ServiceWriter;
 
 public class VTKServices {
@@ -27,14 +28,14 @@ public class VTKServices {
 
 	public static void create() {
 		String operationName;
-
+		String baseURL = Repository.getRepository().getBaseURL();
 		operationName = "Int2Short";
 		ServiceWriter wtr = new ServiceWriter(operationName + "Service");
 		wtr.setWSDLURL(wsdlURL);
 		wtr.setLabel(operationName);
 		wtr.setOperationName(operationName);
-		wtr.setConceptualOperator("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/intToShortIntOperator.owl#intToShortIntOperator");
-		wtr.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtk.owl#vtk");
+		wtr.setConceptualOperator(baseURL + "intToShortIntOperator.owl#intToShortIntOperator");
+		wtr.setSupportingToolkit(baseURL + "vtk.owl#vtk");
 		wtr.saveDocument();
 
 		operationName = "Float2ShortThr";
@@ -42,8 +43,8 @@ public class VTKServices {
 		wtr0.setWSDLURL(wsdlURL);
 		wtr0.setLabel(operationName);
 		wtr0.setOperationName(operationName);
-		wtr0.setConceptualOperator("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/floatArrayToShortIntArray.owl#floatArrayToShortIntArray");
-		wtr0.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtk.owl#vtk");
+		wtr0.setConceptualOperator(baseURL + "floatArrayToShortIntArray.owl#floatArrayToShortIntArray");
+		wtr0.setSupportingToolkit(baseURL + "vtk.owl#vtk");
 		wtr0.saveDocument();
 		
 		operationName = "vtkImageDataReader";
@@ -51,8 +52,8 @@ public class VTKServices {
 		wtr1.setWSDLURL(wsdlURL);
 		wtr1.setLabel(operationName);
 		wtr1.setOperationName(operationName);
-		wtr1.setConceptualOperator("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/shortIntArrayToGriddedData.owl#shortIntArrayToGriddedData");
-		wtr1.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtk.owl#vtk");
+		wtr1.setConceptualOperator(baseURL + "shortIntArrayToGriddedData.owl#shortIntArrayToGriddedData");
+		wtr1.setSupportingToolkit(baseURL + "vtk.owl#vtk");
 		wtr1.saveDocument();
 		
 		operationName = "vtkContourFilter";
@@ -60,8 +61,8 @@ public class VTKServices {
 		wtr3.setWSDLURL(wsdlURL);
 		wtr3.setLabel(operationName);
 		wtr3.setOperationName(operationName);
-		wtr3.setConceptualOperator("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/contourer3D.owl#contourer3D");
-		wtr3.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtk.owl#vtk");
+		wtr3.setConceptualOperator(baseURL + "contourer3D.owl#contourer3D");
+		wtr3.setSupportingToolkit(baseURL + "vtk.owl#vtk");
 		wtr3.saveDocument();
 		
 		operationName = "vtkPolyDataMapper";
@@ -69,8 +70,8 @@ public class VTKServices {
 		wtr5.setWSDLURL(wsdlURL);
 		wtr5.setLabel(operationName);
 		wtr5.setOperationName(operationName);
-		wtr5.setConceptualOperator("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/contoursPolyDataToImageOperator.owl#contoursPolyDataToImageOperator");
-		wtr5.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtk.owl#vtk");
+		wtr5.setConceptualOperator(baseURL + "contoursPolyDataToImageOperator.owl#contoursPolyDataToImageOperator");
+		wtr5.setSupportingToolkit(baseURL + "vtk.owl#vtk");
 		wtr5.saveDocument();
 		
 		operationName = "vtkVolume";
@@ -78,8 +79,8 @@ public class VTKServices {
 		wtr6.setWSDLURL(wsdlURL);
 		wtr6.setLabel(operationName);
 		wtr6.setOperationName(operationName);
-		wtr6.setConceptualOperator("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/volume-generator.owl#volume-generator");
-		wtr6.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtk.owl#vtk");
+		wtr6.setConceptualOperator(baseURL + "volume-generator.owl#volume-generator");
+		wtr6.setSupportingToolkit(baseURL + "vtk.owl#vtk");
 		wtr6.saveDocument();
 		
 		operationName = "vtkImageDataReaderFloat";
@@ -87,8 +88,8 @@ public class VTKServices {
 		wtr7.setWSDLURL(wsdlURL);
 		wtr7.setLabel(operationName);
 		wtr7.setOperationName(operationName);
-		wtr7.setConceptualOperator("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/floatArrayToGriddedData.owl#floatArrayToGriddedData");
-		wtr7.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/vtk.owl#vtk");
+		wtr7.setConceptualOperator(baseURL + "floatArrayToGriddedData.owl#floatArrayToGriddedData");
+		wtr7.setSupportingToolkit(baseURL + "vtk.owl#vtk");
 		wtr7.saveDocument();
 	}
 }

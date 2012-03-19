@@ -20,12 +20,13 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge.universal.profiles;
 
+import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class BrightnessTemperatureProfile {
 	public static void create() {
 		String documentURL;
-
+		String baseURL = Repository.getRepository().getBaseURL();
 		/************ profile for brightness data ******************************/
 		String dataTypeURI = "http://giovanni.gsfc.nasa.gov/data/brightness.owl#brightness";
 
@@ -33,21 +34,21 @@ public class BrightnessTemperatureProfile {
 		wtr.addDataType(dataTypeURI);
 
 		// for netCDFGridContour
-		wtr.addInputBinding("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/netCDFGridContour.owl#plotVariable", "ch4");
-		wtr.addInputBinding("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/netCDFGridContour.owl#lbOrientation", "vertical");
-		wtr.addInputBinding("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/netCDFGridContour.owl#cnLevelSpacingF", "10");
-		wtr.addInputBinding("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/netCDFGridContour.owl#colorTable", "WhiteBlueGreenYellowRed");
-		wtr.addInputBinding("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/netCDFGridContour.owl#font", "helvetica");
-		wtr.addInputBinding("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/netCDFGridContour.owl#cnFillOn", "True");
-		wtr.addInputBinding("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/netCDFGridContour.owl#cnLinesOn", "False");
+		wtr.addInputBinding(baseURL + "netCDFGridContour.owl#plotVariable", "ch4");
+		wtr.addInputBinding(baseURL + "netCDFGridContour.owl#lbOrientation", "vertical");
+		wtr.addInputBinding(baseURL + "netCDFGridContour.owl#cnLevelSpacingF", "10");
+		wtr.addInputBinding(baseURL + "netCDFGridContour.owl#colorTable", "WhiteBlueGreenYellowRed");
+		wtr.addInputBinding(baseURL + "netCDFGridContour.owl#font", "helvetica");
+		wtr.addInputBinding(baseURL + "netCDFGridContour.owl#cnFillOn", "True");
+		wtr.addInputBinding(baseURL + "netCDFGridContour.owl#cnLinesOn", "False");
 
 		// for netCDFGridRaster
-		wtr.addInputBinding("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/netCDFGridRaster.owl#plotVariable", "ch4");
-		wtr.addInputBinding("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/netCDFGridRaster.owl#lbOrientation", "vertical");
-		wtr.addInputBinding("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/netCDFGridRaster.owl#colorTable", "WhiteBlueGreenYellowRed");
-		wtr.addInputBinding("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/netCDFGridRaster.owl#font", "helvetica");
+		wtr.addInputBinding(baseURL + "netCDFGridRaster.owl#plotVariable", "ch4");
+		wtr.addInputBinding(baseURL + "netCDFGridRaster.owl#lbOrientation", "vertical");
+		wtr.addInputBinding(baseURL + "netCDFGridRaster.owl#colorTable", "WhiteBlueGreenYellowRed");
+		wtr.addInputBinding(baseURL + "netCDFGridRaster.owl#font", "helvetica");
 
-		wtr.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ncl.owl#ncl");
+		wtr.setSupportingToolkit(baseURL + "ncl.owl#ncl");
 		documentURL = wtr.saveDocument();
 		System.out.println(documentURL);
 	}

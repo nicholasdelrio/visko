@@ -19,20 +19,21 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 
 package edu.utep.trustlab.visko.knowledge.ncl;
+import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.service.writer.ServiceWriter;
 
 public class NCLServices {
 	private static final String wsdlURL = "http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl";
 
 	public static void create() {
-
+		String baseURL = Repository.getRepository().getBaseURL();
 		String operationName = "esriGridContour";
 		ServiceWriter wtr = new ServiceWriter(operationName);
 		wtr.setLabel(operationName);
 		wtr.setOperationName(operationName);
 		wtr.setWSDLURL(wsdlURL);
-		wtr.setConceptualOperator("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/contourer.owl#contourer");
-		wtr.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ncl.owl#ncl");
+		wtr.setConceptualOperator(baseURL + "contourer.owl#contourer");
+		wtr.setSupportingToolkit(baseURL + "ncl.owl#ncl");
 		wtr.saveDocument();
 
 		operationName = "esriGridRaster";
@@ -40,8 +41,8 @@ public class NCLServices {
 		wtr1.setLabel(operationName);
 		wtr1.setOperationName(operationName);
 		wtr1.setWSDLURL(wsdlURL);
-		wtr1.setConceptualOperator("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/rasterer.owl#rasterer");
-		wtr1.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ncl.owl#ncl");
+		wtr1.setConceptualOperator(baseURL + "rasterer.owl#rasterer");
+		wtr1.setSupportingToolkit(baseURL + "ncl.owl#ncl");
 		wtr1.saveDocument();
 
 		operationName = "netCDFGridContour";
@@ -49,8 +50,8 @@ public class NCLServices {
 		wtr2.setLabel(operationName);
 		wtr2.setOperationName(operationName);
 		wtr2.setWSDLURL(wsdlURL);
-		wtr2.setConceptualOperator("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/netCDFContourer.owl#netCDFContourer");
-		wtr2.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ncl.owl#ncl");
+		wtr2.setConceptualOperator(baseURL + "netCDFContourer.owl#netCDFContourer");
+		wtr2.setSupportingToolkit(baseURL + "ncl.owl#ncl");
 		wtr2.saveDocument();
 
 		operationName = "netCDFGridRaster";
@@ -58,8 +59,8 @@ public class NCLServices {
 		wtr3.setLabel(operationName);
 		wtr3.setOperationName(operationName);
 		wtr3.setWSDLURL(wsdlURL);
-		wtr3.setConceptualOperator("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/netCDFRasterer.owl#netCDFRasterer");
-		wtr3.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ncl.owl#ncl");
+		wtr3.setConceptualOperator(baseURL + "netCDFRasterer.owl#netCDFRasterer");
+		wtr3.setSupportingToolkit(baseURL + "ncl.owl#ncl");
 		wtr3.saveDocument();
 
 		operationName = "netCDFTimeSeries";
@@ -67,8 +68,8 @@ public class NCLServices {
 		wtr4.setLabel(operationName);
 		wtr4.setOperationName(operationName);
 		wtr4.setWSDLURL(wsdlURL);
-		wtr4.setConceptualOperator("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/netCDFTimeSeriesPlotter.owl#netCDFTimeSeriesPlotter");
-		wtr4.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ncl.owl#ncl");
+		wtr4.setConceptualOperator(baseURL + "netCDFTimeSeriesPlotter.owl#netCDFTimeSeriesPlotter");
+		wtr4.setSupportingToolkit(baseURL + "ncl.owl#ncl");
 		wtr4.saveDocument();
 	}
 }

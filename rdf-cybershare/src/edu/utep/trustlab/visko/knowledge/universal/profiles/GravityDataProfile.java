@@ -20,110 +20,111 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge.universal.profiles;
 
+import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class GravityDataProfile {
 	public static void create() {
 		String documentURL;
-
+		String baseURL = Repository.getRepository().getBaseURL();
 		// gravity data
 		String dataTypeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d19";
 		ToolkitProfileWriter wtr2 = new ToolkitProfileWriter(
 		"gravityDataProfile");
-		wtr2.setSupportingToolkit("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/gmt.owl#gmt");
+		wtr2.setSupportingToolkit(baseURL + "gmt.owl#gmt");
 		wtr2.addDataType(dataTypeURI);
 		// for 2D plotter
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/GravityASCIIPointsTo2DPlotPS.owl#S",
+		baseURL + "GravityASCIIPointsTo2DPlotPS.owl#S",
 		"c0.04c");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/GravityASCIIPointsTo2DPlotPS.owl#J",
+		baseURL + "GravityASCIIPointsTo2DPlotPS.owl#J",
 		"x4c");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/GravityASCIIPointsTo2DPlotPS.owl#G",
+		baseURL + "GravityASCIIPointsTo2DPlotPS.owl#G",
 		"blue");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/GravityASCIIPointsTo2DPlotPS.owl#B",
+		baseURL + "GravityASCIIPointsTo2DPlotPS.owl#B",
 		"1");
 		// for nearneightbor gridding
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/GravityASCIIPointsToNearNeightborESRIGridded.owl#I",
+		baseURL + "GravityASCIIPointsToNearNeightborESRIGridded.owl#I",
 		"0.02");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/GravityASCIIPointsToNearNeightborESRIGridded.owl#S",
+		baseURL + "GravityASCIIPointsToNearNeightborESRIGridded.owl#S",
 		"0.2");
 		// for gridding by surface
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/GravityASCIIPointsToMinCurvatureESRIGridded.owl#I",
+		baseURL + "GravityASCIIPointsToMinCurvatureESRIGridded.owl#I",
 		"0.02");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/GravityASCIIPointsToMinCurvatureESRIGridded.owl#T",
+		baseURL + "GravityASCIIPointsToMinCurvatureESRIGridded.owl#T",
 		"0.25");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/GravityASCIIPointsToMinCurvatureESRIGridded.owl#C",
+		baseURL + "GravityASCIIPointsToMinCurvatureESRIGridded.owl#C",
 		"0.1");
 		// for grid to colored image
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToColoredImagePS.owl#B",
+		baseURL + "ESRIGriddedToColoredImagePS.owl#B",
 		"1");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToColoredImagePS.owl#J",
+		baseURL + "ESRIGriddedToColoredImagePS.owl#J",
 		"x4c");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToColoredImagePS.owl#C",
+		baseURL + "ESRIGriddedToColoredImagePS.owl#C",
 		"hot");
 		// for contour map
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#C",
+		baseURL + "ESRIGriddedToContourMapPS.owl#C",
 		"10");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#A",
+		baseURL + "ESRIGriddedToContourMapPS.owl#A",
 		"20");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#B",
+		baseURL + "ESRIGriddedToContourMapPS.owl#B",
 		"0.5");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#S",
+		baseURL + "ESRIGriddedToContourMapPS.owl#S",
 		"5");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#J",
+		baseURL + "ESRIGriddedToContourMapPS.owl#J",
 		"x4c");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#Wc",
+		baseURL + "ESRIGriddedToContourMapPS.owl#Wc",
 		"thinnest,black");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/ESRIGriddedToContourMapPS.owl#Wa",
+		baseURL + "ESRIGriddedToContourMapPS.owl#Wa",
 		"thinnest,black");
 
 		// for esriGridContour
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/esriGridContour.owl#lbOrientation",
+		baseURL + "esriGridContour.owl#lbOrientation",
 		"vertical");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/esriGridContour.owl#cnLevelSpacingF",
+		baseURL + "esriGridContour.owl#cnLevelSpacingF",
 		"10");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/esriGridContour.owl#colorTable",
+		baseURL + "esriGridContour.owl#colorTable",
 		"WhiteBlueGreenYellowRed");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/esriGridContour.owl#font",
+		baseURL + "esriGridContour.owl#font",
 		"helvetica");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/esriGridContour.owl#cnFillOn",
+		baseURL + "esriGridContour.owl#cnFillOn",
 		"True");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/esriGridContour.owl#cnLinesOn",
+		baseURL + "esriGridContour.owl#cnLinesOn",
 		"False");
 
 		// for esriGridRaster
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/esriGridRaster.owl#lbOrientation",
+		baseURL + "esriGridRaster.owl#lbOrientation",
 		"vertical");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/esriGridRaster.owl#colorTable",
+		baseURL + "esriGridRaster.owl#colorTable",
 		"WhiteBlueGreenYellowRed");
 		wtr2.addInputBinding(
-		"https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/esriGridRaster.owl#font",
+		baseURL + "esriGridRaster.owl#font",
 		"helvetica");
 
 		// dump document

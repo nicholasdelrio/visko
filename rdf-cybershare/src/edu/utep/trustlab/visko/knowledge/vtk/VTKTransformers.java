@@ -20,11 +20,13 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge.vtk;
 
+import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.operator.writer.TransformerWriter;
 
 public class VTKTransformers {
 	public static void create() {
 		String name;
+		String baseURL = Repository.getRepository().getBaseURL();
 		TransformerWriter wtr = new TransformerWriter("floatArrayToShortIntArray");
 		wtr.addInputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN");
 		wtr.setOutputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/BINARYSHORTINTARRAYLENDIAN.owl#BINARYSHORTINTARRAYLENDIAN");
@@ -47,7 +49,7 @@ public class VTKTransformers {
 		name = "ImageData to Contours PolyData";
 		wtr2.setLabel(name);
 		wtr2.setName(name);
-		wtr2.setMappedToView("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/iso-surfaces.owl#iso-surfaces");
+		wtr2.setMappedToView(baseURL + "iso-surfaces.owl#iso-surfaces");
 		wtr2.saveDocument();
 
 		TransformerWriter wtr3 = new TransformerWriter("contoursPolyDataToImageOperator");
@@ -64,7 +66,7 @@ public class VTKTransformers {
 		name = "ImageData to Volume Image JPEG";
 		wtr4.setLabel(name);
 		wtr4.setName(name);
-		wtr4.setMappedToView("https://raw.github.com/nicholasdelrio/visko/master/visko-rdf/volume.owl#volume");
+		wtr4.setMappedToView(baseURL + "volume.owl#volume");
 		wtr4.saveDocument();
 
 		TransformerWriter wtr5 = new TransformerWriter("intToShortIntOperator");
