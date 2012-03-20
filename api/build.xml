@@ -5,9 +5,6 @@
 	<property name="lib" value="lib"/>
 	<property name="src" value="src"/>
 	<property name="doc" value="doc"/>	
-	<property name="visko-rdf" value="../rdf/"/>
-	<property name="visko-ontology" value="../rdf/ontology/"/>
-	<property name="visko-tdb" value="../tdb/"/>
 	
 	<target name="build" depends="compile" description="Creates the VisKo API jar file">
 		<jar destfile="${jarfile}">
@@ -38,35 +35,6 @@
 			</classpath>			
 		</javac> 
 	</target>
-	
-	<target name="build-triple-store" depends="build,clean-triple-store" description="Generate a TDB Triple Store From a Bundle of RDF Documents">
-		
-		<java classname="edu.utep.trustlab.repository.aggregator.TripleStore">
-			<arg value="${visko-rdf}"/>
-			<arg value="${visko-ontology}"/>
-			<arg value="${visko-tdb}"/>
-			
-			<classpath>
-				<pathelement location="${jarfile}"/>
-				<fileset dir="${lib}/ciclient/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/apache/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/axis4/">
-					<include name="*.jar"/>
-				</fileset>
-				<fileset dir="${lib}/jena262/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/util/">
-					<include name="*.jar"/>
-				</fileset>
-			</classpath>   
-		</java>	
-	</target>
-		
 		
 	<target name="javadoc" depends="compile" description="Generate VisKo API JavaDoc" >
 	    <javadoc
@@ -103,10 +71,6 @@
 	      <link href="http://trust.utep.edu/visko/download/doc"/>
 	    </javadoc>
 	</target>	
-
-	<target name="clean-triple-store" description="Delete the TDB Triple Store Instance">
-		<delete dir="../visko-tdb/" />
-	</target>
 	
 	<target name="clean" description="Delete the Build Directory and the Jar File">
 		<delete dir="${build}" />
