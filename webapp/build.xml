@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="build" name="VisKo Webapp API">	
-	<property name="warfile" value="visko.war" />
+	<property name="warfile" value="visko-web.war" />
 	<property name="build" value="build"/>
 	<property name="lib" value="../api/lib"/>
 	<property name="src" value="src"/>
