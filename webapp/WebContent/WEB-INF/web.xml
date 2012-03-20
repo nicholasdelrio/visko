@@ -16,7 +16,7 @@
     <servlet-class>edu.utep.trustlab.visko.web.ViskoServletManager</servlet-class>
     <init-param>
       <param-name>visko-sparql-endpoint</param-name>
-      <param-value>http://localhost:8080/visko-webapp/ViskoServletManager?requestType=query-triple-store</param-value>
+      <param-value>http://localhost:8080/visko/ViskoServletManager?requestType=query-triple-store</param-value>
     </init-param>
     <init-param>
       <param-name>visko-tdb-path</param-name>
