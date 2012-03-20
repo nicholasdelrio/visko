@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="build" name="VisKo Webapp API">	
-	<property name="warfile" value="visko-webapp.war" />
+	<property name="warfile" value="visko.war" />
 	<property name="build" value="build"/>
-	<property name="lib" value="../visko-api/lib"/>
+	<property name="lib" value="../api/lib"/>
 	<property name="src" value="src"/>
 	<property name="doc" value="doc"/>
-	<property name="visko-api" value="../visko-api"/>
-	<property name="visko-api-jar" value="../visko-api/visko-api.jar"/>
+	<property name="visko-api" value="../api"/>
+	<property name="visko-api-jar" value="../api/visko-api.jar"/>
 	<property name="config-file" value="WebContent/WEB-INF/web.xml"/>
 	<property name="web-content" value="WebContent"/>
 	

@@ -5,6 +5,9 @@
 	<property name="lib" value="lib"/>
 	<property name="src" value="src"/>
 	<property name="doc" value="doc"/>	
+	<property name="visko-rdf" value="../rdf/"/>
+	<property name="visko-ontology" value="../rdf/ontology/"/>
+	<property name="visko-tdb" value="../tdb/"/>
 	
 	<target name="build" depends="compile" description="Creates the VisKo API jar file">
 		<jar destfile="${jarfile}">
@@ -39,9 +42,9 @@
 	<target name="build-triple-store" depends="build,clean-triple-store" description="Generate a TDB Triple Store From a Bundle of RDF Documents">
 		
 		<java classname="edu.utep.trustlab.repository.aggregator.TripleStore">
-			<arg value="../rdf/"/>
-			<arg value="../rdf/ontology/"/>
-			<arg value="../tdb/"/>
+			<arg value="${visko-rdf}"/>
+			<arg value="${visko-ontology}"/>
+			<arg value="${visko-tdb}"/>
 			
 			<classpath>
 				<pathelement location="${jarfile}"/>
