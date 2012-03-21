@@ -50,10 +50,8 @@ import org.jsoup.nodes.Element;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.tdb.TDBFactory;
 
-import edu.utep.trustlab.visko.util.GetURLContents;
 public class ViskoCrawler{
 	
-	private static String MODEL_NAME = "TDB-VISKO";
 	private Model model;
 	
 	public ViskoCrawler(String storesDirectory){
