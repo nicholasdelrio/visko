@@ -18,7 +18,7 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.web;
+package edu.utep.trustlab.visko.web.requestHandler.html;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -28,7 +28,7 @@ import edu.utep.trustlab.visko.web.html.QueryHTML;
 import edu.utep.trustlab.visko.web.html.ResultsTableHTML;
 import edu.utep.trustlab.visko.execution.*;
 
-public class ExecuteQueryServlet{
+public class ExecuteQueryServlet extends RequestHandlerHTML {
 
 	private Query query;
 

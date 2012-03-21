@@ -18,30 +18,34 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.web;
+package edu.utep.trustlab.visko.web.requestHandler.xml;
 
 import javax.servlet.http.HttpServletRequest;
 
-import edu.utep.trustlab.visko.web.json.FormatGraphData;
-import edu.utep.trustlab.visko.web.json.OperatorGraphData;
-import edu.utep.trustlab.visko.web.json.InstanceBarGraphData;
+import com.hp.hpl.jena.query.ResultSet;
 
-public class KnowledgeBaseInformationJSONServlet{
+import edu.utep.trustlab.visko.web.requestHandler.html.RequestHandlerHTML;
+import edu.utep.trustlab.visko.web.sparql.TDBTripleStore;
+
+
+public class ExecuteSPARQLQueryServlet extends RequestHandlerHTML {
+
 	public String doGet(HttpServletRequest request){
+		String query = request.getParameter("query");
+		TDBTripleStore viskoTripleStore = new TDBTripleStore();
 		
-		String infoType = request.getParameter("info");
-		String json;
-		if (infoType.equals("rdfInstances")) {
-			json = InstanceBarGraphData.getBarGraph();
-		} else if (infoType.equals("formatPaths")) {
-			json = FormatGraphData.getPathsGraphJSON();
-		} else if (infoType.equals("pipelines")) {
-			json = OperatorGraphData.getPathsGraphJSON();
-		}
-
+		ResultSet results;
+		if(query.toLowerCase().contains("ask"))
+			return "<?xml version=\"1.0\"?><result>" + viskoTripleStore.executeAsk(query) + "</result>";
 		else
-			json = "{}";
+			results = viskoTripleStore.execute(query);
 		
-		return json;
+		if(results != null){
+			String xml = TDBTripleStore.toXML(results);
+			return xml;
+		}
+		else{
+			return "<?xml version=\"1.0\"?><message>Query Yielded a Null Response.</message>";
+		}
 	}
 }

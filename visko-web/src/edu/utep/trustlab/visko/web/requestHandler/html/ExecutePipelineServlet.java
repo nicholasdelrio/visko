@@ -18,16 +18,20 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.web;
+package edu.utep.trustlab.visko.web.requestHandler.html;
 
+
+//import edu.utep.trustlab.visko.web.html.provenance.DataProvenanceHTML;
+//import edu.utep.trustlab.visko.web.html.provenance.VisualizationProvenanceHTML;
 import javax.servlet.http.HttpServletRequest;
 
 import edu.utep.trustlab.visko.execution.Pipeline;
 import edu.utep.trustlab.visko.execution.QueryEngine;
-import edu.utep.trustlab.visko.web.html.PipelineHTML;
-public class ShowPipelineServlet{
+
+public class ExecutePipelineServlet extends RequestHandlerHTML {
 
 	public String doGet(HttpServletRequest request){
+		String captureProvenance = request.getParameter("provenance");
 
 		String stringIndex = request.getParameter("index");
 		int index = Integer.valueOf(stringIndex);
@@ -37,15 +41,42 @@ public class ShowPipelineServlet{
 
 		Pipeline pipe = engine.getPipelines().get(index);
 
-		String html = "<html><head><title>Visualization Pipeline Details</title></head><body>";
-		html += "<h2>Visualization Pipeline:</h2>";
-		html += PipelineHTML.getPipelineHTML(pipe);
+		String result;
+		String html = "";
 
-		html += "<h2>Pipeline Output Viewed By:</h2>";
+		if (captureProvenance != null) {
+			/*
+			 * html +=
+			 * "<html><head><title>Resultant Visualization And Provenance</title></head><body>"
+			 * ; result = pipe.executePath(true);
+			 * 
+			 * if(result != null) { VisualizationProvenanceHTML prov = new
+			 * VisualizationProvenanceHTML(result); html +=
+			 * "<p>Reading Provenance of: <a href=\"" + result + "\">" + result
+			 * + "</a>"; html += prov.getPlotHTML(); html +=
+			 * "<h3>Visualization Provenance</h3>"; html +=
+			 * prov.getParameterTable();
+			 * 
+			 * DataProvenanceHTML dataProv = new DataProvenanceHTML(result);
+			 * html += "<h3>Data Provenance</h3>"; html +=
+			 * dataProv.getGiovanniUserSelectionTable(); } else html +=
+			 * "<h1>ERROR: visualization or provenance could not be generated!</h1>"
+			 * ;
+			 */
+		}
 
-		html += PipelineHTML.getViewerHTML(pipe);
+		else {
+			result = pipe.executePath(false);
+			html += "<html><head><title>Resultant Visualization</title></head><body>";
+
+			if (result.endsWith("pdf") || result.endsWith("PDF"))
+				html += "<a href=\"" + result + "\">Resultant PDF Document</a>";
+			else
+				html += "<img src=\"" + result + "\">";
+		}
+
 		html += "</body></html>";
-
 		return html;
 	}
+
 }

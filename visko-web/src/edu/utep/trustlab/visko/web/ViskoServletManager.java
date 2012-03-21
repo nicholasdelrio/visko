@@ -27,6 +27,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.utep.trustlab.visko.web.context.ViskoTDBContext;
+import edu.utep.trustlab.visko.web.requestHandler.html.ExecutePipelineServlet;
+import edu.utep.trustlab.visko.web.requestHandler.html.ExecuteQueryServiceServlet;
+import edu.utep.trustlab.visko.web.requestHandler.html.ExecuteQueryServlet;
+import edu.utep.trustlab.visko.web.requestHandler.html.ShowPipelineServlet;
+import edu.utep.trustlab.visko.web.requestHandler.json.KnowledgeBaseInformationJSONServlet;
+import edu.utep.trustlab.visko.web.requestHandler.xml.ExecuteSPARQLQueryServlet;
 
 /**
  * Servlet implementation class ViskoServletManager
@@ -52,20 +58,20 @@ public class ViskoServletManager extends HttpServlet {
 		String html;
 		response.setContentType("text/html");
 		if(requestType.equalsIgnoreCase("execute-pipeline"))
-			html = new ExecutePipelineServlet().doGet(request);
+			html = new ExecutePipelineServlet().getHTMLPage(request);
 		else if(requestType.equalsIgnoreCase("execute-query-service"))
-			html = new ExecuteQueryServiceServlet().doGet(request);
+			html = new ExecuteQueryServiceServlet().getHTMLPage(request);
 		else if(requestType.equalsIgnoreCase("execute-query"))
-			html = new ExecuteQueryServlet().doGet(request);
+			html = new ExecuteQueryServlet().getHTMLPage(request);
 		else if(requestType.equalsIgnoreCase("knowledge-base-info")){
 			response.setContentType("application/json");
 			html = new KnowledgeBaseInformationJSONServlet().doGet(request);
 		}
 		else if(requestType.equalsIgnoreCase("show-pipeline"))
-			html = new ShowPipelineServlet().doGet(request);
+			html = new ShowPipelineServlet().getHTMLPage(request);
 		else if(requestType.equals("query-triple-store")){
 			response.setContentType("application/sparql-results+xml ");
-			html = new ExecuteSPARQLQueryServlet().doGet(request);
+			html = new ExecuteSPARQLQueryServlet().getHTMLPage(request);
 		}
 		else
 			html = "<html><body><p>Invalid argument specified for <b>requestType</b></body></html>";

@@ -18,55 +18,31 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.web;
+package edu.utep.trustlab.visko.web.requestHandler.json;
 
 import javax.servlet.http.HttpServletRequest;
 
-import edu.utep.trustlab.visko.web.html.QueryMessages;
-import edu.utep.trustlab.visko.execution.*;
+import edu.utep.trustlab.visko.web.json.FormatGraphData;
+import edu.utep.trustlab.visko.web.json.OperatorGraphData;
+import edu.utep.trustlab.visko.web.json.InstanceBarGraphData;
+import edu.utep.trustlab.visko.web.requestHandler.html.RequestHandlerHTML;
 
-public class ExecuteQueryServiceServlet{
-	private Query query;
-
+public class KnowledgeBaseInformationJSONServlet extends RequestHandlerHTML {
 	public String doGet(HttpServletRequest request){
-		// TODO Auto-generated method stub
+		
+		String infoType = request.getParameter("info");
+		String json;
+		if (infoType.equals("rdfInstances")) {
+			json = InstanceBarGraphData.getBarGraph();
+		} else if (infoType.equals("formatPaths")) {
+			json = FormatGraphData.getPathsGraphJSON();
+		} else if (infoType.equals("pipelines")) {
+			json = OperatorGraphData.getPathsGraphJSON();
+		}
 
-		String stringQuery = request.getParameter("query");
-		String num = request.getParameter("maxResults");
-
-		int maxResults = 100;
-
-		if (num != null)
-			maxResults = Integer.parseInt(num);
-
-		String returnMessage;
-
-		if (stringQuery != null) {
-			query = new Query(stringQuery);
-
-			System.out.println(query.getArtifactURL());
-			System.out.println(query.getFormatURI());
-			System.out.println(query.getTypeURI());
-			System.out.println(query.getViewerSetURI());
-			System.out.println(query.getViewURI());
-			System.out.println(query.getNodesetURI());
-
-			QueryEngine engine = new QueryEngine(query);
-
-			if (query.isValidQuery()) {
-				PipelineSet pipelines = engine.getPipelines();
-				returnMessage = PipelineToXMLVisualizationSet
-						.toXMLFromPipelineSet(pipelines, query.getNodesetURI(),
-								maxResults);
-			} else {
-				String errors = QueryMessages.getQueryErrorsHTML(query);
-				returnMessage = "<html><body>" + errors + "</body></html>";
-				// String warns = QueryMessages.getQueryWarningsHTML(query);
-			}
-		} else
-			returnMessage = "<html><body><p>Failed to Specify Query via the query parameter</p></body></html>";
-
-		return returnMessage;
+		else
+			json = "{}";
+		
+		return json;
 	}
-
 }
