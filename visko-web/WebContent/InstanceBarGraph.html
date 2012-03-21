@@ -28,7 +28,7 @@ $(document).ready(function(){
 		 chart.selectAll("div")
 		 	.data(jsonGraphData.instanceGraphData)
 		 	.enter().append("div")
-		 	.style("width", function(d) { return d.count * 10 + "px"; })
+		 	.style("width", function(d) { return d.count * 7 + "px"; })
 		 	.text(function(d) { return d.viskoType + " - " + d.count; });
 		 
 	}, "json");
