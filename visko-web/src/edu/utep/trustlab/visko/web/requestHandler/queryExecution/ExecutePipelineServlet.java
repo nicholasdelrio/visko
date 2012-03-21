@@ -18,7 +18,7 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.web.requestHandler.html;
+package edu.utep.trustlab.visko.web.requestHandler.queryExecution;
 
 
 //import edu.utep.trustlab.visko.web.html.provenance.DataProvenanceHTML;
@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import edu.utep.trustlab.visko.execution.Pipeline;
 import edu.utep.trustlab.visko.execution.QueryEngine;
+import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerHTML;
 
 public class ExecutePipelineServlet extends RequestHandlerHTML {
 

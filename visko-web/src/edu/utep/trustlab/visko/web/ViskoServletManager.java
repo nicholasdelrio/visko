@@ -27,12 +27,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.utep.trustlab.visko.web.context.ViskoTDBContext;
-import edu.utep.trustlab.visko.web.requestHandler.html.ExecutePipelineServlet;
-import edu.utep.trustlab.visko.web.requestHandler.html.ExecuteQueryServiceServlet;
-import edu.utep.trustlab.visko.web.requestHandler.html.ExecuteQueryServlet;
-import edu.utep.trustlab.visko.web.requestHandler.html.ShowPipelineServlet;
-import edu.utep.trustlab.visko.web.requestHandler.json.KnowledgeBaseInformationJSONServlet;
-import edu.utep.trustlab.visko.web.requestHandler.xml.ExecuteSPARQLQueryServlet;
+import edu.utep.trustlab.visko.web.requestHandler.knowledgeBaseInfo.KnowledgeBaseInformationJSONServlet;
+import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ExecutePipelineServlet;
+import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ExecuteQueryServiceServlet;
+import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ExecuteQueryServlet;
+import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ShowPipelineServlet;
+import edu.utep.trustlab.visko.web.requestHandler.sparql.ExecuteSPARQLQueryServlet;
 
 /**
  * Servlet implementation class ViskoServletManager
@@ -58,20 +58,20 @@ public class ViskoServletManager extends HttpServlet {
 		String html;
 		response.setContentType("text/html");
 		if(requestType.equalsIgnoreCase("execute-pipeline"))
-			html = new ExecutePipelineServlet().getHTMLPage(request);
+			html = new ExecutePipelineServlet().getHTMLPage(request, response);
 		else if(requestType.equalsIgnoreCase("execute-query-service"))
-			html = new ExecuteQueryServiceServlet().getHTMLPage(request);
+			html = new ExecuteQueryServiceServlet().getHTMLPage(request, response);
 		else if(requestType.equalsIgnoreCase("execute-query"))
-			html = new ExecuteQueryServlet().getHTMLPage(request);
+			html = new ExecuteQueryServlet().getHTMLPage(request, response);
 		else if(requestType.equalsIgnoreCase("knowledge-base-info")){
 			response.setContentType("application/json");
-			html = new KnowledgeBaseInformationJSONServlet().doGet(request);
+			html = new KnowledgeBaseInformationJSONServlet().getJSON(request, response);
 		}
 		else if(requestType.equalsIgnoreCase("show-pipeline"))
-			html = new ShowPipelineServlet().getHTMLPage(request);
+			html = new ShowPipelineServlet().getHTMLPage(request, response);
 		else if(requestType.equals("query-triple-store")){
 			response.setContentType("application/sparql-results+xml ");
-			html = new ExecuteSPARQLQueryServlet().getHTMLPage(request);
+			html = new ExecuteSPARQLQueryServlet().getXMLResults(request, response);
 		}
 		else
 			html = "<html><body><p>Invalid argument specified for <b>requestType</b></body></html>";

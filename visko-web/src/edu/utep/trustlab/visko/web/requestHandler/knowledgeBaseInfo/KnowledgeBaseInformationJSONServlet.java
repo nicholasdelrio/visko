@@ -18,34 +18,31 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.web.requestHandler.html;
+package edu.utep.trustlab.visko.web.requestHandler.knowledgeBaseInfo;
 
 import javax.servlet.http.HttpServletRequest;
 
-import edu.utep.trustlab.visko.execution.Pipeline;
-import edu.utep.trustlab.visko.execution.QueryEngine;
-import edu.utep.trustlab.visko.web.html.PipelineHTML;
-public class ShowPipelineServlet extends RequestHandlerHTML{
+import edu.utep.trustlab.visko.web.json.FormatGraphData;
+import edu.utep.trustlab.visko.web.json.OperatorGraphData;
+import edu.utep.trustlab.visko.web.json.InstanceBarGraphData;
+import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerJSON;
 
+public class KnowledgeBaseInformationJSONServlet extends RequestHandlerJSON {
 	public String doGet(HttpServletRequest request){
+		
+		String infoType = request.getParameter("info");
+		String json;
+		if (infoType.equals("rdfInstances")) {
+			json = InstanceBarGraphData.getBarGraph();
+		} else if (infoType.equals("formatPaths")) {
+			json = FormatGraphData.getPathsGraphJSON();
+		} else if (infoType.equals("pipelines")) {
+			json = OperatorGraphData.getPathsGraphJSON();
+		}
 
-		String stringIndex = request.getParameter("index");
-		int index = Integer.valueOf(stringIndex);
-
-		QueryEngine engine = (QueryEngine) request.getSession().getAttribute(
-				"engine");
-
-		Pipeline pipe = engine.getPipelines().get(index);
-
-		String html = "<html><head><title>Visualization Pipeline Details</title></head><body>";
-		html += "<h2>Visualization Pipeline:</h2>";
-		html += PipelineHTML.getPipelineHTML(pipe);
-
-		html += "<h2>Pipeline Output Viewed By:</h2>";
-
-		html += PipelineHTML.getViewerHTML(pipe);
-		html += "</body></html>";
-
-		return html;
+		else
+			json = "{}";
+		
+		return json;
 	}
 }

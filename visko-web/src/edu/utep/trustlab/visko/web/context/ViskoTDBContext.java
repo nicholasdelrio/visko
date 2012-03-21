@@ -23,7 +23,7 @@ package edu.utep.trustlab.visko.web.context;
 import javax.servlet.http.HttpServlet;
 
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
-import edu.utep.trustlab.visko.web.sparql.TDBTripleStore;
+import edu.utep.trustlab.visko.web.requestHandler.sparql.TDBTripleStore;
 
 public class ViskoTDBContext {
 	public static void setContext(HttpServlet servlet) {

@@ -1,4 +1,4 @@
-package edu.utep.trustlab.visko.web.sparql;
+package edu.utep.trustlab.visko.web.requestHandler.sparql;
 
 import org.mindswap.pellet.jena.PelletReasonerFactory;
 

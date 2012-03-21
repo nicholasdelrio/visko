@@ -18,17 +18,15 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.web.requestHandler.xml;
+package edu.utep.trustlab.visko.web.requestHandler.sparql;
 
 import javax.servlet.http.HttpServletRequest;
-
 import com.hp.hpl.jena.query.ResultSet;
 
-import edu.utep.trustlab.visko.web.requestHandler.html.RequestHandlerHTML;
-import edu.utep.trustlab.visko.web.sparql.TDBTripleStore;
+import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerXML;
 
 
-public class ExecuteSPARQLQueryServlet extends RequestHandlerHTML {
+public class ExecuteSPARQLQueryServlet extends RequestHandlerXML {
 
 	public String doGet(HttpServletRequest request){
 		String query = request.getParameter("query");
