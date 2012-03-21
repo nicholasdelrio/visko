@@ -57,8 +57,10 @@ public class ViskoServletManager extends HttpServlet {
 			html = new ExecuteQueryServiceServlet().doGet(request);
 		else if(requestType.equalsIgnoreCase("execute-query"))
 			html = new ExecuteQueryServlet().doGet(request);
-		else if(requestType.equalsIgnoreCase("knowledge-base-info"))
-			html = new KnowledgeBaseInformationServlet().doGet(request);
+		else if(requestType.equalsIgnoreCase("knowledge-base-info")){
+			response.setContentType("application/json");
+			html = new KnowledgeBaseInformationJSONServlet().doGet(request);
+		}
 		else if(requestType.equalsIgnoreCase("show-pipeline"))
 			html = new ShowPipelineServlet().doGet(request);
 		else if(requestType.equals("query-triple-store")){
