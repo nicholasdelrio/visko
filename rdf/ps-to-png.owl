@@ -10,10 +10,10 @@
     <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/visko-operator-v3.owl"/>
   </owl:Ontology>
   <viskoO:Transformer rdf:about="https://raw.github.com/nicholasdelrio/visko/master/rdf/ps-to-png.owl#ps-to-png">
-    <viskoO:transformsTo rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/formats/PNG.owl#PNG"/>
+    <viskoO:transformsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PNG.owl#PNG"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Convert Adobe PS to PNG Image</pmlp:hasName>
-    <viskoO:operatesOn rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
+    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
     <rdfs:label>Convert Adobe PS to PNG Image</rdfs:label>
   </viskoO:Transformer>
 </rdf:RDF>

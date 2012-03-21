@@ -10,10 +10,10 @@
     <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/visko-operator-v3.owl"/>
   </owl:Ontology>
   <viskoO:Transformer rdf:about="https://raw.github.com/nicholasdelrio/visko/master/rdf/intToShortIntOperator.owl#intToShortIntOperator">
-    <viskoO:transformsTo rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/BINARYSHORTINTARRAYLENDIAN.owl#BINARYSHORTINTARRAYLENDIAN"/>
+    <viskoO:transformsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/BINARYSHORTINTARRAYLENDIAN.owl#BINARYSHORTINTARRAYLENDIAN"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Int Array To Short Int Array</pmlp:hasName>
-    <viskoO:operatesOn rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/BINARYINTARRAYLENDIAN.owl#BINARYINTARRAYLENDIAN"/>
+    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/BINARYINTARRAYLENDIAN.owl#BINARYINTARRAYLENDIAN"/>
     <rdfs:label>Int Array To Short Int Array</rdfs:label>
   </viskoO:Transformer>
 </rdf:RDF>

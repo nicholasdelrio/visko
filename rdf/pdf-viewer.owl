@@ -15,7 +15,7 @@
     <viskoO:partOfViewerSet rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/probeit.owl#probeit"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >pdf-viewer</pmlp:hasName>
-    <viskoO:operatesOn rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/formats/PDF.owl#PDF"/>
+    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PDF.owl#PDF"/>
     <rdfs:label>Adobe Portable Document Format (PDF) Viewer</rdfs:label>
     <rdfs:comment>Renders PDF document and allows for zooming.</rdfs:comment>
   </viskoO:Viewer>

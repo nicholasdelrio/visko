@@ -10,10 +10,10 @@
     <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/visko-operator-v3.owl"/>
   </owl:Ontology>
   <viskoO:Transformer rdf:about="https://raw.github.com/nicholasdelrio/visko/master/rdf/csv-to-tabular-ascii.owl#csv-to-tabular-ascii">
-    <viskoO:transformsTo rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII"/>
+    <viskoO:transformsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Comma Separated Values to Tabular ASCII Format</pmlp:hasName>
-    <viskoO:operatesOn rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/formats/CSV.owl#CSV"/>
+    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/CSV.owl#CSV"/>
     <rdfs:label>Comma Separated Values to Tabular ASCII Format</rdfs:label>
   </viskoO:Transformer>
 </rdf:RDF>

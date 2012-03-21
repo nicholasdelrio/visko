@@ -14,9 +14,9 @@
     <viskoO:partOfViewerSet rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/mozilla-firefox.owl#mozilla-firefox"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >browser-image-viewer</pmlp:hasName>
-    <viskoO:operatesOn rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/formats/JPEG.owl#JPEG"/>
-    <viskoO:operatesOn rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/formats/PNG.owl#PNG"/>
-    <viskoO:operatesOn rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/formats/GIF.owl#GIF"/>
+    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/JPEG.owl#JPEG"/>
+    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PNG.owl#PNG"/>
+    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/GIF.owl#GIF"/>
     <rdfs:label>Web Browser Image Viewer</rdfs:label>
     <rdfs:comment>Views a few standard image formats</rdfs:comment>
   </viskoO:Viewer>

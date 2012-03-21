@@ -11,10 +11,10 @@
   </owl:Ontology>
   <viskoO:Mapper rdf:about="https://raw.github.com/nicholasdelrio/visko/master/rdf/plotter.owl#plotter">
     <viskoO:mapsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/plot-2D.owl#plot-2D"/>
-    <viskoO:transformsTo rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
+    <viskoO:transformsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >2D plotter</pmlp:hasName>
-    <viskoO:operatesOn rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII"/>
+    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII"/>
     <rdfs:label>2D plotter</rdfs:label>
   </viskoO:Mapper>
 </rdf:RDF>

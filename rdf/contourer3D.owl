@@ -11,10 +11,10 @@
   </owl:Ontology>
   <viskoO:Mapper rdf:about="https://raw.github.com/nicholasdelrio/visko/master/rdf/contourer3D.owl#contourer3D">
     <viskoO:mapsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/iso-surfaces.owl#iso-surfaces"/>
-    <viskoO:transformsTo rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/formats/VTKPOLYDATA.owl#VTKPOLYDATA"/>
+    <viskoO:transformsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VTKPOLYDATA.owl#VTKPOLYDATA"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >ImageData to Contours PolyData</pmlp:hasName>
-    <viskoO:operatesOn rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/formats/VTKIMAGEDATA.owl#VTKIMAGEDATA"/>
+    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VTKIMAGEDATA.owl#VTKIMAGEDATA"/>
     <rdfs:label>ImageData to Contours PolyData</rdfs:label>
   </viskoO:Mapper>
 </rdf:RDF>

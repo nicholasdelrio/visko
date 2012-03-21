@@ -15,7 +15,7 @@
     <viskoO:partOfViewerSet rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/probeit.owl#probeit"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >html-viewer</pmlp:hasName>
-    <viskoO:operatesOn rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/formats/HTML.owl#HTML"/>
+    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/HTML.owl#HTML"/>
     <rdfs:label>HyperText Markup Language (HTML) Viewer</rdfs:label>
     <rdfs:comment>Renders HTML documents.</rdfs:comment>
   </viskoO:Viewer>

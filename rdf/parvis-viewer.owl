@@ -13,7 +13,7 @@
     <viskoO:partOfViewerSet rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/probeit.owl#probeit"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >parvis-viewer</pmlp:hasName>
-    <viskoO:operatesOn rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/formats/VNDWTSTF.owl#VNDWTSTF"/>
+    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VNDWTSTF.owl#VNDWTSTF"/>
     <rdfs:label>Parvis Parallel Coordinates Viewer</rdfs:label>
     <rdfs:comment>Parvis is a tool for parallel coordinates (PC) visualisation of multidimensional data sets, as first described in [Inselberg 1981].</rdfs:comment>
   </viskoO:Viewer>

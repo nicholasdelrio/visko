@@ -11,10 +11,10 @@
   </owl:Ontology>
   <viskoO:Mapper rdf:about="https://raw.github.com/nicholasdelrio/visko/master/rdf/volume-generator.owl#volume-generator">
     <viskoO:mapsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/volume.owl#volume"/>
-    <viskoO:transformsTo rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/formats/JPEG.owl#JPEG"/>
+    <viskoO:transformsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/JPEG.owl#JPEG"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >ImageData to Volume Image JPEG</pmlp:hasName>
-    <viskoO:operatesOn rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/formats/VTKIMAGEDATA.owl#VTKIMAGEDATA"/>
+    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VTKIMAGEDATA.owl#VTKIMAGEDATA"/>
     <rdfs:label>ImageData to Volume Image JPEG</rdfs:label>
   </viskoO:Mapper>
 </rdf:RDF>

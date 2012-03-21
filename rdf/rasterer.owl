@@ -11,10 +11,10 @@
   </owl:Ontology>
   <viskoO:Mapper rdf:about="https://raw.github.com/nicholasdelrio/visko/master/rdf/rasterer.owl#rasterer">
     <viskoO:mapsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/raster.owl#raster"/>
-    <viskoO:transformsTo rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
+    <viskoO:transformsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Raster Map Generator</pmlp:hasName>
-    <viskoO:operatesOn rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/formats/ESRIGRID.owl#ESRIGRID"/>
+    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/ESRIGRID.owl#ESRIGRID"/>
     <rdfs:label>Raster Map Generator</rdfs:label>
   </viskoO:Mapper>
 </rdf:RDF>
