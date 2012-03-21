@@ -29,8 +29,8 @@ public class GMTTransformers {
 		String name;
 		String baseURL = Repository.getRepository().getBaseURL();
 		TransformerWriter wtr = new TransformerWriter("contourer");
-		wtr.addInputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/formats/ESRIGRID.owl#ESRIGRID");
-		wtr.setOutputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/formats/POSTSCRIPT.owl#POSTSCRIPT");
+		wtr.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/ESRIGRID.owl#ESRIGRID");
+		wtr.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
 		name = "contour";
 		wtr.setLabel(name);
 		wtr.setName(name);
@@ -39,16 +39,16 @@ public class GMTTransformers {
 
 		System.out.println(wtr);
 		TransformerWriter wtr1 = new TransformerWriter("gridder");
-		wtr1.addInputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII");
-		wtr1.setOutputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/formats/ESRIGRID.owl#ESRIGRID");
+		wtr1.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII");
+		wtr1.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/ESRIGRID.owl#ESRIGRID");
 		name = "Data Gridder";
 		wtr1.setLabel(name);
 		wtr1.setName(name);
 		wtr1.saveDocument();
 		
 		TransformerWriter wtr2 = new TransformerWriter("plotter");
-		wtr2.addInputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII");
-		wtr2.setOutputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/formats/POSTSCRIPT.owl#POSTSCRIPT");
+		wtr2.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII");
+		wtr2.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
 		name = "2D plotter";
 		wtr2.setLabel(name);
 		wtr2.setName(name);
@@ -56,8 +56,8 @@ public class GMTTransformers {
 		wtr2.saveDocument();
 		
 		TransformerWriter wtr3 = new TransformerWriter("rasterer");
-		wtr3.addInputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/formats/ESRIGRID.owl#ESRIGRID");
-		wtr3.setOutputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/formats/POSTSCRIPT.owl#POSTSCRIPT");
+		wtr3.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/ESRIGRID.owl#ESRIGRID");
+		wtr3.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
 		name = "Raster Map Generator";
 		wtr3.setLabel(name);
 		wtr3.setName(name);
@@ -65,8 +65,8 @@ public class GMTTransformers {
 		wtr3.saveDocument();
 
 		TransformerWriter wtr5 = new TransformerWriter("csv-to-tabular-ascii");
-		wtr5.setOutputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII");
-		wtr5.addInputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/formats/CSV.owl#CSV");
+		wtr5.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII");
+		wtr5.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/CSV.owl#CSV");
 		name = "Comma Separated Values to Tabular ASCII Format";
 		wtr5.setLabel(name);
 		wtr5.setName(name);

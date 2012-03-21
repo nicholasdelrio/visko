@@ -27,8 +27,8 @@ public class NCLTransformers {
 		String baseURL = Repository.getRepository().getBaseURL();
 		String name;
 		TransformerWriter wtr = new TransformerWriter("netCDFContourer");
-		wtr.setOutputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/formats/POSTSCRIPT.owl#POSTSCRIPT");
-		wtr.addInputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/NETCDF.owl#NETCDF");
+		wtr.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
+		wtr.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF");
 		name = "Contour Map Generation";
 		wtr.setLabel(name);
 		wtr.setName(name);
@@ -36,8 +36,8 @@ public class NCLTransformers {
 		wtr.saveDocument();
 
 		TransformerWriter wtr1 = new TransformerWriter("netCDFRasterer");
-		wtr1.setOutputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/formats/POSTSCRIPT.owl#POSTSCRIPT");
-		wtr1.addInputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/NETCDF.owl#NETCDF");
+		wtr1.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
+		wtr1.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF");
 		name = "Raster Map Generation";
 		wtr1.setLabel(name);
 		wtr1.setName(name);
@@ -45,8 +45,8 @@ public class NCLTransformers {
 		wtr1.saveDocument();
 
 		TransformerWriter wtr2 = new TransformerWriter("netCDFTimeSeriesPlotter");
-		wtr2.setOutputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/formats/POSTSCRIPT.owl#POSTSCRIPT");
-		wtr2.addInputFormat("http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/NETCDF.owl#NETCDF");
+		wtr2.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
+		wtr2.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF");
 		name = "Time Series Plot Generator";
 		wtr2.setLabel(name);
 		wtr2.setName(name);

@@ -31,13 +31,13 @@ public class Viewers {
 		wtr.setLabel("ImageJ Viewer");
 		System.out.println(baseURL);
 		wtr.addPartOfSetURI(baseURL + "probeit.owl#probeit");
-		wtr.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/GIF.owl#GIF");
-		wtr.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/PNG.owl#PNG");
-		wtr.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/JPEG.owl#JPEG");
-		wtr.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/DICOM.owl#DICOM");
-		wtr.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/TIFF.owl#TIFF");
-		wtr.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/FITS.owl#FITS");
-		wtr.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/RAW.owl#RAW");
+		wtr.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/GIF.owl#GIF");
+		wtr.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PNG.owl#PNG");
+		wtr.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/JPEG.owl#JPEG");
+		wtr.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/DICOM.owl#DICOM");
+		wtr.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/TIFF.owl#TIFF");
+		wtr.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/FITS.owl#FITS");
+		wtr.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/RAW.owl#RAW");
 		wtr.setViewerComment("ImageJ is a public domain Java image processing program inspired by NIH Image.");
 		documentURL = wtr.saveDocument();
 		System.out.println(documentURL);
@@ -45,7 +45,7 @@ public class Viewers {
 		ViewerWriter wtr1 = new ViewerWriter("parvis-viewer");
 		wtr1.addPartOfSetURI(baseURL + "probeit.owl#probeit");
 		wtr1.setLabel("Parvis Parallel Coordinates Viewer");
-		wtr1.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/VNDWTSTF.owl#VNDWTSTF");
+		wtr1.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VNDWTSTF.owl#VNDWTSTF");
 		wtr1.setViewerComment("Parvis is a tool for parallel coordinates (PC) visualisation of multidimensional data sets, as first described in [Inselberg 1981].");
 		documentURL = wtr1.saveDocument();
 		System.out.println(documentURL);
@@ -54,7 +54,7 @@ public class Viewers {
 		wtr2.addPartOfSetURI(baseURL + "probeit.owl#probeit");
 		wtr2.addPartOfSetURI(baseURL + "mozilla-firefox.owl#mozilla-firefox");
 		wtr2.addPartOfSetURI(baseURL + "internet-explorer.owl#internet-explorer");
-		wtr2.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/PDF.owl#PDF");
+		wtr2.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PDF.owl#PDF");
 		wtr2.setLabel("Adobe Portable Document Format (PDF) Viewer");
 		wtr2.setViewerComment("Renders PDF document and allows for zooming.");
 		documentURL = wtr2.saveDocument();
@@ -64,9 +64,9 @@ public class Viewers {
 		wtr3.addPartOfSetURI(baseURL + "probeit.owl#probeit");
 		wtr3.addPartOfSetURI(baseURL + "mozilla-firefox.owl#mozilla-firefox");
 		wtr3.addPartOfSetURI(baseURL + "internet-explorer.owl#internet-explorer");
-		wtr3.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/PLAIN.owl#PLAIN");
-		wtr3.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/PLAINTEXT.owl#PLAINTEXT");
-		wtr3.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/VNDLATEXZ.owl#VNDLATEXZ");
+		wtr3.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PLAIN.owl#PLAIN");
+		wtr3.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PLAINTEXT.owl#PLAINTEXT");
+		wtr3.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VNDLATEXZ.owl#VNDLATEXZ");
 		wtr3.setLabel("Plain Text Viewer");
 		wtr3.setViewerComment("Does nothing really, just extracts the text from the PML conclusion...");
 		documentURL = wtr3.saveDocument();
@@ -75,9 +75,9 @@ public class Viewers {
 		ViewerWriter wtr4 = new ViewerWriter("browser-image-viewer");
 		wtr4.addPartOfSetURI(baseURL + "mozilla-firefox.owl#mozilla-firefox");
 		wtr4.addPartOfSetURI(baseURL + "internet-explorer.owl#internet-explorer");
-		wtr4.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/GIF.owl#GIF");
-		wtr4.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/PNG.owl#PNG");
-		wtr4.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/JPEG.owl#JPEG");
+		wtr4.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/GIF.owl#GIF");
+		wtr4.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PNG.owl#PNG");
+		wtr4.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/JPEG.owl#JPEG");
 		wtr4.setLabel("Web Browser Image Viewer");
 		wtr4.setViewerComment("Views a few standard image formats");
 		documentURL = wtr4.saveDocument();
@@ -85,9 +85,9 @@ public class Viewers {
 
 		ViewerWriter wtr5 = new ViewerWriter("diva-graphics-viewer");
 		wtr5.addPartOfSetURI(baseURL + "diva-graphics.owl#diva-graphics");
-		wtr5.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/GIF.owl#GIF");
-		wtr5.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/PNG.owl#PNG");
-		wtr5.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/JPEG.owl#JPEG");
+		wtr5.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/GIF.owl#GIF");
+		wtr5.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PNG.owl#PNG");
+		wtr5.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/JPEG.owl#JPEG");
 		wtr5.setLabel("Diva Java Graphics");
 		wtr5.setViewerComment("Views a few standard image formats");
 		documentURL = wtr5.saveDocument();
@@ -97,7 +97,7 @@ public class Viewers {
 		wtr6.addPartOfSetURI(baseURL + "probeit.owl#probeit");
 		wtr6.addPartOfSetURI(baseURL + "mozilla-firefox.owl#mozilla-firefox");
 		wtr6.addPartOfSetURI(baseURL + "internet-explorer.owl#internet-explorer");
-		wtr6.addFormatURI("http://rio.cs.utep.edu/ciserver/ciprojects/formats/HTML.owl#HTML");
+		wtr6.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/HTML.owl#HTML");
 		wtr6.setLabel("HyperText Markup Language (HTML) Viewer");
 		wtr6.setViewerComment("Renders HTML documents.");
 		documentURL = wtr6.saveDocument();
