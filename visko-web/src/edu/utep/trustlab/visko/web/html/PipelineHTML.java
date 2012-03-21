@@ -39,7 +39,8 @@ public class PipelineHTML {
 
 		HashMap<String, String> bindings = pipe.getParameterBindings();
 
-		for (OWLSService service : pipe) {
+		for(int i = 0; i < pipe.size(); i ++){
+			OWLSService service = pipe.getService(i);
 			String uri = service.getURI();
 			html += "<li><b>Service Name:</b> <a href=\"" + uri + "\">" + uri
 					+ "</a></li>";

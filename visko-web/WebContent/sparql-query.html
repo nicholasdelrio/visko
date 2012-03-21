@@ -37,6 +37,74 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 	<input type="submit" id="submitButton" style="width: 156px">
 </form>
 
+<h2>Examples</h2>
+<h3>Can VisKo Render a 3D Binary Float Array in a format that Mozilla Firefox can Display?</h3>
+<pre>
+ASK		
+WHERE
+{{
+?viewer viskoO:partOfViewerSet  .
+?viewer viskoO:operatesOn ?format .
+ viskoO:canBeTransformedToTransitive ?format . 
+}
+UNION
+{
+?viewer viskoO:partOfViewerSet  .
+?viewer viskoO:operatesOn ?format .
+ viskoO:canBeTransformedTo ?format .
+}
+UNION
+{
+?viewer viskoO:partOfViewerSet  .
+?viewer viskoO:operatesOn  .
+}}
+</pre>
+
+<h3>What Formats Does VisKo Work With (i.e., read-in and write-out)</h3>
+<pre>
+SELECT DISTINCT ?format
+WHERE
+{{
+?operator a viskoO:Operator .
+?operator viskoO:operatesOn ?format .
+}
+UNION
+{
+?operator a viskoO:Transformer .
+?operator viskoO:transformsTo ?format .
+}}
+</pre>
+
+<h3>What views can VisKo Generate?</h3>
+<pre>
+select ?view ?label
+where
+{
+?view a viskoV:View.
+?view rdfs:label ?label
+} 
+</pre>
+
+<h3>What Operators Does VisKo Know About?</h3>
+<pre>
+select ?operator ?label
+where
+{
+?operator a viskoO:Operator. 
+?operator rdfs:label ?label
+}
+</pre>
+
+<h3>What Toolkits Does VisKo Know About?</h3>
+<pre>
+select ?toolkit ?label
+where
+{
+?toolkit a viskoS:Toolkit. 
+?toolkit rdfs:label ?label.
+}
+</pre>
+
 </div>
 </div>
 <font color="white"><i><b>Copyright @2012 CyberShARE Center, The University of Texas at El Paso</b></i></font>
