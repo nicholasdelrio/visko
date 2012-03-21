@@ -69,7 +69,7 @@ public class ResultsTableHTML {
 
 	private static String getShowPipelineLink(int index) {
 		String html = "";
-		html = "<a href=\"ShowPipelineServlet?index=" + index;
+		html = "<a href=\"ViskoServletManager?requestType=show-pipeline&index=" + index;
 		html += "\">Pipeline</a>";
 		return html;
 	}
@@ -78,7 +78,7 @@ public class ResultsTableHTML {
 		String html = "<p>NULL</p>";
 
 		if (artifactURL != null) {
-			html = "<a href=\"ExecutePipelineServlet?index=" + index;
+			html = "<a href=\"ViskoServletManager?requestType=execute-pipeline&index=" + index;
 			html += "\">Visualization</a>";
 		}
 		return html;

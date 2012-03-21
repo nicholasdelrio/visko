@@ -64,9 +64,7 @@ public class ExecuteQueryServlet extends RequestHandlerHTML {
 
 		QueryEngine engine = new QueryEngine(query);
 
-		String html = "<html><head><title>Visualization Knowledge Query Result</title></head><body>";
-
-		html += "<h2>VisKo Query</h2>";
+		String html = "<h2>VisKo Query</h2>";
 		if (query.isValidQuery()) {
 			// if valid query add the query engine to the session
 			request.getSession().setAttribute("engine", engine);
@@ -90,11 +88,10 @@ public class ExecuteQueryServlet extends RequestHandlerHTML {
 			html += "<h2>Messages</h2>";
 
 		if (errors != null)
-			html += errors;
+			html += "<div align=\"left\">" + errors + "</div>";
 		if (warns != null)
 			html += warns;
 
-		html += "</body></html>";
 		return html;
 	}
 }
