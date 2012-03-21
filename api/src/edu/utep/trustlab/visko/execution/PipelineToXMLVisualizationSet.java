@@ -111,7 +111,8 @@ public class PipelineToXMLVisualizationSet {
 	}
 
 	private static boolean hasVolumeRendering(Pipeline pipeline) {
-		for (OWLSService service : pipeline) {
+		for(int i = 0; i < pipeline.size(); i++){
+			OWLSService service = pipeline.getService(i);
 			if (service.getURI().contains("vtkVolumeService"))
 				return true;
 		}

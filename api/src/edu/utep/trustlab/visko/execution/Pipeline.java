@@ -47,8 +47,8 @@ import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.operator.Viewer;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
 
-public class Pipeline extends Vector<OWLSService> {
-	private Viewer viewer;
+public class Pipeline extends Vector<String> {
+	private String viewer;
 	private OWLSModel owlsLoadingModel;
 	private ViskoModel viskoLoadingModel;
 	private PipelineSet parentContainer;
@@ -58,11 +58,11 @@ public class Pipeline extends Vector<OWLSService> {
 		viskoLoadingModel = new ViskoModel();
 		owlsLoadingModel = new OWLSModel();
 		parentContainer = parent;
-		viewer = new Viewer(viewerURI, viskoLoadingModel);
+		viewer = viewerURI;
 	}
 
 	public Viewer getViewer() {
-		return viewer;
+		return new Viewer(viewer, viskoLoadingModel);
 	}
 
 	public HashMap<String, String> getParameterBindings() {
@@ -74,13 +74,17 @@ public class Pipeline extends Vector<OWLSService> {
 	}
 
 	public void addOWLSServiceURI(String serviceURI) {
-		add(new OWLSService(serviceURI, owlsLoadingModel));
+		add(serviceURI);
 	}
 
 	public void setOWLSServiceURIs(Vector<String> serviceURIs) {
 		for (String serviceImplURI : serviceURIs) {
 			addOWLSServiceURI(serviceImplURI);
 		}
+	}
+	
+	public OWLSService getService(int i){
+		return new OWLSService(get(i), owlsLoadingModel);
 	}
 
 	public String executePath(boolean provenance) {

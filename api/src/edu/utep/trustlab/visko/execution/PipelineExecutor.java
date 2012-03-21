@@ -73,7 +73,7 @@ public class PipelineExecutor {
 	private ValueMap<Output, OWLValue> outputs;
 	private ProcessExecutionEngine exec;
 
-	private static final String HARD_CODED_DATA_PML = "http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/HTTP_Subsetter_03730391059904816.owl#answer";
+//	private static final String HARD_CODED_DATA_PML = "http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/HTTP_Subsetter_03730391059904816.owl#answer";
 
 //	private PMLLogger logger;
 	private String pmlURI;
@@ -138,7 +138,9 @@ public class PipelineExecutor {
 		OWLKnowledgeBase kb = OWLFactory.createKB();
 		String nextInput = inputDatasetURL;
 
-		for (OWLSService owlsService : pipeline) {
+		for(int i = 0; i < pipeline.size(); i ++){
+			
+			OWLSService owlsService = pipeline.getService(i);
 			System.out.println("owl service uri " + owlsService.getURI());
 
 			service = owlsService.getIndividual();
