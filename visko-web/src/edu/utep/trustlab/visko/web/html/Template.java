@@ -19,7 +19,6 @@ public class Template {
 				"<div id=\"menu\">" +
 				"    <a href=\".\">Instance Home</a>" +
 				"    <a href=\"query.html\">Submit a VisKo Query</a>" +
-				"    <a href=\"query-examples.html\">Query Examples</a>" +
 				"    <a href=\".knowledge-base.html/\">Knowledge Base</a>" +
 				"</div>" +
 				"<div id=\"content\">";
