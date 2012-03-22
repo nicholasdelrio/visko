@@ -30,10 +30,10 @@ public class ResultsTableHTML {
 		PipelineSet pipes = engine.getPipelines();
 
 		if (pipes.size() > 0 && withProvenance) {
-			html += "<tr><td><b>Visualizations Bound to ?DATA</b></td><td><b>Visualizations Bound to ?DATA with Provenance</b></td><td><b>How to Generate ?DATA</b></td></tr>";
+			html += "<tr><td><b>Resulting Visualization</b></td><td><b>Resultant Visualizations with Provenance</b></td><td><b>Visualization Pipeline</b></td></tr>";
 			html += getVisualizationAndPipelineResultRows(pipes, true);
 		} else if (pipes.size() > 0 && !withProvenance) {
-			html += "<tr><td><b>Visualizations Bound to ?DATA</b></td><td><b>How to Generate ?DATA</b></td></tr>";
+			html += "<tr><td><b>Resulting Visualization</b></td><td><b>Visualization Pipeline</b></td></tr>";
 			html += getVisualizationAndPipelineResultRows(pipes, false);
 		} else if (!(pipes.size() > 0)) {
 			html += "<tr><td><p>Empty Set</p></td></tr>";
