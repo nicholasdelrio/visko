@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="build" name="VisKo Cybershare RDF Manager">
-	<property name="github-username" value="paulopinheiro1234"/>
-	<property name="server-url" value="https://raw.github.com/nicholasdelrio/visko/master/rdf/"/>
+
+	<!-- change this property if GitHub will be your VisKo RDF server -->
+	<property name="your-github-username" value="nicholasdelrio"/>
+	
+	
+	<!-- leave these alone please -->
+	<property name="my-github-username" value="nicholasdelrio"/>
+	<property name="base-rdf-server-url" value="https://raw.github.com/"/>
+	<property name="frag-rdf-server-url" value="/visko/master/rdf/"/>
+	
+	<property name="server-url" value="${base-rdf-server-url}${github-username}${frag-rdf-server-url}"/>
+	<property name="format-url" value="${base-rdf-server-url}${my-github-username}${frag-rdf-server-url}formats/"/>
 	
 	<property name="jarfile" value="utep-rdf-generator.jar"/>
 	<property name="lib" value="../api/lib/"/>
@@ -54,6 +64,9 @@
 		</javac>
 	</target>
 
+	<target name="build-query-examples-html" description="Generate the query examples html specific for your VisKo RDF deployment">
+	
+	</target>
 	
 	<target name="build-triple-store" depends="build,clean-triple-store" description="Generate a TDB Triple Store From a Bundle of RDF Documents">
 			
@@ -85,10 +98,10 @@
 			</java>	
 		</target>
 
-	<target name="update-uris" depends="build">
+	<target name="update-uris-for-github" depends="build">
 		<java classname="edu.utep.trustlab.repository.SwitchRepositoryURL">
 			<arg value="${visko-rdf}"/>
-			<arg value="${github-username}"/>
+			<arg value="${your-github-username}"/>
 			
 			<classpath>
 				<pathelement location="${jarfile}"/>
