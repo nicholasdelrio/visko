@@ -29,7 +29,7 @@
     <li><a href="#gravity-ex2">Visualizing gravity data as raster map</a></li>
     <li><a href="#gravity-ex3">Visualizing gravity data as raster map with copper tones</a></li>
     <li><a href="#gravity-ex4">Visualizing gravity data as 2D plot</a></li>
-    <li><a href="#gravity-ex5">Visualizing gravity data all ways possible (hasView clause unspecified)</a></li>
+    <li><a href="#gravity-ex5">Visualizing gravity data all ways possible (SELECT *)</a></li>
   </ol>
 
 <li><a href="#holes">Seismic Tomography</a>
@@ -43,22 +43,8 @@
     <li><a href="#seis-ex7">Visualizing Ray Coverage as Volume</a></li> 
  </ol>
 
-<li><a href="#brightness">Brightness Temperature</a>
-  <ol start="13">
-    <li><a href="#bright-ex1">Visualizing brightness temperature as contour map with: lines, colors, vertical color bar, interval of 10, and rainbow color table</a></li>
-    <li><a href="#bright-ex2">Visualizing Brightness Temperature as Raster Image with: Annotations in Helvetica, Horizontal Color Bar, and Rainbow Color Table</a></li>
-  </ol>
-
-<li><a href="#aerosol">Aerosol Time Series</a>
-  <ol start="15">
-    <li><a href="#aero-ex1">Visualizing Aersol Data as Time Series Plot</a></li>
-  </ol>
-<li><a href="#env">Enviromental Data</a>
-  <ol start="16">
-    <li><a href="#env-ex1">H20 and H2O_HMP vs Time</a>
-  </ol>
 <li><a href="#polygons">Polygon Data</a>
-  <ol start="17">
+  <ol start="7">
     <li><a href="#cube-ex1">Rendering Cube Polygons</a>
   </ol>
 </ul>
@@ -71,16 +57,16 @@
 <h5>1. Visualizing gravity data as contour map</h5>
 <div class="code">
 <pre>
-PREFIX formats http://rio.cs.utep.edu/ciserver/ciprojects/formats/ 
+PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#
-PREFIX visko http://rio.cs.utep.edu/ciserver/ciprojects/visko/
-PREFIX params http://trust.utep.edu/visko/services/ESRIGriddedToContourMapPS1.owl#
-SELECT visko:contour-lines1.owl#contour-lines1 IN-VIEWER visko:mozilla-firefox1.owl#mozilla-firefox1 
+PREFIX visko https://raw.github.com/nicholasdelrio/visko/master/rdf/
+PREFIX params https://raw.github.com/nicholasdelrio/visko/master/rdf/ESRIGriddedToContourMapPS.owl#
+SELECT visko:contour-lines.owl#contour-lines IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt 
-	FORMAT formats:TABDELIMITEDDATASET.owl#TABDELIMITEDDATASET 
-	TYPE types:d19
-WHERE	params:C = 10 AND
-	params:A = 10
+	 FORMAT formats:SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII 
+	 TYPE types:d19
+WHERE params:C = 10 AND
+	  params:A = 10
 </pre>
 </div>
 <table>
@@ -92,12 +78,12 @@ WHERE	params:C = 10 AND
 <h5>2. Visualizing gravity data as raster map</h5>
 <div class="code">
 <pre>
-PREFIX formats http://rio.cs.utep.edu/ciserver/ciprojects/formats/ 
+PREFIX https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
-PREFIX visko http://rio.cs.utep.edu/ciserver/ciprojects/visko/ 
-SELECT visko:raster.owl#raster IN-VIEWER visko:mozilla-firefox1.owl#mozilla-firefox1 
+PREFIX visko https://raw.github.com/nicholasdelrio/visko/master/rdf/ 
+SELECT visko:raster.owl#raster IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt 
-	FORMAT formats:TABDELIMITEDDATASET.owl#TABDELIMITEDDATASET 
+	FORMAT formats:SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII
 	TYPE types:d19
 </pre>
 </div>
@@ -110,13 +96,13 @@ FROM http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityData
 <h5>3. Visualizing gravity data as raster map with copper tones</h5>
 <div class="code">
 <pre>
-PREFIX formats http://rio.cs.utep.edu/ciserver/ciprojects/formats/ 
+PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
-PREFIX visko http://rio.cs.utep.edu/ciserver/ciprojects/visko/ 
-PREFIX params http://trust.utep.edu/visko/services/ESRIGriddedToColoredImagePS1.owl# 
+PREFIX visko https://raw.github.com/nicholasdelrio/visko/master/rdf/ 
+PREFIX params https://raw.github.com/nicholasdelrio/visko/master/rdf/ESRIGriddedToColoredImagePS1.owl# 
 SELECT visko:raster.owl#raster IN-VIEWER visko:mozilla-firefox1.owl#mozilla-firefox1 
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt 
-	FORMAT formats:TABDELIMITEDDATASET.owl#TABDELIMITEDDATASET 
+	FORMAT formats:SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII
 	TYPE types:d19 
 WHERE params:C = copper
 </pre>
@@ -130,12 +116,12 @@ WHERE params:C = copper
 <h5>4. Visualizing gravity data as 2D plot</h5>
 <div class="code">
 <pre>
-PREFIX formats http://rio.cs.utep.edu/ciserver/ciprojects/formats/ 
+PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
-PREFIX visko http://rio.cs.utep.edu/ciserver/ciprojects/visko/ 
-SELECT visko:plot-2D1.owl#plot-2D1 IN-VIEWER visko:mozilla-firefox1.owl#mozilla-firefox1 
+PREFIX visko https://raw.github.com/nicholasdelrio/visko/master/rdf/ 
+SELECT visko:plot-2D.owl#plot-2D IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt 
-	FORMAT formats:TABDELIMITEDDATASET.owl#TABDELIMITEDDATASET 
+	FORMAT formats:SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII
 	TYPE types:d19 
 </pre>
 </div>
@@ -148,12 +134,12 @@ FROM http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityData
 <h5>5. Visualizing gravity data all ways possible (<b>SELECT *</b>)</h5>
 <div class="code">
 <pre>
-PREFIX formats http://rio.cs.utep.edu/ciserver/ciprojects/formats/ 
+PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
-PREFIX visko http://rio.cs.utep.edu/ciserver/ciprojects/visko/ 
-SELECT * IN-VIEWER visko:mozilla-firefox1.owl#mozilla-firefox1 
+PREFIX visko https://raw.github.com/nicholasdelrio/visko/master/rdf/ 
+SELECT * IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt 
-	FORMAT formats:TABDELIMITEDDATASET.owl#TABDELIMITEDDATASET 
+	FORMAT formats:SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII 
 	TYPE types:d19
 </pre>
 </div>
@@ -174,19 +160,19 @@ FROM http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityData
 <h3>Queries Associated with Seismic Tomography</h3>
 
 <a name="seis-ex1">
-<h5>6. Visualizing velocity model as isosurfaces (full disclosure of paramter bindings)</h5>
+<h5>6. Visualizing velocity model as isosurfaces (full disclosure of parameter bindings)</h5>
 <div class="code">
 <pre>
-PREFIX formats http://rio.cs.utep.edu/ciserver/ciprojects/formats/ 
+PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
-PREFIX visko http://rio.cs.utep.edu/ciserver/ciprojects/visko/ 
-PREFIX dataParams http://trust.utep.edu/visko/services/vtkImageDataReaderService.owl#
-PREFIX contourParams http://trust.utep.edu/visko/services/vtkContourFilterService.owl#
-PREFIX renderParams http://trust.utep.edu/visko/services/vtkPolyDataMapperService.owl#
+PREFIX visko https://raw.github.com/nicholasdelrio/visko/master/rdf/
+PREFIX dataParams https://raw.github.com/nicholasdelrio/visko/master/rdf/vtkImageDataReaderService.owl#
+PREFIX contourParams https://raw.github.com/nicholasdelrio/visko/master/rdf/vtkContourFilterService.owl#
+PREFIX renderParams https://raw.github.com/nicholasdelrio/visko/master/rdf/vtkPolyDataMapperService.owl#
 
-SELECT visko:iso-surfaces1.owl#iso-surfaces1 IN-VIEWER visko:mozilla-firefox1.owl#mozilla-firefox1 
+SELECT visko:iso-surfaces.owl#iso-surfaces IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/02029349145023569_vel.3d 
-	FORMAT formats:BINARYFLOATARRAY.owl#BINARYFLOATARRAY 
+	FORMAT formats:BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN 
 	TYPE types:d2
 WHERE	dataParams:dataSpacing		=	1/1/1		AND
 	dataParams:dataExtent 		=	0/230/0/25/0/68	AND
@@ -211,13 +197,13 @@ WHERE	dataParams:dataSpacing		=	1/1/1		AND
 <h5>7. Visualizing velocity model as isosurfaces with black background</h5>
 <div class="code">
 <pre>
-PREFIX formats http://rio.cs.utep.edu/ciserver/ciprojects/formats/ 
+PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
-PREFIX visko http://rio.cs.utep.edu/ciserver/ciprojects/visko/ 
-PREFIX params http://trust.utep.edu/visko/services/vtkPolyDataMapperService.owl# 
-SELECT visko:iso-surfaces1.owl#iso-surfaces1 IN-VIEWER visko:mozilla-firefox1.owl#mozilla-firefox1 
+PREFIX visko https://raw.github.com/nicholasdelrio/visko/master/rdf/ 
+PREFIX params https://raw.github.com/nicholasdelrio/visko/master/rdf/vtkPolyDataMapperService.owl# 
+SELECT visko:iso-surfaces.owl#iso-surfaces IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/02029349145023569_vel.3d 
-	FORMAT formats:BINARYFLOATARRAY.owl#BINARYFLOATARRAY 
+	FORMAT formats:BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN 
 	TYPE types:d2 
 WHERE params:backgroundColor = 0/0/0
 </pre>
@@ -231,13 +217,13 @@ WHERE params:backgroundColor = 0/0/0
 <h5>8. Visualizing velocity model as a volume</h5>
 <div class="code">
 <pre>
-PREFIX formats http://rio.cs.utep.edu/ciserver/ciprojects/formats/ 
+PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
-PREFIX visko http://rio.cs.utep.edu/ciserver/ciprojects/visko/ 
-PREFIX params http://trust.utep.edu/visko/services/vtkVolumeService.owl# 
-SELECT visko:volume1.owl#volume1 IN-VIEWER visko:mozilla-firefox1.owl#mozilla-firefox1 
+PREFIX visko https://raw.github.com/nicholasdelrio/visko/master/rdf/ 
+PREFIX params REPLACE-VISKSOvtkVolumeService.owl# 
+SELECT visko:volume.owl#volume IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/02029349145023569_vel.3d 
-	FORMAT formats:BINARYFLOATARRAY.owl#BINARYFLOATARRAY 
+	FORMAT formats:BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN 
 	TYPE types:d2 
 WHERE params:colorFunction = 3000,1,1,0/5000,0.5,0.95,0/5600,0,0,1/6500,0.28,0.2,0.5/7000,1,0,0 AND
 	params:opacityFunction = 4000,0.2/8000,0.5
@@ -253,12 +239,12 @@ WHERE params:colorFunction = 3000,1,1,0/5000,0.5,0.95,0/5600,0,0,1/6500,0.28,0.2
 <h5>9. Visualizing velocity slowness perturbation as isosurfaces</h5>
 <div class="code">
 <pre>
-PREFIX formats http://rio.cs.utep.edu/ciserver/ciprojects/formats/ 
+PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
-PREFIX visko http://rio.cs.utep.edu/ciserver/ciprojects/visko/ 
-SELECT visko:iso-surfaces1.owl#iso-surfaces1 IN-VIEWER visko:mozilla-firefox1.owl#mozilla-firefox1 
+PREFIX visko https://raw.github.com/nicholasdelrio/visko/master/rdf/ 
+SELECT visko:iso-surfaces.owl#iso-surfaces IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/032289675474805557_dusum.3d 
-	FORMAT formats:BINARYFLOATARRAY.owl#BINARYFLOATARRAY 
+	FORMAT formats:BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN 
 	TYPE types:d8
 </pre>
 </div>
@@ -272,12 +258,12 @@ FROM http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/032289675474805
 <h5>10. Visualizing Gridded Time Field as Isosurfaces</h5>
 <div class="code">
 <pre>
-PREFIX formats http://rio.cs.utep.edu/ciserver/ciprojects/formats/ 
+PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
-PREFIX visko http://rio.cs.utep.edu/ciserver/ciprojects/visko/ 
-SELECT visko:iso-surfaces1.owl#iso-surfaces1 IN-VIEWER visko:mozilla-firefox1.owl#mozilla-firefox1 
+PREFIX visko https://raw.github.com/nicholasdelrio/visko/master/rdf/ 
+SELECT visko:iso-surfaces.owl#iso-surfaces IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/05729227976475819_time.3d 
-	FORMAT formats:BINARYFLOATARRAY.owl#BINARYFLOATARRAY 
+	FORMAT formats:BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN 
 	TYPE types:d4
 </pre>
 </div>
@@ -291,13 +277,13 @@ FROM http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/057292279764758
 <h5>11. Visualizing Gridded Time Field as Isosurfaces with Rotation</h5>
 <div class="code">
 <pre>
-PREFIX formats http://rio.cs.utep.edu/ciserver/ciprojects/formats/ 
+PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
-PREFIX visko http://rio.cs.utep.edu/ciserver/ciprojects/visko/ 
-PREFIX params http://trust.utep.edu/visko/services/vtkPolyDataMapperService.owl# 
-SELECT visko:iso-surfaces1.owl#iso-surfaces1 IN-VIEWER visko:mozilla-firefox1.owl#mozilla-firefox1 
+PREFIX visko https://raw.github.com/nicholasdelrio/visko/master/rdf/ 
+PREFIX params https://raw.github.com/nicholasdelrio/visko/master/rdf/vtkPolyDataMapperService.owl# 
+SELECT visko:iso-surfaces.owl#iso-surfaces1 IN-VIEWER visko:mozilla-firefox1.owl#mozilla-firefox1 
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/05729227976475819_time.3d 
-	FORMAT formats:BINARYFLOATARRAY.owl#BINARYFLOATARRAY 
+	FORMAT formats:BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN 
 	TYPE types:d4 
 WHERE 	params:xRotation = 90 AND
 	params:yRotation = 0 AND
@@ -313,13 +299,13 @@ WHERE 	params:xRotation = 90 AND
 <h5>12. Visualizing Ray Coverage as Volume</h5>
 <div class="code">
 <pre>
-PREFIX formats http://rio.cs.utep.edu/ciserver/ciprojects/formats/ 
+PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#
-PREFIX visko http://rio.cs.utep.edu/ciserver/ciprojects/visko/ 
-PREFIX params http://trust.utep.edu/visko/services/vtkVolumeService.owl# 
-SELECT visko:volume1.owl#volume1 IN-VIEWER visko:mozilla-firefox1.owl#mozilla-firefox1 
+PREFIX visko https://raw.github.com/nicholasdelrio/visko/master/rdf/ 
+PREFIX params https://raw.github.com/nicholasdelrio/visko/master/rdf/vtkVolumeService.owl# 
+SELECT visko:volume.owl#volume IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/01146509090356318_icov.3d 
-	FORMAT formats:BINARYINTARRAY.owl#BINARYINTARRAY 
+	FORMAT formats:BINARYINTARRAYLENDIAN.owl#BINARYINTARRAYLENDIAN 
 	TYPE types:d7-0 
 WHERE params:colorFunction = 20,1.0,0.0,0.3/80,1.0,0.0,0.3 AND
 	params:opacityFunction = 0,0.0/40,1.0 AND
@@ -338,12 +324,12 @@ WHERE params:colorFunction = 20,1.0,0.0,0.3/80,1.0,0.0,0.3 AND
 <h5>13. Visualizing brightness temperature as contour map with: lines, colors, vertical color bar, interval of 10, and rainbow color table</h5>
 <div class="code" style="overflow:scroll;">
 <pre>
-PREFIX formats http://rio.cs.utep.edu/ciserver/ciprojects/formats/ 
-PREFIX visko http://rio.cs.utep.edu/ciserver/ciprojects/visko/ 
-PREFIX params http://trust.utep.edu/visko/services/netCDFGridContour.owl# 
-SELECT visko:contour-lines1.owl#contour-lines1 IN-VIEWER visko:mozilla-firefox1.owl#mozilla-firefox1 
+PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/ 
+PREFIX visko https://raw.github.com/nicholasdelrio/visko/master/rdf/ 
+PREFIX params https://raw.github.com/nicholasdelrio/visko/master/rdf/netCDFGridContour.owl# 
+SELECT visko:contour-lines.owl#contour-lines IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://disc2.nascom.nasa.gov/daac-bin/OTF/HTTP_services.cgi?SERVICE=SUBSET_YOTC_LATS4D&BBOX=-65.390625,7.734375,-10.546875,42.890625&SHORTNAME=mergedIR&VARIABLES=ch4&TIME=2008-05-31T00:00:00 
-	FORMAT http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/NETCDF.owl#NETCDF 
+	FORMAT formats:NETCDF.owl#NETCDF 
 	TYPE http://giovanni.gsfc.nasa.gov/data/brightness.owl#brightness 
 WHERE 	params:cnFillOn = True AND
 	params:cnLinesOn = True AND
@@ -362,12 +348,12 @@ WHERE 	params:cnFillOn = True AND
 <h5>14. Visualizing Brightness Temperature as Raster Image with: Annotations in Helvetica, Horizontal Color Bar, and Rainbow Color Table</h5>
 <div class="code"  style="overflow:scroll;">
 <pre>
-PREFIX formats http://rio.cs.utep.edu/ciserver/ciprojects/formats/ 
-PREFIX visko http://rio.cs.utep.edu/ciserver/ciprojects/visko/ 
-PREFIX params http://trust.utep.edu/visko/services/netCDFGridRaster.owl# 
-SELECT visko:raster.owl#raster IN-VIEWER visko:mozilla-firefox1.owl#mozilla-firefox1 
+PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/ 
+PREFIX visko https://raw.github.com/nicholasdelrio/visko/master/rdf/ 
+PREFIX params REPLACE-VISKKOnetCDFGridRaster.owl# 
+SELECT visko:raster.owl#raster IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://disc2.nascom.nasa.gov/daac-bin/OTF/HTTP_services.cgi?SERVICE=SUBSET_YOTC_LATS4D&BBOX=-65.390625,7.734375,-10.546875,42.890625&SHORTNAME=mergedIR&VARIABLES=ch4&TIME=2008-05-31T00:00:00 
-	FORMAT http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/NETCDF.owl#NETCDF 
+	FORMAT formats:NETCDF.owl#NETCDF 
 	TYPE http://giovanni.gsfc.nasa.gov/data/brightness.owl#brightness 
 WHERE	params:cnFillOn = True AND 
 	params:cnLinesOn = True AND 
@@ -383,67 +369,20 @@ font = helvetica AND
 <tr><td><img src="http://trust.utep.edu/visko/ql-examples/visualizations/brightness-raster.png" width="450px"></td></tr>
 </table>
 
-<a name="aerosol">
-<h4>Queries Associated with Aersol Data</h4>
-
-<a name="aero-ex1">
-<h5>15. <font color="red">NOT OPERATIONAL: Dataset Removed From Web</font> - Visualizing Aersol Data as Time Series Plot</h5>
-<div class="code"  style="overflow:scroll;">
-<pre>
-PREFIX visko http://rio.cs.utep.edu/ciserver/ciprojects/visko/ 
-SELECT visko:XYPlot.owl#XYPlot IN-VIEWER visko:mozilla-firefox1.owl#mozilla-firefox1 
-FROM http://giovanni.gsfc.nasa.gov/session//4FD77C10-9D9F-11E0-8032-A256126F70C8/A838B4D2-9F84-11E0-9248-C3EBB5374347/A83C6D98-9F84-11E0-B803-A51811396DEC///NULL-AERONET_AOD_L2.2-MYD04_L2.051-MIL2ASAE.0022-20112506234225.nc 
-	FORMAT http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/NETCDF.owl#NETCDF 
-	TYPE http://giovanni.gsfc.nasa.gov/data/aerosol/timeseries.owl#timeseries
-</pre>
-</div>
-
-<table>
-<tr><td align="center"><a href="http://trust.utep.edu/visko/ql-examples/pipelines/pipeline-ncl-aerosol-timeseries.htm">Pipeline</a></td></tr>
-<tr><td><img src="http://trust.utep.edu/visko/ql-examples/visualizations/aerosol-timeseries.png" width="450px"></td></tr>
-</table>
-
-<a name="env">
-<h4>Queries Associated with Environmental Data</h4>
-
-<a name="env-ex1">
-<h5>16. H20 and H2O_HMP vs Time</h5>
-<div class="code">
-<pre>
-PREFIX visko http://rio.cs.utep.edu/ciserver/ciprojects/visko/ 
-PREFIX params http://trust.utep.edu/visko/services/netCDFTimeSeries.owl# 
-SELECT visko:XYPlot.owl#XYPlot IN-VIEWER visko:mozilla-firefox1.owl#mozilla-firefox1 
-FROM http://cybershare.utep.edu:8080/opendap/data/nc/average_data.nc 
-	FORMAT http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/NETCDF.owl#NETCDF 
-	TYPE http://giovanni.gsfc.nasa.gov/data/aerosol/timeseries.owl#timeseries 
-WHERE params:title = Average-Data 
-	AND params:xDimSize = 338 
-	AND params:xDimName = time 
-	AND params:yRAxisLabel = Mean-CO2 
-	AND params:rPlotVariablesList = mean_CO2 
-	AND params:yLAxisLabel = Mean-H2O-HMP 
-	AND params:lPlotVariablesList = mean_H2O_hmp
-</pre>
-</div>
-<table>
-<tr><td align="center"><a href="http://trust.utep.edu/visko/ql-examples/pipelines/pipeline-env-timeseries.htm">Pipeline</a></td></tr>
-<tr><td><img src="http://trust.utep.edu/visko/ql-examples/visualizations/env-timeseries.png" width="450px"></td></tr>
-</table>
-
 <a name="polygons">
 <h4>Queries Associated with Polygon Data</h4>
 
 <a name="cube-ex1">
-<h5>17. VTK Polygon Cube</h5>
+<h5>15. VTK Polygon Cube</h5>
 <div class="code">
 <pre>
-PREFIX formats http://rio.cs.utep.edu/ciserver/ciprojects/formats/ 
+PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
-PREFIX visko http://rio.cs.utep.edu/ciserver/ciprojects/visko/ 
-PREFIX renderParams http://trust.utep.edu/visko/services/vtkPolyDataMapperService.owl# 
-SELECT * IN-VIEWER visko:mozilla-firefox1.owl#mozilla-firefox1 
+PREFIX visko https://raw.github.com/nicholasdelrio/visko/master/rdf/ 
+PREFIX renderParams https://raw.github.com/nicholasdelrio/visko/master/rdf/vtkPolyDataMapperService.owl# 
+SELECT * IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/sdata/Cubes.xml 
-	FORMAT http://rio.cs.utep.edu/ciserver/ciprojects/formats/VTKPOLYDATA.owl#VTKPOLYDATA 
+	FORMAT formats:VTKPOLYDATA.owl#VTKPOLYDATA 
 	TYPE types:d2 
 WHERE renderParams:backgroundColor = 0/1/0 
 	AND renderParams:magnification = 3 

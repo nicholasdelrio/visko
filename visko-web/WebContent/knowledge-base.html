@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="visko-style.css" />
+<title>Your Knowledge Base Instance</title>
+</head>
+<body>
+<div id="container">
+<div id="header">
+    <img src="http://trust.utep.edu/visko/visko-just-logo.png" alt="VisKo Logo" style="padding:5px;" />
+    <h1 style="padding-top:0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A VisKo Instance</h1>
+</div>
+<div id="menu">
+    <a href=".">Instance Home</a>
+    <a href="query.html">Submit a VisKo Query</a>
+    <a href="query-examples.html">Query Examples</a>
+    <a href="knowledge-base.html">Knowledge Base</a>
+</div>
+<div id="content">
+
+<h3 style="padding:0px">[VisKo Knowledge Base Instance]</h3>
+
+<table style="float:left">
+<tr>
+<td>
+<div class="toc">
+<h4 style="padding:0px">Contents</h4>
+<dl>
+<dd><a href="#Overview">1 Overview</a></li>
+<dd><a href="#Querying">2 Capability Listing by Querying</a></li>
+<dd><a href="#Browsing">2 Capability Graph</a></li>
+</dl>
+</div>
+</td>
+</tr>
+
+</table>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+
+<a name="Overview">
+<h2>Overview: When VisKo Cannot Answer a Visualization Query</h2>
+VisKo may not be able to visualize your dataset because of a number of reasons including:
+<ul>
+    <li>It cannot process your data in the format it currently resides</li>
+    <li>It does not know how generate the requested view</li>
+    <li>It does not know how to transform your data into another required intermediate format</li>
+    <li>One or more parameters were not bound to a value</li>
+</ul>
+<br>
+<p>If you understand the fitness of your knowledge base, you may be able understand what knowledge you need to add for VisKo to be able to process your visualization queries.</p>
+<p>This page will describe how you can ascertain the fitness of your VisKo knowledge base instance through querying and visual analysis techniques described below.</p>
+
+<a name="Querying"/>
+<h2>Querying your Knowledge Base</h2>
+<p>You will use SPARQL to directly interface with your knowledge base instance.</p> 
+<p>Questions/Answers</p>
+
+<ul>
+<li><a href="ViskoServletManager?requestType=query-triple-store&query=PREFIX+viskoV%3A+%3Chttp%3A%2F%2Ftrust.utep.edu%2Fvisko%2Fontology%2Fvisko-view-v3.owl%23%3E%0D%0APREFIX+viskoO%3A+%3Chttp%3A%2F%2Ftrust.utep.edu%2Fvisko%2Fontology%2Fvisko-operator-v3.owl%23%3E%0D%0APREFIX+viskoS%3A+%3Chttp%3A%2F%2Ftrust.utep.edu%2Fvisko%2Fontology%2Fvisko-service-v3.owl%23%3E%0D%0APREFIX+owlsService%3A+%3Chttp%3A%2F%2Fwww.daml.org%2Fservices%2Fowl-s%2F1.2%2FService.owl%23%3E%0D%0APREFIX+owlsProcess%3A+%3Chttp%3A%2F%2Fwww.daml.org%2Fservices%2Fowl-s%2F1.2%2FProcess.owl%23%3E%0D%0APREFIX+owl%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0D%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0A%0D%0AASK%0D%0A%09%09%09%0D%0AWHERE%0D%0A%7B%7B%0D%0A%3Fviewer+viskoO%3ApartOfViewerSet+%3Chttps%3A%2F%2Fraw.github.com%2Fnicholasdelrio%2Fvisko%2Fmaster%2Frdf%2Fmozilla-firefox.owl%23mozilla-firefox%3E+.%0D%0A%3Fviewer+viskoO%3AoperatesOn+%3Fformat+.%0D%0A%3Chttps%3A%2F%2Fraw.github.com%2Fnicholasdelrio%2Fvisko%2Fmaster%2Frdf%2Fformats%2FBINARYFLOATARRAYLENDIAN.owl%23BINARYFLOATARRAYLENDIAN%3E+viskoO%3AcanBeTransformedToTransitive+%3Fformat+.+%0D%0A%7D+UNION+%7B%0D%0A%0D%0A%3Fviewer+viskoO%3ApartOfViewerSet+%3Chttps%3A%2F%2Fraw.github.com%2Fnicholasdelrio%2Fvisko%2Fmaster%2Frdf%2Fmozilla-firefox.owl%23mozilla-firefox%3E+.%0D%0A%3Fviewer+viskoO%3AoperatesOn+%3Fformat+.%0D%0A%3Chttps%3A%2F%2Fraw.github.com%2Fnicholasdelrio%2Fvisko%2Fmaster%2Frdf%2Fformats%2FBINARYFLOATARRAYLENDIAN.owl%23BINARYFLOATARRAYLENDIAN%3E+viskoO%3AcanBeTransformedTo+%3Fformat+.%0D%0A%7D+UNION+%7B%0D%0A%0D%0A%3Fviewer+viskoO%3ApartOfViewerSet+%3Chttps%3A%2F%2Fraw.github.com%2Fnicholasdelrio%2Fvisko%2Fmaster%2Frdf%2Fmozilla-firefox.owl%23mozilla-firefox%3E+.%0D%0A%3Fviewer+viskoO%3AoperatesOn+%3Chttps%3A%2F%2Fraw.github.com%2Fnicholasdelrio%2Fvisko%2Fmaster%2Frdf%2Fformats%2FBINARYFLOATARRAYLENDIAN.">Can VisKo Render a 3D Binary Float Array in a format that Mozilla Firefox can Display?</a></li>
+<li><a href="ViskoServletManager?requestType=query-triple-store&query=PREFIX+viskoV%3A+%3Chttp%3A%2F%2Ftrust.utep.edu%2Fvisko%2Fontology%2Fvisko-view-v3.owl%23%3E%0D%0APREFIX+viskoO%3A+%3Chttp%3A%2F%2Ftrust.utep.edu%2Fvisko%2Fontology%2Fvisko-operator-v3.owl%23%3E%0D%0APREFIX+viskoS%3A+%3Chttp%3A%2F%2Ftrust.utep.edu%2Fvisko%2Fontology%2Fvisko-service-v3.owl%23%3E%0D%0APREFIX+owlsService%3A+%3Chttp%3A%2F%2Fwww.daml.org%2Fservices%2Fowl-s%2F1.2%2FService.owl%23%3E%0D%0APREFIX+owlsProcess%3A+%3Chttp%3A%2F%2Fwww.daml.org%2Fservices%2Fowl-s%2F1.2%2FProcess.owl%23%3E%0D%0APREFIX+owl%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0D%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3Fformat%0D%0AWHERE%0D%0A%7B%7B%0D%0A%3Foperator+a+viskoO%3AOperator+.%0D%0A%3Foperator+viskoO%3AoperatesOn+%3Fformat+.%0D%0A%7D%0D%0AUNION%0D%0A%7B%0D%0A%3Foperator+a+viskoO%3ATransformer+.%0D%0A%3Foperator+viskoO%3AtransformsTo+%3Fformat+.%0D%0A%7D%7D">What Formats Does VisKo Work With (i.e., read-in and write-out)</a></li>
+<li><a href="ViskoServletManager?requestType=query-triple-store&query=PREFIX+viskoV%3A+%3Chttp%3A%2F%2Ftrust.utep.edu%2Fvisko%2Fontology%2Fvisko-view-v3.owl%23%3E%0D%0APREFIX+viskoO%3A+%3Chttp%3A%2F%2Ftrust.utep.edu%2Fvisko%2Fontology%2Fvisko-operator-v3.owl%23%3E%0D%0APREFIX+viskoS%3A+%3Chttp%3A%2F%2Ftrust.utep.edu%2Fvisko%2Fontology%2Fvisko-service-v3.owl%23%3E%0D%0APREFIX+owlsService%3A+%3Chttp%3A%2F%2Fwww.daml.org%2Fservices%2Fowl-s%2F1.2%2FService.owl%23%3E%0D%0APREFIX+owlsProcess%3A+%3Chttp%3A%2F%2Fwww.daml.org%2Fservices%2Fowl-s%2F1.2%2FProcess.owl%23%3E%0D%0APREFIX+owl%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0D%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0A%0D%0Aselect+%3Fview+%3Flabel%0D%0Awhere%0D%0A%7B%0D%0A%3Fview+a+viskoV%3AView.%0D%0A%3Fview+rdfs%3Alabel+%3Flabel%0D%0A%7D+">What views can VisKo Generate?</a>
+<li><a href="ViskoServletManager?requestType=query-triple-store&query=PREFIX+viskoV%3A+%3Chttp%3A%2F%2Ftrust.utep.edu%2Fvisko%2Fontology%2Fvisko-view-v3.owl%23%3E%0D%0APREFIX+viskoO%3A+%3Chttp%3A%2F%2Ftrust.utep.edu%2Fvisko%2Fontology%2Fvisko-operator-v3.owl%23%3E%0D%0APREFIX+viskoS%3A+%3Chttp%3A%2F%2Ftrust.utep.edu%2Fvisko%2Fontology%2Fvisko-service-v3.owl%23%3E%0D%0APREFIX+owlsService%3A+%3Chttp%3A%2F%2Fwww.daml.org%2Fservices%2Fowl-s%2F1.2%2FService.owl%23%3E%0D%0APREFIX+owlsProcess%3A+%3Chttp%3A%2F%2Fwww.daml.org%2Fservices%2Fowl-s%2F1.2%2FProcess.owl%23%3E%0D%0APREFIX+owl%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0D%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0A%0D%0Aselect+%3Foperator+%3Flabel%0D%0Awhere%0D%0A%7B%0D%0A%3Foperator+a+viskoO%3AOperator.+%0D%0A%3Foperator+rdfs%3Alabel+%3Flabel%0D%0A%7D">What Operators Does VisKo Know About?</a>
+<li><a href="ViskoServletManager?requestType=query-triple-store&query=PREFIX+viskoV%3A+%3Chttp%3A%2F%2Ftrust.utep.edu%2Fvisko%2Fontology%2Fvisko-view-v3.owl%23%3E%0D%0APREFIX+viskoO%3A+%3Chttp%3A%2F%2Ftrust.utep.edu%2Fvisko%2Fontology%2Fvisko-operator-v3.owl%23%3E%0D%0APREFIX+viskoS%3A+%3Chttp%3A%2F%2Ftrust.utep.edu%2Fvisko%2Fontology%2Fvisko-service-v3.owl%23%3E%0D%0APREFIX+owlsService%3A+%3Chttp%3A%2F%2Fwww.daml.org%2Fservices%2Fowl-s%2F1.2%2FService.owl%23%3E%0D%0APREFIX+owlsProcess%3A+%3Chttp%3A%2F%2Fwww.daml.org%2Fservices%2Fowl-s%2F1.2%2FProcess.owl%23%3E%0D%0APREFIX+owl%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0D%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0A%0D%0Aselect+%3Ftoolkit+%3Flabel%0D%0Awhere%0D%0A%7B%0D%0A%3Ftoolkit+a+viskoS%3AToolkit.+%0D%0A%3Ftoolkit+rdfs%3Alabel+%3Flabel.%0D%0A%7D">What Toolkits Does VisKo Know About?</a>
+</ul>
+
+<br>
+
+<p>Submit Your Own Questions in SPARQL</p>
+<ul><li><a href="sparql-query.html">Your SPARQL Query Endpoint</a></li></ul>
+
+<a name="Browsing">
+<h2>Format Transformation Paths:</h2>
+<p>Note: that is does not correspond to the number of different <b>visualization pipeline</b> paths because formats like PDF can represent many different kinds of visualizations (e.g., 2d plots, contour-maps, raster maps).</p>
+<iframe width="900" height="290" src="FormatTransformationPaths.html" frameborder="0"></iframe>
+
+<h2>Operator Pipelines</h2>
+<iframe width="900" height="290" src="OperatorPipelines.html" frameborder="0"></iframe>
+
+</div>
+</div>
+<font color="white"><i><b>Copyright @2012 CyberShARE Center, The University of Texas at El Paso</b></i></font>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>
