@@ -9,9 +9,11 @@
 	<property name="my-github-username" value="nicholasdelrio"/>
 	<property name="base-rdf-server-url" value="https://raw.github.com/"/>
 	<property name="frag-rdf-server-url" value="/visko/master/rdf/"/>
-	
-	<property name="server-url" value="${base-rdf-server-url}${github-username}${frag-rdf-server-url}"/>
+	<property name="server-url" value="${base-rdf-server-url}${your-github-username}${frag-rdf-server-url}"/>
 	<property name="format-url" value="${base-rdf-server-url}${my-github-username}${frag-rdf-server-url}formats/"/>
+	
+	<property name="query-examples-template" value="query-examples.html"/>
+	<property name="query-examples-deployment-dir" value="../visko-web/WebContent/"/>
 	
 	<property name="jarfile" value="utep-rdf-generator.jar"/>
 	<property name="lib" value="../api/lib/"/>
@@ -64,8 +66,18 @@
 		</javac>
 	</target>
 
-	<target name="build-query-examples-html" description="Generate the query examples html specific for your VisKo RDF deployment">
-	
+	<target name="build-query-examples-html" depends="build" description="Generate the query examples html specific for your VisKo RDF deployment">
+		<java classname="edu.utep.trustlab.query.QueryExamples">
+			<arg value="${query-examples-template}"/>
+			<arg value="${server-url}"/>
+			<arg value="${format-url}"/>
+			<arg value="${query-examples-deployment-dir}"/>
+			
+			<classpath>
+				<pathelement location="${jarfile}"/>
+				<pathelement location="${visko-api-jar}"/>
+			</classpath>
+		</java>		
 	</target>
 	
 	<target name="build-triple-store" depends="build,clean-triple-store" description="Generate a TDB Triple Store From a Bundle of RDF Documents">

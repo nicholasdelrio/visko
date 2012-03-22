@@ -35,7 +35,15 @@ public class QueryExamples {
 	}
 	
 	public static void main(String[] args){
-		
-	}
 
+		System.out.println("generating query examples!");
+		QueryExamples qe;
+		
+		if(args.length == 3)
+			qe = new QueryExamples(args[0], args[1], args[2], null);
+		else
+			qe = new QueryExamples(args[0], args[1], args[2], args[3]);
+		
+		System.out.println(qe.generateQueryExamples());
+	}
 }
