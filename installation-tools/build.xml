@@ -12,8 +12,8 @@
 	<property name="server-url" value="${base-rdf-server-url}${your-github-username}${frag-rdf-server-url}"/>
 	<property name="format-url" value="${base-rdf-server-url}${my-github-username}${frag-rdf-server-url}formats/"/>
 	
-	<property name="query-examples-template" value="query-examples.html"/>
-	<property name="query-examples-deployment-dir" value="../visko-web/WebContent/"/>
+	<property name="query-template" value="query.html"/>
+	<property name="query-deployment-dir" value="../visko-web/WebContent/"/>
 	
 	<property name="jarfile" value="utep-rdf-generator.jar"/>
 	<property name="lib" value="../api/lib/"/>
@@ -66,12 +66,12 @@
 		</javac>
 	</target>
 
-	<target name="build-query-examples-html" depends="build" description="Generate the query examples html specific for your VisKo RDF deployment">
+	<target name="build-query-html" depends="build" description="Generate the query examples html specific for your VisKo RDF deployment">
 		<java classname="edu.utep.trustlab.query.QueryExamples">
-			<arg value="${query-examples-template}"/>
+			<arg value="${query-template}"/>
 			<arg value="${server-url}"/>
 			<arg value="${format-url}"/>
-			<arg value="${query-examples-deployment-dir}"/>
+			<arg value="${query-deployment-dir}"/>
 			
 			<classpath>
 				<pathelement location="${jarfile}"/>
