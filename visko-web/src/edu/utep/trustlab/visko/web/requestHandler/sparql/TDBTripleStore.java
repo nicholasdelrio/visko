@@ -14,18 +14,20 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.tdb.TDBFactory;
 
 public class TDBTripleStore {
+	
 	private static String tdbStoreFilePath;
-
 	private static InfModel model;
 	
 	public static void setTDBStoreFilePath(String filePath){
 		tdbStoreFilePath = filePath;
 	}
 	public TDBTripleStore(){
-		Model assertedModel = TDBFactory.createModel(tdbStoreFilePath);
 		
-		if(model == null)
+		if(model == null){
+			Model assertedModel = TDBFactory.createModel(tdbStoreFilePath);
 			model = ModelFactory.createInfModel(PelletReasonerFactory.theInstance().create(), assertedModel);
+			assertedModel.close();
+		}
 	}
 	
 	public ResultSet execute(String queryString){
