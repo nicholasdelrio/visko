@@ -17,6 +17,7 @@ public class Template {
 				"    <h1 style=\"padding-top:0px;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A VisKo Instance</h1>" +
 				"</div>" +
 				"<div id=\"menu\">" +
+				"	<a href=\"http://trust.utep.edu/visko\">VisKo Home</a>" +
 				"    <a href=\".\">Instance Home</a>" +
 				"    <a href=\"query.html\">Submit a VisKo Query</a>" +
 				"    <a href=\".knowledge-base.html/\">Knowledge Base</a>" +
