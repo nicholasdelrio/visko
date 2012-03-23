@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project default="build" name="VisKo Cybershare RDF Manager">
+<project default="build" name="VisKo Installer Tools">
 
 	<!-- change this property if GitHub will be your VisKo RDF server -->
 	<property name="your-github-username" value="nicholasdelrio"/>
