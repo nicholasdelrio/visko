@@ -60,9 +60,6 @@ public abstract class OWLSIndividual implements ViskoIndividual {
 	protected OWLSModel model;
 
 	public OWLSIndividual(String baseURL, String name, OWLSModel owlsModel) {
-		System.out
-				.println("asssuming that the object will be used for writing...");
-
 		setURI(baseURL, name);
 
 		model = owlsModel;
@@ -73,8 +70,6 @@ public abstract class OWLSIndividual implements ViskoIndividual {
 	}
 
 	public OWLSIndividual(String individualURI, OWLSModel owlsModel) {
-		System.out
-				.println("asssuming that the object will be used for reading...");
 		isForReading = true;
 		model = owlsModel;
 		uri = individualURI;

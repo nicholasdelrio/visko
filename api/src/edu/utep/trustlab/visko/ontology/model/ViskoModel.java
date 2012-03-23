@@ -44,7 +44,6 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.Vector;
 
-import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.vocabulary.ESIPData;
 import edu.utep.trustlab.visko.ontology.vocabulary.OWLS_Process;
 import edu.utep.trustlab.visko.ontology.vocabulary.OWLS_Service;
@@ -90,10 +89,7 @@ public class ViskoModel{
 	}
 
 	public void createOntology(String uri) {
-		if (ontology != null)
-			System.out
-					.println("this model already has an ontology and will not create another one...");
-		else
+		if (ontology == null)
 			ontology = model.createOntology(uri);
 	}
 

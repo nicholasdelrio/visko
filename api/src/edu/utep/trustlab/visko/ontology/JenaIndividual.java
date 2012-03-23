@@ -70,8 +70,6 @@ public abstract class JenaIndividual implements ViskoIndividual {
 
 	public JenaIndividual(String classURI, String baseURL, String name,
 			ViskoModel viskoModel) {
-		System.out
-				.println("asssuming that the object will be used for writing...");
 
 		// the model that will be used to house this new individual
 		model = viskoModel;
@@ -91,8 +89,6 @@ public abstract class JenaIndividual implements ViskoIndividual {
 	}
 
 	public JenaIndividual(String individualURI, ViskoModel viskoModel) {
-		System.out
-				.println("asssuming that the object will be used for reading...");
 
 		model = viskoModel;
 		uri = individualURI;
