@@ -5,7 +5,7 @@
 	<property name="your-github-username" value="nicholasdelrio"/>
 	
 	
-	<!-- leave these alone please -->
+	<!-- restrictricted use -->
 	<property name="my-github-username" value="nicholasdelrio"/>
 	<property name="base-rdf-server-url" value="https://raw.github.com/"/>
 	<property name="frag-rdf-server-url" value="/visko/master/rdf/"/>
@@ -66,7 +66,7 @@
 		</javac>
 	</target>
 
-	<target name="build-visko-web" description="Generate visko-web.war file">
+	<target name="build-visko-web" depends="build-query-html" description="Generate visko-web.war file">
 		<ant antfile="${visko-web}/build.xml" target="build" inheritAll="false" />
 	</target>
 	
