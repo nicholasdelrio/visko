@@ -41,7 +41,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.ontology.writer;
 
 
-import edu.utep.trustlab.repository.Repository;
+import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.visko.ontology.ViskoIndividual;
 import edu.utep.trustlab.visko.ontology.model.OWLSModel;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
@@ -60,6 +60,6 @@ public abstract class ViskoWriter {
 	
 	public String saveDocument() {
 		String fileContents = toRDFString();
-		return Repository.getRepository().saveDocument(fileContents, viskoIndividual.getFileName());
+		return ContentManager.getRepository().saveDocument(fileContents, viskoIndividual.getFileName());
 	}
 }

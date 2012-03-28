@@ -39,7 +39,8 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 
 package edu.utep.trustlab.visko.ontology.service.writer;
-import edu.utep.trustlab.repository.Repository;
+import edu.utep.trustlab.contentManagement.ContentManager;
+import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.service.Input;
 import edu.utep.trustlab.visko.ontology.service.InputBinding;
@@ -53,7 +54,7 @@ public class InputBindingWriter extends ViskoWriter {
 	private ViskoModel readingModel;
 
 	public InputBindingWriter(String name) {
-		inBinding = new InputBinding(Repository.getRepository().getBaseURL(),
+		inBinding = new InputBinding(ContentManager.getRepository().getBaseURL(JenaIndividual.makeFileName(name)),
 				name, viskoModel);
 	}
 

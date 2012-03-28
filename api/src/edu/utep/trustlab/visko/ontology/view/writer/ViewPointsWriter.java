@@ -39,7 +39,8 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 
 package edu.utep.trustlab.visko.ontology.view.writer;
-import edu.utep.trustlab.repository.Repository;
+import edu.utep.trustlab.contentManagement.ContentManager;
+import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.view.Point;
 import edu.utep.trustlab.visko.ontology.writer.ViskoWriter;
 
@@ -48,7 +49,7 @@ public class ViewPointsWriter extends ViskoWriter {
 	String label;
 
 	public ViewPointsWriter(String name) {
-		view = new Point(Repository.getRepository().getBaseURL(), name, viskoModel);
+		view = new Point(ContentManager.getRepository().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
 	}
 
 	public void setLabel(String label) {

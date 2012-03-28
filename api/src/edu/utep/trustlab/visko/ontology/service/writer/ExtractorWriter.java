@@ -40,9 +40,11 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.ontology.service.writer;
 
+
 import java.util.Vector;
 
-import edu.utep.trustlab.repository.Repository;
+import edu.utep.trustlab.contentManagement.ContentManager;
+import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
 import edu.utep.trustlab.visko.ontology.service.Extractor;
@@ -58,7 +60,7 @@ public class ExtractorWriter extends ViskoWriter {
 	public ExtractorWriter(String name) {
 		loadingModel = new ViskoModel();
 
-		extractor = new Extractor(Repository.getRepository().getBaseURL(),
+		extractor = new Extractor(ContentManager.getRepository().getBaseURL(JenaIndividual.makeFileName(name)),
 				name, viskoModel);
 		dataTypes = new Vector<String>();
 	}

@@ -42,7 +42,8 @@ package edu.utep.trustlab.visko.ontology.operator.writer;
 
 import java.util.Vector;
 
-import edu.utep.trustlab.repository.Repository;
+import edu.utep.trustlab.contentManagement.ContentManager;
+import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.operator.*;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
@@ -60,8 +61,8 @@ public class TransformerWriter extends ViskoWriter {
 	private ViskoModel loadingModel = new ViskoModel();
 
 	public TransformerWriter(String name) {
-		trans = new Transformer(Repository.getRepository().getBaseURL(), name, viskoModel);
-		mapper = new Mapper(Repository.getRepository().getBaseURL(), name, viskoModel);
+		trans = new Transformer(ContentManager.getRepository().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+		mapper = new Mapper(ContentManager.getRepository().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
 		inputFormats = new Vector<Format>();
 	}
 

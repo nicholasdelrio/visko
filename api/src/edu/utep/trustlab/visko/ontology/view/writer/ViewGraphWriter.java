@@ -39,7 +39,8 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 
 package edu.utep.trustlab.visko.ontology.view.writer;
-import edu.utep.trustlab.repository.Repository;
+import edu.utep.trustlab.contentManagement.ContentManager;
+import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.view.Graph;
 import edu.utep.trustlab.visko.ontology.writer.ViskoWriter;
 
@@ -48,7 +49,7 @@ public class ViewGraphWriter extends ViskoWriter {
 	String label;
 
 	public ViewGraphWriter(String name) {
-		view = new Graph(Repository.getRepository().getBaseURL(), name, viskoModel);
+		view = new Graph(ContentManager.getRepository().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
 	}
 
 	public void setLabel(String label) {

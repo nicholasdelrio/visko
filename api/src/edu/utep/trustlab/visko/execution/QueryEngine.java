@@ -47,11 +47,8 @@ import java.util.Set;
 
 import com.hp.hpl.jena.query.ResultSet;
 
-import edu.utep.trustlab.repository.Repository;
 import edu.utep.trustlab.visko.ontology.model.OWLSModel;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
-import edu.utep.trustlab.visko.sparql.UTEPProvenanceRDFStore;
-import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.sparql.QueryRDFDocument;
 import edu.utep.trustlab.visko.util.ResultSetToVector;
 

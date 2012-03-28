@@ -165,10 +165,14 @@ public abstract class JenaIndividual implements ViskoIndividual {
 			fullURL = baseURL;
 			uri = fullURL + "#" + name;
 		} else {
-			fileName = name + ".owl";
+			fileName = makeFileName(name);
 			fullURL = baseURL + fileName;
 			uri = fullURL + "#" + name;
 		}
+	}
+	
+	public static String  makeFileName(String name){
+		return name + ".owl";
 	}
 
 	private void setOntClass(String classURI) {

@@ -39,7 +39,8 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 
 package edu.utep.trustlab.visko.ontology.view.writer;
-import edu.utep.trustlab.repository.Repository;
+import edu.utep.trustlab.contentManagement.ContentManager;
+import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.view.Contour;
 import edu.utep.trustlab.visko.ontology.writer.ViskoWriter;
 
@@ -48,7 +49,7 @@ public class ViewContourWriter extends ViskoWriter {
 	String label;
 
 	public ViewContourWriter(String name) {
-		view = new Contour(Repository.getRepository().getBaseURL(), name,
+		view = new Contour(ContentManager.getRepository().getBaseURL(JenaIndividual.makeFileName(name)), name,
 				viskoModel);
 	}
 
