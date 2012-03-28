@@ -54,7 +54,7 @@ public class InputBindingWriter extends ViskoWriter {
 	private ViskoModel readingModel;
 
 	public InputBindingWriter(String name) {
-		inBinding = new InputBinding(ContentManager.getRepository().getBaseURL(JenaIndividual.makeFileName(name)),
+		inBinding = new InputBinding(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)),
 				name, viskoModel);
 	}
 

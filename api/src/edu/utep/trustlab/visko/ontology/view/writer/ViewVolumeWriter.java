@@ -50,7 +50,7 @@ public class ViewVolumeWriter extends ViskoWriter {
 	String label;
 
 	public ViewVolumeWriter(String name) {
-		view = new Volume(ContentManager.getRepository().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+		view = new Volume(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
 	}
 
 	public void setLabel(String label) {

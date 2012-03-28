@@ -59,7 +59,7 @@ public class ViewerWriter extends ViskoWriter {
 	ViskoModel readingModel = new ViskoModel();
 
 	public ViewerWriter(String name) {
-		viskoViewer = new Viewer(ContentManager.getRepository().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+		viskoViewer = new Viewer(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
 		viskoViewer.setName(name);
 		formats = new Vector<Format>();
 		partOfSets = new Vector<ViewerSet>();

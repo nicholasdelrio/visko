@@ -59,7 +59,7 @@ public class ServiceWriter extends ViskoWriter {
 	ViskoModel readingModel = new ViskoModel();
 
 	public ServiceWriter(String name) {
-		service = new OWLSService(ContentManager.getRepository().getBaseURL(JenaIndividual.makeFileName(name)),name, owlsModel);
+		service = new OWLSService(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)),name, owlsModel);
 	}
 
 	public void setWSDLURL(String wsdlURL) {

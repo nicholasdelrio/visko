@@ -50,7 +50,7 @@ public class ToolkitWriter extends ViskoWriter {
 	String label;
 
 	public ToolkitWriter(String name) {
-		tk = new Toolkit(ContentManager.getRepository().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+		tk = new Toolkit(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
 	}
 
 	public void setLabel(String label) {

@@ -50,7 +50,7 @@ public class ViewRasterWriter extends ViskoWriter {
 	String label;
 
 	public ViewRasterWriter(String name) {
-		view = new Raster(ContentManager.getRepository().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+		view = new Raster(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
 	}
 
 	public void setLabel(String label) {

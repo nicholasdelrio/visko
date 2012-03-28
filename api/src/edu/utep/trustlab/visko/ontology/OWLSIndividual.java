@@ -83,8 +83,8 @@ public abstract class OWLSIndividual implements ViskoIndividual {
 		StringWriter wtr = new StringWriter();
 		model.getOntology().write(wtr, model.getOntology().getURI());
 		String rdfString = wtr.toString();
-		rdfString = OWLSRDFCleanup.fixURIForImplementsOperator(rdfString, ContentManager.getRepository().getBaseURL(null));
-		rdfString = OWLSRDFCleanup.fixURIForSupportedByToolkit(rdfString, ContentManager.getRepository().getBaseURL(null));
+		rdfString = OWLSRDFCleanup.fixURIForImplementsOperator(rdfString, ContentManager.getContentManager().getBaseURL(null));
+		rdfString = OWLSRDFCleanup.fixURIForSupportedByToolkit(rdfString, ContentManager.getContentManager().getBaseURL(null));
 		return rdfString;
 	}
 

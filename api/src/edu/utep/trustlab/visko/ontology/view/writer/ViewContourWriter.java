@@ -49,7 +49,7 @@ public class ViewContourWriter extends ViskoWriter {
 	String label;
 
 	public ViewContourWriter(String name) {
-		view = new Contour(ContentManager.getRepository().getBaseURL(JenaIndividual.makeFileName(name)), name,
+		view = new Contour(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name,
 				viskoModel);
 	}
 

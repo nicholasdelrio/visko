@@ -61,8 +61,8 @@ public class TransformerWriter extends ViskoWriter {
 	private ViskoModel loadingModel = new ViskoModel();
 
 	public TransformerWriter(String name) {
-		trans = new Transformer(ContentManager.getRepository().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
-		mapper = new Mapper(ContentManager.getRepository().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+		trans = new Transformer(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+		mapper = new Mapper(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
 		inputFormats = new Vector<Format>();
 	}
 
