@@ -1,10 +1,10 @@
-package edu.utep.trustlab.repository;
+package edu.utep.trustlab.contentManagement;
 
 import java.io.File;
 
 import edu.utep.trustlab.visko.util.FileUtilities;
 
-public class SwitchRepositoryURL {
+public class SwitchGitHubBaseURL {
 	private static String nicholasdelrio = "nicholasdelrio";
 	public static void main(String[] args){
 		String rdfDirectory = args[0];

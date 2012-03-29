@@ -1,7 +1,8 @@
 package edu.utep.trustlab.visko.knowledge;
 
-import edu.utep.trustlab.repository.LocalFileSystem;
-import edu.utep.trustlab.repository.Repository;
+import edu.utep.trustlab.contentManagement.ContentManager;
+import edu.utep.trustlab.contentManagement.LocalFileSystem;
+
 
 public class GeneratorManager {
 	public static void main(String[] args){
@@ -10,7 +11,7 @@ public class GeneratorManager {
 		String filePath = args[2];
 		
 		LocalFileSystem fs = new LocalFileSystem(serverURL, filePath);
-		Repository.setRepository(fs);
+		ContentManager.setContentManager(fs);
 		
 		switch(generatorID){
 			case 1: 

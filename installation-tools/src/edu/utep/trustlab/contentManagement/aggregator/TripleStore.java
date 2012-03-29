@@ -38,61 +38,78 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.repository.aggregator;
-import java.util.ArrayList;
-import java.util.List;
+package edu.utep.trustlab.contentManagement.aggregator;
+	
+import java.io.File;
+import java.io.FileInputStream;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
-import org.jsoup.nodes.Element;
+import com.hp.hpl.jena.rdf.model.*;
+import com.hp.hpl.jena.tdb.*;
 
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.tdb.TDBFactory;
+	public class TripleStore {
 
-public class ViskoCrawler{
+	private String tsDirectory;
+	private String owlDirectory;
+	private String rdfDirectory;
+	private String formatsDirectory;
 	
-	private Model model;
-	
-	public ViskoCrawler(String storesDirectory){
-		model = TDBFactory.createModel(storesDirectory);
-	}
-	
-	public static Document getDocument(String url){
-		Document doc;
-		try{
-			doc = Jsoup.connect(url).get();
-		}
-		catch(Exception e){
-			doc = null;
-		}
-		return doc;
-	}
-	
-	public void createTripleStore(String url){
-		List<String> urlListing = getListingFromIndexPage(url);
-		buildTripleStore(urlListing);
-	}
-	
-	private void buildTripleStore(List<String> viskoDocURLs){
-		for(String url : viskoDocURLs){
-			model.read(url);
-		}
-	}
-	
-	private List<String> getListingFromIndexPage(String url){
+	public TripleStore(String inputRDFDirectory, String inputOntologyDirectory, String inputFormatsDirectory, String tripleStoreDirectory){
+		rdfDirectory = inputRDFDirectory;
+		tsDirectory = tripleStoreDirectory;	
+		owlDirectory = inputOntologyDirectory;
+		formatsDirectory = inputFormatsDirectory;
 		
-		Document doc = getDocument(url);
-		Elements anchors = doc.select("a");
-		ArrayList<String> viskoDocumentURLs = new ArrayList<String>();
-		String viskoDocURL;
-		Element anAnchor;
-		for(int i = 1; i < anchors.size(); i ++){
-			anAnchor = anchors.get(i);
-			viskoDocURL = anAnchor.attr("href");
-			viskoDocumentURLs.add(viskoDocURL);
+		if(!tsDirectory.endsWith("/"))
+			tsDirectory = tsDirectory + "/";
+	}
+
+	public String create(){
+
+		File storesDirectory = new File(tsDirectory);
+
+		TripleStore.clean(storesDirectory);
+		Model model = TDBFactory.createModel(tsDirectory);
+
+		TripleStore.aggregate(rdfDirectory, model);
+		TripleStore.aggregate(owlDirectory, model);
+		TripleStore.aggregate(formatsDirectory, model);
+		
+		System.out.println("Model now has " + model.size() + " statements.");
+		model.close();
+		
+		return storesDirectory.getAbsolutePath();
+	}
+	
+	public static void clean(File storesDirectory){
+		// If it exists then clean it, else create it.
+		if (storesDirectory.exists()){
+			for(File aFile : storesDirectory.listFiles()){
+				aFile.delete();
+			}
+		}
+		else
+			storesDirectory.mkdir();
+	}
+	
+	public static void aggregate(String directory, Model model){
+		// Iterate through all ontology files and load any pml data found
+		File owl = new File(directory);
+		for(File aFile : owl.listFiles()){
+			try{
+			model.read(new FileInputStream(aFile), null);
+			}catch(Exception e){
+				System.out.println("error: " + e.getMessage());
+			}
+		}
+	}
+	
+	public static void main(String[] args){
+		if(args.length != 4){
+			System.err.print("Need to specify the directory where your RDF is stored and the directory where the triple store will be created.");
+			return;
 		}
 		
-		return viskoDocumentURLs;
+		TripleStore ts = new TripleStore(args[0], args[1], args[2], args[3]);
+		System.out.println(ts.create());
 	}
 }

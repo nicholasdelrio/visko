@@ -23,6 +23,8 @@ package edu.utep.trustlab.visko.knowledge.universal;
 import edu.utep.trustlab.visko.ontology.view.writer.*;
 
 public class Views {
+	
+	
 
 	public static void create() {
 		String documentURL;
