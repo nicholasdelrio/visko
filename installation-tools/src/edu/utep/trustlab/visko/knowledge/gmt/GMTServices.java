@@ -20,67 +20,78 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge.gmt;
 
-import edu.utep.trustlab.contentManagement.Repository;
 import edu.utep.trustlab.visko.ontology.service.writer.ServiceWriter;
 
 public class GMTServices {
 	private static final String wsdlURL = "http://iw.cs.utep.edu:8080/GMT-services/services/GMTGravityTransformersUsingParameters.GMTGravityTransformersUsingParametersPort?wsdl";
-
+	public static String gridded2ContourMap;
+	public static String points2MinCurvatureGridded;
+	public static String points2NearNeighborGridded;
+	public static String points22DPlot;
+	public static String gridded2Raster;
+	public static String csv2Tabular;
+	
 	public static void create() {
+		
 		String operationName = "ESRIGriddedToContourMapPS";
-		String baseURL = Repository.getRepository().getBaseURL();
 		ServiceWriter wtr = new ServiceWriter(operationName);
 		wtr.setLabel(operationName);
 		wtr.setOperationName(operationName);
 		wtr.setWSDLURL(wsdlURL);
-		wtr.setConceptualOperator(baseURL + "contourer.owl#contourer");
-		wtr.setSupportingToolkit(baseURL + "gmt.owl#gmt");
-		wtr.saveDocument();
-
+		wtr.setConceptualOperator(GMTTransformers.contourer);
+		wtr.setSupportingToolkit(GMTToolkits.gmt);
+		System.out.println(wtr.saveDocument());
+		gridded2ContourMap = wtr.getURI();
+		
 		operationName = "GravityASCIIPointsToMinCurvatureESRIGridded";
 		ServiceWriter wtr1 = new ServiceWriter(operationName);
 		wtr1.setWSDLURL(wsdlURL);
 		wtr1.setLabel(operationName);
 		wtr1.setOperationName(operationName);
-		wtr1.setConceptualOperator(baseURL + "gridder.owl#gridder");
-		wtr1.setSupportingToolkit(baseURL + "gmt.owl#gmt");
-		wtr1.saveDocument();
-
+		wtr1.setConceptualOperator(GMTTransformers.gridder);
+		wtr1.setSupportingToolkit(GMTToolkits.gmt);
+		System.out.println(wtr1.saveDocument());
+		points2MinCurvatureGridded = wtr1.getURI();
+		
 		operationName = "GravityASCIIPointsToNearNeightborESRIGridded";
-		ServiceWriter wtr4 = new ServiceWriter(operationName);
-		wtr4.setWSDLURL(wsdlURL);
-		wtr4.setLabel(operationName);
-		wtr4.setOperationName(operationName);
-		wtr4.setConceptualOperator(baseURL + "gridder.owl#gridder");
-		wtr4.setSupportingToolkit(baseURL + "gmt.owl#gmt");
-		wtr4.saveDocument();
-
-		operationName = "GravityASCIIPointsTo2DPlotPS";
 		ServiceWriter wtr2 = new ServiceWriter(operationName);
-		wtr2.setOperationName(operationName);
 		wtr2.setWSDLURL(wsdlURL);
-		wtr2.setOperationName(operationName);
 		wtr2.setLabel(operationName);
-		wtr2.setConceptualOperator(baseURL + "plotter.owl#plotter");
-		wtr2.setSupportingToolkit(baseURL + "gmt.owl#gmt");
-		wtr2.saveDocument();
-
-		operationName = "ESRIGriddedToColoredImagePS";
+		wtr2.setOperationName(operationName);
+		wtr2.setConceptualOperator(GMTTransformers.gridder);
+		wtr2.setSupportingToolkit(GMTToolkits.gmt);
+		System.out.println(wtr2.saveDocument());
+		points2NearNeighborGridded = wtr2.getURI();
+		
+		operationName = "GravityASCIIPointsTo2DPlotPS";
 		ServiceWriter wtr3 = new ServiceWriter(operationName);
 		wtr3.setOperationName(operationName);
 		wtr3.setWSDLURL(wsdlURL);
+		wtr3.setOperationName(operationName);
 		wtr3.setLabel(operationName);
-		wtr3.setConceptualOperator(baseURL + "rasterer.owl#rasterer");
-		wtr3.setSupportingToolkit(baseURL + "gmt.owl#gmt");
-		wtr3.saveDocument();
-
+		wtr3.setConceptualOperator(GMTTransformers.plotter);
+		wtr3.setSupportingToolkit(GMTToolkits.gmt);
+		System.out.println(wtr3.saveDocument());
+		points22DPlot = wtr3.getURI();
+		
+		operationName = "ESRIGriddedToColoredImagePS";
+		ServiceWriter wtr4 = new ServiceWriter(operationName);
+		wtr4.setOperationName(operationName);
+		wtr4.setWSDLURL(wsdlURL);
+		wtr4.setLabel(operationName);
+		wtr4.setConceptualOperator(GMTTransformers.rasterer);
+		wtr4.setSupportingToolkit(GMTToolkits.gmt);
+		System.out.println(wtr4.saveDocument());
+		gridded2Raster = wtr4.getURI();
+		
 		operationName = "CSVToTabularASCII";
 		ServiceWriter wtr5 = new ServiceWriter(operationName);
 		wtr5.setOperationName(operationName);
 		wtr5.setWSDLURL(wsdlURL);
 		wtr5.setLabel(operationName);
-		wtr5.setConceptualOperator(baseURL + "csv-to-tabular-ascii.owl#csv-to-tabular-ascii");
-		wtr5.setSupportingToolkit(baseURL + "gmt.owl#gmt");
-		wtr5.saveDocument();
+		wtr5.setConceptualOperator(GMTTransformers.csv2tabular);
+		wtr5.setSupportingToolkit(GMTToolkits.gmt);
+		System.out.println(wtr5.saveDocument());
+		csv2Tabular = wtr5.getURI();
 	}
 }

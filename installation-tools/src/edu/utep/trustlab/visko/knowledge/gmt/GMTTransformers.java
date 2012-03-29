@@ -19,24 +19,30 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 
 package edu.utep.trustlab.visko.knowledge.gmt;
-
-import edu.utep.trustlab.contentManagement.Repository;
+import edu.utep.trustlab.visko.knowledge.universal.Views;
 import edu.utep.trustlab.visko.ontology.operator.writer.TransformerWriter;
 
 public class GMTTransformers {
+
+	public static String contourer;
+	public static String gridder;
+	public static String plotter;
+	public static String rasterer;
+	public static String csv2tabular;
+	
 	public static void create() {
 
 		String name;
-		String baseURL = Repository.getRepository().getBaseURL();
 		TransformerWriter wtr = new TransformerWriter("contourer");
 		wtr.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/ESRIGRID.owl#ESRIGRID");
 		wtr.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
 		name = "contour";
 		wtr.setLabel(name);
 		wtr.setName(name);
-		wtr.setMappedToView(baseURL + "contour-lines.owl#contour-lines");
-		wtr.saveDocument();
-
+		wtr.setMappedToView(Views.contourLines);
+		System.out.println(wtr.saveDocument());
+		contourer = wtr.getURI();
+		
 		System.out.println(wtr);
 		TransformerWriter wtr1 = new TransformerWriter("gridder");
 		wtr1.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII");
@@ -44,7 +50,8 @@ public class GMTTransformers {
 		name = "Data Gridder";
 		wtr1.setLabel(name);
 		wtr1.setName(name);
-		wtr1.saveDocument();
+		System.out.println(wtr1.saveDocument());
+		gridder = wtr1.getURI();
 		
 		TransformerWriter wtr2 = new TransformerWriter("plotter");
 		wtr2.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII");
@@ -52,8 +59,10 @@ public class GMTTransformers {
 		name = "2D plotter";
 		wtr2.setLabel(name);
 		wtr2.setName(name);
-		wtr2.setMappedToView(baseURL + "plot-2D.owl#plot-2D");
-		wtr2.saveDocument();
+		wtr2.setMappedToView(Views.plot2D);
+		System.out.println(wtr2.saveDocument());
+		plotter = wtr2.getURI();
+		
 		
 		TransformerWriter wtr3 = new TransformerWriter("rasterer");
 		wtr3.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/ESRIGRID.owl#ESRIGRID");
@@ -61,15 +70,17 @@ public class GMTTransformers {
 		name = "Raster Map Generator";
 		wtr3.setLabel(name);
 		wtr3.setName(name);
-		wtr3.setMappedToView(baseURL + "raster.owl#raster");
-		wtr3.saveDocument();
-
-		TransformerWriter wtr5 = new TransformerWriter("csv-to-tabular-ascii");
-		wtr5.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII");
-		wtr5.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/CSV.owl#CSV");
+		wtr3.setMappedToView(Views.raster);
+		System.out.println(wtr3.saveDocument());
+		rasterer = wtr3.getURI();
+		
+		TransformerWriter wtr4 = new TransformerWriter("csv-to-tabular-ascii");
+		wtr4.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII");
+		wtr4.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/CSV.owl#CSV");
 		name = "Comma Separated Values to Tabular ASCII Format";
-		wtr5.setLabel(name);
-		wtr5.setName(name);
-		wtr5.saveDocument();
+		wtr4.setLabel(name);
+		wtr4.setName(name);
+		System.out.println(wtr4.saveDocument());
+		csv2tabular = wtr4.getURI();
 	}
 }

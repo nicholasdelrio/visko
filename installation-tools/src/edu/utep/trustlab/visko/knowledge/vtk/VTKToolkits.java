@@ -23,10 +23,11 @@ package edu.utep.trustlab.visko.knowledge.vtk;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitWriter;
 
 public class VTKToolkits {
+	public static String vtk;
 	public static void create() {
 		ToolkitWriter wtr = new ToolkitWriter("vtk");
 		wtr.setLabel("Visualization Toolkit");
-		String documentURL = wtr.saveDocument();
-		System.out.println(documentURL);
+		System.out.println(wtr.saveDocument());
+		vtk = wtr.getURI();
 	}
 }

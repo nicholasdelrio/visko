@@ -22,12 +22,11 @@ package edu.utep.trustlab.visko.knowledge.gmt;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitWriter;
 
 public class GMTToolkits {
+	public static String gmt;
 	public static void create() {
-		String documentURL;
 		ToolkitWriter wtr1 = new ToolkitWriter("gmt");
 		wtr1.setLabel("Generic Mapping Tools");
-		System.out.println(wtr1.toRDFString());
-		documentURL = wtr1.saveDocument();
-		System.out.println(documentURL);
+		System.out.println(wtr1.saveDocument());
+		gmt = wtr1.getURI();
 	}
 }

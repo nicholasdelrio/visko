@@ -24,39 +24,43 @@ import edu.utep.trustlab.visko.ontology.view.writer.*;
 
 public class Views {
 	
-	
+	public static String contourLines;
+	public static String plot2D;
+	public static String volume;
+	public static String isosurfaces;
+	public static String raster;
+	public static String xyPlot;
 
 	public static void create() {
-		String documentURL;
 
 		ViewContourWriter wtr = new ViewContourWriter("contour-lines");
 		wtr.setLabel("Contour Lines (Isolines)");
-		documentURL = wtr.saveDocument();
-		System.out.println(documentURL);
-
+		System.out.println(wtr.saveDocument());
+		contourLines = wtr.getURI();
+		
 		ViewPointsWriter wtr1 = new ViewPointsWriter("plot-2D");
 		wtr1.setLabel("2D Dimensional Plot");
-		documentURL = wtr1.saveDocument();
-		System.out.println(documentURL);
+		System.out.println(wtr1.saveDocument());
+		plot2D = wtr.getURI();
+		
+		ViewVolumeWriter wtr2 = new ViewVolumeWriter("volume");
+		wtr2.setLabel("Volume");
+		System.out.println(wtr2.saveDocument());
+		volume = wtr2.getURI();
 
-		ViewVolumeWriter wtr3 = new ViewVolumeWriter("volume");
-		wtr3.setLabel("Volume");
-		documentURL = wtr3.saveDocument();
-		System.out.println(documentURL);
-
-		ViewSurfaceWriter wtr4 = new ViewSurfaceWriter("iso-surfaces");
-		wtr4.setLabel("Isosurfaces");
-		documentURL = wtr4.saveDocument();
-		System.out.println(documentURL);
-
-		ViewRasterWriter wtr5 = new ViewRasterWriter("raster");
-		wtr5.setLabel("Raster");
-		documentURL = wtr5.saveDocument();
-		System.out.println(documentURL);
+		ViewSurfaceWriter wtr3 = new ViewSurfaceWriter("iso-surfaces");
+		wtr3.setLabel("Isosurfaces");
+		System.out.println(wtr3.saveDocument());
+		isosurfaces = wtr3.getURI();
+		
+		ViewRasterWriter wtr4 = new ViewRasterWriter("raster");
+		wtr4.setLabel("Raster");
+		System.out.println(wtr4.saveDocument());
+		raster = wtr4.getURI();
 
 		ViewGraphWriter wtr6 = new ViewGraphWriter("XYPlot");
 		wtr6.setLabel("1D Plot of Variables");
-		documentURL = wtr6.saveDocument();
-		System.out.println(documentURL);
+		System.out.println(wtr6.saveDocument());
+		xyPlot = wtr6.getURI();
 	}
 }

@@ -19,12 +19,16 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 
 package edu.utep.trustlab.visko.knowledge.ncl;
-import edu.utep.trustlab.contentManagement.Repository;
+import edu.utep.trustlab.visko.knowledge.universal.Views;
 import edu.utep.trustlab.visko.ontology.operator.writer.TransformerWriter;
 
 public class NCLTransformers {
+
+	public static String netCDFContourer;
+	public static String netCDFRasterer;
+	public static String netCDFTimeSeriesPlotter;
+	
 	public static void create() {
-		String baseURL = Repository.getRepository().getBaseURL();
 		String name;
 		TransformerWriter wtr = new TransformerWriter("netCDFContourer");
 		wtr.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
@@ -32,8 +36,9 @@ public class NCLTransformers {
 		name = "Contour Map Generation";
 		wtr.setLabel(name);
 		wtr.setName(name);
-		wtr.setMappedToView(baseURL + "contour-lines.owl#contour-lines");
-		wtr.saveDocument();
+		wtr.setMappedToView(Views.contourLines);
+		System.out.println(wtr.saveDocument());
+		netCDFContourer = wtr.getURI();
 
 		TransformerWriter wtr1 = new TransformerWriter("netCDFRasterer");
 		wtr1.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
@@ -41,16 +46,18 @@ public class NCLTransformers {
 		name = "Raster Map Generation";
 		wtr1.setLabel(name);
 		wtr1.setName(name);
-		wtr1.setMappedToView(baseURL + "raster.owl#raster");
-		wtr1.saveDocument();
-
+		wtr1.setMappedToView(Views.raster);
+		System.out.println(wtr1.saveDocument());
+		netCDFRasterer = wtr1.getURI();
+		
 		TransformerWriter wtr2 = new TransformerWriter("netCDFTimeSeriesPlotter");
 		wtr2.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
 		wtr2.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF");
 		name = "Time Series Plot Generator";
 		wtr2.setLabel(name);
 		wtr2.setName(name);
-		wtr2.setMappedToView(baseURL + "XYPlot.owl#XYPlot");
-		wtr2.saveDocument();
+		wtr2.setMappedToView(Views.xyPlot);
+		System.out.println(wtr2.saveDocument());
+		netCDFTimeSeriesPlotter = wtr2.getURI();
 	}
 }

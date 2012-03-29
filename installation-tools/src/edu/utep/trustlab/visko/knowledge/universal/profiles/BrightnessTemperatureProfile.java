@@ -20,35 +20,36 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge.universal.profiles;
 
-import edu.utep.trustlab.contentManagement.Repository;
+import edu.utep.trustlab.visko.knowledge.ncl.NCLServices;
+import edu.utep.trustlab.visko.knowledge.ncl.NCLToolkits;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class BrightnessTemperatureProfile {
 	public static void create() {
 		String documentURL;
-		String baseURL = Repository.getRepository().getBaseURL();
 		/************ profile for brightness data ******************************/
 		String dataTypeURI = "http://giovanni.gsfc.nasa.gov/data/brightness.owl#brightness";
 
 		ToolkitProfileWriter wtr = new ToolkitProfileWriter("brightnessDataProfile");
 		wtr.addDataType(dataTypeURI);
-
+		
 		// for netCDFGridContour
-		wtr.addInputBinding(baseURL + "netCDFGridContour.owl#plotVariable", "ch4");
-		wtr.addInputBinding(baseURL + "netCDFGridContour.owl#lbOrientation", "vertical");
-		wtr.addInputBinding(baseURL + "netCDFGridContour.owl#cnLevelSpacingF", "10");
-		wtr.addInputBinding(baseURL + "netCDFGridContour.owl#colorTable", "WhiteBlueGreenYellowRed");
-		wtr.addInputBinding(baseURL + "netCDFGridContour.owl#font", "helvetica");
-		wtr.addInputBinding(baseURL + "netCDFGridContour.owl#cnFillOn", "True");
-		wtr.addInputBinding(baseURL + "netCDFGridContour.owl#cnLinesOn", "False");
+		wtr.addInputBinding(NCLServices.netCDFGridContour + "#plotVariable", "ch4");
+		wtr.addInputBinding(NCLServices.netCDFGridContour + "#lbOrientation", "vertical");
+		wtr.addInputBinding(NCLServices.netCDFGridContour + "#cnLevelSpacingF", "10");
+		wtr.addInputBinding(NCLServices.netCDFGridContour + "#colorTable", "WhiteBlueGreenYellowRed");
+		wtr.addInputBinding(NCLServices.netCDFGridContour + "#font", "helvetica");
+		wtr.addInputBinding(NCLServices.netCDFGridContour + "#cnFillOn", "True");
+		wtr.addInputBinding(NCLServices.netCDFGridContour + "#cnLinesOn", "False");
 
 		// for netCDFGridRaster
-		wtr.addInputBinding(baseURL + "netCDFGridRaster.owl#plotVariable", "ch4");
-		wtr.addInputBinding(baseURL + "netCDFGridRaster.owl#lbOrientation", "vertical");
-		wtr.addInputBinding(baseURL + "netCDFGridRaster.owl#colorTable", "WhiteBlueGreenYellowRed");
-		wtr.addInputBinding(baseURL + "netCDFGridRaster.owl#font", "helvetica");
+		wtr.addInputBinding(NCLServices.netCDFGridRaster + "#plotVariable", "ch4");
+		wtr.addInputBinding(NCLServices.netCDFGridRaster + "#lbOrientation", "vertical");
+		wtr.addInputBinding(NCLServices.netCDFGridRaster + "#colorTable", "WhiteBlueGreenYellowRed");
+		wtr.addInputBinding(NCLServices.netCDFGridRaster + "#font", "helvetica");
 
-		wtr.setSupportingToolkit(baseURL + "ncl.owl#ncl");
+		wtr.setSupportingToolkit(NCLToolkits.ncl);
+		
 		documentURL = wtr.saveDocument();
 		System.out.println(documentURL);
 	}

@@ -20,76 +20,89 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge.vtk;
 
-import edu.utep.trustlab.contentManagement.Repository;
 import edu.utep.trustlab.visko.ontology.service.writer.ServiceWriter;
 
 public class VTKServices {
 	private static final String wsdlURL = "http://iw.cs.utep.edu:8080/VTK-services/services/VTKHoleTransformersUsingParameters.VTKHoleTransformersUsingParametersPort?wsdl";
-
+	
+	public static String int2short;
+	public static String float2shortThr;
+	public static String vtkImageDataReader;
+	public static String vtkContourFilter;
+	public static String vtkPolyDataMapper;
+	public static String vtkVolume;
+	public static String vtkImageDataReaderFloat;
+	
 	public static void create() {
 		String operationName;
-		String baseURL = Repository.getRepository().getBaseURL();
 		operationName = "Int2Short";
 		ServiceWriter wtr = new ServiceWriter(operationName + "Service");
 		wtr.setWSDLURL(wsdlURL);
 		wtr.setLabel(operationName);
 		wtr.setOperationName(operationName);
-		wtr.setConceptualOperator(baseURL + "intToShortIntOperator.owl#intToShortIntOperator");
-		wtr.setSupportingToolkit(baseURL + "vtk.owl#vtk");
-		wtr.saveDocument();
+		wtr.setConceptualOperator(VTKTransformers.int2ShortInt);
+		wtr.setSupportingToolkit(VTKToolkits.vtk);
+		System.out.println(wtr.saveDocument());
+		int2short = wtr.getURI();
 
 		operationName = "Float2ShortThr";
-		ServiceWriter wtr0 = new ServiceWriter(operationName + "Service");
-		wtr0.setWSDLURL(wsdlURL);
-		wtr0.setLabel(operationName);
-		wtr0.setOperationName(operationName);
-		wtr0.setConceptualOperator(baseURL + "floatArrayToShortIntArray.owl#floatArrayToShortIntArray");
-		wtr0.setSupportingToolkit(baseURL + "vtk.owl#vtk");
-		wtr0.saveDocument();
-		
-		operationName = "vtkImageDataReader";
 		ServiceWriter wtr1 = new ServiceWriter(operationName + "Service");
 		wtr1.setWSDLURL(wsdlURL);
 		wtr1.setLabel(operationName);
 		wtr1.setOperationName(operationName);
-		wtr1.setConceptualOperator(baseURL + "shortIntArrayToGriddedData.owl#shortIntArrayToGriddedData");
-		wtr1.setSupportingToolkit(baseURL + "vtk.owl#vtk");
-		wtr1.saveDocument();
+		wtr1.setConceptualOperator(VTKTransformers.floatArray2IntArray);
+		wtr1.setSupportingToolkit(VTKToolkits.vtk);
+		System.out.println(wtr1.saveDocument());
+		float2shortThr = wtr1.getURI();
+		
+		operationName = "vtkImageDataReader";
+		ServiceWriter wtr2 = new ServiceWriter(operationName + "Service");
+		wtr2.setWSDLURL(wsdlURL);
+		wtr2.setLabel(operationName);
+		wtr2.setOperationName(operationName);
+		wtr2.setConceptualOperator(VTKTransformers.shortIntArray2Gridded);
+		wtr2.setSupportingToolkit(VTKToolkits.vtk);
+		System.out.println(wtr2.saveDocument());
+		vtkImageDataReader = wtr2.getURI();
 		
 		operationName = "vtkContourFilter";
 		ServiceWriter wtr3 = new ServiceWriter(operationName + "Service");
 		wtr3.setWSDLURL(wsdlURL);
 		wtr3.setLabel(operationName);
 		wtr3.setOperationName(operationName);
-		wtr3.setConceptualOperator(baseURL + "contourer3D.owl#contourer3D");
-		wtr3.setSupportingToolkit(baseURL + "vtk.owl#vtk");
-		wtr3.saveDocument();
+		wtr3.setConceptualOperator(VTKTransformers.contourer3D);
+		wtr3.setSupportingToolkit(VTKToolkits.vtk);
+		System.out.println(wtr3.saveDocument());
+		vtkContourFilter = wtr3.getURI();
 		
 		operationName = "vtkPolyDataMapper";
+		ServiceWriter wtr4 = new ServiceWriter(operationName + "Service");
+		wtr4.setWSDLURL(wsdlURL);
+		wtr4.setLabel(operationName);
+		wtr4.setOperationName(operationName);
+		wtr4.setConceptualOperator(VTKTransformers.contoursPoly2Image);
+		wtr4.setSupportingToolkit(VTKToolkits.vtk);
+		System.out.println(wtr4.saveDocument());
+		vtkPolyDataMapper = wtr4.getURI();
+		
+		operationName = "vtkVolume";
 		ServiceWriter wtr5 = new ServiceWriter(operationName + "Service");
 		wtr5.setWSDLURL(wsdlURL);
 		wtr5.setLabel(operationName);
 		wtr5.setOperationName(operationName);
-		wtr5.setConceptualOperator(baseURL + "contoursPolyDataToImageOperator.owl#contoursPolyDataToImageOperator");
-		wtr5.setSupportingToolkit(baseURL + "vtk.owl#vtk");
-		wtr5.saveDocument();
+		wtr5.setConceptualOperator(VTKTransformers.volumeGenerator);
+		wtr5.setSupportingToolkit(VTKToolkits.vtk);
+		System.out.println(wtr5.saveDocument());
+		vtkVolume = wtr5.getURI();
 		
-		operationName = "vtkVolume";
+		operationName = "vtkImageDataReaderFloat";
 		ServiceWriter wtr6 = new ServiceWriter(operationName + "Service");
 		wtr6.setWSDLURL(wsdlURL);
 		wtr6.setLabel(operationName);
 		wtr6.setOperationName(operationName);
-		wtr6.setConceptualOperator(baseURL + "volume-generator.owl#volume-generator");
-		wtr6.setSupportingToolkit(baseURL + "vtk.owl#vtk");
-		wtr6.saveDocument();
-		
-		operationName = "vtkImageDataReaderFloat";
-		ServiceWriter wtr7 = new ServiceWriter(operationName + "Service");
-		wtr7.setWSDLURL(wsdlURL);
-		wtr7.setLabel(operationName);
-		wtr7.setOperationName(operationName);
-		wtr7.setConceptualOperator(baseURL + "floatArrayToGriddedData.owl#floatArrayToGriddedData");
-		wtr7.setSupportingToolkit(baseURL + "vtk.owl#vtk");
-		wtr7.saveDocument();
+		wtr6.setConceptualOperator(VTKTransformers.floatArray2Gridded);
+		wtr6.setSupportingToolkit(VTKToolkits.vtk);
+		System.out.println(wtr6.saveDocument());
+		vtkImageDataReaderFloat = wtr6.getURI();
 	}
 }

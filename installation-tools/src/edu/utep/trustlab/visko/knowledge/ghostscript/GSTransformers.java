@@ -24,31 +24,38 @@ package edu.utep.trustlab.visko.knowledge.ghostscript;
 import edu.utep.trustlab.visko.ontology.operator.writer.TransformerWriter;
 
 public class GSTransformers {
+	public static String ps2pdf;
+	public static String ps2png;
+	public static String pdf2png;
+	
 	public static void create() {
 		
 		String name;
-		TransformerWriter wtr3 = new TransformerWriter("ps-to-pdf");
-		wtr3.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
-		wtr3.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PDF.owl#PDF");
+		TransformerWriter wtr = new TransformerWriter("ps-to-pdf");
+		wtr.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
+		wtr.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PDF.owl#PDF");
 		name = "Convert Adobe PS to PDF";
-		wtr3.setLabel(name);
-		wtr3.setName(name);
-		wtr3.saveDocument();
+		wtr.setLabel(name);
+		wtr.setName(name);
+		System.out.println(wtr.saveDocument());
+		ps2pdf = wtr.getURI();
 
-		TransformerWriter wtr4 = new TransformerWriter("ps-to-png");
-		wtr4.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
-		wtr4.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PNG.owl#PNG");
+		TransformerWriter wtr1 = new TransformerWriter("ps-to-png");
+		wtr1.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
+		wtr1.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PNG.owl#PNG");
 		name = "Convert Adobe PS to PNG Image";
-		wtr4.setLabel(name);
-		wtr4.setName(name);
-		wtr4.saveDocument();
+		wtr1.setLabel(name);
+		wtr1.setName(name);
+		System.out.println(wtr1.saveDocument());
+		ps2png = wtr1.getURI();
 
-		TransformerWriter wtr5 = new TransformerWriter("pdf-to-png");
-		wtr5.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PDF.owl#PDF");
-		wtr5.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PNG.owl#PNG");
+		TransformerWriter wtr2 = new TransformerWriter("pdf-to-png");
+		wtr2.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PDF.owl#PDF");
+		wtr2.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PNG.owl#PNG");
 		name = "Convert Adobe PDF to PNG Image";
-		wtr5.setLabel(name);
-		wtr5.setName(name);
-		wtr5.saveDocument();
+		wtr2.setLabel(name);
+		wtr2.setName(name);
+		System.out.println(wtr2.saveDocument());
+		pdf2png = wtr2.getURI();
 	}
 }

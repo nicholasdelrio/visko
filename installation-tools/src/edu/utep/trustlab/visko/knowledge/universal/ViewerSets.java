@@ -24,25 +24,30 @@ import edu.utep.trustlab.visko.ontology.operator.writer.ViewerSetWriter;
 
 public class ViewerSets {
 
+	public static String probeit;
+	public static String firefox;
+	public static String internetExplorer;
+	public static String divaGraphics;
+	
 	public static void create() {	
 		ViewerSetWriter wtr = new ViewerSetWriter("probeit");
 		wtr.setLabel("Probe-It!");
-		String documentURL = wtr.saveDocument();
-		System.out.println(documentURL);
+		System.out.println(wtr.saveDocument());
+		probeit = wtr.getURI();
 
 		ViewerSetWriter wtr1 = new ViewerSetWriter("mozilla-firefox");
 		wtr1.setLabel("Mozilla Firefox");
-		documentURL = wtr1.saveDocument();
-		System.out.println(documentURL);
+		System.out.println(wtr1.saveDocument());
+		firefox = wtr1.getURI();
 
 		ViewerSetWriter wtr2 = new ViewerSetWriter("internet-explorer");
 		wtr2.setLabel("Microsoft Internet Explorer");
-		documentURL = wtr2.saveDocument();
-		System.out.println(documentURL);
+		System.out.println(wtr2.saveDocument());
+		internetExplorer = wtr2.getURI();
 
 		ViewerSetWriter wtr3 = new ViewerSetWriter("diva-graphics");
 		wtr3.setLabel("Diva Graphics Java Package");
-		documentURL = wtr3.saveDocument();
-		System.out.println(documentURL);
+		System.out.println(wtr3.saveDocument());
+		divaGraphics = wtr3.getURI();
 	}
 }

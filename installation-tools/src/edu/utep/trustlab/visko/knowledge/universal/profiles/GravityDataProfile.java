@@ -20,111 +20,114 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge.universal.profiles;
 
-import edu.utep.trustlab.contentManagement.Repository;
+import edu.utep.trustlab.visko.knowledge.gmt.GMTServices;
+import edu.utep.trustlab.visko.knowledge.gmt.GMTToolkits;
+import edu.utep.trustlab.visko.knowledge.ncl.NCLServices;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class GravityDataProfile {
 	public static void create() {
 		String documentURL;
-		String baseURL = Repository.getRepository().getBaseURL();
+
 		// gravity data
 		String dataTypeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d19";
 		ToolkitProfileWriter wtr2 = new ToolkitProfileWriter(
 		"gravityDataProfile");
-		wtr2.setSupportingToolkit(baseURL + "gmt.owl#gmt");
+		wtr2.setSupportingToolkit(GMTToolkits.gmt);
 		wtr2.addDataType(dataTypeURI);
+
 		// for 2D plotter
 		wtr2.addInputBinding(
-		baseURL + "GravityASCIIPointsTo2DPlotPS.owl#S",
+		GMTServices.points22DPlot + "#S",
 		"c0.04c");
 		wtr2.addInputBinding(
-		baseURL + "GravityASCIIPointsTo2DPlotPS.owl#J",
+		GMTServices.points22DPlot + "#J",
 		"x4c");
 		wtr2.addInputBinding(
-		baseURL + "GravityASCIIPointsTo2DPlotPS.owl#G",
+		GMTServices.points22DPlot + "#G",
 		"blue");
 		wtr2.addInputBinding(
-		baseURL + "GravityASCIIPointsTo2DPlotPS.owl#B",
+		GMTServices.points22DPlot + "#B",
 		"1");
 		// for nearneightbor gridding
 		wtr2.addInputBinding(
-		baseURL + "GravityASCIIPointsToNearNeightborESRIGridded.owl#I",
+		GMTServices.points2NearNeighborGridded + "#I",
 		"0.02");
 		wtr2.addInputBinding(
-		baseURL + "GravityASCIIPointsToNearNeightborESRIGridded.owl#S",
+		GMTServices.points2NearNeighborGridded + "#S",
 		"0.2");
 		// for gridding by surface
 		wtr2.addInputBinding(
-		baseURL + "GravityASCIIPointsToMinCurvatureESRIGridded.owl#I",
+		GMTServices.points2MinCurvatureGridded + "#I",
 		"0.02");
 		wtr2.addInputBinding(
-		baseURL + "GravityASCIIPointsToMinCurvatureESRIGridded.owl#T",
+		GMTServices.points2MinCurvatureGridded + "#T",
 		"0.25");
 		wtr2.addInputBinding(
-		baseURL + "GravityASCIIPointsToMinCurvatureESRIGridded.owl#C",
+		GMTServices.points2MinCurvatureGridded + "#C",
 		"0.1");
 		// for grid to colored image
 		wtr2.addInputBinding(
-		baseURL + "ESRIGriddedToColoredImagePS.owl#B",
+		GMTServices.gridded2Raster + "#B",
 		"1");
 		wtr2.addInputBinding(
-		baseURL + "ESRIGriddedToColoredImagePS.owl#J",
+		GMTServices.gridded2Raster + "#J",
 		"x4c");
 		wtr2.addInputBinding(
-		baseURL + "ESRIGriddedToColoredImagePS.owl#C",
+		GMTServices.gridded2Raster + "#C",
 		"hot");
 		// for contour map
 		wtr2.addInputBinding(
-		baseURL + "ESRIGriddedToContourMapPS.owl#C",
+		GMTServices.gridded2ContourMap + "#C",
 		"10");
 		wtr2.addInputBinding(
-		baseURL + "ESRIGriddedToContourMapPS.owl#A",
+		GMTServices.gridded2ContourMap + "#A",
 		"20");
 		wtr2.addInputBinding(
-		baseURL + "ESRIGriddedToContourMapPS.owl#B",
+		GMTServices.gridded2ContourMap + "#B",
 		"0.5");
 		wtr2.addInputBinding(
-		baseURL + "ESRIGriddedToContourMapPS.owl#S",
+		GMTServices.gridded2ContourMap + "#S",
 		"5");
 		wtr2.addInputBinding(
-		baseURL + "ESRIGriddedToContourMapPS.owl#J",
+		GMTServices.gridded2ContourMap + "#J",
 		"x4c");
 		wtr2.addInputBinding(
-		baseURL + "ESRIGriddedToContourMapPS.owl#Wc",
+		GMTServices.gridded2ContourMap + "#Wc",
 		"thinnest,black");
 		wtr2.addInputBinding(
-		baseURL + "ESRIGriddedToContourMapPS.owl#Wa",
+		GMTServices.gridded2ContourMap + "#Wa",
 		"thinnest,black");
 
 		// for esriGridContour
 		wtr2.addInputBinding(
-		baseURL + "esriGridContour.owl#lbOrientation",
+		NCLServices.esriGridContour + "#lbOrientation",
 		"vertical");
 		wtr2.addInputBinding(
-		baseURL + "esriGridContour.owl#cnLevelSpacingF",
+		NCLServices.esriGridContour + "#cnLevelSpacingF",
 		"10");
 		wtr2.addInputBinding(
-		baseURL + "esriGridContour.owl#colorTable",
+		NCLServices.esriGridContour + "#colorTable",
 		"WhiteBlueGreenYellowRed");
 		wtr2.addInputBinding(
-		baseURL + "esriGridContour.owl#font",
+		NCLServices.esriGridContour + "#font",
 		"helvetica");
 		wtr2.addInputBinding(
-		baseURL + "esriGridContour.owl#cnFillOn",
+		NCLServices.esriGridContour + "#cnFillOn",
 		"True");
 		wtr2.addInputBinding(
-		baseURL + "esriGridContour.owl#cnLinesOn",
+		NCLServices.esriGridContour + "#cnLinesOn",
 		"False");
 
 		// for esriGridRaster
 		wtr2.addInputBinding(
-		baseURL + "esriGridRaster.owl#lbOrientation",
+		NCLServices.esriGridRaster + "lbOrientation",
 		"vertical");
 		wtr2.addInputBinding(
-		baseURL + "esriGridRaster.owl#colorTable",
+		NCLServices.esriGridRaster + "colorTable",
 		"WhiteBlueGreenYellowRed");
 		wtr2.addInputBinding(
-		baseURL + "esriGridRaster.owl#font",
+		NCLServices.esriGridRaster + "font",
 		"helvetica");
 
 		// dump document

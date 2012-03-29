@@ -19,18 +19,22 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 
 package edu.utep.trustlab.visko.knowledge.universal;
-import edu.utep.trustlab.contentManagement.Repository;
 import edu.utep.trustlab.visko.ontology.operator.writer.ViewerWriter;
 
 public class Viewers {
 
+	public static String imageJ;
+	public static String parvis;
+	public static String pdfViewer;
+	public static String plainTextViewer;
+	public static String browserImageViewer;
+	public static String divaGraphicsViewer;
+	public static String htmlViewer;
+	
 	public static void create() {
-		String documentURL;
-		String baseURL = Repository.getRepository().getBaseURL();
 		ViewerWriter wtr = new ViewerWriter("imageJ-viewer");
 		wtr.setLabel("ImageJ Viewer");
-		System.out.println(baseURL);
-		wtr.addPartOfSetURI(baseURL + "probeit.owl#probeit");
+		wtr.addPartOfSetURI(ViewerSets.probeit);
 		wtr.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/GIF.owl#GIF");
 		wtr.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PNG.owl#PNG");
 		wtr.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/JPEG.owl#JPEG");
@@ -39,68 +43,68 @@ public class Viewers {
 		wtr.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/FITS.owl#FITS");
 		wtr.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/RAW.owl#RAW");
 		wtr.setViewerComment("ImageJ is a public domain Java image processing program inspired by NIH Image.");
-		documentURL = wtr.saveDocument();
-		System.out.println(documentURL);
+		System.out.println(wtr.saveDocument());
+		imageJ = wtr.getURI();
 
 		ViewerWriter wtr1 = new ViewerWriter("parvis-viewer");
-		wtr1.addPartOfSetURI(baseURL + "probeit.owl#probeit");
+		wtr1.addPartOfSetURI(ViewerSets.probeit);
 		wtr1.setLabel("Parvis Parallel Coordinates Viewer");
 		wtr1.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VNDWTSTF.owl#VNDWTSTF");
 		wtr1.setViewerComment("Parvis is a tool for parallel coordinates (PC) visualisation of multidimensional data sets, as first described in [Inselberg 1981].");
-		documentURL = wtr1.saveDocument();
-		System.out.println(documentURL);
+		System.out.println(wtr1.saveDocument());
+		parvis = wtr1.getURI();
 
 		ViewerWriter wtr2 = new ViewerWriter("pdf-viewer");
-		wtr2.addPartOfSetURI(baseURL + "probeit.owl#probeit");
-		wtr2.addPartOfSetURI(baseURL + "mozilla-firefox.owl#mozilla-firefox");
-		wtr2.addPartOfSetURI(baseURL + "internet-explorer.owl#internet-explorer");
+		wtr2.addPartOfSetURI(ViewerSets.probeit);
+		wtr2.addPartOfSetURI(ViewerSets.firefox);
+		wtr2.addPartOfSetURI(ViewerSets.internetExplorer);
 		wtr2.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PDF.owl#PDF");
 		wtr2.setLabel("Adobe Portable Document Format (PDF) Viewer");
 		wtr2.setViewerComment("Renders PDF document and allows for zooming.");
-		documentURL = wtr2.saveDocument();
-		System.out.println(documentURL);
-
+		System.out.println(wtr2.saveDocument());
+		pdfViewer = wtr2.getURI();
+		
 		ViewerWriter wtr3 = new ViewerWriter("plain-text-viewer");
-		wtr3.addPartOfSetURI(baseURL + "probeit.owl#probeit");
-		wtr3.addPartOfSetURI(baseURL + "mozilla-firefox.owl#mozilla-firefox");
-		wtr3.addPartOfSetURI(baseURL + "internet-explorer.owl#internet-explorer");
+		wtr3.addPartOfSetURI(ViewerSets.probeit);
+		wtr3.addPartOfSetURI(ViewerSets.firefox);
+		wtr3.addPartOfSetURI(ViewerSets.internetExplorer);
 		wtr3.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PLAIN.owl#PLAIN");
 		wtr3.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PLAINTEXT.owl#PLAINTEXT");
 		wtr3.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VNDLATEXZ.owl#VNDLATEXZ");
 		wtr3.setLabel("Plain Text Viewer");
 		wtr3.setViewerComment("Does nothing really, just extracts the text from the PML conclusion...");
-		documentURL = wtr3.saveDocument();
-		System.out.println(documentURL);
+		System.out.println(wtr3.saveDocument());
+		plainTextViewer = wtr3.getURI();
 
 		ViewerWriter wtr4 = new ViewerWriter("browser-image-viewer");
-		wtr4.addPartOfSetURI(baseURL + "mozilla-firefox.owl#mozilla-firefox");
-		wtr4.addPartOfSetURI(baseURL + "internet-explorer.owl#internet-explorer");
+		wtr4.addPartOfSetURI(ViewerSets.firefox);
+		wtr4.addPartOfSetURI(ViewerSets.internetExplorer);
 		wtr4.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/GIF.owl#GIF");
 		wtr4.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PNG.owl#PNG");
 		wtr4.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/JPEG.owl#JPEG");
 		wtr4.setLabel("Web Browser Image Viewer");
 		wtr4.setViewerComment("Views a few standard image formats");
-		documentURL = wtr4.saveDocument();
-		System.out.println(documentURL);
+		System.out.println(wtr4.saveDocument());
+		browserImageViewer = wtr4.getURI();
 
 		ViewerWriter wtr5 = new ViewerWriter("diva-graphics-viewer");
-		wtr5.addPartOfSetURI(baseURL + "diva-graphics.owl#diva-graphics");
+		wtr5.addPartOfSetURI(ViewerSets.divaGraphics);
 		wtr5.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/GIF.owl#GIF");
 		wtr5.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PNG.owl#PNG");
 		wtr5.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/JPEG.owl#JPEG");
 		wtr5.setLabel("Diva Java Graphics");
 		wtr5.setViewerComment("Views a few standard image formats");
-		documentURL = wtr5.saveDocument();
-		System.out.println(documentURL);
+		System.out.println(wtr5.saveDocument());
+		divaGraphicsViewer = wtr5.getURI();
 
 		ViewerWriter wtr6 = new ViewerWriter("html-viewer");
-		wtr6.addPartOfSetURI(baseURL + "probeit.owl#probeit");
-		wtr6.addPartOfSetURI(baseURL + "mozilla-firefox.owl#mozilla-firefox");
-		wtr6.addPartOfSetURI(baseURL + "internet-explorer.owl#internet-explorer");
+		wtr6.addPartOfSetURI(ViewerSets.probeit);
+		wtr6.addPartOfSetURI(ViewerSets.firefox);
+		wtr6.addPartOfSetURI(ViewerSets.internetExplorer);
 		wtr6.addFormatURI("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/HTML.owl#HTML");
 		wtr6.setLabel("HyperText Markup Language (HTML) Viewer");
 		wtr6.setViewerComment("Renders HTML documents.");
-		documentURL = wtr6.saveDocument();
-		System.out.println(documentURL);
+		System.out.println(wtr6.saveDocument());
+		htmlViewer = wtr6.getURI();
 	}
 }

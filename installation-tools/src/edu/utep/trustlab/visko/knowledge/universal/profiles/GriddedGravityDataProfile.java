@@ -20,49 +20,51 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge.universal.profiles;
 
-import edu.utep.trustlab.contentManagement.Repository;
+import edu.utep.trustlab.visko.knowledge.gmt.GMTServices;
+import edu.utep.trustlab.visko.knowledge.gmt.GMTToolkits;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class GriddedGravityDataProfile {
 	public static void create() {
-		String baseURL = Repository.getRepository().getBaseURL();
+
 		// gridded data
 		String dataTypeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d12";
 		ToolkitProfileWriter wtr1 = new ToolkitProfileWriter(
 		"griddedGravityDataProfile");
-		wtr1.setSupportingToolkit(baseURL + "gmt.owl#gmt");
+		wtr1.setSupportingToolkit(GMTToolkits.gmt);
 		wtr1.addDataType(dataTypeURI);
 		// for colored image
 		wtr1.addInputBinding(
-		baseURL + "ESRIGriddedToColoredImagePS.owl#B",
+		GMTServices.gridded2Raster + "#B",
 		"1");
 		wtr1.addInputBinding(
-		baseURL + "ESRIGriddedToColoredImagePS.owl#J",
+		GMTServices.gridded2Raster + "#J",
 		"x4c");
 		wtr1.addInputBinding(
-		baseURL + "ESRIGriddedToColoredImagePS.owl#C",
+		GMTServices.gridded2Raster + "#C",
 		"hot");
+		
 		// for contour map
 		wtr1.addInputBinding(
-		baseURL + "ESRIGriddedToContourMapPS.owl#C",
+		GMTServices.gridded2ContourMap + "#C",
 		"10");
 		wtr1.addInputBinding(
-		baseURL + "ESRIGriddedToContourMapPS.owl#A",
+		GMTServices.gridded2ContourMap + "#A",
 		"20");
 		wtr1.addInputBinding(
-		baseURL + "ESRIGriddedToContourMapPS.owl#B",
+		GMTServices.gridded2ContourMap + "#B",
 		"0.5");
 		wtr1.addInputBinding(
-		baseURL + "ESRIGriddedToContourMapPS.owl#S",
+		GMTServices.gridded2ContourMap + "#S",
 		"5");
 		wtr1.addInputBinding(
-		baseURL + "ESRIGriddedToContourMapPS.owl#J",
+		GMTServices.gridded2ContourMap + "#J",
 		"x4c");
 		wtr1.addInputBinding(
-		baseURL + "ESRIGriddedToContourMapPS.owl#Wc",
+		GMTServices.gridded2ContourMap + "#Wc",
 		"thinnest,black");
 		wtr1.addInputBinding(
-		baseURL + "ESRIGriddedToContourMapPS.owl#Wa",
+		GMTServices.gridded2ContourMap + "#Wa",
 		"thinnest,black");
 		// dump document
 		String documentURL = wtr1.saveDocument();

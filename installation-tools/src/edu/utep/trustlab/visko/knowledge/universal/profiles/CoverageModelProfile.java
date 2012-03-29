@@ -20,13 +20,14 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge.universal.profiles;
 
-import edu.utep.trustlab.contentManagement.Repository;
+import edu.utep.trustlab.visko.knowledge.vtk.VTKServices;
+import edu.utep.trustlab.visko.knowledge.vtk.VTKToolkits;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class CoverageModelProfile {
 	public static void create() {
 		String documentURL;
-		String baseURL = Repository.getRepository().getBaseURL();
+
 		/************ profile for velocity ******************************/
 		String dataTypeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d7-0";
 
@@ -34,72 +35,39 @@ public class CoverageModelProfile {
 		wtr.addDataType(dataTypeURI);
 
 		// for vtkImageReader
-		wtr.addInputBinding(baseURL + "vtkImageDataReaderService.owl#littleEndian","true");
-		wtr.addInputBinding(baseURL + "vtkImageDataReaderService.owl#dim", "3");
-		wtr.addInputBinding(baseURL + "vtkImageDataReaderService.owl#dataOrigin", "0/0/0");
-		wtr.addInputBinding(baseURL + "vtkImageDataReaderService.owl#dataSpacing", "1/1/1");
-		wtr.addInputBinding(baseURL + "vtkImageDataReaderService.owl#dataExtent", "0/229/0/24/0/67");
-		wtr.addInputBinding(baseURL + "vtkImageDataReaderService.owl#numScalarComponents", "1");
-		wtr.addInputBinding(baseURL + "vtkImageDataReaderService.owl#readLowerLeft","true");
+		wtr.addInputBinding(VTKServices.vtkImageDataReader + "#littleEndian","true");
+		wtr.addInputBinding(VTKServices.vtkImageDataReader + "#dim", "3");
+		wtr.addInputBinding(VTKServices.vtkImageDataReader + "#dataOrigin", "0/0/0");
+		wtr.addInputBinding(VTKServices.vtkImageDataReader + "#dataSpacing", "1/1/1");
+		wtr.addInputBinding(VTKServices.vtkImageDataReader + "#dataExtent", "0/229/0/24/0/67");
+		wtr.addInputBinding(VTKServices.vtkImageDataReader + "#numScalarComponents", "1");
+		wtr.addInputBinding(VTKServices.vtkImageDataReader + "#readLowerLeft","true");
 
 		// for vtkContourFilter
-		wtr.addInputBinding(
-		baseURL + "vtkContourFilterService.owl#numContours",
-		"35");
-		wtr.addInputBinding(
-		baseURL + "vtkContourFilterService.owl#scalarRange",
-		"0.0/9000.0");
+		wtr.addInputBinding(VTKServices.vtkContourFilter + "#numContours", "35");
+		wtr.addInputBinding(VTKServices.vtkContourFilter + "#scalarRange", "0.0/9000.0");
 
 		// for vtkPolyDataMapper
-		wtr.addInputBinding(
-		baseURL + "vtkPolyDataMapperService.owl#scalarRange",
-		"0.0/9000.0");
-		wtr.addInputBinding(
-		baseURL + "vtkPolyDataMapperService.owl#xRotation",
-		"105");
-		wtr.addInputBinding(
-		baseURL + "vtkPolyDataMapperService.owl#yRotation",
-		"0");
-		wtr.addInputBinding(
-		baseURL + "vtkPolyDataMapperService.owl#zRotation",
-		"0");
-		wtr.addInputBinding(
-		baseURL + "vtkPolyDataMapperService.owl#size",
-		"400/300");
-		wtr.addInputBinding(
-		baseURL + "vtkPolyDataMapperService.owl#backgroundColor",
-		"1/1/1");
-		wtr.addInputBinding(
-		baseURL + "vtkPolyDataMapperService.owl#magnification",
-		"3");
+		wtr.addInputBinding(VTKServices.vtkPolyDataMapper + "#scalarRange","0.0/9000.0");
+		wtr.addInputBinding(VTKServices.vtkPolyDataMapper + "#xRotation", "105");
+		wtr.addInputBinding(VTKServices.vtkPolyDataMapper + "#yRotation", "0");
+		wtr.addInputBinding(VTKServices.vtkPolyDataMapper + "#zRotation", "0");
+		wtr.addInputBinding(VTKServices.vtkPolyDataMapper + "#size", "400/300");
+		wtr.addInputBinding(VTKServices.vtkPolyDataMapper + "#backgroundColor", "1/1/1");
+		wtr.addInputBinding(VTKServices.vtkPolyDataMapper + "#magnification", "3");
 
 		// for vtkVolume
-		wtr.addInputBinding(
-		baseURL + "vtkVolumeService.owl#xRotation",
-		"105");
-		wtr.addInputBinding(
-		baseURL + "vtkVolumeService.owl#yRotation",
-		"0");
-		wtr.addInputBinding(
-		baseURL + "vtkVolumeService.owl#zRotation",
-		"0");
-		wtr.addInputBinding(
-		baseURL + "vtkVolumeService.owl#size",
-		"400/300");
-		wtr.addInputBinding(
-		baseURL + "vtkVolumeService.owl#backgroundColor",
-		"0/0/0");
-		wtr.addInputBinding(
-		baseURL + "vtkVolumeService.owl#magnification",
-		"3");
-		wtr.addInputBinding(
-		baseURL + "vtkVolumeService.owl#colorFunction",
-		"20,1.0,0.0,0.3/80,1.0,0.0,0.3");
-		wtr.addInputBinding(
-		baseURL + "vtkVolumeService.owl#opacityFunction",
-		"0,0.0/40,1.0");
+		wtr.addInputBinding(VTKServices.vtkVolume + "#xRotation", "105");
+		wtr.addInputBinding(VTKServices.vtkVolume + "#yRotation", "0");
+		wtr.addInputBinding(VTKServices.vtkVolume + "#zRotation", "0");
+		wtr.addInputBinding(VTKServices.vtkVolume + "#size", "400/300");
+		wtr.addInputBinding(VTKServices.vtkVolume + "#backgroundColor", "0/0/0");
+		wtr.addInputBinding(VTKServices.vtkVolume + "#magnification", "3");
+		wtr.addInputBinding(VTKServices.vtkVolume + "#colorFunction", "20,1.0,0.0,0.3/80,1.0,0.0,0.3");
+		wtr.addInputBinding(VTKServices.vtkVolume + "#opacityFunction", "0,0.0/40,1.0");
 
-		wtr.setSupportingToolkit(baseURL + "vtk.owl#vtk");
+		wtr.setSupportingToolkit(VTKToolkits.vtk);
+		
 		documentURL = wtr.saveDocument();
 		System.out.println(documentURL);
 		}
