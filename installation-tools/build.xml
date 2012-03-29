@@ -142,7 +142,7 @@
 		</java>	
 	</target>
 	
-	<target name="generator1" depends="build">
+	<target name="utep-rdf-generator" depends="build">
 		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorManager">
 			<arg value="1"/>
 			<arg value="${server-url}"/>
@@ -169,94 +169,7 @@
 				</fileset>
 			</classpath>   
 		</java>	
-	</target>
-	
-	<target name="generator2" depends="build">
-		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorManager">
-			<arg value="2"/>
-			<arg value="${server-url}"/>
-			<arg value="${visko-rdf}"/>
-			
-			<classpath>
-				<pathelement location="${jarfile}"/>
-				<pathelement location="${visko-api-jar}"/>
-				
-				<fileset dir="${lib}/ciclient/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/apache/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/axis4/">
-					<include name="*.jar"/>
-				</fileset>
-				<fileset dir="${lib}/jena262/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/util/">
-					<include name="*.jar"/>
-				</fileset>
-			</classpath>   
-		</java>	
-	</target>
-
-	<target name="generator3" depends="build">
-		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorManager">
-			<arg value="3"/>
-			<arg value="${server-url}"/>
-			<arg value="${visko-rdf}"/>
-			
-			<classpath>
-				<pathelement location="${jarfile}"/>
-				<pathelement location="${visko-api-jar}"/>
-				
-				<fileset dir="${lib}/ciclient/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/apache/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/axis4/">
-					<include name="*.jar"/>
-				</fileset>
-				<fileset dir="${lib}/jena262/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/util/">
-					<include name="*.jar"/>
-				</fileset>
-			</classpath>   
-		</java>	
-	</target>
-
-	<target name="generator4" depends="build">
-		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorManager">
-			<arg value="4"/>
-			<arg value="${server-url}"/>
-			<arg value="${visko-rdf}"/>
-			
-			<classpath>
-				<pathelement location="${jarfile}"/>
-				<pathelement location="${visko-api-jar}"/>
-				
-				<fileset dir="${lib}/ciclient/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/apache/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/axis4/">
-					<include name="*.jar"/>
-				</fileset>
-				<fileset dir="${lib}/jena262/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/util/">
-					<include name="*.jar"/>
-				</fileset>
-			</classpath>   
-		</java>	
-	</target>
+	</target>	
 		
 	<target name="clean-rdf" description="Delete the RDF Visko Instances">
 		<delete>
