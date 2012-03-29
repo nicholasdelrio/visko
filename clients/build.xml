@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="build" name="Content Management Clients">	
+	<property name="jarfile" value="content-management-clients.jar" />
+	<property name="build" value="build"/>
+	<property name="lib" value="lib"/>
+	<property name="src" value="src"/>	
+	
+	<target name="build" depends="compile" description="Creates the jar file">
+		<jar destfile="${jarfile}">
+			<fileset dir="${build}" includes="**/*.*" />
+		</jar>
+	</target>	
+	
+	<target name="compile" depends="clean" description="Compile in build Directory">		
+		<mkdir dir="${build}"/>
+		<javac destdir="${build}/" srcdir="${src}" target="1.6"> 
+	    	<include name="**/*.java"/>
+			<classpath>
+				<fileset dir="${lib}/libs-alfresco/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/libs-ciserver/">
+					<include name="*.jar"/>
+				</fileset>	
+			</classpath>			
+		</javac> 
+	</target>
+		
+	<target name="clean" description="Delete the Build Directory and the Jar File">
+		<delete dir="${build}" />
+		<delete file="${basedir}/${jarfile}" />
+	</target>
+</project>
