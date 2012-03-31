@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="build" name="VisKo Installer Tools">
 
-	<!-- change this property if GitHub will be your VisKo RDF server -->
+	<!-- GitHub Configuration -->
 	<property name="your-github-username" value="nicholasdelrio"/>
-	
-	
-	<!-- GitHub URL Construction -->
 	<property name="my-github-username" value="nicholasdelrio"/>
 	<property name="base-rdf-server-url" value="https://raw.github.com/"/>
 	<property name="frag-rdf-server-url" value="/visko/master/rdf/"/>
-	<property name="server-url" value="${base-rdf-server-url}${your-github-username}${frag-rdf-server-url}"/>
-	<property name="format-url" value="${base-rdf-server-url}${my-github-username}${frag-rdf-server-url}formats/"/>
-
+	<property name="format-url" value="${base-rdf-server-url}${my-github-username}${frag-rdf-server-url}formats/"/>	
+	<property name="github-server-url" value="${base-rdf-server-url}${your-github-username}${frag-rdf-server-url}"/>
+		
+	<!-- Alfresco/Cat Configuration -->
+	<property name="cat-server-url" value="http://localhost:8080/alfresco/"/>
+	<property name="cat-server-username" value="admin"/>
+	<property name="cat-server-password" value="booger1"/>
+	
+	<!-- CI-Server Configuration -->
+	<property name="ci-server-url" value="http://rio.cs.utep.edu/ciserver"/>
+	<property name="ci-server-username" value=""/>
+	<property name="ci-server-password" value=""/>
+	
+	<!-- project name -->
+	<property name="project-name" value="visko"/>
+	
+	<!-- Visualization query examples page -->
 	<property name="query-template" value="query.html"/>
 	<property name="query-deployment-dir" value="../visko-web/WebContent/"/>
 
 	<!-- Content Management Libs -->
-	<property name="content-management-libs" value="../../content-management-connectors"/>	
+	<property name="content-management-libs" value="../../content-management-connectors/clients/lib"/>	
 	
+	<!-- build properties -->
 	<property name="jarfile" value="installer-tools.jar"/>
 	<property name="lib" value="../api/lib/"/>
 	<property name="build" value="build"/>
@@ -32,7 +44,6 @@
 	<property name="visko-ontology" value="${visko-rdf}/ontology/"/>
 	<property name="visko-formats" value="${visko-rdf}/formats/"/>
 
-		
 	<target name="build" depends="compile">
 		<jar destfile="${jarfile}">
 			<fileset dir="${build}" includes="**/*.*" />
@@ -111,7 +122,7 @@
 			</java>	
 		</target>
 
-	<target name="update-uris-for-github" depends="build" description="Generates and Uploads VisKo RDF to a Content Managment">
+	<target name="update-uris-for-github" depends="build">
 		<java classname="edu.utep.trustlab.repository.SwitchRepositoryURL">
 			<arg value="${visko-rdf}"/>
 			<arg value="${your-github-username}"/>
@@ -139,20 +150,23 @@
 		</java>	
 	</target>
 	
-	<target name="utep-rdf-uploader" depends="build">
+	<target name="utep-rdf-uploader" depends="build"  description="Generates and Uploads VisKo RDF to a Content Managment">
 		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorManager">
-			<arg value="1"/>
-			<arg value="${server-url}"/>
+			<arg value="cat"/>
+			<arg value="${cat-server-url}"/>
+			<arg value="${project-name}"/>
+			<arg value="${cat-server-username}"/>
+			<arg value="${cat-server-password}"/>
 			<arg value="${visko-rdf}"/>
 			
 			<classpath>
 				<pathelement location="${jarfile}"/>
 				<pathelement location="${visko-api-jar}"/>
 				
-				<fileset dir="${lib}/ciclient/">
+				<fileset dir="${content-management-libs}/libs-alfresco/">
 					<include name="*.jar"/>
 				</fileset>	
-				<fileset dir="${lib}/apache/">
+				<fileset dir="${content-management-libs}/libs-ciserver/">
 					<include name="*.jar"/>
 				</fileset>	
 				<fileset dir="${lib}/axis4/">

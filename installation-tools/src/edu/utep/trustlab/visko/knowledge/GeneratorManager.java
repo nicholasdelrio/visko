@@ -10,11 +10,16 @@ public class GeneratorManager {
 	public static void main(String[] args){
 		
 		ContentManager.setContentManager(getContentManager(args));
+		ContentManager.setWorkspacePath(getOutputRDFDirectory(args));
 		
 		Generator1.gen();
 		Generator2.gen();
 		Generator3.gen();
 		Generator4.gen();
+	}
+	
+	public static String getOutputRDFDirectory(String[] args){
+		return args[5];
 	}
 	
 	public static ContentManager getContentManager(String[] args){
