@@ -5,17 +5,20 @@
 	<property name="your-github-username" value="nicholasdelrio"/>
 	
 	
-	<!-- restrictricted use -->
+	<!-- GitHub URL Construction -->
 	<property name="my-github-username" value="nicholasdelrio"/>
 	<property name="base-rdf-server-url" value="https://raw.github.com/"/>
 	<property name="frag-rdf-server-url" value="/visko/master/rdf/"/>
 	<property name="server-url" value="${base-rdf-server-url}${your-github-username}${frag-rdf-server-url}"/>
 	<property name="format-url" value="${base-rdf-server-url}${my-github-username}${frag-rdf-server-url}formats/"/>
-	
+
 	<property name="query-template" value="query.html"/>
 	<property name="query-deployment-dir" value="../visko-web/WebContent/"/>
+
+	<!-- Content Management Libs -->
+	<property name="content-management-libs" value="../../content-management-connectors"/>	
 	
-	<property name="jarfile" value="utep-rdf-generator.jar"/>
+	<property name="jarfile" value="installer-tools.jar"/>
 	<property name="lib" value="../api/lib/"/>
 	<property name="build" value="build"/>
 	<property name="src" value="src"/>
@@ -36,7 +39,7 @@
 		</jar>
 	</target>
 	
-	<target name="compile" depends="clean" description="Compile visko-rdf-cybershare in build Directory">	
+	<target name="compile" depends="clean" description="Compile installation-tools in build Directory">	
 		<ant antfile="${visko-api}/build.xml" target="build" inheritAll="false" />
 		
 		<mkdir dir="${build}"/>
@@ -47,12 +50,6 @@
 				<fileset dir="${lib}/tomcat/">
 					<include name="*.jar"/>
 				</fileset>
-				<fileset dir="${lib}/ciclient/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/apache/">
-					<include name="*.jar"/>
-				</fileset>	
 				<fileset dir="${lib}/axis4/">
 					<include name="*.jar"/>
 				</fileset>
@@ -114,7 +111,7 @@
 			</java>	
 		</target>
 
-	<target name="update-uris-for-github" depends="build">
+	<target name="update-uris-for-github" depends="build" description="Generates and Uploads VisKo RDF to a Content Managment">
 		<java classname="edu.utep.trustlab.repository.SwitchRepositoryURL">
 			<arg value="${visko-rdf}"/>
 			<arg value="${your-github-username}"/>
@@ -142,7 +139,7 @@
 		</java>	
 	</target>
 	
-	<target name="utep-rdf-generator" depends="build">
+	<target name="utep-rdf-uploader" depends="build">
 		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorManager">
 			<arg value="1"/>
 			<arg value="${server-url}"/>
