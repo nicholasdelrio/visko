@@ -169,6 +169,8 @@ public abstract class JenaIndividual implements ViskoIndividual {
 			fullURL = baseURL + fileName;
 			uri = fullURL + "#" + name;
 		}
+		
+		uri = uri.replaceAll("\r", "");
 	}
 	
 	public static String  makeFileName(String name){
