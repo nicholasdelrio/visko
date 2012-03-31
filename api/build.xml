@@ -17,12 +17,6 @@
 		<javac destdir="${build}/" srcdir="${src}" target="1.6"> 
 	    	<include name="**/*.java"/>
 			<classpath>
-				<fileset dir="${lib}/ciclient/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/apache/">
-					<include name="*.jar"/>
-				</fileset>	
 				<fileset dir="${lib}/axis4/">
 					<include name="*.jar"/>
 				</fileset>
@@ -45,12 +39,6 @@
 	           windowtitle="VisKo Javadoc">
 
 			<classpath>
-				<fileset dir="${lib}/ciclient/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/apache/">
-					<include name="*.jar"/>
-				</fileset>
 				<fileset dir="${lib}/axis4/">
 					<include name="*.jar"/>
 				</fileset>
