@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project default="build" name="VisKo Webapp API">	
+<project default="build" name="VisKo Web Application">
+	
 	<property name="warfile" value="visko-web.war" />
 	<property name="build" value="build"/>
 	<property name="lib" value="../api/lib"/>
@@ -12,14 +13,10 @@
 	<target name="build" depends="compile" description="Creates the VisKo Webapp WAR file">
 	
 		<war destfile="${warfile}" webxml="${config-file}">
-			
 			<lib file="${visko-api-jar}"/>
 			<lib dir="${lib}/axis4"/>
-			<lib dir="${lib}/ciclient"/>
-			<lib dir="${lib}/apache"/>
 			<lib dir="${lib}/jena262"/>
 			<lib dir="${lib}/util"/>
-			
 			<fileset dir="${web-content}"/>
 			
 			<classes dir="${build}/"/>
@@ -36,12 +33,6 @@
 				<fileset dir="${lib}/tomcat/">
 					<include name="*.jar"/>
 				</fileset>
-				<fileset dir="${lib}/ciclient/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/apache/">
-					<include name="*.jar"/>
-				</fileset>	
 				<fileset dir="${lib}/axis4/">
 					<include name="*.jar"/>
 				</fileset>
