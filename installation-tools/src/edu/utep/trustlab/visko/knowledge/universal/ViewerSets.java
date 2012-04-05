@@ -29,25 +29,37 @@ public class ViewerSets {
 	public static String internetExplorer;
 	public static String divaGraphics;
 	
-	public static void create() {	
+	public static void create() {
+		
+		try{
+			
 		ViewerSetWriter wtr = new ViewerSetWriter("probeit");
 		wtr.setLabel("Probe-It!");
 		System.out.println(wtr.saveDocument());
 		probeit = wtr.getURI();
 
+		Thread.sleep(500);
+		
 		ViewerSetWriter wtr1 = new ViewerSetWriter("mozilla-firefox");
 		wtr1.setLabel("Mozilla Firefox");
 		System.out.println(wtr1.saveDocument());
 		firefox = wtr1.getURI();
 
+		Thread.sleep(500);
+		
 		ViewerSetWriter wtr2 = new ViewerSetWriter("internet-explorer");
 		wtr2.setLabel("Microsoft Internet Explorer");
 		System.out.println(wtr2.saveDocument());
 		internetExplorer = wtr2.getURI();
 
+		Thread.sleep(500);
+		
 		ViewerSetWriter wtr3 = new ViewerSetWriter("diva-graphics");
 		wtr3.setLabel("Diva Graphics Java Package");
 		System.out.println(wtr3.saveDocument());
 		divaGraphics = wtr3.getURI();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 }

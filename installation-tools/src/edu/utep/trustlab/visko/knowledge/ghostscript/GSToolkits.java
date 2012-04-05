@@ -25,9 +25,18 @@ import edu.utep.trustlab.visko.ontology.service.writer.ToolkitWriter;
 public class GSToolkits {
 	public static String ghostscript;
 	public static void create() {
+		
+		try{
+			
+		Thread.sleep(500);
+		
 		ToolkitWriter wtr = new ToolkitWriter("ghostscript");
 		wtr.setLabel("Ghostscript");
 		System.out.println(wtr.saveDocument());
 		ghostscript = wtr.getURI();
+		
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 }

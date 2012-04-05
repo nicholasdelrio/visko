@@ -33,34 +33,50 @@ public class Views {
 
 	public static void create() {
 
+		try{
+			
 		ViewContourWriter wtr = new ViewContourWriter("contour-lines");
 		wtr.setLabel("Contour Lines (Isolines)");
 		System.out.println(wtr.saveDocument());
 		contourLines = wtr.getURI();
+		
+		Thread.sleep(500);
 		
 		ViewPointsWriter wtr1 = new ViewPointsWriter("plot-2D");
 		wtr1.setLabel("2D Dimensional Plot");
 		System.out.println(wtr1.saveDocument());
 		plot2D = wtr.getURI();
 		
+		Thread.sleep(500);
+		
 		ViewVolumeWriter wtr2 = new ViewVolumeWriter("volume");
 		wtr2.setLabel("Volume");
 		System.out.println(wtr2.saveDocument());
 		volume = wtr2.getURI();
 
+		Thread.sleep(500);
+		
 		ViewSurfaceWriter wtr3 = new ViewSurfaceWriter("iso-surfaces");
 		wtr3.setLabel("Isosurfaces");
 		System.out.println(wtr3.saveDocument());
 		isosurfaces = wtr3.getURI();
+		
+		Thread.sleep(500);
 		
 		ViewRasterWriter wtr4 = new ViewRasterWriter("raster");
 		wtr4.setLabel("Raster");
 		System.out.println(wtr4.saveDocument());
 		raster = wtr4.getURI();
 
+		Thread.sleep(500);
+		
 		ViewGraphWriter wtr6 = new ViewGraphWriter("XYPlot");
 		wtr6.setLabel("1D Plot of Variables");
 		System.out.println(wtr6.saveDocument());
 		xyPlot = wtr6.getURI();
+		
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 }
