@@ -41,12 +41,11 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.util;
 
 public class OWLSRDFCleanup {
-	
-	public static String fixURIForImplementsOperator(String owlsRDF, String baseURI){
-		return owlsRDF.replace("<viskoS:implementsOperator rdf:resource=\"",  "<viskoS:implementsOperator rdf:resource=\"" + baseURI);
+	public static String fixURIForImplementsOperator(String owlsRDF, String uri){
+		return owlsRDF.replaceFirst("<viskoS:implementsOperator.*>", "<viskoS:implementsOperator rdf:resource=\"" + uri + "\"/>");
 	}
 
-	public static String fixURIForSupportedByToolkit(String owlsRDF, String baseURI){
-		return owlsRDF.replace("<viskoS:supportedBy rdf:resource=\"",  "<viskoS:supportedBy rdf:resource=\"" + baseURI);
+	public static String fixURIForSupportedByToolkit(String owlsRDF, String uri){
+		return owlsRDF.replaceFirst("<viskoS:supportedBy.*>",  "<viskoS:supportedBy rdf:resource=\"" + uri + "\"/>");
 	}
 }

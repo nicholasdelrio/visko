@@ -133,6 +133,9 @@ public class ViskoModel{
 	}
 
 	public Individual getIndividual(String uri) {
+		
+		uri = uri.replace("\r", "");
+		
 		model.read(uri);
 		return model.getIndividual(uri);
 	}

@@ -60,9 +60,12 @@ public class TransformerWriter extends ViskoWriter {
 	private View view;
 	private ViskoModel loadingModel = new ViskoModel();
 
-	public TransformerWriter(String name) {
-		trans = new Transformer(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
-		mapper = new Mapper(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+	public TransformerWriter(String name, boolean isMapper) {
+		if(isMapper)
+			mapper = new Mapper(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+		else
+			trans = new Transformer(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+		
 		inputFormats = new Vector<Format>();
 	}
 
@@ -89,7 +92,7 @@ public class TransformerWriter extends ViskoWriter {
 	}
 
 	public String toRDFString() {
-		if (view == null) {
+		if (mapper == null) {
 			trans.setOperatesOnFormats(inputFormats);
 			trans.setTransformsToFormat(outputFormat);
 			trans.setLabel(label);

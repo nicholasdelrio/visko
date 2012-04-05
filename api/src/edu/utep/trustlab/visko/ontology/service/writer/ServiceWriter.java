@@ -94,6 +94,7 @@ public class ServiceWriter extends ViskoWriter {
 		viskoIndividual = service;
 
 		String viewerRDFString = viskoIndividual.toString();
+		
 		return viewerRDFString;
 	}
 }

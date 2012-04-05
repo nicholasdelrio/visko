@@ -48,6 +48,7 @@ import edu.utep.trustlab.visko.ontology.model.OWLSModel;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.operator.Operator;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoS;
+import edu.utep.trustlab.visko.util.OWLSRDFCleanup;
 import edu.utep.trustlab.visko.util.wsdl.WSDLTranslatorBuilder;
 
 public class OWLSService extends OWLSIndividual {
@@ -198,5 +199,12 @@ public class OWLSService extends OWLSIndividual {
 	protected void initializeFields() {
 		// TODO Auto-generated method stub
 
+	}
+	
+	public String toString(){
+		String rdfString = super.toString();
+		rdfString = OWLSRDFCleanup.fixURIForImplementsOperator(rdfString, implementedOperator.getURI());
+		rdfString = OWLSRDFCleanup.fixURIForSupportedByToolkit(rdfString, supportingToolkit.getURI());
+		return rdfString;
 	}
 }

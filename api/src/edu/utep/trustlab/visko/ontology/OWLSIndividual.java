@@ -43,10 +43,7 @@ package edu.utep.trustlab.visko.ontology;
 import java.io.StringWriter;
 
 import org.mindswap.owl.OWLIndividual;
-
-import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.visko.ontology.model.OWLSModel;
-import edu.utep.trustlab.visko.util.OWLSRDFCleanup;
 
 public abstract class OWLSIndividual implements ViskoIndividual {
 	private String name;
@@ -83,8 +80,6 @@ public abstract class OWLSIndividual implements ViskoIndividual {
 		StringWriter wtr = new StringWriter();
 		model.getOntology().write(wtr, model.getOntology().getURI());
 		String rdfString = wtr.toString();
-		rdfString = OWLSRDFCleanup.fixURIForImplementsOperator(rdfString, ContentManager.getContentManager().getBaseURL(null));
-		rdfString = OWLSRDFCleanup.fixURIForSupportedByToolkit(rdfString, ContentManager.getContentManager().getBaseURL(null));
 		return rdfString;
 	}
 
