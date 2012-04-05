@@ -28,7 +28,7 @@ public class GriddedGravityDataProfile {
 	public static void create() {
 
 		String gridded2Raster = GMTServices.gridded2Raster.substring(0, GMTServices.gridded2Raster.indexOf("#"));
-		String gridded2ContourMap = GMTServices.gridded2ContourMap.substring(0, GMTServices.gridded2Raster.indexOf("#"));
+		String gridded2ContourMap = GMTServices.gridded2ContourMap.substring(0, GMTServices.gridded2ContourMap.indexOf("#"));
 		
 		// gridded data
 		String dataTypeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d12";
