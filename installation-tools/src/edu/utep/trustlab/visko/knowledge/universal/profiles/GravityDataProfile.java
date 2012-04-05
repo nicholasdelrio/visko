@@ -48,96 +48,121 @@ public class GravityDataProfile {
 		wtr2.addInputBinding(
 		points22DPlot + "#S",
 		"c0.04c");
+		
 		wtr2.addInputBinding(
 		points22DPlot + "#J",
 		"x4c");
+		
 		wtr2.addInputBinding(
 		points22DPlot + "#G",
 		"blue");
+		
 		wtr2.addInputBinding(
 		points22DPlot + "#B",
 		"1");
+		
 		// for nearneightbor gridding
 		wtr2.addInputBinding(
 		points2NearNeighborGridded + "#I",
 		"0.02");
+		
 		wtr2.addInputBinding(
 		points2NearNeighborGridded + "#S",
 		"0.2");
+		
 		// for gridding by surface
 		wtr2.addInputBinding(
 		points2MinCurvatureGridded + "#I",
 		"0.02");
+		
 		wtr2.addInputBinding(
 		points2MinCurvatureGridded + "#T",
 		"0.25");
+		
 		wtr2.addInputBinding(
 		points2MinCurvatureGridded + "#C",
 		"0.1");
+		
 		// for grid to colored image
 		wtr2.addInputBinding(
 		gridded2Raster + "#B",
 		"1");
+		
 		wtr2.addInputBinding(
 		gridded2Raster + "#J",
 		"x4c");
+		
 		wtr2.addInputBinding(
 		gridded2Raster + "#C",
 		"hot");
+		
 		// for contour map
 		wtr2.addInputBinding(
 		gridded2ContourMap + "#C",
 		"10");
+		
 		wtr2.addInputBinding(
 		gridded2ContourMap + "#A",
 		"20");
+		
 		wtr2.addInputBinding(
 		gridded2ContourMap + "#B",
 		"0.5");
+		
 		wtr2.addInputBinding(
 		gridded2ContourMap + "#S",
 		"5");
+		
 		wtr2.addInputBinding(
 		gridded2ContourMap + "#J",
 		"x4c");
+		
 		wtr2.addInputBinding(
 		gridded2ContourMap + "#Wc",
 		"thinnest,black");
+		
 		wtr2.addInputBinding(
 		gridded2ContourMap + "#Wa",
 		"thinnest,black");
-
+		
 		// for esriGridContour
 		wtr2.addInputBinding(
 		esriGridContour + "#lbOrientation",
 		"vertical");
+		
 		wtr2.addInputBinding(
 		esriGridContour + "#cnLevelSpacingF",
 		"10");
+		
 		wtr2.addInputBinding(
 		esriGridContour + "#colorTable",
 		"WhiteBlueGreenYellowRed");
+		
 		wtr2.addInputBinding(
 		esriGridContour + "#font",
 		"helvetica");
+		
 		wtr2.addInputBinding(
 		esriGridContour + "#cnFillOn",
 		"True");
+		
 		wtr2.addInputBinding(
 		esriGridContour + "#cnLinesOn",
 		"False");
-
+		
 		// for esriGridRaster
 		wtr2.addInputBinding(
-		esriGridRaster + "lbOrientation",
+		esriGridRaster + "#lbOrientation",
 		"vertical");
+		
 		wtr2.addInputBinding(
-		esriGridRaster + "colorTable",
+		esriGridRaster + "#colorTable",
 		"WhiteBlueGreenYellowRed");
+		
 		wtr2.addInputBinding(
-		esriGridRaster + "font",
+		esriGridRaster + "#font",
 		"helvetica");
-
+		
 		// dump document
 		documentURL = wtr2.saveDocument();
 		System.out.println(documentURL);
