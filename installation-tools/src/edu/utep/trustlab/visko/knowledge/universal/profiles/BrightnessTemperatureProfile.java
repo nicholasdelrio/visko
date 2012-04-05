@@ -33,20 +33,23 @@ public class BrightnessTemperatureProfile {
 		ToolkitProfileWriter wtr = new ToolkitProfileWriter("brightnessDataProfile");
 		wtr.addDataType(dataTypeURI);
 		
+		String netCDFGridContour = NCLServices.netCDFGridContour.substring(0, NCLServices.netCDFGridContour.indexOf("#"));
+		String netCDFGridRaster = NCLServices.netCDFGridRaster.substring(0, NCLServices.netCDFGridRaster.indexOf("#"));
+		
 		// for netCDFGridContour
-		wtr.addInputBinding(NCLServices.netCDFGridContour + "#plotVariable", "ch4");
-		wtr.addInputBinding(NCLServices.netCDFGridContour + "#lbOrientation", "vertical");
-		wtr.addInputBinding(NCLServices.netCDFGridContour + "#cnLevelSpacingF", "10");
-		wtr.addInputBinding(NCLServices.netCDFGridContour + "#colorTable", "WhiteBlueGreenYellowRed");
-		wtr.addInputBinding(NCLServices.netCDFGridContour + "#font", "helvetica");
-		wtr.addInputBinding(NCLServices.netCDFGridContour + "#cnFillOn", "True");
-		wtr.addInputBinding(NCLServices.netCDFGridContour + "#cnLinesOn", "False");
+		wtr.addInputBinding(netCDFGridContour + "#plotVariable", "ch4");
+		wtr.addInputBinding(netCDFGridContour + "#lbOrientation", "vertical");
+		wtr.addInputBinding(netCDFGridContour + "#cnLevelSpacingF", "10");
+		wtr.addInputBinding(netCDFGridContour + "#colorTable", "WhiteBlueGreenYellowRed");
+		wtr.addInputBinding(netCDFGridContour + "#font", "helvetica");
+		wtr.addInputBinding(netCDFGridContour + "#cnFillOn", "True");
+		wtr.addInputBinding(netCDFGridContour + "#cnLinesOn", "False");
 
 		// for netCDFGridRaster
-		wtr.addInputBinding(NCLServices.netCDFGridRaster + "#plotVariable", "ch4");
-		wtr.addInputBinding(NCLServices.netCDFGridRaster + "#lbOrientation", "vertical");
-		wtr.addInputBinding(NCLServices.netCDFGridRaster + "#colorTable", "WhiteBlueGreenYellowRed");
-		wtr.addInputBinding(NCLServices.netCDFGridRaster + "#font", "helvetica");
+		wtr.addInputBinding(netCDFGridRaster + "#plotVariable", "ch4");
+		wtr.addInputBinding(netCDFGridRaster + "#lbOrientation", "vertical");
+		wtr.addInputBinding(netCDFGridRaster + "#colorTable", "WhiteBlueGreenYellowRed");
+		wtr.addInputBinding(netCDFGridRaster + "#font", "helvetica");
 
 		wtr.setSupportingToolkit(NCLToolkits.ncl);
 		

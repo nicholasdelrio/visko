@@ -31,97 +31,104 @@ public class DuSumProfile {
 		/************ profile for dusum ******************************/
 		String dataTypeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d8-0";
 		String dataTypeURI1 = "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d8";
+		
 		ToolkitProfileWriter wtr2 = new ToolkitProfileWriter(
 		"slownessPertubationModelProfile");
 		wtr2.addDataType(dataTypeURI);
 		wtr2.addDataType(dataTypeURI1);
 
+		String float2shortThr = VTKServices.float2shortThr.substring(0, VTKServices.float2shortThr.indexOf("#"));
+		String vtkImageDataReader = VTKServices.vtkImageDataReader.substring(0, VTKServices.vtkImageDataReader.indexOf("#"));
+		String vtkContourFilter = VTKServices.vtkContourFilter.substring(0, VTKServices.vtkContourFilter.indexOf("#"));
+		String vtkPolyDataMapper = VTKServices.vtkPolyDataMapper.substring(0, VTKServices.vtkPolyDataMapper.indexOf("#"));
+		String vtkVolume = VTKServices.vtkVolume.substring(0, VTKServices.vtkVolume.indexOf("#"));
+		
 		// for float2shortThr
 		wtr2.addInputBinding(
-		VTKServices.float2shortThr + "#scalingFactor",
+		float2shortThr + "#scalingFactor",
 		"1");
 		wtr2.addInputBinding(
-		VTKServices.float2shortThr + "#offset",
+		float2shortThr + "#offset",
 		"10000");
 
 		// for vtkImageReader
 		wtr2.addInputBinding(
-		VTKServices.vtkImageDataReader + "#littleEndian",
+		vtkImageDataReader + "#littleEndian",
 		"true");
 		wtr2.addInputBinding(
-		VTKServices.vtkImageDataReader + "#dim",
+		vtkImageDataReader + "#dim",
 		"3");
 		wtr2.addInputBinding(
-		VTKServices.vtkImageDataReader + "#dataOrigin",
+		vtkImageDataReader + "#dataOrigin",
 		"0/0/0");
 		wtr2.addInputBinding(
-		VTKServices.vtkImageDataReader + "#dataSpacing",
+		vtkImageDataReader + "#dataSpacing",
 		"1/1/1");
 		wtr2.addInputBinding(
-		VTKServices.vtkImageDataReader + "#dataExtent",
+		vtkImageDataReader + "#dataExtent",
 		"0/229/0/24/0/67");
 		wtr2.addInputBinding(
-		VTKServices.vtkImageDataReader + "#numScalarComponents",
+		vtkImageDataReader + "#numScalarComponents",
 		"1");
 		wtr2.addInputBinding(
-		VTKServices.vtkImageDataReader + "#readLowerLeft",
+		vtkImageDataReader + "#readLowerLeft",
 		"true");
 
 		// for vtkContourFilter
 		wtr2.addInputBinding(
-		VTKServices.vtkContourFilter + "#numContours",
+		vtkContourFilter + "#numContours",
 		"35");
 		wtr2.addInputBinding(
-		VTKServices.vtkContourFilter + "#scalarRange",
+		vtkContourFilter + "#scalarRange",
 		"9997.0/10014.0");
 
 		// for vtkPolyDataMapper
 		wtr2.addInputBinding(
-		VTKServices.vtkPolyDataMapper + "#scalarRange",
+		vtkPolyDataMapper + "#scalarRange",
 		"9997.0/10014.0");
 		wtr2.addInputBinding(
-		VTKServices.vtkPolyDataMapper + "#xRotation",
+		vtkPolyDataMapper + "#xRotation",
 		"90");
 		wtr2.addInputBinding(
-		VTKServices.vtkPolyDataMapper + "#yRotation",
+		vtkPolyDataMapper + "#yRotation",
 		"0");
 		wtr2.addInputBinding(
-		VTKServices.vtkPolyDataMapper + "#zRotation",
+		vtkPolyDataMapper + "#zRotation",
 		"0");
 		wtr2.addInputBinding(
-		VTKServices.vtkPolyDataMapper + "#size",
+		vtkPolyDataMapper + "#size",
 		"400/300");
 		wtr2.addInputBinding(
-		VTKServices.vtkPolyDataMapper + "#backgroundColor",
+		vtkPolyDataMapper + "#backgroundColor",
 		"1/1/1");
 		wtr2.addInputBinding(
-		VTKServices.vtkPolyDataMapper + "#magnification",
+		vtkPolyDataMapper + "#magnification",
 		"3");
 
 		// for vtkVolume
 		wtr2.addInputBinding(
-		VTKServices.vtkVolume + "#xRotation",
+		vtkVolume + "#xRotation",
 		"105");
 		wtr2.addInputBinding(
-		VTKServices.vtkVolume + "#yRotation",
+		vtkVolume + "#yRotation",
 		"0");
 		wtr2.addInputBinding(
-		VTKServices.vtkVolume + "#zRotation",
+		vtkVolume + "#zRotation",
 		"0");
 		wtr2.addInputBinding(
-		VTKServices.vtkVolume + "#size",
+		vtkVolume + "#size",
 		"400/300");
 		wtr2.addInputBinding(
-		VTKServices.vtkVolume + "#backgroundColor",
+		vtkVolume + "#backgroundColor",
 		"1/1/1");
 		wtr2.addInputBinding(
-		VTKServices.vtkVolume + "#magnification",
+		vtkVolume + "#magnification",
 		"3");
 		wtr2.addInputBinding(
-		VTKServices.vtkVolume + "#colorFunction",
+		vtkVolume + "#colorFunction",
 		"0.0,0.0,0.0,0.0/1000.0,1.0,0.0,0.0/3000.0,0.0,0.0,1.0/5000.0,0.0,1.0,0.0/7000.0,0.0,0.2,0.0");
 		wtr2.addInputBinding(
-		VTKServices.vtkVolume + "#opacityFunction",
+		vtkVolume + "#opacityFunction",
 		"20,0.0/255,0.2");
 
 		wtr2.setSupportingToolkit(VTKToolkits.vtk);

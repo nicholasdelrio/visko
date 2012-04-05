@@ -27,6 +27,9 @@ import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 public class GriddedGravityDataProfile {
 	public static void create() {
 
+		String gridded2Raster = GMTServices.gridded2Raster.substring(0, GMTServices.gridded2Raster.indexOf("#"));
+		String gridded2ContourMap = GMTServices.gridded2ContourMap.substring(0, GMTServices.gridded2Raster.indexOf("#"));
+		
 		// gridded data
 		String dataTypeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d12";
 		ToolkitProfileWriter wtr1 = new ToolkitProfileWriter(
@@ -35,36 +38,36 @@ public class GriddedGravityDataProfile {
 		wtr1.addDataType(dataTypeURI);
 		// for colored image
 		wtr1.addInputBinding(
-		GMTServices.gridded2Raster + "#B",
+		gridded2Raster + "#B",
 		"1");
 		wtr1.addInputBinding(
-		GMTServices.gridded2Raster + "#J",
+		gridded2Raster + "#J",
 		"x4c");
 		wtr1.addInputBinding(
-		GMTServices.gridded2Raster + "#C",
+		gridded2Raster + "#C",
 		"hot");
 		
 		// for contour map
 		wtr1.addInputBinding(
-		GMTServices.gridded2ContourMap + "#C",
+		gridded2ContourMap + "#C",
 		"10");
 		wtr1.addInputBinding(
-		GMTServices.gridded2ContourMap + "#A",
+		gridded2ContourMap + "#A",
 		"20");
 		wtr1.addInputBinding(
-		GMTServices.gridded2ContourMap + "#B",
+		gridded2ContourMap + "#B",
 		"0.5");
 		wtr1.addInputBinding(
-		GMTServices.gridded2ContourMap + "#S",
+		gridded2ContourMap + "#S",
 		"5");
 		wtr1.addInputBinding(
-		GMTServices.gridded2ContourMap + "#J",
+		gridded2ContourMap + "#J",
 		"x4c");
 		wtr1.addInputBinding(
-		GMTServices.gridded2ContourMap + "#Wc",
+		gridded2ContourMap + "#Wc",
 		"thinnest,black");
 		wtr1.addInputBinding(
-		GMTServices.gridded2ContourMap + "#Wa",
+		gridded2ContourMap + "#Wa",
 		"thinnest,black");
 		// dump document
 		String documentURL = wtr1.saveDocument();

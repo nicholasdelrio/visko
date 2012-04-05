@@ -38,92 +38,98 @@ public class VelocityModelProfile {
 		wtr.addDataType(dataTypeURI1);
 		wtr.addDataType(dataTypeURI2);
 
+		String float2shortThr = VTKServices.float2shortThr.substring(0, VTKServices.float2shortThr.indexOf("#"));
+		String vtkImageDataReader = VTKServices.vtkImageDataReader.substring(0, VTKServices.vtkImageDataReader.indexOf("#"));
+		String vtkPolyDataMapper = VTKServices.vtkPolyDataMapper.substring(0, VTKServices.vtkPolyDataMapper.indexOf("#"));
+		String vtkContourFilter = VTKServices.vtkContourFilter.substring(0, VTKServices.vtkContourFilter.indexOf("#"));
+		String vtkVolume = VTKServices.vtkVolume.substring(0, VTKServices.vtkVolume.indexOf("#"));
+		
 		// for float2shortThr
 		wtr.addInputBinding(
-		VTKServices.float2shortThr + "#scalingFactor",
+		float2shortThr + "#scalingFactor",
 		"1000");
 		wtr.addInputBinding(
-		VTKServices.float2shortThr + "#offset",
+		float2shortThr + "#offset",
 		"0");
 
 		// for vtkImageReader
 		wtr.addInputBinding(
-		VTKServices.vtkImageDataReader + "#littleEndian",
+		vtkImageDataReader + "#littleEndian",
 		"true");
 		wtr.addInputBinding(
-		VTKServices.vtkImageDataReader + "#dim",
+		vtkImageDataReader + "#dim",
 		"3");
 		wtr.addInputBinding(
-		VTKServices.vtkImageDataReader + "#dataOrigin",
+		vtkImageDataReader + "#dataOrigin",
 		"0/0/0");
 		wtr.addInputBinding(
-		VTKServices.vtkImageDataReader + "#dataSpacing",
+		vtkImageDataReader + "#dataSpacing",
 		"1/1/1");
 		wtr.addInputBinding(
-		VTKServices.vtkImageDataReader + "#dataExtent",
+		vtkImageDataReader + "#dataExtent",
 		"0/230/0/25/0/68");
 		wtr.addInputBinding(
-		VTKServices.vtkImageDataReader + "#numScalarComponents",
+		vtkImageDataReader + "#numScalarComponents",
 		"1");
 		wtr.addInputBinding(
-		VTKServices.vtkImageDataReader + "#readLowerLeft",
+		vtkImageDataReader + "#readLowerLeft",
 		"true");
 
 		// for vtkContourFilter
 		wtr.addInputBinding(
-		VTKServices.vtkContourFilter + "#numContours",
+		vtkContourFilter + "#numContours",
 		"35");
 		wtr.addInputBinding(
-		VTKServices.vtkContourFilter + "#scalarRange",
+		vtkContourFilter + "#scalarRange",
 		"0.0/9000.0");
 
 		// for vtkPolyDataMapper
 		wtr.addInputBinding(
-		VTKServices.vtkPolyDataMapper + "#scalarRange",
+		vtkPolyDataMapper + "#scalarRange",
 		"0.0/9000.0");
 		wtr.addInputBinding(
-		VTKServices.vtkPolyDataMapper + "#xRotation",
+		vtkPolyDataMapper + "#xRotation",
 		"105");
 		wtr.addInputBinding(
-		VTKServices.vtkPolyDataMapper + "#yRotation",
+		vtkPolyDataMapper + "#yRotation",
 		"0");
 		wtr.addInputBinding(
-		VTKServices.vtkPolyDataMapper + "#zRotation",
+		vtkPolyDataMapper + "#zRotation",
 		"0");
 		wtr.addInputBinding(
-		VTKServices.vtkPolyDataMapper + "#size",
+		vtkPolyDataMapper + "#size",
 		"400/300");
 		wtr.addInputBinding(
-		VTKServices.vtkPolyDataMapper + "#backgroundColor",
+		vtkPolyDataMapper + "#backgroundColor",
 		"1/1/1");
 		wtr.addInputBinding(
-		VTKServices.vtkPolyDataMapper + "#magnification",
+		vtkPolyDataMapper + "#magnification",
 		"3");
 
 		// for vtkVolume
 		wtr.addInputBinding(
-		VTKServices.vtkVolume + "#xRotation",
+		vtkVolume + "#xRotation",
 		"105");
 		wtr.addInputBinding(
-		VTKServices.vtkVolume + "#yRotation",
+		vtkVolume + "#yRotation",
 		"0");
 		wtr.addInputBinding(
-		VTKServices.vtkVolume + "#zRotation",
+		vtkVolume + "#zRotation",
 		"0");
 		wtr.addInputBinding(
-		VTKServices.vtkVolume + "#size",
+		vtkVolume + "#size",
 		"400/300");
 		wtr.addInputBinding(
-		VTKServices.vtkVolume + "#backgroundColor",
+		vtkVolume + "#backgroundColor",
 		"1/1/1");
 		wtr.addInputBinding(
-		VTKServices.vtkVolume + "#magnification",
+		vtkVolume + "#magnification",
 		"3");
 		wtr.addInputBinding(
-		VTKServices.vtkVolume + "#colorFunction",
+		vtkVolume + "#colorFunction",
 		"3000,1,1,0/5000,0.5,0.95,0/5600,0,0,1/6500,0.28,0.2,0.5/7000,1,0,0");
 		wtr.addInputBinding(
-		VTKServices.vtkVolume + "#opacityFunction",
+		vtkVolume + "#opacityFunction",
 		"4000,0.2/8000,0.5");
 
 		wtr.setSupportingToolkit(VTKToolkits.vtk);

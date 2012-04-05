@@ -34,37 +34,43 @@ public class CoverageModelProfile {
 		ToolkitProfileWriter wtr = new ToolkitProfileWriter("coverageModelProfile");
 		wtr.addDataType(dataTypeURI);
 
+		String vtkImageDataReader = VTKServices.vtkImageDataReader.substring(0, VTKServices.vtkImageDataReader.indexOf("#"));
+		String vtkPolyDataMapper = VTKServices.vtkPolyDataMapper.substring(0, VTKServices.vtkPolyDataMapper.indexOf("#"));
+		String vtkContourFilter = VTKServices.vtkContourFilter.substring(0, VTKServices.vtkContourFilter.indexOf("#"));
+		String vtkVolume = VTKServices.vtkVolume.substring(0, VTKServices.vtkVolume.indexOf("#"));
+		
+		
 		// for vtkImageReader
-		wtr.addInputBinding(VTKServices.vtkImageDataReader + "#littleEndian","true");
-		wtr.addInputBinding(VTKServices.vtkImageDataReader + "#dim", "3");
-		wtr.addInputBinding(VTKServices.vtkImageDataReader + "#dataOrigin", "0/0/0");
-		wtr.addInputBinding(VTKServices.vtkImageDataReader + "#dataSpacing", "1/1/1");
-		wtr.addInputBinding(VTKServices.vtkImageDataReader + "#dataExtent", "0/229/0/24/0/67");
-		wtr.addInputBinding(VTKServices.vtkImageDataReader + "#numScalarComponents", "1");
-		wtr.addInputBinding(VTKServices.vtkImageDataReader + "#readLowerLeft","true");
+		wtr.addInputBinding(vtkImageDataReader + "#littleEndian","true");
+		wtr.addInputBinding(vtkImageDataReader + "#dim", "3");
+		wtr.addInputBinding(vtkImageDataReader + "#dataOrigin", "0/0/0");
+		wtr.addInputBinding(vtkImageDataReader + "#dataSpacing", "1/1/1");
+		wtr.addInputBinding(vtkImageDataReader + "#dataExtent", "0/229/0/24/0/67");
+		wtr.addInputBinding(vtkImageDataReader + "#numScalarComponents", "1");
+		wtr.addInputBinding(vtkImageDataReader + "#readLowerLeft","true");
 
 		// for vtkContourFilter
-		wtr.addInputBinding(VTKServices.vtkContourFilter + "#numContours", "35");
-		wtr.addInputBinding(VTKServices.vtkContourFilter + "#scalarRange", "0.0/9000.0");
+		wtr.addInputBinding(vtkContourFilter + "#numContours", "35");
+		wtr.addInputBinding(vtkContourFilter + "#scalarRange", "0.0/9000.0");
 
 		// for vtkPolyDataMapper
-		wtr.addInputBinding(VTKServices.vtkPolyDataMapper + "#scalarRange","0.0/9000.0");
-		wtr.addInputBinding(VTKServices.vtkPolyDataMapper + "#xRotation", "105");
-		wtr.addInputBinding(VTKServices.vtkPolyDataMapper + "#yRotation", "0");
-		wtr.addInputBinding(VTKServices.vtkPolyDataMapper + "#zRotation", "0");
-		wtr.addInputBinding(VTKServices.vtkPolyDataMapper + "#size", "400/300");
-		wtr.addInputBinding(VTKServices.vtkPolyDataMapper + "#backgroundColor", "1/1/1");
-		wtr.addInputBinding(VTKServices.vtkPolyDataMapper + "#magnification", "3");
+		wtr.addInputBinding(vtkPolyDataMapper + "#scalarRange","0.0/9000.0");
+		wtr.addInputBinding(vtkPolyDataMapper + "#xRotation", "105");
+		wtr.addInputBinding(vtkPolyDataMapper + "#yRotation", "0");
+		wtr.addInputBinding(vtkPolyDataMapper + "#zRotation", "0");
+		wtr.addInputBinding(vtkPolyDataMapper + "#size", "400/300");
+		wtr.addInputBinding(vtkPolyDataMapper + "#backgroundColor", "1/1/1");
+		wtr.addInputBinding(vtkPolyDataMapper + "#magnification", "3");
 
 		// for vtkVolume
-		wtr.addInputBinding(VTKServices.vtkVolume + "#xRotation", "105");
-		wtr.addInputBinding(VTKServices.vtkVolume + "#yRotation", "0");
-		wtr.addInputBinding(VTKServices.vtkVolume + "#zRotation", "0");
-		wtr.addInputBinding(VTKServices.vtkVolume + "#size", "400/300");
-		wtr.addInputBinding(VTKServices.vtkVolume + "#backgroundColor", "0/0/0");
-		wtr.addInputBinding(VTKServices.vtkVolume + "#magnification", "3");
-		wtr.addInputBinding(VTKServices.vtkVolume + "#colorFunction", "20,1.0,0.0,0.3/80,1.0,0.0,0.3");
-		wtr.addInputBinding(VTKServices.vtkVolume + "#opacityFunction", "0,0.0/40,1.0");
+		wtr.addInputBinding(vtkVolume + "#xRotation", "105");
+		wtr.addInputBinding(vtkVolume + "#yRotation", "0");
+		wtr.addInputBinding(vtkVolume + "#zRotation", "0");
+		wtr.addInputBinding(vtkVolume + "#size", "400/300");
+		wtr.addInputBinding(vtkVolume + "#backgroundColor", "0/0/0");
+		wtr.addInputBinding(vtkVolume + "#magnification", "3");
+		wtr.addInputBinding(vtkVolume + "#colorFunction", "20,1.0,0.0,0.3/80,1.0,0.0,0.3");
+		wtr.addInputBinding(vtkVolume + "#opacityFunction", "0,0.0/40,1.0");
 
 		wtr.setSupportingToolkit(VTKToolkits.vtk);
 		

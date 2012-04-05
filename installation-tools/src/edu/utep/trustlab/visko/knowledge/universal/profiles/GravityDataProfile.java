@@ -36,98 +36,106 @@ public class GravityDataProfile {
 		wtr2.setSupportingToolkit(GMTToolkits.gmt);
 		wtr2.addDataType(dataTypeURI);
 
-		// for 2D plotter
+		String points22DPlot = GMTServices.points22DPlot.substring(0, GMTServices.points22DPlot.indexOf("#"));
+		String points2NearNeighborGridded = GMTServices.points2NearNeighborGridded.substring(0, GMTServices.points2NearNeighborGridded.indexOf("#"));
+		String points2MinCurvatureGridded = GMTServices.points2MinCurvatureGridded.substring(0, GMTServices.points2MinCurvatureGridded.indexOf("#"));
+		String gridded2Raster = GMTServices.gridded2Raster.substring(0, GMTServices.gridded2Raster.indexOf("#"));
+		String gridded2ContourMap = GMTServices.gridded2ContourMap.substring(0, GMTServices.gridded2ContourMap.indexOf("#"));
+		String esriGridRaster = NCLServices.esriGridRaster.substring(0, NCLServices.esriGridRaster.indexOf("#"));
+		String esriGridContour = NCLServices.esriGridContour.substring(0, NCLServices.esriGridContour.indexOf("#"));
+		
+		// for 2D plotter 
 		wtr2.addInputBinding(
-		GMTServices.points22DPlot + "#S",
+		points22DPlot + "#S",
 		"c0.04c");
 		wtr2.addInputBinding(
-		GMTServices.points22DPlot + "#J",
+		points22DPlot + "#J",
 		"x4c");
 		wtr2.addInputBinding(
-		GMTServices.points22DPlot + "#G",
+		points22DPlot + "#G",
 		"blue");
 		wtr2.addInputBinding(
-		GMTServices.points22DPlot + "#B",
+		points22DPlot + "#B",
 		"1");
 		// for nearneightbor gridding
 		wtr2.addInputBinding(
-		GMTServices.points2NearNeighborGridded + "#I",
+		points2NearNeighborGridded + "#I",
 		"0.02");
 		wtr2.addInputBinding(
-		GMTServices.points2NearNeighborGridded + "#S",
+		points2NearNeighborGridded + "#S",
 		"0.2");
 		// for gridding by surface
 		wtr2.addInputBinding(
-		GMTServices.points2MinCurvatureGridded + "#I",
+		points2MinCurvatureGridded + "#I",
 		"0.02");
 		wtr2.addInputBinding(
-		GMTServices.points2MinCurvatureGridded + "#T",
+		points2MinCurvatureGridded + "#T",
 		"0.25");
 		wtr2.addInputBinding(
-		GMTServices.points2MinCurvatureGridded + "#C",
+		points2MinCurvatureGridded + "#C",
 		"0.1");
 		// for grid to colored image
 		wtr2.addInputBinding(
-		GMTServices.gridded2Raster + "#B",
+		gridded2Raster + "#B",
 		"1");
 		wtr2.addInputBinding(
-		GMTServices.gridded2Raster + "#J",
+		gridded2Raster + "#J",
 		"x4c");
 		wtr2.addInputBinding(
-		GMTServices.gridded2Raster + "#C",
+		gridded2Raster + "#C",
 		"hot");
 		// for contour map
 		wtr2.addInputBinding(
-		GMTServices.gridded2ContourMap + "#C",
+		gridded2ContourMap + "#C",
 		"10");
 		wtr2.addInputBinding(
-		GMTServices.gridded2ContourMap + "#A",
+		gridded2ContourMap + "#A",
 		"20");
 		wtr2.addInputBinding(
-		GMTServices.gridded2ContourMap + "#B",
+		gridded2ContourMap + "#B",
 		"0.5");
 		wtr2.addInputBinding(
-		GMTServices.gridded2ContourMap + "#S",
+		gridded2ContourMap + "#S",
 		"5");
 		wtr2.addInputBinding(
-		GMTServices.gridded2ContourMap + "#J",
+		gridded2ContourMap + "#J",
 		"x4c");
 		wtr2.addInputBinding(
-		GMTServices.gridded2ContourMap + "#Wc",
+		gridded2ContourMap + "#Wc",
 		"thinnest,black");
 		wtr2.addInputBinding(
-		GMTServices.gridded2ContourMap + "#Wa",
+		gridded2ContourMap + "#Wa",
 		"thinnest,black");
 
 		// for esriGridContour
 		wtr2.addInputBinding(
-		NCLServices.esriGridContour + "#lbOrientation",
+		esriGridContour + "#lbOrientation",
 		"vertical");
 		wtr2.addInputBinding(
-		NCLServices.esriGridContour + "#cnLevelSpacingF",
+		esriGridContour + "#cnLevelSpacingF",
 		"10");
 		wtr2.addInputBinding(
-		NCLServices.esriGridContour + "#colorTable",
+		esriGridContour + "#colorTable",
 		"WhiteBlueGreenYellowRed");
 		wtr2.addInputBinding(
-		NCLServices.esriGridContour + "#font",
+		esriGridContour + "#font",
 		"helvetica");
 		wtr2.addInputBinding(
-		NCLServices.esriGridContour + "#cnFillOn",
+		esriGridContour + "#cnFillOn",
 		"True");
 		wtr2.addInputBinding(
-		NCLServices.esriGridContour + "#cnLinesOn",
+		esriGridContour + "#cnLinesOn",
 		"False");
 
 		// for esriGridRaster
 		wtr2.addInputBinding(
-		NCLServices.esriGridRaster + "lbOrientation",
+		esriGridRaster + "lbOrientation",
 		"vertical");
 		wtr2.addInputBinding(
-		NCLServices.esriGridRaster + "colorTable",
+		esriGridRaster + "colorTable",
 		"WhiteBlueGreenYellowRed");
 		wtr2.addInputBinding(
-		NCLServices.esriGridRaster + "font",
+		esriGridRaster + "font",
 		"helvetica");
 
 		// dump document
