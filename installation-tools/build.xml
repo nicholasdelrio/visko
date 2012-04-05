@@ -19,6 +19,9 @@
 	<property name="ci-server-username" value=""/>
 	<property name="ci-server-password" value=""/>
 	
+	<!-- Server URL -->
+	<property name="server-url" value="${cat-server-url}"/>
+	
 	<!-- project name -->
 	<property name="project-name" value="visko"/>
 	
@@ -94,7 +97,7 @@
 	
 	<target name="build-triple-store" depends="build,clean-triple-store" description="Generate a TDB Triple Store From a Bundle of RDF Documents">
 			
-			<java classname="edu.utep.trustlab.repository.aggregator.TripleStore">
+			<java classname="edu.utep.trustlab.contentManagement.aggregator.TripleStore">
 				<arg value="${visko-rdf}"/>
 				<arg value="${visko-ontology}"/>
 				<arg value="${visko-formats}"/>
@@ -103,12 +106,6 @@
 				<classpath>
 					<pathelement location="${jarfile}"/>
 					<pathelement location="${visko-api-jar}"/>
-					<fileset dir="${lib}/ciclient/">
-						<include name="*.jar"/>
-					</fileset>	
-					<fileset dir="${lib}/apache/">
-						<include name="*.jar"/>
-					</fileset>	
 					<fileset dir="${lib}/axis4/">
 						<include name="*.jar"/>
 					</fileset>
@@ -123,29 +120,13 @@
 		</target>
 
 	<target name="update-uris-for-github" depends="build">
-		<java classname="edu.utep.trustlab.repository.SwitchRepositoryURL">
+		<java classname="edu.utep.trustlab.contentManagement.SwitchGitHubBaseURL">
 			<arg value="${visko-rdf}"/>
 			<arg value="${your-github-username}"/>
 			
 			<classpath>
 				<pathelement location="${jarfile}"/>
 				<pathelement location="${visko-api-jar}"/>
-				
-				<fileset dir="${lib}/ciclient/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/apache/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/axis4/">
-					<include name="*.jar"/>
-				</fileset>
-				<fileset dir="${lib}/jena262/">
-					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/util/">
-					<include name="*.jar"/>
-				</fileset>
 			</classpath>   
 		</java>	
 	</target>
