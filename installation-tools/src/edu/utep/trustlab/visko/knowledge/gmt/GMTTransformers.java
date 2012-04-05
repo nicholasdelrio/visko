@@ -33,7 +33,7 @@ public class GMTTransformers {
 	public static void create() {
 
 		String name;
-		TransformerWriter wtr = new TransformerWriter("contourer");
+		TransformerWriter wtr = new TransformerWriter("contourer", true);
 		wtr.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/ESRIGRID.owl#ESRIGRID");
 		wtr.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
 		name = "contour";
@@ -44,7 +44,7 @@ public class GMTTransformers {
 		contourer = wtr.getURI();
 		
 		System.out.println(wtr);
-		TransformerWriter wtr1 = new TransformerWriter("gridder");
+		TransformerWriter wtr1 = new TransformerWriter("gridder", false);
 		wtr1.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII");
 		wtr1.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/ESRIGRID.owl#ESRIGRID");
 		name = "Data Gridder";
@@ -53,7 +53,7 @@ public class GMTTransformers {
 		System.out.println(wtr1.saveDocument());
 		gridder = wtr1.getURI();
 		
-		TransformerWriter wtr2 = new TransformerWriter("plotter");
+		TransformerWriter wtr2 = new TransformerWriter("plotter", true);
 		wtr2.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII");
 		wtr2.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
 		name = "2D plotter";
@@ -64,7 +64,7 @@ public class GMTTransformers {
 		plotter = wtr2.getURI();
 		
 		
-		TransformerWriter wtr3 = new TransformerWriter("rasterer");
+		TransformerWriter wtr3 = new TransformerWriter("rasterer", true);
 		wtr3.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/ESRIGRID.owl#ESRIGRID");
 		wtr3.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
 		name = "Raster Map Generator";
@@ -74,7 +74,7 @@ public class GMTTransformers {
 		System.out.println(wtr3.saveDocument());
 		rasterer = wtr3.getURI();
 		
-		TransformerWriter wtr4 = new TransformerWriter("csv-to-tabular-ascii");
+		TransformerWriter wtr4 = new TransformerWriter("csv-to-tabular-ascii", false);
 		wtr4.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII");
 		wtr4.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/CSV.owl#CSV");
 		name = "Comma Separated Values to Tabular ASCII Format";

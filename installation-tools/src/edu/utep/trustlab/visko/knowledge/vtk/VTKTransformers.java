@@ -35,7 +35,7 @@ public class VTKTransformers {
 	
 	public static void create() {
 		String name;
-		TransformerWriter wtr = new TransformerWriter("floatArrayToShortIntArray");
+		TransformerWriter wtr = new TransformerWriter("floatArrayToShortIntArray", false);
 		wtr.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN");
 		wtr.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/BINARYSHORTINTARRAYLENDIAN.owl#BINARYSHORTINTARRAYLENDIAN");
 		name = "Float Array To Short Int Array";
@@ -44,7 +44,7 @@ public class VTKTransformers {
 		System.out.println(wtr.saveDocument());
 		floatArray2IntArray = wtr.getURI();
 		
-		TransformerWriter wtr1 = new TransformerWriter("shortIntArrayToGriddedData");
+		TransformerWriter wtr1 = new TransformerWriter("shortIntArrayToGriddedData", false);
 		wtr1.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/BINARYSHORTINTARRAYLENDIAN.owl#BINARYSHORTINTARRAYLENDIAN");
 		wtr1.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VTKIMAGEDATA.owl#VTKIMAGEDATA");
 		name = "Short Int to Image Data";
@@ -53,7 +53,7 @@ public class VTKTransformers {
 		System.out.println(wtr1.saveDocument());
 		shortIntArray2Gridded = wtr1.getURI();
 		
-		TransformerWriter wtr2 = new TransformerWriter("contourer3D");
+		TransformerWriter wtr2 = new TransformerWriter("contourer3D", true);
 		wtr2.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VTKIMAGEDATA.owl#VTKIMAGEDATA");
 		wtr2.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VTKPOLYDATA.owl#VTKPOLYDATA");
 		name = "ImageData to Contours PolyData";
@@ -63,7 +63,7 @@ public class VTKTransformers {
 		System.out.println(wtr2.saveDocument());
 		contourer3D = wtr2.getURI();
 
-		TransformerWriter wtr3 = new TransformerWriter("contoursPolyDataToImageOperator");
+		TransformerWriter wtr3 = new TransformerWriter("contoursPolyDataToImageOperator", false);
 		wtr3.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VTKPOLYDATA.owl#VTKPOLYDATA");
 		wtr3.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/JPEG.owl#JPEG");
 		name = "Contours PolyData to Image";
@@ -72,7 +72,7 @@ public class VTKTransformers {
 		System.out.println(wtr3.saveDocument());
 		contoursPoly2Image = wtr3.getURI();
 
-		TransformerWriter wtr4 = new TransformerWriter("volume-generator");
+		TransformerWriter wtr4 = new TransformerWriter("volume-generator", true);
 		wtr4.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VTKIMAGEDATA.owl#VTKIMAGEDATA");
 		wtr4.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/JPEG.owl#JPEG");
 		name = "ImageData to Volume Image JPEG";
@@ -82,7 +82,7 @@ public class VTKTransformers {
 		System.out.println(wtr4.saveDocument());
 		volumeGenerator = wtr4.getURI();
 		
-		TransformerWriter wtr5 = new TransformerWriter("intToShortIntOperator");
+		TransformerWriter wtr5 = new TransformerWriter("intToShortIntOperator", false);
 		wtr5.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/BINARYINTARRAYLENDIAN.owl#BINARYINTARRAYLENDIAN");
 		wtr5.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/BINARYSHORTINTARRAYLENDIAN.owl#BINARYSHORTINTARRAYLENDIAN");
 		name = "Int Array To Short Int Array";
@@ -91,7 +91,7 @@ public class VTKTransformers {
 		System.out.println(wtr5.saveDocument());
 		int2ShortInt = wtr5.getURI();
 		
-		TransformerWriter wtr6 = new TransformerWriter("floatArrayToGriddedData");
+		TransformerWriter wtr6 = new TransformerWriter("floatArrayToGriddedData", false);
 		wtr6.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN");
 		wtr6.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VTKIMAGEDATA.owl#VTKIMAGEDATA");
 		name = "Floats to Image Data";

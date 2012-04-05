@@ -30,7 +30,7 @@ public class NCLTransformers {
 	
 	public static void create() {
 		String name;
-		TransformerWriter wtr = new TransformerWriter("netCDFContourer");
+		TransformerWriter wtr = new TransformerWriter("netCDFContourer", true);
 		wtr.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
 		wtr.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF");
 		name = "Contour Map Generation";
@@ -40,7 +40,7 @@ public class NCLTransformers {
 		System.out.println(wtr.saveDocument());
 		netCDFContourer = wtr.getURI();
 
-		TransformerWriter wtr1 = new TransformerWriter("netCDFRasterer");
+		TransformerWriter wtr1 = new TransformerWriter("netCDFRasterer", true);
 		wtr1.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
 		wtr1.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF");
 		name = "Raster Map Generation";
@@ -50,7 +50,7 @@ public class NCLTransformers {
 		System.out.println(wtr1.saveDocument());
 		netCDFRasterer = wtr1.getURI();
 		
-		TransformerWriter wtr2 = new TransformerWriter("netCDFTimeSeriesPlotter");
+		TransformerWriter wtr2 = new TransformerWriter("netCDFTimeSeriesPlotter", true);
 		wtr2.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
 		wtr2.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF");
 		name = "Time Series Plot Generator";

@@ -34,8 +34,8 @@ public class Generator2 {
 		Viewers.create();		
 		
 		//create transformers
-		NCLTransformers.create();
 		GSTransformers.create();
+		NCLTransformers.create();
 		GMTTransformers.create();
 		VTKTransformers.create();
 	}

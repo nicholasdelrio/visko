@@ -13,9 +13,13 @@ public class GeneratorManager {
 		ContentManager.setWorkspacePath(getOutputRDFDirectory(args));
 		
 		Generator1.gen();
+		System.out.println("gen1 done");
 		Generator2.gen();
+		System.out.println("gen2 done");
 		Generator3.gen();
+		System.out.println("gen3 done");
 		Generator4.gen();
+		System.out.println("gen4 done");
 	}
 	
 	public static String getOutputRDFDirectory(String[] args){

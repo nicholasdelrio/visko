@@ -31,7 +31,7 @@ public class GSTransformers {
 	public static void create() {
 		
 		String name;
-		TransformerWriter wtr = new TransformerWriter("ps-to-pdf");
+		TransformerWriter wtr = new TransformerWriter("ps-to-pdf", false);
 		wtr.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
 		wtr.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PDF.owl#PDF");
 		name = "Convert Adobe PS to PDF";
@@ -40,7 +40,7 @@ public class GSTransformers {
 		System.out.println(wtr.saveDocument());
 		ps2pdf = wtr.getURI();
 
-		TransformerWriter wtr1 = new TransformerWriter("ps-to-png");
+		TransformerWriter wtr1 = new TransformerWriter("ps-to-png", false);
 		wtr1.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
 		wtr1.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PNG.owl#PNG");
 		name = "Convert Adobe PS to PNG Image";
@@ -49,7 +49,7 @@ public class GSTransformers {
 		System.out.println(wtr1.saveDocument());
 		ps2png = wtr1.getURI();
 
-		TransformerWriter wtr2 = new TransformerWriter("pdf-to-png");
+		TransformerWriter wtr2 = new TransformerWriter("pdf-to-png", false);
 		wtr2.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PDF.owl#PDF");
 		wtr2.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PNG.owl#PNG");
 		name = "Convert Adobe PDF to PNG Image";
