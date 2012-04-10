@@ -46,6 +46,7 @@
 	<property name="visko-rdf" value="../rdf"/>
 	<property name="visko-ontology" value="${visko-rdf}/ontology/"/>
 	<property name="visko-formats" value="${visko-rdf}/formats/"/>
+	<property name="visko-web-war" value="${visko-web}/visko-web.war}"/>
 
 	<target name="build" depends="compile">
 		<jar destfile="${jarfile}">
@@ -79,6 +80,7 @@
 
 	<target name="build-visko-web" depends="build-query-html" description="Generate visko-web.war file">
 		<ant antfile="${visko-web}/build.xml" target="build" inheritAll="false" />
+		<move file="${visko-web-war}" todir="."/>
 	</target>
 	
 	<target name="build-query-html" depends="build" description="Generate the query examples html specific for your VisKo RDF deployment">
