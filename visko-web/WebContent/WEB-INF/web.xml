@@ -9,19 +9,29 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <listener>
+        <listener-class>edu.utep.trustlab.visko.web.context.ContextListener</listener-class>
+   </listener>
+  
+  <context-param>
+    <param-name>logo-path</param-name>
+    <param-value>logos/your-logo/LogoUTEP.jpg</param-value>
+  </context-param>
+  <context-param>
+    <param-name>visko-sparql-endpoint</param-name>
+    <param-value>http://localhost:8080/visko-web/ViskoServletManager?requestType=query-triple-store</param-value>
+  </context-param>
+  <context-param>
+    <param-name>visko-tdb-path</param-name>
+    <param-value>C:\Users\Public\git\visko\tdb</param-value>
+  </context-param>
+  
   <servlet>
     <description>Processes VisKo Requests</description>
     <display-name>ViskoServletManager</display-name>
     <servlet-name>ViskoServletManager</servlet-name>
     <servlet-class>edu.utep.trustlab.visko.web.ViskoServletManager</servlet-class>
-    <init-param>
-      <param-name>visko-sparql-endpoint</param-name>
-      <param-value>http://localhost:8080/visko-web/ViskoServletManager?requestType=query-triple-store</param-value>
-    </init-param>
-    <init-param>
-      <param-name>visko-tdb-path</param-name>
-      <param-value>C:\Users\Public\git\visko\tdb</param-value>
-    </init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>ViskoServletManager</servlet-name>

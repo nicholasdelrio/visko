@@ -38,14 +38,12 @@ public class ShowPipelineServlet extends RequestHandlerHTML{
 
 		Pipeline pipe = engine.getPipelines().get(index);
 
-		String html = "<html><head><title>Visualization Pipeline Details</title></head><body>";
-		html += "<h2>Visualization Pipeline:</h2>";
+		String html = "<h2>Visualization Pipeline:</h2>";
 		html += PipelineHTML.getPipelineHTML(pipe);
 
 		html += "<h2>Pipeline Output Viewed By:</h2>";
 
 		html += PipelineHTML.getViewerHTML(pipe);
-		html += "</body></html>";
 
 		return html;
 	}

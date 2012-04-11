@@ -2,6 +2,17 @@ package edu.utep.trustlab.visko.web.html;
 
 public class Template {
 	
+	private static String logoPath;
+	
+	public static void setLogoPath(String path){
+		logoPath = path;
+		System.out.println("logopath set: " + logoPath);
+	}
+	
+	public static String getLogoPath(){
+		return logoPath;
+	}
+	
 	public static String getCompleteHeader(){
 		return "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">" +
 				"<html>" +
@@ -14,6 +25,7 @@ public class Template {
 				"<div id=\"container\">" +
 				"<div id=\"header\">" +
 				"    <img src=\"visko-just-logo.png\" alt=\"VisKo Logo\" style=\"padding:5px;\" />" +
+				"	 <img src=\"" + Template.getLogoPath() + "\"/>" +
 				"    <h1 style=\"padding-top:0px;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A VisKo Instance</h1>" +
 				"</div>" +
 				"<div id=\"menu\">" +
@@ -26,8 +38,10 @@ public class Template {
 	}
 	
 	public static String getHeader(){
+		System.out.println("getting header stuff");
 		return "<div id=\"header\">" +
 				"    <img src=\"visko-just-logo.png\" alt=\"VisKo Logo\" style=\"padding:5px;\" />" +
+				"	 <img src=\"" + Template.getLogoPath() + "\"/>" +
 				"    <h1 style=\"padding-top:0px;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A VisKo Instance</h1>" +
 				"</div>" +
 				"<div id=\"menu\">" +

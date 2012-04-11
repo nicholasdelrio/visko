@@ -56,9 +56,7 @@ public class ExecuteQueryServiceServlet  extends RequestHandlerHTML {
 
 			if (query.isValidQuery()) {
 				PipelineSet pipelines = engine.getPipelines();
-				returnMessage = PipelineToXMLVisualizationSet
-						.toXMLFromPipelineSet(pipelines, query.getNodesetURI(),
-								maxResults);
+				returnMessage = PipelineToXMLVisualizationSet.toXMLFromPipelineSet(pipelines, query.getNodesetURI(), maxResults);
 			} else {
 				String errors = QueryMessages.getQueryErrorsHTML(query);
 				returnMessage = "<html><body>" + errors + "</body></html>";

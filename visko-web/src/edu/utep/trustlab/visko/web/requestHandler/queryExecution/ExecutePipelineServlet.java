@@ -68,15 +68,12 @@ public class ExecutePipelineServlet extends RequestHandlerHTML {
 
 		else {
 			result = pipe.executePath(false);
-			html += "<html><head><title>Resultant Visualization</title></head><body>";
 
 			if (result.endsWith("pdf") || result.endsWith("PDF"))
 				html += "<a href=\"" + result + "\">Resultant PDF Document</a>";
 			else
 				html += "<img src=\"" + result + "\">";
 		}
-
-		html += "</body></html>";
 		return html;
 	}
 

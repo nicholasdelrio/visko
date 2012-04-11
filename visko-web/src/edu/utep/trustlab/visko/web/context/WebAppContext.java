@@ -20,24 +20,38 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.web.context;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.http.HttpServlet;
 
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
+import edu.utep.trustlab.visko.web.html.Template;
 import edu.utep.trustlab.visko.web.requestHandler.sparql.TDBTripleStore;
 
-public class ViskoTDBContext {
+public class WebAppContext {
 	public static void setContext(HttpServlet servlet) {
 		setViskoSPARQLEndpointURL(servlet);
 		setViskoTDBFilePath(servlet);
+		setLogo(servlet);
+	}
+	
+	public static void setContext(ServletConfig config) {
+		setViskoSPARQLEndpointURL(config);
+		setViskoTDBFilePath(config);
+		setLogo(config);
 	}
 
-	private static void setViskoTDBFilePath(HttpServlet servlet){
-		String tdbFilePath = servlet.getInitParameter("visko-tdb-path");
+	private static void setLogo(ServletConfig config){
+		String logoPath = config.getInitParameter("logo-path");
+		Template.setLogoPath(logoPath);
+	}
+	
+	private static void setViskoTDBFilePath(ServletConfig config){
+		String tdbFilePath = config.getInitParameter("visko-tdb-path");
 		TDBTripleStore.setTDBStoreFilePath(tdbFilePath);
 		
 	}
-	private static void setViskoSPARQLEndpointURL(HttpServlet servlet) {
-		String viskoEndpoint = servlet.getInitParameter("visko-sparql-endpoint");
+	private static void setViskoSPARQLEndpointURL(ServletConfig config) {
+		String viskoEndpoint = config.getInitParameter("visko-sparql-endpoint");
 		ViskoTripleStore.setEndpointURL(viskoEndpoint);
 	}
 }
