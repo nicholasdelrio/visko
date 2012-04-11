@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"
+	import="edu.utep.trustlab.visko.web.html.Template" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,16 +9,9 @@
 </head>
 <body>
 <div id="container">
-<div id="header">
-    <img src="visko-just-logo.png" alt="VisKo Logo" style="padding:5px;" />
-    <h1 style="padding-top:0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A VisKo Instance</h1>
-</div>
-<div id="menu">
-	<a href="http://trust.utep.edu/visko">VisKo Home</a>
-    <a href=".">Instance Home</a>
-    <a href="query.html">Visualization Query</a>
-    <a href="knowledge-base.html">Knowledge Base</a>
-</div>
+
+<%= Template.getHeader() %>
+
 <div id="content">
 
 <h2>Visualization Query Submission</h2>
@@ -407,15 +402,8 @@ WHERE renderParams:backgroundColor = 0/1/0
 
 </div>
 </div>
-<font color="white"><i><b>Copyright @2012 CyberShARE Center, The University of Texas at El Paso</b></i></font>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+<%= Template.getFooter() %>
+
 </body>
 </html>

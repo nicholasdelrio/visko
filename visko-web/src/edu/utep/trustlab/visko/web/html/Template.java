@@ -2,7 +2,7 @@ package edu.utep.trustlab.visko.web.html;
 
 public class Template {
 	
-	public static String getHeader(){
+	public static String getCompleteHeader(){
 		return "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">" +
 				"<html>" +
 				"<head>" +
@@ -19,13 +19,40 @@ public class Template {
 				"<div id=\"menu\">" +
 				"	<a href=\"http://trust.utep.edu/visko\">VisKo Home</a>" +
 				"    <a href=\".\">Instance Home</a>" +
-				"    <a href=\"query.html\">Visualization Query</a>" +
-				"    <a href=\".knowledge-base.html/\">Knowledge Base</a>" +
+				"    <a href=\"query.jsp\">Visualization Query</a>" +
+				"    <a href=\"knowledge-base.jsp\">Knowledge Base</a>" +
 				"</div>" +
 				"<div id=\"content\">";
 	}
 	
+	public static String getHeader(){
+		return "<div id=\"header\">" +
+				"    <img src=\"visko-just-logo.png\" alt=\"VisKo Logo\" style=\"padding:5px;\" />" +
+				"    <h1 style=\"padding-top:0px;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A VisKo Instance</h1>" +
+				"</div>" +
+				"<div id=\"menu\">" +
+				"	<a href=\"http://trust.utep.edu/visko\">VisKo Home</a>" +
+				"    <a href=\".\">Instance Home</a>" +
+				"    <a href=\"query.jsp\">Visualization Query</a>" +
+				"    <a href=\"knowledge-base.jsp\">Knowledge Base</a>" +
+				"</div>";
+	}
+	
 	public static String getFooter(){
+		return 
+				"<font color=\"white\"><i><b>Copyright @2012 CyberShARE Center, The University of Texas at El Paso</b></i></font>" +
+				"<p>&nbsp;</p>" +
+				"<p>&nbsp;</p>" +
+				"<p>&nbsp;</p>" +
+				"<p>&nbsp;</p>" +
+				"<p>&nbsp;</p>" +
+				"<p>&nbsp;</p>" +
+				"<p>&nbsp;</p>" +
+				"<p>&nbsp;</p>" +
+				"<p>&nbsp;</p>";
+	}
+	
+	public static String getCompleteFooter(){
 		return 
 				"</div>" +
 				"</div>" +

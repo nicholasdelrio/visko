@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"
+	import="edu.utep.trustlab.visko.web.html.Template" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,16 +9,9 @@
 </head>
 <body>
 <div id="container">
-<div id="header">
-    <img src="http://trust.utep.edu/visko/visko-just-logo.png" alt="VisKo Logo" style="padding:5px;" />
-    <h1 style="padding-top:0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A VisKo Instance</h1>
-</div>
-<div id="menu">
-	<a href="http://trust.utep.edu/visko">VisKo Home</a>
-    <a href=".">Instance Home</a>
-    <a href="query.html">Visualization Query</a>
-    <a href="knowledge-base.html">Knowledge Base</a>
-</div>
+
+<%= Template.getHeader() %>
+
 <div id="content">
 
 <h3 style="padding:0px">[VisKo Knowledge Base Instance]</h3>
@@ -27,9 +22,10 @@
 <div class="toc">
 <h4 style="padding:0px">Contents</h4>
 <dl>
-<dd><a href="#Overview">1 Overview</a></li>
-<dd><a href="#Querying">2 Capability Listing by Querying</a></li>
-<dd><a href="#Browsing">2 Capability Graph</a></li>
+<dd><a href="#Overview">1 Overview</a></dd>
+<dd><a href="#Browsing">2 Capability Graphs</a></dd>
+<dd><a href="#Querying">3 Capability Listing by Querying</a></dd>
+
 </dl>
 </div>
 </td>
@@ -42,20 +38,18 @@
 <br>&nbsp;
 <br>&nbsp;
 
-<a name="Overview">
-<h2>Overview: When VisKo Cannot Answer a Visualization Query</h2>
-VisKo may not be able to visualize your dataset because of a number of reasons including:
-<ul>
-    <li>It cannot process your data in the format it currently resides</li>
-    <li>It does not know how generate the requested view</li>
-    <li>It does not know how to transform your data into another required intermediate format</li>
-    <li>One or more parameters were not bound to a value</li>
-</ul>
-<br>
-<p>If you understand the fitness of your knowledge base, you may be able understand what knowledge you need to add for VisKo to be able to process your visualization queries.</p>
-<p>This page will describe how you can ascertain the fitness of your VisKo knowledge base instance through querying and visual analysis techniques described below.</p>
+<a name="Overview"></a>
+<h2>Overview</h2>
+<p>This page provides both visual and textual querying techniques for ascertaining the fitness of your knowledge base.</p>
 
-<a name="Querying"/>
+<a name="Browsing"></a>
+<h2>Format Transformation Paths:</h2>
+<iframe width="900" height="500" src="FormatTransformationPaths.html" frameborder="1"></iframe>
+
+<h2>Operator Pipelines</h2>
+<iframe width="900" height="500" src="OperatorPipelines.html" frameborder="1"></iframe>
+
+<a name="Querying"></a>
 <h2>Querying your Knowledge Base</h2>
 <p>You will use SPARQL to directly interface with your knowledge base instance.</p> 
 <p>Questions/Answers</p>
@@ -73,25 +67,10 @@ VisKo may not be able to visualize your dataset because of a number of reasons i
 <p>Submit Your Own Questions in SPARQL</p>
 <ul><li><a href="sparql-query.html">Your SPARQL Query Endpoint</a></li></ul>
 
-<a name="Browsing">
-<h2>Format Transformation Paths:</h2>
-<p>Note: that is does not correspond to the number of different <b>visualization pipeline</b> paths because formats like PDF can represent many different kinds of visualizations (e.g., 2d plots, contour-maps, raster maps).</p>
-<iframe width="900" height="290" src="FormatTransformationPaths.html" frameborder="0"></iframe>
-
-<h2>Operator Pipelines</h2>
-<iframe width="900" height="290" src="OperatorPipelines.html" frameborder="0"></iframe>
-
 </div>
 </div>
-<font color="white"><i><b>Copyright @2012 CyberShARE Center, The University of Texas at El Paso</b></i></font>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+<%= Template.getFooter() %>
+
 </body>
 </html>

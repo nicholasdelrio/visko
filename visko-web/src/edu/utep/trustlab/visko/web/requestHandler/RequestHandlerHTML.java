@@ -10,7 +10,7 @@ public abstract class RequestHandlerHTML {
 	public String getHTMLPage(HttpServletRequest request, HttpServletResponse response){
 		response.setContentType("text/html");
 		String html = doGet(request);
-		return Template.getHeader() + html + Template.getFooter();
+		return Template.getCompleteHeader() + html + Template.getCompleteFooter();
 		
 	}
 	public abstract String doGet(HttpServletRequest request);
