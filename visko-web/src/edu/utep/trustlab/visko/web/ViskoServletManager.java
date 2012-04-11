@@ -22,13 +22,11 @@ package edu.utep.trustlab.visko.web;
 
 import java.io.IOException;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.utep.trustlab.visko.web.context.WebAppContext;
 import edu.utep.trustlab.visko.web.requestHandler.knowledgeBaseInfo.KnowledgeBaseInformationJSONServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ExecutePipelineServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ExecuteQueryServiceServlet;
@@ -50,16 +48,10 @@ public class ViskoServletManager extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
     
-    // This Happens Once and is Reused
-    public void init(ServletConfig config) throws ServletException {
-    	//WebAppContext.setContext(config);
-    }
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//WebAppContext.setContext(this);
 		
 		String requestType = request.getParameter("requestType");
 		String html;
