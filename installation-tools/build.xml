@@ -2,7 +2,7 @@
 <project default="build" name="VisKo Installer Tools">
 
 	<!-- GitHub Configuration (SET your-github-username)-->
-	<property name="your-github-username" value="ciminer"/>
+	<property name="your-github-username" value="nicholasdelrio"/>
 	<property name="my-github-username" value="nicholasdelrio"/>
 	<property name="base-rdf-server-url" value="https://raw.github.com/"/>
 	<property name="frag-rdf-server-url" value="/visko/master/rdf/"/>
@@ -24,9 +24,9 @@
 	<property name="server-url" value="${github-server-url}"/>
 	
 	<!-- web.xml configuration (SET logo-file-name, host-port, tdb-path) -->
-	<property name="logo-file-name" value="visko-just-logo.png" />
+	<property name="logo-file-name" value="EDAC-logo.jpg" />
 	<property name="host-port" value="8080" />
-	<property name="tdb-path" value="C:\Users\Public\git\visko\tdb"/>
+	<property name="tdb-path" value="C:/Users/Public/git/visko/tdb"/>
 	<property name="logo-path" value="logos/${logo-file-name}"/>
 	<property name="sparql-endpoint" value="http://localhost:${host-port}/visko-web/ViskoServletManager?requestType=query-triple-store"/>
 	
@@ -36,7 +36,7 @@
 	<property name="project-name" value="visko"/>
 	
 	<!-- Visualization query examples page -->
-	<property name="query-template" value="visko-web-templates/query.html"/>
+	<property name="query-template" value="visko-web-templates/query.jsp"/>
 	<property name="query-deployment-dir" value="../visko-web/WebContent/"/>
 
 	<!-- web.xml paths -->
@@ -94,7 +94,7 @@
 
 	<target name="build-visko-web" depends="build-web-configuration,build-query-html" description="Generate visko-web.war file">
 		
-		<copy todir="${visko-web}/WebContent">
+		<copy todir="${visko-web}/WebContent/logos">
     		<fileset dir="logos"/>
   		</copy>
 		
