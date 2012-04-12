@@ -23,6 +23,15 @@
 	<!-- Server URL -->
 	<property name="server-url" value="${github-server-url}"/>
 	
+	<!-- web.xml configuration (SET logo-file-name, host-port, tdb-path) -->
+	<property name="logo-file-name" value="EDAC-logo.jpg" />
+	<property name="host-port" value="8080" />
+	<property name="tdb-path" value="C:\Users\Public\git\visko\tdb"/>
+	<property name="logo-path" value="logos/${logo-file-name}"/>
+	<property name="sparql-endpoint" value="http://localhost:${host-port}/visko-web/ViskoServletManager?requestType=query-triple-store"/>
+	
+	<!-- DO NOT CHANGE SETTINGS BELOW -->
+	
 	<!-- project name -->
 	<property name="project-name" value="visko"/>
 	
@@ -34,15 +43,9 @@
 	<property name="web-xml-template" value="web.xml"/>
 	<property name="web-xml-deployment-dir" value="../visko-web/WebContent/WEB-INF"/>
 
-
 	<!-- Content Management Libs -->
 	<property name="content-management-libs" value="../../content-management-connectors/clients/lib"/>	
-	
-	<!-- web.xml configuration -->
-	<property name="logo-path" value="logos/your-logo/NAME"/>
-	<property name="sparql-endpoint" value="http://localhost:8080/visko-web/ViskoServletManager?requestType=query-triple-store"/>
-	<property name="tdb-path" value="PATH"/>
-	
+		
 	<!-- build properties -->
 	<property name="jarfile" value="installer-tools.jar"/>
 	<property name="lib" value="../api/lib/"/>
