@@ -151,9 +151,10 @@
 		</target>
 
 	<target name="update-uris-for-github" depends="build">
-		<java classname="edu.utep.trustlab.contentManagement.SwitchGitHubBaseURL">
+		<java classname="edu.utep.trustlab.contentManagement.ReplaceText">
 			<arg value="${visko-rdf}"/>
 			<arg value="${your-github-username}"/>
+			<arg value="${my-github-username}"/>
 			
 			<classpath>
 				<pathelement location="${jarfile}"/>
