@@ -36,11 +36,11 @@
 	<property name="project-name" value="visko"/>
 	
 	<!-- Visualization query examples page -->
-	<property name="query-template" value="query.html"/>
+	<property name="query-template" value="visko-web-templates/query.html"/>
 	<property name="query-deployment-dir" value="../visko-web/WebContent/"/>
 
 	<!-- web.xml paths -->
-	<property name="web-xml-template" value="web.xml"/>
+	<property name="web-xml-template" value="visko-web-templates/web.xml"/>
 	<property name="web-xml-deployment-dir" value="../visko-web/WebContent/WEB-INF"/>
 
 	<!-- Content Management Libs -->
@@ -92,7 +92,7 @@
 		</javac>
 	</target>
 
-	<target name="build-visko-web" depends="build-query-html" description="Generate visko-web.war file">
+	<target name="build-visko-web" depends="build-web-configuration,build-query-html" description="Generate visko-web.war file">
 		<ant antfile="${visko-web}/build.xml" target="build" inheritAll="false" />
 		<move file="${visko-web-war}" todir="."/>
 	</target>
