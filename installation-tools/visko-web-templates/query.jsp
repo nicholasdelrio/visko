@@ -81,7 +81,7 @@ WHERE params:C = 10 AND
 <h5>2. Visualizing gravity data as raster map</h5>
 <div class="code">
 <pre>
-PREFIX REPLACE-FORMAT 
+PREFIX formats REPLACE-FORMAT 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
 PREFIX visko REPLACE-VISKO 
 SELECT visko:raster.owl#raster IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
