@@ -16,8 +16,8 @@
 
 <h2>Every VisKo instance supports the following capabilities:</h2>
 <ul>
-    <li><a href="query.html">Query Submission</a>: allows users to generate visualizations by submitting queries.</li>
-    <li><a href="knowledge-base.html">Knowledge Base:</a> a description of the capabilities of the knowledge base supporting this VisKo instance.</li> 
+    <li><a href="query.jsp">Query Submission</a>: allows users to generate visualizations by submitting queries.</li>
+    <li><a href="knowledge-base.jsp">Knowledge Base:</a> a description of the capabilities of the knowledge base supporting this VisKo instance.</li> 
 </ul>
 
 <h2>This VisKo Instance knows about the following objects:</h2>
