@@ -1,0 +1,52 @@
+package edu.utep.trustlab.webapp;
+
+import java.io.File;
+
+import edu.utep.trustlab.visko.util.FileUtilities;
+
+public class WebAppConfiguration {
+	
+	private String webConfigPath;
+	private String headerLogoPath;
+	private String tripleStorePath;
+	private String sparqlURL;
+	private String dumpDirPath;
+	
+	public WebAppConfiguration(String webXMLPath, String logoPath, String sparqlEndpoint, String tdbPath, String newDirectoryPath){
+		webConfigPath = webXMLPath;
+		headerLogoPath = logoPath;
+		tripleStorePath = tdbPath;
+		dumpDirPath = newDirectoryPath;
+		sparqlURL = sparqlEndpoint;
+	}
+	
+	public String generateWebXML(){
+		File webXMLFile = new File(webConfigPath);
+		String webXML = FileUtilities.readTextFile(webConfigPath);
+		webXML = webXML.replaceAll("REPLACE-LOGO-PATH", headerLogoPath);	
+		webXML = webXML.replaceAll("REPLACE-ENDPOINT-URL", sparqlURL);
+		webXML = webXML.replaceAll("REPLACE-TDB-PATH", tripleStorePath);
+		
+		String webXMLPath;
+		
+		if(dumpDirPath == null)
+			webXMLPath = FileUtilities.writeTextFile(webXML, webConfigPath);
+		else
+			webXMLPath = FileUtilities.writeTextFile(webXML, dumpDirPath, webXMLFile.getName());
+		
+		return webXMLPath;
+	}
+	
+	public static void main(String[] args){
+
+		System.out.println("generating web.xml file!");
+		WebAppConfiguration qe;
+		
+		if(args.length == 4)
+			qe = new WebAppConfiguration(args[0], args[1], args[2], args[3], null);
+		else
+			qe = new WebAppConfiguration(args[0], args[1], args[2], args[3], args[4]);
+		
+		System.out.println(qe.generateWebXML());
+	}
+}

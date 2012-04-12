@@ -55,9 +55,12 @@ public class GeneratorManager {
 		String projectName = args[2];
 		String userName = args[3];
 		String password = args[4];
+		String webdavURL = args[5];
 
 		AlfrescoClient client = new AlfrescoClient(serverURL, userName, password);
 		client.setProjectName(projectName);
+		if(!webdavURL.equalsIgnoreCase("null"))
+			client.setWebDAVURL(webdavURL);
 		return client;
 	}
 

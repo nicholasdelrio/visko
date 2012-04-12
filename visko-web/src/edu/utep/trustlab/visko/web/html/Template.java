@@ -6,7 +6,6 @@ public class Template {
 	
 	public static void setLogoPath(String path){
 		logoPath = path;
-		System.out.println("logopath set: " + logoPath);
 	}
 	
 	public static String getLogoPath(){
@@ -24,9 +23,11 @@ public class Template {
 				"<body>" +
 				"<div id=\"container\">" +
 				"<div id=\"header\">" +
-				"    <img src=\"visko-just-logo.png\" alt=\"VisKo Logo\" style=\"padding:5px;\" />" +
 				"	 <img src=\"" + Template.getLogoPath() + "\"/>" +
-				"    <h1 style=\"padding-top:0px;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A VisKo Instance</h1>" +
+				"    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+				"    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+				"    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+				"    <h1 style=\"padding-top:0px;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VisKo Instance</h1>" +
 				"</div>" +
 				"<div id=\"menu\">" +
 				"	<a href=\"http://trust.utep.edu/visko\">VisKo Home</a>" +
@@ -40,9 +41,11 @@ public class Template {
 	public static String getHeader(){
 		System.out.println("getting header stuff");
 		return "<div id=\"header\">" +
-				"    <img src=\"visko-just-logo.png\" alt=\"VisKo Logo\" style=\"padding:5px;\" />" +
-				"	 <img src=\"" + Template.getLogoPath() + "\"/>" +
-				"    <h1 style=\"padding-top:0px;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A VisKo Instance</h1>" +
+				"	 <img src=\"" + Template.getLogoPath() + "\" style=\"padding:5px;\" />" +
+				"    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+				"    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+				"    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+				"    <h1 style=\"padding-top:0px;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VisKo Instance</h1>" +
 				"</div>" +
 				"<div id=\"menu\">" +
 				"	<a href=\"http://trust.utep.edu/visko\">VisKo Home</a>" +

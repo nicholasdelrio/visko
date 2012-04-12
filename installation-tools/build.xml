@@ -13,6 +13,7 @@
 	<property name="cat-server-url" value="http://localhost:8080/alfresco/"/>
 	<property name="cat-server-username" value="admin"/>
 	<property name="cat-server-password" value="booger1"/>
+	<property name="cat-webdav-url" value="null" />
 	
 	<!-- CI-Server Configuration -->
 	<property name="ci-server-url" value="http://rio.cs.utep.edu/ciserver"/>
@@ -20,7 +21,7 @@
 	<property name="ci-server-password" value=""/>
 	
 	<!-- Server URL -->
-	<property name="server-url" value="${cat-server-url}"/>
+	<property name="server-url" value="${github-server-url}"/>
 	
 	<!-- project name -->
 	<property name="project-name" value="visko"/>
@@ -29,8 +30,18 @@
 	<property name="query-template" value="query.html"/>
 	<property name="query-deployment-dir" value="../visko-web/WebContent/"/>
 
+	<!-- web.xml paths -->
+	<property name="web-xml-template" value="web.xml"/>
+	<property name="web-xml-deployment-dir" value="../visko-web/WebContent/WEB-INF"/>
+
+
 	<!-- Content Management Libs -->
 	<property name="content-management-libs" value="../../content-management-connectors/clients/lib"/>	
+	
+	<!-- web.xml configuration -->
+	<property name="logo-path" value="logos/your-logo/NAME"/>
+	<property name="sparql-endpoint" value="http://localhost:8080/visko-web/ViskoServletManager?requestType=query-triple-store"/>
+	<property name="tdb-path" value="PATH"/>
 	
 	<!-- build properties -->
 	<property name="jarfile" value="installer-tools.jar"/>
@@ -81,6 +92,21 @@
 	<target name="build-visko-web" depends="build-query-html" description="Generate visko-web.war file">
 		<ant antfile="${visko-web}/build.xml" target="build" inheritAll="false" />
 		<move file="${visko-web-war}" todir="."/>
+	</target>
+
+	<target name="build-web-configuration" depends="build" description="Generate the query examples html specific for your VisKo RDF deployment">
+		<java classname="edu.utep.trustlab.webapp.WebAppConfiguration">
+			<arg value="${web-xml-template}"/>
+			<arg value="${logo-path}"/>
+			<arg value="${sparql-endpoint}"/>
+			<arg value="${tdb-path}"/>
+			<arg value="${web-xml-deployment-dir}"/>
+			
+			<classpath>
+				<pathelement location="${jarfile}"/>
+				<pathelement location="${visko-api-jar}"/>
+			</classpath>
+		</java>		
 	</target>
 	
 	<target name="build-query-html" depends="build" description="Generate the query examples html specific for your VisKo RDF deployment">
