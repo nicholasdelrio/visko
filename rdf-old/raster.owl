@@ -1,0 +1,13 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:viskoV="http://trust.utep.edu/visko/ontology/visko-view-v3.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/rdf/raster.owl">
+    <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/visko-view-v3.owl"/>
+  </owl:Ontology>
+  <viskoV:Raster rdf:about="https://raw.github.com/nicholasdelrio/visko/master/rdf/raster.owl#raster">
+    <rdfs:label>Raster</rdfs:label>
+  </viskoV:Raster>
+</rdf:RDF>
