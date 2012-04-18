@@ -11,38 +11,38 @@ public class GeneratorLocalFileSystem {
 		
 		Generator1.gen();
 		System.out.println("gen1 done");
-		System.console().writer().print("Push to GitHug now!");
-		System.console().writer().print("cd visko");
-		System.console().writer().print("git add *");
-		System.console().writer().print("git commit -am 'adding new RDF'");
-		System.console().writer().print("git push <<your forked remote visko repo>>");
+		System.out.println("Push to GitHug now!");
+		System.out.println("cd visko");
+		System.out.println("git add *");
+		System.out.println("git commit -am 'adding new RDF'");
+		System.out.println("git push <<your forked remote visko repo>>");
 		System.console().readLine();
 		
 		Generator2.gen();
 		System.out.println("gen2 done");
-		System.console().writer().print("Push to GitHug now!");
-		System.console().writer().print("cd visko");
-		System.console().writer().print("git add *");
-		System.console().writer().print("git commit -am 'adding new RDF'");
-		System.console().writer().print("git push <<your forked remote visko repo>>");
+		System.out.println("Push to GitHug now!");
+		System.out.println("cd visko");
+		System.out.println("git add *");
+		System.out.println("git commit -am 'adding new RDF'");
+		System.out.println("git push <<your forked remote visko repo>>");
 		System.console().readLine();
 			
 		Generator3.gen();
 		System.out.println("gen3 done");
-		System.console().writer().print("Push to GitHug now!");
-		System.console().writer().print("cd visko");
-		System.console().writer().print("git add *");
-		System.console().writer().print("git commit -am 'adding new RDF'");
-		System.console().writer().print("git push <<your forked remote visko repo>>");
+		System.out.println("Push to GitHug now!");
+		System.out.println("cd visko");
+		System.out.println("git add *");
+		System.out.println("git commit -am 'adding new RDF'");
+		System.out.println("git push <<your forked remote visko repo>>");
 		System.console().readLine();
 			
 		Generator4.gen();
 		System.out.println("gen4 done");
-		System.console().writer().print("Push to GitHug now!");
-		System.console().writer().print("cd visko");
-		System.console().writer().print("git add *");
-		System.console().writer().print("git commit -am 'adding new RDF'");
-		System.console().writer().print("git push <<your forked remote visko repo>>");
+		System.out.println("Push to GitHug now!");
+		System.out.println("cd visko");
+		System.out.println("git add *");
+		System.out.println("git commit -am 'adding new RDF'");
+		System.out.println("git push <<your forked remote visko repo>>");
 		System.console().readLine();
 
 	}
