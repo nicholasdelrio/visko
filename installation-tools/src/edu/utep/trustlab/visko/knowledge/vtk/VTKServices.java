@@ -67,7 +67,7 @@ public class VTKServices {
 		vtkImageDataReader = wtr2.getURI();
 		
 		operationName = "vtkContourFilter";
-		ServiceWriter wtr3 = new ServiceWriter(operationName + "Service");
+		ServiceWriter wtr3 = new ServiceWriter(operationName);
 		wtr3.setWSDLURL(wsdlURL);
 		wtr3.setLabel(operationName);
 		wtr3.setOperationName(operationName);
@@ -77,7 +77,7 @@ public class VTKServices {
 		vtkContourFilter = wtr3.getURI();
 		
 		operationName = "vtkPolyDataMapper";
-		ServiceWriter wtr4 = new ServiceWriter(operationName + "Service");
+		ServiceWriter wtr4 = new ServiceWriter(operationName);
 		wtr4.setWSDLURL(wsdlURL);
 		wtr4.setLabel(operationName);
 		wtr4.setOperationName(operationName);
@@ -87,7 +87,7 @@ public class VTKServices {
 		vtkPolyDataMapper = wtr4.getURI();
 		
 		operationName = "vtkVolume";
-		ServiceWriter wtr5 = new ServiceWriter(operationName + "Service");
+		ServiceWriter wtr5 = new ServiceWriter(operationName);
 		wtr5.setWSDLURL(wsdlURL);
 		wtr5.setLabel(operationName);
 		wtr5.setOperationName(operationName);
@@ -97,7 +97,7 @@ public class VTKServices {
 		vtkVolume = wtr5.getURI();
 		
 		operationName = "vtkImageDataReaderFloat";
-		ServiceWriter wtr6 = new ServiceWriter(operationName + "Service");
+		ServiceWriter wtr6 = new ServiceWriter(operationName);
 		wtr6.setWSDLURL(wsdlURL);
 		wtr6.setLabel(operationName);
 		wtr6.setOperationName(operationName);
