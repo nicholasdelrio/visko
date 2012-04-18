@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <rdf:RDF
-    xmlns="https://raw.github.com/nicholasdelrio/visko/master/rdf/vtkContourFilterService.owl"
     xmlns:service="http://www.daml.org/services/owl-s/1.2/Service.owl#"
     xmlns:process="http://www.daml.org/services/owl-s/1.2/Process.owl#"
     xmlns:viskoS="http://trust.utep.edu/visko/ontology/visko-service-v3.owl#"
@@ -10,18 +9,19 @@
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/vtkContourFilterService.owl"
     xmlns:grounding="http://www.daml.org/services/owl-s/1.2/Grounding.owl#"
     xmlns:profile="http://www.daml.org/services/owl-s/1.2/Profile.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xml:base="https://raw.github.com/nicholasdelrio/visko/master/rdf/vtkContourFilterService.owl">
+  xml:base="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/vtkContourFilterService.owl">
   <owl:Ontology rdf:about="">
     <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Grounding.owl"/>
     <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Profile.owl"/>
     <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Service.owl"/>
   </owl:Ontology>
   <service:Service rdf:ID="vtkContourFilterService">
-    <viskoS:implementsOperator rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/contourer3D.owl#contourer3D"/>
-    <viskoS:supportedBy rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/vtk.owl#vtk"/>
+    <viskoS:implementsOperator rdf:resource="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/contourer3D.owl#contourer3D"/>
+    <viskoS:supportedBy rdf:resource="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/vtk.owl#vtk"/>
     <rdfs:label>vtkContourFilter</rdfs:label>
     <service:supports>
       <grounding:WsdlGrounding rdf:ID="vtkContourFilterGrounding"/>
@@ -81,42 +81,42 @@
     <service:supportedBy rdf:resource="#vtkContourFilterService"/>
   </grounding:WsdlGrounding>
   <grounding:WsdlAtomicProcessGrounding rdf:about="#vtkContourFilterAtomicProcessGrounding">
-    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://gmtTrustLab/#vtkContourFilterResponse</grounding:wsdlOutputMessage>
-    <grounding:owlsProcess rdf:resource="#vtkContourFilterProcess"/>
-    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://iw.cs.utep.edu:8080/VTK-services/services/VTKHoleTransformersUsingParameters.VTKHoleTransformersUsingParametersPort?wsdl</grounding:wsdlDocument>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/VTK-services/services/VTKHoleTransformersUsingParameters.VTKHoleTransformersUsingParametersPort?wsdl#url</grounding:wsdlMessagePart>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#url</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#url"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/VTK-services/services/VTKHoleTransformersUsingParameters.VTKHoleTransformersUsingParametersPort?wsdl#numContours</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#numContours"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlOutput>
-      <grounding:WsdlOutputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/VTK-services/services/VTKHoleTransformersUsingParameters.VTKHoleTransformersUsingParametersPort?wsdl#return</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#return"/>
-      </grounding:WsdlOutputMessageMap>
-    </grounding:wsdlOutput>
-    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://gmtTrustLab/#vtkContourFilter</grounding:wsdlInputMessage>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/VTK-services/services/VTKHoleTransformersUsingParameters.VTKHoleTransformersUsingParametersPort?wsdl#scalarRange</grounding:wsdlMessagePart>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#scalarRange</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#scalarRange"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
+    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl</grounding:wsdlDocument>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#return</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#return"/>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
+    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://services.trustlab.utep.edu/#vtkContourFilterResponse</grounding:wsdlOutputMessage>
+    <grounding:owlsProcess rdf:resource="#vtkContourFilterProcess"/>
     <grounding:wsdlOperation>
       <grounding:WsdlOperationRef>
         <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://iw.cs.utep.edu:8080/VTK-services/services/VTKHoleTransformersUsingParameters.VTKHoleTransformersUsingParametersPort?wsdl#vtkContourFilter</grounding:operation>
+        >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#vtkContourFilter</grounding:operation>
       </grounding:WsdlOperationRef>
     </grounding:wsdlOperation>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#numContours</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#numContours"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://services.trustlab.utep.edu/#vtkContourFilter</grounding:wsdlInputMessage>
   </grounding:WsdlAtomicProcessGrounding>
 </rdf:RDF>

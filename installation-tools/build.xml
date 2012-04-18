@@ -200,7 +200,7 @@
 		</java>	
 	</target>	
 
-	<target name="utep-rdf-writer" depends="build"  description="Generates and Uploads VisKo RDF to a Content Managment">
+	<target name="utep-rdf-writer" depends="build"  description="Generates and writes RDF to local filesystem.">
 		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorLocalFileSystem">
 			<arg value="${server-url}"/>
 			<arg value="${visko-rdf}"/>

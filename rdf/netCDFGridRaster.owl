@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <rdf:RDF
-    xmlns="https://raw.github.com/nicholasdelrio/visko/master/rdf/netCDFGridRaster.owl"
     xmlns:service="http://www.daml.org/services/owl-s/1.2/Service.owl#"
     xmlns:process="http://www.daml.org/services/owl-s/1.2/Process.owl#"
     xmlns:viskoS="http://trust.utep.edu/visko/ontology/visko-service-v3.owl#"
@@ -13,15 +12,16 @@
     xmlns:grounding="http://www.daml.org/services/owl-s/1.2/Grounding.owl#"
     xmlns:profile="http://www.daml.org/services/owl-s/1.2/Profile.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xml:base="https://raw.github.com/nicholasdelrio/visko/master/rdf/netCDFGridRaster.owl">
+    xmlns="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/netCDFGridRaster.owl"
+  xml:base="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/netCDFGridRaster.owl">
   <owl:Ontology rdf:about="">
     <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Grounding.owl"/>
     <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Profile.owl"/>
     <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Service.owl"/>
   </owl:Ontology>
   <service:Service rdf:ID="netCDFGridRasterService">
-    <viskoS:implementsOperator rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/netCDFRasterer.owl#netCDFRasterer"/>
-    <viskoS:supportedBy rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/ncl.owl#ncl"/>
+    <viskoS:implementsOperator rdf:resource="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/rasterer.owl#rasterer"/>
+    <viskoS:supportedBy rdf:resource="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/ncl.owl#ncl"/>
     <rdfs:label>netCDFGridRaster</rdfs:label>
     <service:supports>
       <grounding:WsdlGrounding rdf:ID="netCDFGridRasterGrounding"/>
@@ -34,14 +34,7 @@
     </service:presents>
   </service:Service>
   <profile:Profile rdf:about="#netCDFGridRasterProfile">
-    <profile:serviceName>netCDFGridRaster</profile:serviceName>
-    <profile:hasOutput>
-      <process:Output rdf:ID="return">
-        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
-        <rdfs:label>return</rdfs:label>
-      </process:Output>
-    </profile:hasOutput>
+    <service:presentedBy rdf:resource="#netCDFGridRasterService"/>
     <profile:hasInput>
       <process:Input rdf:ID="lbOrientation">
         <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
@@ -56,6 +49,22 @@
         <rdfs:label>url</rdfs:label>
       </process:Input>
     </profile:hasInput>
+    <profile:serviceName>netCDFGridRaster</profile:serviceName>
+    <profile:hasInput>
+      <process:Input rdf:ID="colorTable">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>colorTable</rdfs:label>
+      </process:Input>
+    </profile:hasInput>
+    <profile:textDescription>This is an owl-s service referenced as by a VisKo OperationImpl.</profile:textDescription>
+    <profile:hasOutput>
+      <process:Output rdf:ID="return">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>return</rdfs:label>
+      </process:Output>
+    </profile:hasOutput>
     <profile:hasInput>
       <process:Input rdf:ID="plotVariable">
         <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
@@ -63,20 +72,11 @@
         <rdfs:label>plotVariable</rdfs:label>
       </process:Input>
     </profile:hasInput>
-    <profile:textDescription>This is an owl-s service referenced as by a VisKo OperationImpl.</profile:textDescription>
-    <service:presentedBy rdf:resource="#netCDFGridRasterService"/>
     <profile:hasInput>
       <process:Input rdf:ID="font">
         <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
         >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
         <rdfs:label>font</rdfs:label>
-      </process:Input>
-    </profile:hasInput>
-    <profile:hasInput>
-      <process:Input rdf:ID="colorTable">
-        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
-        <rdfs:label>colorTable</rdfs:label>
       </process:Input>
     </profile:hasInput>
   </profile:Profile>
@@ -97,53 +97,53 @@
     <service:supportedBy rdf:resource="#netCDFGridRasterService"/>
   </grounding:WsdlGrounding>
   <grounding:WsdlAtomicProcessGrounding rdf:about="#netCDFGridRasterAtomicProcessGrounding">
-    <grounding:wsdlOutput>
-      <grounding:WsdlOutputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl#return</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#return"/>
-      </grounding:WsdlOutputMessageMap>
-    </grounding:wsdlOutput>
-    <grounding:wsdlOperation>
-      <grounding:WsdlOperationRef>
-        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl#netCDFGridRaster</grounding:operation>
-      </grounding:WsdlOperationRef>
-    </grounding:wsdlOperation>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl#url</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#url"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl#plotVariable</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#plotVariable"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:owlsProcess rdf:resource="#netCDFGridRasterProcess"/>
-    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://nclTrustLab/#netCDFGridRasterResponse</grounding:wsdlOutputMessage>
-    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl</grounding:wsdlDocument>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl#font</grounding:wsdlMessagePart>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#font</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#font"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl#lbOrientation</grounding:wsdlMessagePart>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#colorTable</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#colorTable"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:owlsProcess rdf:resource="#netCDFGridRasterProcess"/>
+    <grounding:wsdlOperation>
+      <grounding:WsdlOperationRef>
+        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#netCDFGridRaster</grounding:operation>
+      </grounding:WsdlOperationRef>
+    </grounding:wsdlOperation>
+    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl</grounding:wsdlDocument>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#url</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#url"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#lbOrientation</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#lbOrientation"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#return</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#return"/>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
     <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://nclTrustLab/#netCDFGridRaster</grounding:wsdlInputMessage>
+    >http://services.trustlab.utep.edu/#netCDFGridRaster</grounding:wsdlInputMessage>
+    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://services.trustlab.utep.edu/#netCDFGridRasterResponse</grounding:wsdlOutputMessage>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl#colorTable</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#colorTable"/>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#plotVariable</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#plotVariable"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
   </grounding:WsdlAtomicProcessGrounding>

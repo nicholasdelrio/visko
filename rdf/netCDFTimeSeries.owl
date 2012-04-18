@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <rdf:RDF
-    xmlns="https://raw.github.com/nicholasdelrio/visko/master/rdf/netCDFTimeSeries.owl"
+    xmlns="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/netCDFTimeSeries.owl"
     xmlns:service="http://www.daml.org/services/owl-s/1.2/Service.owl#"
     xmlns:process="http://www.daml.org/services/owl-s/1.2/Process.owl#"
     xmlns:viskoS="http://trust.utep.edu/visko/ontology/visko-service-v3.owl#"
@@ -13,15 +13,15 @@
     xmlns:grounding="http://www.daml.org/services/owl-s/1.2/Grounding.owl#"
     xmlns:profile="http://www.daml.org/services/owl-s/1.2/Profile.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xml:base="https://raw.github.com/nicholasdelrio/visko/master/rdf/netCDFTimeSeries.owl">
+  xml:base="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/netCDFTimeSeries.owl">
   <owl:Ontology rdf:about="">
     <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Grounding.owl"/>
     <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Profile.owl"/>
     <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Service.owl"/>
   </owl:Ontology>
   <service:Service rdf:ID="netCDFTimeSeriesService">
-    <viskoS:implementsOperator rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/netCDFTimeSeriesPlotter.owl#netCDFTimeSeriesPlotter"/>
-    <viskoS:supportedBy rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/ncl.owl#ncl"/>
+    <viskoS:implementsOperator rdf:resource="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/netCDFTimeSeriesPlotter.owl#netCDFTimeSeriesPlotter"/>
+    <viskoS:supportedBy rdf:resource="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/ncl.owl#ncl"/>
     <rdfs:label>netCDFTimeSeries</rdfs:label>
     <service:supports>
       <grounding:WsdlGrounding rdf:ID="netCDFTimeSeriesGrounding"/>
@@ -49,48 +49,17 @@
       </process:Output>
     </profile:hasOutput>
     <profile:hasInput>
-      <process:Input rdf:ID="xDimSize">
-        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
-        <rdfs:label>xDimSize</rdfs:label>
-      </process:Input>
-    </profile:hasInput>
-    <profile:hasInput>
-      <process:Input rdf:ID="rPlotVariablesList">
-        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
-        <rdfs:label>rPlotVariablesList</rdfs:label>
-      </process:Input>
-    </profile:hasInput>
-    <profile:textDescription>This is an owl-s service referenced as by a VisKo OperationImpl.</profile:textDescription>
-    <profile:hasInput>
-      <process:Input rdf:ID="yRAxisLabel">
-        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
-        <rdfs:label>yRAxisLabel</rdfs:label>
-      </process:Input>
-    </profile:hasInput>
-    <profile:hasInput>
       <process:Input rdf:ID="yLAxisLabel">
         <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
         >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
         <rdfs:label>yLAxisLabel</rdfs:label>
       </process:Input>
     </profile:hasInput>
-    <service:presentedBy rdf:resource="#netCDFTimeSeriesService"/>
-    <profile:serviceName>netCDFTimeSeries</profile:serviceName>
     <profile:hasInput>
-      <process:Input rdf:ID="title">
+      <process:Input rdf:ID="xDimSize">
         <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
         >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
-        <rdfs:label>title</rdfs:label>
-      </process:Input>
-    </profile:hasInput>
-    <profile:hasInput>
-      <process:Input rdf:ID="url">
-        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
-        <rdfs:label>url</rdfs:label>
+        <rdfs:label>xDimSize</rdfs:label>
       </process:Input>
     </profile:hasInput>
     <profile:hasInput>
@@ -100,19 +69,50 @@
         <rdfs:label>lPlotVariablesList</rdfs:label>
       </process:Input>
     </profile:hasInput>
+    <profile:hasInput>
+      <process:Input rdf:ID="title">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>title</rdfs:label>
+      </process:Input>
+    </profile:hasInput>
+    <service:presentedBy rdf:resource="#netCDFTimeSeriesService"/>
+    <profile:hasInput>
+      <process:Input rdf:ID="rPlotVariablesList">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>rPlotVariablesList</rdfs:label>
+      </process:Input>
+    </profile:hasInput>
+    <profile:hasInput>
+      <process:Input rdf:ID="url">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>url</rdfs:label>
+      </process:Input>
+    </profile:hasInput>
+    <profile:serviceName>netCDFTimeSeries</profile:serviceName>
+    <profile:textDescription>This is an owl-s service referenced as by a VisKo OperationImpl.</profile:textDescription>
+    <profile:hasInput>
+      <process:Input rdf:ID="yRAxisLabel">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>yRAxisLabel</rdfs:label>
+      </process:Input>
+    </profile:hasInput>
   </profile:Profile>
   <process:AtomicProcess rdf:about="#netCDFTimeSeriesProcess">
-    <rdfs:label>netCDFTimeSeriesProcess</rdfs:label>
-    <service:describes rdf:resource="#netCDFTimeSeriesService"/>
-    <process:hasInput rdf:resource="#xDimSize"/>
-    <process:hasInput rdf:resource="#yRAxisLabel"/>
-    <process:hasInput rdf:resource="#xDimName"/>
-    <process:hasInput rdf:resource="#yLAxisLabel"/>
+    <process:hasInput rdf:resource="#rPlotVariablesList"/>
     <process:hasInput rdf:resource="#url"/>
     <process:hasOutput rdf:resource="#return"/>
-    <process:hasInput rdf:resource="#rPlotVariablesList"/>
-    <process:hasInput rdf:resource="#title"/>
+    <rdfs:label>netCDFTimeSeriesProcess</rdfs:label>
+    <process:hasInput rdf:resource="#yRAxisLabel"/>
+    <process:hasInput rdf:resource="#xDimName"/>
+    <process:hasInput rdf:resource="#xDimSize"/>
+    <process:hasInput rdf:resource="#yLAxisLabel"/>
+    <service:describes rdf:resource="#netCDFTimeSeriesService"/>
     <process:hasInput rdf:resource="#lPlotVariablesList"/>
+    <process:hasInput rdf:resource="#title"/>
   </process:AtomicProcess>
   <grounding:WsdlGrounding rdf:about="#netCDFTimeSeriesGrounding">
     <grounding:hasAtomicProcessGrounding>
@@ -121,71 +121,71 @@
     <service:supportedBy rdf:resource="#netCDFTimeSeriesService"/>
   </grounding:WsdlGrounding>
   <grounding:WsdlAtomicProcessGrounding rdf:about="#netCDFTimeSeriesAtomicProcessGrounding">
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#yRAxisLabel</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#yRAxisLabel"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
     <grounding:wsdlOperation>
       <grounding:WsdlOperationRef>
         <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl#netCDFTimeSeries</grounding:operation>
+        >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#netCDFTimeSeries</grounding:operation>
       </grounding:WsdlOperationRef>
     </grounding:wsdlOperation>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl#xDimName</grounding:wsdlMessagePart>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#xDimName</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#xDimName"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl#xDimSize</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#xDimSize"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://nclTrustLab/#netCDFTimeSeriesResponse</grounding:wsdlOutputMessage>
-    <grounding:wsdlOutput>
-      <grounding:WsdlOutputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl#return</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#return"/>
-      </grounding:WsdlOutputMessageMap>
-    </grounding:wsdlOutput>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl#lPlotVariablesList</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#lPlotVariablesList"/>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#yLAxisLabel</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#yLAxisLabel"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl#title</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#title"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://nclTrustLab/#netCDFTimeSeries</grounding:wsdlInputMessage>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl#rPlotVariablesList</grounding:wsdlMessagePart>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#rPlotVariablesList</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#rPlotVariablesList"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl#yRAxisLabel</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#yRAxisLabel"/>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#lPlotVariablesList</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#lPlotVariablesList"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:owlsProcess rdf:resource="#netCDFTimeSeriesProcess"/>
+    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://services.trustlab.utep.edu/#netCDFTimeSeries</grounding:wsdlInputMessage>
+    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl</grounding:wsdlDocument>
+    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://services.trustlab.utep.edu/#netCDFTimeSeriesResponse</grounding:wsdlOutputMessage>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl#url</grounding:wsdlMessagePart>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#url</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#url"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
-    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl</grounding:wsdlDocument>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl#yLAxisLabel</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#yLAxisLabel"/>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#title</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#title"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#return</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#return"/>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#xDimSize</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#xDimSize"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
   </grounding:WsdlAtomicProcessGrounding>

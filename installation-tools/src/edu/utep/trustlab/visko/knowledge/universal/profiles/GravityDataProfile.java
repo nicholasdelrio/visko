@@ -31,10 +31,11 @@ public class GravityDataProfile {
 
 		// gravity data
 		String dataTypeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d19";
-		ToolkitProfileWriter wtr2 = new ToolkitProfileWriter(
-		"gravityDataProfile");
-		wtr2.setSupportingToolkit(GMTToolkits.gmt);
-		wtr2.addDataType(dataTypeURI);
+		String region = "-109/107/33/40";
+		
+		ToolkitProfileWriter wtr = new ToolkitProfileWriter("gravityDataProfile");
+		wtr.setSupportingToolkit(GMTToolkits.gmt);
+		wtr.addDataType(dataTypeURI);
 
 		String points22DPlot = GMTServices.points22DPlot.substring(0, GMTServices.points22DPlot.indexOf("#"));
 		String points2NearNeighborGridded = GMTServices.points2NearNeighborGridded.substring(0, GMTServices.points2NearNeighborGridded.indexOf("#"));
@@ -44,127 +45,63 @@ public class GravityDataProfile {
 		String esriGridRaster = NCLServices.esriGridRaster.substring(0, NCLServices.esriGridRaster.indexOf("#"));
 		String esriGridContour = NCLServices.esriGridContour.substring(0, NCLServices.esriGridContour.indexOf("#"));
 		
-		// for 2D plotter 
-		wtr2.addInputBinding(
-		points22DPlot + "#S",
-		"c0.04c");
+		// for GMT psxy
+		wtr.addInputBinding(points22DPlot + "#S", "c0.04c");
+		wtr.addInputBinding(points22DPlot + "#R", region);
+		wtr.addInputBinding(points22DPlot + "#J", "x4c");
+		wtr.addInputBinding(points22DPlot + "#G", "blue");
+		wtr.addInputBinding(points22DPlot + "#B", "1");
+		wtr.addInputBinding(points22DPlot + "#indexOfX", "0");
+		wtr.addInputBinding(points22DPlot + "#indexOfY", "1");
 		
-		wtr2.addInputBinding(
-		points22DPlot + "#J",
-		"x4c");
+		// for GMT nearneighbor
+		wtr.addInputBinding(points2NearNeighborGridded + "#I", "0.02");
+		wtr.addInputBinding(points2NearNeighborGridded + "#S", "0.2");
+		wtr.addInputBinding(points2NearNeighborGridded + "#R", region);
+		wtr.addInputBinding(points2NearNeighborGridded + "#indexOfX", "0");
+		wtr.addInputBinding(points2NearNeighborGridded + "#indexOfY", "1");
+		wtr.addInputBinding(points2NearNeighborGridded + "#indexOfZ", "2");
 		
-		wtr2.addInputBinding(
-		points22DPlot + "#G",
-		"blue");
+		// for GMT surface
+		wtr.addInputBinding(points2MinCurvatureGridded + "#I","0.02");
+		wtr.addInputBinding(points2MinCurvatureGridded + "#T","0.25");
+		wtr.addInputBinding(points2MinCurvatureGridded + "#C", "0.1");
+		wtr.addInputBinding(points2MinCurvatureGridded + "#indexOfX", "0");
+		wtr.addInputBinding(points2MinCurvatureGridded + "#indexOfY", "1");
+		wtr.addInputBinding(points2MinCurvatureGridded + "#indexOfZ", "2");
+		wtr.addInputBinding(points2MinCurvatureGridded + "#R", region);
+
+		// for GMT grdimage
+		wtr.addInputBinding(gridded2Raster + "#B", "1");
+		wtr.addInputBinding(gridded2Raster + "#J", "x4c");
+		wtr.addInputBinding(gridded2Raster + "#C", "hot");
+		wtr.addInputBinding(gridded2Raster + "#T", "-200/200/10");
+		wtr.addInputBinding(gridded2Raster + "#R", region);
 		
-		wtr2.addInputBinding(
-		points22DPlot + "#B",
-		"1");
+		// for GMT grdcontour
+		wtr.addInputBinding(gridded2ContourMap + "#C", "10");
+		wtr.addInputBinding(gridded2ContourMap + "#A", "20");
+		wtr.addInputBinding(gridded2ContourMap + "#B", "0.5");
+		wtr.addInputBinding(gridded2ContourMap + "#S", "5");
+		wtr.addInputBinding(gridded2ContourMap + "#J", "x4c");
+		wtr.addInputBinding(gridded2ContourMap + "#Wc", "thinnest,black");
+		wtr.addInputBinding(gridded2ContourMap + "#Wa", "thinnest,black");
 		
-		// for nearneightbor gridding
-		wtr2.addInputBinding(
-		points2NearNeighborGridded + "#I",
-		"0.02");
+		// for NCL gsx_gsn something
+		wtr.addInputBinding(esriGridContour + "#lbOrientation", "vertical");
+		wtr.addInputBinding(esriGridContour + "#cnLevelSpacingF", "10");
+		wtr.addInputBinding(esriGridContour + "#colorTable", "WhiteBlueGreenYellowRed");
+		wtr.addInputBinding(esriGridContour + "#font", "helvetica");
+		wtr.addInputBinding(esriGridContour + "#cnFillOn", "True");
+		wtr.addInputBinding(esriGridContour + "#cnLinesOn", "False");
 		
-		wtr2.addInputBinding(
-		points2NearNeighborGridded + "#S",
-		"0.2");
-		
-		// for gridding by surface
-		wtr2.addInputBinding(
-		points2MinCurvatureGridded + "#I",
-		"0.02");
-		
-		wtr2.addInputBinding(
-		points2MinCurvatureGridded + "#T",
-		"0.25");
-		
-		wtr2.addInputBinding(
-		points2MinCurvatureGridded + "#C",
-		"0.1");
-		
-		// for grid to colored image
-		wtr2.addInputBinding(
-		gridded2Raster + "#B",
-		"1");
-		
-		wtr2.addInputBinding(
-		gridded2Raster + "#J",
-		"x4c");
-		
-		wtr2.addInputBinding(
-		gridded2Raster + "#C",
-		"hot");
-		
-		// for contour map
-		wtr2.addInputBinding(
-		gridded2ContourMap + "#C",
-		"10");
-		
-		wtr2.addInputBinding(
-		gridded2ContourMap + "#A",
-		"20");
-		
-		wtr2.addInputBinding(
-		gridded2ContourMap + "#B",
-		"0.5");
-		
-		wtr2.addInputBinding(
-		gridded2ContourMap + "#S",
-		"5");
-		
-		wtr2.addInputBinding(
-		gridded2ContourMap + "#J",
-		"x4c");
-		
-		wtr2.addInputBinding(
-		gridded2ContourMap + "#Wc",
-		"thinnest,black");
-		
-		wtr2.addInputBinding(
-		gridded2ContourMap + "#Wa",
-		"thinnest,black");
-		
-		// for esriGridContour
-		wtr2.addInputBinding(
-		esriGridContour + "#lbOrientation",
-		"vertical");
-		
-		wtr2.addInputBinding(
-		esriGridContour + "#cnLevelSpacingF",
-		"10");
-		
-		wtr2.addInputBinding(
-		esriGridContour + "#colorTable",
-		"WhiteBlueGreenYellowRed");
-		
-		wtr2.addInputBinding(
-		esriGridContour + "#font",
-		"helvetica");
-		
-		wtr2.addInputBinding(
-		esriGridContour + "#cnFillOn",
-		"True");
-		
-		wtr2.addInputBinding(
-		esriGridContour + "#cnLinesOn",
-		"False");
-		
-		// for esriGridRaster
-		wtr2.addInputBinding(
-		esriGridRaster + "#lbOrientation",
-		"vertical");
-		
-		wtr2.addInputBinding(
-		esriGridRaster + "#colorTable",
-		"WhiteBlueGreenYellowRed");
-		
-		wtr2.addInputBinding(
-		esriGridRaster + "#font",
-		"helvetica");
+		// for NCL gsx_gsn something excepted hard coded for raster generation
+		wtr.addInputBinding(esriGridRaster + "#lbOrientation", "vertical");
+		wtr.addInputBinding(esriGridRaster + "#colorTable", "WhiteBlueGreenYellowRed");
+		wtr.addInputBinding(esriGridRaster + "#font", "helvetica");
 		
 		// dump document
-		documentURL = wtr2.saveDocument();
+		documentURL = wtr.saveDocument();
 		System.out.println(documentURL);
 		}
 }
