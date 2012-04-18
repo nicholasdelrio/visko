@@ -20,10 +20,11 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge.vtk;
 
+import edu.utep.trustlab.visko.knowledge.universal.ServiceWSDL;
 import edu.utep.trustlab.visko.ontology.service.writer.ServiceWriter;
 
 public class VTKServices {
-	private static final String wsdlURL = "http://iw.cs.utep.edu:8080/VTK-services/services/VTKHoleTransformersUsingParameters.VTKHoleTransformersUsingParametersPort?wsdl";
+	private static final String wsdlURL = ServiceWSDL.WSDL_URL;
 	
 	public static String int2short;
 	public static String float2shortThr;

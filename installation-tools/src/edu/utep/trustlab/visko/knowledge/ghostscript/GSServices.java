@@ -20,16 +20,17 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge.ghostscript;
 
+import edu.utep.trustlab.visko.knowledge.universal.ServiceWSDL;
 import edu.utep.trustlab.visko.ontology.service.writer.ServiceWriter;
 public class GSServices {
-	private static final String wsdlURL = "http://iw.cs.utep.edu:8080/GMT-services/services/GMTGravityTransformersUsingParameters.GMTGravityTransformersUsingParametersPort?wsdl";
+	private static final String wsdlURL = ServiceWSDL.WSDL_URL;
 
 	public static String ps2pdf;
 	public static String ps2png;
 	public static String pdf2png;
 
 	public static void create() {
-		String operationName = "PSToPDF";
+		String operationName = "ps2pdf";
 		
 		ServiceWriter wtr = new ServiceWriter(operationName);
 		wtr.setWSDLURL(wsdlURL);
@@ -40,7 +41,7 @@ public class GSServices {
 		System.out.println(wtr.saveDocument());
 		ps2pdf = wtr.getURI();
 		
-		operationName = "PSFToPNG";
+		operationName = "ps2png";
 		ServiceWriter wtr1 = new ServiceWriter(operationName);
 		wtr1.setWSDLURL(wsdlURL);
 		wtr1.setOperationName(operationName);
@@ -50,7 +51,7 @@ public class GSServices {
 		System.out.println(wtr1.saveDocument());
 		ps2png = wtr1.getURI();
 
-		operationName = "PDFToPNG";
+		operationName = "pdf2png";
 		ServiceWriter wtr2 = new ServiceWriter(operationName);
 		wtr2.setWSDLURL(wsdlURL);
 		wtr2.setOperationName(operationName);

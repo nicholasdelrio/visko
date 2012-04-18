@@ -21,11 +21,12 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.knowledge.ncl;
 
 import edu.utep.trustlab.visko.knowledge.gmt.GMTTransformers;
+import edu.utep.trustlab.visko.knowledge.universal.ServiceWSDL;
 import edu.utep.trustlab.visko.ontology.service.writer.ServiceWriter;
 
 
 public class NCLServices {
-	private static final String wsdlURL = "http://iw.cs.utep.edu:8080/NCL-services/services/NCLTransformers.NCLTransformersPort?wsdl";
+	private static final String wsdlURL = ServiceWSDL.WSDL_URL;
 
 	public static String esriGridContour;
 	public static String esriGridRaster;
@@ -61,7 +62,7 @@ public class NCLServices {
 		wtr2.setLabel(operationName);
 		wtr2.setOperationName(operationName);
 		wtr2.setWSDLURL(wsdlURL);
-		wtr2.setConceptualOperator(NCLTransformers.netCDFContourer);
+		wtr2.setConceptualOperator(GMTTransformers.contourer);
 		wtr2.setSupportingToolkit(NCLToolkits.ncl);
 		wtr2.saveDocument();
 		System.out.println(wtr2.getURI());
@@ -72,7 +73,7 @@ public class NCLServices {
 		wtr3.setLabel(operationName);
 		wtr3.setOperationName(operationName);
 		wtr3.setWSDLURL(wsdlURL);
-		wtr3.setConceptualOperator(NCLTransformers.netCDFRasterer);
+		wtr3.setConceptualOperator(GMTTransformers.rasterer);
 		wtr3.setSupportingToolkit(NCLToolkits.ncl);
 		wtr3.saveDocument();
 		System.out.println(wtr3.getURI());

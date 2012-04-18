@@ -20,10 +20,11 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge.gmt;
 
+import edu.utep.trustlab.visko.knowledge.universal.ServiceWSDL;
 import edu.utep.trustlab.visko.ontology.service.writer.ServiceWriter;
 
 public class GMTServices {
-	private static final String wsdlURL = "http://iw.cs.utep.edu:8080/GMT-services/services/GMTGravityTransformersUsingParameters.GMTGravityTransformersUsingParametersPort?wsdl";
+	private static final String wsdlURL = ServiceWSDL.WSDL_URL;
 	public static String gridded2ContourMap;
 	public static String points2MinCurvatureGridded;
 	public static String points2NearNeighborGridded;
@@ -33,7 +34,7 @@ public class GMTServices {
 	
 	public static void create() {
 		
-		String operationName = "ESRIGriddedToContourMapPS";
+		String operationName = "grdcontour";
 		ServiceWriter wtr = new ServiceWriter(operationName);
 		wtr.setLabel(operationName);
 		wtr.setOperationName(operationName);
@@ -43,7 +44,7 @@ public class GMTServices {
 		System.out.println(wtr.saveDocument());
 		gridded2ContourMap = wtr.getURI();
 		
-		operationName = "GravityASCIIPointsToMinCurvatureESRIGridded";
+		operationName = "surface";
 		ServiceWriter wtr1 = new ServiceWriter(operationName);
 		wtr1.setWSDLURL(wsdlURL);
 		wtr1.setLabel(operationName);
@@ -53,7 +54,7 @@ public class GMTServices {
 		System.out.println(wtr1.saveDocument());
 		points2MinCurvatureGridded = wtr1.getURI();
 		
-		operationName = "GravityASCIIPointsToNearNeightborESRIGridded";
+		operationName = "nearneighbor";
 		ServiceWriter wtr2 = new ServiceWriter(operationName);
 		wtr2.setWSDLURL(wsdlURL);
 		wtr2.setLabel(operationName);
@@ -63,7 +64,7 @@ public class GMTServices {
 		System.out.println(wtr2.saveDocument());
 		points2NearNeighborGridded = wtr2.getURI();
 		
-		operationName = "GravityASCIIPointsTo2DPlotPS";
+		operationName = "psxy";
 		ServiceWriter wtr3 = new ServiceWriter(operationName);
 		wtr3.setOperationName(operationName);
 		wtr3.setWSDLURL(wsdlURL);
@@ -74,7 +75,7 @@ public class GMTServices {
 		System.out.println(wtr3.saveDocument());
 		points22DPlot = wtr3.getURI();
 		
-		operationName = "ESRIGriddedToColoredImagePS";
+		operationName = "grdimage";
 		ServiceWriter wtr4 = new ServiceWriter(operationName);
 		wtr4.setOperationName(operationName);
 		wtr4.setWSDLURL(wsdlURL);
@@ -84,7 +85,7 @@ public class GMTServices {
 		System.out.println(wtr4.saveDocument());
 		gridded2Raster = wtr4.getURI();
 		
-		operationName = "CSVToTabularASCII";
+		operationName = "csv2tabular";
 		ServiceWriter wtr5 = new ServiceWriter(operationName);
 		wtr5.setOperationName(operationName);
 		wtr5.setWSDLURL(wsdlURL);
