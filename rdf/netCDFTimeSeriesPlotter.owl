@@ -5,12 +5,12 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:pmlp="http://inference-web.org/2.0/pml-provenance.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-  <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/rdf/netCDFTimeSeriesPlotter.owl">
+  <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/netCDFTimeSeriesPlotter.owl">
     <owl:imports rdf:resource="http://inference-web.org/2.0/pml-provenance.owl"/>
     <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/visko-operator-v3.owl"/>
   </owl:Ontology>
-  <viskoO:Mapper rdf:about="https://raw.github.com/nicholasdelrio/visko/master/rdf/netCDFTimeSeriesPlotter.owl#netCDFTimeSeriesPlotter">
-    <viskoO:mapsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/XYPlot.owl#XYPlot"/>
+  <viskoO:Mapper rdf:about="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/netCDFTimeSeriesPlotter.owl#netCDFTimeSeriesPlotter">
+    <viskoO:mapsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/XYPlot.owl#XYPlot"/>
     <viskoO:transformsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Time Series Plot Generator</pmlp:hasName>

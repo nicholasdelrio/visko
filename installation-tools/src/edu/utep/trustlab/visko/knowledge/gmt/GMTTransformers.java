@@ -43,7 +43,6 @@ public class GMTTransformers {
 		System.out.println(wtr.saveDocument());
 		contourer = wtr.getURI();
 		
-		System.out.println(wtr);
 		TransformerWriter wtr1 = new TransformerWriter("gridder", false);
 		wtr1.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII");
 		wtr1.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF");

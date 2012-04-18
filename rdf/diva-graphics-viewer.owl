@@ -5,12 +5,12 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:pmlp="http://inference-web.org/2.0/pml-provenance.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-  <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/rdf/diva-graphics-viewer.owl">
+  <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/diva-graphics-viewer.owl">
     <owl:imports rdf:resource="http://inference-web.org/2.0/pml-provenance.owl"/>
     <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/visko-operator-v3.owl"/>
   </owl:Ontology>
-  <viskoO:Viewer rdf:about="https://raw.github.com/nicholasdelrio/visko/master/rdf/diva-graphics-viewer.owl#diva-graphics-viewer">
-    <viskoO:partOfViewerSet rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/diva-graphics.owl#diva-graphics"/>
+  <viskoO:Viewer rdf:about="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/diva-graphics-viewer.owl#diva-graphics-viewer">
+    <viskoO:partOfViewerSet rdf:resource="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/diva-graphics.owl#diva-graphics"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >diva-graphics-viewer</pmlp:hasName>
     <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/JPEG.owl#JPEG"/>

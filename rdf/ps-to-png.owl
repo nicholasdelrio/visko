@@ -5,11 +5,11 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:pmlp="http://inference-web.org/2.0/pml-provenance.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-  <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/rdf/ps-to-png.owl">
+  <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/ps-to-png.owl">
     <owl:imports rdf:resource="http://inference-web.org/2.0/pml-provenance.owl"/>
     <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/visko-operator-v3.owl"/>
   </owl:Ontology>
-  <viskoO:Transformer rdf:about="https://raw.github.com/nicholasdelrio/visko/master/rdf/ps-to-png.owl#ps-to-png">
+  <viskoO:Transformer rdf:about="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/ps-to-png.owl#ps-to-png">
     <viskoO:transformsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/PNG.owl#PNG"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Convert Adobe PS to PNG Image</pmlp:hasName>
