@@ -169,7 +169,7 @@
 	</target>
 	
 	<target name="utep-rdf-uploader" depends="build"  description="Generates and Uploads VisKo RDF to a Content Managment">
-		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorManager">
+		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorContentManager">
 			<arg value="cat"/>
 			<arg value="${cat-server-url}"/>
 			<arg value="${project-name}"/>
@@ -187,6 +187,28 @@
 				<fileset dir="${content-management-libs}/libs-ciserver/">
 					<include name="*.jar"/>
 				</fileset>	
+				<fileset dir="${lib}/axis4/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/jena262/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/util/">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>   
+		</java>	
+	</target>	
+
+	<target name="utep-rdf-writer-1" depends="build"  description="Generates and Uploads VisKo RDF to a Content Managment">
+		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorManagerLocalFileSystem">
+			<arg value="${server-url}"/>
+			<arg value="${visko-rdf}"/>
+			
+			<classpath>
+				<pathelement location="${jarfile}"/>
+				<pathelement location="${visko-api-jar}"/>
+				
 				<fileset dir="${lib}/axis4/">
 					<include name="*.jar"/>
 				</fileset>

@@ -6,7 +6,7 @@ import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.contentManagement.LocalFileSystem;
 
 
-public class GeneratorManager {
+public class GeneratorContentManager {
 	public static void main(String[] args){
 		
 		ContentManager.setContentManager(getContentManager(args));
