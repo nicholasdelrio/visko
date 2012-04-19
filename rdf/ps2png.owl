@@ -67,13 +67,13 @@
   <grounding:WsdlAtomicProcessGrounding rdf:about="#ps2pngAtomicProcessGrounding">
     <grounding:wsdlOutput>
       <grounding:WsdlOutputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#return</grounding:wsdlMessagePart>
+        <grounding:wsdlMessagePart>http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#return</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#return"/>
       </grounding:WsdlOutputMessageMap>
     </grounding:wsdlOutput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#url</grounding:wsdlMessagePart>
+        <grounding:wsdlMessagePart>http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#url</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#url"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
@@ -82,11 +82,11 @@
     <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >http://services.trustlab.utep.edu/#ps2png</grounding:wsdlInputMessage>
     <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl</grounding:wsdlDocument>
+    >http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl</grounding:wsdlDocument>
     <grounding:wsdlOperation>
       <grounding:WsdlOperationRef>
         <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#ps2png</grounding:operation>
+        >http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#ps2png</grounding:operation>
       </grounding:WsdlOperationRef>
     </grounding:wsdlOperation>
     <grounding:owlsProcess rdf:resource="#ps2pngProcess"/>

@@ -115,64 +115,64 @@
   <grounding:WsdlAtomicProcessGrounding rdf:about="#esriGridContourAtomicProcessGrounding">
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#font</grounding:wsdlMessagePart>
+        <grounding:wsdlMessagePart>http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#font</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#font"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#url</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#url"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >http://services.trustlab.utep.edu/#esriGridContour</grounding:wsdlInputMessage>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#lbOrientation</grounding:wsdlMessagePart>
+        <grounding:wsdlMessagePart>http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#lbOrientation</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#lbOrientation"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#cnLinesOn</grounding:wsdlMessagePart>
+        <grounding:wsdlMessagePart>http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#url</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#url"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#cnLinesOn</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#cnLinesOn"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#cnLevelSpacingF</grounding:wsdlMessagePart>
+        <grounding:wsdlMessagePart>http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#cnLevelSpacingF</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#cnLevelSpacingF"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
+    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl</grounding:wsdlDocument>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#colorTable</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#colorTable"/>
+        <grounding:wsdlMessagePart>http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#cnFillOn</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#cnFillOn"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#cnFillOn</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#cnFillOn"/>
+        <grounding:wsdlMessagePart>http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#colorTable</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#colorTable"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >http://services.trustlab.utep.edu/#esriGridContourResponse</grounding:wsdlOutputMessage>
-    <grounding:wsdlOperation>
-      <grounding:WsdlOperationRef>
-        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#esriGridContour</grounding:operation>
-      </grounding:WsdlOperationRef>
-    </grounding:wsdlOperation>
-    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl</grounding:wsdlDocument>
     <grounding:wsdlOutput>
       <grounding:WsdlOutputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#return</grounding:wsdlMessagePart>
+        <grounding:wsdlMessagePart>http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#return</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#return"/>
       </grounding:WsdlOutputMessageMap>
     </grounding:wsdlOutput>
+    <grounding:wsdlOperation>
+      <grounding:WsdlOperationRef>
+        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#esriGridContour</grounding:operation>
+      </grounding:WsdlOperationRef>
+    </grounding:wsdlOperation>
     <grounding:owlsProcess rdf:resource="#esriGridContourProcess"/>
   </grounding:WsdlAtomicProcessGrounding>
 </rdf:RDF>
