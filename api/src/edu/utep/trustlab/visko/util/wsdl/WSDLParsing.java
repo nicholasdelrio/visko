@@ -46,8 +46,7 @@ import org.mindswap.wsdl.WSDLOperation;
 import org.mindswap.wsdl.WSDLService;
 
 public class WSDLParsing {
-	public static WSDLOperation getWSDLOperationFromName(WSDLService s,
-			String opName) {
+	public static WSDLOperation getWSDLOperationFromName(WSDLService s, String opName) {
 		List<WSDLOperation> ops = s.getOperations();
 		for (WSDLOperation op : ops) {
 			if (op.getName().equals(opName)) {

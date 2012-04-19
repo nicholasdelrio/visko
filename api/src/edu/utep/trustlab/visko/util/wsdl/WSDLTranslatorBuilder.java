@@ -60,8 +60,7 @@ public class WSDLTranslatorBuilder {
 	String fileName;
 	OWLOntology ontology;
 
-	public WSDLTranslatorBuilder(OWLOntology ont, String operationName,
-			String wsdlURL) {
+	public WSDLTranslatorBuilder(OWLOntology ont, String operationName, String wsdlURL) {
 		WSDLOperation o = null;
 		WSDLService s = null;
 
@@ -74,8 +73,7 @@ public class WSDLTranslatorBuilder {
 
 		translator = new WSDLTranslator(ont, o, operationName);
 		translator.setServiceName(operationName);
-		translator
-				.setTextDescription("This is an owl-s service referenced as by a VisKo OperationImpl.");
+		translator.setTextDescription("This is a VisKo/OWLS Service.");
 
 		setInputs(o);
 		setOutputs(o);
@@ -88,16 +86,13 @@ public class WSDLTranslatorBuilder {
 		URI typeURI;
 
 		for (WSDLParameter param : params) {
-			paramType = (param.getType() == null) ? new QName(
-					WSDLConsts.xsdURI, "any") : param.getType();
+			paramType = (param.getType() == null) ? new QName(WSDLConsts.xsdURI, "any") : param.getType();
 			paramName = URIUtils.getLocalName(param.getName());
 
 			// By default use owl:Thing as param type
 			String type = OWL.Thing.toString();
 
-			if (paramType.getNamespaceURI().equals(WSDLConsts.soapEnc)
-					|| (paramType.getNamespaceURI().equals(WSDLConsts.xsdURI) && !paramType
-							.getLocalPart().equals("any"))) {
+			if (paramType.getNamespaceURI().equals(WSDLConsts.soapEnc) || (paramType.getNamespaceURI().equals(WSDLConsts.xsdURI) && !paramType.getLocalPart().equals("any"))) {
 				type = XSD.ns + paramType.getLocalPart();
 			}
 
