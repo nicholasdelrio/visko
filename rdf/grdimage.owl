@@ -48,6 +48,7 @@
         <rdfs:label>J</rdfs:label>
       </process:Input>
     </profile:hasInput>
+    <profile:textDescription>This is a VisKo/OWLS Service.</profile:textDescription>
     <profile:hasInput>
       <process:Input rdf:ID="B">
         <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
@@ -64,7 +65,6 @@
         <rdfs:label>R</rdfs:label>
       </process:Input>
     </profile:hasInput>
-    <profile:textDescription>This is an owl-s service referenced as by a VisKo OperationImpl.</profile:textDescription>
     <profile:hasInput>
       <process:Input rdf:ID="C">
         <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
@@ -105,33 +105,21 @@
     <service:supportedBy rdf:resource="#grdimageService"/>
   </grounding:WsdlGrounding>
   <grounding:WsdlAtomicProcessGrounding rdf:about="#grdimageAtomicProcessGrounding">
+    <grounding:owlsProcess rdf:resource="#grdimageProcess"/>
+    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl</grounding:wsdlDocument>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#T</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#T"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
     <grounding:wsdlOperation>
       <grounding:WsdlOperationRef>
         <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
         >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#grdimage</grounding:operation>
       </grounding:WsdlOperationRef>
     </grounding:wsdlOperation>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#B</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#B"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlOutput>
-      <grounding:WsdlOutputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#return</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#return"/>
-      </grounding:WsdlOutputMessageMap>
-    </grounding:wsdlOutput>
-    <grounding:owlsProcess rdf:resource="#grdimageProcess"/>
-    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl</grounding:wsdlDocument>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#url</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#url"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
         <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#R</grounding:wsdlMessagePart>
@@ -142,18 +130,30 @@
     >http://services.trustlab.utep.edu/#grdimageResponse</grounding:wsdlOutputMessage>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#J</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#J"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#T</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#T"/>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#B</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#B"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >http://services.trustlab.utep.edu/#grdimage</grounding:wsdlInputMessage>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#url</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#url"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#J</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#J"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#return</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#return"/>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
         <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#C</grounding:wsdlMessagePart>

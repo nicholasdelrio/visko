@@ -48,7 +48,6 @@
         <rdfs:label>I</rdfs:label>
       </process:Input>
     </profile:hasInput>
-    <profile:textDescription>This is an owl-s service referenced as by a VisKo OperationImpl.</profile:textDescription>
     <profile:hasInput>
       <process:Input rdf:ID="indexOfX">
         <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
@@ -70,6 +69,7 @@
         <rdfs:label>return</rdfs:label>
       </process:Output>
     </profile:hasOutput>
+    <profile:textDescription>This is a VisKo/OWLS Service.</profile:textDescription>
     <profile:hasInput>
       <process:Input rdf:ID="R">
         <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
@@ -113,18 +113,12 @@
     <service:supportedBy rdf:resource="#nearneighborService"/>
   </grounding:WsdlGrounding>
   <grounding:WsdlAtomicProcessGrounding rdf:about="#nearneighborAtomicProcessGrounding">
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#I</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#I"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#url</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#url"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
+    <grounding:wsdlOperation>
+      <grounding:WsdlOperationRef>
+        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#nearneighbor</grounding:operation>
+      </grounding:WsdlOperationRef>
+    </grounding:wsdlOperation>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
         <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#R</grounding:wsdlMessagePart>
@@ -133,8 +127,16 @@
     </grounding:wsdlInput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#indexOfZ</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#indexOfZ"/>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#I</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#I"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://services.trustlab.utep.edu/#nearneighborResponse</grounding:wsdlOutputMessage>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#url</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#url"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlOutput>
@@ -143,36 +145,34 @@
         <grounding:owlsParameter rdf:resource="#return"/>
       </grounding:WsdlOutputMessageMap>
     </grounding:wsdlOutput>
-    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://services.trustlab.utep.edu/#nearneighborResponse</grounding:wsdlOutputMessage>
-    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl</grounding:wsdlDocument>
-    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://services.trustlab.utep.edu/#nearneighbor</grounding:wsdlInputMessage>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#indexOfY</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#indexOfY"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:owlsProcess rdf:resource="#nearneighborProcess"/>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
         <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#indexOfX</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#indexOfX"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
+    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl</grounding:wsdlDocument>
+    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://services.trustlab.utep.edu/#nearneighbor</grounding:wsdlInputMessage>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
         <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#S</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#S"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
-    <grounding:wsdlOperation>
-      <grounding:WsdlOperationRef>
-        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#nearneighbor</grounding:operation>
-      </grounding:WsdlOperationRef>
-    </grounding:wsdlOperation>
+    <grounding:owlsProcess rdf:resource="#nearneighborProcess"/>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#indexOfY</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#indexOfY"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#indexOfZ</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#indexOfZ"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
   </grounding:WsdlAtomicProcessGrounding>
 </rdf:RDF>

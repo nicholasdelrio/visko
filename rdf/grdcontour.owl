@@ -34,7 +34,6 @@
     </service:presents>
   </service:Service>
   <profile:Profile rdf:about="#grdcontourProfile">
-    <profile:textDescription>This is an owl-s service referenced as by a VisKo OperationImpl.</profile:textDescription>
     <profile:serviceName>grdcontour</profile:serviceName>
     <profile:hasOutput>
       <process:Output rdf:ID="return">
@@ -99,6 +98,7 @@
         <rdfs:label>C</rdfs:label>
       </process:Input>
     </profile:hasInput>
+    <profile:textDescription>This is a VisKo/OWLS Service.</profile:textDescription>
     <service:presentedBy rdf:resource="#grdcontourService"/>
   </profile:Profile>
   <process:AtomicProcess rdf:about="#grdcontourProcess">
@@ -123,6 +123,18 @@
   <grounding:WsdlAtomicProcessGrounding rdf:about="#grdcontourAtomicProcessGrounding">
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#C</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#C"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#Wc</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#Wc"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
         <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#A</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#A"/>
       </grounding:WsdlInputMessageMap>
@@ -135,8 +147,8 @@
     </grounding:wsdlInput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#Wc</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#Wc"/>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#B</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#B"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlOperation>
@@ -145,10 +157,20 @@
         >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#grdcontour</grounding:operation>
       </grounding:WsdlOperationRef>
     </grounding:wsdlOperation>
+    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl</grounding:wsdlDocument>
+    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://services.trustlab.utep.edu/#grdcontour</grounding:wsdlInputMessage>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#return</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#return"/>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#C</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#C"/>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#J</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#J"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlInput>
@@ -157,36 +179,14 @@
         <grounding:owlsParameter rdf:resource="#Wa"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
-    <grounding:wsdlOutput>
-      <grounding:WsdlOutputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#return</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#return"/>
-      </grounding:WsdlOutputMessageMap>
-    </grounding:wsdlOutput>
-    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl</grounding:wsdlDocument>
-    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://services.trustlab.utep.edu/#grdcontour</grounding:wsdlInputMessage>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
         <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#S</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#S"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#B</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#B"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
     <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >http://services.trustlab.utep.edu/#grdcontourResponse</grounding:wsdlOutputMessage>
     <grounding:owlsProcess rdf:resource="#grdcontourProcess"/>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#J</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#J"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
   </grounding:WsdlAtomicProcessGrounding>
 </rdf:RDF>

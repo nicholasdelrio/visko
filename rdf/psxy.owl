@@ -55,7 +55,6 @@
         <rdfs:label>url</rdfs:label>
       </process:Input>
     </profile:hasInput>
-    <profile:textDescription>This is an owl-s service referenced as by a VisKo OperationImpl.</profile:textDescription>
     <profile:hasInput>
       <process:Input rdf:ID="B">
         <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
@@ -92,6 +91,7 @@
         <rdfs:label>S</rdfs:label>
       </process:Input>
     </profile:hasInput>
+    <profile:textDescription>This is a VisKo/OWLS Service.</profile:textDescription>
     <profile:hasInput>
       <process:Input rdf:ID="R">
         <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
@@ -121,7 +121,25 @@
     <service:supportedBy rdf:resource="#psxyService"/>
   </grounding:WsdlGrounding>
   <grounding:WsdlAtomicProcessGrounding rdf:about="#psxyAtomicProcessGrounding">
+    <grounding:wsdlOperation>
+      <grounding:WsdlOperationRef>
+        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#psxy</grounding:operation>
+      </grounding:WsdlOperationRef>
+    </grounding:wsdlOperation>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#S</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#S"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
     <grounding:owlsProcess rdf:resource="#psxyProcess"/>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#return</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#return"/>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
     <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >http://services.trustlab.utep.edu/#psxyResponse</grounding:wsdlOutputMessage>
     <grounding:wsdlInput>
@@ -132,20 +150,20 @@
     </grounding:wsdlInput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#indexOfY</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#indexOfY"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
         <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#url</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#url"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#G</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#G"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#S</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#S"/>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#R</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#R"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlInput>
@@ -154,12 +172,6 @@
         <grounding:owlsParameter rdf:resource="#indexOfX"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
-    <grounding:wsdlOutput>
-      <grounding:WsdlOutputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#return</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#return"/>
-      </grounding:WsdlOutputMessageMap>
-    </grounding:wsdlOutput>
     <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >http://services.trustlab.utep.edu/#psxy</grounding:wsdlInputMessage>
     <grounding:wsdlInput>
@@ -168,25 +180,13 @@
         <grounding:owlsParameter rdf:resource="#B"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#indexOfY</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#indexOfY"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
     <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl</grounding:wsdlDocument>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#R</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#R"/>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#G</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#G"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
-    <grounding:wsdlOperation>
-      <grounding:WsdlOperationRef>
-        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServicesPort?wsdl#psxy</grounding:operation>
-      </grounding:WsdlOperationRef>
-    </grounding:wsdlOperation>
   </grounding:WsdlAtomicProcessGrounding>
 </rdf:RDF>

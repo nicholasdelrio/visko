@@ -48,7 +48,7 @@
         <rdfs:label>url</rdfs:label>
       </process:Input>
     </profile:hasInput>
-    <profile:textDescription>This is an owl-s service referenced as by a VisKo OperationImpl.</profile:textDescription>
+    <profile:textDescription>This is a VisKo/OWLS Service.</profile:textDescription>
     <profile:serviceName>pdf2png</profile:serviceName>
     <service:presentedBy rdf:resource="#pdf2pngService"/>
   </profile:Profile>
