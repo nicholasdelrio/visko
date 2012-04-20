@@ -27,7 +27,7 @@ import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 public class GriddedGravityDataProfile {
 	public static void create() {
 
-		String region = "-109/107/33/40";
+		String region = "-109/-107/33/40";
 		
 		String gridded2Raster = GMTServices.gridded2Raster.substring(0, GMTServices.gridded2Raster.indexOf("#"));
 		String gridded2ContourMap = GMTServices.gridded2ContourMap.substring(0, GMTServices.gridded2ContourMap.indexOf("#"));
