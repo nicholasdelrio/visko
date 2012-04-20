@@ -4,11 +4,13 @@
 	<!-- GitHub Configuration (SET your-github-username)-->
 	<property name="your-github-username" value="nicholasdelrio"/>
 	<property name="my-github-username" value="nicholasdelrio"/>
+	<property name="current-branch" value="new-generators"/>
+	<property name="master-branch" value="master"/>
 	<property name="base-rdf-server-url" value="https://raw.github.com/"/>
-	<property name="frag-rdf-server-url" value="/visko/new-generators/rdf/"/>
-	<property name="format-url" value="${base-rdf-server-url}${my-github-username}${frag-rdf-server-url}formats/"/>	
-	<property name="github-server-url" value="${base-rdf-server-url}${your-github-username}${frag-rdf-server-url}"/>
-		
+	<property name="github-server-url" value="${base-rdf-server-url}${your-github-username}/visko/${current-branch}/rdf/"/>
+	<property name="format-url" value="${base-rdf-server-url}${my-github-username}/visko/${master-branch}/rdf/formats/"/>	
+
+	
 	<!-- Alfresco/Cat Configuration -->
 	<property name="cat-server-url" value="http://localhost:8080/alfresco/"/>
 	<property name="cat-server-username" value="admin"/>
