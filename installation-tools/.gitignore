@@ -2,7 +2,6 @@
 /.classpath
 /.project
 /bin
-
 /build
 /installer-tools.jar
 /visko-web.war
