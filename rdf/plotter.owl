@@ -10,7 +10,7 @@
     <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/visko-operator-v3.owl"/>
   </owl:Ontology>
   <viskoO:Mapper rdf:about="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/plotter.owl#plotter">
-    <viskoO:mapsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/contour-lines.owl#contour-lines"/>
+    <viskoO:mapsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/plot-2D.owl#plot-2D"/>
     <viskoO:transformsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >2D plotter</pmlp:hasName>
