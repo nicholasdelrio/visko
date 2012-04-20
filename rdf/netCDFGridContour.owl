@@ -121,71 +121,71 @@
     <service:supportedBy rdf:resource="#netCDFGridContourService"/>
   </grounding:WsdlGrounding>
   <grounding:WsdlAtomicProcessGrounding rdf:about="#netCDFGridContourAtomicProcessGrounding">
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#lbOrientation</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#lbOrientation"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#url</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#url"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://services.trustlab.utep.edu/#netCDFGridContourResponse</grounding:wsdlOutputMessage>
-    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl</grounding:wsdlDocument>
-    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://services.trustlab.utep.edu/#netCDFGridContour</grounding:wsdlInputMessage>
     <grounding:wsdlOutput>
       <grounding:WsdlOutputMessageMap>
-        <grounding:wsdlMessagePart>http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#return</grounding:wsdlMessagePart>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#return</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#return"/>
       </grounding:WsdlOutputMessageMap>
     </grounding:wsdlOutput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#colorTable</grounding:wsdlMessagePart>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#colorTable</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#colorTable"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://services.trustlab.utep.edu#netCDFGridContourRequest</grounding:wsdlInputMessage>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#url</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#url"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#cnLinesOn</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#cnLinesOn"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlOperation>
       <grounding:WsdlOperationRef>
         <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#netCDFGridContour</grounding:operation>
+        >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#netCDFGridContour</grounding:operation>
       </grounding:WsdlOperationRef>
     </grounding:wsdlOperation>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#cnFillOn</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#cnFillOn"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#plotVariable</grounding:wsdlMessagePart>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#plotVariable</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#plotVariable"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:owlsProcess rdf:resource="#netCDFGridContourProcess"/>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#cnLevelSpacingF</grounding:wsdlMessagePart>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#cnFillOn</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#cnFillOn"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#font</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#font"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#cnLevelSpacingF</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#cnLevelSpacingF"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
+    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://services.trustlab.utep.edu#netCDFGridContourResponse</grounding:wsdlOutputMessage>
+    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl</grounding:wsdlDocument>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#cnLinesOn</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#cnLinesOn"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://localhost:8080/toolkits/services/ToolkitOperatorsPort?wsdl#font</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#font"/>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#lbOrientation</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#lbOrientation"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
   </grounding:WsdlAtomicProcessGrounding>
