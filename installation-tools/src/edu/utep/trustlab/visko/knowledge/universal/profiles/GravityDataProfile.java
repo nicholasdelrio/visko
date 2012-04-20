@@ -31,7 +31,7 @@ public class GravityDataProfile {
 
 		// gravity data
 		String dataTypeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d19";
-		String region = "-109/-107/33/40";
+		String region = "-109/-107/33/34";
 		
 		ToolkitProfileWriter wtr = new ToolkitProfileWriter("gravityDataProfile");
 		wtr.setSupportingToolkit(GMTToolkits.gmt);
