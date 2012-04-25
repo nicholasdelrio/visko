@@ -20,18 +20,15 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge.ncl;
 
-import edu.utep.trustlab.visko.knowledge.universal.ServiceWSDL;
 import edu.utep.trustlab.visko.ontology.service.writer.ServiceWriter;
 
-
 public class NCLServices {
-	private static final String wsdlURL = ServiceWSDL.WSDL_URL;
 
 	public static String netCDFGridContour;
 	public static String netCDFGridRaster;
 	public static String netCDFTimeSeries;
 	
-	public static void create() {
+	public static void create(String wsdlURL) {
 		
 		String operationName = "gsn_csm_contour_map";
 		ServiceWriter wtr2 = new ServiceWriter(operationName);

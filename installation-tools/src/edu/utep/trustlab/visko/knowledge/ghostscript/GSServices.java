@@ -20,16 +20,14 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge.ghostscript;
 
-import edu.utep.trustlab.visko.knowledge.universal.ServiceWSDL;
 import edu.utep.trustlab.visko.ontology.service.writer.ServiceWriter;
 public class GSServices {
-	private static final String wsdlURL = ServiceWSDL.WSDL_URL;
-
+	
 	public static String ps2pdf;
 	public static String ps2png;
 	public static String pdf2png;
 
-	public static void create() {
+	public static void create(String wsdlURL) {
 		String operationName = "ps2pdf";
 		
 		ServiceWriter wtr = new ServiceWriter(operationName);

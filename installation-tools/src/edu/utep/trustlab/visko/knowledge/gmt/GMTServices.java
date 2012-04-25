@@ -20,11 +20,10 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge.gmt;
 
-import edu.utep.trustlab.visko.knowledge.universal.ServiceWSDL;
 import edu.utep.trustlab.visko.ontology.service.writer.ServiceWriter;
 
 public class GMTServices {
-	private static final String wsdlURL = ServiceWSDL.WSDL_URL;
+
 	public static String gridded2ContourMap;
 	public static String points2MinCurvatureGridded;
 	public static String points2NearNeighborGridded;
@@ -32,7 +31,7 @@ public class GMTServices {
 	public static String gridded2Raster;
 	public static String csv2Tabular;
 	
-	public static void create() {
+	public static void create(String wsdlURL) {
 		
 		String operationName = "grdcontour";
 		ServiceWriter wtr = new ServiceWriter(operationName);

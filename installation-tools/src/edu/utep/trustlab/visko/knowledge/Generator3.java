@@ -26,12 +26,12 @@ import edu.utep.trustlab.visko.knowledge.ncl.NCLServices;
 import edu.utep.trustlab.visko.knowledge.vtk.VTKServices;
 
 public class Generator3 {
-	public static void gen(){
+	public static void gen(String wsdlURL){
 		
 		//create services that depend on Transformers created in Generator2
-		GSServices.create();
-		GMTServices.create();
-		NCLServices.create();
-		VTKServices.create();
+		GSServices.create(wsdlURL);
+		GMTServices.create(wsdlURL);
+		NCLServices.create(wsdlURL);
+		VTKServices.create(wsdlURL);
 	}
 }

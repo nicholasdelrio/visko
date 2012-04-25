@@ -8,6 +8,7 @@ public class GeneratorLocalFileSystem {
 	public static void main(String[] args){
 		
 		ContentManager.setContentManager(getContentManager(args));
+		String wsdlURL = args[2];
 		
 		Generator1.gen();
 		System.out.println("gen1 done");
@@ -29,7 +30,7 @@ public class GeneratorLocalFileSystem {
 		System.out.println("git push <<your forked remote visko repo>>");
 		System.console().readLine("Press <<enter>> after your have pushed to GitHub.");
 			
-		Generator3.gen();
+		Generator3.gen(wsdlURL);
 		System.out.println("gen3 done");
 		System.out.println("Push to GitHug now!");
 		System.out.println("*****************************************");
