@@ -14,7 +14,7 @@
     <viskoO:transformsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Raster Map Generator</pmlp:hasName>
-    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF"/>
+    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDFGMT.owl#NETCDFGMT"/>
     <rdfs:label>Raster Map Generator</rdfs:label>
   </viskoO:Mapper>
 </rdf:RDF>
