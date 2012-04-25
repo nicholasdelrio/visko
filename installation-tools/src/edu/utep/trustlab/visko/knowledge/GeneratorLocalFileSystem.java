@@ -12,7 +12,7 @@ public class GeneratorLocalFileSystem {
 		
 		Generator1.gen();
 		System.out.println("gen1 done");
-		System.out.println("Push to GitHug now!");
+		System.out.println("Push to GitHub now!");
 		System.out.println("*****************************************");
 		System.out.println("cd visko");
 		System.out.println("git add *");
@@ -22,7 +22,7 @@ public class GeneratorLocalFileSystem {
 		
 		Generator2.gen();
 		System.out.println("gen2 done");
-		System.out.println("Push to GitHug now!");
+		System.out.println("Push to GitHub now!");
 		System.out.println("*****************************************");
 		System.out.println("cd visko");
 		System.out.println("git add *");
@@ -32,7 +32,7 @@ public class GeneratorLocalFileSystem {
 			
 		Generator3.gen(wsdlURL);
 		System.out.println("gen3 done");
-		System.out.println("Push to GitHug now!");
+		System.out.println("Push to GitHub now!");
 		System.out.println("*****************************************");
 		System.out.println("cd visko");
 		System.out.println("git add *");
@@ -42,7 +42,7 @@ public class GeneratorLocalFileSystem {
 			
 		Generator4.gen();
 		System.out.println("gen4 done");
-		System.out.println("Push to GitHug now!");
+		System.out.println("Push to GitHub now!");
 		System.out.println("*****************************************");
 		System.out.println("cd visko");
 		System.out.println("git add *");
