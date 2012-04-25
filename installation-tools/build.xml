@@ -10,6 +10,8 @@
 	<property name="github-server-url" value="${base-rdf-server-url}${your-github-username}/visko/${current-branch}/rdf/"/>
 	<property name="format-url" value="${base-rdf-server-url}${my-github-username}/visko/${master-branch}/rdf/formats/"/>	
 
+	<!-- Services WSDL -->
+	<property name="wsdl-url" value="http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl"/>
 	
 	<!-- Alfresco/Cat Configuration -->
 	<property name="cat-server-url" value="http://localhost:8080/alfresco/"/>
@@ -178,6 +180,9 @@
 			<arg value="${cat-server-username}"/>
 			<arg value="${cat-server-password}"/>
 			<arg value="${visko-rdf}"/>
+			<arg value="${wsdl-url}"/>
+			<arg value="${cat-webdav-url}"/>
+			
 			
 			<classpath>
 				<pathelement location="${jarfile}"/>
