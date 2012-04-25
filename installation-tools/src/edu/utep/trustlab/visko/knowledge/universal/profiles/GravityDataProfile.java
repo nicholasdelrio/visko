@@ -42,8 +42,8 @@ public class GravityDataProfile {
 		String points2MinCurvatureGridded = GMTServices.points2MinCurvatureGridded.substring(0, GMTServices.points2MinCurvatureGridded.indexOf("#"));
 		String gridded2Raster = GMTServices.gridded2Raster.substring(0, GMTServices.gridded2Raster.indexOf("#"));
 		String gridded2ContourMap = GMTServices.gridded2ContourMap.substring(0, GMTServices.gridded2ContourMap.indexOf("#"));
-		String esriGridRaster = NCLServices.esriGridRaster.substring(0, NCLServices.esriGridRaster.indexOf("#"));
-		String esriGridContour = NCLServices.esriGridContour.substring(0, NCLServices.esriGridContour.indexOf("#"));
+		String gridded2RasterNCL = NCLServices.netCDFGridRaster.substring(0, NCLServices.netCDFGridRaster.indexOf("#"));
+		String gridded2ContourMapNCL = NCLServices.netCDFGridContour.substring(0, NCLServices.netCDFGridContour.indexOf("#"));
 		
 		// for GMT psxy
 		wtr.addInputBinding(points22DPlot + "#S", "c0.04c");
@@ -88,17 +88,17 @@ public class GravityDataProfile {
 		wtr.addInputBinding(gridded2ContourMap + "#Wa", "thinnest,black");
 		
 		// for NCL gsx_gsn something
-		wtr.addInputBinding(esriGridContour + "#lbOrientation", "vertical");
-		wtr.addInputBinding(esriGridContour + "#cnLevelSpacingF", "10");
-		wtr.addInputBinding(esriGridContour + "#colorTable", "WhiteBlueGreenYellowRed");
-		wtr.addInputBinding(esriGridContour + "#font", "helvetica");
-		wtr.addInputBinding(esriGridContour + "#cnFillOn", "True");
-		wtr.addInputBinding(esriGridContour + "#cnLinesOn", "False");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#lbOrientation", "vertical");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#cnLevelSpacingF", "10");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#colorTable", "WhiteBlueGreenYellowRed");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#font", "helvetica");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#cnFillOn", "True");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#cnLinesOn", "False");
 		
 		// for NCL gsx_gsn something excepted hard coded for raster generation
-		wtr.addInputBinding(esriGridRaster + "#lbOrientation", "vertical");
-		wtr.addInputBinding(esriGridRaster + "#colorTable", "WhiteBlueGreenYellowRed");
-		wtr.addInputBinding(esriGridRaster + "#font", "helvetica");
+		wtr.addInputBinding(gridded2RasterNCL + "#lbOrientation", "vertical");
+		wtr.addInputBinding(gridded2RasterNCL + "#colorTable", "WhiteBlueGreenYellowRed");
+		wtr.addInputBinding(gridded2RasterNCL + "#font", "helvetica");
 		
 		// dump document
 		documentURL = wtr.saveDocument();

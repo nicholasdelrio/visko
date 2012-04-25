@@ -34,7 +34,7 @@ public class GMTTransformers {
 
 		String name;
 		TransformerWriter wtr = new TransformerWriter("contourer", true);
-		wtr.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF");
+		wtr.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDFGMT.owl#NETCDFGMT");
 		wtr.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
 		name = "contour";
 		wtr.setLabel(name);
@@ -45,7 +45,7 @@ public class GMTTransformers {
 		
 		TransformerWriter wtr1 = new TransformerWriter("gridder", false);
 		wtr1.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII");
-		wtr1.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF");
+		wtr1.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDFGMT.owl#NETCDFGMT");
 		name = "Data Gridder";
 		wtr1.setLabel(name);
 		wtr1.setName(name);
@@ -64,7 +64,7 @@ public class GMTTransformers {
 		
 		
 		TransformerWriter wtr3 = new TransformerWriter("rasterer", true);
-		wtr3.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF");
+		wtr3.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDFGMT.owl#NETCDFGMT");
 		wtr3.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
 		name = "Raster Map Generator";
 		wtr3.setLabel(name);

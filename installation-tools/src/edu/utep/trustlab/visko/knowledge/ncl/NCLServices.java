@@ -20,7 +20,6 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.knowledge.ncl;
 
-import edu.utep.trustlab.visko.knowledge.gmt.GMTTransformers;
 import edu.utep.trustlab.visko.knowledge.universal.ServiceWSDL;
 import edu.utep.trustlab.visko.ontology.service.writer.ServiceWriter;
 
@@ -28,58 +27,35 @@ import edu.utep.trustlab.visko.ontology.service.writer.ServiceWriter;
 public class NCLServices {
 	private static final String wsdlURL = ServiceWSDL.WSDL_URL;
 
-	public static String esriGridContour;
-	public static String esriGridRaster;
 	public static String netCDFGridContour;
 	public static String netCDFGridRaster;
 	public static String netCDFTimeSeries;
 	
 	public static void create() {
-		String operationName = "esriGridContour";
-		ServiceWriter wtr = new ServiceWriter(operationName);
-		wtr.setLabel(operationName);
-		wtr.setOperationName(operationName);
-		wtr.setWSDLURL(wsdlURL);
-		wtr.setConceptualOperator(GMTTransformers.contourer);
-		wtr.setSupportingToolkit(NCLToolkits.ncl);
-		wtr.saveDocument();
-		System.out.println(wtr.getURI());
-		esriGridContour = wtr.getURI();
 		
-		operationName = "esriGridRaster";
-		ServiceWriter wtr1 = new ServiceWriter(operationName);
-		wtr1.setLabel(operationName);
-		wtr1.setOperationName(operationName);
-		wtr1.setWSDLURL(wsdlURL);
-		wtr1.setConceptualOperator(GMTTransformers.rasterer);
-		wtr1.setSupportingToolkit(NCLToolkits.ncl);
-		wtr1.saveDocument();
-		System.out.println(wtr1.getURI());
-		esriGridRaster = wtr1.getURI();
-		
-		operationName = "netCDFGridContour";
+		String operationName = "gsn_csm_contour_map";
 		ServiceWriter wtr2 = new ServiceWriter(operationName);
 		wtr2.setLabel(operationName);
 		wtr2.setOperationName(operationName);
 		wtr2.setWSDLURL(wsdlURL);
-		wtr2.setConceptualOperator(GMTTransformers.contourer);
+		wtr2.setConceptualOperator(NCLTransformers.netCDFContourer);
 		wtr2.setSupportingToolkit(NCLToolkits.ncl);
 		wtr2.saveDocument();
 		System.out.println(wtr2.getURI());
 		netCDFGridContour = wtr2.getURI();
 		
-		operationName = "netCDFGridRaster";
+		operationName = "gsn_csm_contour_map_raster";
 		ServiceWriter wtr3 = new ServiceWriter(operationName);
 		wtr3.setLabel(operationName);
 		wtr3.setOperationName(operationName);
 		wtr3.setWSDLURL(wsdlURL);
-		wtr3.setConceptualOperator(GMTTransformers.rasterer);
+		wtr3.setConceptualOperator(NCLTransformers.netCDFRasterer);
 		wtr3.setSupportingToolkit(NCLToolkits.ncl);
 		wtr3.saveDocument();
 		System.out.println(wtr3.getURI());
 		netCDFGridRaster = wtr3.getURI();
 
-		operationName = "netCDFTimeSeries";
+		operationName = "gsn_csm_xy2_time_series";
 		ServiceWriter wtr4 = new ServiceWriter(operationName);
 		wtr4.setLabel(operationName);
 		wtr4.setOperationName(operationName);
