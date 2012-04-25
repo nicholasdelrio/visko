@@ -211,6 +211,7 @@
 		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorLocalFileSystem">
 			<arg value="${server-url}"/>
 			<arg value="${visko-rdf}"/>
+			<arg value="${wsdl-url}"/>
 			
 			<classpath>
 				<pathelement location="${jarfile}"/>
