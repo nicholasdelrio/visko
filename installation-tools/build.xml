@@ -104,7 +104,7 @@
 		<move file="${visko-web-war}" todir="."/>
 	</target>
 
-	<target name="build-web-configuration" depends="build" description="Generate the query examples html specific for your VisKo RDF deployment">
+	<target name="build-web-configuration" depends="build" description="Create web.xml file for visko-web application">
 		<java classname="edu.utep.trustlab.webapp.WebAppConfiguration">
 			<arg value="${web-xml-template}"/>
 			<arg value="${logo-path}"/>
