@@ -13,7 +13,11 @@
   <listener>
         <listener-class>edu.utep.trustlab.visko.web.context.ContextListener</listener-class>
    </listener>
-  
+
+  <context-param>
+    <param-name>hosting-organization</param-name>
+    <param-value>REPLACE-ORGANIZATION</param-value>
+  </context-param>  
   <context-param>
     <param-name>logo-path</param-name>
     <param-value>REPLACE-LOGO-PATH</param-value>

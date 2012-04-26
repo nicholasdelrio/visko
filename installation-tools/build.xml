@@ -27,7 +27,8 @@
 	<!-- Server URL -->
 	<property name="server-url" value="${github-server-url}"/>
 	
-	<!-- web.xml configuration (SET logo-file-name, host-port, tdb-path) -->
+	<!-- web.xml configuration (SET org-acronym, logo-file-name, host-port, tdb-path) -->
+	<property name="org-acronym" value="UTEP" />
 	<property name="logo-file-name" value="LogoUTEP.jpg" />
 	<property name="host-port" value="8080" />
 	<property name="tdb-path" value="C:/Users/Public/git/visko/tdb"/>
@@ -112,6 +113,7 @@
 			<arg value="${logo-path}"/>
 			<arg value="${sparql-endpoint}"/>
 			<arg value="${tdb-path}"/>
+			<arg value="${org-acronym}"/>
 			<arg value="${web-xml-deployment-dir}"/>
 			
 			<classpath>

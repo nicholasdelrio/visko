@@ -11,13 +11,15 @@ public class WebAppConfiguration {
 	private String tripleStorePath;
 	private String sparqlURL;
 	private String dumpDirPath;
+	private String org;
 	
-	public WebAppConfiguration(String webXMLPath, String logoPath, String sparqlEndpoint, String tdbPath, String newDirectoryPath){
+	public WebAppConfiguration(String webXMLPath, String logoPath, String sparqlEndpoint, String tdbPath, String organization, String newDirectoryPath){
 		webConfigPath = webXMLPath;
 		headerLogoPath = logoPath;
 		tripleStorePath = tdbPath;
 		dumpDirPath = newDirectoryPath;
 		sparqlURL = sparqlEndpoint;
+		org = organization;
 	}
 	
 	public String generateWebXML(){
@@ -26,6 +28,7 @@ public class WebAppConfiguration {
 		webXML = webXML.replaceAll("REPLACE-LOGO-PATH", headerLogoPath);	
 		webXML = webXML.replaceAll("REPLACE-ENDPOINT-URL", sparqlURL);
 		webXML = webXML.replaceAll("REPLACE-TDB-PATH", tripleStorePath);
+		webXML = webXML.replaceAll("REPLACE-ORGANIZATION", org);
 		
 		String webXMLPath;
 		
@@ -43,9 +46,9 @@ public class WebAppConfiguration {
 		WebAppConfiguration qe;
 		
 		if(args.length == 4)
-			qe = new WebAppConfiguration(args[0], args[1], args[2], args[3], null);
+			qe = new WebAppConfiguration(args[0], args[1], args[2], args[3], args[4], null);
 		else
-			qe = new WebAppConfiguration(args[0], args[1], args[2], args[3], args[4]);
+			qe = new WebAppConfiguration(args[0], args[1], args[2], args[3], args[4], args[5]);
 		
 		System.out.println(qe.generateWebXML());
 	}
