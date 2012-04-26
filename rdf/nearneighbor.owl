@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:service="http://www.daml.org/services/owl-s/1.2/Service.owl#"
+    xmlns:process="http://www.daml.org/services/owl-s/1.2/Process.owl#"
+    xmlns:viskoS="http://trust.utep.edu/visko/ontology/visko-service-v3.owl#"
+    xmlns:list="http://www.daml.org/services/owl-s/1.2/generic/ObjectList.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:expr="http://www.daml.org/services/owl-s/1.2/generic/Expression.owl#"
+    xmlns="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/nearneighbor.owl"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:grounding="http://www.daml.org/services/owl-s/1.2/Grounding.owl#"
+    xmlns:profile="http://www.daml.org/services/owl-s/1.2/Profile.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/nearneighbor.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Grounding.owl"/>
+    <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Profile.owl"/>
+    <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Service.owl"/>
+  </owl:Ontology>
+  <service:Service rdf:ID="nearneighborService">
+    <viskoS:implementsOperator rdf:resource="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gridder.owl#gridder"/>
+    <viskoS:supportedBy rdf:resource="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gmt.owl#gmt"/>
+    <rdfs:label>nearneighbor</rdfs:label>
+    <service:supports>
+      <grounding:WsdlGrounding rdf:ID="nearneighborGrounding"/>
+    </service:supports>
+    <service:describedBy>
+      <process:AtomicProcess rdf:ID="nearneighborProcess"/>
+    </service:describedBy>
+    <service:presents>
+      <profile:Profile rdf:ID="nearneighborProfile"/>
+    </service:presents>
+  </service:Service>
+  <profile:Profile rdf:about="#nearneighborProfile">
+    <profile:hasInput>
+      <process:Input rdf:ID="S">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>S</rdfs:label>
+      </process:Input>
+    </profile:hasInput>
+    <profile:hasInput>
+      <process:Input rdf:ID="I">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>I</rdfs:label>
+      </process:Input>
+    </profile:hasInput>
+    <profile:hasInput>
+      <process:Input rdf:ID="indexOfX">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>indexOfX</rdfs:label>
+      </process:Input>
+    </profile:hasInput>
+    <profile:hasInput>
+      <process:Input rdf:ID="url">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>url</rdfs:label>
+      </process:Input>
+    </profile:hasInput>
+    <profile:hasOutput>
+      <process:Output rdf:ID="return">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>return</rdfs:label>
+      </process:Output>
+    </profile:hasOutput>
+    <profile:textDescription>This is a VisKo/OWLS Service.</profile:textDescription>
+    <profile:hasInput>
+      <process:Input rdf:ID="R">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>R</rdfs:label>
+      </process:Input>
+    </profile:hasInput>
+    <profile:hasInput>
+      <process:Input rdf:ID="indexOfY">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>indexOfY</rdfs:label>
+      </process:Input>
+    </profile:hasInput>
+    <profile:serviceName>nearneighbor</profile:serviceName>
+    <profile:hasInput>
+      <process:Input rdf:ID="indexOfZ">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>indexOfZ</rdfs:label>
+      </process:Input>
+    </profile:hasInput>
+    <service:presentedBy rdf:resource="#nearneighborService"/>
+  </profile:Profile>
+  <process:AtomicProcess rdf:about="#nearneighborProcess">
+    <process:hasInput rdf:resource="#indexOfY"/>
+    <rdfs:label>nearneighborProcess</rdfs:label>
+    <process:hasInput rdf:resource="#I"/>
+    <service:describes rdf:resource="#nearneighborService"/>
+    <process:hasInput rdf:resource="#url"/>
+    <process:hasInput rdf:resource="#indexOfX"/>
+    <process:hasInput rdf:resource="#R"/>
+    <process:hasInput rdf:resource="#S"/>
+    <process:hasInput rdf:resource="#indexOfZ"/>
+    <process:hasOutput rdf:resource="#return"/>
+  </process:AtomicProcess>
+  <grounding:WsdlGrounding rdf:about="#nearneighborGrounding">
+    <grounding:hasAtomicProcessGrounding>
+      <grounding:WsdlAtomicProcessGrounding rdf:ID="nearneighborAtomicProcessGrounding"/>
+    </grounding:hasAtomicProcessGrounding>
+    <service:supportedBy rdf:resource="#nearneighborService"/>
+  </grounding:WsdlGrounding>
+  <grounding:WsdlAtomicProcessGrounding rdf:about="#nearneighborAtomicProcessGrounding">
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#indexOfX</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#indexOfX"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#indexOfY</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#indexOfY"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#I</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#I"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#R</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#R"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://services.trustlab.utep.edu#nearneighborResponse</grounding:wsdlOutputMessage>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#url</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#url"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlOperation>
+      <grounding:WsdlOperationRef>
+        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#nearneighbor</grounding:operation>
+      </grounding:WsdlOperationRef>
+    </grounding:wsdlOperation>
+    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://services.trustlab.utep.edu#nearneighborRequest</grounding:wsdlInputMessage>
+    <grounding:owlsProcess rdf:resource="#nearneighborProcess"/>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#return</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#return"/>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#indexOfZ</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#indexOfZ"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#S</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#S"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl</grounding:wsdlDocument>
+  </grounding:WsdlAtomicProcessGrounding>
+</rdf:RDF>

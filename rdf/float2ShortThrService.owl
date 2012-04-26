@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:service="http://www.daml.org/services/owl-s/1.2/Service.owl#"
+    xmlns:process="http://www.daml.org/services/owl-s/1.2/Process.owl#"
+    xmlns:viskoS="http://trust.utep.edu/visko/ontology/visko-service-v3.owl#"
+    xmlns:list="http://www.daml.org/services/owl-s/1.2/generic/ObjectList.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:expr="http://www.daml.org/services/owl-s/1.2/generic/Expression.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/float2ShortThrService.owl"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:grounding="http://www.daml.org/services/owl-s/1.2/Grounding.owl#"
+    xmlns:profile="http://www.daml.org/services/owl-s/1.2/Profile.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/float2ShortThrService.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Grounding.owl"/>
+    <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Profile.owl"/>
+    <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Service.owl"/>
+  </owl:Ontology>
+  <service:Service rdf:ID="float2ShortThrService">
+    <viskoS:implementsOperator rdf:resource="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/floatArrayToShortIntArray.owl#floatArrayToShortIntArray"/>
+    <viskoS:supportedBy rdf:resource="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/vtk.owl#vtk"/>
+    <rdfs:label>float2ShortThr</rdfs:label>
+    <service:supports>
+      <grounding:WsdlGrounding rdf:ID="float2ShortThrGrounding"/>
+    </service:supports>
+    <service:describedBy>
+      <process:AtomicProcess rdf:ID="float2ShortThrProcess"/>
+    </service:describedBy>
+    <service:presents>
+      <profile:Profile rdf:ID="float2ShortThrProfile"/>
+    </service:presents>
+  </service:Service>
+  <profile:Profile rdf:about="#float2ShortThrProfile">
+    <profile:hasOutput>
+      <process:Output rdf:ID="return">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>return</rdfs:label>
+      </process:Output>
+    </profile:hasOutput>
+    <profile:hasInput>
+      <process:Input rdf:ID="offset">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>offset</rdfs:label>
+      </process:Input>
+    </profile:hasInput>
+    <profile:hasInput>
+      <process:Input rdf:ID="scalingFactor">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>scalingFactor</rdfs:label>
+      </process:Input>
+    </profile:hasInput>
+    <profile:hasInput>
+      <process:Input rdf:ID="url">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
+        <rdfs:label>url</rdfs:label>
+      </process:Input>
+    </profile:hasInput>
+    <profile:textDescription>This is a VisKo/OWLS Service.</profile:textDescription>
+    <profile:serviceName>float2ShortThr</profile:serviceName>
+    <service:presentedBy rdf:resource="#float2ShortThrService"/>
+  </profile:Profile>
+  <process:AtomicProcess rdf:about="#float2ShortThrProcess">
+    <process:hasOutput rdf:resource="#return"/>
+    <process:hasInput rdf:resource="#offset"/>
+    <process:hasInput rdf:resource="#scalingFactor"/>
+    <process:hasInput rdf:resource="#url"/>
+    <service:describes rdf:resource="#float2ShortThrService"/>
+    <rdfs:label>float2ShortThrProcess</rdfs:label>
+  </process:AtomicProcess>
+  <grounding:WsdlGrounding rdf:about="#float2ShortThrGrounding">
+    <grounding:hasAtomicProcessGrounding>
+      <grounding:WsdlAtomicProcessGrounding rdf:ID="float2ShortThrAtomicProcessGrounding"/>
+    </grounding:hasAtomicProcessGrounding>
+    <service:supportedBy rdf:resource="#float2ShortThrService"/>
+  </grounding:WsdlGrounding>
+  <grounding:WsdlAtomicProcessGrounding rdf:about="#float2ShortThrAtomicProcessGrounding">
+    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://services.trustlab.utep.edu#float2ShortThrResponse</grounding:wsdlOutputMessage>
+    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl</grounding:wsdlDocument>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#offset</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#offset"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#url</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#url"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://services.trustlab.utep.edu#float2ShortThrRequest</grounding:wsdlInputMessage>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#return</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#return"/>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#scalingFactor</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#scalingFactor"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlOperation>
+      <grounding:WsdlOperationRef>
+        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#float2ShortThr</grounding:operation>
+      </grounding:WsdlOperationRef>
+    </grounding:wsdlOperation>
+    <grounding:owlsProcess rdf:resource="#float2ShortThrProcess"/>
+  </grounding:WsdlAtomicProcessGrounding>
+</rdf:RDF>
