@@ -4,7 +4,7 @@
 	<!-- GitHub Configuration (SET your-github-username)-->
 	<property name="your-github-username" value="nicholasdelrio"/>
 	<property name="my-github-username" value="nicholasdelrio"/>
-	<property name="current-branch" value="new-generators"/>
+	<property name="current-branch" value="master"/>
 	<property name="master-branch" value="master"/>
 	<property name="base-rdf-server-url" value="https://raw.github.com/"/>
 	<property name="github-server-url" value="${base-rdf-server-url}${your-github-username}/visko/${current-branch}/rdf/"/>
