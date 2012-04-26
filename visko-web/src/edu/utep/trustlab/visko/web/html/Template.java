@@ -3,13 +3,21 @@ package edu.utep.trustlab.visko.web.html;
 public class Template {
 	
 	private static String logoPath;
-	
+	private static String org;
 	public static void setLogoPath(String path){
 		logoPath = path;
 	}
 	
 	public static String getLogoPath(){
 		return logoPath;
+	}
+	
+	public static void setOrganization(String organization){
+		org = organization;
+	}
+	
+	public static String getOrganization(){
+		return org;
 	}
 	
 	public static String getCompleteHeader(){
@@ -27,7 +35,7 @@ public class Template {
 				"    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
 				"    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
 				"    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-				"    <h1 style=\"padding-top:0px;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VisKo Instance</h1>" +
+				"    <h1 style=\"padding-top:0px;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + Template.getOrganization() + " VisKo Instance</h1>" +
 				"</div>" +
 				"<div id=\"menu\">" +
 				"	<a href=\"http://trust.utep.edu/visko\">VisKo Home</a>" +

@@ -22,6 +22,12 @@ public class ContextListener implements ServletContextListener {
 		setViskoSPARQLEndpointURL(context);
 		setViskoTDBFilePath(context);
 		setLogo(context);
+		setOrganization(context);
+	}
+
+	private static void setOrganization(ServletContext context){
+		String organization = context.getInitParameter("hosting-organization");
+		Template.setOrganization(organization);
 	}
 	
 	private static void setLogo(ServletContext context){
