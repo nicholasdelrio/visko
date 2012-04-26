@@ -94,7 +94,7 @@ public class GravityDataProfile {
 		wtr.addInputBinding(gridded2ContourMapNCL + "#font", "helvetica");
 		wtr.addInputBinding(gridded2ContourMapNCL + "#cnFillOn", "True");
 		wtr.addInputBinding(gridded2ContourMapNCL + "#cnLinesOn", "False");
-		wtr.addInputBinding(gridded2ContourMapNCL + "#coordinatToIgnore", "0");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#coordinateToIgnore", "0");
 		wtr.addInputBinding(gridded2ContourMapNCL + "#latVariable", "y");
 		wtr.addInputBinding(gridded2ContourMapNCL + "#lonVariable", "x");
 		

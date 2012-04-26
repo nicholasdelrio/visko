@@ -62,9 +62,21 @@
       </owlsProcess:InputBinding>
     </viskoS:declaresBindings>
     <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gravityDataProfile.owl#binding45">
+        <owlsProcess:valueData>y</owlsProcess:valueData>
+        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gsn_csm_contour_map_raster.owl#latVariable</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
       <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gravityDataProfile.owl#binding5">
         <owlsProcess:valueData>0</owlsProcess:valueData>
         <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/psxy.owl#indexOfX</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gravityDataProfile.owl#binding42">
+        <owlsProcess:valueData>WhiteBlueGreenYellowRed</owlsProcess:valueData>
+        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gsn_csm_contour_map_raster.owl#colorTable</owlsProcess:toParam>
       </owlsProcess:InputBinding>
     </viskoS:declaresBindings>
     <viskoS:declaresBindings>
@@ -134,15 +146,27 @@
       </owlsProcess:InputBinding>
     </viskoS:declaresBindings>
     <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gravityDataProfile.owl#binding44">
+        <owlsProcess:valueData>0</owlsProcess:valueData>
+        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gsn_csm_contour_map_raster.owl#coordinateToIgnore</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
       <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gravityDataProfile.owl#binding39">
-        <owlsProcess:valueData>WhiteBlueGreenYellowRed</owlsProcess:valueData>
-        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gsn_csm_contour_map_raster.owl#colorTable</owlsProcess:toParam>
+        <owlsProcess:valueData>y</owlsProcess:valueData>
+        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gsn_csm_contour_map.owl#latVariable</owlsProcess:toParam>
       </owlsProcess:InputBinding>
     </viskoS:declaresBindings>
     <viskoS:declaresBindings>
       <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gravityDataProfile.owl#binding4">
         <owlsProcess:valueData>1</owlsProcess:valueData>
         <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/psxy.owl#B</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gravityDataProfile.owl#binding41">
+        <owlsProcess:valueData>vertical</owlsProcess:valueData>
+        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gsn_csm_contour_map_raster.owl#lbOrientation</owlsProcess:toParam>
       </owlsProcess:InputBinding>
     </viskoS:declaresBindings>
     <viskoS:declaresBindings>
@@ -218,6 +242,12 @@
       </owlsProcess:InputBinding>
     </viskoS:declaresBindings>
     <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gravityDataProfile.owl#binding46">
+        <owlsProcess:valueData>x</owlsProcess:valueData>
+        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gsn_csm_contour_map_raster.owl#lonVariable</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
       <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gravityDataProfile.owl#binding30">
         <owlsProcess:valueData>thinnest,black</owlsProcess:valueData>
         <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/grdcontour.owl#Wc</owlsProcess:toParam>
@@ -230,9 +260,15 @@
       </owlsProcess:InputBinding>
     </viskoS:declaresBindings>
     <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gravityDataProfile.owl#binding43">
+        <owlsProcess:valueData>helvetica</owlsProcess:valueData>
+        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gsn_csm_contour_map_raster.owl#font</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
       <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gravityDataProfile.owl#binding38">
-        <owlsProcess:valueData>vertical</owlsProcess:valueData>
-        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gsn_csm_contour_map_raster.owl#lbOrientation</owlsProcess:toParam>
+        <owlsProcess:valueData>0</owlsProcess:valueData>
+        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gsn_csm_contour_map.owl#coordinateToIgnore</owlsProcess:toParam>
       </owlsProcess:InputBinding>
     </viskoS:declaresBindings>
     <viskoS:declaresBindings>
@@ -243,8 +279,8 @@
     </viskoS:declaresBindings>
     <viskoS:declaresBindings>
       <owlsProcess:InputBinding rdf:about="https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gravityDataProfile.owl#binding40">
-        <owlsProcess:valueData>helvetica</owlsProcess:valueData>
-        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gsn_csm_contour_map_raster.owl#font</owlsProcess:toParam>
+        <owlsProcess:valueData>x</owlsProcess:valueData>
+        <owlsProcess:toParam>https://raw.github.com/nicholasdelrio/visko/new-generators/rdf/gsn_csm_contour_map.owl#lonVariable</owlsProcess:toParam>
       </owlsProcess:InputBinding>
     </viskoS:declaresBindings>
     <viskoS:declaresBindings>
