@@ -31,7 +31,7 @@ public class NCLTransformers {
 	public static void create() {
 		String name;
 				
-		TransformerWriter wtr = new TransformerWriter("contourer", true);
+		TransformerWriter wtr = new TransformerWriter("netCDFContourer", true);
 		wtr.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF");
 		wtr.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
 		name = "contour";
@@ -41,7 +41,7 @@ public class NCLTransformers {
 		System.out.println(wtr.saveDocument());
 		netCDFContourer = wtr.getURI();
 		
-		TransformerWriter wtr1 = new TransformerWriter("rasterer", true);
+		TransformerWriter wtr1 = new TransformerWriter("netCDFRasterer", true);
 		wtr1.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF");
 		wtr1.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT");
 		name = "Raster Map Generator";
