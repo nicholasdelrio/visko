@@ -22,7 +22,7 @@
 	<input type="submit" id="submitButton" style="width: 156px">
 </form>
 
-<h2>Visualization Query Examples Supported on this Instance</h2>
+<h2>Visualization Query Examples Supported on this Server</h2>
 
 <p>Visualization Queries Associated with:</p>
 <ul>
