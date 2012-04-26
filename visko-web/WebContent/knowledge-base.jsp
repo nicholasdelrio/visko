@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="visko-style.css" />
-<title>Your Knowledge Base Instance</title>
+<title>Knowledge Base</title>
 </head>
 <body>
 <div id="container">
@@ -14,7 +14,7 @@
 
 <div id="content">
 
-<h3 style="padding:0px">[VisKo Knowledge Base Instance]</h3>
+<h3 style="padding:0px">[VisKo Knowledge Base]</h3>
 
 <table style="float:left">
 <tr>
@@ -51,7 +51,7 @@
 
 <a name="Querying"></a>
 <h2>Querying your Knowledge Base</h2>
-<p>You will use SPARQL to directly interface with your knowledge base instance.</p> 
+<p>You will use SPARQL to directly interface with your knowledge base.</p> 
 <p>Questions/Answers</p>
 
 <ul>

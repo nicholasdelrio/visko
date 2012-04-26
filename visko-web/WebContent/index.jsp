@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="visko-style.css" />
-<title>A VisKo Instance</title>
+<title>A VisKo Server</title>
 </head>
 <body>
 <div id="container">
@@ -14,13 +14,13 @@
 
 <div id="content">
 
-<h2>Every VisKo instance supports the following capabilities:</h2>
+<h2>Every VisKo server supports the following capabilities:</h2>
 <ul>
     <li><a href="query.jsp">Query Submission</a>: allows users to generate visualizations by submitting queries.</li>
     <li><a href="knowledge-base.jsp">Knowledge Base:</a> a description of the capabilities of the knowledge base supporting this VisKo instance.</li> 
 </ul>
 
-<h2>This VisKo Instance knows about the following objects:</h2>
+<h2>This VisKo server knows about the following objects:</h2>
 <iframe width="900" height="290" src="InstanceBarGraph.html" frameborder="0"></iframe>
 </div>
 </div>
