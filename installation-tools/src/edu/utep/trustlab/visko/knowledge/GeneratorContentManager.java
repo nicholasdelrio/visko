@@ -26,7 +26,7 @@ public class GeneratorContentManager {
 	}
 	
 	public static String getServiceWSDLURL(String[] args){
-		return args[7];
+		return args[6];
 	}
 	
 	public static ContentManager getContentManager(String[] args){
@@ -56,7 +56,7 @@ public class GeneratorContentManager {
 		String projectName = args[2];
 		String userName = args[3];
 		String password = args[4];
-		String webdavURL = args[6];
+		String webdavURL = args[7];
 
 		AlfrescoClient client = new AlfrescoClient(serverURL, userName, password);
 		client.setProjectName(projectName);
