@@ -35,7 +35,7 @@ public class VTKServices {
 	public static void create(String wsdlURL) {
 		String operationName;
 		operationName = "int2Short";
-		ServiceWriter wtr = new ServiceWriter(operationName + "Service");
+		ServiceWriter wtr = new ServiceWriter(operationName);
 		wtr.setWSDLURL(wsdlURL);
 		wtr.setLabel(operationName);
 		wtr.setOperationName(operationName);
@@ -45,7 +45,7 @@ public class VTKServices {
 		int2short = wtr.getURI();
 
 		operationName = "float2ShortThr";
-		ServiceWriter wtr1 = new ServiceWriter(operationName + "Service");
+		ServiceWriter wtr1 = new ServiceWriter(operationName);
 		wtr1.setWSDLURL(wsdlURL);
 		wtr1.setLabel(operationName);
 		wtr1.setOperationName(operationName);
@@ -55,7 +55,7 @@ public class VTKServices {
 		float2shortThr = wtr1.getURI();
 		
 		operationName = "vtkImageDataReader";
-		ServiceWriter wtr2 = new ServiceWriter(operationName + "Service");
+		ServiceWriter wtr2 = new ServiceWriter(operationName);
 		wtr2.setWSDLURL(wsdlURL);
 		wtr2.setLabel(operationName);
 		wtr2.setOperationName(operationName);
