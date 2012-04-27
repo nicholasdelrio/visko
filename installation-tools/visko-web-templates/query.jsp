@@ -46,7 +46,7 @@
     <li><a href="#seis-ex7">Visualizing Ray Coverage as Volume</a></li> 
  </ol>
  
-<li><a href="brightness">NASA MODIS Brightness Data</a>
+<li><a href="#brightness">NASA MODIS Brightness Data</a>
   <ol>
   	<li><a href="#bright-ex1">Visualizing MODIS brightness data as contour map</a></li>
   	<li><a href="#bright-ex2">Visualizing MODIS brightness data as raster map</a></li>
