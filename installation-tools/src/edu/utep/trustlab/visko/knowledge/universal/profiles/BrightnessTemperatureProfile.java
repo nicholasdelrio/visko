@@ -45,8 +45,8 @@ public class BrightnessTemperatureProfile {
 		wtr.addInputBinding(netCDFGridContour + "#cnFillOn", "True");
 		wtr.addInputBinding(netCDFGridContour + "#cnLinesOn", "False");
 		wtr.addInputBinding(netCDFGridContour + "#coordinateToIgnore", "0");
-		wtr.addInputBinding(netCDFGridContour + "#latVariable", "lat");
-		wtr.addInputBinding(netCDFGridContour + "#lonVariable", "lon");
+		wtr.addInputBinding(netCDFGridContour + "#latVariable", "latitude");
+		wtr.addInputBinding(netCDFGridContour + "#lonVariable", "longitude");
 
 		
 		// for netCDFGridRaster
@@ -55,8 +55,8 @@ public class BrightnessTemperatureProfile {
 		wtr.addInputBinding(netCDFGridRaster + "#colorTable", "WhiteBlueGreenYellowRed");
 		wtr.addInputBinding(netCDFGridRaster + "#font", "helvetica");
 		wtr.addInputBinding(netCDFGridRaster + "#coordinateToIgnore", "0");
-		wtr.addInputBinding(netCDFGridRaster + "#latVariable", "lat");
-		wtr.addInputBinding(netCDFGridRaster + "#lonVariable", "lon");
+		wtr.addInputBinding(netCDFGridRaster + "#latVariable", "latitude");
+		wtr.addInputBinding(netCDFGridRaster + "#lonVariable", "longitude");
 
 		
 		wtr.setSupportingToolkit(NCLToolkits.ncl);
