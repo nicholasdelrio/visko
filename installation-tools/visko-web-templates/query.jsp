@@ -45,6 +45,12 @@
     <li><a href="#seis-ex6">Visualizing Gridded Time Field as Isosurfaces with Rotation</a></li>
     <li><a href="#seis-ex7">Visualizing Ray Coverage as Volume</a></li> 
  </ol>
+ 
+<li><a href="brightness">NASA MODIS Brightness Data</a>
+  <ol>
+  	<li><a href="#bright-ex1">Visualizing MODIS brightness data as contour map</a></li>
+  	<li><a href="#bright-ex2">Visualizing MODIS brightness data as raster map</a></li>
+  </ol>
 
 <li><a href="#polygons">Polygon Data</a>
   <ol start="7">
@@ -169,9 +175,9 @@ FROM http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityData
 PREFIX formats REPLACE-FORMAT
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
 PREFIX visko REPLACE-VISKO
-PREFIX dataParams REPLACE-VISKOvtkImageDataReaderService.owl#
-PREFIX contourParams REPLACE-VISKOvtkContourFilterService.owl#
-PREFIX renderParams REPLACE-VISKOvtkPolyDataMapperService.owl#
+PREFIX dataParams REPLACE-VISKOvtkImageDataReader.owl#
+PREFIX contourParams REPLACE-VISKOvtkContourFilter.owl#
+PREFIX renderParams REPLACE-VISKOvtkPolyDataMapper.owl#
 
 SELECT visko:iso-surfaces.owl#iso-surfaces IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/02029349145023569_vel.3d 
@@ -203,7 +209,7 @@ WHERE	dataParams:dataSpacing		=	1/1/1		AND
 PREFIX formats REPLACE-FORMAT 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
 PREFIX visko REPLACE-VISKO 
-PREFIX params REPLACE-VISKOvtkPolyDataMapperService.owl# 
+PREFIX params REPLACE-VISKOvtkPolyDataMapper.owl# 
 SELECT visko:iso-surfaces.owl#iso-surfaces IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/02029349145023569_vel.3d 
 	FORMAT formats:BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN 
@@ -223,7 +229,7 @@ WHERE params:backgroundColor = 0/0/0
 PREFIX formats REPLACE-FORMAT
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
 PREFIX visko REPLACE-VISKO 
-PREFIX params REPLACE-VISKOvtkVolumeService.owl# 
+PREFIX params REPLACE-VISKOvtkVolume.owl# 
 SELECT visko:volume.owl#volume IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/02029349145023569_vel.3d 
 	FORMAT formats:BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN 
@@ -283,7 +289,7 @@ FROM http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/057292279764758
 PREFIX formats REPLACE-FORMAT 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
 PREFIX visko REPLACE-VISKO 
-PREFIX params REPLACE-VISKOvtkPolyDataMapperService.owl# 
+PREFIX params REPLACE-VISKOvtkPolyDataMapper.owl# 
 SELECT visko:iso-surfaces.owl#iso-surfaces IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/05729227976475819_time.3d 
 	FORMAT formats:BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN 
@@ -305,7 +311,7 @@ WHERE 	params:xRotation = 90 AND
 PREFIX formats REPLACE-FORMAT 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#
 PREFIX visko REPLACE-VISKO 
-PREFIX params REPLACE-VISKOvtkVolumeService.owl# 
+PREFIX params REPLACE-VISKOvtkVolume.owl# 
 SELECT visko:volume.owl#volume IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/01146509090356318_icov.3d 
 	FORMAT formats:BINARYINTARRAYLENDIAN.owl#BINARYINTARRAYLENDIAN 
@@ -329,7 +335,7 @@ WHERE params:colorFunction = 20,1.0,0.0,0.3/80,1.0,0.0,0.3 AND
 <pre>
 PREFIX formats REPLACE-FORMAT 
 PREFIX visko REPLACE-VISKO 
-PREFIX params REPLACE-VISKOnetCDFGridContour.owl# 
+PREFIX params REPLACE-VISKOgsn_csm_contour_map.owl# 
 SELECT visko:contour-lines.owl#contour-lines IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://disc2.nascom.nasa.gov/daac-bin/OTF/HTTP_services.cgi?SERVICE=SUBSET_YOTC_LATS4D&BBOX=-65.390625,7.734375,-10.546875,42.890625&SHORTNAME=mergedIR&VARIABLES=ch4&TIME=2008-05-31T00:00:00 
 	FORMAT formats:NETCDF.owl#NETCDF 
@@ -353,7 +359,7 @@ WHERE 	params:cnFillOn = True AND
 <pre>
 PREFIX formats REPLACE-FORMAT 
 PREFIX visko REPLACE-VISKO 
-PREFIX params REPLACE-VISKKOnetCDFGridRaster.owl# 
+PREFIX params REPLACE-VISKOgsn_csm_contour_map_raster.owl# 
 SELECT visko:raster.owl#raster IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://disc2.nascom.nasa.gov/daac-bin/OTF/HTTP_services.cgi?SERVICE=SUBSET_YOTC_LATS4D&BBOX=-65.390625,7.734375,-10.546875,42.890625&SHORTNAME=mergedIR&VARIABLES=ch4&TIME=2008-05-31T00:00:00 
 	FORMAT formats:NETCDF.owl#NETCDF 
@@ -382,7 +388,7 @@ font = helvetica AND
 PREFIX formats REPLACE-FORMAT 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
 PREFIX visko REPLACE-VISKO 
-PREFIX renderParams REPLACE-VISKOvtkPolyDataMapperService.owl# 
+PREFIX renderParams REPLACE-VISKOvtkPolyDataMapper.owl# 
 SELECT * IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/sdata/Cubes.xml 
 	FORMAT formats:VTKPOLYDATA.owl#VTKPOLYDATA 
