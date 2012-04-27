@@ -367,8 +367,7 @@ FROM http://disc2.nascom.nasa.gov/daac-bin/OTF/HTTP_services.cgi?SERVICE=SUBSET_
 WHERE	params:cnFillOn = True AND 
 	params:cnLinesOn = True AND 
 	params:cnLevelSpacingF = 20 AND 
-	params:pwd
-font = helvetica AND 
+	params:font = helvetica AND 
 	params:lbOrientation = vertical AND
 	params:colorTable = rainbow
 </pre>
