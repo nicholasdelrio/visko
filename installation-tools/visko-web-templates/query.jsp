@@ -63,7 +63,7 @@
 PREFIX formats REPLACE-FORMAT
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#
 PREFIX visko REPLACE-VISKO
-PREFIX params REPLACE-VISKOESRIGriddedToContourMapPS.owl#
+PREFIX params REPLACE-VISKOgrdcontour.owl#
 SELECT visko:contour-lines.owl#contour-lines IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox 
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt 
 	 FORMAT formats:SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII 
@@ -102,7 +102,7 @@ FROM http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityData
 PREFIX formats REPLACE-FORMAT
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
 PREFIX visko REPLACE-VISKO 
-PREFIX params REPLACE-VISKOESRIGriddedToColoredImagePS.owl# 
+PREFIX params REPLACE-VISKOgrdimage.owl# 
 SELECT visko:raster.owl#raster IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox
 FROM http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt 
 	FORMAT formats:SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII
