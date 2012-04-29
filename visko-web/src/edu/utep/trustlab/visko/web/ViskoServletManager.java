@@ -29,9 +29,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.utep.trustlab.visko.web.requestHandler.knowledgeBaseInfo.KnowledgeBaseInformationJSONServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ExecutePipelineServlet;
-import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ExecuteQueryServiceServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ExecuteQueryServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ShowPipelineServlet;
+import edu.utep.trustlab.visko.web.requestHandler.queryExecutionService.ExecuteQueryServiceServlet;
 import edu.utep.trustlab.visko.web.requestHandler.sparql.ExecuteSPARQLQueryServlet;
 
 /**
@@ -54,28 +54,28 @@ public class ViskoServletManager extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String requestType = request.getParameter("requestType");
-		String html;
+		String content;
 		response.setContentType("text/html");
 		if(requestType.equalsIgnoreCase("execute-pipeline"))
-			html = new ExecutePipelineServlet().getHTMLPage(request, response);
+			content = new ExecutePipelineServlet().getHTMLPage(request, response);
 		else if(requestType.equalsIgnoreCase("execute-query-service"))
-			html = new ExecuteQueryServiceServlet().getHTMLPage(request, response);
+			content = new ExecuteQueryServiceServlet().getXMLResults(request, response);
 		else if(requestType.equalsIgnoreCase("execute-query"))
-			html = new ExecuteQueryServlet().getHTMLPage(request, response);
+			content = new ExecuteQueryServlet().getHTMLPage(request, response);
 		else if(requestType.equalsIgnoreCase("knowledge-base-info")){
 			response.setContentType("application/json");
-			html = new KnowledgeBaseInformationJSONServlet().getJSON(request, response);
+			content = new KnowledgeBaseInformationJSONServlet().getJSON(request, response);
 		}
 		else if(requestType.equalsIgnoreCase("show-pipeline"))
-			html = new ShowPipelineServlet().getHTMLPage(request, response);
+			content = new ShowPipelineServlet().getHTMLPage(request, response);
 		else if(requestType.equals("query-triple-store")){
 			response.setContentType("application/sparql-results+xml ");
-			html = new ExecuteSPARQLQueryServlet().getXMLResults(request, response);
+			content = new ExecuteSPARQLQueryServlet().getXMLResults(request, response);
 		}
 		else
-			html = "<html><body><p>Invalid argument specified for <b>requestType</b></body></html>";
+			content = "<html><body><p>Invalid argument specified for <b>requestType</b></body></html>";
 		
-		response.getWriter().write(html);
+		response.getWriter().write(content);
 	}
 
 	/**

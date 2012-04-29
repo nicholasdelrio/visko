@@ -18,15 +18,15 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.web.requestHandler.queryExecution;
+package edu.utep.trustlab.visko.web.requestHandler.queryExecutionService;
 
 import javax.servlet.http.HttpServletRequest;
 
 import edu.utep.trustlab.visko.web.html.QueryMessages;
-import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerHTML;
+import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerXML;
 import edu.utep.trustlab.visko.execution.*;
 
-public class ExecuteQueryServiceServlet  extends RequestHandlerHTML {
+public class ExecuteQueryServiceServlet  extends RequestHandlerXML {
 	private Query query;
 
 	public String doGet(HttpServletRequest request){
