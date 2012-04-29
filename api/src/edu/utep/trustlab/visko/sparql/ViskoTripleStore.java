@@ -227,11 +227,23 @@ public class ViskoTripleStore {
 				+ "ASK "
 				+ "WHERE { "
 				+ uri
-				+ " rdf:type <http://trust.utep.edu/visko/ontology/visko-operator-v3.owl#Mapper> . }";
+				+ " rdf:type viskoO:Mapper . }";
 
 		return endpoint.executeAskQuery(stringQuery);
 	}
 
+	public ResultSet getViewGeneratedByMapper(String mapperURI) {
+		String uri = "<" + mapperURI + ">";
+
+		String stringQuery = QUERY_PREFIX
+				+ "SELECT ?view "
+				+ "WHERE { "
+				+ uri
+				+ " viskoO:mapsTo ?view . }";
+
+		return endpoint.executeQuery(stringQuery);
+	}
+	
 	public boolean canBeVisualizedWithTargetFormat(String formatURI,
 			String targetFormatURI) {
 

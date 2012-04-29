@@ -86,8 +86,7 @@ public class PipelineSetBuilder {
 		return ts.isAlreadyVisualizableWithViewerSet(formatURI, viewerSetURI);
 	}
 
-	public void setPipelines(String formatURI, String viewerSetURI,
-			String viewConstraintURI) {
+	public void setPipelines(String formatURI, String viewerSetURI, String viewConstraintURI) {
 		setFormatPaths(formatURI, viewerSetURI);
 		System.out.println("Num format paths: " + formatPaths.size());
 
@@ -106,7 +105,7 @@ public class PipelineSetBuilder {
 		Pipeline pipe;
 
 		for (OperatorPath operatorPath : operatorPaths) {
-			pipe = new Pipeline(operatorPath.getViewerURI(), pipelines);
+			pipe = new Pipeline(operatorPath.getViewerURI(), operatorPath.getViewGenerated(), pipelines);
 
 			if (operatorPath.isEmpty()) {
 				pipelines.add(pipe);
@@ -130,8 +129,7 @@ public class PipelineSetBuilder {
 							.cartesianProduct(operatorImplSets, 0);
 
 					for (Vector<String> cartesianPath : cartesianOperatorImpl) {
-						pipe = new Pipeline(operatorPath.getViewerURI(),
-								pipelines);
+						pipe = new Pipeline(operatorPath.getViewerURI(), operatorPath.getViewGenerated(), pipelines);
 						pipe.setOWLSServiceURIs(cartesianPath);
 						pipelines.add(pipe);
 					}
@@ -160,7 +158,7 @@ public class PipelineSetBuilder {
 		Pipeline pipe;
 
 		for (OperatorPath operatorPath : operatorPaths) {
-			pipe = new Pipeline(operatorPath.getViewerURI(), pipelines);
+			pipe = new Pipeline(operatorPath.getViewerURI(), operatorPath.getViewGenerated(), pipelines);
 
 			if (operatorPath.isEmpty()) {
 				pipelines.add(pipe);
@@ -184,8 +182,7 @@ public class PipelineSetBuilder {
 							.cartesianProduct(operatorImplSets, 0);
 
 					for (Vector<String> cartesianPath : cartesianOperatorImpl) {
-						pipe = new Pipeline(operatorPath.getViewerURI(),
-								pipelines);
+						pipe = new Pipeline(operatorPath.getViewerURI(), operatorPath.getViewGenerated(), pipelines);
 						pipe.setOWLSServiceURIs(cartesianPath);
 						pipelines.add(pipe);
 					}

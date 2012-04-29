@@ -46,14 +46,16 @@ import edu.utep.trustlab.visko.ontology.model.OWLSModel;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.operator.Viewer;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
+import edu.utep.trustlab.visko.ontology.view.View;
 
 public class Pipeline extends Vector<String> {
 	private String viewer;
+	private String view;
 	private OWLSModel owlsLoadingModel;
 	private ViskoModel viskoLoadingModel;
 	private PipelineSet parentContainer;
 
-	public Pipeline(String viewerURI, PipelineSet parent) {
+	public Pipeline(String viewerURI, String viewURI, PipelineSet parent) {
 		super();
 		viskoLoadingModel = new ViskoModel();
 		owlsLoadingModel = new OWLSModel();
@@ -61,6 +63,10 @@ public class Pipeline extends Vector<String> {
 		viewer = viewerURI;
 	}
 
+	public View getView(){
+		return new View(view, viskoLoadingModel);
+	}
+	
 	public Viewer getViewer() {
 		return new Viewer(viewer, viskoLoadingModel);
 	}
