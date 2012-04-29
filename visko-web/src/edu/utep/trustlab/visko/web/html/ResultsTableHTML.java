@@ -20,6 +20,8 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.web.html;
 
+import java.net.URI;
+
 import edu.utep.trustlab.visko.execution.PipelineSet;
 import edu.utep.trustlab.visko.execution.QueryEngine;
 
@@ -30,10 +32,10 @@ public class ResultsTableHTML {
 		PipelineSet pipes = engine.getPipelines();
 
 		if (pipes.size() > 0 && withProvenance) {
-			html += "<tr><td><b>Resulting Visualization</b></td><td><b>Resultant Visualizations with Provenance</b></td><td><b>Visualization Pipeline</b></td></tr>";
+			html += "<tr><td><b>Visualization</b></td><td><b>Type</b></td><td><b>Visualization with Provenance</b></td><td><b>Pipeline</b></td></tr>";
 			html += getVisualizationAndPipelineResultRows(pipes, true);
 		} else if (pipes.size() > 0 && !withProvenance) {
-			html += "<tr><td><b>Resulting Visualization</b></td><td><b>Visualization Pipeline</b></td></tr>";
+			html += "<tr><td><b>Visualization</b></td><td><b>Type</b></td><td><b>Pipeline</b></td></tr>";
 			html += getVisualizationAndPipelineResultRows(pipes, false);
 		} else if (!(pipes.size() > 0)) {
 			html += "<tr><td><p>Empty Set</p></td></tr>";
@@ -49,22 +51,32 @@ public class ResultsTableHTML {
 		return html;
 	}
 
-	private static String getVisualizationAndPipelineResultRows(
-			PipelineSet pipes, boolean withProvenance) {
+	private static String getVisualizationAndPipelineResultRows(PipelineSet pipes, boolean withProvenance) {
 		String html = "";
+		
 		for (int i = 0; i < pipes.size(); i++) {
 			html += "<tr>";
-			html += "<td>" + getExecutePipelineLink(i, pipes.getArtifactURL())
-					+ "</td>";
+			html += "<td>" + getExecutePipelineLink(i, pipes.getArtifactURL(), pipes.get(i).hasAllInputParameters()) + "</td>";			
+			html += "<td>" + getViewLink(pipes.get(i).getView().getURI());
 			if (withProvenance)
-				html += "<td>"
-						+ getExecutePipelineProvenanceLink(i,
-								pipes.getArtifactURL()) + "</td>";
+				html += "<td>"+ getExecutePipelineProvenanceLink(i, pipes.getArtifactURL()) + "</td>";
+			
 			html += "<td>" + getShowPipelineLink(i) + "</td>";
 			html += "</tr>";
 		}
 
 		return html;
+	}
+	
+	private static String getViewLink(String viewURI){
+		try{
+			String html = "<a href=\"" + viewURI + "\">" + 	new URI(viewURI).getFragment() +  "</a>";
+			return html;
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	private static String getShowPipelineLink(int index) {
@@ -74,12 +86,17 @@ public class ResultsTableHTML {
 		return html;
 	}
 
-	private static String getExecutePipelineLink(int index, String artifactURL) {
+	private static String getExecutePipelineLink(int index, String artifactURL, boolean hasAllParametersBound) {
 		String html = "<p>NULL</p>";
 
 		if (artifactURL != null) {
-			html = "<a href=\"ViskoServletManager?requestType=execute-pipeline&index=" + index;
-			html += "\">Visualization</a>";
+			
+			if(hasAllParametersBound){
+				html = "<a href=\"ViskoServletManager?requestType=execute-pipeline&index=" + index;
+				html += "\">Visualization</a>";
+			}
+			else
+				html = "<b>Not all pipeline parameters bound!</b>";
 		}
 		return html;
 	}
