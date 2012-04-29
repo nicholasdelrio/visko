@@ -40,7 +40,6 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.execution;
 
-import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -69,9 +68,9 @@ public class Query {
 	private QueryParser parser;
 
 	public static void main(String[] args) {
-		String queryString = "PREFIX ns1 http://test1.owl# PREFIX ns http://test.owl# SELECT ns:contourMap IN-VIEWER ns1:viewer1 FROM LOCAL http://poop.owl FORMAT ns:format1 TYPE ns1:type1 WHERE http://spacing = 1 AND ns:color = marroon AND ns1:bg = black";
+		//String queryString = "PREFIX ns1 http://test1.owl# PREFIX ns http://test.owl# SELECT ns:contourMap IN-VIEWER ns1:viewer1 FROM LOCAL http://poop.owl FORMAT ns:format1 TYPE ns1:type1 WHERE http://spacing = 1 AND ns:color = marroon AND ns1:bg = black";
 		String queryString1 = "PREFIX ns1 http://test1.owl# PREFIX ns http://test.owl# SELECT ns:contourMap IN-VIEWER ns1:viewer1 FROM NODESET http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/esriGrid.txt_09509250903594285.owl#answer WHERE http://spacing = 1 AND ns:color = marroon AND ns1:bg = black";
-		String queryString2 = "PREFIX ns1 http://test1.owl# PREFIX ns http://test.owl# SELECT ns:contourMap IN-VIEWER ns1:viewer1 FROM http://somedata.txt FORMAT ns:format1 TYPE ns1:type1 WHERE http://spacing = 1 AND ns:color = marroon AND ns1:bg = black";
+		//String queryString2 = "PREFIX ns1 http://test1.owl# PREFIX ns http://test.owl# SELECT ns:contourMap IN-VIEWER ns1:viewer1 FROM http://somedata.txt FORMAT ns:format1 TYPE ns1:type1 WHERE http://spacing = 1 AND ns:color = marroon AND ns1:bg = black";
 
 		Query q = new Query(queryString1);
 		System.out.println(q.isValidQuery());

@@ -42,6 +42,9 @@ package edu.utep.trustlab.visko.execution;
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.mindswap.owls.process.Process;
+import org.mindswap.owls.process.variable.Input;
+
 import edu.utep.trustlab.visko.ontology.model.OWLSModel;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.operator.Viewer;
@@ -92,7 +95,36 @@ public class Pipeline extends Vector<String> {
 	public OWLSService getService(int i){
 		return new OWLSService(get(i), owlsLoadingModel);
 	}
+	
+	private boolean hasAllInputParameters(OWLSService service){
+		Process process = service.getIndividual().getProcess();
+		String parameterURI;
+		String boundedValue;
+		boolean allParamsBounded = true;
+		for (Input input : process.getInputs()) {
+			parameterURI = input.getURI().toASCIIString();
+			boundedValue = getParameterBindings().get(parameterURI);
+			if(boundedValue == null){
+				allParamsBounded = false;
+				break;
+			}
+		}
+		return allParamsBounded;
+	}
 
+	public boolean hasAllInputParameters(){
+		boolean allParametersBound = true;
+		OWLSService owlsService;
+		for(int i = 0; i < size(); i ++){
+			owlsService = getService(i);
+			if(!hasAllInputParameters(owlsService)){
+				allParametersBound = false;
+				break;
+			}
+		}
+		return allParametersBound;
+	}
+	
 	public String executePath(boolean provenance) {
 		PipelineExecutor executor = new PipelineExecutor(provenance);
 

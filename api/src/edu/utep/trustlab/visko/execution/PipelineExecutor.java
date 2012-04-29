@@ -93,9 +93,7 @@ public class PipelineExecutor {
 		return null;
 	}
 
-	private ValueMap<Input, OWLValue> buildInputValueMap(Process process,
-			String datasetURL, HashMap<String, String> bindings,
-			OWLKnowledgeBase kb) {
+	private ValueMap<Input, OWLValue> buildInputValueMap(Process process, String datasetURL, HashMap<String, String> bindings, OWLKnowledgeBase kb) {
 		// initialize the input values to be empty
 		ValueMap<Input, OWLValue> inputs = new ValueMap<Input, OWLValue>();
 
