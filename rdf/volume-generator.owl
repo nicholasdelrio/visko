@@ -14,7 +14,7 @@
     <viskoO:transformsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/JPEG.owl#JPEG"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >ImageData to Volume Image JPEG</pmlp:hasName>
-    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VTKIMAGEDATA.owl#VTKIMAGEDATA"/>
+    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VTKIMAGEDATASHORTINTS.owl#VTKIMAGEDATASHORTINTS"/>
     <rdfs:label>ImageData to Volume Image JPEG</rdfs:label>
   </viskoO:Mapper>
 </rdf:RDF>

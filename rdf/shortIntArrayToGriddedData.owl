@@ -10,7 +10,7 @@
     <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/visko-operator.owl"/>
   </owl:Ontology>
   <viskoO:Transformer rdf:about="https://raw.github.com/nicholasdelrio/visko/master/rdf/shortIntArrayToGriddedData.owl#shortIntArrayToGriddedData">
-    <viskoO:transformsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VTKIMAGEDATA.owl#VTKIMAGEDATA"/>
+    <viskoO:transformsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VTKIMAGEDATASHORTINTS.owl#VTKIMAGEDATASHORTINTS"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Short Int to Image Data</pmlp:hasName>
     <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/BINARYSHORTINTARRAYLENDIAN.owl#BINARYSHORTINTARRAYLENDIAN"/>
