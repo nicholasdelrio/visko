@@ -49,7 +49,7 @@ import edu.utep.trustlab.visko.ontology.model.OWLSModel;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.operator.Viewer;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
-import edu.utep.trustlab.visko.ontology.view.View;
+
 
 public class Pipeline extends Vector<String> {
 	private String viewer;
@@ -66,14 +66,19 @@ public class Pipeline extends Vector<String> {
 		viewer = viewerURI;
 	}
 
-	public View getView(){
-		return new View(view, viskoLoadingModel);
+	public String getViewURI(){
+		return view;
 	}
 	
 	public Viewer getViewer() {
 		return new Viewer(viewer, viskoLoadingModel);
 	}
 
+
+	public String getViewerURI() {
+		return new Viewer(viewer, viskoLoadingModel).getURI();
+	}
+	
 	public HashMap<String, String> getParameterBindings() {
 		return parentContainer.getParameterBindings();
 	}

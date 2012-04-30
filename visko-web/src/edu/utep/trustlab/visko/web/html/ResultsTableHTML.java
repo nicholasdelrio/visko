@@ -57,7 +57,7 @@ public class ResultsTableHTML {
 		for (int i = 0; i < pipes.size(); i++) {
 			html += "<tr>";
 			html += "<td>" + getExecutePipelineLink(i, pipes.getArtifactURL(), pipes.get(i).hasAllInputParameters()) + "</td>";			
-			html += "<td>" + getViewLink(pipes.get(i).getView().getURI() + "</td>");
+			html += "<td>" + getViewLink(pipes.get(i).getViewURI() + "</td>");
 			if (withProvenance)
 				html += "<td>"+ getExecutePipelineProvenanceLink(i, pipes.getArtifactURL()) + "</td>";
 			
