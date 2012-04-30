@@ -43,11 +43,7 @@ package edu.utep.trustlab.visko.execution;
 import java.io.*;
 
 import org.w3c.dom.*;
-
-import edu.utep.trustlab.visko.ontology.service.OWLSService;
-
 import javax.xml.parsers.*;
-
 import javax.xml.transform.*;
 import javax.xml.transform.dom.*;
 import javax.xml.transform.stream.*;
@@ -70,19 +66,21 @@ public class PipelineToXMLVisualizationSet {
 
 			doc.appendChild(root);
 
-			for (int i = 0; i < maxResults && i < pipelines.size(); i++) {
-				if (pipelines.get(i).hasAllInputParameters()) {
+			int counter = 0;
+			for (Pipeline pipe : pipelines) {
+				
+				if(counter >= maxResults)
+					break;
+				
+				if (pipe.hasAllInputParameters()) {
 					Element visualization = doc.createElement("Visualization");
-					visualization.setAttribute("targetViewer", pipelines.get(i)
-							.getViewer().getURI());
-
-					String resultURL = pipelines.get(i).executePath(false);
-
+					visualization.setAttribute("targetViewer", pipe.getViewer().getURI());
+					String resultURL = pipe.executePath(false);
 					if (resultURL != null) {
-						visualization
-								.appendChild(doc.createTextNode(resultURL));
+						visualization.appendChild(doc.createTextNode(resultURL));
 						root.appendChild(visualization);
 					}
+					counter++;
 				}
 			}
 
