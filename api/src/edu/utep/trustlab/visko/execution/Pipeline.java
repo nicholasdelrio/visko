@@ -42,13 +42,13 @@ package edu.utep.trustlab.visko.execution;
 
 import java.util.HashMap;
 import java.util.Vector;
-import org.mindswap.owls.process.Process;
-import org.mindswap.owls.process.variable.Input;
 
 import edu.utep.trustlab.visko.ontology.model.OWLSModel;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.operator.Viewer;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
+import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
+import edu.utep.trustlab.visko.util.ResultSetToVector;
 
 
 public class Pipeline extends Vector<String> {
@@ -64,6 +64,7 @@ public class Pipeline extends Vector<String> {
 		owlsLoadingModel = new OWLSModel();
 		parentContainer = parent;
 		viewer = viewerURI;
+		view = viewURI;
 	}
 
 	public String getViewURI(){
@@ -101,13 +102,11 @@ public class Pipeline extends Vector<String> {
 		return new OWLSService(get(i), owlsLoadingModel);
 	}
 	
-	private boolean hasAllInputParameters(OWLSService service){
-		Process process = service.getIndividual().getProcess();
-		String parameterURI;
+	private boolean hasAllInputParameters(String serviceURI){
 		String boundedValue;
 		boolean allParamsBounded = true;
-		for (Input input : process.getInputs()) {
-			parameterURI = input.getURI().toASCIIString();
+		Vector<String> params = ResultSetToVector.getVectorFromResultSet(new ViskoTripleStore().getInputParameters(serviceURI), "parameter");
+		for (String parameterURI : params) {
 			boundedValue = getParameterBindings().get(parameterURI);
 			
 			if(!parameterURI.contains("url") && !parameterURI.contains("URL") && !parameterURI.contains("fileLoc")){
@@ -122,10 +121,8 @@ public class Pipeline extends Vector<String> {
 
 	public boolean hasAllInputParameters(){
 		boolean allParametersBound = true;
-		OWLSService owlsService;
-		for(int i = 0; i < size(); i ++){
-			owlsService = getService(i);
-			if(!hasAllInputParameters(owlsService)){
+		for(String serviceURI : this){
+			if(!hasAllInputParameters(serviceURI)){
 				allParametersBound = false;
 				break;
 			}

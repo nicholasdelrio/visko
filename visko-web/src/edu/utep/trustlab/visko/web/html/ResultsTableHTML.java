@@ -57,7 +57,7 @@ public class ResultsTableHTML {
 		for (int i = 0; i < pipes.size(); i++) {
 			html += "<tr>";
 			html += "<td>" + getExecutePipelineLink(i, pipes.getArtifactURL(), pipes.get(i).hasAllInputParameters()) + "</td>";			
-			html += "<td>" + getViewLink(pipes.get(i).getViewURI() + "</td>");
+			html += "<td>" + getViewLink(pipes.get(i).getViewURI()) + "</td>";
 			if (withProvenance)
 				html += "<td>"+ getExecutePipelineProvenanceLink(i, pipes.getArtifactURL()) + "</td>";
 			
@@ -69,14 +69,20 @@ public class ResultsTableHTML {
 	}
 	
 	private static String getViewLink(String viewURI){
-		try{
-			String html = "<a href=\"" + viewURI + "\">" + 	new URI(viewURI).getFragment() +  "</a>";
-			return html;
+		
+		if(viewURI != null){
+			try{
+				String html = "<a href=\"" + viewURI + "\">" + 	new URI(viewURI).getFragment() +  "</a>";
+				return html;
+			}
+			catch(Exception e){
+				e.printStackTrace();
+				return e.getMessage();
+			}
 		}
-		catch(Exception e){
-			e.printStackTrace();
-		}
-		return null;
+		else
+			return "No View Information";
+			
 	}
 
 	private static String getShowPipelineLink(int index) {

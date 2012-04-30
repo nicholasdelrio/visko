@@ -407,6 +407,17 @@ public class ViskoTripleStore {
 		return endpoint.executeQuery(stringQuery);
 	}
 	
+	public ResultSet getInputParameters(String serviceURI) {
+		serviceURI = "<" + serviceURI + ">";
+		String stringQuery = QUERY_PREFIX + "SELECT ?parameter "
+				+ "WHERE {"
+				+ serviceURI + " owlsService:describedBy ?process . "
+				+ "?process owlsProcess:hasInput ?parameter . " + "}";
+
+		return endpoint.executeQuery(stringQuery);
+	}
+
+	
 	public ResultSet submitQuery(String query){
 		return endpoint.executeQuery(query);
 	}
