@@ -60,9 +60,9 @@ public class ViskoTripleStore {
 		endpoint = new ViskoSPARQLEndpoint(endpointURL);
 	}
 	
-	public static String QUERY_PREFIX = "PREFIX viskoV: <http://trust.utep.edu/visko/ontology/visko-view-v3.owl#> "
-			+ "PREFIX viskoO: <http://trust.utep.edu/visko/ontology/visko-operator-v3.owl#> "
-			+ "PREFIX viskoS: <http://trust.utep.edu/visko/ontology/visko-service-v3.owl#> "
+	public static String QUERY_PREFIX = "PREFIX viskoV: <http://trust.utep.edu/visko/ontology/visko-view.owl#> "
+			+ "PREFIX viskoO: <http://trust.utep.edu/visko/ontology/visko-operator.owl#> "
+			+ "PREFIX viskoS: <http://trust.utep.edu/visko/ontology/visko-service.owl#> "
 			+ "PREFIX owlsService: <http://www.daml.org/services/owl-s/1.2/Service.owl#> "
 			+ "PREFIX owlsProcess: <http://www.daml.org/services/owl-s/1.2/Process.owl#> "
 			+ "PREFIX owl: <http://www.w3.org/2002/07/owl#> "
@@ -215,7 +215,7 @@ public class ViskoTripleStore {
 				+ "ASK "
 				+ "WHERE { "
 				+ uri
-				+ " rdf:type <http://trust.utep.edu/visko/ontology/visko-operator-v3.owl#Transformer> . }";
+				+ " rdf:type viskoO:Transformer> . }";
 
 		return endpoint.executeAskQuery(stringQuery);
 	}
