@@ -30,8 +30,8 @@
 	<!-- web.xml configuration (SET org-acronym, logo-file-name, host-port, tdb-path) -->
 	<property name="org-acronym" value="UTEP" />
 	<property name="logo-file-name" value="LogoUTEP.jpg" />
-	<property name="host-port" value="8080" />
-	<property name="tdb-path" value="C:/Users/Public/git/visko/tdb"/>
+	<property name="host-port" value="80" />
+	<property name="tdb-path" value="/usr/local/git/git-repos/visko/tdb"/>
 	<property name="logo-path" value="logos/${logo-file-name}"/>
 	<property name="sparql-endpoint" value="http://localhost:${host-port}/visko-web/ViskoServletManager?requestType=query-triple-store"/>
 	
