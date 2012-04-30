@@ -46,7 +46,7 @@ public class VTKTransformers {
 		
 		TransformerWriter wtr1 = new TransformerWriter("shortIntArrayToGriddedData", false);
 		wtr1.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/BINARYSHORTINTARRAYLENDIAN.owl#BINARYSHORTINTARRAYLENDIAN");
-		wtr1.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VTKIMAGEDATA.owl#VTKIMAGEDATA");
+		wtr1.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VTKIMAGEDATASHORTINTS.owl#VTKIMAGEDATASHORTINTS");		
 		name = "Short Int to Image Data";
 		wtr1.setLabel(name);
 		wtr1.setName(name);
@@ -73,7 +73,7 @@ public class VTKTransformers {
 		contoursPoly2Image = wtr3.getURI();
 
 		TransformerWriter wtr4 = new TransformerWriter("volume-generator", true);
-		wtr4.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VTKIMAGEDATA.owl#VTKIMAGEDATA");
+		wtr4.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VTKIMAGEDATASHORTINTS.owl#VTKIMAGEDATASHORTINTS");
 		wtr4.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/JPEG.owl#JPEG");
 		name = "ImageData to Volume Image JPEG";
 		wtr4.setLabel(name);
