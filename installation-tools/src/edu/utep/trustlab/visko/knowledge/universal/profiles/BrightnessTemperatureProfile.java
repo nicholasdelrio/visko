@@ -21,7 +21,6 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.knowledge.universal.profiles;
 
 import edu.utep.trustlab.visko.knowledge.ncl.NCLServices;
-import edu.utep.trustlab.visko.knowledge.ncl.NCLToolkits;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class BrightnessTemperatureProfile {
@@ -58,9 +57,6 @@ public class BrightnessTemperatureProfile {
 		wtr.addInputBinding(netCDFGridRaster + "#latVariable", "latitude");
 		wtr.addInputBinding(netCDFGridRaster + "#lonVariable", "longitude");
 
-		
-		wtr.setSupportingToolkit(NCLToolkits.ncl);
-		
 		documentURL = wtr.saveDocument();
 		System.out.println(documentURL);
 	}

@@ -21,7 +21,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.knowledge.universal.profiles;
 
 import edu.utep.trustlab.visko.knowledge.vtk.VTKServices;
-import edu.utep.trustlab.visko.knowledge.vtk.VTKToolkits;
+
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class DuSumProfile {
@@ -131,7 +131,6 @@ public class DuSumProfile {
 		vtkVolume + "#opacityFunction",
 		"20,0.0/255,0.2");
 
-		wtr2.setSupportingToolkit(VTKToolkits.vtk);
 		String documentURL = wtr2.saveDocument();
 		System.out.println(documentURL);
 

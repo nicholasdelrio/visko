@@ -21,7 +21,6 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.knowledge.universal.profiles;
 
 import edu.utep.trustlab.visko.knowledge.vtk.VTKServices;
-import edu.utep.trustlab.visko.knowledge.vtk.VTKToolkits;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class GriddedTimeProfile {
@@ -128,7 +127,6 @@ public class GriddedTimeProfile {
 		vtkVolume + "#opacityFunction",
 		"20,0.0/255,0.2");
 
-		wtr1.setSupportingToolkit(VTKToolkits.vtk);
 		String documentURL = wtr1.saveDocument();
 		System.out.println(documentURL);
 

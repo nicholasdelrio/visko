@@ -21,7 +21,6 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.knowledge.universal.profiles;
 
 import edu.utep.trustlab.visko.knowledge.gmt.GMTServices;
-import edu.utep.trustlab.visko.knowledge.gmt.GMTToolkits;
 import edu.utep.trustlab.visko.knowledge.ncl.NCLServices;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
@@ -34,7 +33,6 @@ public class GravityDataProfile {
 		String region = "-109/-107/33/34";
 		
 		ToolkitProfileWriter wtr = new ToolkitProfileWriter("gravityDataProfile");
-		wtr.setSupportingToolkit(GMTToolkits.gmt);
 		wtr.addDataType(dataTypeURI);
 
 		String points22DPlot = GMTServices.points22DPlot.substring(0, GMTServices.points22DPlot.indexOf("#"));

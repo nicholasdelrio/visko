@@ -21,7 +21,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.knowledge.universal.profiles;
 
 import edu.utep.trustlab.visko.knowledge.vtk.VTKServices;
-import edu.utep.trustlab.visko.knowledge.vtk.VTKToolkits;
+
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class CoverageModelProfile {
@@ -71,8 +71,6 @@ public class CoverageModelProfile {
 		wtr.addInputBinding(vtkVolume + "#magnification", "3");
 		wtr.addInputBinding(vtkVolume + "#colorFunction", "20,1.0,0.0,0.3/80,1.0,0.0,0.3");
 		wtr.addInputBinding(vtkVolume + "#opacityFunction", "0,0.0/40,1.0");
-
-		wtr.setSupportingToolkit(VTKToolkits.vtk);
 		
 		documentURL = wtr.saveDocument();
 		System.out.println(documentURL);

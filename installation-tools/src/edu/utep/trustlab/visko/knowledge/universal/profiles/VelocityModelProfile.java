@@ -21,7 +21,6 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.knowledge.universal.profiles;
 
 import edu.utep.trustlab.visko.knowledge.vtk.VTKServices;
-import edu.utep.trustlab.visko.knowledge.vtk.VTKToolkits;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class VelocityModelProfile {
@@ -132,7 +131,6 @@ public class VelocityModelProfile {
 		vtkVolume + "#opacityFunction",
 		"4000,0.2/8000,0.5");
 
-		wtr.setSupportingToolkit(VTKToolkits.vtk);
 		documentURL = wtr.saveDocument();
 		System.out.println(documentURL);
 		}

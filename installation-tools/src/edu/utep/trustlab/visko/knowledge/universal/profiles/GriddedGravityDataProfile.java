@@ -21,7 +21,6 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.knowledge.universal.profiles;
 
 import edu.utep.trustlab.visko.knowledge.gmt.GMTServices;
-import edu.utep.trustlab.visko.knowledge.gmt.GMTToolkits;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class GriddedGravityDataProfile {
@@ -35,7 +34,6 @@ public class GriddedGravityDataProfile {
 		// gridded data
 		String dataTypeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d12";
 		ToolkitProfileWriter wtr = new ToolkitProfileWriter("griddedGravityDataProfile");
-		wtr.setSupportingToolkit(GMTToolkits.gmt);
 		wtr.addDataType(dataTypeURI);
 		
 		// for GMT grdimage
