@@ -95,6 +95,8 @@ public class GravityDataProfile {
 		wtr.addInputBinding(gridded2ContourMapNCL + "#coordinateToIgnore", "0");
 		wtr.addInputBinding(gridded2ContourMapNCL + "#latVariable", "y");
 		wtr.addInputBinding(gridded2ContourMapNCL + "#lonVariable", "x");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#plotVariable", "z");
+
 		
 		// for NCL gsx_gsn something excepted hard coded for raster generation
 		wtr.addInputBinding(gridded2RasterNCL + "#lbOrientation", "vertical");
@@ -103,6 +105,8 @@ public class GravityDataProfile {
 		wtr.addInputBinding(gridded2RasterNCL + "#coordinateToIgnore", "0");
 		wtr.addInputBinding(gridded2RasterNCL + "#latVariable", "y");
 		wtr.addInputBinding(gridded2RasterNCL + "#lonVariable", "x");
+		wtr.addInputBinding(gridded2RasterNCL + "#plotVariable", "z");
+
 		
 		// dump document
 		documentURL = wtr.saveDocument();

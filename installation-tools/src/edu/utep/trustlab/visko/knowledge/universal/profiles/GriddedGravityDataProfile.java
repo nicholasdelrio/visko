@@ -21,6 +21,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.knowledge.universal.profiles;
 
 import edu.utep.trustlab.visko.knowledge.gmt.GMTServices;
+import edu.utep.trustlab.visko.knowledge.ncl.NCLServices;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
 
 public class GriddedGravityDataProfile {
@@ -30,6 +31,8 @@ public class GriddedGravityDataProfile {
 		
 		String gridded2Raster = GMTServices.gridded2Raster.substring(0, GMTServices.gridded2Raster.indexOf("#"));
 		String gridded2ContourMap = GMTServices.gridded2ContourMap.substring(0, GMTServices.gridded2ContourMap.indexOf("#"));
+		String gridded2RasterNCL = NCLServices.netCDFGridRaster.substring(0, NCLServices.netCDFGridRaster.indexOf("#"));
+		String gridded2ContourMapNCL = NCLServices.netCDFGridContour.substring(0, NCLServices.netCDFGridContour.indexOf("#"));
 		
 		// gridded data
 		String dataTypeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d12";
@@ -52,5 +55,50 @@ public class GriddedGravityDataProfile {
 		wtr.addInputBinding(gridded2ContourMap + "#Wc", "thinnest,black");
 		wtr.addInputBinding(gridded2ContourMap + "#Wa", "thinnest,black");
 
+		// for NCL gsx_gsn something
+		wtr.addInputBinding(gridded2ContourMapNCL + "#lbOrientation", "vertical");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#cnLevelSpacingF", "10");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#colorTable", "WhiteBlueGreenYellowRed");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#font", "helvetica");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#cnFillOn", "True");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#cnLinesOn", "False");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#coordinateToIgnore", "0");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#latVariable", "y");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#lonVariable", "x");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#plotVariable", "z");
+
+		
+		// for NCL gsx_gsn something excepted hard coded for raster generation
+		wtr.addInputBinding(gridded2RasterNCL + "#lbOrientation", "vertical");
+		wtr.addInputBinding(gridded2RasterNCL + "#colorTable", "WhiteBlueGreenYellowRed");
+		wtr.addInputBinding(gridded2RasterNCL + "#font", "helvetica");
+		wtr.addInputBinding(gridded2RasterNCL + "#coordinateToIgnore", "0");
+		wtr.addInputBinding(gridded2RasterNCL + "#latVariable", "y");
+		wtr.addInputBinding(gridded2RasterNCL + "#lonVariable", "x");
+		wtr.addInputBinding(gridded2RasterNCL + "#plotVariable", "z");
+
+		// for NCL gsx_gsn something
+		wtr.addInputBinding(gridded2ContourMapNCL + "#lbOrientation", "vertical");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#cnLevelSpacingF", "10");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#colorTable", "WhiteBlueGreenYellowRed");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#font", "helvetica");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#cnFillOn", "True");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#cnLinesOn", "False");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#coordinateToIgnore", "0");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#latVariable", "y");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#lonVariable", "x");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#plotVariable", "z");
+
+		
+		// for NCL gsx_gsn something excepted hard coded for raster generation
+		wtr.addInputBinding(gridded2RasterNCL + "#lbOrientation", "vertical");
+		wtr.addInputBinding(gridded2RasterNCL + "#colorTable", "WhiteBlueGreenYellowRed");
+		wtr.addInputBinding(gridded2RasterNCL + "#font", "helvetica");
+		wtr.addInputBinding(gridded2RasterNCL + "#coordinateToIgnore", "0");
+		wtr.addInputBinding(gridded2RasterNCL + "#latVariable", "y");
+		wtr.addInputBinding(gridded2RasterNCL + "#lonVariable", "x");
+		wtr.addInputBinding(gridded2RasterNCL + "#plotVariable", "z");
+
+		
 		}
 }

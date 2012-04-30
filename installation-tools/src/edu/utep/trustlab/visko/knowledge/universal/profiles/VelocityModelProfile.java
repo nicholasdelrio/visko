@@ -39,6 +39,7 @@ public class VelocityModelProfile {
 
 		String float2shortThr = VTKServices.float2shortThr.substring(0, VTKServices.float2shortThr.indexOf("#"));
 		String vtkImageDataReader = VTKServices.vtkImageDataReader.substring(0, VTKServices.vtkImageDataReader.indexOf("#"));
+		String vtkImageDataReaderFloat = VTKServices.vtkImageDataReaderFloat.substring(0, VTKServices.vtkImageDataReaderFloat.indexOf("#"));
 		String vtkPolyDataMapper = VTKServices.vtkPolyDataMapper.substring(0, VTKServices.vtkPolyDataMapper.indexOf("#"));
 		String vtkContourFilter = VTKServices.vtkContourFilter.substring(0, VTKServices.vtkContourFilter.indexOf("#"));
 		String vtkVolume = VTKServices.vtkVolume.substring(0, VTKServices.vtkVolume.indexOf("#"));
@@ -72,6 +73,29 @@ public class VelocityModelProfile {
 		"1");
 		wtr.addInputBinding(
 		vtkImageDataReader + "#readLowerLeft",
+		"true");
+		
+		// for vtkImageReaderFloat
+		wtr.addInputBinding(
+		vtkImageDataReaderFloat + "#littleEndian",
+		"true");
+		wtr.addInputBinding(
+		vtkImageDataReaderFloat + "#dim",
+		"3");
+		wtr.addInputBinding(
+		vtkImageDataReaderFloat + "#dataOrigin",
+		"0/0/0");
+		wtr.addInputBinding(
+		vtkImageDataReaderFloat + "#dataSpacing",
+		"1/1/1");
+		wtr.addInputBinding(
+		vtkImageDataReaderFloat + "#dataExtent",
+		"0/230/0/25/0/68");
+		wtr.addInputBinding(
+		vtkImageDataReaderFloat + "#numScalarComponents",
+		"1");
+		wtr.addInputBinding(
+		vtkImageDataReaderFloat + "#readLowerLeft",
 		"true");
 
 		// for vtkContourFilter
