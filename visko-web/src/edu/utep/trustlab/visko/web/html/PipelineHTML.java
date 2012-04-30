@@ -31,6 +31,7 @@ import edu.utep.trustlab.visko.execution.Pipeline;
 import edu.utep.trustlab.visko.ontology.operator.Viewer;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
+import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 
 public class PipelineHTML {
 
@@ -52,14 +53,12 @@ public class PipelineHTML {
 			ViskoTripleStore ts = new ViskoTripleStore();
 
 			if (!ts.isMapper(operatorURI)) {
-				html += "<a href=\"http://trust.utep.edu/visko/ontology/visko-operator-v3.owl#Transformer\">Transformer</a>";
+				html += "<a href=\""+ ViskoO.CLASS_URI_TRANSFORMER + "\">Transformer</a>";
 			}
 
 			else {
-				Vector<String> viewURIs = ResultSetToVector
-						.getVectorFromResultSet(
-								ts.getViewsGeneratedFrom(operatorURI), "view");
-				html += "<a href=\"http://trust.utep.edu/visko/ontology/visko-operator-v3.owl#Mapper\">Mapper</a>";
+				Vector<String> viewURIs = ResultSetToVector.getVectorFromResultSet(ts.getViewsGeneratedFrom(operatorURI), "view");
+				html += "<a href=\"" + ViskoO.CLASS_URI_MAPPER + "\">Mapper</a>";
 				html += "<ul><li>Generates View: <a href=\""
 						+ viewURIs.firstElement() + "\">"
 						+ viewURIs.firstElement() + "</a></li></ul>";

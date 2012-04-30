@@ -44,19 +44,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
  * import com.hp.hpl.jena.rdf.model.ModelFactory; import
  * com.hp.hpl.jena.tdb.TDBFactory;
  * 
- * public class DataProvenanceHTML { private static String QUERY_PREFIX =
- * "PREFIX viskoV: <http://trust.utep.edu/visko/ontology/visko-view-v3.owl#> " +
- * "PREFIX viskoO: <http://trust.utep.edu/visko/ontology/visko-operator-v3.owl#> "
- * +
- * "PREFIX viskoS: <http://trust.utep.edu/visko/ontology/visko-service-v3.owl#> "
- * + "PREFIX owlsService: <http://www.daml.org/services/owl-s/1.2/Service.owl#>"
- * + "PREFIX owlsProcess: <http://www.daml.org/services/owl-s/1.2/Process.owl#>"
- * + "PREFIX owl: <http://www.w3.org/2002/07/owl#> " +
- * "PREFIX	pmlj: <http://inference-web.org/2.0/pml-justification.owl#> " +
- * "PREFIX	pmlp: <http://inference-web.org/2.0/pml-provenance.owl#> " +
- * "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " +
- * "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> " +
- * "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ";
+ * public class DataProvenanceHTML {
  * 
  * private static final String SEARCHMapps =
  * "http://rio.cs.utep.edu/ciserver/ciprojects/wdo/AerostatWDO#m1"; private
