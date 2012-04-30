@@ -59,8 +59,10 @@ public class OperatorPath extends Vector<String> {
 	public boolean add(String operatorURI){
 		 ViskoTripleStore ts = new ViskoTripleStore();
 		 if(ts.isMapper(operatorURI)){
+			 System.out.println("ismappering going to add view!");
 			 Vector<String> view = ResultSetToVector.getVectorFromResultSet(ts.getViewGeneratedByMapper(operatorURI), "view");
 			 viewURI = view.firstElement();
+			 System.out.println("view is: " + viewURI);
 		 }
 		 
 		 return super.add(operatorURI);

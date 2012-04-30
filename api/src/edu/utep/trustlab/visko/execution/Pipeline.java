@@ -109,9 +109,12 @@ public class Pipeline extends Vector<String> {
 		for (Input input : process.getInputs()) {
 			parameterURI = input.getURI().toASCIIString();
 			boundedValue = getParameterBindings().get(parameterURI);
-			if(boundedValue == null){
-				allParamsBounded = false;
-				break;
+			
+			if(!parameterURI.contains("url") && !parameterURI.contains("URL") && !parameterURI.contains("fileLoc")){
+				if(boundedValue == null){
+					allParamsBounded = false;
+					break;
+				}
 			}
 		}
 		return allParamsBounded;
