@@ -31,11 +31,11 @@ public class Template {
 				"<body>" +
 				"<div id=\"container\">" +
 				"<div id=\"header\">" +
-				"	 <img src=\"" + Template.getLogoPath() + "\"/>" +
+				"	 <img src=\"" + Template.getLogoPath() + "\" style=\"padding:5px;\" + />" +
 				"    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
 				"    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
 				"    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-				"    <h1 style=\"padding-top:0px;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + Template.getOrganization() + " VisKo Server</h1>" +
+				"    <h1 style=\"padding-top:0px;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + Template.getOrganization() + " VisKo Server</h1>" +
 				"</div>" +
 				"<div id=\"menu\">" +
 				"	 <a href=\"http://trust.utep.edu/visko\">VisKo Home</a>" +
