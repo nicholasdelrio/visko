@@ -55,8 +55,7 @@ import javax.xml.transform.stream.*;
 public class PipelineToXMLVisualizationSet {
 
 	/** Generate the XML document */
-	public static String toXMLFromPipelineSet(PipelineSet pipelines,
-			String nodesetURI, int maxResults) {
+	public static String toXMLFromPipelineSet(PipelineSet pipelines, String nodesetURI, int maxResults) {
 		try {
 			DocumentBuilderFactory fact = DocumentBuilderFactory.newInstance();
 			DocumentBuilder parser = fact.newDocumentBuilder();
@@ -72,7 +71,7 @@ public class PipelineToXMLVisualizationSet {
 			doc.appendChild(root);
 
 			for (int i = 0; i < maxResults && i < pipelines.size(); i++) {
-				if (!hasVolumeRendering(pipelines.get(i))) {
+				if (pipelines.get(i).hasAllInputParameters()) {
 					Element visualization = doc.createElement("Visualization");
 					visualization.setAttribute("targetViewer", pipelines.get(i)
 							.getViewer().getURI());
@@ -108,15 +107,5 @@ public class PipelineToXMLVisualizationSet {
 			System.err.println("+============================+");
 			return null;
 		}
-	}
-
-	private static boolean hasVolumeRendering(Pipeline pipeline) {
-		for(int i = 0; i < pipeline.size(); i++){
-			OWLSService service = pipeline.getService(i);
-			if (service.getURI().contains("vtkVolumeService"))
-				return true;
-		}
-
-		return false;
 	}
 }
