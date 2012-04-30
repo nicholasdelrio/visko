@@ -107,7 +107,7 @@
         <rdfs:domain rdf:resource="&visko-operator;Operator"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&visko-operator;operatesOn"/>
-            <rdf:Description rdf:about="&visko-operator;restrictedBy"/>
+            <rdf:Description rdf:about="&visko-operator;restrictedByFormat"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -131,11 +131,11 @@
     
 
 
-    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#restrictedBy -->
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#restrictedByFormat -->
 
-    <owl:ObjectProperty rdf:about="&visko-operator;restrictedBy">
-        <rdfs:range rdf:resource="&pml-provenance;Format"/>
+    <owl:ObjectProperty rdf:about="&visko-operator;restrictedByFormat">
         <rdfs:domain rdf:resource="&pml-provenance;Format"/>
+        <rdfs:range rdf:resource="&pml-provenance;Format"/>
     </owl:ObjectProperty>
     
 
@@ -145,7 +145,7 @@
     <owl:ObjectProperty rdf:about="&visko-operator;restrictsFormat">
         <rdfs:domain rdf:resource="&pml-provenance;Format"/>
         <rdfs:range rdf:resource="&pml-provenance;Format"/>
-        <owl:inverseOf rdf:resource="&visko-operator;restrictedBy"/>
+        <owl:inverseOf rdf:resource="&visko-operator;restrictedByFormat"/>
     </owl:ObjectProperty>
     
 

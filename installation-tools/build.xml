@@ -65,6 +65,7 @@
 	<property name="visko-rdf" value="../rdf"/>
 	<property name="visko-ontology" value="${visko-rdf}/ontology/"/>
 	<property name="visko-formats" value="${visko-rdf}/formats/"/>
+	<property name="visko-format-restrictions" value="${visko-rdf}/format-restrictions/"/>
 	<property name="visko-web-war" value="${visko-web}/visko-web.war"/>
 
 	<target name="build" depends="compile">
@@ -143,6 +144,7 @@
 				<arg value="${visko-rdf}"/>
 				<arg value="${visko-ontology}"/>
 				<arg value="${visko-formats}"/>
+				<arg value="${visko-format-restrictions}"/>
 				<arg value="${visko-tdb}"/>
 				
 				<classpath>

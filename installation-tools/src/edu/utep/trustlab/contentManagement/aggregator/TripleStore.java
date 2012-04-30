@@ -52,13 +52,14 @@ import com.hp.hpl.jena.tdb.*;
 	private String owlDirectory;
 	private String rdfDirectory;
 	private String formatsDirectory;
+	private String formatRestrictionsDirectory;
 	
-	public TripleStore(String inputRDFDirectory, String inputOntologyDirectory, String inputFormatsDirectory, String tripleStoreDirectory){
+	public TripleStore(String inputRDFDirectory, String inputOntologyDirectory, String inputFormatsDirectory, String inputFormatRestrictionsDirectory, String tripleStoreDirectory){
 		rdfDirectory = inputRDFDirectory;
 		tsDirectory = tripleStoreDirectory;	
 		owlDirectory = inputOntologyDirectory;
 		formatsDirectory = inputFormatsDirectory;
-		
+		formatRestrictionsDirectory = inputFormatRestrictionsDirectory;
 		if(!tsDirectory.endsWith("/"))
 			tsDirectory = tsDirectory + "/";
 	}
@@ -73,7 +74,7 @@ import com.hp.hpl.jena.tdb.*;
 		TripleStore.aggregate(rdfDirectory, model);
 		TripleStore.aggregate(owlDirectory, model);
 		TripleStore.aggregate(formatsDirectory, model);
-		
+		TripleStore.aggregate(formatRestrictionsDirectory, model);
 		System.out.println("Model now has " + model.size() + " statements.");
 		model.close();
 		
@@ -104,12 +105,7 @@ import com.hp.hpl.jena.tdb.*;
 	}
 	
 	public static void main(String[] args){
-		if(args.length != 4){
-			System.err.print("Need to specify the directory where your RDF is stored and the directory where the triple store will be created.");
-			return;
-		}
-		
-		TripleStore ts = new TripleStore(args[0], args[1], args[2], args[3]);
+		TripleStore ts = new TripleStore(args[0], args[1], args[2], args[3], args[4]);
 		System.out.println(ts.create());
 	}
 }
