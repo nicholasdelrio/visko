@@ -19,16 +19,8 @@
     <input type="hidden" name="requestType" value="execute-query" /> 
 	<textarea style="width: 989px; height: 152px" id="queryText" name="query"></textarea>
 	<br>
-	<input type="submit" id="submitButton" style="width: 156px">
+	<input type="submit" id="submitButton" style="width: 156px"> Click <a href="query.jsp">here</a> for a list of query examples.
 </form>
-
-<p>Click <a href="query.jsp">here</a> for a list of query examples.</p>
-
-<h2>VisKo server resources:</h2>
-<ul>
-    <li><a href="query.jsp">Query Submission</a>: allows users to generate visualizations by submitting queries.</li>
-    <li><a href="knowledge-base.jsp">Knowledge Base:</a> a description of the capabilities of the knowledge base supporting this VisKo instance.</li> 
-</ul>
 
 <h2>This VisKo server knows about the following objects:</h2>
 <iframe width="900" height="290" src="InstanceBarGraph.html" frameborder="0"></iframe>
