@@ -38,10 +38,10 @@ public class Template {
 				"    <h1 style=\"padding-top:0px;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + Template.getOrganization() + " VisKo Server</h1>" +
 				"</div>" +
 				"<div id=\"menu\">" +
-				"	 <a href=\"http://trust.utep.edu/visko\">VisKo Home</a>" +
 				"    <a href=\".\">Server Home</a>" +
-				"    <a href=\"query.jsp\">Visualization Query</a>" +
+				"    <a href=\"query.jsp\">Query Examples</a>" +
 				"    <a href=\"knowledge-base.jsp\">Knowledge Base</a>" +
+				"	 <a href=\"http://trust.utep.edu/visko\">VisKo Home</a>" +
 				"</div>" +
 				"<div id=\"content\">";
 	}
@@ -56,10 +56,10 @@ public class Template {
 				"    <h1 style=\"padding-top:0px;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + Template.getOrganization() + " VisKo Server</h1>" +
 				"</div>" +
 				"<div id=\"menu\">" +
-				"	 <a href=\"http://trust.utep.edu/visko\">VisKo Home</a>" +
 				"    <a href=\".\">Server Home</a>" +
-				"    <a href=\"query.jsp\">Visualization Query</a>" +
+				"    <a href=\"query.jsp\">Query Examples</a>" +
 				"    <a href=\"knowledge-base.jsp\">Knowledge Base</a>" +
+				"	 <a href=\"http://trust.utep.edu/visko\">VisKo Home</a>" +
 				"</div>";
 	}
 	
