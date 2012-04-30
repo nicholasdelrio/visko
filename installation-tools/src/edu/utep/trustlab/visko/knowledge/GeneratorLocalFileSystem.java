@@ -15,7 +15,7 @@ public class GeneratorLocalFileSystem {
 		System.out.println("Push to GitHub now!");
 		System.out.println("*****************************************");
 		System.out.println("cd visko");
-		System.out.println("git add rdf/*");
+		System.out.println("git add *");
 		System.out.println("git commit -am 'adding new RDF'");
 		System.out.println("git push <<your forked remote visko repo>>");
 		System.console().readLine("Press <<enter>> after your have pushed to GitHub.");
@@ -25,7 +25,7 @@ public class GeneratorLocalFileSystem {
 		System.out.println("Push to GitHub now!");
 		System.out.println("*****************************************");
 		System.out.println("cd visko");
-		System.out.println("git add rdf/*");
+		System.out.println("git add *");
 		System.out.println("git commit -am 'adding new RDF'");
 		System.out.println("git push <<your forked remote visko repo>>");
 		System.console().readLine("Press <<enter>> after your have pushed to GitHub.");
@@ -45,7 +45,7 @@ public class GeneratorLocalFileSystem {
 		System.out.println("Push to GitHub now!");
 		System.out.println("*****************************************");
 		System.out.println("cd visko");
-		System.out.println("git add rdf/*");
+		System.out.println("git add *");
 		System.out.println("git commit -am 'adding new RDF'");
 		System.out.println("git push <<your forked remote visko repo>>");
 		System.console().readLine("Press <<enter>> after your have pushed to GitHub.");

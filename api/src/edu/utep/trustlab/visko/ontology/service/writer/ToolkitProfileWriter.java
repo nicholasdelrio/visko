@@ -47,15 +47,13 @@ import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.service.Input;
 import edu.utep.trustlab.visko.ontology.service.InputBinding;
-import edu.utep.trustlab.visko.ontology.service.Toolkit;
-import edu.utep.trustlab.visko.ontology.service.ToolkitProfile;
+import edu.utep.trustlab.visko.ontology.service.InputParameterBinding;
 import edu.utep.trustlab.visko.ontology.writer.ViskoWriter;
 
 public class ToolkitProfileWriter extends ViskoWriter {
-	private Toolkit tk;
 	private Vector<InputBinding> inputBindings;
 
-	private ToolkitProfile profile;
+	private InputParameterBinding profile;
 	private ViskoModel loadingModel;
 	private Vector<String> dataTypes;
 	private int counter;
@@ -63,7 +61,7 @@ public class ToolkitProfileWriter extends ViskoWriter {
 
 	public ToolkitProfileWriter(String name) {
 		loadingModel = new ViskoModel();
-		profile = new ToolkitProfile(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)),
+		profile = new InputParameterBinding(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)),
 				name, viskoModel);
 		counter = 0;
 		inputBindings = new Vector<InputBinding>();
@@ -78,10 +76,6 @@ public class ToolkitProfileWriter extends ViskoWriter {
 		return dataTypes;
 	}
 
-	public void setSupportingToolkit(String uri) {
-		tk = new Toolkit(uri, loadingModel);
-	}
-
 	public void addInputBinding(String inputParameterURI, String value) {
 		Input input = new Input(inputParameterURI, loadingModel);
 
@@ -94,7 +88,6 @@ public class ToolkitProfileWriter extends ViskoWriter {
 	}
 
 	public String toRDFString() {
-		profile.setToolkit(tk);
 		profile.setInputBindings(inputBindings);
 		for (String type : dataTypes)
 			profile.addProfiledDataType(type);

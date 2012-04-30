@@ -54,8 +54,7 @@ import edu.utep.trustlab.visko.ontology.vocabulary.XSD;
 import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoS;
 
-public class ToolkitProfile extends JenaIndividual {
-	private Toolkit toolkit;
+public class InputParameterBinding extends JenaIndividual {
 	private Vector<String> profiledDataTypes;
 	private Vector<InputBinding> inputBindings;
 
@@ -64,11 +63,11 @@ public class ToolkitProfile extends JenaIndividual {
 	private ObjectProperty declaresBindingsProperty;
 	private DatatypeProperty profilesProperty;
 
-	public ToolkitProfile(String baseURL, String name, ViskoModel viskoModel) {
+	public InputParameterBinding(String baseURL, String name, ViskoModel viskoModel) {
 		super(ViskoS.CLASS_URI_TOOLKIT_PROFILE, baseURL, name, viskoModel);
 	}
 
-	public ToolkitProfile(String uri, ViskoModel viskoModel) {
+	public InputParameterBinding(String uri, ViskoModel viskoModel) {
 		super(uri, viskoModel);
 	}
 
@@ -84,24 +83,12 @@ public class ToolkitProfile extends JenaIndividual {
 		return inputBindings;
 	}
 
-	public void setToolkit(Toolkit tk) {
-		toolkit = tk;
-	}
-
-	public Toolkit getToolkit() {
-		return toolkit;
-	}
-
 	public void addProfiledDataType(String dataType) {
 		profiledDataTypes.add(dataType);
 	}
 
 	public Vector<String> getProfiledDataTypes() {
 		return profiledDataTypes;
-	}
-
-	private void addbasedOnToolkitProperty(Individual subjectInd) {
-		subjectInd.addProperty(basedOnProperty, toolkit.getIndividual());
 	}
 
 	private void addProfilesProperty(Individual subjectInd) {
@@ -123,7 +110,6 @@ public class ToolkitProfile extends JenaIndividual {
 	@Override
 	public Individual createNewIndividual() {
 		Individual subjectInd = super.createNewIndividual();
-		this.addbasedOnToolkitProperty(subjectInd);
 		this.addDeclaresBindingsProperty(subjectInd);
 		this.addProfilesProperty(subjectInd);
 
@@ -140,9 +126,6 @@ public class ToolkitProfile extends JenaIndividual {
 			profiledDataType = (String) dataType.as(Literal.class).getValue();
 			profiledDataTypes.add(profiledDataType);
 		}
-
-		RDFNode tkInd = ind.getPropertyValue(basedOnProperty);
-		toolkit = new Toolkit(tkInd.as(Individual.class).getURI(), model);
 
 		NodeIterator ibInds = ind.listPropertyValues(declaresBindingsProperty);
 		String ibURI;
@@ -169,7 +152,6 @@ public class ToolkitProfile extends JenaIndividual {
 
 	@Override
 	protected boolean allFieldsPopulated() {
-		return toolkit != null && inputBindings.size() > 0
-				&& profiledDataTypes.size() > 0;
+		return inputBindings.size() > 0 && profiledDataTypes.size() > 0;
 	}
 }
