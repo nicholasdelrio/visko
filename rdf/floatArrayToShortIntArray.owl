@@ -1,0 +1,19 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:pmlp="http://inference-web.org/2.0/pml-provenance.owl#"
+    xmlns:viskoO="http://trust.utep.edu/visko/ontology/visko-operator.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/rdf/floatArrayToShortIntArray.owl">
+    <owl:imports rdf:resource="http://inference-web.org/2.0/pml-provenance.owl"/>
+    <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/visko-operator.owl"/>
+  </owl:Ontology>
+  <viskoO:Transformer rdf:about="https://raw.github.com/nicholasdelrio/visko/master/rdf/floatArrayToShortIntArray.owl#floatArrayToShortIntArray">
+    <viskoO:transformsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/BINARYSHORTINTARRAYLENDIAN.owl#BINARYSHORTINTARRAYLENDIAN"/>
+    <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Float Array To Short Int Array</pmlp:hasName>
+    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN"/>
+    <rdfs:label>Float Array To Short Int Array</rdfs:label>
+  </viskoO:Transformer>
+</rdf:RDF>
