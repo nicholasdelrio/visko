@@ -184,7 +184,7 @@ WHERE	dataParams:dataSpacing		=	1/1/1		AND
 	contourParams:numContours	=	35		AND
 	renderParams:backgroundColor	=	1/1/1		AND
 	renderParams:magnification	=	3		AND
-	renderParams:xRotation		=	05		AND
+	renderParams:xRotation		=	105		AND
 	renderParams:yRotation 		=	0		AND
 	renderParams:zRotation 		= 	0
 </pre>
