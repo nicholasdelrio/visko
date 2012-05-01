@@ -14,14 +14,6 @@
 
 <div id="content">
 
-<h2>Visualization Query Submission</h2>
-<form action="ViskoServletManager">
-    <input type="hidden" name="requestType" value="execute-query" /> 
-	<textarea style="width: 989px; height: 152px" id="queryText" name="query"></textarea>
-	<br>
-	<input type="submit" id="submitButton" style="width: 156px">
-</form>
-
 <h2>Visualization Query Examples Supported on this Server</h2>
 
 <p>Visualization Queries Associated with:</p>
