@@ -43,9 +43,11 @@ public class BrightnessTemperatureProfile {
 		wtr.addInputBinding(netCDFGridContour + "#font", "helvetica");
 		wtr.addInputBinding(netCDFGridContour + "#cnFillOn", "True");
 		wtr.addInputBinding(netCDFGridContour + "#cnLinesOn", "False");
-		wtr.addInputBinding(netCDFGridContour + "#coordinateToIgnore", "0");
 		wtr.addInputBinding(netCDFGridContour + "#latVariable", "latitude");
 		wtr.addInputBinding(netCDFGridContour + "#lonVariable", "longitude");
+		wtr.addInputBinding(netCDFGridContour + "#indexOfX", "2");
+		wtr.addInputBinding(netCDFGridContour + "#indexOfY", "1");
+		wtr.addInputBinding(netCDFGridContour + "#indexOfZ", "0");
 
 		
 		// for netCDFGridRaster
@@ -53,10 +55,12 @@ public class BrightnessTemperatureProfile {
 		wtr.addInputBinding(netCDFGridRaster + "#lbOrientation", "vertical");
 		wtr.addInputBinding(netCDFGridRaster + "#colorTable", "WhiteBlueGreenYellowRed");
 		wtr.addInputBinding(netCDFGridRaster + "#font", "helvetica");
-		wtr.addInputBinding(netCDFGridRaster + "#coordinateToIgnore", "0");
 		wtr.addInputBinding(netCDFGridRaster + "#latVariable", "latitude");
 		wtr.addInputBinding(netCDFGridRaster + "#lonVariable", "longitude");
-
+		wtr.addInputBinding(netCDFGridRaster + "#indexOfX", "2");
+		wtr.addInputBinding(netCDFGridRaster + "#indexOfY", "1");
+		wtr.addInputBinding(netCDFGridRaster + "#indexOfZ", "0");
+		
 		documentURL = wtr.saveDocument();
 		System.out.println(documentURL);
 	}

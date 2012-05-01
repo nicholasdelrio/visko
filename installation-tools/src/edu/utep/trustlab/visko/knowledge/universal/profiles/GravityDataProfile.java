@@ -92,20 +92,24 @@ public class GravityDataProfile {
 		wtr.addInputBinding(gridded2ContourMapNCL + "#font", "helvetica");
 		wtr.addInputBinding(gridded2ContourMapNCL + "#cnFillOn", "True");
 		wtr.addInputBinding(gridded2ContourMapNCL + "#cnLinesOn", "False");
-		wtr.addInputBinding(gridded2ContourMapNCL + "#coordinateToIgnore", "0");
 		wtr.addInputBinding(gridded2ContourMapNCL + "#latVariable", "y");
 		wtr.addInputBinding(gridded2ContourMapNCL + "#lonVariable", "x");
 		wtr.addInputBinding(gridded2ContourMapNCL + "#plotVariable", "z");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#indexOfX", "1");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#indexOfY", "0");
+		wtr.addInputBinding(gridded2ContourMapNCL + "#indexOfZ", "-1");
 
 		
 		// for NCL gsx_gsn something excepted hard coded for raster generation
 		wtr.addInputBinding(gridded2RasterNCL + "#lbOrientation", "vertical");
 		wtr.addInputBinding(gridded2RasterNCL + "#colorTable", "WhiteBlueGreenYellowRed");
 		wtr.addInputBinding(gridded2RasterNCL + "#font", "helvetica");
-		wtr.addInputBinding(gridded2RasterNCL + "#coordinateToIgnore", "0");
 		wtr.addInputBinding(gridded2RasterNCL + "#latVariable", "y");
 		wtr.addInputBinding(gridded2RasterNCL + "#lonVariable", "x");
 		wtr.addInputBinding(gridded2RasterNCL + "#plotVariable", "z");
+		wtr.addInputBinding(gridded2RasterNCL + "#indexOfX", "1");
+		wtr.addInputBinding(gridded2RasterNCL + "#indexOfY", "0");
+		wtr.addInputBinding(gridded2RasterNCL + "#indexOfZ", "-1");
 
 		
 		// dump document
