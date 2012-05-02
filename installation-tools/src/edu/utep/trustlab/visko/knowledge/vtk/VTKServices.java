@@ -31,6 +31,7 @@ public class VTKServices {
 	public static String vtkPolyDataMapper;
 	public static String vtkVolume;
 	public static String vtkImageDataReaderFloat;
+	public static String vtkTIFFReader;
 	
 	public static void create(String wsdlURL) {
 		String operationName;
@@ -103,5 +104,15 @@ public class VTKServices {
 		wtr6.setSupportingToolkit(VTKToolkits.vtk);
 		System.out.println(wtr6.saveDocument());
 		vtkImageDataReaderFloat = wtr6.getURI();
+		
+		operationName = "vtkTIFFReader";
+		ServiceWriter wtr7 = new ServiceWriter(operationName);
+		wtr7.setWSDLURL(wsdlURL);
+		wtr7.setLabel(operationName);
+		wtr7.setOperationName(operationName);
+		wtr7.setConceptualOperator(VTKTransformers.tiff2Gridded);
+		wtr7.setSupportingToolkit(VTKToolkits.vtk);
+		System.out.println(wtr7.saveDocument());
+		vtkTIFFReader = wtr7.getURI();
 	}
 }

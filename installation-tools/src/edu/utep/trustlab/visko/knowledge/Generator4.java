@@ -21,6 +21,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.knowledge;
 
 import edu.utep.trustlab.visko.knowledge.universal.profiles.BrightnessTemperatureProfile;
+import edu.utep.trustlab.visko.knowledge.universal.profiles.CIIXRAYDataProfile;
 import edu.utep.trustlab.visko.knowledge.universal.profiles.CoverageModelProfile;
 import edu.utep.trustlab.visko.knowledge.universal.profiles.DuSumProfile;
 import edu.utep.trustlab.visko.knowledge.universal.profiles.GravityDataProfile;
@@ -39,5 +40,6 @@ public class Generator4 {
 		GriddedGravityDataProfile.create();
 		GriddedTimeProfile.create();
 		VelocityModelProfile.create();
+		CIIXRAYDataProfile.create();
 	}
 }

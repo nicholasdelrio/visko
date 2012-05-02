@@ -32,6 +32,7 @@ public class VTKTransformers {
 	public static String volumeGenerator;
 	public static String int2ShortInt;
 	public static String floatArray2Gridded;
+	public static String tiff2Gridded;
 	
 	public static void create() {
 		String name;
@@ -99,5 +100,15 @@ public class VTKTransformers {
 		wtr6.setName(name);
 		System.out.println(wtr6.saveDocument());
 		floatArray2Gridded = wtr6.getURI();
+		
+		TransformerWriter wtr7 = new TransformerWriter("tiffToGriddedData", false);
+		wtr7.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/TIFF.owl#TIFF");
+		wtr7.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VTKIMAGEDATA.owl#VTKIMAGEDATA");
+		name = "TIFF to Image Data";
+		wtr7.setLabel(name);
+		wtr7.setName(name);
+		System.out.println(wtr7.saveDocument());
+		tiff2Gridded = wtr7.getURI();
+		
 	}
 }
