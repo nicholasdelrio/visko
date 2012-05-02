@@ -4,8 +4,8 @@
     xmlns:process="http://www.daml.org/services/owl-s/1.2/Process.owl#"
     xmlns:viskoS="http://trust.utep.edu/visko/ontology/visko-service.owl#"
     xmlns:list="http://www.daml.org/services/owl-s/1.2/generic/ObjectList.owl#"
-    xmlns="https://raw.github.com/nicholasdelrio/visko/master/rdf/float2ShortThr.owl"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="https://raw.github.com/nicholasdelrio/visko/master/rdf/vtkTIFFReader.owl"
     xmlns:expr="http://www.daml.org/services/owl-s/1.2/generic/Expression.owl#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
@@ -13,27 +13,27 @@
     xmlns:grounding="http://www.daml.org/services/owl-s/1.2/Grounding.owl#"
     xmlns:profile="http://www.daml.org/services/owl-s/1.2/Profile.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xml:base="https://raw.github.com/nicholasdelrio/visko/master/rdf/float2ShortThr.owl">
+  xml:base="https://raw.github.com/nicholasdelrio/visko/master/rdf/vtkTIFFReader.owl">
   <owl:Ontology rdf:about="">
     <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Grounding.owl"/>
     <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Profile.owl"/>
     <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Service.owl"/>
   </owl:Ontology>
-  <service:Service rdf:ID="float2ShortThrService">
-    <viskoS:implementsOperator rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/floatArrayToShortIntArray.owl#floatArrayToShortIntArray"/>
+  <service:Service rdf:ID="vtkTIFFReaderService">
+    <viskoS:implementsOperator rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/tiffToGriddedData.owl#tiffToGriddedData"/>
     <viskoS:supportedBy rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/vtk.owl#vtk"/>
-    <rdfs:label>float2ShortThr</rdfs:label>
+    <rdfs:label>vtkTIFFReader</rdfs:label>
     <service:supports>
-      <grounding:WsdlGrounding rdf:ID="float2ShortThrGrounding"/>
+      <grounding:WsdlGrounding rdf:ID="vtkTIFFReaderGrounding"/>
     </service:supports>
     <service:describedBy>
-      <process:AtomicProcess rdf:ID="float2ShortThrProcess"/>
+      <process:AtomicProcess rdf:ID="vtkTIFFReaderProcess"/>
     </service:describedBy>
     <service:presents>
-      <profile:Profile rdf:ID="float2ShortThrProfile"/>
+      <profile:Profile rdf:ID="vtkTIFFReaderProfile"/>
     </service:presents>
   </service:Service>
-  <profile:Profile rdf:about="#float2ShortThrProfile">
+  <profile:Profile rdf:about="#vtkTIFFReaderProfile">
     <profile:hasOutput>
       <process:Output rdf:ID="return">
         <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
@@ -42,17 +42,10 @@
       </process:Output>
     </profile:hasOutput>
     <profile:hasInput>
-      <process:Input rdf:ID="offset">
+      <process:Input rdf:ID="littleEndian">
         <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
         >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
-        <rdfs:label>offset</rdfs:label>
-      </process:Input>
-    </profile:hasInput>
-    <profile:hasInput>
-      <process:Input rdf:ID="scalingFactor">
-        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://www.w3.org/2001/XMLSchema#string</process:parameterType>
-        <rdfs:label>scalingFactor</rdfs:label>
+        <rdfs:label>littleEndian</rdfs:label>
       </process:Input>
     </profile:hasInput>
     <profile:hasInput>
@@ -63,60 +56,53 @@
       </process:Input>
     </profile:hasInput>
     <profile:textDescription>This is a VisKo/OWLS Service.</profile:textDescription>
-    <profile:serviceName>float2ShortThr</profile:serviceName>
-    <service:presentedBy rdf:resource="#float2ShortThrService"/>
+    <profile:serviceName>vtkTIFFReader</profile:serviceName>
+    <service:presentedBy rdf:resource="#vtkTIFFReaderService"/>
   </profile:Profile>
-  <process:AtomicProcess rdf:about="#float2ShortThrProcess">
+  <process:AtomicProcess rdf:about="#vtkTIFFReaderProcess">
     <process:hasOutput rdf:resource="#return"/>
-    <process:hasInput rdf:resource="#offset"/>
-    <process:hasInput rdf:resource="#scalingFactor"/>
+    <process:hasInput rdf:resource="#littleEndian"/>
     <process:hasInput rdf:resource="#url"/>
-    <service:describes rdf:resource="#float2ShortThrService"/>
-    <rdfs:label>float2ShortThrProcess</rdfs:label>
+    <service:describes rdf:resource="#vtkTIFFReaderService"/>
+    <rdfs:label>vtkTIFFReaderProcess</rdfs:label>
   </process:AtomicProcess>
-  <grounding:WsdlGrounding rdf:about="#float2ShortThrGrounding">
+  <grounding:WsdlGrounding rdf:about="#vtkTIFFReaderGrounding">
     <grounding:hasAtomicProcessGrounding>
-      <grounding:WsdlAtomicProcessGrounding rdf:ID="float2ShortThrAtomicProcessGrounding"/>
+      <grounding:WsdlAtomicProcessGrounding rdf:ID="vtkTIFFReaderAtomicProcessGrounding"/>
     </grounding:hasAtomicProcessGrounding>
-    <service:supportedBy rdf:resource="#float2ShortThrService"/>
+    <service:supportedBy rdf:resource="#vtkTIFFReaderService"/>
   </grounding:WsdlGrounding>
-  <grounding:WsdlAtomicProcessGrounding rdf:about="#float2ShortThrAtomicProcessGrounding">
-    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl</grounding:wsdlDocument>
-    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://services.trustlab.utep.edu#float2ShortThrResponse</grounding:wsdlOutputMessage>
-    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://services.trustlab.utep.edu#float2ShortThrRequest</grounding:wsdlInputMessage>
+  <grounding:WsdlAtomicProcessGrounding rdf:about="#vtkTIFFReaderAtomicProcessGrounding">
     <grounding:wsdlOutput>
       <grounding:WsdlOutputMessageMap>
         <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#return</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#return"/>
       </grounding:WsdlOutputMessageMap>
     </grounding:wsdlOutput>
-    <grounding:wsdlOperation>
-      <grounding:WsdlOperationRef>
-        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#float2ShortThr</grounding:operation>
-      </grounding:WsdlOperationRef>
-    </grounding:wsdlOperation>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#offset</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#offset"/>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#littleEndian</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#littleEndian"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#scalingFactor</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#scalingFactor"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:owlsProcess rdf:resource="#float2ShortThrProcess"/>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
         <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#url</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#url"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
+    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://services.trustlab.utep.edu#vtkTIFFReaderResponse</grounding:wsdlOutputMessage>
+    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://services.trustlab.utep.edu#vtkTIFFReaderRequest</grounding:wsdlInputMessage>
+    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl</grounding:wsdlDocument>
+    <grounding:wsdlOperation>
+      <grounding:WsdlOperationRef>
+        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#vtkTIFFReader</grounding:operation>
+      </grounding:WsdlOperationRef>
+    </grounding:wsdlOperation>
+    <grounding:owlsProcess rdf:resource="#vtkTIFFReaderProcess"/>
   </grounding:WsdlAtomicProcessGrounding>
 </rdf:RDF>
