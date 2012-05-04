@@ -3,9 +3,9 @@
 	
 	<!-- ************************ Related to Installation Step 1 ************************ -->
 	
-	<!-- GitHub Configuration (SET my-github-username)-->
+	<!-- GitHub Configuration -->
 	<property name="my-github-username" value="username"/>
-	<!--  <property name="server-url" value="${github-server-url}"/> -->
+	<!-- <property name="server-url" value="${github-server-url}"/> -->
 	
 	<!-- Alfresco/Cat Configuration -->
 	<property name="cat-server-url" value="http://localhost:8080/alfresco/"/>
@@ -19,6 +19,9 @@
 	<property name="ci-server-password" value="password"/>
 	<!-- <property name="server-url" value="${ci-server-url}"/> -->
 
+	<!-- <property name="server-type" value="cat"/> -->
+	<!-- <property name="server-type" value="ciserver"/> -->
+	
 	<!-- ************************ Related to Installation Step 3 ************************ -->
 	
 	<!-- web.xml configuration (SET org-acronym, logo-file-name, host-port, tdb-path) -->
@@ -182,8 +185,8 @@
 	
 	<target name="utep-rdf-uploader" depends="build"  description="Generates and Uploads VisKo RDF to a Content Managment">
 		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorContentManager">
-			<arg value="cat"/>
-			<arg value="${cat-server-url}"/>
+			<arg value="${server-type}"/>
+			<arg value="${server-url}"/>
 			<arg value="${project-name}"/>
 			<arg value="${cat-server-username}"/>
 			<arg value="${cat-server-password}"/>
