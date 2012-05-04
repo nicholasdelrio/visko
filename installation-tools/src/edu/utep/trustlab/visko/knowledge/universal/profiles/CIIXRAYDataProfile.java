@@ -30,7 +30,7 @@ public class CIIXRAYDataProfile {
 		/************ profile for CII XRAY Data ******************************/
 		String dataTypeURI = "http://pnl.gov/cii/xray/data";
 	
-		ToolkitProfileWriter wtr = new ToolkitProfileWriter("velocityModelProfile");
+		ToolkitProfileWriter wtr = new ToolkitProfileWriter("CIIXRAYDataProfile");
 		wtr.addDataType(dataTypeURI);
 
 		String vtkTIFFReader = VTKServices.vtkTIFFReader.substring(0, VTKServices.vtkTIFFReader.indexOf("#"));
