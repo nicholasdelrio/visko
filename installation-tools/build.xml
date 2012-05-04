@@ -1,57 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="build" name="VisKo Installer Tools">
-
-	<!-- GitHub Configuration (SET your-github-username)-->
-	<property name="your-github-username" value="nicholasdelrio"/>
-	<property name="my-github-username" value="nicholasdelrio"/>
-	<property name="current-branch" value="master"/>
-	<property name="master-branch" value="master"/>
-	<property name="base-rdf-server-url" value="https://raw.github.com/"/>
-	<property name="github-server-url" value="${base-rdf-server-url}${your-github-username}/visko/${current-branch}/rdf/"/>
-	<property name="format-url" value="${base-rdf-server-url}${my-github-username}/visko/${master-branch}/rdf/formats/"/>	
-
-	<!-- Services WSDL -->
-	<property name="wsdl-url" value="http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl"/>
+	
+	<!-- ************************ Related to Installation Step 1 ************************ -->
+	
+	<!-- GitHub Configuration (SET my-github-username)-->
+	<property name="my-github-username" value="username"/>
+	<!--  <property name="server-url" value="${github-server-url}"/> -->
 	
 	<!-- Alfresco/Cat Configuration -->
 	<property name="cat-server-url" value="http://localhost:8080/alfresco/"/>
-	<property name="cat-server-username" value="admin"/>
-	<property name="cat-server-password" value="booger1"/>
-	<property name="cat-webdav-url" value="null" />
+	<property name="cat-server-username" value="username"/>
+	<property name="cat-server-password" value="password"/>
+	<!-- <property name="server-url" value="${cat-server-url}"/> -->
 	
 	<!-- CI-Server Configuration -->
 	<property name="ci-server-url" value="http://rio.cs.utep.edu/ciserver"/>
-	<property name="ci-server-username" value=""/>
-	<property name="ci-server-password" value=""/>
-	
-	<!-- Server URL -->
-	<property name="server-url" value="${github-server-url}"/>
+	<property name="ci-server-username" value="username"/>
+	<property name="ci-server-password" value="password"/>
+	<!-- <property name="server-url" value="${ci-server-url}"/> -->
+
+	<!-- ************************ Related to Installation Step 3 ************************ -->
 	
 	<!-- web.xml configuration (SET org-acronym, logo-file-name, host-port, tdb-path) -->
 	<property name="org-acronym" value="UTEP" />
 	<property name="logo-file-name" value="LogoUTEP.jpg" />
 	<property name="host-port" value="80" />
 	<property name="tdb-path" value="/usr/local/git/git-repos/visko/tdb"/>
+	
+	<!-- DO NOT CHANGE SETTINGS BELOW -->
+	<!-- GitHub -->
+	<property name="source-github-username" value="nicholasdelrio"/>
+	<property name="current-branch" value="master"/>
+	<property name="master-branch" value="master"/>
+	<property name="base-rdf-server-url" value="https://raw.github.com/"/>
+	<property name="format-url" value="${base-rdf-server-url}${source-github-username}/visko/${master-branch}/rdf/formats/"/>	
+	<property name="github-server-url" value="${base-rdf-server-url}${my-github-username}/visko/${current-branch}/rdf/"/>
+	
+	<!-- Alfresco/CAT-->
+	<property name="cat-webdav-url" value="${cat-server-url}webdav/Projects/visko/" />
+	
+	<!-- web.xml -->
 	<property name="logo-path" value="logos/${logo-file-name}"/>
 	<property name="sparql-endpoint" value="http://localhost:${host-port}/visko-web/ViskoServletManager?requestType=query-triple-store"/>
 	
-	<!-- DO NOT CHANGE SETTINGS BELOW -->
-	
-	<!-- project name -->
-	<property name="project-name" value="visko"/>
-	
-	<!-- Visualization query examples page -->
-	<property name="query-template" value="visko-web-templates/query.jsp"/>
-	<property name="query-deployment-dir" value="../visko-web/WebContent/"/>
-
 	<!-- web.xml paths -->
 	<property name="web-xml-template" value="visko-web-templates/web.xml"/>
 	<property name="web-xml-deployment-dir" value="../visko-web/WebContent/WEB-INF"/>
+
+	<!-- Visualization query examples page -->
+	<property name="query-template" value="visko-web-templates/query.jsp"/>
+	<property name="query-deployment-dir" value="../visko-web/WebContent/"/>
 
 	<!-- Content Management Libs -->
 	<property name="content-management-libs" value="../../content-management-connectors/clients/lib"/>	
 		
 	<!-- build properties -->
+	<property name="project-name" value="visko"/>
 	<property name="jarfile" value="installer-tools.jar"/>
 	<property name="lib" value="../api/lib/"/>
 	<property name="build" value="build"/>
