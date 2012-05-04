@@ -2,7 +2,6 @@
 <project default="build" name="VisKo Installer Tools">
 	
 	<!-- ************************ Related to Installation Step 1 ************************ -->
-	
 	<!-- GitHub Configuration -->
 	<property name="my-github-username" value="myusername"/>
 	<!-- Do not change --><property name="source-github-username" value="nicholasdelrio"/>
@@ -29,6 +28,8 @@
 	
 	<!-- <property name="server-type" value="cat"/> -->
 	<!-- <property name="server-type" value="ciserver"/> -->
+	
+	<property name="wsdl-url" value="http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl"/>
 	
 	<!-- ************************ Related to Installation Step 3 ************************ -->
 	
