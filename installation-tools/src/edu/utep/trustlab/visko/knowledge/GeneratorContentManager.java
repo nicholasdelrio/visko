@@ -60,8 +60,10 @@ public class GeneratorContentManager {
 
 		AlfrescoClient client = new AlfrescoClient(serverURL, userName, password);
 		client.setProjectName(projectName);
-		if(!webdavURL.equalsIgnoreCase("null"))
+		
+		if(webdavURL.equals("${cat-webdav-url}"))
 			client.setWebDAVURL(webdavURL);
+		
 		return client;
 	}
 }
