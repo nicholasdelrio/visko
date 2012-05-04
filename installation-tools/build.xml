@@ -4,7 +4,7 @@
 	<!-- ************************ Related to Installation Step 1 ************************ -->
 	
 	<!-- GitHub Configuration -->
-	<property name="my-github-username" value="username"/>
+	<property name="my-github-username" value="myusername"/>
 	<!-- Do not change --><property name="source-github-username" value="nicholasdelrio"/>
 	<!-- Do not change --><property name="current-branch" value="master"/>
 	<!-- Do not change --><property name="master-branch" value="master"/>
@@ -15,20 +15,20 @@
 	<!-- Alfresco/Cat Configuration -->
 	<property name="cat-server-url" value="http://localhost:8080/alfresco/"/>
 	<property name="cat-server-username" value="admin"/>
-	<property name="cat-server-password" value="password"/>
-	<!-- Uncomment to use webdav <property name="cat-webdav-url" value="${cat-server-url}webdav/Projects/visko/" /> -->
+	<property name="cat-server-password" value="booger1"/>
+	<!-- <property name="cat-webdav-url" value="${cat-server-url}webdav/Projects/visko/" /> -->
 	
 	<!-- CI-Server Configuration -->
 	<property name="ci-server-url" value="http://rio.cs.utep.edu/ciserver"/>
 	<property name="ci-server-username" value="username"/>
 	<property name="ci-server-password" value="password"/>
 	
-	<!-- Uncomment if using GitHub			<property name="server-url" value="${github-server-url}"/> -->
-	<!-- Uncomment if using Alfresco/Cat	<property name="server-url" value="${cat-server-url}"/> -->
-	<!-- Uncomment if using CI-Server		<property name="server-url" value="${ci-server-url}"/> -->
+	<!-- <property name="server-url" value="${github-server-url}"/> -->
+	<!-- <property name="server-url" value="${cat-server-url}"/> -->
+	<!-- <property name="server-url" value="${ci-server-url}"/> -->
 	
-	<!-- Uncomment if using Alfresco/Cat	<property name="server-type" value="cat"/> -->
-	<!-- Uncomment if using CI-Server		<property name="server-type" value="ciserver"/> -->
+	<!-- <property name="server-type" value="cat"/> -->
+	<!-- <property name="server-type" value="ciserver"/> -->
 	
 	<!-- ************************ Related to Installation Step 3 ************************ -->
 	
