@@ -15,7 +15,7 @@
 	<!-- Alfresco/Cat Configuration -->
 	<property name="cat-server-url" value="http://localhost:8080/alfresco/"/>
 	<property name="cat-server-username" value="admin"/>
-	<property name="cat-server-password" value="booger1"/>
+	<property name="cat-server-password" value="password"/>
 	<!-- <property name="cat-webdav-url" value="${cat-server-url}webdav/Projects/visko/" /> -->
 	
 	<!-- CI-Server Configuration -->
