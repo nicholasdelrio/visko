@@ -137,7 +137,10 @@ public class SelectionOptionsHTML {
 		String viewURI;
 		String options = "<option value=\"" + DEFAULT
 				+ "\">-- Choose View --</option>";
-		String option = "";
+		
+		String option = "<option title=\"*\" value=\"*\">*</option>";
+		options += option;
+		
 		while (views.hasNext()) {
 			viewURI = views.nextSolution().get("?view").toString();
 			option = "<option title=\"" + viewURI + "\" value=\"" + viewURI

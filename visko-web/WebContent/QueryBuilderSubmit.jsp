@@ -38,12 +38,12 @@ function reset()
 	viewerSet = defaultValue;
 	artifactURL = defaultValue;
 	
-	document.getElementById("formatURIs").disabled = false;
+	document.getElementById("formatURIs").disabled = true;
 	document.getElementById("paramURIs").disabled = true;
 	document.getElementById("paramValue").disabled = true;
 	document.getElementById("bindButton").disabled = true;
 	document.getElementById("typeURIs").disabled = true;
-	document.getElementById("viewURIs").disabled = true;
+	document.getElementById("viewURIs").disabled = false;
 	document.getElementById("viewerSetURIs").disabled = true;
 	document.getElementById("artifactURL").disabled = true;
 	document.getElementById("queryText").disabled = false;
@@ -67,7 +67,7 @@ function setQueryFields()
 	document.getElementById("paramURIs").disabled = false;
 	document.getElementById("paramValue").disabled = false;
 	document.getElementById("bindButton").disabled = false;
-	document.getElementById("viewURIs").disabled = false;
+	document.getElementById("formatURIs").disabled = false;
 	document.getElementById("viewerSetURIs").disabled = false;
 	document.getElementById("artifactURL").disabled = false;
 	document.getElementById("queryText").disabled = false;
@@ -100,12 +100,6 @@ function setQueryFields()
 			bindings.push(new parameterBinding(parameter, parameterValue));
 		}
 	}
-
-	if(viewerSet == defaultValue)
-	{
-		document.getElementById("viewerSetURIs").value = "http://rio.cs.utep.edu/ciserver/ciprojects/visko/mozilla-firefox1.owl#mozilla-firefox1";
-		viewerSet = "http://rio.cs.utep.edu/ciserver/ciprojects/visko/mozilla-firefox1.owl#mozilla-firefox1";
-	}
 }
 	
 function clearParameterValue()
@@ -117,34 +111,48 @@ function clearParameterValue()
 function writeQuery()
 {	
 	setQueryFields();
-	var query = "(AND\t";
+	var query = "";
 	
-	if(format == defaultValue)
+	if(view == defaultValue)
 	{reset();}
 	else
 	{
-		query = query + "(hasFormat ?DATA " + format + ")";
-	
-		if(type != defaultValue)
-		{query = query + "\n\t(hasType ?DATA " + type + ")";}
-
-		if(view != defaultValue)
-		{query = query + "\n\t(hasView ?DATA " + view + ")";}
+		query = query + "SELECT " + view + " \n";
 		
-		if(artifactURL != null && artifactURL != "")
-		{query = query + "\n\t(hasContent ?DATA " + artifactURL + ")";}
+		if(viewerSet !== null && viewerSet != defaultValue)
+		{query = query + "IN-VIEWER " + viewerSet + " \n";}
+		else
+		{query = query + "IN-VIEWER viewer-set \n";}
 
+		if(artifactURL != null && artifactURL != "")
+		{query = query + "FROM " + artifactURL + " \n";}
+		else
+		{query = query + "FROM url \n";}
+		
+		if(format != defaultValue)
+		{query = query + "FORMAT " + format + " \n";}
+		else
+		{query = query + "FORMAT format \n";}
+		
+		if(type != defaultValue)
+		{query = query + "TYPE " + type + " \n";}
+		else
+		{query = query + "TYPE type \n";}
+
+		if(bindings.length > 0)
+		{query = query + "WHERE";}
 		for(var i = 0; i < bindings.length; i = i + 1)
 		{
 			var binding = bindings[i];
 			var parameter = binding.parameter;
 			var parameterValue = binding.parameterValue;
 			
-			query = query + "\n\t(hasValue " + parameter + " " + parameterValue + ")";
+			if((bindings.length - i) > 1)
+				query = query + "\t" + parameter + " = " + parameterValue + " AND \n";
+			else
+				query = query + "\t" + parameter + " = " + parameterValue + " \n";	
 		}
-		
-		query = query + "\n\t(viewedBy ?DATA " + viewerSet + "))";
-	
+			
 		document.getElementById("queryText").value = query;
 	}
 }
@@ -158,28 +166,30 @@ function writeQuery()
 <table style="height: 118px; width: 1049px">
 	<tr><td colspan="2" align="center"><b>Complete Form to Compose Query</b></td></tr>
 	<tr>
-		<td style="width: 176px; ">Select Format</td>
-		<td align="right"><select style="width: 780px"
-			name="formatURI" id="formatURIs" onchange="writeQuery()"><%=o.getFormats()%></select></td>
-	</tr>
-	<tr>
-		<td style="width: 182px; ">Select Type (optional)</td>
-		<td align="right"><select style="width: 780px" name="typeURI"
-			onchange="writeQuery()" disabled="disabled" id="typeURIs"><%=o.getTypes()%></select></td>
-	</tr>
-	<tr>
-		<td>Select View (optional)</td>
+		<td>Select View</td>
 		<td align="right"><select style="width: 780px" name="viewURI"
-			onchange="writeQuery()" disabled="disabled" id="viewURIs"><%=o.getViskoViews() %></select></td>
+			onchange="writeQuery()" id="viewURIs"><%=o.getViskoViews() %></select></td>
 	</tr>
 	<tr>
 		<td>Select ViewerSet (optional)</td>
 		<td align="right"><select style="width: 780px" name="viewerSetURI"
 			onchange="writeQuery()" disabled="disabled" id="viewerSetURIs"><%=o.getViewerSets()%></select></td>
 	</tr>
+
 	<tr>
 		<td>Set Artifact URL (optional)</td>
 		<td align="right"><input style="width: 776px" id="artifactURL" disabled="disabled" onchange="writeQuery()"></td>
+	</tr>
+
+	<tr>
+		<td style="width: 176px; ">Select Format</td>
+		<td align="right"><select style="width: 780px"
+			name="formatURIs" disabled="disabled" id="formatURIs" onchange="writeQuery()"><%=o.getFormats()%></select></td>
+	</tr>
+	<tr>
+		<td style="width: 182px; ">Select Type (optional)</td>
+		<td align="right"><select style="width: 780px" name="typeURI"
+			onchange="writeQuery()" disabled="disabled" id="typeURIs"><%=o.getTypes()%></select></td>
 	</tr>
 	
 	<tr>
@@ -201,8 +211,8 @@ function writeQuery()
 	</tr>
 	</table>
 	<hr>
-	<form action="ExecuteQueryServlet">
-	<table style="width: 1023px; ">
+	<form action="ViskoServletManager">
+    <input type="hidden" name="requestType" value="execute-query" /> 	<table style="width: 1023px; ">
 	<tr><td colspan="2" align="center"><b>VisKo  Query</b></td></tr>
 	<tr>
 		<td style="width: 996px; " colspan="2" align="right"><textarea style="width: 989px; height: 152px" id="queryText" name="query"></textarea></td>
