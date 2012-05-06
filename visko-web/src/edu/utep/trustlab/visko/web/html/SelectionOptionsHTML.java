@@ -57,8 +57,7 @@ public class SelectionOptionsHTML {
 	}
 
 	public String getFormats() {
-		String formatsXML = store.getFormats();
-		ResultSet formats = ResultSetFactory.fromXML(formatsXML);
+		ResultSet formats = viskoStore.getFormats();
 
 		String options = "<option value=\"" + DEFAULT
 				+ "\">-- Choose Format --</option>";
