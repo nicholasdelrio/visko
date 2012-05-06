@@ -90,6 +90,11 @@ public class ViskoTripleStore {
 
 		return endpoint.executeQuery(stringQuery);
 	}
+	
+	public ResultSet getInformationSubclasses(){
+		String query = QUERY_PREFIX + "SELECT ?subclass ?label WHERE {?subclass rdfs:subClassOf pmlp:Information . ?subclass rdfs:label ?label . }";
+		return endpoint.executeQuery(query);
+	}
 
 	public ResultSet getFormatsSupportedByViewer(String viewerURI) {
 		viewerURI = "<" + viewerURI + ">";

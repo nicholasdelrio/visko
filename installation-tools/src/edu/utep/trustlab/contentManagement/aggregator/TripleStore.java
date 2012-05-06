@@ -53,13 +53,15 @@ import com.hp.hpl.jena.tdb.*;
 	private String rdfDirectory;
 	private String formatsDirectory;
 	private String formatRestrictionsDirectory;
+	private String sawDirectory;
 	
-	public TripleStore(String inputRDFDirectory, String inputOntologyDirectory, String inputFormatsDirectory, String inputFormatRestrictionsDirectory, String tripleStoreDirectory){
+	public TripleStore(String inputRDFDirectory, String inputOntologyDirectory, String inputFormatsDirectory, String inputFormatRestrictionsDirectory, String sawsDirectory, String tripleStoreDirectory){
 		rdfDirectory = inputRDFDirectory;
 		tsDirectory = tripleStoreDirectory;	
 		owlDirectory = inputOntologyDirectory;
 		formatsDirectory = inputFormatsDirectory;
 		formatRestrictionsDirectory = inputFormatRestrictionsDirectory;
+		sawDirectory = sawsDirectory;
 		if(!tsDirectory.endsWith("/"))
 			tsDirectory = tsDirectory + "/";
 	}
@@ -75,6 +77,7 @@ import com.hp.hpl.jena.tdb.*;
 		TripleStore.aggregate(owlDirectory, model);
 		TripleStore.aggregate(formatsDirectory, model);
 		TripleStore.aggregate(formatRestrictionsDirectory, model);
+		TripleStore.aggregate(sawDirectory, model);
 		System.out.println("Model now has " + model.size() + " statements.");
 		model.close();
 		
@@ -105,7 +108,7 @@ import com.hp.hpl.jena.tdb.*;
 	}
 	
 	public static void main(String[] args){
-		TripleStore ts = new TripleStore(args[0], args[1], args[2], args[3], args[4]);
+		TripleStore ts = new TripleStore(args[0], args[1], args[2], args[3], args[4], args[5]);
 		System.out.println(ts.create());
 	}
 }

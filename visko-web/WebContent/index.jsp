@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="visko-style.css" />
-<title>Build VisKo Query</title>
+<title>VisKo Server at <%=Template.getOrganization() %></title>
 <script type="text/javascript">
 
 var defaultValue = "<%= SelectionOptionsHTML.DEFAULT %>";
@@ -169,6 +169,10 @@ function writeQuery()
 
 <% SelectionOptionsHTML o = new SelectionOptionsHTML(); %>
 
+<table style="width: 1049px">
+<tr><td>Click <a href="query.jsp">here</a> for a list of query examples or use the form below to construct a new visualization query from scratch.</td></tr>
+</table>
+
 <table style="height: 118px; width: 1049px">
 	<tr><td colspan="2"><h2>Complete Form to Compose Query</h2></td></tr>
 	<tr>
@@ -229,7 +233,7 @@ function writeQuery()
 		<table>
 			<tr>
 				<td><input type="submit" id="submitButton" style="width: 156px"></td>
-				<td>Click <a href="query.jsp">here</a> for a list of query examples.</td>
+				<td><button type="button" onclick="reset()">Reset</button></td>
 			</tr>
 		</table>
 		</td>

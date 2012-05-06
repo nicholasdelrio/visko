@@ -33,18 +33,9 @@ import edu.utep.trust.provenance.*;
 public class SelectionOptionsHTML {
 	public static final String DEFAULT = "default";
 	private ViskoTripleStore viskoStore;
-	private RDFStore store;
 
 	public SelectionOptionsHTML() {
 		viskoStore = new ViskoTripleStore();
-		setUp();
-	}
-
-	private void setUp() {
-		if (store == null) {
-			RDFStore_Service service = new RDFStore_Service();
-			store = service.getRDFStoreHttpPort();
-		}
 	}
 
 	private static String getURIFragment(String uri) {
@@ -93,8 +84,7 @@ public class SelectionOptionsHTML {
 	}
 
 	public String getTypes() {
-		String typesXML = store.getInformationSubclasses();
-		ResultSet types = ResultSetFactory.fromXML(typesXML);
+		ResultSet types = viskoStore.getInformationSubclasses();
 		String options = "<option value=\"" + DEFAULT
 				+ "\">-- Choose Type --</option>";
 		String typeURI;
@@ -102,8 +92,8 @@ public class SelectionOptionsHTML {
 		String option = "";
 		while (types.hasNext()) {
 			QuerySolution solution = types.nextSolution();
-			typeURI = solution.get("?informationSubclass").toString();
-			label = solution.get("?subclassLabel").toString();
+			typeURI = solution.get("?subclass").toString();
+			label = solution.get("?label").toString();
 			option = "<option title=\"" + typeURI + "\" value=\"" + typeURI
 					+ "\">" + label + "</option>";
 			options += option;
