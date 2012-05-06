@@ -68,6 +68,7 @@ public class ViskoTripleStore {
 			+ "PREFIX owl: <http://www.w3.org/2002/07/owl#> "
 			+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
 			+ "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> "
+			+ "PREFIX pmlp: <http://inference-web.org/2.0/pml-provenance.owl#> "
 			+ "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ";
 
 	public ResultSet getParameterBindingsQuery(String typeURI) {
@@ -99,6 +100,11 @@ public class ViskoTripleStore {
 		return endpoint.executeQuery(stringQuery);
 	}
 
+	public ResultSet getFormats() {
+		String stringQuery = QUERY_PREFIX + "SELECT ?format " + "WHERE {?format a pmlp:Format . }";
+		return endpoint.executeQuery(stringQuery);
+	}
+	
 	public ResultSet getAllParameters() {
 		String stringQuery = QUERY_PREFIX + "SELECT ?param " + "WHERE { "
 				+ "?service rdf:type owlsService:Service . "
