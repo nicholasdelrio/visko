@@ -3,7 +3,7 @@
 	
 	<!-- ************************ Related to Installation Step 1 ************************ -->
 	<!-- GitHub Configuration -->
-	<property name="my-github-username" value="myusername"/>
+	<property name="my-github-username" value="nicholasdelrio"/>
 	<!-- Do not change --><property name="source-github-username" value="nicholasdelrio"/>
 	<!-- Do not change --><property name="current-branch" value="master"/>
 	<!-- Do not change --><property name="master-branch" value="master"/>
