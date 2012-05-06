@@ -434,7 +434,7 @@ public class QueryParser {
 
 	private static boolean isQName(String qName) {
 		if (qName != null)
-			return qName.contains(":") && !qName.contains("http://");
+			return qName.contains(":") && !qName.contains("https://") && !qName.contains("http://");
 		return false;
 	}
 }
