@@ -116,6 +116,9 @@ public class Query {
 		this.setParameterBindings(parser.getParameterBindings());
 	}
 
+	public boolean hasValidDataPointer(){
+		return QueryParser.isURL(datasetURL);
+	}
 	public Query(String artifactURL, String fmtURI, String viewerSetURI) {
 		this.datasetURL = artifactURL;
 		this.formatURI = fmtURI;

@@ -292,7 +292,7 @@ public class QueryParser {
 			getDataInfo();
 		} else if (token.equalsIgnoreCase("NODESET"))
 			getNodeset();
-		else if (isURL(token)) {
+		else {
 			contentURL = token;
 			dataSet();
 		}
@@ -399,7 +399,7 @@ public class QueryParser {
 				// done
 	}
 
-	private static boolean isURL(String url) {
+	public static boolean isURL(String url) {
 		boolean isURL;
 		try {
 			new URL(url);

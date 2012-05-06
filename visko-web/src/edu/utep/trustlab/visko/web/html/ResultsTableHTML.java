@@ -33,10 +33,10 @@ public class ResultsTableHTML {
 
 		if (pipes.size() > 0 && withProvenance) {
 			html += "<tr><td><b>Visualization</b></td><td><b>Type</b></td><td><b>Visualization with Provenance</b></td><td><b>Pipeline</b></td></tr>";
-			html += getVisualizationAndPipelineResultRows(pipes, true);
+			html += getVisualizationAndPipelineResultRows(pipes, true, engine.getQuery().hasValidDataPointer());
 		} else if (pipes.size() > 0 && !withProvenance) {
 			html += "<tr><td><b>Visualization</b></td><td><b>Type</b></td><td><b>Pipeline</b></td></tr>";
-			html += getVisualizationAndPipelineResultRows(pipes, false);
+			html += getVisualizationAndPipelineResultRows(pipes, false, engine.getQuery().hasValidDataPointer());
 		} else if (!(pipes.size() > 0)) {
 			html += "<tr><td><p>Empty Set</p></td></tr>";
 		} else if (engine.getQuery().getViewerSetURI() != null
@@ -51,12 +51,12 @@ public class ResultsTableHTML {
 		return html;
 	}
 
-	private static String getVisualizationAndPipelineResultRows(PipelineSet pipes, boolean withProvenance) {
+	private static String getVisualizationAndPipelineResultRows(PipelineSet pipes, boolean withProvenance, boolean validDatasetReference) {
 		String html = "";
 		
 		for (int i = 0; i < pipes.size(); i++) {
 			html += "<tr>";
-			html += "<td>" + getExecutePipelineLink(i, pipes.getArtifactURL(), pipes.get(i).hasAllInputParameters()) + "</td>";			
+			html += "<td>" + getExecutePipelineLink(i, pipes.getArtifactURL(), pipes.get(i).hasAllInputParameters(), validDatasetReference) + "</td>";			
 			html += "<td>" + getViewLink(pipes.get(i).getViewURI()) + "</td>";
 			if (withProvenance)
 				html += "<td>"+ getExecutePipelineProvenanceLink(i, pipes.getArtifactURL()) + "</td>";
@@ -92,10 +92,10 @@ public class ResultsTableHTML {
 		return html;
 	}
 
-	private static String getExecutePipelineLink(int index, String artifactURL, boolean hasAllParametersBound) {
+	private static String getExecutePipelineLink(int index, String artifactURL, boolean hasAllParametersBound, boolean hasValidDataInput) {
 		String html = "<p>NULL</p>";
 
-		if (artifactURL != null) {
+		if (artifactURL != null && hasValidDataInput) {
 			
 			if(hasAllParametersBound){
 				html = "<a href=\"ViskoServletManager?requestType=execute-pipeline&index=" + index;
@@ -104,6 +104,8 @@ public class ResultsTableHTML {
 			else
 				html = "<b>Not all pipeline parameters bound!</b>";
 		}
+		else
+			html = "<b>Not a valid dataset reference in query!</b>";
 		return html;
 	}
 

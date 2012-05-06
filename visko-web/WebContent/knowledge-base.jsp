@@ -43,6 +43,9 @@
 <p>This page provides both visual and textual querying techniques for ascertaining the fitness of your knowledge base.</p>
 
 <a name="Browsing"></a>
+<h2>Class Instances</h2>
+<iframe width="900" height="290" src="InstanceBarGraph.html" frameborder="0"></iframe>
+
 <h2>Format Transformation Paths:</h2>
 <iframe width="900" height="500" src="FormatTransformationPaths.html" frameborder="1"></iframe>
 

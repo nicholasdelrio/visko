@@ -2,10 +2,11 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<%@page import="edu.utep.trustlab.visko.web.html.SelectionOptionsHTML" %>
+<%@page import="edu.utep.trustlab.visko.web.html.*" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="visko-style.css" />
 <title>Build VisKo Query</title>
 <script type="text/javascript">
 
@@ -160,11 +161,16 @@ function writeQuery()
 </head>
 
 <body onLoad = "reset()">
+<div id="container">
+
+<%= Template.getHeader() %>
+
+<div id="content">
 
 <% SelectionOptionsHTML o = new SelectionOptionsHTML(); %>
 
 <table style="height: 118px; width: 1049px">
-	<tr><td colspan="2" align="center"><b>Complete Form to Compose Query</b></td></tr>
+	<tr><td colspan="2"><h2>Complete Form to Compose Query</h2></td></tr>
 	<tr>
 		<td>Select View</td>
 		<td align="right"><select style="width: 780px" name="viewURI"
@@ -213,7 +219,7 @@ function writeQuery()
 	<hr>
 	<form action="ViskoServletManager">
     <input type="hidden" name="requestType" value="execute-query" /> 	<table style="width: 1023px; ">
-	<tr><td colspan="2" align="center"><b>VisKo  Query</b></td></tr>
+	<tr><td colspan="2"><h2>VisKo  Query</h2></td></tr>
 	<tr>
 		<td style="width: 996px; " colspan="2" align="right"><textarea style="width: 989px; height: 152px" id="queryText" name="query"></textarea></td>
 	</tr>
@@ -222,13 +228,18 @@ function writeQuery()
 		<td align="right">
 		<table>
 			<tr>
-				<td><p onclick="reset()">Reset</p></td>
 				<td><input type="submit" id="submitButton" style="width: 156px"></td>
+				<td>Click <a href="query.jsp">here</a> for a list of query examples.</td>
 			</tr>
 		</table>
 		</td>
 	</tr>
 </table>
 </form>
+</div>
+</div>
+</div>
+</div>
+<%= Template.getFooter() %>
 </body>
 </html>

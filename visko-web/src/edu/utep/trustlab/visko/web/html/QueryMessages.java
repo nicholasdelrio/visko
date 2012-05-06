@@ -35,7 +35,7 @@ public class QueryMessages {
 		}
 		if (query.getViewerSetURI() == null) {
 			error = true;
-			html += "<tr><td>VIEWERSET</td><td>Need to specify VIEWERSET!</td></tr>";
+			html += "<tr><td>IN-VIEWER</td><td>Need to specify VIEWERSET!</td></tr>";
 		}
 		html += "</table>";
 
@@ -61,8 +61,13 @@ public class QueryMessages {
 		}
 		if (query.getParameterBindings() == null) {
 			warn = true;
-			html += "<tr><td>?BINDINGS</td><td>?BINDINGS unspecified in the query. System will roll back to defaults.</td></tr>";
+			html += "<tr><td>PARAMETER BINDINGS</td><td>BINDINGS unspecified in the query. System will roll back to defaults.</td></tr>";
 		}
+		if(!query.hasValidDataPointer()){
+			warn = true;
+			html += "<tr><td>Input Dataset</td><td>No valid pointer (e.g., a URL) for input data provided. No pipeline will be executable.</td></tr>";
+		}
+		
 		if (query.getArtifactURL() == null) {
 			warn = true;
 			html += "<tr><td>?CONTENTURL</td><td>?CONTENTURL unbound. No visualizations will be returned.</td></tr>";
