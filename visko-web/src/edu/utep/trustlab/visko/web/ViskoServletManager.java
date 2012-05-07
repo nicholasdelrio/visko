@@ -30,6 +30,7 @@ import javax.servlet.http.HttpServletResponse;
 import edu.utep.trustlab.visko.web.requestHandler.knowledgeBaseInfo.KnowledgeBaseInformationJSONServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ExecutePipelineServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ExecuteQueryServlet;
+import edu.utep.trustlab.visko.web.requestHandler.queryExecution.GetPipelineJSONServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ShowPipelineServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecutionService.ExecuteQueryServiceServlet;
 import edu.utep.trustlab.visko.web.requestHandler.sparql.ExecuteSPARQLQueryServlet;
@@ -55,17 +56,19 @@ public class ViskoServletManager extends HttpServlet {
 		
 		String requestType = request.getParameter("requestType");
 		String content;
-		response.setContentType("text/html");
-		if(requestType.equalsIgnoreCase("execute-pipeline"))
+		
+		if(requestType == null)
+			content = "<html><body><p>Invalid argument specified for <b>requestType</b></body></html>";
+		else if(requestType.equalsIgnoreCase("execute-pipeline"))
 			content = new ExecutePipelineServlet().getHTMLPage(request, response);
 		else if(requestType.equalsIgnoreCase("execute-query-service"))
 			content = new ExecuteQueryServiceServlet().getXMLResults(request, response);
 		else if(requestType.equalsIgnoreCase("execute-query"))
 			content = new ExecuteQueryServlet().getHTMLPage(request, response);
-		else if(requestType.equalsIgnoreCase("knowledge-base-info")){
-			response.setContentType("application/json");
+		else if(requestType.equalsIgnoreCase("knowledge-base-info"))
 			content = new KnowledgeBaseInformationJSONServlet().getJSON(request, response);
-		}
+		else if(requestType.equalsIgnoreCase("get-pipeline-json"))
+			content = new GetPipelineJSONServlet().getJSON(request, response);
 		else if(requestType.equalsIgnoreCase("show-pipeline"))
 			content = new ShowPipelineServlet().getHTMLPage(request, response);
 		else if(requestType.equals("query-triple-store")){
