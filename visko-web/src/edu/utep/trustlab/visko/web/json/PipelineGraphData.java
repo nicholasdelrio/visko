@@ -62,36 +62,44 @@ public class PipelineGraphData {
 		for(String serviceURI : pipe){
 
 			//add pipeline operators to list of nodes
-			if(ts.isMapper(serviceURI))
-				nodesList.add(new JSONObject().put("operatorURI", serviceURI).put("viskoType", "mapper"));
+			Vector<String> implOf = ResultSetToVector.getVectorFromResultSet(ts.getImplemenationOf(serviceURI), "operator");
+			
+			if(implOf != null && ts.isMapper(implOf.firstElement()))
+				nodesList.add(new JSONObject().put("instanceURI", serviceURI).put("viskoType", "Mapper"));
 			else
-				nodesList.add(new JSONObject().put("operatorURI", serviceURI).put("viskoType", "transformer"));
-			
-			Vector<String>params = ResultSetToVector.getVectorFromResultSet(ts.getInputParameters(serviceURI), "parameter");
-			
+				nodesList.add(new JSONObject().put("instanceURI", serviceURI).put("viskoType", "Transformer"));
 			nodeCount++;
 			
 			if(nodeCount > 1){
-				linksList.add(new JSONObject().put("source", nodeCount - parameterCount - 1).put("target", nodeCount - 1).put("linkType", "nextService"));
+				linksList.add(new JSONObject().put("source", nodeCount  - parameterCount - 2).put("target", nodeCount - 1).put("linkType", "nextService"));
 			}
 			
+			Vector<String>params = ResultSetToVector.getVectorFromResultSet(ts.getInputParameters(serviceURI), "parameter");
+			
+		
 			String boundValue;
 			parameterCount = 0;
 			for(String paramURI : params){
 				boundValue = pipe.getParameterBindings().get(paramURI);
-				if(boundValue != null){
-					nodesList.add(new JSONObject().put("parameterURI", paramURI).put("viskoType", "parameter").put("value", boundValue));
-				}
-				else
-					nodesList.add(new JSONObject().put("parameterURI", paramURI).put("viskoType", "parameter").put("value", "null"));
 				
-				parameterCount++;
-				nodeCount++;
-				linksList.add(new JSONObject().put("source", nodeCount - 1).put("target", nodeCount - parameterCount - 1).put("linkType", "hasInput"));
+				if(!paramURI.contains("url") && !paramURI.contains("URL") && !paramURI.contains("fileLoc")){
+					
+					if(boundValue != null){
+						nodesList.add(new JSONObject().put("instanceURI", paramURI).put("viskoType", "Parameter").put("value", boundValue));
+					}
+					else
+						nodesList.add(new JSONObject().put("instanceURI", paramURI).put("viskoType", "Parameter").put("value", "null"));
+				
+					parameterCount++;
+					linksList.add(new JSONObject().put("source", nodeCount + parameterCount - 1).put("target", nodeCount - 1).put("linkType", "hasInput"));
+				}
 			}
+			
+			nodeCount += parameterCount;
 		}
 		
-		nodesList.add(new JSONObject().put("operatorURI", pipe.getViewURI()).put("viskoType", "viewer"));
-		linksList.add(new JSONObject().put("target", nodeCount - 1).put("source", nodeCount - parameterCount - 1).put("linkType", "nextService"));
+		nodesList.add(new JSONObject().put("instanceURI", pipe.getViewerURI()).put("viskoType", "Viewer"));
+		nodeCount ++;
+		linksList.add(new JSONObject().put("target", nodeCount - 1).put("source", nodeCount - parameterCount - 2).put("linkType", "nextService"));
 	}
 }

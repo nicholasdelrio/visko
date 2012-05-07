@@ -26,9 +26,6 @@ import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.query.ResultSetFactory;
-
-import edu.utep.trust.provenance.*;
 
 public class SelectionOptionsHTML {
 	public static final String DEFAULT = "default";
@@ -48,14 +45,14 @@ public class SelectionOptionsHTML {
 	}
 
 	public String getFormats() {
-		ResultSet formats = viskoStore.getFormats();
+		ResultSet formats = viskoStore.getOperatedOnFormats();
 
 		String options = "<option value=\"" + DEFAULT
 				+ "\">-- Choose Format --</option>";
 		String formatURI;
 		String option = "";
 		while (formats.hasNext()) {
-			formatURI = formats.nextSolution().get("?format").toString();
+			formatURI = formats.nextSolution().get("?inputFormat").toString();
 			option = "<option title=\"" + formatURI + "\" value=\"" + formatURI
 					+ "\">" + getURIFragment(formatURI) + "</option>";
 			options += option;

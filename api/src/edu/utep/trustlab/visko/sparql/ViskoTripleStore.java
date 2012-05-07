@@ -318,6 +318,15 @@ public class ViskoTripleStore {
 				+ "}";
 		return endpoint.executeQuery(stringQuery);
 	}
+	
+	public ResultSet getImplemenationOf(String serviceURI) {
+		serviceURI = "<" + serviceURI + ">";
+
+		String stringQuery = QUERY_PREFIX + "SELECT ?operator " + "WHERE {"
+				+ serviceURI + " viskoS:implementsOperator ?operator . "
+				+ "}";
+		return endpoint.executeQuery(stringQuery);
+	}
 
 	public ResultSet getOutputFormatsOfTransformer(String transformerURI) {
 		transformerURI = "<" + transformerURI + ">";
