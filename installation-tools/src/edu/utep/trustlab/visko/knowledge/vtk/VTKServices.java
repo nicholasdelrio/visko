@@ -33,6 +33,7 @@ public class VTKServices {
 	public static String vtkImageDataReaderFloat;
 	public static String vtkTIFFReader;
 	public static String vtkDataSetMapper;
+	public static String vtkImageDataReaderUnsignedInts;
 	
 	public static void create(String wsdlURL) {
 		String operationName;
@@ -125,5 +126,15 @@ public class VTKServices {
 		wtr8.setSupportingToolkit(VTKToolkits.vtk);
 		System.out.println(wtr8.saveDocument());
 		vtkDataSetMapper = wtr8.getURI();
+		
+		operationName = "vtkImageDataReaderUnsignedInts";
+		ServiceWriter wtr9 = new ServiceWriter(operationName);
+		wtr9.setWSDLURL(wsdlURL);
+		wtr9.setLabel(operationName);
+		wtr9.setOperationName(operationName);
+		wtr9.setConceptualOperator(VTKTransformers.unsignedInts2Gridded);
+		wtr9.setSupportingToolkit(VTKToolkits.vtk);
+		System.out.println(wtr9.saveDocument());
+		vtkImageDataReaderUnsignedInts = wtr9.getURI();
 	}
 }

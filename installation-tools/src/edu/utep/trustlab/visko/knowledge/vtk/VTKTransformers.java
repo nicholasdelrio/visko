@@ -34,6 +34,7 @@ public class VTKTransformers {
 	public static String floatArray2Gridded;
 	public static String tiff2Gridded;
 	public static String rasterer3D;
+	public static String unsignedInts2Gridded;
 	
 	public static void create() {
 		String name;
@@ -120,5 +121,14 @@ public class VTKTransformers {
 		wtr8.setMappedToView(Views.raster);
 		System.out.println(wtr8.saveDocument());
 		rasterer3D = wtr8.getURI();
+		
+		TransformerWriter wtr9 = new TransformerWriter("unsignedIntArrayToGriddedData", false);
+		wtr9.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/BINARYUNSIGNEDINTARRAYLENDIAN.owl#BINARYUNSIGNEDINTARRAYLENDIAN");
+		wtr9.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VTKIMAGEDATA.owl#VTKIMAGEDATA");
+		name = "Floats to Image Data";
+		wtr9.setLabel(name);
+		wtr9.setName(name);
+		System.out.println(wtr9.saveDocument());
+		unsignedInts2Gridded = wtr9.getURI();
 	}
 }
