@@ -111,8 +111,26 @@
         <grounding:owlsParameter rdf:resource="#url"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#T</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#T"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
     <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >http://services.trustlab.utep.edu#grdimageResponse</grounding:wsdlOutputMessage>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#B</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#B"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlOperation>
+      <grounding:WsdlOperationRef>
+        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#grdimage</grounding:operation>
+      </grounding:WsdlOperationRef>
+    </grounding:wsdlOperation>
     <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl</grounding:wsdlDocument>
     <grounding:wsdlInput>
@@ -121,6 +139,12 @@
         <grounding:owlsParameter rdf:resource="#R"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#return</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#return"/>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
         <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#C</grounding:wsdlMessagePart>
@@ -129,36 +153,12 @@
     </grounding:wsdlInput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#B</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#B"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
         <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#J</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#J"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
-    <grounding:wsdlOutput>
-      <grounding:WsdlOutputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#return</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#return"/>
-      </grounding:WsdlOutputMessageMap>
-    </grounding:wsdlOutput>
     <grounding:owlsProcess rdf:resource="#grdimageProcess"/>
     <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >http://services.trustlab.utep.edu#grdimageRequest</grounding:wsdlInputMessage>
-    <grounding:wsdlOperation>
-      <grounding:WsdlOperationRef>
-        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#grdimage</grounding:operation>
-      </grounding:WsdlOperationRef>
-    </grounding:wsdlOperation>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl#T</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#T"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
   </grounding:WsdlAtomicProcessGrounding>
 </rdf:RDF>
