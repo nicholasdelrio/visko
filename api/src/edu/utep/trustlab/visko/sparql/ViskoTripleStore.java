@@ -92,7 +92,7 @@ public class ViskoTripleStore {
 	}
 	
 	public ResultSet getInformationSubclasses(){
-		String query = QUERY_PREFIX + "SELECT ?subclass ?label WHERE {?subclass rdfs:subClassOf pmlp:Information . ?subclass rdfs:label ?label . }";
+		String query = QUERY_PREFIX + "SELECT ?subclass ?label WHERE {?subclass rdfs:subClassOf pmlp:Information . ?subclass rdfs:label ?label . } ORDER BY ?label";
 		return endpoint.executeQuery(query);
 	}
 
@@ -114,7 +114,7 @@ public class ViskoTripleStore {
 		String stringQuery = QUERY_PREFIX + "SELECT ?param " + "WHERE { "
 				+ "?service rdf:type owlsService:Service . "
 				+ "?service owlsService:describedBy ?process ."
-				+ "?process owlsProcess:hasInput ?param ." + "}";
+				+ "?process owlsProcess:hasInput ?param ." + "} ORDER BY ?param";
 		return endpoint.executeQuery(stringQuery);
 	}
 
@@ -162,7 +162,8 @@ public class ViskoTripleStore {
 	public ResultSet getOperatedOnFormats() {
 		String stringQuery = QUERY_PREFIX + "SELECT DISTINCT ?inputFormat "
 				+ "WHERE { " + "?operator viskoO:operatesOn ?inputFormat . "
-				+ "}";
+				+ "}"
+				+ "ORDER BY ?inputFormat";
 		return endpoint.executeQuery(stringQuery);
 	}
 
@@ -348,7 +349,7 @@ public class ViskoTripleStore {
 
 	public ResultSet getViews() {
 		String stringQuery = QUERY_PREFIX + "SELECT ?view " + "WHERE {"
-				+ "?view rdf:type viskoV:View . " + "}";
+				+ "?view rdf:type viskoV:View . " + "} ORDER BY ?view";
 		return endpoint.executeQuery(stringQuery);
 	}
 
@@ -362,7 +363,7 @@ public class ViskoTripleStore {
 
 	public ResultSet getViewerSets() {
 		String stringQuery = QUERY_PREFIX + "SELECT ?viewerSet " + "WHERE {"
-				+ "      ?viewerSet rdf:type viskoO:ViewerSet . " + "      }";
+				+ "      ?viewerSet rdf:type viskoO:ViewerSet . " + " } ORDER BY ?viewerSet";
 
 		return endpoint.executeQuery(stringQuery);
 	}
