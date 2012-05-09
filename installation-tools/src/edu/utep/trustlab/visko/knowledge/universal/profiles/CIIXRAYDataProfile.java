@@ -37,16 +37,26 @@ public class CIIXRAYDataProfile {
 		String vtkPolyDataMapper = VTKServices.vtkPolyDataMapper.substring(0, VTKServices.vtkPolyDataMapper.indexOf("#"));
 		String vtkContourFilter = VTKServices.vtkContourFilter.substring(0, VTKServices.vtkContourFilter.indexOf("#"));
 		String vtkVolume = VTKServices.vtkVolume.substring(0, VTKServices.vtkVolume.indexOf("#"));
-
-		// for vtkImageReader
+		String vtkImageDataReaderUnsignedInts = VTKServices.vtkImageDataReaderUnsignedInts.substring(0, VTKServices.vtkImageDataReaderUnsignedInts.indexOf("#"));
+		
+		// for vtkTIFFReader
 		wtr.addInputBinding(vtkTIFFReader + "#littleEndian", "true");
-
+		
+		// for vtkImageReader
+		wtr.addInputBinding(vtkImageDataReaderUnsignedInts + "#littleEndian","true");
+		wtr.addInputBinding(vtkImageDataReaderUnsignedInts + "#dim","3");
+		wtr.addInputBinding(vtkImageDataReaderUnsignedInts + "#dataOrigin","0/0/0");
+		wtr.addInputBinding(vtkImageDataReaderUnsignedInts + "#dataSpacing","1/1/1");
+		wtr.addInputBinding(vtkImageDataReaderUnsignedInts + "#dataExtent","0/511/0/511/0/511");
+		wtr.addInputBinding(vtkImageDataReaderUnsignedInts + "#numScalarComponents","1");
+		wtr.addInputBinding(vtkImageDataReaderUnsignedInts + "#readLowerLeft","true");
+		
 		// for vtkContourFilter
 		wtr.addInputBinding(vtkContourFilter + "#numContours", "35");
-		wtr.addInputBinding(vtkContourFilter + "#scalarRange", "0.0/9000.0");
+		wtr.addInputBinding(vtkContourFilter + "#scalarRange", "0.0/1000000000.0");
 
 		// for vtkPolyDataMapper
-		wtr.addInputBinding(vtkPolyDataMapper + "#scalarRange", "0.0/9000.0");
+		wtr.addInputBinding(vtkPolyDataMapper + "#scalarRange", "0.0/10000000000.0");
 		wtr.addInputBinding(vtkPolyDataMapper + "#xRotation", "105");
 		wtr.addInputBinding(vtkPolyDataMapper + "#yRotation", "0");
 		wtr.addInputBinding(vtkPolyDataMapper + "#zRotation", "0");
@@ -61,8 +71,8 @@ public class CIIXRAYDataProfile {
 		wtr.addInputBinding(vtkVolume + "#size", "400/300");
 		wtr.addInputBinding(vtkVolume + "#backgroundColor", "1/1/1");
 		wtr.addInputBinding(vtkVolume + "#magnification", "3");
-		wtr.addInputBinding(vtkVolume + "#colorFunction", "3000,1,1,0/5000,0.5,0.95,0/5600,0,0,1/6500,0.28,0.2,0.5/7000,1,0,0");
-		wtr.addInputBinding(vtkVolume + "#opacityFunction", "4000,0.2/8000,0.5");
+		wtr.addInputBinding(vtkVolume + "#colorFunction", "30000000,1,1,0/10000000,0.5,0.95,0/100000000,0,0,1/150000000,0.28,0.2,0.5/1000000000,1,0,0");
+		wtr.addInputBinding(vtkVolume + "#opacityFunction", "0,0.0/10000000,0.5");
 
 		documentURL = wtr.saveDocument();
 		System.out.println(documentURL);
