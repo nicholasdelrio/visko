@@ -33,6 +33,7 @@ public class VTKTransformers {
 	public static String int2ShortInt;
 	public static String floatArray2Gridded;
 	public static String tiff2Gridded;
+	public static String rasterer3D;
 	
 	public static void create() {
 		String name;
@@ -110,5 +111,14 @@ public class VTKTransformers {
 		System.out.println(wtr7.saveDocument());
 		tiff2Gridded = wtr7.getURI();
 		
+		TransformerWriter wtr8 = new TransformerWriter("rasterer3D", true);
+		wtr8.addInputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/VTKIMAGEDATA.owl#VTKIMAGEDATA");
+		wtr8.setOutputFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/JPEG.owl#JPEG");
+		name = "ImageData to Raster Color Mapped Image";
+		wtr8.setLabel(name);
+		wtr8.setName(name);
+		wtr8.setMappedToView(Views.raster);
+		System.out.println(wtr8.saveDocument());
+		rasterer3D = wtr8.getURI();
 	}
 }

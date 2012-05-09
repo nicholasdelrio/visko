@@ -43,7 +43,8 @@ public class VelocityModelProfile {
 		String vtkPolyDataMapper = VTKServices.vtkPolyDataMapper.substring(0, VTKServices.vtkPolyDataMapper.indexOf("#"));
 		String vtkContourFilter = VTKServices.vtkContourFilter.substring(0, VTKServices.vtkContourFilter.indexOf("#"));
 		String vtkVolume = VTKServices.vtkVolume.substring(0, VTKServices.vtkVolume.indexOf("#"));
-		
+		String vtkDataSetMapper = VTKServices.vtkDataSetMapper.substring(0, VTKServices.vtkDataSetMapper.indexOf("#"));
+
 		// for float2shortThr
 		wtr.addInputBinding(
 		float2shortThr + "#scalingFactor",
@@ -106,6 +107,26 @@ public class VelocityModelProfile {
 		vtkContourFilter + "#scalarRange",
 		"0.0/9000.0");
 
+		// for vtkDataSetMapper
+		wtr.addInputBinding(
+		vtkDataSetMapper + "#xRotation",
+		"105");
+		wtr.addInputBinding(
+		vtkDataSetMapper + "#yRotation",
+		"0");
+		wtr.addInputBinding(
+		vtkDataSetMapper + "#zRotation",
+		"0");
+		wtr.addInputBinding(
+		vtkDataSetMapper + "#size",
+		"400/300");
+		wtr.addInputBinding(
+		vtkDataSetMapper + "#backgroundColor",
+		"1/1/1");
+		wtr.addInputBinding(
+		vtkDataSetMapper + "#magnification",
+		"3");
+		
 		// for vtkPolyDataMapper
 		wtr.addInputBinding(
 		vtkPolyDataMapper + "#scalarRange",
