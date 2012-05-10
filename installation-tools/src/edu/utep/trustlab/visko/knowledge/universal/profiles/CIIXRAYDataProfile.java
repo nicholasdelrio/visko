@@ -35,6 +35,7 @@ public class CIIXRAYDataProfile {
 
 		String vtkTIFFReader = VTKServices.vtkTIFFReader.substring(0, VTKServices.vtkTIFFReader.indexOf("#"));
 		String vtkPolyDataMapper = VTKServices.vtkPolyDataMapper.substring(0, VTKServices.vtkPolyDataMapper.indexOf("#"));
+		String vtkDataSetMapper = VTKServices.vtkDataSetMapper.substring(0, VTKServices.vtkDataSetMapper.indexOf("#"));
 		String vtkContourFilter = VTKServices.vtkContourFilter.substring(0, VTKServices.vtkContourFilter.indexOf("#"));
 		String vtkVolume = VTKServices.vtkVolume.substring(0, VTKServices.vtkVolume.indexOf("#"));
 		String vtkImageDataReaderUnsignedInts = VTKServices.vtkImageDataReaderUnsignedInts.substring(0, VTKServices.vtkImageDataReaderUnsignedInts.indexOf("#"));
@@ -64,6 +65,14 @@ public class CIIXRAYDataProfile {
 		wtr.addInputBinding(vtkPolyDataMapper + "#backgroundColor", "1/1/1");
 		wtr.addInputBinding(vtkPolyDataMapper + "#magnification", "3");
 
+		// for vtkDataSetMapper
+		wtr.addInputBinding(vtkDataSetMapper + "#xRotation", "105");
+		wtr.addInputBinding(vtkDataSetMapper + "#yRotation", "0");
+		wtr.addInputBinding(vtkDataSetMapper + "#zRotation", "0");
+		wtr.addInputBinding(vtkDataSetMapper + "#size","400/300");
+		wtr.addInputBinding(vtkDataSetMapper + "#backgroundColor", "1/1/1");
+		wtr.addInputBinding(vtkDataSetMapper + "#magnification", "3");
+		
 		// for vtkVolume
 		wtr.addInputBinding(vtkVolume + "#xRotation", "105");
 		wtr.addInputBinding(vtkVolume + "#yRotation", "0");
