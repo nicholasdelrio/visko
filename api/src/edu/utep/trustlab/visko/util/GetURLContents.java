@@ -141,10 +141,8 @@ public class GetURLContents {
 
 	public static URI getURI(String namespace) {
 		
-		System.out.println(namespace);
 		namespace = namespace.replace("\r", "");
-		System.out.println("cleaned: " + namespace);
-		
+	
 		URI ontURI = null;
 		try {
 			ontURI = new URI(namespace);

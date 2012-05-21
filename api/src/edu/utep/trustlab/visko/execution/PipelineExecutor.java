@@ -103,10 +103,7 @@ public class PipelineExecutor {
 		for (Input input : process.getInputs()) {
 			uri = input.getURI().toASCIIString();
 
-			System.out.println("getting value for parameter: " + uri);
-
 			if (uri.contains("url") || uri.contains("URL") || uri.contains("fileLoc")){
-				inputs.setValue(input, kb.createDataValue(datasetURL));
 				System.out.println("found binding for data: " + datasetURL);
 			}
 			else {
@@ -114,11 +111,9 @@ public class PipelineExecutor {
 				
 				if (value != null){					
 					inputs.setValue(input, kb.createDataValue(value));
-					System.out.println("found binding: " + value);
 				}
 				
 				else{
-					System.out.println("did not find binding!");
 					error = true;
 				}
 			}
@@ -173,7 +168,7 @@ public class PipelineExecutor {
 			// System.out.println("Input  = " + inValue);
 			System.out.println("Output URL: " + out.toString());
 
-			manySec(1);
+			manySec(0.5);
 
 			/*
 			if (logger != null)
@@ -199,9 +194,9 @@ public class PipelineExecutor {
 		return pmlURI;
 	}
 
-	private static void manySec(long s) {
+	private static void manySec(double s) {
 		try {
-			Thread.sleep(s * 1000);
+			Thread.sleep((long)(s * 1000));
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
