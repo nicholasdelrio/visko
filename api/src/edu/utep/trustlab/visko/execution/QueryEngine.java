@@ -177,6 +177,10 @@ public class QueryEngine {
 			}
 		}
 	}
+	
+	public void updatePipelinesWithNewParameterBindings(){
+		pipelines.setParameterBindings(parameterBindings);
+	}
 
 	public void loadParameterBindingsFromProfile(String dataTypeURI) {
 		ResultSet results = builder.getTripleStore().getParameterBindings(

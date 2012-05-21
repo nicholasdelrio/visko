@@ -105,17 +105,22 @@ public class PipelineExecutor {
 
 			System.out.println("getting value for parameter: " + uri);
 
-			if (uri.contains("url") || uri.contains("URL")
-					|| uri.contains("fileLoc"))
+			if (uri.contains("url") || uri.contains("URL") || uri.contains("fileLoc")){
 				inputs.setValue(input, kb.createDataValue(datasetURL));
-
+				System.out.println("found binding for data: " + datasetURL);
+			}
 			else {
 				value = bindings.get(input.getURI().toASCIIString());
-
-				if (value != null)
+				
+				if (value != null){					
 					inputs.setValue(input, kb.createDataValue(value));
-				else
+					System.out.println("found binding: " + value);
+				}
+				
+				else{
+					System.out.println("did not find binding!");
 					error = true;
+				}
 			}
 		}
 
@@ -147,12 +152,10 @@ public class PipelineExecutor {
 
 			inValue = nextInput;
 
-			ValueMap<Input, OWLValue> inputs = buildInputValueMap(process,
-					inValue, pipeline.getParameterBindings(), kb);
+			ValueMap<Input, OWLValue> inputs = buildInputValueMap(process, inValue, pipeline.getParameterBindings(), kb);
 
 			if (inputs == null) {
-				System.out
-						.println("not all parameters could be bound to a value!");
+				System.out.println("not all parameters could be bound to a value!");
 				System.out.println("cannot execute pipeline!!!");
 				return null;
 			}

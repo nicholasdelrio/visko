@@ -40,7 +40,9 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.execution;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Vector;
 
 import edu.utep.trustlab.visko.ontology.model.OWLSModel;
@@ -58,6 +60,8 @@ public class Pipeline extends Vector<String> {
 	private ViskoModel viskoLoadingModel;
 	private PipelineSet parentContainer;
 
+	private ArrayList<String> unboundParameters;
+	
 	public Pipeline(String viewerURI, String viewURI, PipelineSet parent) {
 		super();
 		viskoLoadingModel = new ViskoModel();
@@ -75,7 +79,13 @@ public class Pipeline extends Vector<String> {
 		return new Viewer(viewer, viskoLoadingModel);
 	}
 
-
+	public List<String> getUnboundParameters(){
+		if(unboundParameters == null)
+			hasAllInputParameters();
+		
+		return unboundParameters;
+	}
+	
 	public String getViewerURI() {
 		return new Viewer(viewer, viskoLoadingModel).getURI();
 	}
@@ -103,6 +113,7 @@ public class Pipeline extends Vector<String> {
 	}
 	
 	private boolean hasAllInputParameters(String serviceURI){
+		unboundParameters = new ArrayList<String>();
 		String boundedValue;
 		boolean allParamsBounded = true;
 		Vector<String> params = ResultSetToVector.getVectorFromResultSet(new ViskoTripleStore().getInputParameters(serviceURI), "parameter");
@@ -111,8 +122,8 @@ public class Pipeline extends Vector<String> {
 			
 			if(!parameterURI.contains("url") && !parameterURI.contains("URL") && !parameterURI.contains("fileLoc")){
 				if(boundedValue == null){
+					unboundParameters.add(parameterURI);
 					allParamsBounded = false;
-					break;
 				}
 			}
 		}

@@ -41,6 +41,8 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.execution;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
 import java.util.Vector;
 
 import edu.utep.trustlab.visko.sparql.QueryRDFDocument;
@@ -92,12 +94,10 @@ public class Query {
 
 		if (nodesetURI != null) {
 			try {
-				String nodesetContents = GetURLContents
-						.downloadText(nodesetURI);
+				String nodesetContents = GetURLContents.downloadText(nodesetURI);
 				QueryRDFDocument rdf = new QueryRDFDocument();
 
-				Vector<String[]> results = rdf.getURLFormatAndType(
-						nodesetContents, nodesetURI);
+				Vector<String[]> results = rdf.getURLFormatAndType(nodesetContents, nodesetURI);
 				// rdf.close();
 				datasetURL = results.firstElement()[0].split("\\^\\^")[0];
 				System.out.println("datasetURL " + datasetURL);
@@ -185,8 +185,35 @@ public class Query {
 	public String getViewerSetURI() {
 		return this.viewerSetURI;
 	}
+	
+	
 
 	public String toString() {
+
+		String reconstructedQuery = "";
+		
+		reconstructedQuery += "SELECT " + getViewURI() + " IN-VIEWER " + getViewerSetURI() + "\n";
+		reconstructedQuery += "FROM " + getArtifactURL() + "\n";
+		reconstructedQuery += "FORMAT " + getFormatURI() + "\n";
+		
+		if(getTypeURI() != null)
+			reconstructedQuery += "TYPE " + getTypeURI();
+	
+		Set<String> parameterURIs = parameterBindings.keySet();
+		
+		if(parameterURIs.size() > 0){
+			reconstructedQuery += "WHERE\n";
+			Iterator<String> paramURIs = parameterURIs.iterator();
+			String paramURI;
+			while(paramURIs.hasNext()){
+				paramURI = paramURIs.next();
+				reconstructedQuery += paramURI + " = " + parameterBindings.get(paramURI);
+				if(paramURIs.hasNext())
+					reconstructedQuery += " AND\n";
+			}
+		}
+					
+		/*
 		String[] tokens = parser.getTokens();
 
 		String reconstructedQuery = "";
@@ -213,8 +240,8 @@ public class Query {
 				reconstructedQuery += "\n\t";
 
 			reconstructedQuery += token + " ";
-		}
+		}*/
 
-		return reconstructedQuery.trim();
+		return reconstructedQuery;
 	}
 }
