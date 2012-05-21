@@ -20,6 +20,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.web.html;
 
+import java.net.URI;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -43,8 +44,7 @@ public class PipelineHTML {
 		for(int i = 0; i < pipe.size(); i ++){
 			OWLSService service = pipe.getService(i);
 			String uri = service.getURI();
-			html += "<li><b>Service Name:</b> <a href=\"" + uri + "\">" + uri
-					+ "</a></li>";
+			html += "<li><b>Service Name:</b> <a href=\"" + uri + "\">" + uri + "</a></li>";
 			html += "<ul>";
 
 			html += "<li><b>Operator Type:</b> ";
@@ -73,11 +73,8 @@ public class PipelineHTML {
 					parameterURI = inputParameter.getURI().toASCIIString();
 					parameterValue = bindings.get(parameterURI);
 
-					if (!parameterURI.contains("url")
-							&& !parameterURI.contains("datasetURL")) {
-						html += "<li><b>Parameter:</b> <a href=\""
-								+ parameterURI + "\">" + parameterURI
-								+ " </a><b>=</b> " + parameterValue;
+					if (!parameterURI.contains("url") && !parameterURI.contains("datasetURL")) {
+						html += "<li><b>Parameter:</b> <a href=\"" + getURIFragment(parameterURI) + "\">" + parameterURI + " </a><b>=</b> " + parameterValue;
 					}
 				}
 			}
@@ -99,7 +96,7 @@ public class PipelineHTML {
 			html += getInputFormatList(service.getConceptualOperator()
 					.getOperatesOnFormats()) + "</li>";
 			html += "</ul>";
-			html += "<p>---------------------------------------------------------------------------------------------------</p>";
+			html += "<hr>";
 		}
 		html += "</ol>";
 
@@ -134,6 +131,16 @@ public class PipelineHTML {
 			html = "<p>Viewer was not specified.</p>";
 
 		return html;
+	}
+	
+	public static String getURIFragment(String uri){
+		try{
+			return new URI(uri).getFragment();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

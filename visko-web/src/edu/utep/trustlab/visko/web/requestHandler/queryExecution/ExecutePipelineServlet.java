@@ -23,6 +23,8 @@ package edu.utep.trustlab.visko.web.requestHandler.queryExecution;
 
 //import edu.utep.trustlab.visko.web.html.provenance.DataProvenanceHTML;
 //import edu.utep.trustlab.visko.web.html.provenance.VisualizationProvenanceHTML;
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
 import edu.utep.trustlab.visko.execution.Pipeline;
@@ -31,17 +33,33 @@ import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerHTML;
 
 public class ExecutePipelineServlet extends RequestHandlerHTML {
 
+	private static ArrayList<String> unboundParameters;
+	
 	public String doGet(HttpServletRequest request){
 		String captureProvenance = request.getParameter("provenance");
-
 		String stringIndex = request.getParameter("index");
+		
 		int index = Integer.valueOf(stringIndex);
-
-		QueryEngine engine = (QueryEngine) request.getSession().getAttribute(
-				"engine");
-
+		QueryEngine engine = (QueryEngine) request.getSession().getAttribute("engine");
 		Pipeline pipe = engine.getPipelines().get(index);
 
+		
+		if(!pipe.hasAllInputParameters()){
+			
+			if(!updateParameterBindingsFromURL(pipe, request)){
+				String errorHTML = "<h2>Cannot Execute Query, not all parameters bound!</h2>";
+			
+				errorHTML += "<ul>\n";
+				for(String paramURI : unboundParameters){
+					errorHTML += "<li>" + paramURI + "</li>\n";
+				}
+				errorHTML += "</ul>";
+		
+				return errorHTML;
+			}
+		}
+
+		System.out.println("ready to rock and roll all params set!-----------------------------------");
 		String result;
 		String html = "";
 
@@ -77,4 +95,25 @@ public class ExecutePipelineServlet extends RequestHandlerHTML {
 		return html;
 	}
 
+	private static boolean updateParameterBindingsFromURL(Pipeline pipeline, HttpServletRequest request){
+		unboundParameters = new ArrayList<String>();
+		
+		String boundValue;
+		boolean allBound = true;
+		
+		for(String paramURI : pipeline.getUnboundParameters()){
+			
+			boundValue = request.getParameter(paramURI);
+			if(boundValue == null || boundValue.isEmpty()){
+				System.out.println("couldn't find value bound to param");
+				allBound = false;
+				unboundParameters.add(paramURI);
+			}
+			else{
+				System.out.println("found value to bind: " + boundValue);
+				pipeline.getParameterBindings().put(paramURI, boundValue);
+			}
+		}
+		return allBound;
+	}	
 }

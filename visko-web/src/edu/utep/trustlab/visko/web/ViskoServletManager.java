@@ -28,6 +28,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.utep.trustlab.visko.web.requestHandler.knowledgeBaseInfo.KnowledgeBaseInformationJSONServlet;
+import edu.utep.trustlab.visko.web.requestHandler.queryExecution.EditParametersServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ExecutePipelineServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ExecuteQueryServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecution.GetPipelineJSONServlet;
@@ -71,6 +72,8 @@ public class ViskoServletManager extends HttpServlet {
 			content = new GetPipelineJSONServlet().getJSON(request, response);
 		else if(requestType.equalsIgnoreCase("show-pipeline"))
 			content = new ShowPipelineServlet().getHTMLPage(request, response);
+		else if(requestType.equalsIgnoreCase("edit-parameters"))
+			content = new EditParametersServlet().getHTMLPage(request, response);
 		else if(requestType.equals("query-triple-store")){
 			response.setContentType("application/sparql-results+xml ");
 			content = new ExecuteSPARQLQueryServlet().getXMLResults(request, response);

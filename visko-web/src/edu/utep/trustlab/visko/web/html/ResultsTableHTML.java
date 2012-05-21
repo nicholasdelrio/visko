@@ -103,7 +103,8 @@ public class ResultsTableHTML {
 				html += "\">Visualization</a>";
 			}
 			else
-				html = "<b>Not all pipeline parameters bound!</b>";
+				html = "<a href=\"ViskoServletManager?requestType=edit-parameters&index=" + index;
+				html += "\">Need to set parameters!</a>";
 		}
 		else
 			html = "<b>Not a valid dataset reference in query!</b>";
