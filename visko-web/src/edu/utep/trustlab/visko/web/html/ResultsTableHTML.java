@@ -99,12 +99,10 @@ public class ResultsTableHTML {
 		if (artifactURL != null && hasValidDataInput) {
 			
 			if(hasAllParametersBound){
-				html = "<a href=\"ViskoServletManager?requestType=execute-pipeline&index=" + index;
-				html += "\">Visualization</a>";
+				html = "<a href=\"ViskoServletManager?requestType=execute-pipeline&index=" + index + "\">Visualization</a>";
 			}
 			else
-				html = "<a href=\"ViskoServletManager?requestType=edit-parameters&index=" + index;
-				html += "\">Need to set parameters!</a>";
+				html = "<a href=\"ViskoServletManager?requestType=edit-parameters&index=" + index + "\">Need to set parameters!</a>";
 		}
 		else
 			html = "<b>Not a valid dataset reference in query!</b>";
