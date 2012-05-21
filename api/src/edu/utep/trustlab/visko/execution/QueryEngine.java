@@ -105,10 +105,6 @@ public class QueryEngine {
 		pipelines.setArtifactURL(query.getArtifactURL());
 	}
 
-	public HashMap<String, String> getParameterBindings() {
-		return this.parameterBindings;
-	}
-
 	public boolean isAlreadyVisualizableWithViewerSet() {
 		return builder.isAlreadyVisualizableWithViewerSet(query.getFormatURI(),
 				query.getViewerSetURI());
