@@ -65,7 +65,7 @@ public class Query {
 	// the nodesetURI
 	private String nodesetURI;
 
-	private QueryParserV3 parser;
+	private QueryParser parser;
 
 	public static void main(String[] args){
 		String query3 = "VISUALIZE http://someartifact.txt AS * IN https://raw.github.com/nicholasdelrio/visko/master/rdf/mozilla-firefox.owl#mozilla-firefox WHERE FORMAT = https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/TIFF.owl#TIFF AND TYPE = http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d13 AND https://raw.github.com/nicholasdelrio/visko/master/rdf/grdcontour.owl#A = k AND https://raw.github.com/nicholasdelrio/visko/master/rdf/grdimage.owl#J = 0";
@@ -85,8 +85,15 @@ public class Query {
 	public Query(String queryString) {
 		parameterBindings = new HashMap<String, String>();
 		parser = new QueryParserV3(queryString);
+		
 		parser.parse();
 
+		if(!parser.isValidQuery()){
+			parser = new QueryParserV2(queryString);
+			parser.parse();
+		}
+		
+		
 		this.viewerSetURI = parser.getViewerSetURI();
 		this.viewURI = parser.getViewURI();
 		if (viewURI != null && viewURI.equals("*"))
