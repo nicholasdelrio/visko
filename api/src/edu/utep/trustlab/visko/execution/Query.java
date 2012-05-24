@@ -39,12 +39,10 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 
 package edu.utep.trustlab.visko.execution;
-
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
-
 import edu.utep.trustlab.visko.sparql.QueryRDFDocument;
 import edu.utep.trustlab.visko.util.GetURLContents;
 
@@ -53,7 +51,7 @@ public class Query {
 	private String formatURI;
 	private String viewerSetURI;
 	private HashMap<String, String> parameterBindings;
-
+	
 	// optional information used for filtering paths
 	private String typeURI;
 	private String viewURI;
@@ -67,22 +65,26 @@ public class Query {
 	// the nodesetURI
 	private String nodesetURI;
 
-	private QueryParser parser;
+	private QueryParserV3 parser;
 
-	public static void main(String[] args) {
-		//String queryString = "PREFIX ns1 http://test1.owl# PREFIX ns http://test.owl# SELECT ns:contourMap IN-VIEWER ns1:viewer1 FROM LOCAL http://poop.owl FORMAT ns:format1 TYPE ns1:type1 WHERE http://spacing = 1 AND ns:color = marroon AND ns1:bg = black";
-		String queryString1 = "PREFIX ns1 http://test1.owl# PREFIX ns http://test.owl# SELECT ns:contourMap IN-VIEWER ns1:viewer1 FROM NODESET http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/esriGrid.txt_09509250903594285.owl#answer WHERE http://spacing = 1 AND ns:color = marroon AND ns1:bg = black";
-		//String queryString2 = "PREFIX ns1 http://test1.owl# PREFIX ns http://test.owl# SELECT ns:contourMap IN-VIEWER ns1:viewer1 FROM http://somedata.txt FORMAT ns:format1 TYPE ns1:type1 WHERE http://spacing = 1 AND ns:color = marroon AND ns1:bg = black";
-
-		Query q = new Query(queryString1);
-		System.out.println(q.isValidQuery());
+	public static void main(String[] args){
+		String query3 = "VISUALIZE http://someartifact.txt AS * IN https://raw.github.com/nicholasdelrio/visko/master/rdf/mozilla-firefox.owl#mozilla-firefox WHERE FORMAT = https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/TIFF.owl#TIFF AND TYPE = http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d13 AND https://raw.github.com/nicholasdelrio/visko/master/rdf/grdcontour.owl#A = k AND https://raw.github.com/nicholasdelrio/visko/master/rdf/grdimage.owl#J = 0";
+		Query q = new Query(query3);
+		
+		System.out.println("viewerset: " + q.getViewerSetURI());
+		System.out.println("view: " + q.getViewURI());
+		System.out.println("contentURL: " + q.getArtifactURL());
+		System.out.println("format: " + q.getFormatURI());
+		System.out.println("type: " + q.getTypeURI());
+		System.out.println("nodeset: " + q.nodesetURI);
 
 		System.out.println(q);
+		
 	}
-
+	
 	public Query(String queryString) {
 		parameterBindings = new HashMap<String, String>();
-		parser = new QueryParser(queryString);
+		parser = new QueryParserV3(queryString);
 		parser.parse();
 
 		this.viewerSetURI = parser.getViewerSetURI();
@@ -117,7 +119,7 @@ public class Query {
 	}
 
 	public boolean hasValidDataPointer(){
-		return QueryParser.isURL(datasetURL);
+		return QueryParserV3.isURL(datasetURL);
 	}
 	public Query(String artifactURL, String fmtURI, String viewerSetURI) {
 		this.datasetURL = artifactURL;
@@ -189,59 +191,79 @@ public class Query {
 	
 
 	public String toString() {
-
-		String reconstructedQuery = "";
-		
-		reconstructedQuery += "SELECT " + getViewURI() + " IN-VIEWER " + getViewerSetURI() + "\n";
-		reconstructedQuery += "FROM " + getArtifactURL() + "\n";
-		reconstructedQuery += "FORMAT " + getFormatURI() + "\n";
-		
-		if(getTypeURI() != null)
-			reconstructedQuery += "TYPE " + getTypeURI();
-	
-		Set<String> parameterURIs = parameterBindings.keySet();
-		
-		if(parameterURIs.size() > 0){
-			reconstructedQuery += "WHERE\n";
-			Iterator<String> paramURIs = parameterURIs.iterator();
-			String paramURI;
-			while(paramURIs.hasNext()){
-				paramURI = paramURIs.next();
-				reconstructedQuery += paramURI + " = " + parameterBindings.get(paramURI);
-				if(paramURIs.hasNext())
-					reconstructedQuery += " AND\n";
-			}
-		}
-					
-		/*
 		String[] tokens = parser.getTokens();
-
+		
 		String reconstructedQuery = "";
 
 		for (String token : tokens) {
-			if (token.equalsIgnoreCase("PREFIX"))
+			if (token.equalsIgnoreCase("PREFIX")){
+				token = token.toUpperCase();
 				reconstructedQuery += "\n";
-
-			else if (token.equalsIgnoreCase("SELECT"))
+			}
+			else if (token.equalsIgnoreCase("VISUALIZE")){
+				token = token.toUpperCase();
 				reconstructedQuery += "\n";
-
-			else if (token.equalsIgnoreCase("FROM"))
+			}
+			else if (token.equalsIgnoreCase("AS")){
+				token = token.toUpperCase();
 				reconstructedQuery += "\n";
-
-			else if (token.equalsIgnoreCase("FORMAT"))
-				reconstructedQuery += "\n\t";
-
-			else if (token.equalsIgnoreCase("TYPE"))
-				reconstructedQuery += "\n\t";
-
-			else if (token.equalsIgnoreCase("WHERE"))
+			}
+			else if (token.equalsIgnoreCase("IN")){
+				token = token.toUpperCase();
 				reconstructedQuery += "\n";
-			else if (token.equalsIgnoreCase("AND"))
-				reconstructedQuery += "\n\t";
+			}
+			else if (token.equalsIgnoreCase("WHERE")){
+				token = token.toUpperCase();
+				reconstructedQuery += "\n" + token;
+				break;
+			}
 
 			reconstructedQuery += token + " ";
-		}*/
+		}
 
+		if(getFormatURI() != null)
+			reconstructedQuery += "\n\tFORMAT = " + getFormatURI() + "\n";
+		if(getTypeURI() != null)
+			reconstructedQuery += "\tAND TYPE = " + getTypeURI() + "\n";
+		
+		Set<String> parameterURIs = parameterBindings.keySet();
+		
+		if(parameterURIs.size() > 0){
+			Iterator<String> paramURIs = parameterURIs.iterator();
+			String paramURI;
+			while(paramURIs.hasNext()){
+				paramURI = paramURIs.next();			
+				reconstructedQuery = setBinding(reconstructedQuery, paramURI, parameterBindings.get(paramURI));
+			}
+		}
 		return reconstructedQuery;
+	}
+	
+	private String getExistingPrefix(String uri){
+		
+		//check from query parser bindings
+		Set<String> keys = parser.getPrefixes().keySet();
+		for(String key : keys){
+			String prefixValue = parser.getPrefixes().get(key);
+			if(prefixValue.equalsIgnoreCase(uri + "#"))
+				return key;
+		}	
+		return null;
+	}
+	
+	private String setBinding(String query, String paramURI, String boundValue){
+		
+		String url = paramURI.substring(0, paramURI.indexOf("#"));
+		String fragment = paramURI.substring(paramURI.indexOf("#") + 1);
+		
+		String prefix = getExistingPrefix(url);
+
+		if(prefix != null){
+			query = query + "\tAND " + prefix + ":" + fragment + " = " + boundValue + "\n";
+		}
+		else
+			query = query + "\tAND " + paramURI + " = " + boundValue + "\n";
+		
+		return query;
 	}
 }
