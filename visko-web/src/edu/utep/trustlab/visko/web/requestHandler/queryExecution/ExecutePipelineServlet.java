@@ -39,6 +39,7 @@ public class ExecutePipelineServlet extends RequestHandlerHTML {
 		String captureProvenance = request.getParameter("provenance");
 		String stringIndex = request.getParameter("index");
 		
+		
 		int index = Integer.valueOf(stringIndex);
 		QueryEngine engine = (QueryEngine) request.getSession().getAttribute("engine");
 		Pipeline pipe = engine.getPipelines().get(index);
@@ -59,7 +60,6 @@ public class ExecutePipelineServlet extends RequestHandlerHTML {
 			}
 		}
 
-		System.out.println("ready to rock and roll all params set!-----------------------------------");
 		String result;
 		String html = "";
 

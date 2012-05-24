@@ -45,24 +45,15 @@ public class InstanceBarGraphData {
 		try {
 			ArrayList<JSONObject> data = new ArrayList<JSONObject>();
 
-			data.add(new JSONObject().put("viskoType", "Parameters").put(
-					"count", paramCount));
-			data.add(new JSONObject().put("viskoType", "Viewer Sets").put(
-					"count", viewerSetCount));
-			data.add(new JSONObject().put("viskoType", "Views").put("count",
-					viewCount));
-			data.add(new JSONObject().put("viskoType", "Viewers").put("count",
-					viewerCount));
-			data.add(new JSONObject().put("viskoType", "Transformers").put(
-					"count", transformerCount));
-			data.add(new JSONObject().put("viskoType", "Toolkits").put("count",
-					toolkitCount));
-			data.add(new JSONObject().put("viskoType", "Mappers").put("count",
-					mapperCount));
-			data.add(new JSONObject().put("viskoType", "Used Formats").put(
-					"count", formatCount));
-			data.add(new JSONObject().put("viskoType", "Services").put("count",
-					serviceCount));
+			data.add(new JSONObject().put("viskoType", "Viewer Sets").put("count", viewerSetCount));
+			data.add(new JSONObject().put("viskoType", "Views").put("count", viewCount));
+			data.add(new JSONObject().put("viskoType", "Viewers").put("count", viewerCount));
+			data.add(new JSONObject().put("viskoType", "Transformers").put("count", transformerCount));
+			data.add(new JSONObject().put("viskoType", "Parameters").put("count", paramCount));
+			data.add(new JSONObject().put("viskoType", "Toolkits").put("count",	toolkitCount));
+			data.add(new JSONObject().put("viskoType", "Mappers").put("count", mapperCount));
+			data.add(new JSONObject().put("viskoType", "Used Formats").put("count", formatCount));
+			data.add(new JSONObject().put("viskoType", "Services").put("count", serviceCount));
 
 			jsonGraphData.put("instanceGraphData", data);
 

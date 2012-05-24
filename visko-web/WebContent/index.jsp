@@ -118,40 +118,41 @@ function writeQuery()
 	{reset();}
 	else
 	{
-		query = query + "SELECT " + view + " \n";
+		if(artifactURL != null && artifactURL != "")
+		{query = query + "VISUALIZE " + artifactURL + " \n";}
+		else
+		{query = query + "VISUALIZE url \n";}
+	
+		if(view != null && view != defaultValue)
+			query = query + "AS " + view + " \n";
+		else{query = query + "AS view";}
 		
 		if(viewerSet !== null && viewerSet != defaultValue)
-		{query = query + "IN-VIEWER " + viewerSet + " \n";}
+		{query = query + "IN " + viewerSet + " \n";}
 		else
-		{query = query + "IN-VIEWER viewer-set \n";}
-
-		if(artifactURL != null && artifactURL != "")
-		{query = query + "FROM " + artifactURL + " \n";}
-		else
-		{query = query + "FROM url \n";}
+		{query = query + "IN viewer-set \n";}
 		
-		if(format != defaultValue)
-		{query = query + "FORMAT " + format + " \n";}
+		if(format != null && format != defaultValue)
+		{
+			query = query + "WHERE\n";
+			query = query + "\tFORMAT = " + format + "\n";
+		}
 		else
-		{query = query + "FORMAT format \n";}
+		{query = query + "WHERE\n\tFORMAT = format\n";}
 		
-		if(type != defaultValue)
-		{query = query + "TYPE " + type + " \n";}
+		if(type != null && type != defaultValue)
+		{query = query + "\tAND TYPE = " + type + "\n";}
 		else
-		{query = query + "TYPE type \n";}
-
-		if(bindings.length > 0)
-		{query = query + "WHERE";}
+		{query = query + "\tAND TYPE = type\n";}
+		
 		for(var i = 0; i < bindings.length; i = i + 1)
 		{
 			var binding = bindings[i];
 			var parameter = binding.parameter;
 			var parameterValue = binding.parameterValue;
 			
-			if((bindings.length - i) > 1)
-				query = query + "\t" + parameter + " = " + parameterValue + " AND \n";
-			else
-				query = query + "\t" + parameter + " = " + parameterValue + " \n";	
+			query = query + "\tAND " + parameter + " = " + parameterValue + "\n";
+		
 		}
 			
 		document.getElementById("queryText").value = query;

@@ -74,7 +74,7 @@ public class PipelineHTML {
 					parameterValue = bindings.get(parameterURI);
 
 					if (!parameterURI.contains("url") && !parameterURI.contains("datasetURL")) {
-						html += "<li><b>Parameter:</b> <a href=\"" + getURIFragment(parameterURI) + "\">" + parameterURI + " </a><b>=</b> " + parameterValue;
+						html += "<li><a href=\"" + parameterURI + "\">" + getURIFragment(parameterURI) + " </a><b>=</b> " + parameterValue + "</li>";
 					}
 				}
 			}

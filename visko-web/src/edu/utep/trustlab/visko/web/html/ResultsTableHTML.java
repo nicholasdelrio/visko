@@ -32,10 +32,10 @@ public class ResultsTableHTML {
 		PipelineSet pipes = engine.getPipelines();
 
 		if (pipes.size() > 0 && withProvenance) {
-			html += "<tr><td><b>Visualization</b></td><td><b>Type</b></td><td><b>Visualization with Provenance</b></td><td><b>Pipeline</b></td></tr>";
+			html += "<tr><td><b>Run</b><td><b>Configure</b></td></td><td><b>Resulting View</b></td><td><b>Run and Capture Provenance</b></td><td><b>Description</b></td></tr>";
 			html += getVisualizationAndPipelineResultRows(pipes, true, engine.getQuery().hasValidDataPointer());
 		} else if (pipes.size() > 0 && !withProvenance) {
-			html += "<tr><td><b>Visualization</b></td><td><b>Type</b></td><td><b>Pipeline</b></td></tr>";
+			html += "<tr><td><b>Run</b></td><td><b>Configure</b></td><td><b>Resulting View</b></td><td><b>Description</b></td></tr>";
 			html += getVisualizationAndPipelineResultRows(pipes, false, engine.getQuery().hasValidDataPointer());
 		} else if (!(pipes.size() > 0)) {
 			html += "<tr><td><p>Empty Set</p></td></tr>";
@@ -48,6 +48,8 @@ public class ResultsTableHTML {
 			html += "<tr><td><p>Format is same as target format.</p></td></tr>";
 		}
 		html += "</table>";
+		
+		html = "<p>" + html + "</p>";
 		return html;
 	}
 
@@ -56,7 +58,8 @@ public class ResultsTableHTML {
 		
 		for (int i = 0; i < pipes.size(); i++) {
 			html += "<tr>";
-			html += "<td>" + getExecutePipelineLink(i, pipes.getArtifactURL(), pipes.get(i).hasAllInputParameters(), validDatasetReference) + "</td>";			
+			html += "<td>" + getExecutePipelineLink(i, pipes.getArtifactURL(), pipes.get(i).hasAllInputParameters(), validDatasetReference) + "</td>";
+			html += "<td>" + getEditParametersLink(i);
 			html += "<td>" + getViewLink(pipes.get(i).getViewURI()) + "</td>";
 			if (withProvenance)
 				html += "<td>"+ getExecutePipelineProvenanceLink(i, pipes.getArtifactURL()) + "</td>";
@@ -66,6 +69,11 @@ public class ResultsTableHTML {
 		}
 
 		return html;
+	}
+	
+	private static String getEditParametersLink(int index){
+		return "<a href=\"ViskoServletManager?requestType=edit-parameters&index=" + index + "\">Edit parameters</a>";
+
 	}
 	
 	private static String getViewLink(String viewURI){
@@ -99,24 +107,22 @@ public class ResultsTableHTML {
 		if (artifactURL != null && hasValidDataInput) {
 			
 			if(hasAllParametersBound){
-				html = "<a href=\"ViskoServletManager?requestType=execute-pipeline&index=" + index + "\">Visualization</a>";
+				html = 	"<a href=\"ViskoServletManager?requestType=execute-pipeline&index=" + index + "\">Run pipeline</a>";
 			}
 			else
 				html = "<a href=\"ViskoServletManager?requestType=edit-parameters&index=" + index + "\">Need to set parameters!</a>";
 		}
 		else
-			html = "<b>Not a valid dataset reference in query!</b>";
+			html = "<b>Not a valid dataset reference in query: requires URL.</b>";
 		return html;
 	}
 
-	private static String getExecutePipelineProvenanceLink(int index,
-			String artifactURL) {
+	private static String getExecutePipelineProvenanceLink(int index, String artifactURL) {
 		String html = "<p>NULL</p>";
 
 		if (artifactURL != null) {
-			html = "<a href=\"ExecutePipelineServlet?index=" + index
-					+ "&provenance=true";
-			html += "\">Visualization and Provenance</a>";
+			html = "<a href=\"ExecutePipelineServlet?index=" + index + "&provenance=true";
+			html += "\">Run with Provenance Capture</a>";
 		}
 		return html;
 	}

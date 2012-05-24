@@ -72,7 +72,7 @@ public class ExecuteQueryServlet extends RequestHandlerHTML {
 			html += QueryHTML.getHTML(query);
 			html += "<hr>";
 
-			html += "<h2>Results</h2>";
+			html += "<h2>Visualization Pipelines</h2>";
 			html += ResultsTableHTML.getHTML(engine, false);
 			html += "<hr>";
 		} else {

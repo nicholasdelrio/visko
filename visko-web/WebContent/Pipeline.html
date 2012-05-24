@@ -93,7 +93,7 @@ text.shadow {
     		if(d.viskoType != "Parameter")
 				return 7;
     		else
-    			return 3;
+    			return 1;
     		})
     	.style("fill", function(d) {
     		if(d.viskoType == "Viewer")
@@ -103,7 +103,7 @@ text.shadow {
     		else if(d.viskoType == "Mapper")
     			return "orange";
     		else
-    			return "green";
+    			return "black";
     		})
     	.call(force.drag);
 
