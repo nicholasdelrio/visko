@@ -61,6 +61,7 @@ public class Pipeline extends Vector<String> {
 	private PipelineSet parentContainer;
 
 	private ArrayList<String> unboundParameters;
+	private ArrayList<String> allParameters;
 	
 	public Pipeline(String viewerURI, String viewURI, PipelineSet parent) {
 		super();
@@ -79,6 +80,13 @@ public class Pipeline extends Vector<String> {
 		return new Viewer(viewer, viskoLoadingModel);
 	}
 
+	public List<String> getAllParameters(){
+		if(allParameters == null)
+			hasAllInputParameters();
+		
+		return allParameters;
+	}
+	
 	public List<String> getUnboundParameters(){
 		if(unboundParameters == null)
 			hasAllInputParameters();
@@ -114,13 +122,18 @@ public class Pipeline extends Vector<String> {
 	
 	private boolean hasAllInputParameters(String serviceURI){
 		unboundParameters = new ArrayList<String>();
+		allParameters = new ArrayList<String>();
+		
 		String boundedValue;
 		boolean allParamsBounded = true;
 		Vector<String> params = ResultSetToVector.getVectorFromResultSet(new ViskoTripleStore().getInputParameters(serviceURI), "parameter");
 		for (String parameterURI : params) {
+
 			boundedValue = getParameterBindings().get(parameterURI);
 			
 			if(!parameterURI.contains("url") && !parameterURI.contains("URL") && !parameterURI.contains("fileLoc")){
+				allParameters.add(parameterURI);
+				
 				if(boundedValue == null){
 					unboundParameters.add(parameterURI);
 					allParamsBounded = false;

@@ -104,6 +104,7 @@ public class PipelineExecutor {
 			uri = input.getURI().toASCIIString();
 
 			if (uri.contains("url") || uri.contains("URL") || uri.contains("fileLoc")){
+				inputs.setValue(input, kb.createDataValue(datasetURL));
 				System.out.println("found binding for data: " + datasetURL);
 			}
 			else {

@@ -23,7 +23,8 @@ package edu.utep.trustlab.visko.web.requestHandler.queryExecution;
 
 //import edu.utep.trustlab.visko.web.html.provenance.DataProvenanceHTML;
 //import edu.utep.trustlab.visko.web.html.provenance.VisualizationProvenanceHTML;
-import java.util.ArrayList;
+
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -33,25 +34,29 @@ import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerHTML;
 
 public class ExecutePipelineServlet extends RequestHandlerHTML {
 
-	private static ArrayList<String> unboundParameters;
-	
 	public String doGet(HttpServletRequest request){
 		String captureProvenance = request.getParameter("provenance");
 		String stringIndex = request.getParameter("index");
+		String useURLBindings = request.getParameter("use-bindings-in-url");
+		boolean useBindingsInURL = false;
 		
+		if(useURLBindings != null && useURLBindings.equalsIgnoreCase("true"))
+			useBindingsInURL = true;
 		
 		int index = Integer.valueOf(stringIndex);
 		QueryEngine engine = (QueryEngine) request.getSession().getAttribute("engine");
 		Pipeline pipe = engine.getPipelines().get(index);
 
-		
-		if(!pipe.hasAllInputParameters()){
+		if(useBindingsInURL){
 			
-			if(!updateParameterBindingsFromURL(pipe, request)){
+			System.out.println("updating bindings............................................................................");
+			updateParameterBindingsFromURL(pipe, request);
+		
+			if(!pipe.hasAllInputParameters()){
 				String errorHTML = "<h2>Cannot Execute Query, not all parameters bound!</h2>";
 			
 				errorHTML += "<ul>\n";
-				for(String paramURI : unboundParameters){
+				for(String paramURI : pipe.getUnboundParameters()){
 					errorHTML += "<li>" + paramURI + "</li>\n";
 				}
 				errorHTML += "</ul>";
@@ -94,26 +99,21 @@ public class ExecutePipelineServlet extends RequestHandlerHTML {
 		}
 		return html;
 	}
-
-	private static boolean updateParameterBindingsFromURL(Pipeline pipeline, HttpServletRequest request){
-		unboundParameters = new ArrayList<String>();
+	
+	private static void updateParameterBindingsFromURL(Pipeline pipeline, HttpServletRequest request){
 		
 		String boundValue;
-		boolean allBound = true;
-		
-		for(String paramURI : pipeline.getUnboundParameters()){
-			
+		List<String> parameters = pipeline.getAllParameters();;
+		for(String paramURI : parameters){
+			System.out.println("attempting to bind: " + paramURI);
 			boundValue = request.getParameter(paramURI);
 			if(boundValue == null || boundValue.isEmpty()){
-				System.out.println("couldn't find value bound to param");
-				allBound = false;
-				unboundParameters.add(paramURI);
+				System.out.println("couldn't find value bound to param: " + paramURI + " to " + boundValue);
 			}
 			else{
 				System.out.println("found value to bind: " + boundValue);
 				pipeline.getParameterBindings().put(paramURI, boundValue);
 			}
 		}
-		return allBound;
 	}	
 }

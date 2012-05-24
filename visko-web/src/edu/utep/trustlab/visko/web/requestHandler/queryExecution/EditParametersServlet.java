@@ -40,7 +40,7 @@ public class EditParametersServlet extends RequestHandlerHTML{
 		String html = "<h2>Edit Parameter Values</h2>";
 		String paramsList = ParameterBindingsHTML.getParameterBindingsList(pipe);
 		
-		html = "<form action=\"ViskoServletManager\"><input type=\"hidden\" name=\"index\" value=\"" + index + "\" /><input type=\"hidden\" name=\"requestType\" value=\"execute-pipeline\" />" + paramsList + "<input name\"Execute Pipeline\" type=\"submit\" id=\"submitButton\" style=\"width: 156px\"></form>";
+		html = "<form action=\"ViskoServletManager\"><input type=\"hidden\" name=\"use-bindings-in-url\" value=\"true\" /><input type=\"hidden\" name=\"index\" value=\"" + index + "\" /><input type=\"hidden\" name=\"requestType\" value=\"execute-pipeline\" />" + paramsList + "<input name\"Execute Pipeline\" type=\"submit\" id=\"submitButton\" style=\"width: 156px\"></form>";
 		return html;
 	}
 }
