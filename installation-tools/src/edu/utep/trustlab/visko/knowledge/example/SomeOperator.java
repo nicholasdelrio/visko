@@ -21,6 +21,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.knowledge.example;
 
 import edu.utep.trustlab.contentManagement.AlfrescoClient;
+import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.visko.ontology.operator.writer.TransformerWriter;
 import edu.utep.trustlab.visko.ontology.service.writer.ServiceWriter;
 import edu.utep.trustlab.visko.ontology.service.writer.ToolkitProfileWriter;
@@ -43,6 +44,9 @@ public class SomeOperator {
         AlfrescoClient client = new AlfrescoClient(serverURL, userName, password);
         client.setProjectName(projectName);
 
+		ContentManager.setContentManager(client);
+		ContentManager.setWorkspacePath("");
+        
         if(!webdavURL.equals("${cat-webdav-url}"))
             client.setWebDAVURL(webdavURL);
         
@@ -58,6 +62,11 @@ public class SomeOperator {
         
         //create visualization
         createVisualizationProfile();
+	}
+	
+	public static void main(String[] args){
+		SomeOperator populator = new SomeOperator();
+		populator.create();
 	}
 		
 	private void createToolkit(){
