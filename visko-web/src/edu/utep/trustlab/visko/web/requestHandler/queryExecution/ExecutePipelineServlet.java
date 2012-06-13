@@ -58,7 +58,7 @@ public class ExecutePipelineServlet extends RequestHandlerRedirect {
 			runningPipeline = new PipelineExecutor(pipe);
 			session.setAttribute("runningPipeline", runningPipeline);
 			runningPipeline.process();
-			System.out.println("sending redirect");
+			System.out.println("sending redirect-----------------------------------------------------------");
 			response.sendRedirect("ViskoServletManager?requestType=execute-pipeline&index=" + index);
 		}		
 		else{			

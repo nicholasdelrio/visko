@@ -88,7 +88,7 @@ public class PipelineExecutor implements Runnable {
                 //
                 // don't return until the new thread is running.
                 //
-				while(false == this.isRunning()){}
+				while(isRunning() == false){System.out.println("wating for thread to start.");}
 			}catch(Exception e){
                 e.printStackTrace();
 			}
@@ -100,7 +100,13 @@ public class PipelineExecutor implements Runnable {
      */
     public void run(){
     	System.out.println("Running process");
-        
+
+		statusMessage = "Kicking off pipeline execution process.";
+		complete = false;
+		running  = true;
+
+		manySec(0.5);
+    	
     	if(pipeline.getArtifactURL() == null){
   			statusMessage = "No input data to process.";
 			complete = true;
@@ -141,8 +147,26 @@ public class PipelineExecutor implements Runnable {
     		resultURL = executeService(process, inputs, kb);
     		manySec(0.5);
     	}
-    		
-    	statusMessage = "Process Complete";
+    	
+    	if(
+    			resultURL.endsWith(".jpg") ||
+    			resultURL.endsWith(".JPG") ||
+    			resultURL.endsWith(".png") ||
+    			resultURL.endsWith(".PNG") ||
+    			resultURL.endsWith(".gif") ||
+    			resultURL.endsWith(".GIF"))
+    		statusMessage = "<img src=\"" + resultURL + "\" />";
+    	
+    	else if(resultURL.endsWith(".pdf") || resultURL.endsWith(".PDF"))
+    		statusMessage = "<a href=\"" + resultURL + "\">Click to view PDF</a>";
+    	else{
+    		statusMessage = "<h4>Result</h4>";
+    		statusMessage += "<ul>";
+    		statusMessage += "<li>URL: " + resultURL;
+    		statusMessage += "<li>Viewer: " + pipeline.getViewerURI();
+    		statusMessage += "</ul>";
+    	}
+  
     	complete = true;    
     	running  = false;	
     }

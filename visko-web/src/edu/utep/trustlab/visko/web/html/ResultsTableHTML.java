@@ -47,9 +47,7 @@ public class ResultsTableHTML {
 						.equals(engine.getQuery().getFormatURI())) {
 			html += "<tr><td><p>Format is same as target format.</p></td></tr>";
 		}
-		html += "</table>";
-		
-		html = "<p>" + html + "</p>";
+		html += "</table>";		
 		return html;
 	}
 
