@@ -64,7 +64,9 @@ public class PipelineExecutor implements Runnable {
 	
     private boolean complete = false;
     private boolean running = false;
-    private String statusMessage = "Pipeline execution has not begun.";	
+    private String statusMessage = "Pipeline execution has not begun.";
+    
+    private Thread t;
 	
 	public PipelineExecutor(Pipeline aPipeline) {
 		pipeline = aPipeline;
@@ -82,7 +84,7 @@ public class PipelineExecutor implements Runnable {
 		if(!isRunning()){
 			this.statusMessage = "Starting pipeline execution.";
 			try{
-				Thread t = new Thread(this);
+				t = new Thread(this);
 				t.setDaemon(true);
 				t.start();
                 //
@@ -132,6 +134,7 @@ public class PipelineExecutor implements Runnable {
 
     	for(int i = 0; i < pipeline.size(); i ++){
     		statusMessage = "Service " + pipeline.get(i) + " " + (i + 1) + " of " + pipeline.size() + " is running.";	
+    		
     		System.out.println("STATUS: " + this.statusMessage);
     		OWLSService owlsService = pipeline.getService(i);
 
@@ -141,8 +144,12 @@ public class PipelineExecutor implements Runnable {
     					
     		ValueMap<Input, OWLValue> inputs = OWLSParameterBinder.buildInputValueMap(process, resultURL, pipeline.getParameterBindings(), kb);
 	
-    		if (inputs == null)
+    		if (inputs == null || resultURL == null){    			
+    	    	running = false;
+    	    	complete = true;	
+    	    	statusMessage = "Error executing service: " + service.getURI();    			
     			return;
+    		}
     			
     		resultURL = executeService(process, inputs, kb, i);
     		manySec(0.5);
@@ -183,7 +190,7 @@ public class PipelineExecutor implements Runnable {
 	    	running = false;
 	    	complete = true;	
 	    	statusMessage = "Error executing service: " + pipeline.get(serviceIndex);
-			
+	    	
 			return null;
 		}
     }
