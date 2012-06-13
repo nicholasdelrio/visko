@@ -37,7 +37,6 @@ GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWE
 LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-
 package edu.utep.trustlab.visko.execution;
 
 import java.util.ArrayList;
@@ -51,7 +50,6 @@ import edu.utep.trustlab.visko.ontology.operator.Viewer;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.util.ResultSetToVector;
-
 
 public class Pipeline extends Vector<String> {
 	private String viewer;
@@ -102,7 +100,7 @@ public class Pipeline extends Vector<String> {
 		return parentContainer.getParameterBindings();
 	}
 
-	public String getArtfifactURL() {
+	public String getArtifactURL() {
 		return parentContainer.getArtifactURL();
 	}
 
@@ -152,30 +150,5 @@ public class Pipeline extends Vector<String> {
 			}
 		}
 		return allParametersBound;
-	}
-	
-	public String executePath(boolean provenance) {
-		PipelineExecutor executor = new PipelineExecutor(provenance);
-
-		String artifactURL = parentContainer.getArtifactURL();
-
-		String visualizationURL = "NULL: Artifact to be visualized was never specified!!!";
-
-		if (artifactURL != null) {
-			// null object behavior
-			if (size() == 0) {
-				visualizationURL = parentContainer.getArtifactURL();
-			}
-
-			try {
-				visualizationURL = executor.executeServiceChain(this,
-						parentContainer.getArtifactURL());
-			} catch (Exception e) {
-				e.printStackTrace();
-				visualizationURL = e.getMessage();
-			}
-		}
-
-		return visualizationURL;
-	}
+	}	
 }

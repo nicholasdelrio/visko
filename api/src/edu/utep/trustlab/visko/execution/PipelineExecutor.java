@@ -37,11 +37,8 @@ GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWE
 LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-
 package edu.utep.trustlab.visko.execution;
 
-import java.net.URI;
-import java.util.HashMap;
 import org.mindswap.owl.OWLDataValue;
 import org.mindswap.owl.OWLFactory;
 import org.mindswap.owl.OWLKnowledgeBase;
@@ -55,145 +52,23 @@ import org.mindswap.owls.service.Service;
 import org.mindswap.query.ValueMap;
 
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
+import edu.utep.trustlab.visko.util.OWLSParameterBinder;
 
-//import edu.utep.trustlab.visko.provenance.PMLLogger;
-
-/**
- * 
- * Examples to show how services can be executed. Some examples of simple
- * execution monitoring is included.
- * 
- * @author unascribed
- * @version $Rev: 2298 $; $Author: nick $; $Date: 2012/01/30 20:27:47 $
- */
-public class PipelineExecutor {
+public class PipelineExecutor implements Runnable {
 	private Service service;
 	private Process process;
-	private String inValue;
 	private ValueMap<Output, OWLValue> outputs;
 	private ProcessExecutionEngine exec;
-
-//	private static final String HARD_CODED_DATA_PML = "http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/HTTP_Subsetter_03730391059904816.owl#answer";
-
-//	private PMLLogger logger;
-	private String pmlURI;
-
-	public PipelineExecutor(boolean provenance) {
-	/*	if (provenance)
-			logger = new PMLLogger();*/
-	}
-
-	public URI getURI(String uriString) {
-		try {
-			return new URI(uriString);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return null;
-	}
-
-	private ValueMap<Input, OWLValue> buildInputValueMap(Process process, String datasetURL, HashMap<String, String> bindings, OWLKnowledgeBase kb) {
-		// initialize the input values to be empty
-		ValueMap<Input, OWLValue> inputs = new ValueMap<Input, OWLValue>();
-
-		String value;
-		String uri;
-		boolean error = false;
-		for (Input input : process.getInputs()) {
-			uri = input.getURI().toASCIIString();
-
-			if (uri.contains("url") || uri.contains("URL") || uri.contains("fileLoc")){
-				inputs.setValue(input, kb.createDataValue(datasetURL));
-				System.out.println("found binding for data: " + datasetURL);
-			}
-			else {
-				value = bindings.get(input.getURI().toASCIIString());
-				
-				if (value != null){					
-					inputs.setValue(input, kb.createDataValue(value));
-				}
-				
-				else{
-					error = true;
-				}
-			}
-		}
-
-		if (error)
-			return null;
-		else
-			return inputs;
-	}
-
-	public String executeServiceChain(Pipeline pipeline, String inputDatasetURL)
-			throws Exception {
-		// create an execution engine
-		exec = OWLSFactory.createExecutionEngine();
-
-		// Attach a listener to the execution engine
-		// exec.addMonitor(new DefaultProcessMonitor());
-
-		OWLKnowledgeBase kb = OWLFactory.createKB();
-		String nextInput = inputDatasetURL;
-
-		for(int i = 0; i < pipeline.size(); i ++){
-			
-			OWLSService owlsService = pipeline.getService(i);
-			System.out.println("owl service uri " + owlsService.getURI());
-
-			service = owlsService.getIndividual();
-
-			process = service.getProcess();
-
-			inValue = nextInput;
-
-			ValueMap<Input, OWLValue> inputs = buildInputValueMap(process, inValue, pipeline.getParameterBindings(), kb);
-
-			if (inputs == null) {
-				System.out.println("not all parameters could be bound to a value!");
-				System.out.println("cannot execute pipeline!!!");
-				return null;
-			}
-
-			outputs = exec.execute(process, inputs, kb);
-
-			// get the output
-			final OWLDataValue out = (OWLDataValue) outputs.getValue(process
-					.getOutput());
-
-			// display the results
-			// System.out.println("Executed service '" + service + "'");
-			// System.out.println("Grounding WSDL: " + ((AtomicProcess)
-			// process).getGrounding().getDescriptionURL());
-			// System.out.println("Input  = " + inValue);
-			System.out.println("Output URL: " + out.toString());
-
-			manySec(0.5);
-
-			/*
-			if (logger != null)
-				logger.captureProcessingStep(owlsService, out.toString(), inputs);*/
-
-			nextInput = out.toString();
-		}
-
-		/*
-		if (logger != null) {
-			if (inputDatasetURL.startsWith("http://giovanni.gsfc.nasa.gov/session"))
-				pmlURI = logger.dumpNodesets(HARD_CODED_DATA_PML);
-			else
-				pmlURI = logger.dumpNodesets(null);
-
-			nextInput = pmlURI;
-		}*/
-
-		return nextInput;
-	}
-
-	public String getPMLURI() {
-		return pmlURI;
-	}
+	private Pipeline pipeline;
+	private String resultURL;
+	
+    private boolean complete = false;
+    private boolean running = false;
+    private String statusMessage = "Pipeline execution has not begun.";	
+	
+	public PipelineExecutor(Pipeline aPipeline) {
+		pipeline = aPipeline;
+	}	
 
 	private static void manySec(double s) {
 		try {
@@ -202,4 +77,105 @@ public class PipelineExecutor {
 			e.printStackTrace();
 		}
 	}
+
+	public void process(){
+		if(!isRunning()){
+			this.statusMessage = "Starting pipeline execution.";
+			try{
+				Thread t = new Thread(this);
+				t.setDaemon(true);
+				t.start();
+                //
+                // don't return until the new thread is running.
+                //
+				while(false == this.isRunning()){}
+			}catch(Exception e){
+                e.printStackTrace();
+			}
+		}
+	}
+	
+    /**
+     * Triggers the long running process.
+     */
+    public void run(){
+    	System.out.println("Running process");
+        
+    	if(pipeline.getArtifactURL() == null){
+  			statusMessage = "No input data to process.";
+			complete = true;
+			running  = false;
+			return;
+    	}
+    	
+    	resultURL = pipeline.getArtifactURL();
+    	
+    	if(pipeline.size() == 0){
+ 			statusMessage = "Input data is already visualizable by a viewer.";
+			complete = true;
+			running  = false;
+			return;    		
+    	}
+    	
+    	running = true;
+    	complete = false;	
+    	statusMessage = "Service 0  of " + pipeline.size() + " is running.";
+    
+    	exec = OWLSFactory.createExecutionEngine();			
+    	OWLKnowledgeBase kb = OWLFactory.createKB();
+
+    	for(int i = 0; i < pipeline.size(); i ++){
+    		statusMessage = "Service " + (i + 1) + " of " + pipeline.size() + " is running.";	
+    		System.out.println("STATUS: " + this.statusMessage);
+    		OWLSService owlsService = pipeline.getService(i);
+
+    		System.out.println("owl service uri " + owlsService.getURI());	
+    		service = owlsService.getIndividual();
+    		process = service.getProcess();
+    					
+    		ValueMap<Input, OWLValue> inputs = OWLSParameterBinder.buildInputValueMap(process, resultURL, pipeline.getParameterBindings(), kb);
+	
+    		if (inputs == null)
+    			return;
+    			
+    		resultURL = executeService(process, inputs, kb);
+    		manySec(0.5);
+    	}
+    		
+    	statusMessage = "Process Complete";
+    	complete = true;    
+    	running  = false;	
+    }
+    
+    private String executeService(Process process, ValueMap<Input,OWLValue> inputs, OWLKnowledgeBase kb){
+    	try{
+			outputs = exec.execute(process, inputs, kb);
+			final OWLDataValue out = (OWLDataValue) outputs.getValue(process.getOutput());
+			System.out.println("Output URL: " + out.toString());
+			return out.toString();
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+    }
+    
+    public String getResultURL(){
+    	return resultURL;
+    }
+
+    public int getPipelineLength(){
+        return pipeline.size();
+    }
+
+    public boolean isComplete(){
+        return complete;
+    }
+
+    public boolean isRunning(){
+        return this.running;
+    }
+
+    public String getStatusMessage(){
+        return this.statusMessage;
+    }
 }
