@@ -131,7 +131,7 @@ public class PipelineExecutor implements Runnable {
     	OWLKnowledgeBase kb = OWLFactory.createKB();
 
     	for(int i = 0; i < pipeline.size(); i ++){
-    		statusMessage = "Service " + (i + 1) + " of " + pipeline.size() + " is running.";	
+    		statusMessage = "Service " + pipeline.get(i) + " " + (i + 1) + " of " + pipeline.size() + " is running.";	
     		System.out.println("STATUS: " + this.statusMessage);
     		OWLSService owlsService = pipeline.getService(i);
 
