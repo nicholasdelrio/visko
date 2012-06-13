@@ -144,7 +144,7 @@ public class PipelineExecutor implements Runnable {
     		if (inputs == null)
     			return;
     			
-    		resultURL = executeService(process, inputs, kb);
+    		resultURL = executeService(process, inputs, kb, i);
     		manySec(0.5);
     	}
     	
@@ -171,7 +171,7 @@ public class PipelineExecutor implements Runnable {
     	running  = false;	
     }
     
-    private String executeService(Process process, ValueMap<Input,OWLValue> inputs, OWLKnowledgeBase kb){
+    private String executeService(Process process, ValueMap<Input,OWLValue> inputs, OWLKnowledgeBase kb, int serviceIndex){
     	try{
 			outputs = exec.execute(process, inputs, kb);
 			final OWLDataValue out = (OWLDataValue) outputs.getValue(process.getOutput());
@@ -179,6 +179,11 @@ public class PipelineExecutor implements Runnable {
 			return out.toString();
 		}catch(Exception e){
 			e.printStackTrace();
+			
+	    	running = false;
+	    	complete = true;	
+	    	statusMessage = "Error executing service: " + pipeline.get(serviceIndex);
+			
 			return null;
 		}
     }
