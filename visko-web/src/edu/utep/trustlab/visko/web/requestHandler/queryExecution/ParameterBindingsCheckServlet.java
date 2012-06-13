@@ -77,7 +77,8 @@ public class ParameterBindingsCheckServlet extends RequestHandlerRedirect {
 	private static void updateParameterBindingsFromURL(Pipeline pipeline, HttpServletRequest request){
 		
 		String boundValue;
-		List<String> parameters = pipeline.getAllParameters();;
+		List<String> parameters = pipeline.getAllParameters();
+		System.out.println("number of parameters=====================================================" + parameters.size());
 		for(String paramURI : parameters){
 			System.out.println("attempting to bind: " + paramURI);
 			boundValue = request.getParameter(paramURI);

@@ -118,13 +118,11 @@ public class Pipeline extends Vector<String> {
 		return new OWLSService(get(i), owlsLoadingModel);
 	}
 	
-	private boolean hasAllInputParameters(String serviceURI){
-		unboundParameters = new ArrayList<String>();
-		allParameters = new ArrayList<String>();
-		
+	private boolean hasAllInputParameters(String serviceURI){		
 		String boundedValue;
 		boolean allParamsBounded = true;
 		Vector<String> params = ResultSetToVector.getVectorFromResultSet(new ViskoTripleStore().getInputParameters(serviceURI), "parameter");
+		
 		for (String parameterURI : params) {
 
 			boundedValue = getParameterBindings().get(parameterURI);
@@ -142,11 +140,13 @@ public class Pipeline extends Vector<String> {
 	}
 
 	public boolean hasAllInputParameters(){
+		unboundParameters = new ArrayList<String>();
+		allParameters = new ArrayList<String>();
+
 		boolean allParametersBound = true;
 		for(String serviceURI : this){
 			if(!hasAllInputParameters(serviceURI)){
 				allParametersBound = false;
-				break;
 			}
 		}
 		return allParametersBound;

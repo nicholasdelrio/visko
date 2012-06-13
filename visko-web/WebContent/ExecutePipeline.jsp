@@ -6,7 +6,7 @@
 ${statusBean.refreshTag}
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="visko-style.css" />
-<title>Knowledge Base</title>
+<title>Pipeline Execution</title>
 </head>
 <body>
 

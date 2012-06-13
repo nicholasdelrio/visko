@@ -70,6 +70,8 @@ public class ExecutePipelineServlet extends RequestHandlerRedirect {
 	        statusBean.setProcessRunning(runningPipeline.isRunning());
 	        statusBean.setMessage(runningPipeline.getStatusMessage());
 
+	        System.out.println("is pipeline running: " + runningPipeline.isRunning());
+	        System.out.println("what is the message: " + runningPipeline.getStatusMessage());
 	            //
 	            // Once the process is complete, remove the binding from 
 	            // the session.

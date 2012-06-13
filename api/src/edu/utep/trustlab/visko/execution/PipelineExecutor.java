@@ -144,10 +144,7 @@ public class PipelineExecutor implements Runnable {
     					
     		ValueMap<Input, OWLValue> inputs = OWLSParameterBinder.buildInputValueMap(process, resultURL, pipeline.getParameterBindings(), kb);
 	
-    		if (inputs == null || resultURL == null){    			
-    	    	running = false;
-    	    	complete = true;	
-    	    	statusMessage = "Error executing service: " + service.getURI();    			
+    		if (inputs == null || resultURL == null){    			 			
     			return;
     		}
     			
@@ -186,10 +183,10 @@ public class PipelineExecutor implements Runnable {
 			return out.toString();
 		}catch(Exception e){
 			e.printStackTrace();
-			
+			System.out.println("error==========================================================");
 	    	running = false;
 	    	complete = true;	
-	    	statusMessage = "Error executing service: " + pipeline.get(serviceIndex);
+	    	statusMessage = "Error executing service " + (serviceIndex + 1) + " of " + pipeline.size() + ": " + pipeline.get(serviceIndex);
 	    	
 			return null;
 		}
