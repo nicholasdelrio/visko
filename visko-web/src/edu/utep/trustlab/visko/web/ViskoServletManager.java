@@ -32,6 +32,7 @@ import edu.utep.trustlab.visko.web.requestHandler.queryExecution.EditParametersS
 import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ExecutePipelineServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ExecuteQueryServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecution.GetPipelineJSONServlet;
+import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ParameterBindingsCheckServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ShowPipelineServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecutionService.ExecuteQueryServiceServlet;
 import edu.utep.trustlab.visko.web.requestHandler.sparql.ExecuteSPARQLQueryServlet;
@@ -56,32 +57,29 @@ public class ViskoServletManager extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String requestType = request.getParameter("requestType");
-		String content;
 		
 		if(requestType == null)
-			content = "<html><body><p>Invalid argument specified for <b>requestType</b></body></html>";
+			response.getWriter().write("<html><body><p>Invalid argument specified for <b>requestType</b></body></html>");
 		else if(requestType.equalsIgnoreCase("execute-pipeline"))
-			content = new ExecutePipelineServlet().getHTMLPage(request, response);
+			new ExecutePipelineServlet().setRedirection(request, response, this);
 		else if(requestType.equalsIgnoreCase("execute-query-service"))
-			content = new ExecuteQueryServiceServlet().getXMLResults(request, response);
+			new ExecuteQueryServiceServlet().setXMLResults(request, response);
 		else if(requestType.equalsIgnoreCase("execute-query"))
-			content = new ExecuteQueryServlet().getHTMLPage(request, response);
+			new ExecuteQueryServlet().setHTMLPage(request, response);
 		else if(requestType.equalsIgnoreCase("knowledge-base-info"))
-			content = new KnowledgeBaseInformationJSONServlet().getJSON(request, response);
+			new KnowledgeBaseInformationJSONServlet().setJSON(request, response);
 		else if(requestType.equalsIgnoreCase("get-pipeline-json"))
-			content = new GetPipelineJSONServlet().getJSON(request, response);
+			new GetPipelineJSONServlet().setJSON(request, response);
 		else if(requestType.equalsIgnoreCase("show-pipeline"))
-			content = new ShowPipelineServlet().getHTMLPage(request, response);
+			new ShowPipelineServlet().setHTMLPage(request, response);
 		else if(requestType.equalsIgnoreCase("edit-parameters"))
-			content = new EditParametersServlet().getHTMLPage(request, response);
-		else if(requestType.equals("query-triple-store")){
-			response.setContentType("application/sparql-results+xml ");
-			content = new ExecuteSPARQLQueryServlet().getXMLResults(request, response);
-		}
+			new EditParametersServlet().setHTMLPage(request, response);
+		else if(requestType.equalsIgnoreCase("check-bindings"))
+			new ParameterBindingsCheckServlet().setRedirection(request, response, this);
+		else if(requestType.equals("query-triple-store"))
+			new ExecuteSPARQLQueryServlet().setSparqlResults(request, response);
 		else
-			content = "<html><body><p>Invalid argument specified for <b>requestType</b></body></html>";
-		
-		response.getWriter().write(content);
+			response.getWriter().write("<html><body><p>Invalid argument specified for <b>requestType</b></body></html>");		
 	}
 
 	/**

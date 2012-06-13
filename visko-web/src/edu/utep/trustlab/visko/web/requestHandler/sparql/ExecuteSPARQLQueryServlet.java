@@ -22,11 +22,9 @@ package edu.utep.trustlab.visko.web.requestHandler.sparql;
 
 import javax.servlet.http.HttpServletRequest;
 import com.hp.hpl.jena.query.ResultSet;
+import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerSparqlXML;
 
-import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerXML;
-
-
-public class ExecuteSPARQLQueryServlet extends RequestHandlerXML {
+public class ExecuteSPARQLQueryServlet extends RequestHandlerSparqlXML {
 
 	public String doGet(HttpServletRequest request){
 		String query = request.getParameter("query");
