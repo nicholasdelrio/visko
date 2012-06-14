@@ -70,7 +70,11 @@ public class PipelineExecutor implements Runnable {
 	
 	public PipelineExecutor(Pipeline aPipeline) {
 		pipeline = aPipeline;
-	}	
+	}
+	
+	public Pipeline getPipeline(){
+		return pipeline;
+	}
 
 	private static void manySec(double s) {
 		try {
@@ -151,26 +155,7 @@ public class PipelineExecutor implements Runnable {
     		resultURL = executeService(process, inputs, kb, i);
     		manySec(0.5);
     	}
-    	
-    	if(
-    			resultURL.endsWith(".jpg") ||
-    			resultURL.endsWith(".JPG") ||
-    			resultURL.endsWith(".png") ||
-    			resultURL.endsWith(".PNG") ||
-    			resultURL.endsWith(".gif") ||
-    			resultURL.endsWith(".GIF"))
-    		statusMessage = "<img src=\"" + resultURL + "\" />";
-    	
-    	else if(resultURL.endsWith(".pdf") || resultURL.endsWith(".PDF"))
-    		statusMessage = "<a href=\"" + resultURL + "\">Click to view PDF</a>";
-    	else{
-    		statusMessage = "<h4>Result</h4>";
-    		statusMessage += "<ul>";
-    		statusMessage += "<li>URL: " + resultURL;
-    		statusMessage += "<li>Viewer: " + pipeline.getViewerURI();
-    		statusMessage += "</ul>";
-    	}
-  
+    	  
     	complete = true;    
     	running  = false;	
     }

@@ -77,7 +77,29 @@ public class ExecutePipelineServlet extends RequestHandlerRedirect {
 	            // the session.
 	            //
 	        if(runningPipeline.isComplete()){
-	        	System.out.println("removing runningPipeline attribute.");
+	        	
+	        	String resultURL = runningPipeline.getResultURL();
+	        	String resultURLHTML;
+	        	if(
+	        			resultURL.endsWith(".jpg") ||
+	        			resultURL.endsWith(".JPG") ||
+	        			resultURL.endsWith(".png") ||
+	        			resultURL.endsWith(".PNG") ||
+	        			resultURL.endsWith(".gif") ||
+	        			resultURL.endsWith(".GIF"))
+	        		resultURLHTML = "<img src=\"" + resultURL + "\" />";
+	        	
+	        	else if(resultURL.endsWith(".pdf") || resultURL.endsWith(".PDF"))
+	        		resultURLHTML = "<a href=\"" + resultURL + "\">Click to view PDF</a>";
+	        	else{
+	        		resultURLHTML = "<h4>Result</h4>";
+	        		resultURLHTML += "<ul>";
+	        		resultURLHTML += "<li>URL: <a href=\"" + resultURL + "\">" + resultURL + "</a>";
+	        		resultURLHTML += "<li>Viewer: " + runningPipeline.getPipeline().getViewerURI();
+	        		resultURLHTML += "</ul>";
+	        	}
+
+	        	statusBean.setMessage(resultURLHTML);
 	        	statusBean.setLinkToQuery();
 	        	session.removeAttribute("runningPipeline");
 	        }
