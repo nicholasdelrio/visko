@@ -78,7 +78,7 @@ public class Pipeline extends Vector<String> {
 	}
 	
 	private void setViewerSets(String viewerURI){
-		viewerSets = ResultSetToVector.getVectorFromResultSet(new ViskoTripleStore().getViewerSets(), "viewerSet");
+		viewerSets = ResultSetToVector.getVectorFromResultSet(new ViskoTripleStore().getViewerSetsOfViewer(viewerURI), "viewerSet");
 	}
 
 	public String getViewURI(){

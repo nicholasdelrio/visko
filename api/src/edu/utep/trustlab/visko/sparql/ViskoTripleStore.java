@@ -207,7 +207,7 @@ public class ViskoTripleStore {
 		return endpoint.executeAskQuery(stringQuery);
 	}
 
-	public ResultSet getViewSetOfViewer(String viewerURI) {
+	public ResultSet getViewerSetsOfViewer(String viewerURI) {
 		viewerURI = "<" + viewerURI + ">";
 
 		String stringQuery = QUERY_PREFIX + "SELECT ?viewerSet " + "WHERE { " +
