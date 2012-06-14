@@ -118,6 +118,18 @@ public class Pipeline extends Vector<String> {
 		return new OWLSService(get(i), owlsLoadingModel);
 	}
 	
+	public boolean requiresInputURL(){
+		String firstServiceURI = get(0);
+		Vector<String> params = ResultSetToVector.getVectorFromResultSet(new ViskoTripleStore().getInputParameters(firstServiceURI), "parameter");
+		
+		for(String parameterURI : params){
+			if(parameterURI.contains("url") || parameterURI.contains("URL") || parameterURI.contains("fileLoc"))
+				return true;
+		}
+		
+		return false;
+	}
+	
 	private boolean hasAllInputParameters(String serviceURI){		
 		String boundedValue;
 		boolean allParamsBounded = true;

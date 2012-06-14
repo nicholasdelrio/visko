@@ -16,8 +16,17 @@ public class PipelineExecutionStatusBean{
      * @return the status message from the long running process.
      */
     public String getMessage(){
-        return this.message;
-    }    
+    	String[] messageParts = message.split(" ");
+    	String reconstructedMessage = "";
+    	for(String messagePart : messageParts){
+    		if(messagePart.startsWith("http"))
+    			messagePart = "<font size=\"3\" color=\"blue\">" + messagePart + "</font>";
+    		
+    		reconstructedMessage += messagePart + " ";
+    	}
+    	
+    	return reconstructedMessage;
+    }
     
     /**
      * @param message The status message from the long running process.
@@ -25,8 +34,7 @@ public class PipelineExecutionStatusBean{
     public void setMessage(String message){
         this.message = message;
     }
-
-
+    
     /**
      * @return true if the process is still running.
      */

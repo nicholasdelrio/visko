@@ -64,6 +64,7 @@ public class PipelineExecutor implements Runnable {
 	
     private boolean complete = false;
     private boolean running = false;
+    
     private String statusMessage = "Pipeline execution has not begun.";
     
     private Thread t;

@@ -39,11 +39,9 @@ public class ResultsTableHTML {
 			html += getVisualizationAndPipelineResultRows(pipes, false, engine.getQuery().hasValidDataPointer());
 		} else if (!(pipes.size() > 0)) {
 			html += "<tr><td><p>Empty Set</p></td></tr>";
-		} else if (engine.getQuery().getViewerSetURI() != null
-				&& engine.isAlreadyVisualizableWithViewerSet()) {
+		} else if (engine.getQuery().getViewerSetURI() != null && engine.isAlreadyVisualizableWithViewerSet()) {
 			html += "<tr><td><p>Format can already be viewed by ViewerSet.</p></td></tr>";
-		} else if (engine.getQuery().getTargetFormatURI() != null
-				&& engine.getQuery().getTargetFormatURI()
+		} else if (engine.getQuery().getTargetFormatURI() != null && engine.getQuery().getTargetFormatURI()
 						.equals(engine.getQuery().getFormatURI())) {
 			html += "<tr><td><p>Format is same as target format.</p></td></tr>";
 		}
@@ -53,10 +51,9 @@ public class ResultsTableHTML {
 
 	private static String getVisualizationAndPipelineResultRows(PipelineSet pipes, boolean withProvenance, boolean validDatasetReference) {
 		String html = "";
-		
 		for (int i = 0; i < pipes.size(); i++) {
 			html += "<tr>";
-			html += "<td>" + getExecutePipelineLink(i, pipes.getArtifactURL(), pipes.get(i).hasAllInputParameters(), validDatasetReference) + "</td>";
+			html += "<td>" + getExecutePipelineLink(i, pipes.getArtifactURL(), pipes.get(i).requiresInputURL(), pipes.get(i).hasAllInputParameters(), validDatasetReference) + "</td>";
 			html += "<td>" + getEditParametersLink(i);
 			html += "<td>" + getViewLink(pipes.get(i).getViewURI()) + "</td>";
 			if (withProvenance)
@@ -99,7 +96,7 @@ public class ResultsTableHTML {
 		return html;
 	}
 
-	private static String getExecutePipelineLink(int index, String artifactURL, boolean hasAllParametersBound, boolean hasValidDataInput) {
+	private static String getExecutePipelineLink(int index, String artifactURL, boolean requiresInput, boolean hasAllParametersBound, boolean hasValidDataInput) {
 		String html = "<p>NULL</p>";
 
 		if (artifactURL != null && hasValidDataInput) {
@@ -110,6 +107,14 @@ public class ResultsTableHTML {
 			else
 				html = "<a href=\"ViskoServletManager?requestType=edit-parameters&index=" + index + "\">Need to set parameters!</a>";
 		}
+		else if(!requiresInput){
+			if(hasAllParametersBound){
+				html = 	"<a href=\"ViskoServletManager?requestType=execute-pipeline&index=" + index + "\">Run pipeline</a>";
+			}
+			else
+				html = "<a href=\"ViskoServletManager?requestType=edit-parameters&index=" + index + "\">Need to set parameters!</a>";
+			
+		}		
 		else
 			html = "<b>Not a valid dataset reference in query: requires URL.</b>";
 		return html;

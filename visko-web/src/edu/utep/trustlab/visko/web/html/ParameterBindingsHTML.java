@@ -55,9 +55,9 @@ public class ParameterBindingsHTML {
 					
 					if (!parameterURI.contains("url") && !parameterURI.contains("datasetURL")) {
 						if(parameterValue == null)
-							html += "<tr><td><a href=\"" + parameterURI + "\">" + PipelineHTML.getURIFragment(parameterURI) + " </a></td><td><b>=</b> <input style=\"width: 100px\" name=\"" + parameterURI + "\" /></td></tr>";
+							html += "<tr><td><a href=\"" + parameterURI + "\">" + PipelineHTML.getURIFragment(parameterURI) + " </a></td><td><b>=</b> <input style=\"width: 100px; background-color: #AFEEEE\" name=\"" + parameterURI + "\" /></td></tr>";
 						else
-							html += "<tr><td><a href=\"" + parameterURI + "\">" + PipelineHTML.getURIFragment(parameterURI) + " </a></td><td><b>=</b> <input style=\"width: 100px\" value=\"" + parameterValue + "\" name=\"" + parameterURI + "\" /></td></tr>";
+							html += "<tr><td><a href=\"" + parameterURI + "\">" + PipelineHTML.getURIFragment(parameterURI) + " </a></td><td><b>=</b> <input style=\"width: 100px; background-color: #AFEEEE\" value=\"" + parameterValue + "\" name=\"" + parameterURI + "\" /></td></tr>";
 					}
 				}				
 				html += "</table>";
