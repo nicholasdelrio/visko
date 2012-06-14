@@ -58,9 +58,11 @@ public class PipelineSetBuilder {
 	private FormatPaths formatPaths;
 	private OperatorPaths operatorPaths;
 	private PipelineSet pipelines;
+	private Query query;
 
-	public PipelineSetBuilder() {
+	public PipelineSetBuilder(Query drivingQuery) {
 		ts = new ViskoTripleStore();
+		query = drivingQuery;
 	}
 
 	public PipelineSet getPipelines() {
@@ -101,7 +103,7 @@ public class PipelineSetBuilder {
 
 		Vector<Vector<String>> operatorImplSets;
 
-		pipelines = new PipelineSet();
+		pipelines = new PipelineSet(query);
 		Pipeline pipe;
 
 		for (OperatorPath operatorPath : operatorPaths) {
@@ -154,7 +156,7 @@ public class PipelineSetBuilder {
 
 		Vector<Vector<String>> operatorImplSets;
 
-		pipelines = new PipelineSet();
+		pipelines = new PipelineSet(query);
 		Pipeline pipe;
 
 		for (OperatorPath operatorPath : operatorPaths) {

@@ -32,6 +32,7 @@ import edu.utep.trustlab.visko.web.requestHandler.queryExecution.EditParametersS
 import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ExecutePipelineServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ExecuteQueryServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecution.GetPipelineJSONServlet;
+import edu.utep.trustlab.visko.web.requestHandler.queryExecution.GetQueryServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ParameterBindingsCheckServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ShowPipelineServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecutionService.ExecuteQueryServiceServlet;
@@ -78,6 +79,8 @@ public class ViskoServletManager extends HttpServlet {
 			new ParameterBindingsCheckServlet().setRedirection(request, response, this);
 		else if(requestType.equals("query-triple-store"))
 			new ExecuteSPARQLQueryServlet().setSparqlResults(request, response);
+		else if(requestType.equals("get-query"))
+			new GetQueryServlet().setHTMLPage(request, response);
 		else
 			response.getWriter().write("<html><body><p>Invalid argument specified for <b>requestType</b></body></html>");		
 	}

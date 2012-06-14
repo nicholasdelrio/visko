@@ -78,6 +78,7 @@ public class ExecutePipelineServlet extends RequestHandlerRedirect {
 	            //
 	        if(runningPipeline.isComplete()){
 	        	System.out.println("removing runningPipeline attribute.");
+	        	statusBean.setLinkToQuery();
 	        	session.removeAttribute("runningPipeline");
 	        }
 

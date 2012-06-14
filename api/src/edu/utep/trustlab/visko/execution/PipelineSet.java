@@ -44,15 +44,16 @@ import java.util.HashMap;
 import java.util.Vector;
 
 public class PipelineSet extends Vector<Pipeline> {
-	private HashMap<String, String> variableBindings;
 	private String artifURL;
-
-	public PipelineSet() {
+	private Query derivedFromQuery;
+	
+	public PipelineSet(Query query) {
 		super();
+		derivedFromQuery = query;
 	}
 
 	public void setParameterBindings(HashMap<String, String> bindings) {
-		variableBindings = bindings;
+		derivedFromQuery.setParameterBindings(bindings);
 	}
 
 	public void setArtifactURL(String artifactURL) {
@@ -64,6 +65,6 @@ public class PipelineSet extends Vector<Pipeline> {
 	}
 
 	public HashMap<String, String> getParameterBindings() {
-		return variableBindings;
+		return derivedFromQuery.getParameterBindings();
 	}
 }

@@ -9,7 +9,8 @@ package edu.utep.trustlab.visko.web.requestHandler.queryExecution;
 public class PipelineExecutionStatusBean{
     private String message = ""; 
     private boolean processRunning = false;
-    private int refreshRate = 3;
+    private int refreshRate = 2;
+    private String linkToQuery = "";
 
     /**
      * @return the status message from the long running process.
@@ -38,6 +39,14 @@ public class PipelineExecutionStatusBean{
      */
     public void setProcessRunning(boolean processRunning){
         this.processRunning = processRunning;
+    }
+    
+    public void setLinkToQuery(){
+    	linkToQuery = "<p><a href=\"ViskoServletManager?requestType=get-query\">Click to export query responsible for this visualization</a></p>";
+    }
+    
+    public String getLinkToQuery(){
+    	return linkToQuery;
     }
 
     /**

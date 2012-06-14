@@ -17,7 +17,7 @@ ${statusBean.refreshTag}
 <div id="content">
 
 <h3 style="padding:0px">[VisKo Pipeline Execution]</h3>
-
+${statusBean.linkToQuery}
 <br />
 ${statusBean.message}
 <br />

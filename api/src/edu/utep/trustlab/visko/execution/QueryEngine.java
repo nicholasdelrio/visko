@@ -60,7 +60,7 @@ public class QueryEngine {
 
 	public QueryEngine(Query q) {
 		query = q;
-		builder = new PipelineSetBuilder();
+		builder = new PipelineSetBuilder(query);
 		parameterBindings = new HashMap<String, String>();
 	}
 
