@@ -178,28 +178,28 @@ function writeQuery()
 	<tr><td colspan="2"><h2>Complete Form to Compose Query</h2></td></tr>
 	<tr>
 		<td>Select View</td>
-		<td align="right"><select style="width: 780px" name="viewURI"
+		<td align="right"><select style="width: 780px; background-color: #AFEEEE" name="viewURI"
 			onchange="writeQuery()" id="viewURIs"><%=o.getViskoViews() %></select></td>
 	</tr>
 	<tr>
 		<td>Select ViewerSet (optional)</td>
-		<td align="right"><select style="width: 780px" name="viewerSetURI"
+		<td align="right"><select style="width: 780px; background-color: #AFEEEE" name="viewerSetURI"
 			onchange="writeQuery()" disabled="disabled" id="viewerSetURIs"><%=o.getViewerSets()%></select></td>
 	</tr>
 
 	<tr>
 		<td>Set Artifact URL (optional)</td>
-		<td align="right"><input style="width: 776px" id="artifactURL" disabled="disabled" onchange="writeQuery()"></td>
+		<td align="right"><input style="width: 776px; background-color: #AFEEEE" id="artifactURL" disabled="disabled" onchange="writeQuery()"></td>
 	</tr>
 
 	<tr>
 		<td style="width: 176px; ">Select Format</td>
-		<td align="right"><select style="width: 780px"
+		<td align="right"><select style="width: 780px; background-color: #AFEEEE"
 			name="formatURIs" disabled="disabled" id="formatURIs" onchange="writeQuery()"><%=o.getFormats()%></select></td>
 	</tr>
 	<tr>
 		<td style="width: 182px; ">Select Type (optional)</td>
-		<td align="right"><select style="width: 780px" name="typeURI"
+		<td align="right"><select style="width: 780px; background-color: #AFEEEE" name="typeURI"
 			onchange="writeQuery()" disabled="disabled" id="typeURIs"><%=o.getTypes()%></select></td>
 	</tr>
 	
@@ -209,13 +209,13 @@ function writeQuery()
 			<table width="780">
 				<tr>
 					<td style="width: 131px; ">SelectParameter</td>
-					<td align="right" colspan="2"><select style="width: 600px" name="paramURI"
+					<td align="right" colspan="2"><select style="width: 600px; background-color: #AFEEEE" name="paramURI"
 					disabled="disabled" id="paramURIs" onchange="clearParameterValue()"><%=o.getParameters()%></select></td>
 				</tr>
 				<tr>
 					<td>Specify Value</td>
-					<td align="right"><input style="width: 428px; " id="paramValue" disabled="disabled"></td>
-					<td align="right"><input id="bindButton" type="submit" value="Add Binding" style="width: 150px; " disabled="disabled" onclick="writeQuery()"></td>
+					<td align="right"><input style="width: 428px; background-color: #AFEEEE" id="paramValue" disabled="disabled"></td>
+					<td align="right"><input id="bindButton" type="submit" value="Add Binding" style="width: 150px" disabled="disabled" onclick="writeQuery()"></td>
 				</tr>
 			</table>
 		</td>
@@ -226,7 +226,7 @@ function writeQuery()
     <input type="hidden" name="requestType" value="execute-query" /> 	<table style="width: 1023px; ">
 	<tr><td colspan="2"><h2>VisKo  Query</h2></td></tr>
 	<tr>
-		<td style="width: 996px; " colspan="2" align="right"><textarea style="width: 989px; height: 152px" id="queryText" name="query"></textarea></td>
+		<td style="width: 996px; " colspan="2" align="right"><textarea style="width: 989px; height: 152px; background-color: #AFEEEE" id="queryText" name="query"></textarea></td>
 	</tr>
 	<tr>
 		<td></td>
