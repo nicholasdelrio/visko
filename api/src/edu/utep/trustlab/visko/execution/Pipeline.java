@@ -53,6 +53,7 @@ import edu.utep.trustlab.visko.util.ResultSetToVector;
 
 public class Pipeline extends Vector<String> {
 	private String viewer;
+	private Vector<String> viewerSets;
 	private String view;
 	private OWLSModel owlsLoadingModel;
 	private ViskoModel viskoLoadingModel;
@@ -68,6 +69,16 @@ public class Pipeline extends Vector<String> {
 		parentContainer = parent;
 		viewer = viewerURI;
 		view = viewURI;
+		
+		setViewerSets(viewerURI);
+	}
+	
+	public Vector<String> getViewerSets(){
+		return viewerSets;
+	}
+	
+	private void setViewerSets(String viewerURI){
+		viewerSets = ResultSetToVector.getVectorFromResultSet(new ViskoTripleStore().getViewerSets(), "viewerSet");
 	}
 
 	public String getViewURI(){

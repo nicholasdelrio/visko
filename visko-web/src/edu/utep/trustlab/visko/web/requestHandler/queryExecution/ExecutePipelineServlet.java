@@ -25,6 +25,7 @@ package edu.utep.trustlab.visko.web.requestHandler.queryExecution;
 //import edu.utep.trustlab.visko.web.html.provenance.VisualizationProvenanceHTML;
 
 import java.io.IOException;
+import java.util.Vector;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -92,10 +93,17 @@ public class ExecutePipelineServlet extends RequestHandlerRedirect {
 	        	else if(resultURL.endsWith(".pdf") || resultURL.endsWith(".PDF"))
 	        		resultURLHTML = "<a href=\"" + resultURL + "\">Click to view PDF</a>";
 	        	else{
+	        		Vector<String> viewerSets = runningPipeline.getPipeline().getViewerSets();
 	        		resultURLHTML = "<h4>Result</h4>";
 	        		resultURLHTML += "<ul>";
-	        		resultURLHTML += "<li>URL: <a href=\"" + resultURL + "\">" + resultURL + "</a>";
-	        		resultURLHTML += "<li>Viewer: " + runningPipeline.getPipeline().getViewerURI();
+	        		resultURLHTML += "<li>Resultant URL: <a href=\"" + resultURL + "\">" + resultURL + "</a></li>";
+	        		resultURLHTML += "<li>Viewed Using: " + runningPipeline.getPipeline().getViewerURI();
+	        		resultURLHTML += "<li>Using the ViewerSet(s)</li>";
+	        		resultURLHTML += "<ul>";
+	        		for(String viewerSet : viewerSets)
+	        			resultURLHTML += "<li>" + viewerSet + "</li>";
+	        		
+	        		resultURLHTML += "</ul>";
 	        		resultURLHTML += "</ul>";
 	        	}
 
