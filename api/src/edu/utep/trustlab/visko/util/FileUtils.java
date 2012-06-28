@@ -63,7 +63,7 @@ import java.util.*;
  * @author Nicholas Del Rio(ndel2@utep.edu)
  */
 
-public class FileUtilities {
+public class FileUtils {
 
 	public static byte[] downloadFile(String url) {// download file via http
 													// protocol and return

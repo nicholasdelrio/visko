@@ -2,7 +2,7 @@ package edu.utep.trustlab.query;
 
 import java.io.File;
 
-import edu.utep.trustlab.visko.util.FileUtilities;
+import edu.utep.trustlab.visko.util.FileUtils;
 
 public class QueryExamples {
 	
@@ -20,16 +20,16 @@ public class QueryExamples {
 	
 	public String generateQueryExamples(){	
 		File templateFile = new File(templatePath);
-		String html = FileUtilities.readTextFile(templatePath);
+		String html = FileUtils.readTextFile(templatePath);
 		html = html.replaceAll("REPLACE-VISKO", viskoURL);	
 		html = html.replaceAll("REPLACE-FORMAT", formatsURL);
 		
 		String queryFilePath;
 		
 		if(newDirectory == null)
-			queryFilePath = FileUtilities.writeTextFile(html, templatePath);
+			queryFilePath = FileUtils.writeTextFile(html, templatePath);
 		else
-			queryFilePath = FileUtilities.writeTextFile(html, newDirectory, templateFile.getName());
+			queryFilePath = FileUtils.writeTextFile(html, newDirectory, templateFile.getName());
 		
 		return queryFilePath;
 	}

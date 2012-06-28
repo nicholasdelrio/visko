@@ -2,7 +2,7 @@ package edu.utep.trustlab.contentManagement;
 
 import java.io.File;
 
-import edu.utep.trustlab.visko.util.FileUtilities;
+import edu.utep.trustlab.visko.util.FileUtils;
 
 public class ReplaceText {
 	public static void main(String[] args){
@@ -15,9 +15,9 @@ public class ReplaceText {
 		for(File aFile : rdf.listFiles()){
 			if(aFile.getName().toLowerCase().endsWith(".owl")){
 				System.out.println("processing: " + aFile.getAbsolutePath());
-				String contents = FileUtilities.readTextFile(aFile.getAbsolutePath());
+				String contents = FileUtils.readTextFile(aFile.getAbsolutePath());
 				String updatedContents = contents.replaceAll(github_replace, github_username);
-				FileUtilities.writeTextFile(updatedContents, aFile.getAbsolutePath());
+				FileUtils.writeTextFile(updatedContents, aFile.getAbsolutePath());
 			}
 		}
 	}

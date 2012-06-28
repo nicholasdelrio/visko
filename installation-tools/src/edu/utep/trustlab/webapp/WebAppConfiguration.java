@@ -2,7 +2,7 @@ package edu.utep.trustlab.webapp;
 
 import java.io.File;
 
-import edu.utep.trustlab.visko.util.FileUtilities;
+import edu.utep.trustlab.visko.util.FileUtils;
 
 public class WebAppConfiguration {
 	
@@ -24,7 +24,7 @@ public class WebAppConfiguration {
 	
 	public String generateWebXML(){
 		File webXMLFile = new File(webConfigPath);
-		String webXML = FileUtilities.readTextFile(webConfigPath);
+		String webXML = FileUtils.readTextFile(webConfigPath);
 		webXML = webXML.replaceAll("REPLACE-LOGO-PATH", headerLogoPath);	
 		webXML = webXML.replaceAll("REPLACE-ENDPOINT-URL", sparqlURL);
 		webXML = webXML.replaceAll("REPLACE-TDB-PATH", tripleStorePath);
@@ -33,9 +33,9 @@ public class WebAppConfiguration {
 		String webXMLPath;
 		
 		if(dumpDirPath == null)
-			webXMLPath = FileUtilities.writeTextFile(webXML, webConfigPath);
+			webXMLPath = FileUtils.writeTextFile(webXML, webConfigPath);
 		else
-			webXMLPath = FileUtilities.writeTextFile(webXML, dumpDirPath, webXMLFile.getName());
+			webXMLPath = FileUtils.writeTextFile(webXML, dumpDirPath, webXMLFile.getName());
 		
 		return webXMLPath;
 	}
