@@ -24,7 +24,7 @@
         <div id='content'>
           <h2>SADI Services</h2>
 	      <ul>
-            <li><a href="./visko-planner">visko-planner</a></li>
+            <li><a href="./planner">planner</a></li>
 	      </ul>
         </div> <!-- content -->
         <div id='footer'>

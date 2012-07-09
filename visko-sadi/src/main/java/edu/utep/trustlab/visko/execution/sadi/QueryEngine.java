@@ -18,7 +18,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import edu.utep.trustlab.visko.execution.*;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 
-@Name("visko-planner")
+@Name("planner")
 @ContactEmail("nicholas.delrio@gmail.com")
 @InputClass("https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-query.owl#QueryPlanRequest")
 @OutputClass("https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-query.owl#QueryPlan")

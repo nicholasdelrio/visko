@@ -5,13 +5,13 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
   <servlet>
-    <servlet-name>visko-planner</servlet-name>
+    <servlet-name>planner</servlet-name>
     <servlet-class>edu.utep.trustlab.visko.execution.sadi.QueryEngine</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>visko-planner</servlet-name>
-    <url-pattern>/visko-planner</url-pattern>
+    <servlet-name>planner</servlet-name>
+    <url-pattern>/planner</url-pattern>
   </servlet-mapping>
   
 </web-app>
