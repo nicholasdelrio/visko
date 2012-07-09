@@ -30,13 +30,17 @@ public class QueryEngine extends SimpleSynchronousServiceServlet
 	@Override
 	public void processInput(Resource input, Resource output)
 	{
-		ViskoTripleStore.setEndpointURL("http://iw.cs.utep.edu:8080/visko-web/ViskoServletManager?requestType=query-triple-store");
+		ViskoTripleStore.setEndpointURL("http://iw.cs.utep.edu/visko-web/ViskoServletManager?requestType=query-triple-store");
 		
 		String viewerSet = input.getProperty(Vocab.hasResultViewableIn).getObject().toString();
 		
 		Resource dataset = input.getPropertyResourceValue(Vocab.wasDerivedFrom);
 		String format = dataset.getProperty(Vocab.hasFormat).getObject().toString();
 		String url = dataset.getProperty(Vocab.hasURL).getObject().toString();
+		
+		System.out.println("input data: " + url);
+		System.out.println("data format: " + format);
+		System.out.println("viewer set: " + viewerSet);
 		
 		Query viskoQuery = new Query(url, format, viewerSet);
 		edu.utep.trustlab.visko.execution.QueryEngine engine = new edu.utep.trustlab.visko.execution.QueryEngine(viskoQuery);
