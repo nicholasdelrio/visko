@@ -104,13 +104,14 @@ public class QueryEngine extends SimpleSynchronousServiceServlet
 		public static final Resource QueryPlanRequest = m_model.createResource("https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-query.owl#QueryPlanRequest");
 		public static final Resource Activity = m_model.createResource("http://www.w3c.org/ns/prov/Activity");
 		
-		public static final Property wasDerivedFrom = m_model.createProperty("http://www.w3.org/ns/prov/wasDerivedFrom");
 		public static final Property hasFormat = m_model.createProperty("http://inference-web.org/2.0/pml-provenance.owl#hasFormat");
 		public static final Property hasURL = m_model.createProperty("http://inference-web.org/2.0/pml-provenance.owl#hasURL");
 		public static final Property hasResultViewableIn = m_model.createProperty("https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-query.owl#hasResultViewableIn"); 
-		public static final Property hadActivity = m_model.createProperty("http://www.w3.org/ns/prov/hadActivity");
+		
+		public static final Property used = m_model.createProperty("http://www.w3c.org/ns/prov/used");
+		public static final Property wasAttributedTo = m_model.createProperty("http://www.w3c.org/ns/prov/wasAttributedTo");
+		public static final Property wasDerivedFrom = m_model.createProperty("http://www.w3c.org/ns/prov/wasDerivedFrom");
+		public static final Property hadActivity = m_model.createProperty("http://www.w3c.org/ns/prov/hadActivity");
 		public static final Property wasInformedBy = m_model.createProperty("http://www.w3.org/ns/prov/wasInformedBy");
-		public static final Property used = m_model.createProperty("http://www.w3.org/ns/prov/used");
-		public static final Property wasAttributedTo = m_model.createProperty("http://www.w3.org/ns/prov/wasAttributedTo");
 	}
 }
