@@ -12,7 +12,7 @@
 	<property name="sparql-endpoint" value="http://localhost:${host-port}/visko-web/ViskoServletManager?requestType=query-triple-store"/>
 	
 	<!-- web.xml paths -->
-	<property name="web-xml-template" value="visko-web-templates/web.xml"/>
+	<property name="web-xml-template" value="webxml-template/web.xml"/>
 	<property name="web-xml-deployment-dir" value="../visko-web/WebContent/WEB-INF"/>
 
 	<!-- Visualization query examples page -->
