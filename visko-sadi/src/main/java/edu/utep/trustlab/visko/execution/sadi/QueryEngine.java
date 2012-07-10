@@ -8,6 +8,7 @@ import ca.wilkinsonlab.sadi.service.annotations.InputClass;
 import ca.wilkinsonlab.sadi.service.annotations.OutputClass;
 import ca.wilkinsonlab.sadi.service.simple.SimpleSynchronousServiceServlet;
 
+import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
@@ -47,41 +48,69 @@ public class QueryEngine extends SimpleSynchronousServiceServlet
 		PipelineSet pipes = engine.getPipelines();
 		
 		Pipeline pipe;
-		String serviceURI;
-		Resource currentService = null;
-		Resource previousService = null;
+		String owlsServiceURI;
+		Resource currentServiceInvocation = null;
+		Resource previousServiceInvocation = null;
 		//only return single pipe for now
-
+		
 		if(pipes.size() > 0){
-			pipe = pipes.firstElement();
-			
+			pipe = findLongestPipeline(pipes);
+						
 			for(int i = pipe.size() - 1; i >= 0; i --){
-				serviceURI = pipe.get(i);
-				currentService = Vocab.m_model.createResource(serviceURI);
+				owlsServiceURI = pipe.get(i);
 				
-				if(i == pipe.size()){
-					output.addProperty(Vocab.hadActivity, currentService);
+				currentServiceInvocation = output.getModel().createResource("http://trust.utep.edu/visko/service-invocation" + i, Vocab.Activity);
+				currentServiceInvocation.addProperty(Vocab.wasAttributedTo, owlsServiceURI);
+				
+				
+				if(previousServiceInvocation == null){
+					output.addProperty(Vocab.hadActivity, currentServiceInvocation);
 				}
-				if(previousService != null){
-					currentService.addProperty(Vocab.wasInformedBy, previousService);
+				
+				if(previousServiceInvocation != null){
+					previousServiceInvocation.addProperty(Vocab.wasInformedBy, currentServiceInvocation);
+					output.getModel().add(previousServiceInvocation, Vocab.wasInformedBy, currentServiceInvocation);
 				}
-				previousService = currentService;
-			}		
+				
+				if(i == 0){
+					Literal urlLiteral = output.getModel().createLiteral(url);
+					currentServiceInvocation.addProperty(Vocab.used, urlLiteral);
+					output.getModel().add(currentServiceInvocation, Vocab.used, urlLiteral);
+				}
+				
+				previousServiceInvocation = currentServiceInvocation;
+			}
 		}
+	}
+	
+	private static Pipeline findLongestPipeline(PipelineSet set){
+		Pipeline longestPipe = null;
+		
+		for(Pipeline pipe : set){
+			if(longestPipe == null || pipe.size() > longestPipe.size()){
+				longestPipe = pipe;
+			}
+		}
+		System.out.println("longest pipe is length: " + longestPipe.size());
+		return longestPipe;
 	}
 
 	@SuppressWarnings("unused")
 	private static final class Vocab
 	{
-		public static Model m_model = ModelFactory.createDefaultModel();
+		private static Model m_model = ModelFactory.createDefaultModel();
 		
 		public static final Resource QueryPlan = m_model.createResource("https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-query.owl#QueryPlan");
 		public static final Resource QueryPlanRequest = m_model.createResource("https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-query.owl#QueryPlanRequest");
+		public static final Resource Activity = m_model.createResource("http://www.w3c.org/ns/prov/Activity");
+		
 		public static final Property wasDerivedFrom = m_model.createProperty("http://www.w3.org/ns/prov/wasDerivedFrom");
 		public static final Property hasFormat = m_model.createProperty("http://inference-web.org/2.0/pml-provenance.owl#hasFormat");
 		public static final Property hasURL = m_model.createProperty("http://inference-web.org/2.0/pml-provenance.owl#hasURL");
 		public static final Property hasResultViewableIn = m_model.createProperty("https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-query.owl#hasResultViewableIn"); 
 		public static final Property hadActivity = m_model.createProperty("http://www.w3.org/ns/prov/hadActivity");
 		public static final Property wasInformedBy = m_model.createProperty("http://www.w3.org/ns/prov/wasInformedBy");
+		public static final Property used = m_model.createProperty("http://www.w3.org/ns/prov/used");
+		public static final Property wasAttributedTo = m_model.createProperty("http://www.w3.org/ns/prov/wasAttributedTo");
 	}
 }
