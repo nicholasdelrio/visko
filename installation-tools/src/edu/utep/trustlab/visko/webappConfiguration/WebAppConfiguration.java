@@ -2,8 +2,6 @@ package edu.utep.trustlab.visko.webappConfiguration;
 
 import java.io.File;
 
-import edu.utep.trustlab.visko.util.FileUtils;
-
 public class WebAppConfiguration {
 	
 	private String webConfigPath;

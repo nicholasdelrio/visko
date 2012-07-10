@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="build" name="VisKo Installer Tools">
 			
-	<!-- update --><property name="org-acronym" value="UTEP" />
-	<!-- update --><property name="logo-file-name" value="LogoUTEP.jpg" />
+	<!-- update --><property name="org-acronym" value="PNNL" />
+	<!-- update --><property name="logo-file-name" value="PNNL-Logo.png" />
 	<!-- update --><property name="host-port" value="80" />
-	<!-- update --><property name="tdb-path" value="/usr/local/git/git-repos/visko-rdf/tdb"/>
+	<!-- update --><property name="tdb-path" value="/opt/tomcat/visko-rdf/tdb"/>
 	
 	<!-- DO NOT CHANGE SETTINGS BELOW -->
 	<!-- web.xml -->
