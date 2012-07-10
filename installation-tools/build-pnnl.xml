@@ -20,13 +20,10 @@
 		
 	<!-- build properties -->
 	<property name="jarfile" value="installer-tools.jar"/>
-	<property name="lib" value="../api/lib/"/>
 	<property name="build" value="build"/>
 	<property name="src" value="src"/>
 	
 	<property name="visko-web" value="../visko-web"/>
-	<property name="visko-api" value="../api"/>
-	<property name="visko-api-jar" value="../api/visko-api.jar"/>
 	<property name="visko-web-war-name" value="visko-web.war"/>
 	<property name="visko-web-war" value="${visko-web}/${visko-web-war-name}"/>
 
