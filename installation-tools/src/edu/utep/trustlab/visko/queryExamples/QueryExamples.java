@@ -1,4 +1,4 @@
-package edu.utep.trustlab.query;
+package edu.utep.trustlab.visko.queryExamples;
 
 import java.io.File;
 
