@@ -1,0 +1,249 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY pml-provenance "http://inference-web.org/2.0/pml-provenance.owl#" >
+    <!ENTITY visko-view "http://trust.utep.edu/visko/ontology/visko-view.owl#" >
+    <!ENTITY visko-operator "http://trust.utep.edu/visko/ontology/visko-operator.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://trust.utep.edu/visko/ontology/visko-operator.owl#"
+     xml:base="http://trust.utep.edu/visko/ontology/visko-operator.owl"
+     xmlns:pml-provenance="http://inference-web.org/2.0/pml-provenance.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:visko-view="http://trust.utep.edu/visko/ontology/visko-view.owl#"
+     xmlns:visko-operator="http://trust.utep.edu/visko/ontology/visko-operator.owl#">
+    <owl:Ontology rdf:about="http://trust.utep.edu/visko/ontology/visko-operator.owl">
+        <owl:imports rdf:resource="http://inference-web.org/2.0/pml-provenance.owl"/>
+        <owl:imports rdf:resource="http://trust.utep.edu/visko/ontology/visko-view.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#canBeTransformedTo -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;canBeTransformedTo">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&visko-operator;isOperatedOnBy"/>
+            <rdf:Description rdf:about="&visko-operator;transformsTo"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#canBeTransformedToTransitive -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;canBeTransformedToTransitive">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&visko-operator;isOperatedOnBy"/>
+            <rdf:Description rdf:about="&visko-operator;transformsTo"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#composedOf -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;composedOf">
+        <rdfs:domain rdf:resource="&visko-operator;CompositeOperator"/>
+        <rdfs:range rdf:resource="&visko-operator;Operator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#containsOperator -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;containsOperator">
+        <rdfs:range rdf:resource="&visko-operator;Operator"/>
+        <rdfs:domain rdf:resource="&visko-operator;OperatorSet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#isOperatedOnBy -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;isOperatedOnBy">
+        <rdfs:domain rdf:resource="&pml-provenance;Format"/>
+        <rdfs:range rdf:resource="&visko-operator;Operator"/>
+        <owl:inverseOf rdf:resource="&visko-operator;operatesOn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#mapsTo -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;mapsTo">
+        <rdfs:domain rdf:resource="&visko-operator;Mapper"/>
+        <rdfs:range rdf:resource="&visko-view;View"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#operatesOn -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;operatesOn">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:range rdf:resource="&pml-provenance;Format"/>
+        <rdfs:domain rdf:resource="&visko-operator;Operator"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&visko-operator;operatesOn"/>
+            <rdf:Description rdf:about="&visko-operator;restrictedByFormat"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#partOfViewerSet -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;partOfViewerSet">
+        <rdfs:domain rdf:resource="&visko-operator;Viewer"/>
+        <rdfs:range rdf:resource="&visko-operator;ViewerSet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#presentsView -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;presentsView">
+        <rdfs:domain rdf:resource="&visko-operator;Viewer"/>
+        <rdfs:range rdf:resource="&visko-view;View"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#restrictedByFormat -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;restrictedByFormat">
+        <rdfs:domain rdf:resource="&pml-provenance;Format"/>
+        <rdfs:range rdf:resource="&pml-provenance;Format"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#restrictsFormat -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;restrictsFormat">
+        <rdfs:domain rdf:resource="&pml-provenance;Format"/>
+        <rdfs:range rdf:resource="&pml-provenance;Format"/>
+        <owl:inverseOf rdf:resource="&visko-operator;restrictedByFormat"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#supportedBy -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;supportedBy">
+        <rdfs:domain rdf:resource="&visko-operator;Operator"/>
+        <rdfs:domain rdf:resource="&visko-operator;OperatorSet"/>
+        <rdfs:range rdf:resource="&visko-operator;Toolkit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#transformsTo -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;transformsTo">
+        <rdfs:range rdf:resource="&pml-provenance;Format"/>
+        <rdfs:domain rdf:resource="&visko-operator;Transformer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#CompositeOperator -->
+
+    <owl:Class rdf:about="&visko-operator;CompositeOperator">
+        <rdfs:subClassOf rdf:resource="&visko-operator;Operator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#Mapper -->
+
+    <owl:Class rdf:about="&visko-operator;Mapper">
+        <rdfs:subClassOf rdf:resource="&visko-operator;Transformer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#Operator -->
+
+    <owl:Class rdf:about="&visko-operator;Operator">
+        <rdfs:subClassOf rdf:resource="&pml-provenance;InferenceRule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#OperatorSet -->
+
+    <owl:Class rdf:about="&visko-operator;OperatorSet"/>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#Toolkit -->
+
+    <owl:Class rdf:about="&visko-operator;Toolkit"/>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#Transformer -->
+
+    <owl:Class rdf:about="&visko-operator;Transformer">
+        <rdfs:subClassOf rdf:resource="&visko-operator;Operator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#Viewer -->
+
+    <owl:Class rdf:about="&visko-operator;Viewer">
+        <rdfs:subClassOf rdf:resource="&visko-operator;Operator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#ViewerSet -->
+
+    <owl:Class rdf:about="&visko-operator;ViewerSet"/>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-view.owl#View -->
+
+    <owl:Class rdf:about="&visko-view;View"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.5.1928) http://owlapi.sourceforge.net -->
+
