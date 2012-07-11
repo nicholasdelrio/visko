@@ -58,7 +58,7 @@ public class QueryEngine extends SimpleSynchronousServiceServlet
 			for(int i = pipe.size() - 1; i >= 0; i --){
 				owlsServiceURI = pipe.get(i);
 				
-				currentServiceInvocation = output.getModel().createResource("http://trust.utep.edu/visko/service-invocation" + i, Vocab.Activity);
+				currentServiceInvocation = output.getModel().createResource("http://trust.utep.edu/visko/service-invocation-" + i, Vocab.Activity);
 				currentServiceInvocation.addProperty(Vocab.wasAttributedTo, owlsServiceURI);
 						
 				if(previousServiceInvocation == null){
@@ -78,6 +78,13 @@ public class QueryEngine extends SimpleSynchronousServiceServlet
 				previousServiceInvocation = currentServiceInvocation;
 			}
 		}
+		
+		System.out.println("setting prefixes...");
+		
+		//add prefixes to make rdf pretty
+		output.getModel().setNsPrefix("pml-provenance", Vocab.pmlpPrefix);
+		output.getModel().setNsPrefix("prov", Vocab.provPrefix);
+		output.getModel().setNsPrefix("visko-query", Vocab.viskoQueryPrefix);
 	}
 	
 	private static Pipeline findLongestPipeline(PipelineSet set){
@@ -97,17 +104,26 @@ public class QueryEngine extends SimpleSynchronousServiceServlet
 	{
 		private static Model m_model = ModelFactory.createDefaultModel();
 		
+		private static final String provPrefix = "http://www.w3.org/ns/prov/";
+		private static final String viskoQueryPrefix = "https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-query.owl#";
+		private static final String pmlpPrefix = "http://inference-web.org/2.0/pml-provenance.owl#";
+		
 		public static final Resource QueryPlan = m_model.createResource("https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-query.owl#QueryPlan");
 		public static final Resource QueryPlanRequest = m_model.createResource("https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-query.owl#QueryPlanRequest");
-		public static final Resource Activity = m_model.createResource("http://www.w3.org/ns/prov/Activity");
 		
-		public static final Property wasDerivedFrom = m_model.createProperty("http://www.w3.org/ns/prov/wasDerivedFrom");
-		public static final Property hasFormat = m_model.createProperty("http://inference-web.org/2.0/pml-provenance.owl#hasFormat");
-		public static final Property hasURL = m_model.createProperty("http://inference-web.org/2.0/pml-provenance.owl#hasURL");
-		public static final Property hasResultViewableIn = m_model.createProperty("https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-query.owl#hasResultViewableIn"); 
-		public static final Property hadActivity = m_model.createProperty("http://www.w3.org/ns/prov/hadActivity");
-		public static final Property wasInformedBy = m_model.createProperty("http://www.w3.org/ns/prov/wasInformedBy");
-		public static final Property used = m_model.createProperty("http://www.w3.org/ns/prov/used");
-		public static final Property wasAttributedTo = m_model.createProperty("http://www.w3.org/ns/prov/wasAttributedTo");
+		//prov related properties
+		public static final Resource Activity = m_model.createResource(provPrefix + "Activity");
+		public static final Property wasDerivedFrom = m_model.createProperty(provPrefix + "wasDerivedFrom");
+		public static final Property hadActivity = m_model.createProperty(provPrefix + "hadActivity");
+		public static final Property wasInformedBy = m_model.createProperty(provPrefix + "wasInformedBy");
+		public static final Property used = m_model.createProperty(provPrefix + "used");
+		public static final Property wasAttributedTo = m_model.createProperty(provPrefix + "wasAttributedTo");
+		
+		//viskoQuery properties
+		public static final Property hasResultViewableIn = m_model.createProperty(viskoQueryPrefix + "hasResultViewableIn"); 	
+		
+		//pml-p related properties
+		public static final Property hasFormat = m_model.createProperty(pmlpPrefix + "hasFormat");
+		public static final Property hasURL = m_model.createProperty(pmlpPrefix + "hasURL");
 	}
 }
