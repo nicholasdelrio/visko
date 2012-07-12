@@ -43,6 +43,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
+
+import edu.utep.trustlab.visko.execution.queryParsing.QueryParser;
+import edu.utep.trustlab.visko.execution.queryParsing.QueryParserV2;
+import edu.utep.trustlab.visko.execution.queryParsing.QueryParserV3;
 import edu.utep.trustlab.visko.sparql.QueryRDFDocument;
 import edu.utep.trustlab.visko.util.GetURLContents;
 

@@ -43,6 +43,7 @@ package edu.utep.trustlab.visko.execution;
 import java.util.HashMap;
 import java.util.Vector;
 
+
 public class PipelineSet extends Vector<Pipeline> {
 	private String artifURL;
 	private Query derivedFromQuery;
