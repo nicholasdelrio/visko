@@ -6,8 +6,8 @@
 <booleanAttribute key="M2_OFFLINE" value="false"/>
 <stringAttribute key="M2_PROFILES" value=""/>
 <listAttribute key="M2_PROPERTIES">
-<listEntry value="serviceName=planner"/>
-<listEntry value="serviceClass=edu.utep.trustlab.visko.execution.sadi.QueryEngine"/>
+<listEntry value="serviceName=query-planner"/>
+<listEntry value="serviceClass=edu.utep.trustlab.visko.execution.sadi.QueryPlanner"/>
 <listEntry value="inputClass=https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-query.owl#QueryPlanRequest"/>
 <listEntry value="outputClass=https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-query.owl#QueryPlan"/>
 <listEntry value="contactEmail=nicholas.delrio@gmail.com"/>
