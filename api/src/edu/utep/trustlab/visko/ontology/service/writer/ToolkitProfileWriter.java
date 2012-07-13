@@ -61,7 +61,7 @@ public class ToolkitProfileWriter extends ViskoWriter {
 
 	public ToolkitProfileWriter(String name) {
 		loadingModel = new ViskoModel();
-		profile = new InputParameterBinding(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)),
+		profile = new InputParameterBinding(ContentManager.getViskoRDFContentManager().getBaseURL(JenaIndividual.makeFileName(name)),
 				name, viskoModel);
 		counter = 0;
 		inputBindings = new Vector<InputBinding>();

@@ -76,7 +76,7 @@ public class PipelineToXMLVisualizationSet {
 					Element visualization = doc.createElement("Visualization");
 					visualization.setAttribute("targetViewer", pipe.getViewer().getURI());
 					
-					PipelineExecutor executor = new PipelineExecutor(pipe);
+					PipelineExecutor executor = new PipelineExecutor(pipe, false);
 					executor.run();
 					String resultURL = executor.getResultURL();
 					

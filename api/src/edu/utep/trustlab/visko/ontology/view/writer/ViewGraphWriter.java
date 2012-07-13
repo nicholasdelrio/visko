@@ -49,7 +49,7 @@ public class ViewGraphWriter extends ViskoWriter {
 	String label;
 
 	public ViewGraphWriter(String name) {
-		view = new Graph(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+		view = new Graph(ContentManager.getViskoRDFContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
 	}
 
 	public void setLabel(String label) {

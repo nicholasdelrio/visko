@@ -18,167 +18,108 @@ GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWE
 LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-/*
-package edu.utep.trustlab.visko.provenance;
-
+import java.io.StringWriter;
 import java.util.Vector;
 
+import org.inference_web.pml.v2.pmlj.*;
+import org.inference_web.pml.v2.pmlp.*;
+import org.inference_web.pml.v2.vocabulary.*;
+import org.inference_web.pml.v2.pmlj.IWNodeSet;
+import org.inference_web.pml.v2.util.PMLObjectManager;
 import org.mindswap.owl.OWLValue;
 import org.mindswap.owls.process.variable.Input;
 import org.mindswap.query.ValueMap;
 
-import com.hp.hpl.jena.ontology.OntClass;
-import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.OntModelSpec;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.util.iterator.ExtendedIterator;
-
-import pml.dumping.writer.NodesetWriter;
+import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
 import edu.utep.trustlab.visko.util.FileUtils;
 
 public class PMLNodesetLogger {
-	private Vector<NodesetWriter> nodesets;
-	private String baseURL = "http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/";
-	private String uname = "pvisko1";
-	private String pword = "faro!Faxi66";
-	private String fileName = "visko";
-	private String serviceNodesetName = "pipelineStep";
-	private String parameterNodesetName = "parameterAssertion";
-	private String project = "visko-provenance";
-
-	private static final String PARAMETER_ONTOLOGY_URI = "http://rio.cs.utep.edu/ciserver/ciprojects/wdo/Visualization-Parameters";
-
-	private static int counter;
-
-	private Vector<OntClass> parameterClasses;
-
-	public static void main(String[] args) {
-		PMLNodesetLogger logger = new PMLNodesetLogger();
-	}
+	
+	private Vector<IWNodeSet> serviceNodesets;
+	
+	private String baseURL;
+	private String baseFileName = "visko-pipeline-provenance";
+	private String baseNodesetNameService = "pipeline-step";
+	private String baseNodesetNameParameter = "parameter-assertion";
+	
+	private String fileName;
 
 	public PMLNodesetLogger() {
-		nodesets = new Vector<NodesetWriter>();
-		fileName = fileName + "_" + FileUtils.getRandomFileName();
-		counter = 0;
-		parameterClasses = new Vector<OntClass>();
-		loadOntModel();
+		serviceNodesets = new Vector<IWNodeSet>();
+		
+		fileName = baseFileName + "-" + FileUtils.getRandomFileName() + ".owl";
+		baseURL = ContentManager.getProvenanceContentManager().getBaseURL(fileName);
 	}
 
-	private void loadOntModel() {
-		OntModel model = ModelFactory
-				.createOntologyModel(OntModelSpec.OWL_DL_MEM);
-		model.read(PARAMETER_ONTOLOGY_URI);
-
-		ExtendedIterator<OntClass> classesIterator = model.listClasses();
-
-		while (classesIterator.hasNext()) {
-			OntClass aClass = classesIterator.next();
-			if (aClass.getURI() != null
-					&& aClass.getURI().startsWith(PARAMETER_ONTOLOGY_URI)) {
-				parameterClasses.add(aClass);
-			}
-		}
-	}
-
-	private String getURIFragment(String uri) {
-		int index = uri.indexOf("#") + 1;
-		return uri.substring(index);
-
-	}
-
-	private String getCorrespondingInformationClassURI(String parameterURI) {
-		String fragment = getURIFragment(parameterURI);
-		String label;
-
-		for (OntClass aClass : parameterClasses) {
-			label = aClass.getLabel(null);
-			if (fragment.equalsIgnoreCase(label)) {
-				return aClass.getURI();
-			}
-		}
-
-		return null;
-	}
-
-	public void captureProcessingStep(OWLSService service,
-			String outDatasetURL, ValueMap<Input, OWLValue> inputValueMap) {
-		NodesetWriter serviceNodesetWriter = new NodesetWriter();
-		serviceNodesetWriter.setBaseURL(baseURL);
-		serviceNodesetWriter.setUniqueFileName(fileName);
-		serviceNodesetWriter.setNodesetName(serviceNodesetName);
-		serviceNodesetWriter.setRule(service.getConceptualOperator().getURI());
-		serviceNodesetWriter.setIdentifier();
-
-		String formatURI = service.getConceptualOperator()
-				.getOperatesOnFormats().get(0).getURI();
-		serviceNodesetWriter.setConclusionAsURL(outDatasetURL, formatURI);
-
-		NodesetWriter parameterServiceWriter;
-
-		for (Input var : inputValueMap.getVariables()) {
+	public void captureProcessingStep(OWLSService service, String inDatasetURL, String outDatasetURL, ValueMap<Input, OWLValue> inputValueMap) {
+		//set up nodeset for service pipeline step
+		//set up rule
+		IWInferenceRule ir = (IWInferenceRule) PMLObjectManager.getPMLObjectFromURI(service.getConceptualOperator().getURI());
+		
+		//set up inference step
+		IWInferenceStep is = (IWInferenceStep) PMLObjectManager.createPMLObject(PMLJ.InferenceStep_lname);
+		is.setHasInferenceRule(ir);
+		
+		//set up conclusion
+		IWInformation conclusion = (IWInformation) PMLObjectManager.createPMLObject(PMLP.Information_lname);
+		String formatURI = service.getConceptualOperator().getOperatesOnFormats().get(0).getURI();
+		conclusion.setHasFormat(formatURI);
+		conclusion.setHasURL(outDatasetURL);
+		
+		//set up nodeset
+		String nodesetNameService = baseNodesetNameService + "-" + FileUtils.getRandomFileName();
+		IWNodeSet ns = (IWNodeSet) PMLObjectManager.createPMLObject(PMLJ.NodeSet_lname);
+		ns.setIdentifier(PMLObjectManager.getObjectID(baseURL + "#" + nodesetNameService));
+		ns.setHasConclusion(conclusion);
+		ns.addIsConsequentOf(is);
+		
+		for (Input var : inputValueMap.getVariables()) {			
 			OWLValue value = inputValueMap.getValue(var);
-			String wdoGiovanniParameterURI = getCorrespondingInformationClassURI(var
-					.getURI().toASCIIString());
 
-			System.out.println("Searching for match for: "
-					+ var.getURI().toASCIIString());
+			if (value.equals(inDatasetURL)) {
 
-			if (wdoGiovanniParameterURI != null)
-				System.out.println("WDO Variable Match: "
-						+ wdoGiovanniParameterURI);
+				//set up rule
+				IWInferenceRule paramIR = (IWInferenceRule) PMLObjectManager.getPMLObjectFromURI(service.getConceptualOperator().getURI());
+				
+				//set up inference step
+				IWInferenceStep paramIS = (IWInferenceStep) PMLObjectManager.createPMLObject(PMLJ.InferenceStep_lname);
+				is.setHasInferenceRule(paramIR);
+				
+				//set up conclusion
+				IWInformation paramConclusion = (IWInformation) PMLObjectManager.createPMLObject(PMLP.Information_lname);
+				String paramFormatURI = "https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/formats/PLAIN.owl#PLAIN";
+				conclusion.setHasFormat(paramFormatURI);
+				conclusion.setHasURL(value.toString());
+				
+				//set up nodeset
+				String nodesetNameParameter = baseNodesetNameParameter + "-" + FileUtils.getRandomFileName();
+				IWNodeSet paramNS = (IWNodeSet) PMLObjectManager.createPMLObject(PMLJ.NodeSet_lname);
+				paramNS.setIdentifier(PMLObjectManager.getObjectID(baseURL + "#" + nodesetNameParameter));
+				paramNS.setHasConclusion(conclusion);
+				paramNS.addIsConsequentOf(is);
 
-			else
-				System.out.println("Could not find match");
-
-			if (counter == 0
-					|| (counter > 0 && !value.toString().startsWith("http://"))) {
-				parameterServiceWriter = new NodesetWriter();
-
-				if (wdoGiovanniParameterURI != null)
-					parameterServiceWriter
-							.setInformation(wdoGiovanniParameterURI);
-
-				parameterServiceWriter.setBaseURL(baseURL);
-				parameterServiceWriter.setUniqueFileName(fileName);
-				parameterServiceWriter.setNodesetName(parameterNodesetName);
-				parameterServiceWriter.setIdentifier();
-
-				if (value.toString().startsWith("http://") && counter == 0) {
-					System.out.println("setting as has conclusion: "
-							+ value.toString());
-					parameterServiceWriter.setConclusionAsURL(value.toString(),
-							formatURI);
-				} else {
-					// String cleanValue = value.toString().replace("-", " ");
-					// cleanValue = cleanValue.replace("_", " ");
-					// cleanValue = cleanValue.replace(",", " ");
-					// System.out.println("embedding conclusion: " +
-					// cleanValue);
-					parameterServiceWriter
-							.setConclusion(value.toString(),
-									"http://rio.cs.utep.edu/ciserver/ciprojects/formats/PLAIN.owl#PLAIN");
-				}
-
-				serviceNodesetWriter.addAntecedent(parameterServiceWriter);
+				is.addAntecedent(paramNS);
 			}
-
-			counter++;
 		}
-		nodesets.add(serviceNodesetWriter);
+		serviceNodesets.add(ns);
 	}
 
-	public String dumpNodesets(String dataProvenancePML) {
-		if (dataProvenancePML != null)
-			nodesets.firstElement().addAntecedent(dataProvenancePML);
+	public String dumpNodesets() {
 
-		for (int i = nodesets.size() - 1; i > 0; i--) {
-			nodesets.get(i).addAntecedent(nodesets.get(i - 1));
+		IWInferenceStep is;
+		for (int i = (serviceNodesets.size() - 1); i > 0; i--){
+			is = (IWInferenceStep) serviceNodesets.get(i).getIsConsequentOf().get(0);
+			is.addAntecedent(serviceNodesets.get(i - 1));
 		}
 
-		String rootNodesetURI = nodesets.get(nodesets.size() - 1).writePML(
-				baseURL, project, uname, pword);
-		nodesets.get(nodesets.size() - 1).close();
-		return rootNodesetURI;
+		StringWriter writer = new StringWriter();
+		IWNodeSet rootNodeset = serviceNodesets.get(serviceNodesets.size() - 1);
+		PMLObjectManager.getOntModel(rootNodeset).write(writer, "RDF/XML-ABBREV");
+		
+		ContentManager manager = ContentManager.getProvenanceContentManager();
+		manager.saveDocument(writer.toString(), fileName);
+		
+		return rootNodeset.getIdentifier().getURIString();
 	}
-}*/
+}

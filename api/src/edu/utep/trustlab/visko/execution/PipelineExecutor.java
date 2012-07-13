@@ -61,6 +61,7 @@ public class PipelineExecutor implements Runnable {
 	private ProcessExecutionEngine exec;
 	private Pipeline pipeline;
 	private String resultURL;
+	private boolean provenance;
 	
     private boolean complete = false;
     private boolean running = false;
@@ -69,8 +70,9 @@ public class PipelineExecutor implements Runnable {
     
     private Thread t;
 	
-	public PipelineExecutor(Pipeline aPipeline) {
+	public PipelineExecutor(Pipeline aPipeline, boolean captureProvenance) {
 		pipeline = aPipeline;
+		provenance = captureProvenance;
 	}
 	
 	public Pipeline getPipeline(){

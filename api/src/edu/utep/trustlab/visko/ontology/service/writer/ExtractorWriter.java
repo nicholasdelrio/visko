@@ -60,7 +60,7 @@ public class ExtractorWriter extends ViskoWriter {
 	public ExtractorWriter(String name) {
 		loadingModel = new ViskoModel();
 
-		extractor = new Extractor(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)),
+		extractor = new Extractor(ContentManager.getViskoRDFContentManager().getBaseURL(JenaIndividual.makeFileName(name)),
 				name, viskoModel);
 		dataTypes = new Vector<String>();
 	}

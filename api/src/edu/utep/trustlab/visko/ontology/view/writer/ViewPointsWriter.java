@@ -49,7 +49,7 @@ public class ViewPointsWriter extends ViskoWriter {
 	String label;
 
 	public ViewPointsWriter(String name) {
-		view = new Point(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+		view = new Point(ContentManager.getViskoRDFContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
 	}
 
 	public void setLabel(String label) {

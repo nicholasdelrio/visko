@@ -50,7 +50,7 @@ public class ViewerSetWriter extends ViskoWriter {
 	ViewerSet viskoVS;
 
 	public ViewerSetWriter(String name) {
-		viskoVS = new ViewerSet(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+		viskoVS = new ViewerSet(ContentManager.getViskoRDFContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
 	}
 
 	public void setLabel(String label) {

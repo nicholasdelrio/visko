@@ -64,7 +64,7 @@ public class OperatorSetWriter extends ViskoWriter {
 
 		nullFormat = new Format("http://rio.cs.utep.edu/ciserver/ciprojects/pmlp/UNKNOWN.owl#UNKNOWN", loadingModel);
 		
-		operatorSet = new OperatorSet(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+		operatorSet = new OperatorSet(ContentManager.getViskoRDFContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
 	}
 
 	public void setToolkit(String toolkitName, String label) {

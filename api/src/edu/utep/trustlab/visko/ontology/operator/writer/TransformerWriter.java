@@ -62,9 +62,9 @@ public class TransformerWriter extends ViskoWriter {
 
 	public TransformerWriter(String name, boolean isMapper) {
 		if(isMapper)
-			mapper = new Mapper(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+			mapper = new Mapper(ContentManager.getViskoRDFContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
 		else
-			trans = new Transformer(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+			trans = new Transformer(ContentManager.getViskoRDFContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
 		
 		inputFormats = new Vector<Format>();
 	}

@@ -50,7 +50,7 @@ public class ViewSurfaceWriter extends ViskoWriter {
 	String label;
 
 	public ViewSurfaceWriter(String name) {
-		view = new Surface(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name,
+		view = new Surface(ContentManager.getViskoRDFContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name,
 				viskoModel);
 	}
 

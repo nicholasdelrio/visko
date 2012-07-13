@@ -60,6 +60,6 @@ public abstract class ViskoWriter {
 	
 	public String saveDocument() {
 		String fileContents = toRDFString();
-		return ContentManager.getContentManager().saveDocument(fileContents, viskoIndividual.getFileName());
+		return ContentManager.getViskoRDFContentManager().saveDocument(fileContents, viskoIndividual.getFileName());
 	}
 }

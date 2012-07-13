@@ -58,7 +58,7 @@ public class ExtractorServiceWriter extends ViskoWriter {
 	ViskoModel readingModel = new ViskoModel();
 
 	public ExtractorServiceWriter(String name) {
-		service = new OWLSService(ContentManager.getContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, owlsModel);
+		service = new OWLSService(ContentManager.getViskoRDFContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, owlsModel);
 	}
 
 	public void setWSDLURL(String wsdlURL) {

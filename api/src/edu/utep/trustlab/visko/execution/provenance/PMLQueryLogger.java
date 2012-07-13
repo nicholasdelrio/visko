@@ -17,8 +17,6 @@ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIM
 GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
 LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-/*
-package edu.utep.trustlab.visko.provenance;
 
 import java.io.StringWriter;
 
@@ -33,34 +31,36 @@ import edu.utep.trustlab.contentManagement.ContentManager;
 
 public class PMLQueryLogger {
 
-	private ContentManager contentManager;
-	private String timeStampedName;
+	private String baseURL;
+	private String queryName;
+	private IWQuery query;
 	
-	public PMLQueryLogger(ContentManager manager){
-		contentManager = manager;
-	}
-	
-	public String dumpPMLQuery(String queryContent){
-		String rdf = getPMLQueryRDFString(queryContent);
-		return contentManager.saveDocument(rdf, timeStampedName);
-	}
-	
-	private String getPMLQueryRDFString(String queryContent){
-		timeStampedName = "query_" + FileUtils.getRandomFileName() + ".owl";
-		String baseURL = contentManager.getBaseURL(timeStampedName);
-		
-		IWQuery query = (IWQuery)PMLObjectManager.createPMLObject(PMLJ.Query_lname);
-		query.setIdentifier(PMLObjectManager.getObjectID(baseURL + "#" + "query"));
+	public PMLQueryLogger(){
+		String baseQueryName = "visko-query";
+		queryName = baseQueryName + "-" + FileUtils.getRandomFileName() + ".owl";
+		baseURL = ContentManager.getProvenanceContentManager().getBaseURL(queryName);
 
+		query = (IWQuery)PMLObjectManager.createPMLObject(PMLJ.Query_lname);
+		query.setIdentifier(PMLObjectManager.getObjectID(baseURL + "#" + "query"));
+	}
+	
+	public String dumpPMLQuery(){
+		StringWriter rdfStringWriter = new StringWriter();
+  		PMLObjectManager.getOntModel(query).write(rdfStringWriter, "RDF/XML-ABBREV");
+  		
+  		ContentManager.getProvenanceContentManager().saveDocument(rdfStringWriter.toString(), queryName);
+  		
+  		return query.getIdentifier().getURIString();
+	}
+	
+	public void addAnswer(String nodesetURL){
+		query.addHasAnswer(nodesetURL);
+	}
+	
+	public void setViskoQuery(String viskoQuery){
 		// create Information instance as conclusion
   		IWInformation content = (IWInformation)PMLObjectManager.createPMLObject(PMLP.Information_lname);
-  		// set conclusion string and its language
-  		content.setHasRawString(queryContent);
+  		content.setHasRawString(viskoQuery);
   		query.setHasContent(content);
-  		
-  		StringWriter rdfStringWriter = new StringWriter();
-  		PMLObjectManager.getOntModel(query).write(rdfStringWriter);
-  		
-  		return rdfStringWriter.toString();
 	}
-}*/
+}
