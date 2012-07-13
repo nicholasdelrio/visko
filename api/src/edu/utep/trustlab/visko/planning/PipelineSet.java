@@ -38,32 +38,41 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.execution.paths;
+package edu.utep.trustlab.visko.planning;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Vector;
 
-public class FormatPath extends Vector<String> {
-	private String viewerURI;
+import edu.utep.trustlab.visko.planning.Pipeline;
+import edu.utep.trustlab.visko.planning.Query;
 
-	public FormatPath(String viewerURI) {
+
+public class PipelineSet extends Vector<Pipeline> {
+	private String artifURL;
+	private Query derivedFromQuery;
+	
+	public PipelineSet(Query query) {
 		super();
-		this.viewerURI = viewerURI;
+		derivedFromQuery = query;
 	}
 
-	public boolean isEmptyPath() {
-		return size() == 1;
+	public void setParameterBindings(HashMap<String, String> bindings) {
+		derivedFromQuery.setParameterBindings(bindings);
+	}
+	
+	public Query getQuery(){
+		return derivedFromQuery;
 	}
 
-	public String getViewerURI() {
-		return viewerURI;
+	public void setArtifactURL(String artifactURL) {
+		artifURL = artifactURL;
 	}
 
-	public FormatPath copy() {
-		FormatPath duplicateFormat = new FormatPath(viewerURI);
-		for (String formatURI : this) {
-			duplicateFormat.add(formatURI);
-		}
+	public String getArtifactURL() {
+		return artifURL;
+	}
 
-		return duplicateFormat;
+	public HashMap<String, String> getParameterBindings() {
+		return derivedFromQuery.getParameterBindings();
 	}
 }

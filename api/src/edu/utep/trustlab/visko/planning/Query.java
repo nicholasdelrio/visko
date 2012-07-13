@@ -38,15 +38,16 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.execution;
+package edu.utep.trustlab.visko.planning;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
 
-import edu.utep.trustlab.visko.execution.queryParsing.QueryParser;
-import edu.utep.trustlab.visko.execution.queryParsing.QueryParserV2;
-import edu.utep.trustlab.visko.execution.queryParsing.QueryParserV3;
+import edu.utep.trustlab.visko.planning.Query;
+import edu.utep.trustlab.visko.planning.queryParsing.QueryParser;
+import edu.utep.trustlab.visko.planning.queryParsing.QueryParserV2;
+import edu.utep.trustlab.visko.planning.queryParsing.QueryParserV3;
 import edu.utep.trustlab.visko.sparql.QueryRDFDocument;
 import edu.utep.trustlab.visko.util.GetURLContents;
 

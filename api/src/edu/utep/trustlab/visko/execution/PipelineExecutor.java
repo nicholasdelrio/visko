@@ -51,6 +51,9 @@ import org.mindswap.owls.process.variable.Output;
 import org.mindswap.owls.service.Service;
 import org.mindswap.query.ValueMap;
 
+import edu.utep.trustlab.visko.planning.Pipeline;
+import edu.utep.trustlab.visko.execution.provenance.PMLNodesetLogger;
+import edu.utep.trustlab.visko.execution.provenance.PMLQueryLogger;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
 import edu.utep.trustlab.visko.util.OWLSParameterBinder;
 
@@ -61,18 +64,27 @@ public class PipelineExecutor implements Runnable {
 	private ProcessExecutionEngine exec;
 	private Pipeline pipeline;
 	private String resultURL;
-	private boolean provenance;
 	
     private boolean complete = false;
     private boolean running = false;
-    
     private String statusMessage = "Pipeline execution has not begun.";
-    
     private Thread t;
+    
+    //provenance variables
+    private PMLNodesetLogger traceLogger;
+    private PMLQueryLogger queryLogger;
+    private String pmlNodesetURI;
+    private String pmlQueryURI;
+    private boolean provenance;
 	
 	public PipelineExecutor(Pipeline aPipeline, boolean captureProvenance) {
 		pipeline = aPipeline;
 		provenance = captureProvenance;
+		
+		if(provenance){
+			traceLogger = new PMLNodesetLogger();
+			queryLogger = new PMLQueryLogger();
+		}
 	}
 	
 	public Pipeline getPipeline(){
@@ -154,13 +166,29 @@ public class PipelineExecutor implements Runnable {
     		if (inputs == null || resultURL == null){    			 			
     			return;
     		}
-    			
+    		
+    		String inputDataURL = resultURL;
     		resultURL = executeService(process, inputs, kb, i);
+    		
+    		if(provenance)
+    			traceLogger.captureProcessingStep(owlsService, inputDataURL, resultURL, inputs);
+    		
     		manySec(0.5);
     	}
     	  
-    	complete = true;    
+    	if(provenance)
+    		dumpProvenance();
+ 
+    	complete = true;
     	running  = false;	
+    }
+    
+    private void dumpProvenance(){
+    	pmlNodesetURI = traceLogger.dumpNodesets();
+    	
+    	queryLogger.setViskoQuery(pipeline.getParentPipelineSet().getQuery().toString());
+    	queryLogger.addAnswer(pmlNodesetURI);
+    	pmlQueryURI = queryLogger.dumpPMLQuery();
     }
     
     private String executeService(Process process, ValueMap<Input,OWLValue> inputs, OWLKnowledgeBase kb, int serviceIndex){
@@ -182,6 +210,14 @@ public class PipelineExecutor implements Runnable {
     
     public String getResultURL(){
     	return resultURL;
+    }
+    
+    public String getPMLNodesetURI(){
+    	return pmlNodesetURI;
+    }
+    
+    public String getPMLQueryURI(){
+    	return pmlQueryURI;
     }
 
     public int getPipelineLength(){

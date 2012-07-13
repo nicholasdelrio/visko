@@ -116,6 +116,7 @@ public class PMLNodesetLogger {
 		StringWriter writer = new StringWriter();
 		IWNodeSet rootNodeset = serviceNodesets.get(serviceNodesets.size() - 1);
 		PMLObjectManager.getOntModel(rootNodeset).write(writer, "RDF/XML-ABBREV");
+		PMLObjectManager.getOntModel(rootNodeset).close();
 		
 		ContentManager manager = ContentManager.getProvenanceContentManager();
 		manager.saveDocument(writer.toString(), fileName);

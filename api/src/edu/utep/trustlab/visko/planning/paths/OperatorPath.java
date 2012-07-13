@@ -38,7 +38,7 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.execution.paths;
+package edu.utep.trustlab.visko.planning.paths;
 
 import java.util.*;
 import edu.utep.trustlab.visko.util.ResultSetToVector;

@@ -38,14 +38,17 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.execution;
+package edu.utep.trustlab.visko.planning;
 
 import java.util.Vector;
 
-import edu.utep.trustlab.visko.execution.paths.FormatPath;
-import edu.utep.trustlab.visko.execution.paths.FormatPaths;
-import edu.utep.trustlab.visko.execution.paths.OperatorPath;
-import edu.utep.trustlab.visko.execution.paths.OperatorPaths;
+import edu.utep.trustlab.visko.planning.Pipeline;
+import edu.utep.trustlab.visko.planning.PipelineSet;
+import edu.utep.trustlab.visko.planning.Query;
+import edu.utep.trustlab.visko.planning.paths.FormatPath;
+import edu.utep.trustlab.visko.planning.paths.FormatPaths;
+import edu.utep.trustlab.visko.planning.paths.OperatorPath;
+import edu.utep.trustlab.visko.planning.paths.OperatorPaths;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.util.CartesianProduct;
 import edu.utep.trustlab.visko.util.ResultSetToVector;

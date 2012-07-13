@@ -63,7 +63,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 /*
  * Created on Mar 19, 2004
  */
-package edu.utep.trustlab.visko.execution;
+package edu.utep.trustlab.visko.planning;
 
 import org.mindswap.owl.OWLDataValue;
 import org.mindswap.owl.OWLFactory;

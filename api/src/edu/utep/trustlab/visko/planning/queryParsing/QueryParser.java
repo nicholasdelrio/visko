@@ -1,4 +1,4 @@
-package edu.utep.trustlab.visko.execution.queryParsing;
+package edu.utep.trustlab.visko.planning.queryParsing;
 
 import java.util.HashMap;
 

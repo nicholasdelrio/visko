@@ -47,7 +47,8 @@ public class PMLQueryLogger {
 	public String dumpPMLQuery(){
 		StringWriter rdfStringWriter = new StringWriter();
   		PMLObjectManager.getOntModel(query).write(rdfStringWriter, "RDF/XML-ABBREV");
-  		
+  		PMLObjectManager.getOntModel(query).close();
+  			
   		ContentManager.getProvenanceContentManager().saveDocument(rdfStringWriter.toString(), queryName);
   		
   		return query.getIdentifier().getURIString();

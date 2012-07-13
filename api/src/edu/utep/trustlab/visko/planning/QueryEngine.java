@@ -38,7 +38,7 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.execution;
+package edu.utep.trustlab.visko.planning;
 
 import java.util.HashMap;
 import java.util.Vector;
@@ -47,6 +47,10 @@ import java.util.Set;
 
 import com.hp.hpl.jena.query.ResultSet;
 
+import edu.utep.trustlab.visko.planning.ExtractorExecutor;
+import edu.utep.trustlab.visko.planning.PipelineSet;
+import edu.utep.trustlab.visko.planning.PipelineSetBuilder;
+import edu.utep.trustlab.visko.planning.Query;
 import edu.utep.trustlab.visko.ontology.model.OWLSModel;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
 import edu.utep.trustlab.visko.sparql.QueryRDFDocument;

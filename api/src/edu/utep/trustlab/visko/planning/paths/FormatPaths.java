@@ -38,76 +38,25 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.execution;
+package edu.utep.trustlab.visko.planning.paths;
 
-import java.io.*;
+import java.util.*;
 
-import org.w3c.dom.*;
-import javax.xml.parsers.*;
-import javax.xml.transform.*;
-import javax.xml.transform.dom.*;
-import javax.xml.transform.stream.*;
+public class FormatPaths extends Vector<FormatPath> {
 
-public class PipelineToXMLVisualizationSet {
-
-	/** Generate the XML document */
-	public static String toXMLFromPipelineSet(PipelineSet pipelines, String nodesetURI, int maxResults) {
-		try {
-			DocumentBuilderFactory fact = DocumentBuilderFactory.newInstance();
-			DocumentBuilder parser = fact.newDocumentBuilder();
-			Document doc = parser.newDocument();
-
-			Element root = doc.createElement("VisualizationSet");
-
-			if (nodesetURI != null)
-				root.setAttribute("visualizes", nodesetURI);
-			else if (pipelines.getArtifactURL() != null)
-				root.setAttribute("visualizes", pipelines.getArtifactURL());
-
-			doc.appendChild(root);
-
-			int counter = 0;
-			for (Pipeline pipe : pipelines) {
-				
-				if(counter >= maxResults)
-					break;
-				
-				if (pipe.hasAllInputParameters()) {
-					Element visualization = doc.createElement("Visualization");
-					visualization.setAttribute("targetViewer", pipe.getViewer().getURI());
-					
-					PipelineExecutor executor = new PipelineExecutor(pipe, false);
-					executor.run();
-					String resultURL = executor.getResultURL();
-					
-					if (resultURL != null) {
-						visualization.appendChild(doc.createTextNode(resultURL));
-						root.appendChild(visualization);
-					}
-					counter++;
-				}
-			}
-
-			// set up a transformer
-			TransformerFactory transfac = TransformerFactory.newInstance();
-			Transformer trans = transfac.newTransformer();
-			trans.setOutputProperty(OutputKeys.INDENT, "yes");
-
-			// create string from xml tree
-			StringWriter sw = new StringWriter();
-			StreamResult result = new StreamResult(sw);
-			DOMSource source = new DOMSource(doc);
-			trans.transform(source, result);
-			String xmlString = sw.toString();
-			return xmlString;
-		} catch (Exception ex) {
-			System.err.println("+============================+");
-			System.err.println("|        XML Error           |");
-			System.err.println("+============================+");
-			System.err.println(ex.getClass());
-			System.err.println(ex.getMessage());
-			System.err.println("+============================+");
-			return null;
+	public boolean add(FormatPath path) {
+		if (!isExistingPath(path)) {
+			return super.add(path);
 		}
+
+		return false;
+	}
+
+	private boolean isExistingPath(FormatPath path) {
+		for (Vector<String> aPath : this) {
+			if (aPath.toString().equals(path.toString()))
+				return true;
+		}
+		return false;
 	}
 }
