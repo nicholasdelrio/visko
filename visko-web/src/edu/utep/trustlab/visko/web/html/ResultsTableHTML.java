@@ -22,8 +22,8 @@ package edu.utep.trustlab.visko.web.html;
 
 import java.net.URI;
 
-import edu.utep.trustlab.visko.execution.PipelineSet;
-import edu.utep.trustlab.visko.execution.QueryEngine;
+import edu.utep.trustlab.visko.planning.PipelineSet;
+import edu.utep.trustlab.visko.planning.QueryEngine;
 
 public class ResultsTableHTML {
 	public static String getHTML(QueryEngine engine, boolean withProvenance) {

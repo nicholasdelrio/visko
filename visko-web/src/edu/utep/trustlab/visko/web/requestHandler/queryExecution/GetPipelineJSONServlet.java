@@ -22,8 +22,8 @@ package edu.utep.trustlab.visko.web.requestHandler.queryExecution;
 
 import javax.servlet.http.HttpServletRequest;
 
-import edu.utep.trustlab.visko.execution.Pipeline;
-import edu.utep.trustlab.visko.execution.QueryEngine;
+import edu.utep.trustlab.visko.planning.Pipeline;
+import edu.utep.trustlab.visko.planning.QueryEngine;
 import edu.utep.trustlab.visko.web.json.PipelineGraphData;
 import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerJSON;
 public class GetPipelineJSONServlet extends RequestHandlerJSON{

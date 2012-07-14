@@ -24,7 +24,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import edu.utep.trustlab.visko.web.html.QueryMessages;
 import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerXML;
-import edu.utep.trustlab.visko.execution.*;
+import edu.utep.trustlab.visko.planning.PipelineSet;
+import edu.utep.trustlab.visko.planning.PipelineToXMLVisualizationSet;
+import edu.utep.trustlab.visko.planning.Query;
+import edu.utep.trustlab.visko.planning.QueryEngine;
 
 public class ExecuteQueryServiceServlet  extends RequestHandlerXML {
 	private Query query;

@@ -20,6 +20,9 @@
 				<fileset dir="${lib}/axis4/">
 					<include name="*.jar"/>
 				</fileset>
+				<fileset dir="${lib}/pml2/">
+					<include name="*.jar"/>
+				</fileset>
 				<fileset dir="${lib}/jena262/">
 					<include name="*.jar"/>
 				</fileset>	
@@ -45,6 +48,9 @@
 				<fileset dir="${lib}/jena262/">
 					<include name="*.jar"/>
 				</fileset>	
+				<fileset dir="${lib}/pml2/">
+					<include name="*.jar"/>
+				</fileset>
 				<fileset dir="${lib}/util/">
 					<include name="*.jar"/>
 				</fileset>

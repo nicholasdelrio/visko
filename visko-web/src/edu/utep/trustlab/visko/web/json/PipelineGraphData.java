@@ -27,7 +27,7 @@ import java.util.Vector;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import edu.utep.trustlab.visko.execution.Pipeline;
+import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.util.ResultSetToVector;
 

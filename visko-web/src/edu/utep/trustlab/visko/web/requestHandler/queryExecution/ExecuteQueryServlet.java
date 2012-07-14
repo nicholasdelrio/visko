@@ -27,7 +27,8 @@ import edu.utep.trustlab.visko.web.html.QueryMessages;
 import edu.utep.trustlab.visko.web.html.QueryHTML;
 import edu.utep.trustlab.visko.web.html.ResultsTableHTML;
 import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerHTML;
-import edu.utep.trustlab.visko.execution.*;
+import edu.utep.trustlab.visko.planning.Query;
+import edu.utep.trustlab.visko.planning.QueryEngine;
 
 public class ExecuteQueryServlet extends RequestHandlerHTML {
 

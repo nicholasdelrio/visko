@@ -25,7 +25,7 @@ import java.util.HashMap;
 import org.mindswap.owl.OWLIndividualList;
 import org.mindswap.owls.process.variable.Input;
 
-import edu.utep.trustlab.visko.execution.Pipeline;
+import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
 
 public class ParameterBindingsHTML {

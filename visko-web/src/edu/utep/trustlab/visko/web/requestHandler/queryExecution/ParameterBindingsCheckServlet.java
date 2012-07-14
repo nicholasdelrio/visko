@@ -31,8 +31,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.utep.trustlab.visko.execution.Pipeline;
-import edu.utep.trustlab.visko.execution.QueryEngine;
+import edu.utep.trustlab.visko.planning.Pipeline;
+import edu.utep.trustlab.visko.planning.QueryEngine;
 import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerRedirect;
 
 public class ParameterBindingsCheckServlet extends RequestHandlerRedirect {

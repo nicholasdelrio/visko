@@ -20,7 +20,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.web.html;
 
-import edu.utep.trustlab.visko.execution.Query;
+import edu.utep.trustlab.visko.planning.Query;
 
 public class QueryHTML {
 	public static String getHTML(Query query) {

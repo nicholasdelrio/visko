@@ -33,9 +33,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import edu.utep.trustlab.visko.execution.Pipeline;
+import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.execution.PipelineExecutor;
-import edu.utep.trustlab.visko.execution.QueryEngine;
+import edu.utep.trustlab.visko.planning.QueryEngine;
 import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerRedirect;
 
 public class ExecutePipelineServlet extends RequestHandlerRedirect {
@@ -43,8 +43,12 @@ public class ExecutePipelineServlet extends RequestHandlerRedirect {
 	public static final String JSP_PAGE = "/ExecutePipeline.jsp";
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response, HttpServlet servlet) throws IOException, ServletException {
-		String captureProvenance = request.getParameter("provenance");
+		String provenance = request.getParameter("provenance");
 		String stringIndex = request.getParameter("index");
+		
+		boolean captureProvenance = false;
+		if(provenance != null)
+			captureProvenance = true;
 		
 		int index = Integer.valueOf(stringIndex);
 		QueryEngine engine = (QueryEngine) request.getSession().getAttribute("engine");
@@ -117,28 +121,7 @@ public class ExecutePipelineServlet extends RequestHandlerRedirect {
 	        return;
 
 			
-		}
-		
-		if (captureProvenance != null) {
-			/*
-			 * html +=
-			 * "<html><head><title>Resultant Visualization And Provenance</title></head><body>"
-			 * ; result = pipe.executePath(true);
-			 * 
-			 * if(result != null) { VisualizationProvenanceHTML prov = new
-			 * VisualizationProvenanceHTML(result); html +=
-			 * "<p>Reading Provenance of: <a href=\"" + result + "\">" + result
-			 * + "</a>"; html += prov.getPlotHTML(); html +=
-			 * "<h3>Visualization Provenance</h3>"; html +=
-			 * prov.getParameterTable();
-			 * 
-			 * DataProvenanceHTML dataProv = new DataProvenanceHTML(result);
-			 * html += "<h3>Data Provenance</h3>"; html +=
-			 * dataProv.getGiovanniUserSelectionTable(); } else html +=
-			 * "<h1>ERROR: visualization or provenance could not be generated!</h1>"
-			 * ;
-			 */
-		}
+		}		
 	}
 	
 	 /*
