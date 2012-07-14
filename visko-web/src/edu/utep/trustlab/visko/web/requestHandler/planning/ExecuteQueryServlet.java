@@ -18,7 +18,7 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.web.requestHandler.queryExecution;
+package edu.utep.trustlab.visko.web.requestHandler.planning;
 
 import javax.servlet.http.HttpServletRequest;
 

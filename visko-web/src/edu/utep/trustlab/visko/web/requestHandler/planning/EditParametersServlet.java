@@ -18,15 +18,15 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.web.requestHandler.queryExecution;
+package edu.utep.trustlab.visko.web.requestHandler.planning;
 
 import javax.servlet.http.HttpServletRequest;
 
 import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.planning.QueryEngine;
-import edu.utep.trustlab.visko.web.json.PipelineGraphData;
-import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerJSON;
-public class GetPipelineJSONServlet extends RequestHandlerJSON{
+import edu.utep.trustlab.visko.web.html.ParameterBindingsHTML;
+import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerHTML;
+public class EditParametersServlet extends RequestHandlerHTML{
 
 	public String doGet(HttpServletRequest request){
 
@@ -36,8 +36,11 @@ public class GetPipelineJSONServlet extends RequestHandlerJSON{
 		QueryEngine engine = (QueryEngine) request.getSession().getAttribute("engine");
 
 		Pipeline pipe = engine.getPipelines().get(index);
+
+		String html = "<h2>Edit Parameter Values</h2>";
+		String paramsList = ParameterBindingsHTML.getParameterBindingsList(pipe);
 		
-		PipelineGraphData pipelineGraph = new PipelineGraphData();
-		return pipelineGraph.getPipelineJSON(pipe);
+		html = "<form action=\"ViskoServletManager\"><input type=\"hidden\" name=\"use-bindings-in-url\" value=\"true\" /><input type=\"hidden\" name=\"index\" value=\"" + index + "\" /><input type=\"hidden\" name=\"requestType\" value=\"check-bindings\" />" + paramsList + "<input name\"Execute Pipeline\" type=\"submit\" id=\"submitButton\" style=\"width: 156px\"></form>";
+		return html;
 	}
 }

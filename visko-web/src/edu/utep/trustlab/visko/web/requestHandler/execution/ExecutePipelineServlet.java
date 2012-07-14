@@ -18,7 +18,7 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.web.requestHandler.queryExecution;
+package edu.utep.trustlab.visko.web.requestHandler.execution;
 
 
 //import edu.utep.trustlab.visko.web.html.provenance.DataProvenanceHTML;
@@ -37,6 +37,7 @@ import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.execution.PipelineExecutor;
 import edu.utep.trustlab.visko.planning.QueryEngine;
 import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerRedirect;
+import edu.utep.trustlab.visko.web.requestHandler.planning.PipelineExecutionStatusBean;
 
 public class ExecutePipelineServlet extends RequestHandlerRedirect {
 	

@@ -1,4 +1,4 @@
-package edu.utep.trustlab.visko.web.requestHandler.queryExecution;
+package edu.utep.trustlab.visko.web.requestHandler.planning;
 /**
  * Bean for passing status values from the servlet to the JSP.
  * Putting all of these values in a bean instead of storing 

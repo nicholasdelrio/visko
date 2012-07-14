@@ -18,20 +18,26 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.web.requestHandler.queryExecution;
+package edu.utep.trustlab.visko.web.requestHandler.planning;
 
 import javax.servlet.http.HttpServletRequest;
+
+import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.planning.QueryEngine;
-import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerHTML;
-public class GetQueryServlet extends RequestHandlerHTML{
+import edu.utep.trustlab.visko.web.json.PipelineGraphData;
+import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerJSON;
+public class GetPipelineJSONServlet extends RequestHandlerJSON{
 
 	public String doGet(HttpServletRequest request){
+
+		String stringIndex = request.getParameter("index");
+		int index = Integer.valueOf(stringIndex);
+
 		QueryEngine engine = (QueryEngine) request.getSession().getAttribute("engine");
-		engine.getQuery();
-				
-		String html = "<h3>Current Query</h3>";
-		html += "<p>May be different from initial query due to added parameter bindings.</p>";
-		html += "<pre>" + engine.getQuery().toString() + "</pre>";
-		return html;
+
+		Pipeline pipe = engine.getPipelines().get(index);
+		
+		PipelineGraphData pipelineGraph = new PipelineGraphData();
+		return pipelineGraph.getPipelineJSON(pipe);
 	}
 }

@@ -27,14 +27,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.utep.trustlab.visko.web.requestHandler.execution.ExecutePipelineServlet;
 import edu.utep.trustlab.visko.web.requestHandler.knowledgeBaseInfo.KnowledgeBaseInformationJSONServlet;
-import edu.utep.trustlab.visko.web.requestHandler.queryExecution.EditParametersServlet;
-import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ExecutePipelineServlet;
-import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ExecuteQueryServlet;
-import edu.utep.trustlab.visko.web.requestHandler.queryExecution.GetPipelineJSONServlet;
-import edu.utep.trustlab.visko.web.requestHandler.queryExecution.GetQueryServlet;
-import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ParameterBindingsCheckServlet;
-import edu.utep.trustlab.visko.web.requestHandler.queryExecution.ShowPipelineServlet;
+import edu.utep.trustlab.visko.web.requestHandler.planning.EditParametersServlet;
+import edu.utep.trustlab.visko.web.requestHandler.planning.ExecuteQueryServlet;
+import edu.utep.trustlab.visko.web.requestHandler.planning.GetPipelineJSONServlet;
+import edu.utep.trustlab.visko.web.requestHandler.planning.GetQueryServlet;
+import edu.utep.trustlab.visko.web.requestHandler.planning.ParameterBindingsCheckServlet;
+import edu.utep.trustlab.visko.web.requestHandler.planning.ShowPipelineServlet;
 import edu.utep.trustlab.visko.web.requestHandler.queryExecutionService.ExecuteQueryServiceServlet;
 import edu.utep.trustlab.visko.web.requestHandler.sparql.ExecuteSPARQLQueryServlet;
 

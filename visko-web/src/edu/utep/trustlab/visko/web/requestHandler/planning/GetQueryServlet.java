@@ -18,33 +18,20 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.web.requestHandler.queryExecution;
+package edu.utep.trustlab.visko.web.requestHandler.planning;
 
 import javax.servlet.http.HttpServletRequest;
-
-import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.planning.QueryEngine;
-import edu.utep.trustlab.visko.web.html.PipelineHTML;
 import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerHTML;
-public class ShowPipelineServlet extends RequestHandlerHTML{
+public class GetQueryServlet extends RequestHandlerHTML{
 
 	public String doGet(HttpServletRequest request){
-
-		String stringIndex = request.getParameter("index");
-		int index = Integer.valueOf(stringIndex);
-
-		QueryEngine engine = (QueryEngine) request.getSession().getAttribute(
-				"engine");
-
-		Pipeline pipe = engine.getPipelines().get(index);
-
-		String html = "<h2>Visualization Pipeline:</h2>";
-		html += PipelineHTML.getPipelineHTML(pipe);
-
-		html += "<h2>Pipeline Output Viewed By:</h2>";
-
-		html += PipelineHTML.getViewerHTML(pipe);
-
+		QueryEngine engine = (QueryEngine) request.getSession().getAttribute("engine");
+		engine.getQuery();
+				
+		String html = "<h3>Current Query</h3>";
+		html += "<p>May be different from initial query due to added parameter bindings.</p>";
+		html += "<pre>" + engine.getQuery().toString() + "</pre>";
 		return html;
 	}
 }
