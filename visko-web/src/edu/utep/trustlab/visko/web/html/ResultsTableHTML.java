@@ -57,7 +57,7 @@ public class ResultsTableHTML {
 			html += "<td>" + getEditParametersLink(i);
 			html += "<td>" + getViewLink(pipes.get(i).getViewURI()) + "</td>";
 			if (withProvenance)
-				html += "<td>"+ getExecutePipelineProvenanceLink(i, pipes.getArtifactURL()) + "</td>";
+				html += "<td>"+ getExecutePipelineLinkWithProvenance(i, pipes.getArtifactURL(), pipes.get(i).requiresInputURL(), pipes.get(i).hasAllInputParameters(), validDatasetReference) + "</td>";
 			
 			html += "<td>" + getShowPipelineLink(i) + "</td>";
 			html += "</tr>";
@@ -120,13 +120,26 @@ public class ResultsTableHTML {
 		return html;
 	}
 
-	private static String getExecutePipelineProvenanceLink(int index, String artifactURL) {
+	private static String getExecutePipelineLinkWithProvenance(int index, String artifactURL, boolean requiresInput, boolean hasAllParametersBound, boolean hasValidDataInput) {
 		String html = "<p>NULL</p>";
 
-		if (artifactURL != null) {
-			html = "<a href=\"ExecutePipelineServlet?index=" + index + "&provenance=true";
-			html += "\">Run with Provenance Capture</a>";
+		if (artifactURL != null && hasValidDataInput) {
+			
+			if(hasAllParametersBound){
+				html = "<a href=\"ViskoServletManager?provenance=true&requestType=execute-pipeline&index=" + index + "\">Run pipeline with Provenance Capture</a>";
+			}
+			else
+				html = "<a href=\"ViskoServletManager?provenance=true&requestType=edit-parameters&index=" + index + "\">Need to set parameters!</a>";
 		}
+		else if(!requiresInput){
+			if(hasAllParametersBound){
+				html = "<a href=\"ViskoServletManager?provenance=true&requestType=execute-pipeline&index=" + index + "\">Run pipeline with Provenance Capture</a>";
+			}
+			else
+				html = "<a href=\"ViskoServletManager?provenance=true&requestType=edit-parameters&index=" + index + "\">Need to set parameters!</a>";
+		}		
+		else
+			html = "<b>Not a valid dataset reference in query: requires URL.</b>";
 		return html;
 	}
 }

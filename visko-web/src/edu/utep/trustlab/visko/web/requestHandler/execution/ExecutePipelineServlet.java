@@ -45,7 +45,7 @@ public class ExecutePipelineServlet extends RequestHandlerRedirect {
 		boolean captureProvenance = false;
 		if(provenance != null)
 			captureProvenance = true;
-		
+				
 		int index = Integer.valueOf(stringIndex);
 		
 		ViskoWebSession session = (ViskoWebSession) request.getSession().getAttribute(ViskoWebSession.SESSION_ID);

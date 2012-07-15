@@ -59,7 +59,7 @@ public class PipelineExecutionStatusBean{
     			resultURL.endsWith(".PNG") ||
     			resultURL.endsWith(".gif") ||
     			resultURL.endsWith(".GIF"))
-    		resultMessage = "<img src=\"" + resultURL + "\" />";
+    		resultMessage += "<img src=\"" + resultURL + "\" />";
     	
     	else if(resultURL.endsWith(".pdf") || resultURL.endsWith(".PDF"))
     		resultMessage += "<a href=\"" + resultURL + "\">Click to view PDF</a>";
@@ -100,11 +100,11 @@ public class PipelineExecutionStatusBean{
 
     public String getRefreshTag(){
     	PipelineExecutorJobStatus status = job.getJobStatus();
-    	if(status.isJobCompleted())
+    	if(!status.isJobCompleted())
             return "<meta http-equiv=\"refresh\""
                    + " content=\""
                    + getRefreshRate()
                    + "\";URL=\"ViskoServletManager?requestType=execute-pipeline\">";
-        return "";
+    	return "";
     }
 }

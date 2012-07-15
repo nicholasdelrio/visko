@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.utep.trustlab.visko.web.html.Template;
 import edu.utep.trustlab.visko.web.requestHandler.execution.ExecutePipelineServlet;
 import edu.utep.trustlab.visko.web.requestHandler.knowledgeBaseInfo.KnowledgeBaseInformationJSONServlet;
 import edu.utep.trustlab.visko.web.requestHandler.planning.EditParametersServlet;
@@ -81,8 +82,11 @@ public class ViskoServletManager extends HttpServlet {
 			new ExecuteSPARQLQueryServlet().setSparqlResults(request, response);
 		else if(requestType.equals("get-query"))
 			new GetQueryServlet().setHTMLPage(request, response);
-		else
-			response.getWriter().write("<html><body><p>Invalid argument specified for <b>requestType</b></body></html>");		
+		else{
+			String header = Template.getCompleteHeader();
+			String footer = Template.getCompleteFooter();
+			response.getWriter().write(header + "<html><body><p>Invalid argument specified for <b>requestType</b></body></html>" + footer);
+		}
 	}
 
 	/**
