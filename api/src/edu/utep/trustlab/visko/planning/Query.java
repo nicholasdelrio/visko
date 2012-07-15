@@ -95,21 +95,16 @@ public class Query {
 		
 		QueryEngine engine = new QueryEngine(query);
 		PipelineSet pipes = engine.getPipelines();
-		
-		Thread t;
+	
 		if(pipes.size() > 0){
 			PipelineExecutorJob job = new PipelineExecutorJob(pipes.firstElement(), true);
 			PipelineExecutor executor = new PipelineExecutor(job);
-			//executor.process();
+			executor.process();
 			
-			t = new Thread(executor);
-			t.start();
-			
-			while(t.isAlive()){
-			
+			while(executor.isAlive()){
 			}
 			
-			System.out.println("Final Result = " + executor.getResultURL());
+			System.out.println("Final Result = " + job.getFinalResultURL());
 		}
 	}
 	

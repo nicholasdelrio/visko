@@ -16,8 +16,13 @@ public class PipelineExecutorJob {
 	public PipelineExecutorJob(Pipeline pipelineToExecute, boolean logProvenance){
 		pipe = pipelineToExecute;
 		provenance = logProvenance;
+		status = new JobStatus();
 	}
-        
+    
+	public JobStatus getJobStatus(){
+		return status;
+	}
+	
     public void setPipeline(Pipeline pipeline){
     	pipe = pipeline;
     }

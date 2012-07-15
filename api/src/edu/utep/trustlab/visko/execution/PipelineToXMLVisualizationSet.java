@@ -82,7 +82,7 @@ public class PipelineToXMLVisualizationSet {
 					PipelineExecutorJob job = new PipelineExecutorJob(pipe, false);
 					PipelineExecutor executor = new PipelineExecutor(job);
 					executor.run();
-					String resultURL = executor.getResultURL();
+					String resultURL = job.getFinalResultURL();
 					
 					if (resultURL != null) {
 						visualization.appendChild(doc.createTextNode(resultURL));

@@ -74,6 +74,12 @@ public class Pipeline extends Vector<String> {
 		setViewerSets(viewerURI);
 	}
 	
+	public boolean hasInputData(){
+		if(getArtifactURL() == null)
+			return false;
+		return true;
+	}
+	
 	public Vector<String> getViewerSets(){
 		return viewerSets;
 	}

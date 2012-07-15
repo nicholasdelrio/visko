@@ -4,7 +4,18 @@ public class JobStatus {
 	
 	private int totalServiceCount;
 	private int currentService;
-	private boolean isComplete;
+
+	public enum PipelineState {NODATA, EMPTYPIPELINE, RUNNING, COMPLETE};
+	
+	private PipelineState state;
+	
+	public void setPipelineState(PipelineState pipeState){
+		state = pipeState;
+	}
+	
+	public PipelineState getPipelineState(){
+		return state;
+	}
 	
 	public void setTotalServiceCount(int count){
 		totalServiceCount = count;
@@ -15,22 +26,19 @@ public class JobStatus {
 	}
 	
 	public void setCurrentServiceIndex(int index){
-		currentService = index;
+		currentService = index + 1;
 	}
 	
 	public int getCurrentServiceIndex(){
 		return currentService;
 	}
 	
-	public void setIsComplete(boolean complete){
-		isComplete = complete;
-	}
-	
-	public boolean isComplete(){
-		return isComplete;
-	}
-	
 	public String getExecutionMessage(){
-		return "Executing service " + getCurrentServiceIndex() + " of " + getTotalServiceCount();
+		if(getPipelineState() == PipelineState.EMPTYPIPELINE)
+			return "Input Data is already visualizable.";
+		else if(getPipelineState() == PipelineState.NODATA)
+			return "Can't execute pipeline, no input data specified";
+		else
+			return "Executing service " + getCurrentServiceIndex() + " of " + getTotalServiceCount();
 	}
 }
