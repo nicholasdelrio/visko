@@ -55,6 +55,7 @@ public class PMLNodesetLogger {
 	public void captureProcessingStep(OWLSService service, String inDatasetURL, String outDatasetURL, ValueMap<Input, OWLValue> inputValueMap) {
 		//set up nodeset for service pipeline step
 		//set up rule
+
 		IWInferenceRule ir = (IWInferenceRule) PMLObjectManager.getPMLObjectFromURI(service.getConceptualOperator().getURI());
 		
 		//set up inference step
@@ -76,28 +77,31 @@ public class PMLNodesetLogger {
 		
 		for (Input var : inputValueMap.getVariables()) {			
 			OWLValue value = inputValueMap.getValue(var);
+			String valueString = value.toString();
 
-			if (value.equals(inDatasetURL)) {
+			if (!valueString.equals(inDatasetURL)) {
 
 				//set up rule
-				IWInferenceRule paramIR = (IWInferenceRule) PMLObjectManager.getPMLObjectFromURI(service.getConceptualOperator().getURI());
+				String directAssertionRule = "http://inference-web.org/registry/DPR/Told.owl#Told";
+				IWInferenceRule paramIR = (IWInferenceRule) PMLObjectManager.createPMLObject(PMLP.InferenceRule_lname);
+				paramIR.setIdentifier(PMLObjectManager.getObjectID(directAssertionRule));
 				
 				//set up inference step
 				IWInferenceStep paramIS = (IWInferenceStep) PMLObjectManager.createPMLObject(PMLJ.InferenceStep_lname);
-				is.setHasInferenceRule(paramIR);
+				paramIS.setHasInferenceRule(paramIR);
 				
 				//set up conclusion
 				IWInformation paramConclusion = (IWInformation) PMLObjectManager.createPMLObject(PMLP.Information_lname);
 				String paramFormatURI = "https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/formats/PLAIN.owl#PLAIN";
-				conclusion.setHasFormat(paramFormatURI);
-				conclusion.setHasURL(value.toString());
+				paramConclusion.setHasFormat(paramFormatURI);
+				paramConclusion.setHasRawString(valueString);
 				
 				//set up nodeset
 				String nodesetNameParameter = baseNodesetNameParameter + "-" + FileUtils.getRandomFileName();
 				IWNodeSet paramNS = (IWNodeSet) PMLObjectManager.createPMLObject(PMLJ.NodeSet_lname);
 				paramNS.setIdentifier(PMLObjectManager.getObjectID(baseURL + "#" + nodesetNameParameter));
-				paramNS.setHasConclusion(conclusion);
-				paramNS.addIsConsequentOf(is);
+				paramNS.setHasConclusion(paramConclusion);
+				paramNS.addIsConsequentOf(paramIS);
 
 				is.addAntecedent(paramNS);
 			}

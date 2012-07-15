@@ -130,45 +130,37 @@ public class OWLSService extends OWLSIndividual {
 	public Service getIndividual() {
 		Service service = null;
 		if (allFieldsPopulated() && !isForReading) {// create service
-			WSDLTranslatorBuilder builder = new WSDLTranslatorBuilder(
-					model.getOntology(), operationName, wsdlURL);
+			WSDLTranslatorBuilder builder = new WSDLTranslatorBuilder(model.getOntology(), operationName, wsdlURL);
 
 			service = builder.getTranslator().getService();
 
 			service.setLabel(label, null);
 
 			if (isOperatorService) {
-				service.addProperty(supportingToolkitProperty,
-						getToolkitAsOWLIndividual());
-				service.addProperty(implementsOperatorProperty,
-						getOperatorAsOWLIndividual());
+				service.addProperty(supportingToolkitProperty, getToolkitAsOWLIndividual());
+				service.addProperty(implementsOperatorProperty, getOperatorAsOWLIndividual());
 			} else
-				service.addProperty(implementsExtractorProperty,
-						getExtractorAsOWLIndividual());
+				service.addProperty(implementsExtractorProperty, getExtractorAsOWLIndividual());
+		
 		} else if (!allFieldsPopulated() && !isForReading) {
 			System.out.println("all fields not populated....");
+		
 		} else {// read service and populate service object
 			service = model.readService(uri);
 
-			OWLIndividual operator = service
-					.getProperty(implementsOperatorProperty);
-			OWLIndividual toolkit = service
-					.getProperty(supportingToolkitProperty);
-			OWLIndividual extractor = service
-					.getProperty(implementsExtractorProperty);
+			OWLIndividual operator = service.getProperty(implementsOperatorProperty);
+			OWLIndividual toolkit = service.getProperty(supportingToolkitProperty);
+			OWLIndividual extractor = service.getProperty(implementsExtractorProperty);
 
 			ViskoModel viskoModel = new ViskoModel();
 
 			if (operator != null && toolkit != null) {
-				supportingToolkit = new Toolkit(toolkit.getURI()
-						.toASCIIString(), viskoModel);
-				implementedOperator = new Operator(operator.getURI()
-						.toASCIIString(), viskoModel);
+				supportingToolkit = new Toolkit(toolkit.getURI().toASCIIString(), viskoModel);
+				implementedOperator = new Operator(operator.getURI().toASCIIString(), viskoModel);
 			}
 
 			if (extractor != null)
-				implementedExtractor = new Extractor(extractor.getURI()
-						.toASCIIString(), viskoModel);
+				implementedExtractor = new Extractor(extractor.getURI().toASCIIString(), viskoModel);
 		}
 
 		return service;
@@ -176,21 +168,25 @@ public class OWLSService extends OWLSIndividual {
 
 	@Override
 	protected void setProperties() {
-		implementsOperatorProperty = model
-				.getObjectProperty(ViskoS.PROPERTY_URI_IMPLEMENTS_OPERATOR);
-		implementsExtractorProperty = model
-				.getObjectProperty(ViskoS.PROPERTY_URI_IMPLEMENTS_EXTRACTOR);
-		supportingToolkitProperty = model
-				.getObjectProperty(ViskoS.PROPERTY_URI_SUPPORTED_BY);
+		implementsOperatorProperty = model.getObjectProperty(ViskoS.PROPERTY_URI_IMPLEMENTS_OPERATOR);
+		implementsExtractorProperty = model.getObjectProperty(ViskoS.PROPERTY_URI_IMPLEMENTS_EXTRACTOR);
+		supportingToolkitProperty = model.getObjectProperty(ViskoS.PROPERTY_URI_SUPPORTED_BY);
 	}
 
 	@Override
 	protected boolean allFieldsPopulated() {
-		isOperatorService = wsdlURL != null && operationName != null
+		isOperatorService = 
+				wsdlURL != null
+				&& operationName != null
 				&& implementedOperator != null
-				&& this.supportingToolkit != null && label != null;
-		isExtractorService = wsdlURL != null && operationName != null
-				&& implementedExtractor != null && label != null;
+				&& this.supportingToolkit != null
+				&& label != null;
+		
+		isExtractorService = 
+				wsdlURL != null
+				&& operationName != null
+				&& implementedExtractor != null
+				&& label != null;
 
 		return isOperatorService || isExtractorService;
 	}
@@ -198,7 +194,6 @@ public class OWLSService extends OWLSIndividual {
 	@Override
 	protected void initializeFields() {
 		// TODO Auto-generated method stub
-
 	}
 	
 	public String toString(){

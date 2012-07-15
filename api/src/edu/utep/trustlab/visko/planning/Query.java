@@ -44,11 +44,15 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
 
+import edu.utep.trustlab.contentManagement.ContentManager;
+import edu.utep.trustlab.contentManagement.LocalFileSystem;
+import edu.utep.trustlab.visko.execution.PipelineExecutor;
 import edu.utep.trustlab.visko.planning.Query;
 import edu.utep.trustlab.visko.planning.queryParsing.QueryParser;
 import edu.utep.trustlab.visko.planning.queryParsing.QueryParserV2;
 import edu.utep.trustlab.visko.planning.queryParsing.QueryParserV3;
 import edu.utep.trustlab.visko.sparql.QueryRDFDocument;
+import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.util.GetURLContents;
 
 public class Query {
@@ -73,18 +77,38 @@ public class Query {
 	private QueryParser parser;
 
 	public static void main(String[] args){
-		String query3 = "VISUALIZE http://someartifact.txt AS * IN https://raw.github.com/nicholasdelrio/visko/master/rdf/mozilla-firefox.owl#mozilla-firefox WHERE FORMAT = https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/TIFF.owl#TIFF AND TYPE = http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d13 AND https://raw.github.com/nicholasdelrio/visko/master/rdf/grdcontour.owl#A = k AND https://raw.github.com/nicholasdelrio/visko/master/rdf/grdimage.owl#J = 0";
-		Query q = new Query(query3);
 		
-		System.out.println("viewerset: " + q.getViewerSetURI());
-		System.out.println("view: " + q.getViewURI());
-		System.out.println("contentURL: " + q.getArtifactURL());
-		System.out.println("format: " + q.getFormatURI());
-		System.out.println("type: " + q.getTypeURI());
-		System.out.println("nodeset: " + q.nodesetURI);
-
-		System.out.println(q);
+		ViskoTripleStore.setEndpointURL("http://iw.cs.utep.edu/visko-web/ViskoServletManager?requestType=query-triple-store");
+		LocalFileSystem fs = new LocalFileSystem("http://test/datadump/", "C:/Users/Public/git/visko/api/output/");
+		ContentManager.setWorkspacePath("C:/Users/Public/git/visko/api/output/");
+		ContentManager.setProvenanceContentManager(fs);
 		
+		String url = "http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt";
+		String formatURI = "https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII";
+		String viewerSetURI = "https://raw.github.com/nicholasdelrio/visko/master/rdf/mozilla-firefox.owl#mozilla-firefox";
+		String typeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d19";
+		String viewURI = "https://raw.github.com/nicholasdelrio/visko/master/rdf/contour-lines.owl#contour-lines";
+		Query query = new Query(url, formatURI, viewerSetURI);
+		query.setTypeURI(typeURI);
+		query.setViewURI(viewURI);
+		
+		QueryEngine engine = new QueryEngine(query);
+		PipelineSet pipes = engine.getPipelines();
+		
+		Thread t;
+		if(pipes.size() > 0){
+			PipelineExecutor executor = new PipelineExecutor(pipes.firstElement(), true);
+			//executor.process();
+			
+			t = new Thread(executor);
+			t.start();
+			
+			while(t.isAlive()){
+			
+			}
+			
+			System.out.println("Final Result = " + executor.getResultURL());
+		}
 	}
 	
 	public Query(String queryString) {
@@ -201,8 +225,40 @@ public class Query {
 	}
 	
 	
+	public String constructQueryFromVariables(){
+		String newViewURI = viewURI;
+		if(viewURI == null){
+			newViewURI = "*";
+		}
+		
+		String reconstructedQuery = 
+				"VISUALIZE " + datasetURL + "\n" +
+				"AS " + newViewURI + "\n" +
+				"IN " + viewerSetURI + "\n" +
+				"WHERE ";
+
+		if(getFormatURI() != null)
+				reconstructedQuery += "\n\tFORMAT = " + getFormatURI() + "\n";		
+		if(getTypeURI() != null)
+				reconstructedQuery += "\tAND TYPE = " + getTypeURI() + "\n";
+						
+		Set<String> parameterURIs = parameterBindings.keySet();
+				
+		if(parameterURIs.size() > 0){
+			Iterator<String> paramURIs = parameterURIs.iterator();
+			String paramURI;
+			while(paramURIs.hasNext()){
+				paramURI = paramURIs.next();			
+				reconstructedQuery = setBinding(reconstructedQuery, paramURI, parameterBindings.get(paramURI));
+			}
+		}			
+		return reconstructedQuery;
+	}
 
 	public String toString() {
+		if(parser == null)
+			return constructQueryFromVariables();
+					
 		String[] tokens = parser.getTokens();
 		
 		String reconstructedQuery = "";
@@ -252,6 +308,9 @@ public class Query {
 	}
 	
 	private String getExistingPrefix(String uri){
+		
+		if(parser == null)
+			return null;
 		
 		//check from query parser bindings
 		Set<String> keys = parser.getPrefixes().keySet();

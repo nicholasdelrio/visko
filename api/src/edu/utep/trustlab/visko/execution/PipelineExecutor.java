@@ -91,14 +91,6 @@ public class PipelineExecutor implements Runnable {
 		return pipeline;
 	}
 
-	private static void manySec(double s) {
-		try {
-			Thread.sleep((long)(s * 1000));
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
-
 	public void process(){
 		if(!isRunning()){
 			this.statusMessage = "Starting pipeline execution.";
@@ -125,8 +117,6 @@ public class PipelineExecutor implements Runnable {
 		statusMessage = "Kicking off pipeline execution process.";
 		complete = false;
 		running  = true;
-
-		manySec(0.5);
     	
     	if(pipeline.getArtifactURL() == null){
   			statusMessage = "No input data to process.";
@@ -151,12 +141,14 @@ public class PipelineExecutor implements Runnable {
     	exec = OWLSFactory.createExecutionEngine();			
     	OWLKnowledgeBase kb = OWLFactory.createKB();
 
+    	try{
+    		
     	for(int i = 0; i < pipeline.size(); i ++){
     		statusMessage = "Service " + pipeline.get(i) + " " + (i + 1) + " of " + pipeline.size() + " is running.";	
     		
     		System.out.println("STATUS: " + this.statusMessage);
     		OWLSService owlsService = pipeline.getService(i);
-
+  
     		System.out.println("owl service uri " + owlsService.getURI());	
     		service = owlsService.getIndividual();
     		process = service.getProcess();
@@ -172,13 +164,16 @@ public class PipelineExecutor implements Runnable {
     		
     		if(provenance)
     			traceLogger.captureProcessingStep(owlsService, inputDataURL, resultURL, inputs);
-    		
-    		manySec(0.5);
+    
+    		Thread.sleep(500);
     	}
     	  
     	if(provenance)
     		dumpProvenance();
- 
+    	}catch(InterruptedException e){
+    		e.printStackTrace();
+    		System.out.println("kill this bastard...");
+    	}
     	complete = true;
     	running  = false;	
     }
