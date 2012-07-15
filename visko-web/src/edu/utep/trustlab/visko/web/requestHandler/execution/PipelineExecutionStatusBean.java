@@ -46,12 +46,6 @@ public class PipelineExecutionStatusBean{
     public String getCompletedMessage(){
     	String resultURL = job.getFinalResultURL();
     	String resultMessage = "";
-    	
-    	if(job.getProvenanceLogging()){
-    		resultMessage += "<h4>Provenance Information</h4>";
-    		resultMessage += "<p>PML Query URI: " + job.getPMLQueryURI() + "</p>";
-    	}
-    	
     	if(
     			resultURL.endsWith(".jpg") ||
     			resultURL.endsWith(".JPG") ||
@@ -83,7 +77,16 @@ public class PipelineExecutionStatusBean{
     }
    
     public void setLinkToQuery(){
-    	linkToQuery = "<p><a href=\"ViskoServletManager?requestType=get-query\">Click to export query responsible for this visualization</a></p>";
+    	String provenanceLink = "Provenance logging not enabled for this run.";
+    	if(job.getProvenanceLogging())
+    		provenanceLink = "<a href=\"" + job.getPMLQueryURI() + "\">" + job.getPMLQueryURI() + "</a>";    	
+    	
+    	linkToQuery =
+    			"<br>"
+    			+ "<table border=\"1\">"
+    			+ "<tr><td><b>Visualization Query</b></td><td><b>PML Query</b></td></tr>"
+    			+ "<tr><td> <a href=\"ViskoServletManager?requestType=get-query\">Click to export query</a></td><td>" + provenanceLink + "</td></tr>"
+    			+ "</table>";
     }
     
     public String getLinkToQuery(){

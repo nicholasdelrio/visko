@@ -76,8 +76,17 @@ public class ContextListener implements ServletContextListener {
 		String serverURL = context.getInitParameter("server-url");
 		String serverBasePath = context.getInitParameter("server-base-path");
 		
-		String pmlBaseURL = serverURL + "/output/";
-		String pmlBasePath = serverBasePath + "/output/";
+		String pmlBaseURL;
+		if(serverURL.endsWith("/"))
+			pmlBaseURL = serverURL + "output/";
+		else
+			pmlBaseURL = serverURL + "/output/";
+		
+		String pmlBasePath;
+		if(serverBasePath.endsWith("/"))
+			pmlBasePath = serverBasePath + "output/";
+		else
+			pmlBasePath = serverBasePath + "/output/";
 		
 		LocalFileSystem fs = new LocalFileSystem(pmlBaseURL, pmlBasePath);
 		return fs;
