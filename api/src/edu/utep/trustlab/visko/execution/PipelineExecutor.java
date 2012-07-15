@@ -88,12 +88,15 @@ public class PipelineExecutor implements Runnable {
     	else{
     		try{
     			executePipeline();
-    			
+    			    			
     	    	if(job.getProvenanceLogging())
     	    		dumpProvenance();
-    			
+
+    	    	job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.COMPLETE);
+
     		}catch(InterruptedException e){
     			System.out.println("This thread's execution was interrupted and will quit!");
+    	    	job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.INTERRUPTED);
     		}
     	}
     }
@@ -116,7 +119,6 @@ public class PipelineExecutor implements Runnable {
     	}
     	
     	job.setFinalResultURL(resultURL);
-    	job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.COMPLETE);
     }
     
     private void dumpProvenance(){

@@ -6,7 +6,7 @@ public class PipelineExecutorJobStatus {
 	private int currentServiceIndex;
 	private String currentServiceURI;
 
-	public enum PipelineState {NODATA, EMPTYPIPELINE, RUNNING, COMPLETE, ERROR, NEW};
+	public enum PipelineState {NODATA, EMPTYPIPELINE, RUNNING, COMPLETE, ERROR, NEW, INTERRUPTED};
 	
 	private PipelineState state;
 	
@@ -46,6 +46,16 @@ public class PipelineExecutorJobStatus {
 		return currentServiceIndex;
 	}
 	
+	public boolean isJobCompleted(){
+		boolean completed = getPipelineState() == PipelineState.COMPLETE;
+		boolean error = getPipelineState() == PipelineState.ERROR;
+		boolean nodata = getPipelineState() == PipelineState.NODATA;
+		boolean emptyPipe = getPipelineState() == PipelineState.EMPTYPIPELINE;
+		boolean interrupted = getPipelineState() == PipelineState.INTERRUPTED;
+		
+		return completed || error || nodata || emptyPipe || interrupted;
+	}
+	
 	public String toString(){
 		String message;
 		switch(getPipelineState()){
@@ -66,6 +76,9 @@ public class PipelineExecutorJobStatus {
 				break;
 			case NEW:
 				message = "Pre execution stage";
+				break;
+			case INTERRUPTED:
+				message = "Execution Interrupted";
 				break;
 			default:
 				message = "State of execution unknown";
