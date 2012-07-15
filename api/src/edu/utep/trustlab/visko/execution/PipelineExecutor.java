@@ -65,6 +65,10 @@ public class PipelineExecutor implements Runnable {
 	public boolean isAlive(){
 		return t.isAlive();
 	}
+	
+	public void interrupt(){
+		t.interrupt();
+	}
 
 	public void process(){
 		if(job.getJobStatus().getPipelineState() ==  PipelineExecutorJobStatus.PipelineState.NEW){
@@ -81,21 +85,33 @@ public class PipelineExecutor implements Runnable {
     	else if(job.getPipeline().isEmpty())
     		job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.EMPTYPIPELINE);
     	
-    	else
-    		executePipeline();
-    	
-    	if(job.getProvenanceLogging())
-    		dumpProvenance();
+    	else{
+    		try{
+    			executePipeline();
+    			
+    	    	if(job.getProvenanceLogging())
+    	    		dumpProvenance();
+    			
+    		}catch(InterruptedException e){
+    			System.out.println("This thread's execution was interrupted and will quit!");
+    		}
+    	}
     }
    
-    private void executePipeline(){		
+    private void executePipeline() throws InterruptedException {		
 		job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.RUNNING);
     	String resultURL = job.getPipeline().getArtifactURL();
     	
+    	System.out.println(job.getJobStatus());
+    	
     	for(int i = 0; i < job.getPipeline().size(); i ++){
-    		System.out.println(job.getJobStatus());
-    		job.getJobStatus().setCurrentServiceIndex(i);
+    		Thread.sleep(500);
+    		
     		OWLSService viskoService = job.getPipeline().getService(i);
+ 
+       		job.getJobStatus().setCurrentService(viskoService.getURI(), i);
+    		System.out.println(job.getJobStatus());
+    		
     		resultURL = executeService(viskoService, resultURL, i);	    
     	}
     	

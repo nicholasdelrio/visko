@@ -3,7 +3,8 @@ package edu.utep.trustlab.visko.execution;
 public class PipelineExecutorJobStatus {
 	
 	private int totalServiceCount;
-	private int currentService;
+	private int currentServiceIndex;
+	private String currentServiceURI;
 
 	public enum PipelineState {NODATA, EMPTYPIPELINE, RUNNING, COMPLETE, ERROR, NEW};
 	
@@ -11,6 +12,13 @@ public class PipelineExecutorJobStatus {
 	
 	public PipelineExecutorJobStatus(){
 		setPipelineState(PipelineState.NEW);
+		totalServiceCount = 0;
+		currentServiceIndex = 0;
+		currentServiceURI = "No Service Currently Running...";
+	}
+		
+	public String getCurrentServiceURI(){
+		return currentServiceURI;
 	}
 	
 	public void setPipelineState(PipelineState pipeState){
@@ -29,12 +37,13 @@ public class PipelineExecutorJobStatus {
 		return totalServiceCount;
 	}
 	
-	public void setCurrentServiceIndex(int index){
-		currentService = index + 1;
+	public void setCurrentService(String serviceURI, int index){
+		currentServiceIndex = index + 1;
+		currentServiceURI = serviceURI;
 	}
 	
 	public int getCurrentServiceIndex(){
-		return currentService;
+		return currentServiceIndex;
 	}
 	
 	public String toString(){
@@ -47,7 +56,7 @@ public class PipelineExecutorJobStatus {
 				message = "Can't execute pipeline, no input data specified";
 				break;
 			case RUNNING:
-				message = "Executing service " + getCurrentServiceIndex() + " of " + getTotalServiceCount();
+				message = "(" + getCurrentServiceIndex() + " of " + getTotalServiceCount() + ") Executing service: " + getCurrentServiceURI();
 				break;
 			case COMPLETE:
 				message = "Execution Completed";
