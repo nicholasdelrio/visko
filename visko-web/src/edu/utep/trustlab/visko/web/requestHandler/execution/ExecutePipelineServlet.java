@@ -20,24 +20,19 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.web.requestHandler.execution;
 
-
-//import edu.utep.trustlab.visko.web.html.provenance.DataProvenanceHTML;
-//import edu.utep.trustlab.visko.web.html.provenance.VisualizationProvenanceHTML;
-
 import java.io.IOException;
-import java.util.Vector;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.execution.PipelineExecutor;
+import edu.utep.trustlab.visko.execution.PipelineExecutorJob;
 import edu.utep.trustlab.visko.planning.QueryEngine;
+import edu.utep.trustlab.visko.web.context.ViskoWebSession;
 import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerRedirect;
-import edu.utep.trustlab.visko.web.requestHandler.planning.PipelineExecutionStatusBean;
 
 public class ExecutePipelineServlet extends RequestHandlerRedirect {
 	
@@ -52,76 +47,35 @@ public class ExecutePipelineServlet extends RequestHandlerRedirect {
 			captureProvenance = true;
 		
 		int index = Integer.valueOf(stringIndex);
-		QueryEngine engine = (QueryEngine) request.getSession().getAttribute("engine");
+		
+		ViskoWebSession session = (ViskoWebSession) request.getSession().getAttribute(ViskoWebSession.SESSION_ID);
+		QueryEngine engine = session.getQueryEngine();
 		Pipeline pipe = engine.getPipelines().get(index);
 		
-		HttpSession session = request.getSession();
-		
-		PipelineExecutor runningPipeline = (PipelineExecutor)session.getAttribute("runningPipeline");
-		
-		if(runningPipeline == null){
-			System.out.println("kick off new pipeline executor.");
-			runningPipeline = new PipelineExecutor(pipe);
-			session.setAttribute("runningPipeline", runningPipeline);
+		if(!session.hasPipelineExecutor()){
+			
+			System.out.println("Kicking off new pipeline executor...");
+			PipelineExecutorJob job = new PipelineExecutorJob(pipe, captureProvenance);
+			PipelineExecutor runningPipeline = new PipelineExecutor(job);
+			
+			//add the running pipeline to the session object
+			session.setPipelineExecutor(runningPipeline);
 			runningPipeline.process();
-			System.out.println("sending redirect-----------------------------------------------------------");
+			
+			System.out.println("Redirecting to self...");
 			response.sendRedirect("ViskoServletManager?requestType=execute-pipeline&index=" + index);
 		}		
-		else{			
-	        PipelineExecutionStatusBean statusBean = new PipelineExecutionStatusBean();
-	        //
-	        // If the ProcessSimulator (sim) object exists, the process is running.
-	        //
+		else{		
+	        PipelineExecutionStatusBean statusBean = new PipelineExecutionStatusBean(session.getPipelineExecutor().getJob());
 	        
-	        statusBean.setProcessRunning(runningPipeline.isRunning());
-	        statusBean.setMessage(runningPipeline.getStatusMessage());
-
-	        System.out.println("is pipeline running: " + runningPipeline.isRunning());
-	        System.out.println("what is the message: " + runningPipeline.getStatusMessage());
-	            //
-	            // Once the process is complete, remove the binding from 
-	            // the session.
-	            //
-	        if(runningPipeline.isComplete()){
-	        	
-	        	String resultURL = runningPipeline.getResultURL();
-	        	String resultURLHTML;
-	        	if(
-	        			resultURL.endsWith(".jpg") ||
-	        			resultURL.endsWith(".JPG") ||
-	        			resultURL.endsWith(".png") ||
-	        			resultURL.endsWith(".PNG") ||
-	        			resultURL.endsWith(".gif") ||
-	        			resultURL.endsWith(".GIF"))
-	        		resultURLHTML = "<img src=\"" + resultURL + "\" />";
-	        	
-	        	else if(resultURL.endsWith(".pdf") || resultURL.endsWith(".PDF"))
-	        		resultURLHTML = "<a href=\"" + resultURL + "\">Click to view PDF</a>";
-	        	else{
-	        		Vector<String> viewerSets = runningPipeline.getPipeline().getViewerSets();
-	        		resultURLHTML = "<h4>Result</h4>";
-	        		resultURLHTML += "<ul>";
-	        		resultURLHTML += "<li>Resultant URL: <a href=\"" + resultURL + "\">" + resultURL + "</a></li>";
-	        		resultURLHTML += "<li>Viewed Using: " + runningPipeline.getPipeline().getViewerURI();
-	        		resultURLHTML += "<li>Using the ViewerSet(s)</li>";
-	        		resultURLHTML += "<ul>";
-	        		for(String viewerSet : viewerSets)
-	        			resultURLHTML += "<li>" + viewerSet + "</li>";
-	        		
-	        		resultURLHTML += "</ul>";
-	        		resultURLHTML += "</ul>";
-	        	}
-
-	        	statusBean.setMessage(resultURLHTML);
+	        if(!session.getPipelineExecutor().isAlive()){
 	        	statusBean.setLinkToQuery();
-	        	session.removeAttribute("runningPipeline");
+	        	session.removePipelineExecutor();
 	        }
 
 	        request.setAttribute("statusBean", statusBean);
 	        forward(JSP_PAGE, request, response, servlet);
 	        return;
-
-			
 		}		
 	}
 	

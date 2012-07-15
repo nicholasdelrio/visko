@@ -23,6 +23,7 @@ package edu.utep.trustlab.visko.web.requestHandler.planning;
 import javax.servlet.http.HttpServletRequest;
 
 import edu.utep.trustlab.visko.sparql.UTEPProvenanceRDFStore;
+import edu.utep.trustlab.visko.web.context.ViskoWebSession;
 import edu.utep.trustlab.visko.web.html.QueryMessages;
 import edu.utep.trustlab.visko.web.html.QueryHTML;
 import edu.utep.trustlab.visko.web.html.ResultsTableHTML;
@@ -42,14 +43,12 @@ public class ExecuteQueryServlet extends RequestHandlerHTML {
 		String formatURI = rdfStore.getFormatFromArtifactURL(artifactURL);
 		String typeURI = rdfStore.getTypeFromArtifactURL(artifactURL);
 
-		String stringQuery = "SELECT * IN-VIEWER " + viewerSetURI + " FROM "
-				+ artifactURL + " FORMAT " + formatURI + " TYPE " + typeURI;
+		String stringQuery = "SELECT * IN-VIEWER " + viewerSetURI + " FROM " + artifactURL + " FORMAT " + formatURI + " TYPE " + typeURI;
 
 		query = new Query(stringQuery);
 	}
 
 	public String doGet(HttpServletRequest request){
-		// TODO Auto-generated method stub
 		String stringQuery = request.getParameter("query");
 
 		if (stringQuery != null)
@@ -57,24 +56,20 @@ public class ExecuteQueryServlet extends RequestHandlerHTML {
 		else
 			populateQueryForEntryPoint(request);
 
-		System.out.println(query.getArtifactURL());
-		System.out.println(query.getFormatURI());
-		System.out.println(query.getTypeURI());
-		System.out.println(query.getViewerSetURI());
-		System.out.println(query.getViewURI());
-
 		QueryEngine engine = new QueryEngine(query);
-
 		String html = "<h2>VisKo Query</h2>";
+		
 		if (query.isValidQuery()) {
 			// if valid query add the query engine to the session
-			request.getSession().setAttribute("engine", engine);
+			ViskoWebSession session = new ViskoWebSession();
+			session.setQueryEngine(engine);
+			request.getSession().setAttribute(ViskoWebSession.SESSION_ID, session);
 
 			html += QueryHTML.getHTML(query);
 			html += "<hr>";
-
+			
 			html += "<h2>Visualization Pipelines</h2>";
-			html += ResultsTableHTML.getHTML(engine, false);
+			html += ResultsTableHTML.getHTML(engine, true);
 			html += "<hr>";
 		} else {
 			html += "<p>Query is invalid!</p>";
@@ -87,7 +82,6 @@ public class ExecuteQueryServlet extends RequestHandlerHTML {
 
 		if (errors != null || warns != null)
 			html += "<h2>Messages</h2>";
-
 		if (errors != null)
 			html += "<div align=\"left\">" + errors + "</div>";
 		if (warns != null)

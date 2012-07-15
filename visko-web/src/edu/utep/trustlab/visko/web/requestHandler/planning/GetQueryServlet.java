@@ -22,11 +22,13 @@ package edu.utep.trustlab.visko.web.requestHandler.planning;
 
 import javax.servlet.http.HttpServletRequest;
 import edu.utep.trustlab.visko.planning.QueryEngine;
+import edu.utep.trustlab.visko.web.context.ViskoWebSession;
 import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerHTML;
 public class GetQueryServlet extends RequestHandlerHTML{
 
 	public String doGet(HttpServletRequest request){
-		QueryEngine engine = (QueryEngine) request.getSession().getAttribute("engine");
+		ViskoWebSession session = (ViskoWebSession) request.getSession().getAttribute(ViskoWebSession.SESSION_ID);
+		QueryEngine engine = session.getQueryEngine();
 		engine.getQuery();
 				
 		String html = "<h3>Current Query</h3>";

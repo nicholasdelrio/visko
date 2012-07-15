@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.planning.QueryEngine;
+import edu.utep.trustlab.visko.web.context.ViskoWebSession;
 import edu.utep.trustlab.visko.web.json.PipelineGraphData;
 import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerJSON;
 public class GetPipelineJSONServlet extends RequestHandlerJSON{
@@ -33,7 +34,8 @@ public class GetPipelineJSONServlet extends RequestHandlerJSON{
 		String stringIndex = request.getParameter("index");
 		int index = Integer.valueOf(stringIndex);
 
-		QueryEngine engine = (QueryEngine) request.getSession().getAttribute("engine");
+		ViskoWebSession session = (ViskoWebSession) request.getSession().getAttribute(ViskoWebSession.SESSION_ID);
+		QueryEngine engine = session.getQueryEngine();
 
 		Pipeline pipe = engine.getPipelines().get(index);
 		

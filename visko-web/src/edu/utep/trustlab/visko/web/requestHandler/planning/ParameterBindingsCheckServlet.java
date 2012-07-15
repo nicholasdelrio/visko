@@ -33,6 +33,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.planning.QueryEngine;
+import edu.utep.trustlab.visko.web.context.ViskoWebSession;
 import edu.utep.trustlab.visko.web.html.Template;
 import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerRedirect;
 
@@ -50,7 +51,9 @@ public class ParameterBindingsCheckServlet extends RequestHandlerRedirect {
 			useBindingsInURL = true;
 		
 		int index = Integer.valueOf(stringIndex);
-		QueryEngine engine = (QueryEngine) request.getSession().getAttribute("engine");
+		ViskoWebSession session = (ViskoWebSession) request.getSession().getAttribute(ViskoWebSession.SESSION_ID);
+		QueryEngine engine = session.getQueryEngine();
+		
 		Pipeline pipe = engine.getPipelines().get(index);
 
 		if(useBindingsInURL){	
