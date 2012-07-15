@@ -61,6 +61,7 @@ public class PMLNodesetLogger {
 		//set up inference step
 		IWInferenceStep is = (IWInferenceStep) PMLObjectManager.createPMLObject(PMLJ.InferenceStep_lname);
 		is.setHasInferenceRule(ir);
+		is.setHasInferenceEngine(PMLResourceURI.ENGINE_VISKO_WEB_SERVICE);
 		
 		//set up conclusion
 		IWInformation conclusion = (IWInformation) PMLObjectManager.createPMLObject(PMLP.Information_lname);
@@ -82,18 +83,17 @@ public class PMLNodesetLogger {
 			if (!valueString.equals(inDatasetURL)) {
 
 				//set up rule
-				String directAssertionRule = "http://inference-web.org/registry/DPR/Told.owl#Told";
 				IWInferenceRule paramIR = (IWInferenceRule) PMLObjectManager.createPMLObject(PMLP.InferenceRule_lname);
-				paramIR.setIdentifier(PMLObjectManager.getObjectID(directAssertionRule));
+				paramIR.setIdentifier(PMLObjectManager.getObjectID(PMLResourceURI.RULE_DIRECT_ASSERTION));
 				
 				//set up inference step
 				IWInferenceStep paramIS = (IWInferenceStep) PMLObjectManager.createPMLObject(PMLJ.InferenceStep_lname);
 				paramIS.setHasInferenceRule(paramIR);
+				paramIS.setHasInferenceEngine(PMLResourceURI.ENGINE_VISKO_PARAMETER_BINDER);
 				
 				//set up conclusion
 				IWInformation paramConclusion = (IWInformation) PMLObjectManager.createPMLObject(PMLP.Information_lname);
-				String paramFormatURI = "https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/formats/PLAIN.owl#PLAIN";
-				paramConclusion.setHasFormat(paramFormatURI);
+				paramConclusion.setHasFormat(PMLResourceURI.FORMAT_PLAIN_TEXT);
 				paramConclusion.setHasRawString(var.getURI() + " = " + valueString);
 				
 				//set up nodeset
