@@ -80,7 +80,7 @@ public class Query {
 	public static void main(String[] args){
 		
 		ViskoTripleStore.setEndpointURL("http://iw.cs.utep.edu/visko-web/ViskoServletManager?requestType=query-triple-store");
-		LocalFileSystem fs = new LocalFileSystem("http://test/datadump/", "C:/Users/Public/git/visko/api/output/");
+		LocalFileSystem fs = new LocalFileSystem("http://iw.cs.utep.edu:8080/toolkits/output/", "C:/Users/Public/git/visko/api/output/");
 		ContentManager.setWorkspacePath("C:/Users/Public/git/visko/api/output/");
 		ContentManager.setProvenanceContentManager(fs);
 		

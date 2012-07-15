@@ -94,7 +94,7 @@ public class PMLNodesetLogger {
 				IWInformation paramConclusion = (IWInformation) PMLObjectManager.createPMLObject(PMLP.Information_lname);
 				String paramFormatURI = "https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/formats/PLAIN.owl#PLAIN";
 				paramConclusion.setHasFormat(paramFormatURI);
-				paramConclusion.setHasRawString(valueString);
+				paramConclusion.setHasRawString(var.getURI() + " = " + valueString);
 				
 				//set up nodeset
 				String nodesetNameParameter = baseNodesetNameParameter + "-" + FileUtils.getRandomFileName();

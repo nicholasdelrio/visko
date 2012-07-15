@@ -5,9 +5,13 @@ public class PipelineExecutorJobStatus {
 	private int totalServiceCount;
 	private int currentService;
 
-	public enum PipelineState {NODATA, EMPTYPIPELINE, RUNNING, COMPLETE, ERROR};
+	public enum PipelineState {NODATA, EMPTYPIPELINE, RUNNING, COMPLETE, ERROR, NEW};
 	
 	private PipelineState state;
+	
+	public PipelineExecutorJobStatus(){
+		setPipelineState(PipelineState.NEW);
+	}
 	
 	public void setPipelineState(PipelineState pipeState){
 		state = pipeState;
@@ -33,7 +37,7 @@ public class PipelineExecutorJobStatus {
 		return currentService;
 	}
 	
-	public String getExecutionMessage(){
+	public String toString(){
 		String message;
 		switch(getPipelineState()){
 			case NODATA:
@@ -50,6 +54,9 @@ public class PipelineExecutorJobStatus {
 				break;
 			case ERROR:
 				message = "Execution Error";
+				break;
+			case NEW:
+				message = "Pre execution stage";
 				break;
 			default:
 				message = "State of execution unknown";

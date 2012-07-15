@@ -67,7 +67,7 @@ public class PipelineExecutor implements Runnable {
 	}
 
 	public void process(){
-		if(!isAlive()){
+		if(job.getJobStatus().getPipelineState() ==  PipelineExecutorJobStatus.PipelineState.NEW){
 			t = new Thread(this);
 			t.setDaemon(true);
 			t.start();
@@ -93,6 +93,7 @@ public class PipelineExecutor implements Runnable {
     	String resultURL = job.getPipeline().getArtifactURL();
     	
     	for(int i = 0; i < job.getPipeline().size(); i ++){
+    		System.out.println(job.getJobStatus());
     		job.getJobStatus().setCurrentServiceIndex(i);
     		OWLSService viskoService = job.getPipeline().getService(i);
     		resultURL = executeService(viskoService, resultURL, i);	    
