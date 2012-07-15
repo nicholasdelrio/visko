@@ -49,7 +49,7 @@ public class PipelineExecutionStatusBean{
     	
     	if(job.getProvenanceLogging()){
     		resultMessage += "<h4>Provenance Information</h4>";
-    		resultMessage += "<p>PML Query URI: " + job.getPMLQueryURI();
+    		resultMessage += "<p>PML Query URI: " + job.getPMLQueryURI() + "</p>";
     	}
     	
     	if(
