@@ -32,10 +32,10 @@ public class ResultsTableHTML {
 		PipelineSet pipes = engine.getPipelines();
 
 		if (pipes.size() > 0 && withProvenance) {
-			html += "<tr><td><b>Run</b><td><b>Configure</b></td></td><td><b>Resulting View</b></td><td><b>Run and Capture Provenance</b></td><td><b>Description</b></td></tr>";
+			html += "<tr><td><b>Index</b></td><td><b>Run</b><td><b>Configure</b></td></td><td><b>Resulting View</b></td><td><b>Run and Capture Provenance</b></td><td><b>Description</b></td></tr>";
 			html += getVisualizationAndPipelineResultRows(pipes, true, engine.getQuery().hasValidDataPointer());
 		} else if (pipes.size() > 0 && !withProvenance) {
-			html += "<tr><td><b>Run</b></td><td><b>Configure</b></td><td><b>Resulting View</b></td><td><b>Description</b></td></tr>";
+			html += "<tr><td><b>Index</b></td><td><b>Run</b></td><td><b>Configure</b></td><td><b>Resulting View</b></td><td><b>Description</b></td></tr>";
 			html += getVisualizationAndPipelineResultRows(pipes, false, engine.getQuery().hasValidDataPointer());
 		} else if (!(pipes.size() > 0)) {
 			html += "<tr><td><p>Empty Set</p></td></tr>";
@@ -53,6 +53,7 @@ public class ResultsTableHTML {
 		String html = "";
 		for (int i = 0; i < pipes.size(); i++) {
 			html += "<tr>";
+			html += "<td>" + i + "</td>";
 			html += "<td>" + getExecutePipelineLink(i, pipes.getArtifactURL(), pipes.get(i).requiresInputURL(), pipes.get(i).hasAllInputParameters(), validDatasetReference) + "</td>";
 			html += "<td>" + getEditParametersLink(i);
 			html += "<td>" + getViewLink(pipes.get(i).getViewURI()) + "</td>";
