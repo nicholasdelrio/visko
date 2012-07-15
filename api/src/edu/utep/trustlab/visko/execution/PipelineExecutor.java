@@ -76,10 +76,10 @@ public class PipelineExecutor implements Runnable {
 	
     public void run(){    	
     	if(!job.getPipeline().hasInputData())
-    		job.getJobStatus().setPipelineState(JobStatus.PipelineState.NODATA);
+    		job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.NODATA);
     	
     	else if(job.getPipeline().isEmpty())
-    		job.getJobStatus().setPipelineState(JobStatus.PipelineState.EMPTYPIPELINE);
+    		job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.EMPTYPIPELINE);
     	
     	else
     		executePipeline();
@@ -89,7 +89,7 @@ public class PipelineExecutor implements Runnable {
     }
    
     private void executePipeline(){		
-		job.getJobStatus().setPipelineState(JobStatus.PipelineState.RUNNING);
+		job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.RUNNING);
     	String resultURL = job.getPipeline().getArtifactURL();
     	
     	for(int i = 0; i < job.getPipeline().size(); i ++){
@@ -99,7 +99,7 @@ public class PipelineExecutor implements Runnable {
     	}
     	
     	job.setFinalResultURL(resultURL);
-    	job.getJobStatus().setPipelineState(JobStatus.PipelineState.COMPLETE);
+    	job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.COMPLETE);
     }
     
     private void dumpProvenance(){

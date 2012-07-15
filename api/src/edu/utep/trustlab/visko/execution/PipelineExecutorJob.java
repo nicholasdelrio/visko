@@ -11,15 +11,15 @@ public class PipelineExecutorJob {
 	private String pmlNodesetURI;
 	private String pmlQueryURI;
 	
-	private JobStatus status;
+	private PipelineExecutorJobStatus status;
 	
 	public PipelineExecutorJob(Pipeline pipelineToExecute, boolean logProvenance){
 		pipe = pipelineToExecute;
 		provenance = logProvenance;
-		status = new JobStatus();
+		status = new PipelineExecutorJobStatus();
 	}
     
-	public JobStatus getJobStatus(){
+	public PipelineExecutorJobStatus getJobStatus(){
 		return status;
 	}
 	
