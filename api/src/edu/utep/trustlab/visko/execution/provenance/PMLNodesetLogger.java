@@ -53,14 +53,9 @@ public class PMLNodesetLogger {
 	}
 
 	public void captureProcessingStep(OWLSService service, String inDatasetURL, String outDatasetURL, ValueMap<Input, OWLValue> inputValueMap) {
-		//set up nodeset for service pipeline step
-		//set up rule
-
-		IWInferenceRule ir = (IWInferenceRule) PMLObjectManager.getPMLObjectFromURI(service.getConceptualOperator().getURI());
-		
 		//set up inference step
 		IWInferenceStep is = (IWInferenceStep) PMLObjectManager.createPMLObject(PMLJ.InferenceStep_lname);
-		is.setHasInferenceRule(ir);
+		is.setHasInferenceRule(service.getConceptualOperator().getURI());
 		is.setHasInferenceEngine(PMLResourceURI.ENGINE_VISKO_WEB_SERVICE);
 		
 		//set up conclusion
@@ -80,15 +75,10 @@ public class PMLNodesetLogger {
 			OWLValue value = inputValueMap.getValue(var);
 			String valueString = value.toString();
 
-			if (!valueString.equals(inDatasetURL)) {
-
-				//set up rule
-				IWInferenceRule paramIR = (IWInferenceRule) PMLObjectManager.createPMLObject(PMLP.InferenceRule_lname);
-				paramIR.setIdentifier(PMLObjectManager.getObjectID(PMLResourceURI.RULE_DIRECT_ASSERTION));
-				
+			if (!valueString.equals(inDatasetURL)) {				
 				//set up inference step
 				IWInferenceStep paramIS = (IWInferenceStep) PMLObjectManager.createPMLObject(PMLJ.InferenceStep_lname);
-				paramIS.setHasInferenceRule(paramIR);
+				paramIS.setHasInferenceRule(PMLResourceURI.RULE_DIRECT_ASSERTION);
 				paramIS.setHasInferenceEngine(PMLResourceURI.ENGINE_VISKO_PARAMETER_BINDER);
 				
 				//set up conclusion
