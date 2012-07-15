@@ -4,6 +4,10 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import edu.utep.trustlab.contentManagement.AlfrescoClient;
+import edu.utep.trustlab.contentManagement.CIServer;
+import edu.utep.trustlab.contentManagement.ContentManager;
+import edu.utep.trustlab.contentManagement.LocalFileSystem;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.web.html.Template;
 import edu.utep.trustlab.visko.web.requestHandler.sparql.TDBTripleStore;
@@ -19,10 +23,64 @@ public class ContextListener implements ServletContextListener {
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
 		ServletContext context = event.getServletContext();
+		
+		//SPARQL Query Support
 		setViskoSPARQLEndpointURL(context);
 		setViskoTDBFilePath(context);
+		
+		//HTML Template Customization
 		setLogo(context);
 		setOrganization(context);
+		
+		//Provenance content manager
+		setProvenanceContentManger(context);
+	}
+	
+	private static void setProvenanceContentManger(ServletContext context){
+		String managerType = context.getInitParameter("content-manager-type");
+		
+		ContentManager manager;
+		if(managerType.equals("local"))
+			manager = getContentManagerProvenanceLocal(context);
+		else if(managerType.equals("ci-server"))
+			manager = getContentManagerProvenanceCIServer(context);
+		else
+			manager = getContentManagerProvenanceAlfresco(context);
+		
+		ContentManager.setProvenanceContentManager(manager);
+	}
+
+	private static ContentManager getContentManagerProvenanceAlfresco(ServletContext context){
+		String contentManagerURL = context.getInitParameter("content-manager-url");
+		String contentManagerUsername = context.getInitParameter("content-manager-username");
+		String contentManagerPassword = context.getInitParameter("content-manager-password");
+		String contentManagerProject = context.getInitParameter("content-manager-project");
+		
+		AlfrescoClient alfresco = new AlfrescoClient(contentManagerURL, contentManagerUsername, contentManagerPassword);
+		alfresco.setProjectName(contentManagerProject);
+		return alfresco;
+	}
+	
+	private static ContentManager getContentManagerProvenanceCIServer(ServletContext context){
+		String contentManagerURL = context.getInitParameter("content-manager-url");
+		String contentManagerUsername = context.getInitParameter("content-manager-username");
+		String contentManagerPassword = context.getInitParameter("content-manager-password");
+		String contentManagerProject = context.getInitParameter("content-manager-project");
+		
+		CIServer ciServer = new CIServer(contentManagerURL, contentManagerUsername, contentManagerPassword);
+		ciServer.setProjectName(contentManagerProject);
+		return ciServer;
+	}
+	
+	private static ContentManager getContentManagerProvenanceLocal(ServletContext context){
+		String serverURL = context.getInitParameter("server-url");
+		String serverBasePath = context.getInitParameter("server-base-path");
+		
+		String pmlBaseURL = serverURL + "/output/";
+		String pmlBasePath = serverBasePath + "/output/";
+		
+		LocalFileSystem fs = new LocalFileSystem(pmlBaseURL, pmlBasePath);
+		return fs;
 	}
 
 	private static void setOrganization(ServletContext context){
