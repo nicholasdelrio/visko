@@ -68,7 +68,7 @@
 <br>
 
 <p>Submit Your Own Questions in SPARQL</p>
-<ul><li><a href="sparql-query.html">Your SPARQL Query Endpoint</a></li></ul>
+<ul><li><a href="sparql-query.jsp">Your SPARQL Query Endpoint</a></li></ul>
 
 </div>
 </div>

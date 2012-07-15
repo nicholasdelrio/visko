@@ -33,6 +33,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.planning.QueryEngine;
+import edu.utep.trustlab.visko.web.html.Template;
 import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerRedirect;
 
 public class ParameterBindingsCheckServlet extends RequestHandlerRedirect {
@@ -63,7 +64,10 @@ public class ParameterBindingsCheckServlet extends RequestHandlerRedirect {
 				for(String paramURI : pipe.getUnboundParameters()){
 					errorHTML += "<li>" + paramURI + "</li>\n";
 				}
-				response.getWriter().write(errorHTML += "</ul>");
+				
+				errorHTML += "</ul>";
+				errorHTML = Template.getCompleteHeader() + errorHTML + Template.getCompleteFooter();
+				response.getWriter().write(errorHTML);
 				return;
 			}
 		}
