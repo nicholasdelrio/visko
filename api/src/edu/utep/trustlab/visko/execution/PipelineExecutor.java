@@ -62,37 +62,37 @@ public class PipelineExecutor implements Runnable {
 	private Process process;
 	private ValueMap<Output, OWLValue> outputs;
 	private ProcessExecutionEngine exec;
-	private Pipeline pipeline;
-	private String resultURL;
 	
     private boolean complete = false;
     private boolean running = false;
     private String statusMessage = "Pipeline execution has not begun.";
     private Thread t;
     
+    private PipelineExecutorJob job;
+    
     //provenance variables
     private PMLNodesetLogger traceLogger;
     private PMLQueryLogger queryLogger;
-    private String pmlNodesetURI;
-    private String pmlQueryURI;
-    private boolean provenance;
 	
-	public PipelineExecutor(Pipeline aPipeline, boolean captureProvenance) {
-		pipeline = aPipeline;
-		provenance = captureProvenance;
+	public PipelineExecutor(PipelineExecutorJob pipelineJob) {
+		job = pipelineJob;
 		
-		if(provenance){
+		if(job.getProvenanceLogging()){
 			traceLogger = new PMLNodesetLogger();
 			queryLogger = new PMLQueryLogger();
 		}
 	}
+
+	public PipelineExecutorJob getJob(){
+		return job;
+	}
 	
-	public Pipeline getPipeline(){
-		return pipeline;
+	public boolean isAlive(){
+		return t.isAlive();
 	}
 
 	public void process(){
-		if(!isRunning()){
+		if(!isAlive()){
 			this.statusMessage = "Starting pipeline execution.";
 			try{
 				t = new Thread(this);

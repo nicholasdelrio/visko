@@ -38,14 +38,13 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.planning;
+package edu.utep.trustlab.visko.execution;
 
 import java.io.*;
 
 import org.w3c.dom.*;
 
 import edu.utep.trustlab.visko.planning.Pipeline;
-import edu.utep.trustlab.visko.execution.PipelineExecutor;
 import edu.utep.trustlab.visko.planning.PipelineSet;
 
 import javax.xml.parsers.*;
@@ -80,8 +79,8 @@ public class PipelineToXMLVisualizationSet {
 				if (pipe.hasAllInputParameters()) {
 					Element visualization = doc.createElement("Visualization");
 					visualization.setAttribute("targetViewer", pipe.getViewer().getURI());
-					
-					PipelineExecutor executor = new PipelineExecutor(pipe, false);
+					PipelineExecutorJob job = new PipelineExecutorJob(pipe, false);
+					PipelineExecutor executor = new PipelineExecutor(job);
 					executor.run();
 					String resultURL = executor.getResultURL();
 					

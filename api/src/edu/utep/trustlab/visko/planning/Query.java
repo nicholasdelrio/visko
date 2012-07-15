@@ -47,6 +47,7 @@ import java.util.Vector;
 import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.contentManagement.LocalFileSystem;
 import edu.utep.trustlab.visko.execution.PipelineExecutor;
+import edu.utep.trustlab.visko.execution.PipelineExecutorJob;
 import edu.utep.trustlab.visko.planning.Query;
 import edu.utep.trustlab.visko.planning.queryParsing.QueryParser;
 import edu.utep.trustlab.visko.planning.queryParsing.QueryParserV2;
@@ -97,7 +98,8 @@ public class Query {
 		
 		Thread t;
 		if(pipes.size() > 0){
-			PipelineExecutor executor = new PipelineExecutor(pipes.firstElement(), true);
+			PipelineExecutorJob job = new PipelineExecutorJob(pipes.firstElement(), true);
+			PipelineExecutor executor = new PipelineExecutor(job);
 			//executor.process();
 			
 			t = new Thread(executor);
