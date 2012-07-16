@@ -62,6 +62,9 @@ public class Query {
 	private String viewerSetURI;
 	private HashMap<String, String> parameterBindings;
 	
+	
+	private String inputQuery;
+	
 	// optional information used for filtering paths
 	private String typeURI;
 	private String viewURI;
@@ -109,7 +112,10 @@ public class Query {
 	}
 	
 	public Query(String queryString) {
+		inputQuery = queryString;
+		
 		parameterBindings = new HashMap<String, String>();
+		
 		parser = new QueryParserV3(queryString);
 		
 		parser.parse();
@@ -252,6 +258,10 @@ public class Query {
 		return reconstructedQuery;
 	}
 
+	public String getInputQuery(){
+		return inputQuery;
+	}
+	
 	public String toString() {
 		if(parser == null)
 			return constructQueryFromVariables();

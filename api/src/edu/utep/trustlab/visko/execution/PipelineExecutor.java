@@ -46,6 +46,9 @@ public class PipelineExecutor implements Runnable {
     private PMLNodesetLogger traceLogger;
     private PMLQueryLogger queryLogger;
 	
+    //use our own interrupt facility, since calling Thread.interrupt() leaves Jena in a crappy unusable state
+    private boolean isScheduledForTermination;
+    
 	public PipelineExecutor(PipelineExecutorJob pipelineJob) {
 		job = pipelineJob;
 		
@@ -56,6 +59,7 @@ public class PipelineExecutor implements Runnable {
 
     	job.getJobStatus().setTotalServiceCount(job.getPipeline().size());
 	  	exec = OWLSFactory.createExecutionEngine();	
+	  	isScheduledForTermination = false;
 	}
 
 	public PipelineExecutorJob getJob(){
@@ -66,8 +70,12 @@ public class PipelineExecutor implements Runnable {
 		return t.isAlive();
 	}
 	
-	public void interrupt(){
-		t.interrupt();
+	public void scheduleForTermination(){
+		isScheduledForTermination = true;
+	}
+	
+	public boolean isScheduledForTermination(){
+		return isScheduledForTermination;
 	}
 
 	public void process(){
@@ -86,36 +94,35 @@ public class PipelineExecutor implements Runnable {
     		job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.EMPTYPIPELINE);
     	
     	else{
-    		try{
-    			executePipeline();
-    			    			
-    	    	if(job.getProvenanceLogging())
-    	    		dumpProvenance();
+    		executePipeline();
+    		
+    	    if(job.getProvenanceLogging())
+    	    	dumpProvenance();
 
-    	    	job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.COMPLETE);
-
-    		}catch(InterruptedException e){
-    			System.out.println("This thread's execution was interrupted and will quit!");
-    	    	job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.INTERRUPTED);
-    		}
+    	    job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.COMPLETE);
     	}
     }
    
-    private void executePipeline() throws InterruptedException {		
+    private void executePipeline(){		
 		job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.RUNNING);
     	String resultURL = job.getPipeline().getArtifactURL();
     	
     	System.out.println(job.getJobStatus());
     	
     	for(int i = 0; i < job.getPipeline().size(); i ++){
-    		Thread.sleep(500);
     		
     		OWLSService viskoService = job.getPipeline().getService(i);
  
        		job.getJobStatus().setCurrentService(viskoService.getURI(), i);
     		System.out.println(job.getJobStatus());
     		
-    		resultURL = executeService(viskoService, resultURL, i);	    
+    		resultURL = executeService(viskoService, resultURL, i);
+    		
+    		if(isScheduledForTermination){
+    			System.out.println("This thread's execution was interrupted and will quit!");
+    	    	job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.INTERRUPTED);
+    	    	break;
+    		}
     	}
     	
     	job.setFinalResultURL(resultURL);

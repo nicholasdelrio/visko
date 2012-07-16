@@ -6,10 +6,10 @@ import edu.utep.trustlab.visko.execution.PipelineExecutorJob;
 import edu.utep.trustlab.visko.execution.PipelineExecutorJobStatus;
 
 public class ExecutePipelineStatusBean{
-    
-	private int refreshRate = 1;
-    private String linkToQuery = "";
-    
+
+	private static final int refreshRate = 3;
+	
+	private String linkToQuery = "";
     private PipelineExecutorJob job;
     
     public ExecutePipelineStatusBean(PipelineExecutorJob executorJob){
@@ -18,7 +18,7 @@ public class ExecutePipelineStatusBean{
     
     public String getCancelButton(){
     	String formHTML = "<form name=\"input\" action=\"ViskoServletManager\" method=\"get\">";
-    	formHTML += "<input type=\"hidden\" name=\"requestType\" value=\"cancel-pipeline-execution\">";
+    	formHTML += "<input type=\"hidden\" name=\"requestType\" value=\"cancel-pipeline-execution\">";  	    		    	
     	formHTML += "<input type=\"submit\" value=\"Cancel Pipeline Execution\" />";
     	formHTML += "</form>";
     	
@@ -43,11 +43,11 @@ public class ExecutePipelineStatusBean{
     		case INTERRUPTED:
     			message = job.getJobStatus().toString();
     			break;
-    		case COMPLETE:
-    			message = getCompletedMessage();
-    			break;
     		case RUNNING:
     			message = job.getJobStatus().toString();
+    			break;
+    		case COMPLETE:
+    			message = getCompletedMessage();
     			break;
     		default:
     			message = job.getJobStatus().toString();
@@ -113,10 +113,6 @@ public class ExecutePipelineStatusBean{
 
     public int getRefreshRate(){
         return refreshRate;
-    }
-
-    public void setRefreshRate(int refreshRate){
-        this.refreshRate = refreshRate;
     }
 
     public String getRefreshTag(){

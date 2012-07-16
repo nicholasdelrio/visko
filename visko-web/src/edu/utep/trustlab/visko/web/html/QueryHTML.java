@@ -24,10 +24,17 @@ import edu.utep.trustlab.visko.planning.Query;
 
 public class QueryHTML {
 	public static String getHTML(Query query) {
-		String strQuery = query.toString();
-		String html = "<pre>";
+		String strQuery;
+		
+		if(query.getInputQuery() != null)
+			strQuery = query.getInputQuery();
+		else
+			strQuery = query.toString();
+		
+		String html = "<textarea style=\"width: 989px; height: 152px; background-color: #AFEEEE\" readonly=\"readonly\">";
 		html += strQuery;
-		html += "</pre>";
+		html += "</textarea>";
+		
 		return html;
 	}
 }

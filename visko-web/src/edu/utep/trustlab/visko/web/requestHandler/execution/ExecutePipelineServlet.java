@@ -62,7 +62,10 @@ public class ExecutePipelineServlet extends RequestHandlerRedirect {
 			runningPipeline.process();
 			
 			System.out.println("Redirecting to self...");
-			response.sendRedirect("ViskoServletManager?requestType=execute-pipeline&index=" + index);
+			if(captureProvenance)
+				response.sendRedirect("ViskoServletManager?provenance=true&requestType=execute-pipeline&index=" + index);
+			else
+				response.sendRedirect("ViskoServletManager?provenance=true&requestType=execute-pipeline&index=" + index);
 		}	
 		else{		
 	        statusBean = new ExecutePipelineStatusBean(session.getPipelineExecutor().getJob());

@@ -31,8 +31,6 @@ import edu.utep.trustlab.visko.web.context.ViskoWebSession;
 import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerRedirect;
 
 public class ExecutePipelineCancelServlet extends RequestHandlerRedirect {
-	
-	public static final String JSP_PAGE = "/ExecutePipelineCancel.jsp";
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response, HttpServlet servlet) throws IOException, ServletException {				
 		ViskoWebSession session = (ViskoWebSession) request.getSession().getAttribute(ViskoWebSession.SESSION_ID);
@@ -40,17 +38,15 @@ public class ExecutePipelineCancelServlet extends RequestHandlerRedirect {
 		//if the pipeline is running correctly
 		if(session.hasPipelineExecutor() && session.getPipelineExecutor().isAlive()){
 			//kill and remove it then
-			session.getPipelineExecutor().interrupt();
+			session.getPipelineExecutor().scheduleForTermination();
 			session.removePipelineExecutor();
 		}
 		//if the pipeline has died for some reason before we process this cancellation
 		else if(session.hasPipelineExecutor() && !session.getPipelineExecutor().isAlive())
 			//just remove it
 			session.removePipelineExecutor();
-		else //if the pipeline executor has been removed for some reason? do nothing
-			;
 		
-        forward(JSP_PAGE, request, response, servlet);
+        forward("/ViskoServletManager?requestType=execute-query&reuse=true", request, response, servlet);
 	}
 	
 	 /*

@@ -34,7 +34,8 @@ import edu.utep.trustlab.visko.planning.QueryEngine;
 public class ExecuteQueryServlet extends RequestHandlerHTML {
 
 	private Query query;
-
+	private QueryEngine engine;
+	
 	private void populateQueryForEntryPoint(HttpServletRequest request) {
 		String artifactURL = request.getParameter("artifactURL");
 		String viewerSetURI = request.getParameter("viewerSetURI");
@@ -50,13 +51,21 @@ public class ExecuteQueryServlet extends RequestHandlerHTML {
 
 	public String doGet(HttpServletRequest request){
 		String stringQuery = request.getParameter("query");
-
-		if (stringQuery != null)
+		String reuse = request.getParameter("reuse");
+		
+		if(reuse != null){
+			ViskoWebSession session = (ViskoWebSession)request.getSession().getAttribute(ViskoWebSession.SESSION_ID);
+			engine = session.getQueryEngine();
+			query = engine.getQuery();
+		}
+		else if (stringQuery != null)
 			query = new Query(stringQuery);
 		else
 			populateQueryForEntryPoint(request);
 
-		QueryEngine engine = new QueryEngine(query);
+		if(engine == null)
+			engine = new QueryEngine(query);
+		
 		String html = "<h2>VisKo Query</h2>";
 		
 		if (query.isValidQuery()) {
@@ -66,7 +75,6 @@ public class ExecuteQueryServlet extends RequestHandlerHTML {
 			request.getSession().setAttribute(ViskoWebSession.SESSION_ID, session);
 
 			html += QueryHTML.getHTML(query);
-			html += "<hr>";
 			
 			html += "<h2>Visualization Pipelines</h2>";
 			html += ResultsTableHTML.getHTML(engine, true);

@@ -1,5 +1,7 @@
 package edu.utep.trustlab.visko.execution;
 
+import edu.utep.trustlab.visko.planning.Pipeline;
+
 public class PipelineExecutorJobStatus {
 	
 	private int totalServiceCount;
@@ -44,6 +46,10 @@ public class PipelineExecutorJobStatus {
 	
 	public int getCurrentServiceIndex(){
 		return currentServiceIndex;
+	}
+	
+	public boolean didJobCompletedNormally(){
+		return getPipelineState() == PipelineState.COMPLETE;
 	}
 	
 	public boolean isJobCompleted(){
