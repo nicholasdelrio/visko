@@ -5,14 +5,27 @@ import java.util.Vector;
 import edu.utep.trustlab.visko.execution.PipelineExecutorJob;
 import edu.utep.trustlab.visko.execution.PipelineExecutorJobStatus;
 
-public class PipelineExecutionStatusBean{
-    private int refreshRate = 2;
+public class ExecutePipelineStatusBean{
+    
+	private int refreshRate = 1;
     private String linkToQuery = "";
-
+    
     private PipelineExecutorJob job;
     
-    public PipelineExecutionStatusBean(PipelineExecutorJob executorJob){
+    public ExecutePipelineStatusBean(PipelineExecutorJob executorJob){
     	job = executorJob;
+    }
+    
+    public String getCancelButton(){
+    	String formHTML = "<form name=\"input\" action=\"ViskoServletManager\" method=\"get\">";
+    	formHTML += "<input type=\"hidden\" name=\"requestType\" value=\"cancel-pipeline-execution\">";
+    	formHTML += "<input type=\"submit\" value=\"Cancel Pipeline Execution\" />";
+    	formHTML += "</form>";
+    	
+    	if(!job.getJobStatus().isJobCompleted())
+    		return formHTML;
+    	
+    	return "";
     }
     
     public String getMessage(){
@@ -29,6 +42,7 @@ public class PipelineExecutionStatusBean{
     			break;
     		case INTERRUPTED:
     			message = job.getJobStatus().toString();
+    			break;
     		case COMPLETE:
     			message = getCompletedMessage();
     			break;
@@ -45,6 +59,10 @@ public class PipelineExecutionStatusBean{
     
     public String getCompletedMessage(){
     	String resultURL = job.getFinalResultURL();
+    	
+    	if(resultURL == null)
+    		return "No result generated!";
+    	
     	String resultMessage = "";
     	if(
     			resultURL.endsWith(".jpg") ||
@@ -78,7 +96,7 @@ public class PipelineExecutionStatusBean{
    
     public void setLinkToQuery(){
     	String provenanceLink = "Provenance logging not enabled for this run.";
-    	if(job.getProvenanceLogging())
+    	if(job.getProvenanceLogging() && job.getPMLQueryURI() != null)
     		provenanceLink = "<a href=\"" + job.getPMLQueryURI() + "\">" + job.getPMLQueryURI() + "</a>";    	
     	
     	linkToQuery =
