@@ -70,7 +70,7 @@ public class ResultsTableHTML {
 	}
 	
 	private static String getURIFragment(String uri){
-		return uri.substring(uri.indexOf("#"));
+		return uri.substring(uri.indexOf("#") + 1);
 	}
 	
 	private static String getViewLink(String viewURI){	

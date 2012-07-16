@@ -46,13 +46,6 @@ public class ExecutePipelineCancelServlet extends RequestHandlerRedirect {
 			//just remove it
 			session.removePipelineExecutor();
 		
-        forward("/ViskoServletManager?requestType=execute-query&reuse=true", request, response, servlet);
-	}
-	
-	 /*
-     * private method for forwarding to the view.
-     */
-    private void forward(String resource, HttpServletRequest  request, HttpServletResponse response, HttpServlet servlet) throws ServletException, IOException{
-        servlet.getServletContext().getRequestDispatcher(resource).forward(request, response);
-    }
+		response.sendRedirect("ViskoServletManager?requestType=execute-query&reuse=true");
+	}	
 }
