@@ -96,7 +96,9 @@ public class PipelineHTML {
 			html += getInputFormatList(service.getConceptualOperator()
 					.getOperatesOnFormats()) + "</li>";
 			html += "</ul>";
-			html += "<hr>";
+			html += "<br/>";
+			html += "<hr/>";
+			html += "<br/>";
 		}
 		html += "</ol>";
 
