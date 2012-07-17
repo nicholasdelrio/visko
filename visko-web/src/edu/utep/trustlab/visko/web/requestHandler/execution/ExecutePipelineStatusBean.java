@@ -95,9 +95,14 @@ public class ExecutePipelineStatusBean{
     }
    
     public void setLinkToQuery(){
-    	String provenanceLink = "Provenance logging not enabled for this run.";
-    	if(job.getProvenanceLogging() && job.getPMLQueryURI() != null)
+    	String provenanceLink;
+    	
+    	if(job.getProvenanceLogging() && job.getPMLQueryURI() == null)
+    		provenanceLink = "An error occurred recording provenance data!";
+    	else if(job.getProvenanceLogging() && job.getPMLQueryURI() != null)
     		provenanceLink = "<a href=\"" + job.getPMLQueryURI() + "\">" + job.getPMLQueryURI() + "</a>";    	
+    	else
+    		provenanceLink = "Provenance logging not enabled for this run.";
     	
     	linkToQuery =
     			"<br>"

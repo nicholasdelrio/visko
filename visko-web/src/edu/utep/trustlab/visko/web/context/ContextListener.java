@@ -42,10 +42,12 @@ public class ContextListener implements ServletContextListener {
 		ContentManager manager;
 		if(managerType.equals("local"))
 			manager = getContentManagerProvenanceLocal(context);
-		else if(managerType.equals("ci-server"))
+		else if(managerType.equals("ciserver"))
 			manager = getContentManagerProvenanceCIServer(context);
-		else
+		else if(managerType.equals("alfresco"))
 			manager = getContentManagerProvenanceAlfresco(context);
+		else
+			manager = getContentManagerProvenanceLocal(context);
 		
 		ContentManager.setProvenanceContentManager(manager);
 	}

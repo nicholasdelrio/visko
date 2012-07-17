@@ -70,7 +70,7 @@ public class ExecutePipelineServlet extends RequestHandlerRedirect {
 		else{		
 	        statusBean = new ExecutePipelineStatusBean(session.getPipelineExecutor().getJob());
 	        
-	        if(!session.getPipelineExecutor().isAlive()){
+	        if(!session.getPipelineExecutor().isAlive() || session.getPipelineExecutor().getJob().getJobStatus().isJobCompleted()){
 	        	statusBean.setLinkToQuery();
 	        	session.removePipelineExecutor();
 	        }

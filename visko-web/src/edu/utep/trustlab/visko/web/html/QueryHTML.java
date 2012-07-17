@@ -31,9 +31,9 @@ public class QueryHTML {
 		else
 			strQuery = query.toString();
 		
-		String html = "<textarea style=\"width: 989px; height: 152px; background-color: #AFEEEE\" readonly=\"readonly\">";
+		String html = "<center><textarea style=\"width: 989px; height: 152px; background-color: #AFEEEE\" readonly=\"readonly\">";
 		html += strQuery;
-		html += "</textarea>";
+		html += "</textarea></center>";
 		
 		return html;
 	}
