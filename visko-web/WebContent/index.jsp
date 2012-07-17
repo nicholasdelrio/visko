@@ -182,7 +182,7 @@ function writeQuery()
 			onchange="writeQuery()" id="viewURIs"><%=o.getViskoViews() %></select></td>
 	</tr>
 	<tr>
-		<td>Select ViewerSet (optional)</td>
+		<td>Select ViewerSet</td>
 		<td align="right"><select style="width: 780px; background-color: #AFEEEE" name="viewerSetURI"
 			onchange="writeQuery()" disabled="disabled" id="viewerSetURIs"><%=o.getViewerSets()%></select></td>
 	</tr>
