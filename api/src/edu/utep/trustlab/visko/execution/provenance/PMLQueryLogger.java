@@ -31,17 +31,16 @@ import edu.utep.trustlab.contentManagement.ContentManager;
 
 public class PMLQueryLogger {
 
-	private String baseURL;
 	private String queryName;
 	private IWQuery query;
 	
 	public PMLQueryLogger(){
 		String baseQueryName = "visko-query";
 		queryName = baseQueryName + "-" + FileUtils.getRandomFileName() + ".owl";
-		baseURL = ContentManager.getProvenanceContentManager().getBaseURL(queryName);
-
+		String baseURL = ContentManager.getProvenanceContentManager().getBaseURL(queryName);
+		String url = baseURL + queryName;
 		query = (IWQuery)PMLObjectManager.createPMLObject(PMLJ.Query_lname);
-		query.setIdentifier(PMLObjectManager.getObjectID(baseURL + "#" + "query"));
+		query.setIdentifier(PMLObjectManager.getObjectID(url + "#" + "query"));
 	}
 	
 	public String dumpPMLQuery(){

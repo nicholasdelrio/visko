@@ -38,7 +38,7 @@ public class PMLNodesetLogger {
 	
 	private Vector<IWNodeSet> serviceNodesets;
 	
-	private String baseURL;
+	private String url;
 	private String baseFileName = "visko-pipeline-provenance";
 	private String baseNodesetNameService = "pipeline-step";
 	private String baseNodesetNameParameter = "parameter-assertion";
@@ -49,7 +49,8 @@ public class PMLNodesetLogger {
 		serviceNodesets = new Vector<IWNodeSet>();
 		
 		fileName = baseFileName + "-" + FileUtils.getRandomFileName() + ".owl";
-		baseURL = ContentManager.getProvenanceContentManager().getBaseURL(fileName);
+		String baseURL = ContentManager.getProvenanceContentManager().getBaseURL(fileName);
+		url = baseURL + fileName;
 	}
 
 	public void captureProcessingStep(OWLSService service, String inDatasetURL, String outDatasetURL, ValueMap<Input, OWLValue> inputValueMap) {
@@ -67,7 +68,7 @@ public class PMLNodesetLogger {
 		//set up nodeset
 		String nodesetNameService = baseNodesetNameService + "-" + FileUtils.getRandomFileName();
 		IWNodeSet ns = (IWNodeSet) PMLObjectManager.createPMLObject(PMLJ.NodeSet_lname);
-		ns.setIdentifier(PMLObjectManager.getObjectID(baseURL + "#" + nodesetNameService));
+		ns.setIdentifier(PMLObjectManager.getObjectID(url + "#" + nodesetNameService));
 		ns.setHasConclusion(conclusion);
 		ns.addIsConsequentOf(is);
 		
@@ -89,7 +90,7 @@ public class PMLNodesetLogger {
 				//set up nodeset
 				String nodesetNameParameter = baseNodesetNameParameter + "-" + FileUtils.getRandomFileName();
 				IWNodeSet paramNS = (IWNodeSet) PMLObjectManager.createPMLObject(PMLJ.NodeSet_lname);
-				paramNS.setIdentifier(PMLObjectManager.getObjectID(baseURL + "#" + nodesetNameParameter));
+				paramNS.setIdentifier(PMLObjectManager.getObjectID(url + "#" + nodesetNameParameter));
 				paramNS.setHasConclusion(paramConclusion);
 				paramNS.addIsConsequentOf(paramIS);
 

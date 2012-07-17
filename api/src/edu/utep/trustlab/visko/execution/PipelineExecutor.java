@@ -86,24 +86,31 @@ public class PipelineExecutor implements Runnable {
 		}	
 	}
 	
-    public void run(){    	
-    	if(!job.getPipeline().hasInputData())
-    		job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.NODATA);
+    public void run(){
+    	try{
     	
-    	else if(job.getPipeline().isEmpty())
-    		job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.EMPTYPIPELINE);
+    		if(!job.getPipeline().hasInputData())
+    			job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.NODATA);
     	
-    	else{
-    		executePipeline();
+    		else if(job.getPipeline().isEmpty())
+    			job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.EMPTYPIPELINE);
+    	
+    		else{
+    			executePipeline();
     		
-    	    if(job.getProvenanceLogging())
-    	    	dumpProvenance();
+    			if(job.getProvenanceLogging())
+    				dumpProvenance();
 
-    	    job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.COMPLETE);
+    			job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.COMPLETE);
+    		}
+    	}
+    	catch(Exception e){
+    		e.printStackTrace();
+    		job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.ERROR);
     	}
     }
    
-    private void executePipeline(){		
+    private void executePipeline() throws ExecutionException {		
 		job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.RUNNING);
     	String resultURL = job.getPipeline().getArtifactURL();
     	
@@ -138,7 +145,7 @@ public class PipelineExecutor implements Runnable {
     	job.setPMLQueryURI(pmlQueryURI);
     }
     
-    private String executeService(OWLSService owlsService, String inputDataURL, int serviceIndex){		
+    private String executeService(OWLSService owlsService, String inputDataURL, int serviceIndex) throws ExecutionException{		
 		OWLKnowledgeBase kb = OWLFactory.createKB();
 		Service service = owlsService.getIndividual();
 		Process process = service.getProcess();
@@ -149,17 +156,13 @@ public class PipelineExecutor implements Runnable {
 		
 		if (inputs != null){		
         	ValueMap<Output, OWLValue> outputs;
-			try {
-				outputs = exec.execute(process, inputs, kb);
-	        	OWLDataValue out = (OWLDataValue) outputs.getValue(process.getOutput());
-	        	outputDataURL =  out.toString();
+        	
+			outputs = exec.execute(process, inputs, kb);
+	        OWLDataValue out = (OWLDataValue) outputs.getValue(process.getOutput());
+	        outputDataURL =  out.toString();
 
-	        	if(job.getProvenanceLogging())
-	        		traceLogger.captureProcessingStep(owlsService, inputDataURL, outputDataURL, inputs);
-
-			} catch (ExecutionException e) {
-				e.printStackTrace();
-			}
+	        if(job.getProvenanceLogging())
+	        	traceLogger.captureProcessingStep(owlsService, inputDataURL, outputDataURL, inputs);
 		}
 		return outputDataURL;
     }
