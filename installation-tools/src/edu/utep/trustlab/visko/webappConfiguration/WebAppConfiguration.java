@@ -4,36 +4,56 @@ import java.io.File;
 
 public class WebAppConfiguration {
 	
-	private String webConfigPath;
-	private String headerLogoPath;
-	private String tripleStorePath;
-	private String sparqlURL;
-	private String dumpDirPath;
-	private String org;
+	//path to template web.xml
+	private static String webConfigPath;
 	
-	public WebAppConfiguration(String webXMLPath, String logoPath, String sparqlEndpoint, String tdbPath, String organization, String newDirectoryPath){
-		webConfigPath = webXMLPath;
-		headerLogoPath = logoPath;
-		tripleStorePath = tdbPath;
-		dumpDirPath = newDirectoryPath;
-		sparqlURL = sparqlEndpoint;
-		org = organization;
-	}
+	//path to dump dir of complete web.xml
+	private static String dumpDirPath;
+	
+	//server info
+	private static String server_url;
+	private static String server_base_path;
+	
+	//HTML header and logo
+	private static String logo_path;
+	private static String hosting_organization;
+	
+	//SPARQL endpoint and TDB path
+	private static String visko_sparql_endpoint;
+	private static String visko_tdb_path;
+	
+	//content manager info
+	private static String content_manager_type;
+	private static String content_manager_url;
+	private static String content_manager_username;
+	private static String content_manager_password;
+	private static String content_manager_project;
 	
 	public String generateWebXML(){
-		File webXMLFile = new File(webConfigPath);
-		String webXML = FileUtils.readTextFile(webConfigPath);
-		webXML = webXML.replaceAll("REPLACE-LOGO-PATH", headerLogoPath);	
-		webXML = webXML.replaceAll("REPLACE-ENDPOINT-URL", sparqlURL);
-		webXML = webXML.replaceAll("REPLACE-TDB-PATH", tripleStorePath);
-		webXML = webXML.replaceAll("REPLACE-ORGANIZATION", org);
+		File webXMLFile = new File(WebAppConfiguration.webConfigPath);
+		String webXML = FileUtils.readTextFile(WebAppConfiguration.webConfigPath);
+
+		//server info
+		webXML = webXML.replace("REPLACE-SERVER-URL", WebAppConfiguration.server_url);
+		webXML = webXML.replace("REPLACE-SERVER-BASE-PATH", WebAppConfiguration.server_base_path);
+		
+		//HTML header and logo
+		webXML = webXML.replace("REPLACE-ORGANIZATION", WebAppConfiguration.logo_path);
+		webXML = webXML.replace("REPLACE-LOGO-PATH", WebAppConfiguration.hosting_organization);
+		
+		//SPARQL endpoint and TDB path
+		webXML = webXML.replace("REPLACE-ENDPOINT-URL", WebAppConfiguration.visko_sparql_endpoint);
+		webXML = webXML.replace("REPLACE-TDB-PATH", WebAppConfiguration.visko_tdb_path);
+		
+		//content manager info
+		webXML = webXML.replace("REPLACE-CONTENT-MANAGER-TYPE", WebAppConfiguration.content_manager_type);
+		webXML = webXML.replace("REPLACE-CONTENT-MANAGER-URL", WebAppConfiguration.content_manager_url);
+		webXML = webXML.replace("REPLACE-CONTENT-MANAGER-USERNAME", WebAppConfiguration.content_manager_username);
+		webXML = webXML.replace("REPLACE-CONTENT-MANAGER-PASSWORD", WebAppConfiguration.content_manager_password);
+		webXML = webXML.replace("REPLACE-CONTENT-MANAGER-PROJECT", WebAppConfiguration.content_manager_project);
 		
 		String webXMLPath;
-		
-		if(dumpDirPath == null)
-			webXMLPath = FileUtils.writeTextFile(webXML, webConfigPath);
-		else
-			webXMLPath = FileUtils.writeTextFile(webXML, dumpDirPath, webXMLFile.getName());
+		webXMLPath = FileUtils.writeTextFile(webXML, WebAppConfiguration.dumpDirPath, webXMLFile.getName());
 		
 		return webXMLPath;
 	}
@@ -41,13 +61,35 @@ public class WebAppConfiguration {
 	public static void main(String[] args){
 
 		System.out.println("generating web.xml file!");
-		WebAppConfiguration qe;
 		
-		if(args.length == 4)
-			qe = new WebAppConfiguration(args[0], args[1], args[2], args[3], args[4], null);
-		else
-			qe = new WebAppConfiguration(args[0], args[1], args[2], args[3], args[4], args[5]);
+		//path to template web.xml
+		WebAppConfiguration.webConfigPath = args[0];
 		
-		System.out.println(qe.generateWebXML());
+		//path to dump dir of complete web.xml
+		WebAppConfiguration.dumpDirPath = args[1];
+		
+		//server info
+		WebAppConfiguration.server_url = args[2];
+		WebAppConfiguration.server_base_path = args[3];
+		
+		//HTML header and logo
+		WebAppConfiguration.logo_path = args[4];
+		WebAppConfiguration.hosting_organization = args[5];
+		
+		//SPARQL endpoint and TDB path
+		WebAppConfiguration.visko_sparql_endpoint = args[6];
+		WebAppConfiguration.visko_tdb_path = args[7];
+		
+		//content manager info
+		WebAppConfiguration.content_manager_type = args[8];
+		WebAppConfiguration.content_manager_url = args[9];
+		WebAppConfiguration.content_manager_username = args[10];
+		WebAppConfiguration.content_manager_password = args[11];
+		WebAppConfiguration.content_manager_project = args[12];
+		
+		WebAppConfiguration webXMLGenerator = new WebAppConfiguration();
+		String deployedPath = webXMLGenerator.generateWebXML();
+		
+		System.out.println("web.xml deployment path: " + deployedPath);
 	}
 }
