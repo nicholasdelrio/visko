@@ -44,7 +44,6 @@ public class PipelineExecutor implements Runnable {
     private Thread t;
     
     private PMLNodesetLogger traceLogger;
-    private PMLQueryLogger queryLogger;
 	
     //use our own interrupt facility, since calling Thread.interrupt() leaves Jena in a crappy unusable state
     private boolean isScheduledForTermination;
@@ -52,10 +51,8 @@ public class PipelineExecutor implements Runnable {
 	public PipelineExecutor(PipelineExecutorJob pipelineJob) {
 		job = pipelineJob;
 		
-		if(job.getProvenanceLogging()){
+		if(job.getProvenanceLogging())
 			traceLogger = new PMLNodesetLogger();
-			queryLogger = new PMLQueryLogger();
-		}
 
     	job.getJobStatus().setTotalServiceCount(job.getPipeline().size());
 	  	exec = OWLSFactory.createExecutionEngine();	
@@ -136,11 +133,16 @@ public class PipelineExecutor implements Runnable {
     }
     
     private void dumpProvenance(){
+    	//dump PML nodeset trace
     	String pmlNodesetURI = traceLogger.dumpNodesets();
+    	
+    	// dump PMLQuery
+    	PMLQueryLogger queryLogger = new PMLQueryLogger();
     	queryLogger.setViskoQuery(job.getPipeline().getParentPipelineSet().getQuery().toString());
     	queryLogger.addAnswer(pmlNodesetURI);
     	String pmlQueryURI = queryLogger.dumpPMLQuery();
     	
+    	//set URIs on Job
     	job.setPMLNodesetURI(pmlNodesetURI);
     	job.setPMLQueryURI(pmlQueryURI);
     }
