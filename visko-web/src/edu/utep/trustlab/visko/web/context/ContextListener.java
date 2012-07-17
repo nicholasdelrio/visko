@@ -38,7 +38,8 @@ public class ContextListener implements ServletContextListener {
 	
 	private static void setProvenanceContentManger(ServletContext context){
 		String managerType = context.getInitParameter("content-manager-type");
-		
+		String serverBasePath = context.getInitParameter("server-base-path");
+	
 		ContentManager manager;
 		if(managerType.equals("local"))
 			manager = getContentManagerProvenanceLocal(context);
@@ -48,8 +49,15 @@ public class ContextListener implements ServletContextListener {
 			manager = getContentManagerProvenanceAlfresco(context);
 		else
 			manager = getContentManagerProvenanceLocal(context);
-		
+	
+		String pmlBasePath;
+		if(serverBasePath.endsWith("/"))
+			pmlBasePath = serverBasePath + "output/";
+		else
+			pmlBasePath = serverBasePath + "/output/";
+
 		ContentManager.setProvenanceContentManager(manager);
+		ContentManager.setWorkspacePath(pmlBasePath);
 	}
 
 	private static ContentManager getContentManagerProvenanceAlfresco(ServletContext context){
@@ -57,6 +65,8 @@ public class ContextListener implements ServletContextListener {
 		String contentManagerUsername = context.getInitParameter("content-manager-username");
 		String contentManagerPassword = context.getInitParameter("content-manager-password");
 		String contentManagerProject = context.getInitParameter("content-manager-project");
+		
+		
 		
 		AlfrescoClient alfresco = new AlfrescoClient(contentManagerURL, contentManagerUsername, contentManagerPassword);
 		alfresco.setProjectName(contentManagerProject);
