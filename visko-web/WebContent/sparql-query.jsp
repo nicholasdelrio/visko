@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="visko-style.css" />
-<title>Query Examples</title>
+<title>VisKo SPARQL Endpoint Interface</title>
 </head>
 <body>
 <div id="container">
