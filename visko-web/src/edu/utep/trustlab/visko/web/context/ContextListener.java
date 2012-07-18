@@ -52,9 +52,9 @@ public class ContextListener implements ServletContextListener {
 	
 		String pmlBasePath;
 		if(serverBasePath.endsWith("/"))
-			pmlBasePath = serverBasePath + "visko-web/output/";
+			pmlBasePath = serverBasePath + "webapps/visko-web/output/";
 		else
-			pmlBasePath = serverBasePath + "/visko-web/output/";
+			pmlBasePath = serverBasePath + "/webapps/visko-web/output/";
 
 		ContentManager.setProvenanceContentManager(manager);
 		ContentManager.setWorkspacePath(pmlBasePath);
@@ -94,9 +94,9 @@ public class ContextListener implements ServletContextListener {
 		
 		String pmlBasePath;
 		if(serverBasePath.endsWith("/"))
-			pmlBasePath = serverBasePath + "visko-web/output/";
+			pmlBasePath = serverBasePath + "webapps/visko-web/output/";
 		else
-			pmlBasePath = serverBasePath + "/visko-web/output/";
+			pmlBasePath = serverBasePath + "/webapps/visko-web/output/";
 		
 		LocalFileSystem fs = new LocalFileSystem(pmlBaseURL, pmlBasePath);
 		return fs;
