@@ -52,9 +52,9 @@ public class ContextListener implements ServletContextListener {
 	
 		String pmlBasePath;
 		if(serverBasePath.endsWith("/"))
-			pmlBasePath = serverBasePath + "output/";
+			pmlBasePath = serverBasePath + "visko-web/output/";
 		else
-			pmlBasePath = serverBasePath + "/output/";
+			pmlBasePath = serverBasePath + "/visko-web/output/";
 
 		ContentManager.setProvenanceContentManager(manager);
 		ContentManager.setWorkspacePath(pmlBasePath);
@@ -65,8 +65,6 @@ public class ContextListener implements ServletContextListener {
 		String contentManagerUsername = context.getInitParameter("content-manager-username");
 		String contentManagerPassword = context.getInitParameter("content-manager-password");
 		String contentManagerProject = context.getInitParameter("content-manager-project");
-		
-		
 		
 		AlfrescoClient alfresco = new AlfrescoClient(contentManagerURL, contentManagerUsername, contentManagerPassword);
 		alfresco.setProjectName(contentManagerProject);
@@ -90,15 +88,15 @@ public class ContextListener implements ServletContextListener {
 		
 		String pmlBaseURL;
 		if(serverURL.endsWith("/"))
-			pmlBaseURL = serverURL + "output/";
+			pmlBaseURL = serverURL + "visko-web/output/";
 		else
-			pmlBaseURL = serverURL + "/output/";
+			pmlBaseURL = serverURL + "/visko-web/output/";
 		
 		String pmlBasePath;
 		if(serverBasePath.endsWith("/"))
-			pmlBasePath = serverBasePath + "output/";
+			pmlBasePath = serverBasePath + "visko-web/output/";
 		else
-			pmlBasePath = serverBasePath + "/output/";
+			pmlBasePath = serverBasePath + "/visko-web/output/";
 		
 		LocalFileSystem fs = new LocalFileSystem(pmlBaseURL, pmlBasePath);
 		return fs;
