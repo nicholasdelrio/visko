@@ -55,7 +55,9 @@ public class ContextListener implements ServletContextListener {
 			pmlBasePath = serverBasePath + "webapps/visko-web/output/";
 		else
 			pmlBasePath = serverBasePath + "/webapps/visko-web/output/";
-
+		
+		System.out.println("workspace path: " + pmlBasePath);
+		
 		ContentManager.setProvenanceContentManager(manager);
 		ContentManager.setWorkspacePath(pmlBasePath);
 	}
@@ -97,6 +99,8 @@ public class ContextListener implements ServletContextListener {
 			pmlBasePath = serverBasePath + "webapps/visko-web/output/";
 		else
 			pmlBasePath = serverBasePath + "/webapps/visko-web/output/";
+		
+		System.out.println("pml dump path: " + pmlBasePath);
 		
 		LocalFileSystem fs = new LocalFileSystem(pmlBaseURL, pmlBasePath);
 		return fs;
