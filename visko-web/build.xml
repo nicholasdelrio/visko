@@ -19,7 +19,7 @@
 			<lib dir="${lib}/axis4"/>
 			<lib dir="${lib}/jena262"/>
 			<lib dir="${lib}/util"/>
-			<lib dir="${lib}/pml"/>
+			<lib dir="${lib}/pml2"/>
 			<lib dir="${content-management-libs}/libs-alfresco"/>
 			<fileset dir="${web-content}"/>
 			
