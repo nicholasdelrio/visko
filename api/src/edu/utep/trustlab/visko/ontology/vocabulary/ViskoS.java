@@ -46,7 +46,7 @@ import com.hp.hpl.jena.ontology.Ontology;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 public class ViskoS {
-	public static final String ONTOLOGY_VISKO_S_URI = "http://trust.utep.edu/visko/ontology/visko-service.owl";
+	public static final String ONTOLOGY_VISKO_S_URI = "https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl";
 
 	// Concepts
 	public static final String CLASS_URI_TOOLKIT = ONTOLOGY_VISKO_S_URI
