@@ -13,7 +13,7 @@
 	<!-- update value --><property name="host-port" value="80" />
 	<!-- update value --><property name="tdb-path" value="/usr/local/git/git-repos/visko-rdf/tdb"/>
 	
-	<!-- VisKo Provenance Content Manager Info -->
+	<!-- VisKo Provenance Content Manager Info (local | ciserver | alfresco) -->
 	<!-- update value --><property name="content-manager-type" value="alfresco" />
 	<!-- update value --><property name="content-manager-url" value=""/>
 	<!-- update value --><property name="content-manager-username" value="admin" />
