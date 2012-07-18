@@ -47,7 +47,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 public class ESIPData {
 
-	public static final String ONTOLOGY_ESIP_URI = "https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/esip-data.owl";
+	public static final String ONTOLOGY_ESIP_URI = "http://trust.utep.edu/visko/ontology/esip-data.owl";
 	public static final String ONTOLOGY_ESIP_NS = "http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl";
 
 	// Concepts

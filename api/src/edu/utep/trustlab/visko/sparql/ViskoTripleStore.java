@@ -61,9 +61,9 @@ public class ViskoTripleStore {
 	}
 	
 	public static String QUERY_PREFIX = 
-			  "PREFIX viskoV: <https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#> "
-			+ "PREFIX viskoO: <https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-operator.owl#> "
-			+ "PREFIX viskoS: <https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#> "
+			  "PREFIX viskoV: <http://trust.utep.edu/visko/ontology/visko-view.owl#> "
+			+ "PREFIX viskoO: <http://trust.utep.edu/visko/ontology/visko-operator.owl#> "
+			+ "PREFIX viskoS: <http://trust.utep.edu/visko/ontology/visko-service.owl#> "
 			+ "PREFIX owlsService: <http://www.daml.org/services/owl-s/1.2/Service.owl#> "
 			+ "PREFIX owlsProcess: <http://www.daml.org/services/owl-s/1.2/Process.owl#> "
 			+ "PREFIX owl: <http://www.w3.org/2002/07/owl#> "
