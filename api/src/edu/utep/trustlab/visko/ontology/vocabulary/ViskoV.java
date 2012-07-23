@@ -46,27 +46,21 @@ import com.hp.hpl.jena.ontology.Ontology;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 public class ViskoV {
-	public static final String ONTOLOGY_VISKO_V_URI = "http://trust.utep.edu/visko/ontology/visko-view.owl";
+	public static final String ONTOLOGY_VISKO_V_URI = Visko.VISKO_V;
 
 	// Concepts
 	public static final String CLASS_URI_VIEW = ONTOLOGY_VISKO_V_URI + "#View";
-	public static final String CLASS_URI_COMPOSITE_VIEW = ONTOLOGY_VISKO_V_URI
-			+ "#CompositeView";
-	public static final String CLASS_URI_ATOMIC_VIEW = ONTOLOGY_VISKO_V_URI
-			+ "#AtomicView";
-	public static final String CLASS_URI_NETWORK = ONTOLOGY_VISKO_V_URI
-			+ "#Network";
-	public static final String CLASS_URI_GRAPH = ONTOLOGY_VISKO_V_URI
-			+ "#Graph";
+	public static final String CLASS_URI_COMPOSITE_VIEW = ONTOLOGY_VISKO_V_URI + "#CompositeView";
+	public static final String CLASS_URI_ATOMIC_VIEW = ONTOLOGY_VISKO_V_URI	+ "#AtomicView";
+	public static final String CLASS_URI_NETWORK = ONTOLOGY_VISKO_V_URI	+ "#Network";
+	public static final String CLASS_URI_GRAPH = ONTOLOGY_VISKO_V_URI + "#Graph";
 	public static final String CLASS_URI_TREE = ONTOLOGY_VISKO_V_URI + "#Tree";
-	public static final String CLASS_URI_RASTER = ONTOLOGY_VISKO_V_URI
-			+ "#Raster";
+	public static final String CLASS_URI_RASTER = ONTOLOGY_VISKO_V_URI + "#Raster";
 
 	/*****************************************************************************************/
 
 	// Properties
-	public static final String PROPERTY_URI_INCLUDES_VIEW = ONTOLOGY_VISKO_V_URI
-			+ "#includesView";
+	public static final String PROPERTY_URI_INCLUDES_VIEW = ONTOLOGY_VISKO_V_URI + "#includesView";
 
 	// model and ontology
 	private static OntModel model;

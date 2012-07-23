@@ -42,6 +42,10 @@ package edu.utep.trustlab.visko.sparql;
 
 import com.hp.hpl.jena.query.*;
 
+import edu.utep.trustlab.visko.ontology.vocabulary.OWLS_Process;
+import edu.utep.trustlab.visko.ontology.vocabulary.OWLS_Service;
+import edu.utep.trustlab.visko.ontology.vocabulary.Visko;
+
 public class ViskoTripleStore {
 	
 	private static String endpointURL;
@@ -61,11 +65,11 @@ public class ViskoTripleStore {
 	}
 	
 	public static String QUERY_PREFIX = 
-			  "PREFIX viskoV: <http://trust.utep.edu/visko/ontology/visko-view.owl#> "
-			+ "PREFIX viskoO: <http://trust.utep.edu/visko/ontology/visko-operator.owl#> "
-			+ "PREFIX viskoS: <http://trust.utep.edu/visko/ontology/visko-service.owl#> "
-			+ "PREFIX owlsService: <http://www.daml.org/services/owl-s/1.2/Service.owl#> "
-			+ "PREFIX owlsProcess: <http://www.daml.org/services/owl-s/1.2/Process.owl#> "
+			  "PREFIX viskoV: <" + Visko.VISKO_V + "#> "
+			+ "PREFIX viskoO: <" + Visko.VISKO_O + "#> "
+			+ "PREFIX viskoS: <" + Visko.VISKO_S + "#> "
+			+ "PREFIX owlsService: <" + OWLS_Service.ONTOLOGY_OWLS_SERVICE_URI + "#> "
+			+ "PREFIX owlsProcess: <" + OWLS_Process.ONTOLOGY_OWLS_PROCESS_URI + "#> "
 			+ "PREFIX owl: <http://www.w3.org/2002/07/owl#> "
 			+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
 			+ "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> "
