@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"
-	import="edu.utep.trustlab.visko.web.html.Template" %>
+	import="edu.utep.trustlab.visko.web.html.Template,
+	        edu.utep.trustlab.visko.ontology.vocabulary.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,11 +19,11 @@
 <form action="ViskoServletManager">
     <input type="hidden" name="requestType" value="query-triple-store" /> 
 	<textarea style="width: 700px; height: 300px" id="queryText" name="query">
-PREFIX viskoV: &lt;https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#&gt;
-PREFIX viskoO: &lt;https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-operator.owl#&gt;
-PREFIX viskoS: &lt;https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#&gt;
-PREFIX owlsService: &lt;http://www.daml.org/services/owl-s/1.2/Service.owl#&gt;
-PREFIX owlsProcess: &lt;http://www.daml.org/services/owl-s/1.2/Process.owl#&gt;
+PREFIX viskoV: &lt;<%= Visko.VISKO_V %>#&gt;
+PREFIX viskoO: &lt;<%= Visko.VISKO_O %>#&gt;
+PREFIX viskoS: &lt;<%= Visko.VISKO_S %>#&gt;
+PREFIX owlsService: &lt;<%= OWLS_Service.ONTOLOGY_OWLS_SERVICE_URI %>#&gt;
+PREFIX owlsProcess: &lt;<%= OWLS_Process.ONTOLOGY_OWLS_PROCESS_URI %>#&gt;
 PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
