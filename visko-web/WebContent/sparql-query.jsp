@@ -34,42 +34,6 @@ PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 </form>
 
 <h2>Examples</h2>
-<h3>Can VisKo Render a 3D Binary Float Array in a format that Mozilla Firefox can Display?</h3>
-<pre>
-ASK		
-WHERE
-{{
-?viewer viskoO:partOfViewerSet  .
-?viewer viskoO:operatesOn ?format .
- viskoO:canBeTransformedToTransitive ?format . 
-}
-UNION
-{
-?viewer viskoO:partOfViewerSet  .
-?viewer viskoO:operatesOn ?format .
- viskoO:canBeTransformedTo ?format .
-}
-UNION
-{
-?viewer viskoO:partOfViewerSet  .
-?viewer viskoO:operatesOn  .
-}}
-</pre>
-
-<h3>What Formats Does VisKo Work With (i.e., read-in and write-out)</h3>
-<pre>
-SELECT DISTINCT ?format
-WHERE
-{{
-?operator a viskoO:Operator .
-?operator viskoO:operatesOn ?format .
-}
-UNION
-{
-?operator a viskoO:Transformer .
-?operator viskoO:transformsTo ?format .
-}}
-</pre>
 
 <h3>What views can VisKo Generate?</h3>
 <pre>
