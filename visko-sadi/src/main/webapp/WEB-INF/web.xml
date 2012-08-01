@@ -6,11 +6,11 @@
 
   <servlet>
     <servlet-name>query-planner</servlet-name>
-    <servlet-class>edu.utep.trustlab.visko.execution.sadi.QueryPlanner</servlet-class>
+    <servlet-class>edu.utep.trustlab.visko.planning.sadi.QueryPlanner</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>planner</servlet-name>
-    <servlet-class>edu.utep.trustlab.visko.execution.sadi.QueryEngine</servlet-class>
+    <servlet-class>edu.utep.trustlab.visko.planning.sadi.QueryEngine</servlet-class>
   </servlet>
 
   <servlet-mapping>
