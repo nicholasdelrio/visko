@@ -17,9 +17,9 @@ import com.hp.hpl.jena.rdf.model.Resource;
 //import com.hp.hpl.jena.rdf.model.Statement;
 //import com.hp.hpl.jena.rdf.model.StmtIterator;
 
-import edu.utep.trustlab.visko.execution.Pipeline;
-import edu.utep.trustlab.visko.execution.PipelineSet;
-import edu.utep.trustlab.visko.execution.Query;
+import edu.utep.trustlab.visko.planning.Pipeline;
+import edu.utep.trustlab.visko.planning.PipelineSet;
+import edu.utep.trustlab.visko.planning.Query;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.util.ResultSetToVector;
 
@@ -35,6 +35,8 @@ public class QueryPlanner extends SimpleSynchronousServiceServlet
 	@Override
 	public void processInput(Resource input, Resource output)
 	{
+		System.out.println("running QueryPlanner...");
+
 		//needed by visko pipeline generator to identify pipelines
 		ViskoTripleStore.setEndpointURL("http://iw.cs.utep.edu/visko-web/ViskoServletManager?requestType=query-triple-store");
 		ViskoTripleStore tripleStore = new ViskoTripleStore();
@@ -46,13 +48,18 @@ public class QueryPlanner extends SimpleSynchronousServiceServlet
 		String viewerSet = dataset.getProperty(Vocab.viewedIn).getObject().toString();
 		String view = dataset.getProperty(Vocab.viewedAs).getObject().toString();
 		
+		System.out.println("format: " + format);
+		System.out.println("url: " + url);
+		System.out.println("viewerSet: " + viewerSet);
+		System.out.println("view: " + view);
+		
 		//construct visko query
 		Query viskoQuery = new Query(url, format, viewerSet);
 		if(!view.endsWith("wildcard"))
 			viskoQuery.setViewURI(view);
 		
 		//execute query engine to get set of pipelines back
-		edu.utep.trustlab.visko.execution.QueryEngine engine = new edu.utep.trustlab.visko.execution.QueryEngine(viskoQuery);
+		edu.utep.trustlab.visko.planning.QueryEngine engine = new edu.utep.trustlab.visko.planning.QueryEngine(viskoQuery);
 		PipelineSet pipes = engine.getPipelines();
 		
 		//return query plan RDF

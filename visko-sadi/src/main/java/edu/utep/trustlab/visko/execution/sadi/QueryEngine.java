@@ -18,7 +18,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
 //import com.hp.hpl.jena.rdf.model.Statement;
 //import com.hp.hpl.jena.rdf.model.StmtIterator;
 
-import edu.utep.trustlab.visko.execution.*;
+import edu.utep.trustlab.visko.planning.*;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.util.ResultSetToVector;
 
@@ -44,11 +44,15 @@ public class QueryEngine extends SimpleSynchronousServiceServlet
 		String url = dataset.getProperty(Vocab.hasURL).getObject().toString();
 		String viewerSet = input.getProperty(Vocab.hasResultViewableIn).getObject().toString();
 		
+		System.out.println("format: " + format);
+		System.out.println("url: " + url);
+		System.out.println("viewerSet: " + viewerSet);
+		
 		//construct visko query
 		Query viskoQuery = new Query(url, format, viewerSet);
 		
 		//execute query engine to get set of pipelines back
-		edu.utep.trustlab.visko.execution.QueryEngine engine = new edu.utep.trustlab.visko.execution.QueryEngine(viskoQuery);
+		edu.utep.trustlab.visko.planning.QueryEngine engine = new edu.utep.trustlab.visko.planning.QueryEngine(viskoQuery);
 		PipelineSet pipes = engine.getPipelines();
 		
 		//return query plan RDF

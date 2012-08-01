@@ -6,8 +6,8 @@
 <booleanAttribute key="M2_OFFLINE" value="false"/>
 <stringAttribute key="M2_PROFILES" value=""/>
 <listAttribute key="M2_PROPERTIES">
-<listEntry value="serviceURL=http://localhost:8080/visko-sadi/planner"/>
-<listEntry value="input=https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/queries/manylinesQueryPlanRequest.owl"/>
+<listEntry value="serviceURL=http://localhost:8080/visko-sadi/query-planner"/>
+<listEntry value="input=https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/queries/manylinesQueryPlanRequest-1.owl"/>
 <listEntry value="expected=https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/queries/manylinesQueryPlan.owl"/>
 </listAttribute>
 <stringAttribute key="M2_RUNTIME" value="EMBEDDED"/>
