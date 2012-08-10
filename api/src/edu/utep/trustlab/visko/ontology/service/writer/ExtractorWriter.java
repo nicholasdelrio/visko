@@ -44,7 +44,6 @@ package edu.utep.trustlab.visko.ontology.service.writer;
 import java.util.Vector;
 
 import edu.utep.trustlab.contentManagement.ContentManager;
-import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
 import edu.utep.trustlab.visko.ontology.service.Extractor;
@@ -60,7 +59,7 @@ public class ExtractorWriter extends ViskoWriter {
 	public ExtractorWriter(String name) {
 		loadingModel = new ViskoModel();
 
-		extractor = new Extractor(ContentManager.getViskoRDFContentManager().getBaseURL(JenaIndividual.makeFileName(name)),
+		extractor = new Extractor(ContentManager.getViskoRDFContentManager().getBaseURL(),
 				name, viskoModel);
 		dataTypes = new Vector<String>();
 	}

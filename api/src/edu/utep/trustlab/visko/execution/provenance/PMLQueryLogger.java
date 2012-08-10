@@ -37,7 +37,7 @@ public class PMLQueryLogger {
 	public PMLQueryLogger(){
 		String baseQueryName = "visko-query";
 		queryName = baseQueryName + "-" + FileUtils.getRandomFileName() + ".owl";
-		String baseURL = ContentManager.getProvenanceContentManager().getBaseURL(queryName);
+		String baseURL = ContentManager.getProvenanceContentManager().getBaseURL();
 		String url = baseURL + queryName;
 		query = (IWQuery)PMLObjectManager.createPMLObject(PMLJ.Query_lname);
 		query.setIdentifier(PMLObjectManager.getObjectID(url + "#" + "query"));

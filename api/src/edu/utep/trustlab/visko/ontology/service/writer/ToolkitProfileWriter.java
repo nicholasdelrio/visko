@@ -43,7 +43,6 @@ package edu.utep.trustlab.visko.ontology.service.writer;
 import java.util.Vector;
 
 import edu.utep.trustlab.contentManagement.ContentManager;
-import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.service.Input;
 import edu.utep.trustlab.visko.ontology.service.InputBinding;
@@ -61,7 +60,7 @@ public class ToolkitProfileWriter extends ViskoWriter {
 
 	public ToolkitProfileWriter(String name) {
 		loadingModel = new ViskoModel();
-		profile = new InputParameterBinding(ContentManager.getViskoRDFContentManager().getBaseURL(JenaIndividual.makeFileName(name)),
+		profile = new InputParameterBinding(ContentManager.getViskoRDFContentManager().getBaseURL(),
 				name, viskoModel);
 		counter = 0;
 		inputBindings = new Vector<InputBinding>();

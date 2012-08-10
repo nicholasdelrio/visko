@@ -41,7 +41,6 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.ontology.operator.writer;
 
 import edu.utep.trustlab.contentManagement.ContentManager;
-import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.operator.ViewerSet;
 import edu.utep.trustlab.visko.ontology.writer.ViskoWriter;
 
@@ -50,7 +49,7 @@ public class ViewerSetWriter extends ViskoWriter {
 	ViewerSet viskoVS;
 
 	public ViewerSetWriter(String name) {
-		viskoVS = new ViewerSet(ContentManager.getViskoRDFContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+		viskoVS = new ViewerSet(ContentManager.getViskoRDFContentManager().getBaseURL(), name, viskoModel);
 	}
 
 	public void setLabel(String label) {

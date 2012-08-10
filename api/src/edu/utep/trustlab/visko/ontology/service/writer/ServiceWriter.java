@@ -40,7 +40,6 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.ontology.service.writer;
 import edu.utep.trustlab.contentManagement.ContentManager;
-import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.operator.Operator;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
@@ -59,7 +58,7 @@ public class ServiceWriter extends ViskoWriter {
 	ViskoModel readingModel = new ViskoModel();
 
 	public ServiceWriter(String name) {
-		service = new OWLSService(ContentManager.getViskoRDFContentManager().getBaseURL(JenaIndividual.makeFileName(name)),name, owlsModel);
+		service = new OWLSService(ContentManager.getViskoRDFContentManager().getBaseURL(),name, owlsModel);
 	}
 
 	public void setWSDLURL(String wsdlURL) {

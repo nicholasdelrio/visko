@@ -49,7 +49,7 @@ public class PMLNodesetLogger {
 		serviceNodesets = new Vector<IWNodeSet>();
 		
 		fileName = baseFileName + "-" + FileUtils.getRandomFileName() + ".owl";
-		String baseURL = ContentManager.getProvenanceContentManager().getBaseURL(fileName);
+		String baseURL = ContentManager.getProvenanceContentManager().getBaseURL();
 		url = baseURL + fileName;
 	}
 

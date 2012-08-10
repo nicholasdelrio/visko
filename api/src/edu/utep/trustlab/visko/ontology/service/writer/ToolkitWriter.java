@@ -41,7 +41,6 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.ontology.service.writer;
 
 import edu.utep.trustlab.contentManagement.ContentManager;
-import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.service.Toolkit;
 import edu.utep.trustlab.visko.ontology.writer.ViskoWriter;
 
@@ -50,7 +49,7 @@ public class ToolkitWriter extends ViskoWriter {
 	String label;
 
 	public ToolkitWriter(String name) {
-		tk = new Toolkit(ContentManager.getViskoRDFContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+		tk = new Toolkit(ContentManager.getViskoRDFContentManager().getBaseURL(), name, viskoModel);
 	}
 
 	public void setLabel(String label) {

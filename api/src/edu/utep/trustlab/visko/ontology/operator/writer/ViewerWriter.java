@@ -43,7 +43,6 @@ package edu.utep.trustlab.visko.ontology.operator.writer;
 import java.util.Vector;
 
 import edu.utep.trustlab.contentManagement.ContentManager;
-import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.operator.*;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
@@ -59,7 +58,7 @@ public class ViewerWriter extends ViskoWriter {
 	ViskoModel readingModel = new ViskoModel();
 
 	public ViewerWriter(String name) {
-		viskoViewer = new Viewer(ContentManager.getViskoRDFContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+		viskoViewer = new Viewer(ContentManager.getViskoRDFContentManager().getBaseURL(), name, viskoModel);
 		viskoViewer.setName(name);
 		formats = new Vector<Format>();
 		partOfSets = new Vector<ViewerSet>();

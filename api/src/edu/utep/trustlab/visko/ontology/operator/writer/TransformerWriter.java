@@ -43,7 +43,6 @@ package edu.utep.trustlab.visko.ontology.operator.writer;
 import java.util.Vector;
 
 import edu.utep.trustlab.contentManagement.ContentManager;
-import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.operator.*;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
@@ -62,9 +61,9 @@ public class TransformerWriter extends ViskoWriter {
 
 	public TransformerWriter(String name, boolean isMapper) {
 		if(isMapper)
-			mapper = new Mapper(ContentManager.getViskoRDFContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+			mapper = new Mapper(ContentManager.getViskoRDFContentManager().getBaseURL(), name, viskoModel);
 		else
-			trans = new Transformer(ContentManager.getViskoRDFContentManager().getBaseURL(JenaIndividual.makeFileName(name)), name, viskoModel);
+			trans = new Transformer(ContentManager.getViskoRDFContentManager().getBaseURL(), name, viskoModel);
 		
 		inputFormats = new Vector<Format>();
 	}
