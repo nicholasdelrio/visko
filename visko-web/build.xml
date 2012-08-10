@@ -20,7 +20,7 @@
 			<lib dir="${lib}/jena262"/>
 			<lib dir="${lib}/util"/>
 			<lib dir="${lib}/pml2"/>
-			<lib dir="${content-management-libs}/libs-alfresco"/>
+			<lib dir="${content-management-libs}/libs-velo"/>
 			<fileset dir="${web-content}"/>
 			
 			<classes dir="${build}/"/>
