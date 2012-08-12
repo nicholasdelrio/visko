@@ -13,6 +13,9 @@
 	<!-- update value --><property name="host-port" value="80" />
 	<!-- update value --><property name="tdb-path" value="/usr/local/git/git-repos/visko-rdf/tdb"/>
 	
+	<!-- Move Data -->
+	<!-- update value --><property name="move-data" value="false"/>
+	
 	<!-- VisKo Provenance Content Manager Info (local | ciserver | alfresco) -->
 	<!-- update value --><property name="content-manager-type" value="alfresco" />
 	<!-- update value --><property name="content-manager-url" value=""/>
@@ -84,6 +87,8 @@
 			<arg value="${content-manager-password}"/>
 			<arg value="${content-manager-project}"/>
 
+			<arg value="${move-data}"/>
+			
 			<classpath>
 				<pathelement location="${jarfile}"/>
 			</classpath>
