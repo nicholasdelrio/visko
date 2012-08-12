@@ -112,11 +112,14 @@ public class PipelineExecutor implements Runnable {
     	String resultURL = job.getPipeline().getArtifactURL();
     	
     	System.out.println(job.getJobStatus());
-    	
-    	for(int i = 0; i < job.getPipeline().size(); i ++){
-    		
+    	    	
+    	for(int i = 0; i < job.getPipeline().size(); i ++){    		
     		OWLSService viskoService = job.getPipeline().getService(i);
  
+        	//capture initial dataset
+            if(job.getProvenanceLogging() && i == 0)
+            	traceLogger.captureInitialDataset(resultURL, viskoService);
+    		
        		job.getJobStatus().setCurrentService(viskoService.getURI(), i);
     		System.out.println(job.getJobStatus());
     		

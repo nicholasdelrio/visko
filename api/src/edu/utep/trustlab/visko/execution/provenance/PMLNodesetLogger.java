@@ -31,6 +31,8 @@ import org.mindswap.owls.process.variable.Input;
 import org.mindswap.query.ValueMap;
 
 import edu.utep.trustlab.contentManagement.ContentManager;
+import edu.utep.trustlab.visko.ontology.model.ViskoModel;
+import edu.utep.trustlab.visko.ontology.operator.Transformer;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
 import edu.utep.trustlab.visko.util.FileUtils;
 
@@ -44,16 +46,39 @@ public class PMLNodesetLogger {
 	private String baseNodesetNameParameter = "parameter-assertion";
 	
 	private String fileName;
-
+		
 	public PMLNodesetLogger() {
 		serviceNodesets = new Vector<IWNodeSet>();
-		
 		fileName = baseFileName + "-" + FileUtils.getRandomFileName() + ".owl";
 		String baseURL = ContentManager.getProvenanceContentManager().getBaseURL();
 		url = baseURL + fileName;
 	}
 
+	public void captureInitialDataset(String inDatasetURL, OWLSService ingestingService){
+		IWInferenceStep is = (IWInferenceStep) PMLObjectManager.createPMLObject(PMLJ.InferenceStep_lname);
+		is.setHasInferenceRule(PMLResourceURI.RULE_DIRECT_ASSERTION);
+		is.setHasInferenceEngine(PMLResourceURI.ENGINE_VISKO_WEB_SERVICE);
+		
+		//set up conclusion
+		IWInformation conclusion = (IWInformation) PMLObjectManager.createPMLObject(PMLP.Information_lname);
+		String formatURI = ingestingService.getConceptualOperator().getOperatesOnFormats().get(0).getURI();
+		conclusion.setHasFormat(formatURI);
+		conclusion.setHasURL(inDatasetURL);
+		
+		//set up nodeset
+		String nodesetNameService = baseNodesetNameService + "-" + FileUtils.getRandomFileName();
+		IWNodeSet ns = (IWNodeSet) PMLObjectManager.createPMLObject(PMLJ.NodeSet_lname);
+		ns.setIdentifier(PMLObjectManager.getObjectID(url + "#" + nodesetNameService));
+		ns.setHasConclusion(conclusion);
+		ns.addIsConsequentOf(is);
+		
+		serviceNodesets.add(ns);
+	}
+	
 	public void captureProcessingStep(OWLSService service, String inDatasetURL, String outDatasetURL, ValueMap<Input, OWLValue> inputValueMap) {
+		//set up transformer
+		Transformer transformer = new Transformer(service.getConceptualOperator().getURI(), new ViskoModel());
+		
 		//set up inference step
 		IWInferenceStep is = (IWInferenceStep) PMLObjectManager.createPMLObject(PMLJ.InferenceStep_lname);
 		is.setHasInferenceRule(service.getConceptualOperator().getURI());
@@ -61,9 +86,9 @@ public class PMLNodesetLogger {
 		
 		//set up conclusion
 		IWInformation conclusion = (IWInformation) PMLObjectManager.createPMLObject(PMLP.Information_lname);
-		String formatURI = service.getConceptualOperator().getOperatesOnFormats().get(0).getURI();
+		String formatURI = transformer.getTransformsToFormat().getURI();
 		conclusion.setHasFormat(formatURI);
-		conclusion.setHasURL(outDatasetURL);
+		setConclusionURL(conclusion, outDatasetURL);
 		
 		//set up nodeset
 		String nodesetNameService = baseNodesetNameService + "-" + FileUtils.getRandomFileName();
@@ -100,6 +125,17 @@ public class PMLNodesetLogger {
 		serviceNodesets.add(ns);
 	}
 
+	private void setConclusionURL(IWInformation conclusion, String dataURL){
+		ContentManager dataManager = ContentManager.getDataContentManager();
+		
+		String newURL = dataURL;
+		
+		if(dataManager != null)
+			newURL = dataManager.saveDocument(dataURL);
+		
+		conclusion.setHasURL(newURL);
+	}
+	
 	public String dumpNodesets() {
 
 		IWInferenceStep is;

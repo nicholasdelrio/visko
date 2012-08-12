@@ -45,6 +45,12 @@
     <param-value>REPLACE-TDB-PATH</param-value>
   </context-param>
 
+  <!-- Move Data -->
+  <context-param>
+    <param-name>move-data</param-name>
+    <param-value>REPLACE-MOVE-DATA</param-value>
+  </context-param>
+
   <!-- Content Manager Information, content-manager-type=(local | ciserver | alfresco) -->
   <context-param>
     <param-name>content-manager-type</param-name>

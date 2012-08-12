@@ -22,6 +22,9 @@ public class WebAppConfiguration {
 	private static String visko_sparql_endpoint;
 	private static String visko_tdb_path;
 	
+	//move data
+	private static String move_data;
+	
 	//content manager info
 	private static String content_manager_type;
 	private static String content_manager_url;
@@ -44,6 +47,9 @@ public class WebAppConfiguration {
 		//SPARQL endpoint and TDB path
 		webXML = webXML.replace("REPLACE-ENDPOINT-URL", WebAppConfiguration.visko_sparql_endpoint);
 		webXML = webXML.replace("REPLACE-TDB-PATH", WebAppConfiguration.visko_tdb_path);
+		
+		//move data
+		webXML = webXML.replace("REPLACE-MOVE-DATA", WebAppConfiguration.move_data);
 		
 		//content manager info
 		webXML = webXML.replace("REPLACE-CONTENT-MANAGER-TYPE", WebAppConfiguration.content_manager_type);
@@ -86,6 +92,8 @@ public class WebAppConfiguration {
 		WebAppConfiguration.content_manager_username = args[10];
 		WebAppConfiguration.content_manager_password = args[11];
 		WebAppConfiguration.content_manager_project = args[12];
+		
+		WebAppConfiguration.move_data = args[13];
 		
 		WebAppConfiguration webXMLGenerator = new WebAppConfiguration();
 		String deployedPath = webXMLGenerator.generateWebXML();

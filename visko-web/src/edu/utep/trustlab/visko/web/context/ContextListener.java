@@ -40,6 +40,8 @@ public class ContextListener implements ServletContextListener {
 		String managerType = context.getInitParameter("content-manager-type");
 		String serverBasePath = context.getInitParameter("server-base-path");
 	
+		String moveData = context.getInitParameter("move-data");
+		
 		ContentManager manager;
 		if(managerType.equals("local"))
 			manager = getContentManagerProvenanceLocal(context);
@@ -59,6 +61,11 @@ public class ContextListener implements ServletContextListener {
 		System.out.println("workspace path: " + pmlBasePath);
 		
 		ContentManager.setProvenanceContentManager(manager);
+		
+		//use same manager and project for data
+		if(moveData.equalsIgnoreCase("true"))
+			ContentManager.setDataContentManager(manager);
+		
 		ContentManager.setWorkspacePath(pmlBasePath);
 	}
 
