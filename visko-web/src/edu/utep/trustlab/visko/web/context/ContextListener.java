@@ -4,7 +4,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import edu.utep.trustlab.contentManagement.AlfrescoClient;
+import edu.utep.trustlab.contentManagement.VeloClientAdapter;
 import edu.utep.trustlab.contentManagement.CIServer;
 import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.contentManagement.LocalFileSystem;
@@ -75,7 +75,7 @@ public class ContextListener implements ServletContextListener {
 		String contentManagerPassword = context.getInitParameter("content-manager-password");
 		String contentManagerProject = context.getInitParameter("content-manager-project");
 		
-		AlfrescoClient alfresco = new AlfrescoClient(contentManagerURL, contentManagerUsername, contentManagerPassword);
+		VeloClientAdapter alfresco = new VeloClientAdapter(contentManagerURL, contentManagerUsername, contentManagerPassword);
 		alfresco.setProjectName(contentManagerProject);
 		return alfresco;
 	}
