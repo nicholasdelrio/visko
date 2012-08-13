@@ -16,8 +16,8 @@
 	<!-- Move Data -->
 	<!-- update value --><property name="move-data" value="false"/>
 	
-	<!-- VisKo Provenance Content Manager Info (local | ciserver | alfresco) -->
-	<!-- update value --><property name="content-manager-type" value="alfresco" />
+	<!-- VisKo Provenance Content Manager Info (local | ciserver | velo) -->
+	<!-- update value --><property name="content-manager-type" value="velo" />
 	<!-- update value --><property name="content-manager-url" value=""/>
 	<!-- update value --><property name="content-manager-username" value="admin" />
 	<!-- update value --><property name="content-manager-password" value="password"/>

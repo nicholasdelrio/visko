@@ -47,8 +47,8 @@ public class ContextListener implements ServletContextListener {
 			manager = getContentManagerProvenanceLocal(context);
 		else if(managerType.equals("ciserver"))
 			manager = getContentManagerProvenanceCIServer(context);
-		else if(managerType.equals("alfresco"))
-			manager = getContentManagerProvenanceAlfresco(context);
+		else if(managerType.equals("velo"))
+			manager = getContentManagerProvenanceVelo(context);
 		else
 			manager = getContentManagerProvenanceLocal(context);
 	
@@ -69,7 +69,7 @@ public class ContextListener implements ServletContextListener {
 		ContentManager.setWorkspacePath(pmlBasePath);
 	}
 
-	private static ContentManager getContentManagerProvenanceAlfresco(ServletContext context){
+	private static ContentManager getContentManagerProvenanceVelo(ServletContext context){
 		String contentManagerURL = context.getInitParameter("content-manager-url");
 		String contentManagerUsername = context.getInitParameter("content-manager-username");
 		String contentManagerPassword = context.getInitParameter("content-manager-password");

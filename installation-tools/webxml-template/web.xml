@@ -51,7 +51,7 @@
     <param-value>REPLACE-MOVE-DATA</param-value>
   </context-param>
 
-  <!-- Content Manager Information, content-manager-type=(local | ciserver | alfresco) -->
+  <!-- Content Manager Information, content-manager-type=(local | ciserver | velo) -->
   <context-param>
     <param-name>content-manager-type</param-name>
     <param-value>REPLACE-CONTENT-MANAGER-TYPE</param-value>
