@@ -58,6 +58,8 @@ public class OWLSService extends OWLSIndividual {
 	private String label;
 
 	private Operator implementedOperator;
+	private String implementedOperatorURI;
+	
 	private Extractor implementedExtractor;
 
 	private Toolkit supportingToolkit;
@@ -73,8 +75,7 @@ public class OWLSService extends OWLSIndividual {
 		super(uri, owlsModel);
 	}
 
-	public OWLSService(String baseURI, String name, OWLSModel owlsModel) {// for
-																			// writing
+	public OWLSService(String baseURI, String name, OWLSModel owlsModel) {// for writing
 		super(baseURI, name, owlsModel);
 	}
 
@@ -84,6 +85,10 @@ public class OWLSService extends OWLSIndividual {
 
 	public void setConceptualOperator(Operator op) {
 		implementedOperator = op;
+	}
+	
+	public void setConceptualOperatorURI(String opURI){
+		implementedOperatorURI = opURI;
 	}
 
 	public Operator getConceptualOperator() {
@@ -138,7 +143,11 @@ public class OWLSService extends OWLSIndividual {
 
 			if (isOperatorService) {
 				service.addProperty(supportingToolkitProperty, getToolkitAsOWLIndividual());
-				service.addProperty(implementsOperatorProperty, getOperatorAsOWLIndividual());
+				
+				if(implementedOperatorURI != null)
+					service.addProperty(implementsOperatorProperty, model.getOWLIndividual(implementedOperatorURI));
+				else
+					service.addProperty(implementsOperatorProperty, getOperatorAsOWLIndividual());
 			} else
 				service.addProperty(implementsExtractorProperty, getExtractorAsOWLIndividual());
 		

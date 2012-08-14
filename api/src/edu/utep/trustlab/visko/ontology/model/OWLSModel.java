@@ -106,6 +106,11 @@ public class OWLSModel {
 		return ontology;
 	}
 
+	public OWLIndividual getOWLIndividual(String uri){
+		URI uriObject = GetURLContents.getURI(uri);
+		return kb.getIndividual(uriObject);
+	}
+	
 	public OWLIndividual convertJenaToOWLIndividual(JenaIndividual ind) {
 		URI uri = GetURLContents.getURI(ind.getURI());
 		try {
