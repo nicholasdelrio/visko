@@ -1,0 +1,1 @@
+This directory holds the completed query.jsp, with visualization queries based on URIs from your content manager or GitHub
