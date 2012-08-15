@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="build" name="VisKo RDF Writer">
+	
+	<!-- GitHub Configuration (Assumes you have a forked version of repository visko-rdf on GitHub -->
+	<!-- update value --><property name="your-github-username" value="nicholasdelrio"/>
+	<!-- Do not change --><property name="source-github-username" value="nicholasdelrio"/>
+	<!-- Do not change --><property name="base-rdf-server-url" value="https://raw.github.com/"/>
+	<!-- Do not change --><property name="format-url" value="${base-rdf-server-url}${source-github-username}/visko-rdf/master/rdf/formats/"/>	
+	<!-- Do not change --><property name="github-server-url" value="${base-rdf-server-url}${your-github-username}/visko-rdf/master/rdf/"/>
+	
+	<!-- Alfresco/Cat Configuration (Assumes you have a space Projects/visko under Company Home -->
+	<!-- update value --><property name="cat-server-url" value="http://localhost:8080/alfresco/"/>
+	<!-- update value --><property name="cat-server-username" value="admin"/>
+	<!-- update value --><property name="cat-server-password" value="booger1"/>
+	<!-- Uncomment for WebDav usage <property name="cat-webdav-url" value="${cat-server-url}webdav/Projects/visko/" /> -->
+	<!-- Do not change --><property name="server-project-name" value="visko"/>
+	
+	<!-- Uncomment the server that is hosing your rdf (github, alfresco/cat, or ci-sever) -->
+	<!-- <property name="server-url" value="${github-server-url}"/> -->
+	<!-- <property name="server-url" value="${cat-server-url}"/> -->
+	
+	<!-- Server Hosting toolkits web application: Update only if using local copy of visualization toolkit services -->
+	<!-- update value --><property name="toolkits-server-url" value="http://iw.cs.utep.edu:8080"/>
+
+	<!-- DO NOT CHANGE SETTINGS BELOW -->
+
+	<!-- Query Examples -->
+	<property name="query-template" value="query-examples-template/query.jsp"/>
+	<property name="query-deployment-dir" value="query-examples-functional"/>
+	
+	<!-- Content Management Libs -->
+	<property name="content-management-libs" value="../../content-management-connectors/clients/lib"/>	
+		
+	<!-- build properties -->
+	<property name="jarfile" value="rdf-writer.jar"/>
+	<property name="lib" value="../../visko/api/lib/"/>
+	<property name="build" value="build"/>
+	<property name="src" value="src"/>
+	
+	<property name="visko-api" value="../../visko/api"/>
+	<property name="visko-api-jar" value="${visko-api}/visko-api.jar"/>
+	
+	<property name="visko-tdb" value="../tdb/"/>
+	<property name="visko-rdf" value="../rdf"/>
+	
+	<property name="visko-ontology" value="${visko-rdf}/ontology/"/>
+	<property name="visko-formats" value="${visko-rdf}/formats/"/>
+	<property name="visko-format-restrictions" value="${visko-rdf}/format-restrictions/"/>
+	<property name="visko-sadi-services" value="${visko-rdf}/sadi-services/"/>
+	<property name="saws" value="${visko-rdf}/saws/"/>
+
+	<target name="build" depends="compile">
+		<jar destfile="${jarfile}">
+			<fileset dir="${build}" includes="**/*.*" />
+		</jar>
+	</target>
+	
+	<target name="compile" depends="clean" description="Compile rdf-writer in build Directory">	
+		<ant antfile="${visko-api}/build.xml" target="build" inheritAll="false" />
+		
+		<mkdir dir="${build}"/>
+		<javac destdir="${build}/" srcdir="${src}" target="1.6"> 
+	    	<include name="**/*.java"/>
+			<classpath>
+				<pathelement location="${visko-api-jar}"/>
+				<fileset dir="${lib}/tomcat/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/axis4/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/jena262/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/util/">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>			
+		</javac>
+	</target>
+		
+	<target name="build-triple-store" depends="build,clean-triple-store" description="Generate a TDB Triple Store From a Bundle of RDF Documents">
+			
+			<java classname="edu.utep.trustlab.visko.triplestore.TripleStore">
+				<arg value="${visko-rdf}"/>
+				<arg value="${visko-ontology}"/>
+				<arg value="${visko-formats}"/>
+				<arg value="${visko-format-restrictions}"/>
+				<arg value="${saws}"/>
+				<arg value="${visko-sadi-services}"/>
+				<arg value="${visko-tdb}"/>
+				
+				<classpath>
+					<pathelement location="${jarfile}"/>
+					<pathelement location="${visko-api-jar}"/>
+					<fileset dir="${lib}/axis4/">
+						<include name="*.jar"/>
+					</fileset>
+					<fileset dir="${lib}/jena262/">
+						<include name="*.jar"/>
+					</fileset>	
+					<fileset dir="${lib}/util/">
+						<include name="*.jar"/>
+					</fileset>
+				</classpath>   
+			</java>	
+		</target>
+
+	<target name="update-uris-for-github" depends="build" description="Updates URI's of RDF documents to reference YOUR github repo URL">
+		<java classname="edu.utep.trustlab.visko.replaceURI.ReplaceText">
+			<arg value="${visko-rdf}"/>
+			<arg value="${your-github-username}"/>
+			<arg value="${source-github-username}"/>
+			
+			<classpath>
+				<pathelement location="${jarfile}"/>
+				<pathelement location="${visko-api-jar}"/>
+			</classpath>   
+		</java>	
+	</target>
+	
+	<target name="utep-rdf-uploader" depends="build"  description="Generates and Uploads VisKo RDF to a Content Managment">
+		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorContentManager">
+			<arg value="${server-url}"/>
+			<arg value="${server-project-name}"/>
+			<arg value="${cat-server-username}"/>
+			<arg value="${cat-server-password}"/>
+			<arg value="${visko-rdf}"/>
+			<arg value="${wsdl-url}"/>
+			
+			<classpath>
+				<pathelement location="${jarfile}"/>
+				<pathelement location="${visko-api-jar}"/>
+				
+				<fileset dir="${content-management-libs}/libs-velo/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/axis4/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/jena262/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/util/">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>   
+		</java>	
+	</target>	
+
+	<target name="utep-rdf-writer" depends="build"  description="Generates and writes RDF to local filesystem.">
+		<java classname="edu.utep.trustlab.visko.knowledge.GeneratorLocalFileSystem">
+			<arg value="${server-url}"/>
+			<arg value="${visko-rdf}"/>
+			<arg value="${wsdl-url}"/>
+			
+			<classpath>
+				<pathelement location="${jarfile}"/>
+				<pathelement location="${visko-api-jar}"/>
+				
+				<fileset dir="${lib}/axis4/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/jena262/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/util/">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>   
+		</java>	
+	</target>
+	
+	<target name="build-query-html" depends="build" description="Generate the query examples html specific for your VisKo RDF deployment">
+		<java classname="edu.utep.trustlab.visko.queryExamples.QueryExamples">
+			<arg value="${query-template}"/>
+			<arg value="${server-url}"/>
+			<arg value="${format-url}"/>
+			<arg value="${query-deployment-dir}"/>
+			
+			<classpath>
+				<pathelement location="${jarfile}"/>
+				<pathelement location="${visko-api-jar}"/>
+			</classpath>
+		</java>		
+	</target>
+		
+	<target name="clean-rdf" description="Delete the RDF Visko Instances">
+		<delete>
+			<fileset dir="${visko-rdf}">
+				<include name="*.owl"/>
+			</fileset>
+		</delete>
+	</target>
+	
+	<target name="clean-triple-store" description="Delete the TDB Triple Store Instance">
+		<delete dir="${visko-tdb}" />
+	</target>
+	
+	<target name="clean" description="Delete the Build Directory">
+		<delete dir="${build}" />
+		<delete file="${jarfile}"/>
+	</target>
+</project>
