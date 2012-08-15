@@ -2,7 +2,7 @@ package edu.utep.trustlab.visko.packages.manager;
 
 import java.io.File;
 
-import edu.utep.trustlab.visko.packages.rdf.PackageRDFWriter;
+import edu.utep.trustlab.visko.packages.PackageRDFWriter;
 
 public class PackageInstaller {
 	
