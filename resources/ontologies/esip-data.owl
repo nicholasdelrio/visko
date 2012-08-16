@@ -325,12 +325,6 @@
     <owl:Class rdf:about="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#SpatioTemporalDatatype">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#hasGeometry"/>
-                <owl:someValuesFrom rdf:resource="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Geometry"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#hasExtent"/>
                 <owl:someValuesFrom>
                     <owl:Class>
@@ -344,8 +338,8 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#hasPhysicalDomain"/>
-                <owl:someValuesFrom rdf:resource="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#PhysicalDomain"/>
+                <owl:onProperty rdf:resource="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#hasGeometry"/>
+                <owl:someValuesFrom rdf:resource="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Geometry"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -359,6 +353,12 @@
                         </owl:unionOf>
                     </owl:Class>
                 </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#hasPhysicalDomain"/>
+                <owl:someValuesFrom rdf:resource="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#PhysicalDomain"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
