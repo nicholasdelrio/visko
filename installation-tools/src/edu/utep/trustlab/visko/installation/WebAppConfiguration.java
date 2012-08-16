@@ -1,6 +1,8 @@
-package edu.utep.trustlab.visko.webappConfiguration;
+package edu.utep.trustlab.visko.installation;
 
 import java.io.File;
+
+import edu.utep.trustlab.visko.util.FileUtils;
 
 public class WebAppConfiguration {
 	

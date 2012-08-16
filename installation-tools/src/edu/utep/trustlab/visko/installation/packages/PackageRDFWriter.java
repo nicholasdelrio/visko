@@ -1,4 +1,4 @@
-package edu.utep.trustlab.visko.packages;
+package edu.utep.trustlab.visko.installation.packages;
 
 public interface PackageRDFWriter {
 	public void createViewers();

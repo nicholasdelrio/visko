@@ -1,4 +1,4 @@
-package edu.utep.trustlab.visko.packages.manager;
+package edu.utep.trustlab.visko.installation.packages.manager;
 
 import edu.utep.trustlab.contentManagement.LocalFileSystem;
 
