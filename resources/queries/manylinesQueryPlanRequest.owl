@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<rdf:RDF xmlns="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/queries/manylinesQueryPlanRequest.owl#"
+     xml:base="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/queries/manylinesQueryPlanRequest.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:visko-query="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-query.owl#"
+     xmlns:prov="http://www.w3.org/ns/prov/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:pml-provenance="http://inference-web.org/2.0/pml-provenance.owl#"
+     xmlns:dataset="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/dataset.owl#">
+
+    <visko-query:QueryPlanRequest rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/queries/manylinesQueryPlanRequest.owl#manylinesQueryPlanRequest">
+        <prov:wasDerivedFrom>
+            <dataset:PSDocument>
+                <pml-provenance:hasFormat rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
+                <pml-provenance:hasURL>http://www.adobetutorialz.com/content_images/AdobeTechnologies/PostScript/manylines.ps</pml-provenance:hasURL>
+            </dataset:PSDocument>
+        </prov:wasDerivedFrom>
+        <visko-query:hasResultViewableIn rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/mozilla-firefox.owl#mozilla-firefox"/>
+    </visko-query:QueryPlanRequest>
+    
+</rdf:RDF>

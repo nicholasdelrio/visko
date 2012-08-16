@@ -1,0 +1,1744 @@
+<rdf:RDF xmlns:pmlp="http://inference-web.org/2.0/pml-provenance.owl#" xmlns:ds="http://inference-web.org/2.0/ds.owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns="http://inference-web.org/2.0/pml-justification.owl#" xmlns:daml="http://www.daml.org/2001/03/daml+oil#">
+  <Query rdf:about="http://trust.utep.edu:8080/sparql-pml/query/pmlquery/10#query">
+    <pmlp:hasContent>
+      <pmlp:Information>
+        <pmlp:hasRawString rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; 
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; 
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt; 
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; 
+PREFIX pmlj: &lt;http://inference-web.org/2.0/pml-justification.owl#&gt; 
+PREFIX pmlp: &lt;http://inference-web.org/2.0/pml-provenance.owl#&gt; 
+PREFIX pml-sparql: &lt;http://trust.utep.edu/sparql-pml#&gt; 
+PREFIX ds: &lt;http://inference-web.org/2.0/ds.owl#&gt; 
+
+SELECT ?NodeSet WHERE {
+?NodeSet pmlj:hasConclusion ?Information .
+}
+        </pmlp:hasRawString>
+        <pmlp:hasLanguage rdf:resource="http://inference-web.org/registry/LG/KIF.owl#KIF"></pmlp:hasLanguage>
+      </pmlp:Information>
+    </pmlp:hasContent>
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Image_04970444970123413.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/SeismologyBiblio/draft-tr06-07.tex_07784916821035472.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/rayCoverageArray_07022724453847552.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/pickTimes_08104696274466525.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_07441787304567513.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_034679802634177814.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_05019838676638602.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/slownessPerturbationArray_03154334337041357.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Presentation_05262826811152158.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GravityDatasetGravTroyNY_07169040212287824.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_03847205524310233.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_012740325875831138.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/pickTimes_08730729154398221.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_05047199728247255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_024939442846295612.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/ContourMapCMTroyNY_06613635342660732.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GravityDatasetGravTroyNY_020253878213906473.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/pickTimes_03077024825188923.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/pickTimes_07324866765046814.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/AnnualReport/Copy of d2.txt_07706129105171838.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt_08475589929900726.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GravityDatasetGravTroyNY_0988819650824671.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_042647074686358066.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_009656367008525679.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/ScientificPublication/ipaw-v1-doc.tex_06359221239389197.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GriddedDatasetGridTroyNY_08507822962894119.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_033089694369262357.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_014292838786923845.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/ScientificPublication/ipaw-v1.tex_08713774491134877.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_003166969380564011.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GravityDatasetGravTroyNY_038648143837487436.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GravityDatasetGravTroyNY_06488097227652191.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_02030937623686323.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Text_02512498553325694.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/DVelocityModelProduct_09971868569815964.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/DVelocityModel_06176892882483374.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_0020285863715596486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_0772223056066154.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/DVelocityModel_09943789245072717.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/DModel_005816417864419121.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GriddedDatasetGridTroyNY_08270768168150864.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/rayCoverageArray_002519108938100778.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_06033889373272178.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/pickTimes_08462106792748394.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/griddedTimeField_034251166627388796.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/pickTimes_017465966372488817.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_09991080541700226.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/rayCoverageArray_08054444745978127.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_07868328848895185.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_0455564882459507.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/rayCoverageArray_07849320020291551.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/MS_Word_Document_09197618265237839.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_08477131132472758.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_06519495849840363.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/ContourMapCMTroyNY_07921129484964221.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Presentation_05262826811152158.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_025850437291429795.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/griddedTimeField_017827049899585812.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GriddedDatasetGridTroyNY_03530104383921976.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_08663439351962344.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Presentation_05262826811152158.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/smoothedDModel_08486998163774712.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/pickTimes_09749678243071714.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/slownessPerturbationArray_020188442997277234.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/derivALogo.jpg_06257091225068272.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GriddedDatasetGridTroyNY_04838168244872004.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Presentation_05262826811152158.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_06616621394652814.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_045159204861583757.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/ContourMapCMTroyNY_004110378748454668.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/esriGrid.txt_09509250903594285.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_07292569199125976.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GriddedDatasetGridTroyNY_0044727835795352.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_08458684336208616.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_05300498255255134.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_0020073662189515673.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/DModel_06443630406931117.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_09271219806589254.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/ScientificPublication/v2-input.txt_06363692115104771.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/DVelocityModelProduct_08836303303271099.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_09498641932639904.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_00790545567739801.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/SeismologyBiblio/tr05-19b.pdf_001716552712746655.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_025858388765812423.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/workshopText.txt_08512341889590933.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/AGTesting/gravityDataset.txt_07759791711943271.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/DVelocityModel_06976831963800201.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_04234297526680669.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/DVelocityModel_08973355404590877.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_07419493439517647.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/griddedTimeField_09225595594319418.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/derivALogo.jpg_06257091225068272.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/MS_Word_Document_09197618265237839.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_02861294671152995.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_06157584401256939.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/workshopText.txt_08512341889590933.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_029826777460700404.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_03745852638271503.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/DVelocityModel_05584841845161823.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_08275549192860968.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_08615132857411474.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_06085506867615693.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GravityDatasetGravTroyNY_04939499107541918.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/DVelocityModelProduct_08631804840553247.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_016395836991613055.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj2/ActivityReport_0697741058431658.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GriddedDatasetGridTroyNY_022659578933901459.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj2/Report_09010955656127896.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/DVelocityModelProduct_06679097472129273.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMarch311deriveMarch31assert.doc_08524723589414847.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GriddedDatasetGridTroyNY_021030360483554034.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_0589893627500016.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_070258338059376.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_027426712283257126.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GravityDatasetGravTroyNY_09899225874363982.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_012481016839389214.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/EddyCovariance/data_processing_list.txt_08264671983140465.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_06856799958004234.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Presentation_05262826811152158.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Image_04970444970123413.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/slownessPerturbationArray_07291966763695176.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/pickTimes_010978206934364809.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/ContourMapCMTroyNY_07042363899197636.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_07156794568490106.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/DVelocityModel_08628878534794991.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GravityDatasetGravTroyNY_05599987929016008.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_0048295604883923704.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_04500948035029858.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_0347091838154828.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_07232345799894949.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/DVelocityModelProduct_034934543884559965.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/slownessPerturbationArray_05069593380118265.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_0021844542823189483.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_08577281680049527.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/filterDModel_05882233167808524.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/workshopText.txt_08512341889590933.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_0968713699936599.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_05702671298368741.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/MS_Word_Document_09197618265237839.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/pickTimes_0003700645169410377.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/griddedTimeField_036606939679725914.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj2/Report_08866349751725372.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_0759635958349832.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_016677476468667818.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_022779497029559492.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_029172783068599917.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/pickTimes_014397041826282742.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/pickTimes_06426495829097382.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_06431567005749074.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GriddedDatasetGridTroyNY_02546235744752049.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_01354909359617562.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/ContourMapCMTroyNY_06333054099413484.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_02388654349139573.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/DVelocityModelProduct_03509205387422798.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/pickTimes_05590943240038025.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/ContourMapCMTroyNY_06755935507149695.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/pickTimes_07584175651661673.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_003813735779051719.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/rayCoverageArray_03350504256923409.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/workshopText.txt_08512341889590933.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj2/PublicationReport_042589772749769417.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GriddedDatasetGridTroyNY_05470583808645126.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Presentation_05262826811152158.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_06093606130460839.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/workshopText.txt_08512341889590933.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_0013940466111251992.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/derivALogo.jpg_06257091225068272.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_046574377322181093.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/pickTimes_0005015853390965441.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_04186360476712153.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_023338420597086496.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/pickTimes_0799475078282033.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_09617136428440085.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/ContourMapCMTroyNY_09724574563633279.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityContourMap.ps_038568341971146025.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/ContourMapCMTroyNY_07397090911250993.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/rayCoverageArray_06164957625188985.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/griddedTimeField_05308296169250797.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/pickTimes_09871372487604942.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/AGTesting/www.thewrestlingrevolution.com_slash_site_img_slash_LOGO.png_04839496847020792.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_09257578949594061.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj2/ReportDraft_08384828671688261.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_013933368005694236.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/workshopText.txt_08512341889590933.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/DVelocityModelProduct_0031828461287224497.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_09713241487449499.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_046563636185760027.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/ContourMapCMTroyNY_0556065375208841.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/EddyCovariance/Format_list_EdiRe_default.txt_05860773289625978.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_07457661808548554.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GravityDatasetGravTroyNY_011046971406964645.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/filterDModel_05506718160710814.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/AGTesting/gravityDataset.txt_021230821477648631.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_000997206190622102.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_040807114542821166.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_029603452805378305.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/slownessPerturbationArray_05070690998558345.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/ScientificPublication/ipaw-probeit.pdf_041364756901066657.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_0013004892926047784.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_05427996678134854.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Text_02512498553325694.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_014757579536572507.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/ContourMapCMTroyNY_07169766231821671.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_09805284907822444.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_04907838713664755.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_04614238575948413.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Text_02512498553325694.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/pickTimes_03206211836540246.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/DVelocityModel_05469566994651521.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Text_02512498553325694.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_043429789912497274.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GravityDatasetGravTroyNY_05338456404552778.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GriddedDatasetGridTroyNY_08790909058030368.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_04100727299505963.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Presentation_05262826811152158.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GravityDatasetGravTroyNY_003433105733932018.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GravityDatasetGravTroyNY_04250456636475617.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/DVelocityModel_06019859620908885.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_007322287566299746.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_02891314696166717.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/pickTimes_07767062170794583.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/griddedTimeField_0618192016589801.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/slownessPerturbationArray_016623647609282477.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Text_02512498553325694.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GriddedDatasetGridTroyNY_013971045623289735.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/ScientificPublication/ipaw-v4.tex_0016939260199497874.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GriddedDatasetGridTroyNY_07527497664551004.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_07861612805281918.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Text_02512498553325694.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/ContourMapCMTroyNY_018907543410493044.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/SeismologyBiblio/Nonlinear3.html_05885148990663792.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_05152771883788525.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_08727185696746016.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GriddedDatasetGridTroyNY_008687600293008435.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/ContourMapCMTroyNY_05762280014828731.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/SeismologyBiblio/tr05-19b.tex_0584308891293237.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/pickTimes_0662001562719199.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_032177477865489457.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/ContourMapCMTroyNY_08906047214997591.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/DVelocityModelProduct_01044731520407759.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/griddedTimeField_0017363461943123104.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_08927492199729373.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/MS_Word_Document_09197618265237839.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GravityDatasetGravTroyNY_06169550820366885.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GravityDatasetGravTroyNY_02846468565427518.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/rayCoverageArray_04879639957516906.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_08087591696637946.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/AGTesting/gravityDataset.txt_09272932660158486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/slownessPerturbationArray_011485691908821194.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/AnnualReport/upload1.txt_09042029061533645.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/pickTimes_049034945828630494.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_06440155934719733.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GravityDatasetGravTroyNY_04258649664693164.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/derivALogo.jpg_06257091225068272.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/rayCoverageArray_043895558781683175.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GriddedDatasetGridTroyNY_06454001553199537.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/ContourMapCMTroyNY_03218368843952868.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/rayCoverageArray_014011579472734292.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Image_04970444970123413.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/pickTimes_09739462649601367.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_016602999857643275.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/ScientificPublication/v3-picture-input.txt_09760754121820336.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/March31assert.doc_05856234696182605.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Presentation_05262826811152158.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GravityDatasetGravTroyNY_089657546307332.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GriddedDatasetGridTroyNY_06130652589536683.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_09324582504448913.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GravityDatasetGravTroyNY_04865340630050494.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/workshopText.txt_08512341889590933.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/filterDModel_04742058327031128.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GravityDatasetGravTroyNY_04902606500188047.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/smoothedDModel_049904123300126013.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/griddedTimeField_004189595743419883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_036080718453574623.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/derivALogo.jpg_06257091225068272.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_044046159752533887.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_02917312474471996.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/pickTimes_07236793424209348.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Image_04970444970123413.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/ContourMapCMTroyNY_03081688597746287.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GravityDatasetGravTroyNY_020496854931854747.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/rayCoverageArray_00036487313836863766.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/pickTimes_03555796024400335.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/DVelocityModel_06736126130144263.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_09556421030580096.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_02022731264487868.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_0832638017042577.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/AnnualReport/testingUpload4.txt_09519687662242211.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_0933114519088811.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/slownessPerturbationArray_067899278745915.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/SeismologyBiblio/Nonlinear3.html_03113924787630057.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_006405822428706842.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/DVelocityModel_0712051198042677.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/slownessPerturbationArray_06198248474334168.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/MS_Word_Document_09197618265237839.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_0737369323378998.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_0905955262511192.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/MS_Word_Document_09197618265237839.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_014670921217714106.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_07501245853968546.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GravityDatasetGravTroyNY_05381846243760251.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/DModel_021892398808989966.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/derivALogo.jpg_06257091225068272.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/MS_Word_Document_09197618265237839.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_06060467248056404.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/griddedTimeField_08782932472197098.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DModel_03234350760860084.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GriddedDatasetGridTroyNY_05399260067131718.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/DVelocityModelProduct_02497907656135191.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/pickTimes_023905927504202384.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GriddedDatasetGridTroyNY_08271609144467619.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_05750422693805589.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_023726544086152923.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_07449254024588451.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_05410959970679997.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/griddedTimeField_014676293401925555.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/derivALogo.jpg_06257091225068272.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_06622188651828066.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/workshopText.txt_08512341889590933.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/derivALogo.jpg_06257091225068272.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_04049064007040065.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_08257314315264821.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/slownessPerturbationArray_03013928634891524.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_04752389081700068.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_08259968745294489.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/pickTimes_023836193278580942.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/ContourMapCMTroyNY_08743234528311591.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_07354619546988631.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_07007492273467.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_043107650257958097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/rayCoverageArray_019850180566743691.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_018953958989622943.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/slownessPerturbationArray_05373185554718324.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/slownessPerturbationArray_08321689795378435.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_0896869304765961.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/AGTesting/gravityDataset.txt_07982342071348225.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/EddyCovariance/2011_01_21_flux.csv_01928527091322818.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_09303754034427932.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/pickTimes_06399476405074856.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GravityDatasetGravTroyNY_03130940178592915.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/workshopText.txt_08512341889590933.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/derivALogo.jpg_06257091225068272.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_006684908775613896.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_0003079717933295978.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_0046966981314028655.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_08289088736806433.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GravityDatasetGravTroyNY_05584413233546885.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_07815275008012866.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/DVelocityModel_09647913754817875.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/SeismologyBiblio/tr06-07.tex_08041306131300229.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/DVelocityModelProduct_08987690948167472.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj2/ReportFeedback_036994623855549025.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_07888084437049415.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/DVelocityModel_05811941116158558.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/AnnualReport/testingUpload5.txt_035511562917349904.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_03132951437933469.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/DVelocityModel_03643579400314232.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/griddedTimeField_02808869354511936.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_042033241673925525.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/DVelocityModelProduct_0567673203035472.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_016755014201347362.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_08033354429533514.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/AnnualReport/d1.pdf_08391921727750803.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/DModel_02716787224444184.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/workshopText.txt_08512341889590933.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/ContourMapCMTroyNY_040612069241684334.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/smoothedDModel_07345618129543932.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Image_04970444970123413.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_024270513540910843.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/ContourMapCMTroyNY_06906932510376594.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/AGTesting/gravityDataset.txt_019546659397539234.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/ContourMapCMTroyNY_06079363158973448.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/ContourMapCMTroyNY_034256310175780713.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_048394201763546385.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_07414604081430977.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/slownessPerturbationArray_0047672202878064174.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GravityDatasetGravTroyNY_044215744628812115.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/DVelocityModel_032747156515151044.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/dataset.txt_036322992995879444.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/EddyCovariance/2803.met_data.dat_07817696609929946.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_007637023424438927.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/AnnualReport/upload6666.txt_09729618137735145.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_06513707164594862.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_03201342386521374.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_05833080295312267.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/rayCoverageArray_0506453905431435.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Text_02512498553325694.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GravityDatasetGravTroyNY_09840925439449741.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_04000683360990952.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/griddedTimeField_018353067368260156.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Image_04970444970123413.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_05085048631783627.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/PauloTest.doc_005442687058785567.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Image_04970444970123413.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GriddedDatasetGridTroyNY_0700221795602634.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GriddedDatasetGridTroyNY_09477200902334132.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_007967909082284219.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Image_04970444970123413.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/SeismologyBiblio/89JB00008.html_07265670175318298.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/pickTimes_022033276662468915.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_07166223683518539.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Text_02512498553325694.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_0717029716672805.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/MS_Word_Document_09197618265237839.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt_05772947743739069.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_05051577461670177.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/griddedTimeField_018544515940717632.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/ScientificPublication/ipaw-v3.tex_07755184805023513.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/ScientificPublication/holes-trace.jpg_007663978235903546.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_05695981629897748.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/pickTimes_049962635137624756.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/AnnualReport/d1.pdf_008458481524511618.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/MS_Word_Document_09197618265237839.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Text_02512498553325694.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_00886506575074617.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/workshopText.txt_08512341889590933.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/DVelocityModel_014122927445313693.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_01303900980098499.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/ScientificPublication/ipaw-d-v2.tex_0002028023223083375.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/MS_Word_Document_09197618265237839.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Image_04970444970123413.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Text_02512498553325694.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_009268774029252547.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_020704901065317138.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/rayCoverageArray_034506711352298325.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/AGTesting/gravityDataset.txt_0013434321386772807.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/griddedTimeField_08645544521564319.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GriddedDatasetGridTroyNY_011129067950099769.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_09958283823489108.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/ContourMapCMTroyNY_00927710489680168.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_05458378497365004.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_001020667635462369.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_07543723046255193.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GriddedDatasetGridTroyNY_03261558597510712.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GravityDatasetGravTroyNY_010308600244879684.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/SeismologyBiblio/tr06-07.pdf_08226558494518138.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_04195370667185718.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_06945796290609124.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_8948560937503958E-4.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/March311derive.doc_02634376113918031.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/pickTimes_04678282934077457.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Presentation_05262826811152158.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_08940632020018325.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Image_04970444970123413.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/DVelocityModel_008573886558996946.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_03193409642934838.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/pickTimes_00607821747382461.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Image_04970444970123413.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/AGTesting/www.thewrestlingrevolution.com_07404181411817164.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/filterDModel_026020554973598864.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/derivALogo.jpg_06257091225068272.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_03640528523535822.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GriddedDatasetGridTroyNY_06391750288074354.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/AnnualReport/d2.pdf_09988168448264602.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/MS_Word_Document_09197618265237839.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/DVelocityModelProduct_034930610279879903.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/ScientificPublication/ipaw-d-v1.tex_04249113029077688.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_006743681035189553.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_06925799924195916.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/ScientificPublication/v4-input.txt_06896559663980075.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_0029620305974521477.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/dataset.txt_07834883978329925.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_06220511591144875.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_07652520140252411.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Presentation_05262826811152158.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/DVelocityModel_04199772269859017.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/pickTimes_06053878068766779.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/AGTesting/gravityDataset.txt_07218877268393475.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodePMLUpdate/pickTimes_09689251684896101.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_048519527716622535.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Text_02512498553325694.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/slownessPerturbationArray_0556345794851464.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_08497792177836214.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/wiki.utep.edu_slash_display_slash_PLTL_slash_Home_0002064531480201026.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_015328773090266556.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/griddedTimeField_037498069863287675.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_06211739996506458.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_04672651639998856.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/pickTimes_05667939396060874.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_09898172245656097.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullProvenance/slownessPerturbationArray_046486266002534005.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/NewGravityMapPML/GravityDatasetGravTroyNY_02397606608903191.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/CompareMay26V1May26V0.doc_08735682796787486.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/pickTimes_05893995065456384.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/derivALogo.jpg_06257091225068272.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workshopText-NAME.txt_015540412824187255.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_0548560792610429.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_0055387475089726856.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_025630693175250163.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/I3/www.cs.utep.edu_slash_ofuentes_slash_reu_slash_reu_Summer09.html_033620356782379557.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModel_09586217293663416.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/workshopText.txt_08512341889590933.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/pickTimes_01529433227802749.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Image_04970444970123413.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/ScientificPublication/ipaw-v2.tex_07118844884389554.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/may1.doc_049887804953903403.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/derivAWorkshop/workShopFinal-NAME.pdf_06453425086038849.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V1.doc_082061108400498.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Text_02512498553325694.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/AnnualReport/d1.txt_05320909989964138.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/GriddedDatasetGridTroyNY_01692175274188018.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/MS_Word_Document_09197618265237839.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapPML/ContourMapCMTroyNY_05750703392284198.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Presentation_05262826811152158.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/DVelocityModelProduct_08789684134915515.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/music.txt_040116505486837883.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/derivALogo.jpg_06257091225068272.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/rayCoverageArray_08339016759125794.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj2/ReportDraft_07222888340813487.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/pmlj/Presentation_05262826811152158.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/testproj/May26V0.doc_017703110622311424.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/rayCoverageArray_005435951181164067.owl#answer" />
+    
+    <hasAnswer rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeProvenance/smoothedDModel_08053135842361945.owl#answer" />
+    
+  </Query>
+</rdf:RDF>

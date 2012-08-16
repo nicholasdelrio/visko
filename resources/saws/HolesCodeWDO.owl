@@ -1,0 +1,126 @@
+<rdf:RDF
+    xmlns:wdo="http://trust.utep.edu/2.0/wdo.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:pmlp="http://inference-web.org/2.0/pml-provenance.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" > 
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d6">
+    <rdfs:label xml:lang="EN">travelTimeResiduals</rdfs:label>
+    <rdfs:comment xml:lang="EN"></rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#Information"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#m1">
+    <rdfs:label>vel1d</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#MethodRule"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d7">
+    <rdfs:label>rayCoverageArray</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#Information"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d4">
+    <rdfs:label xml:lang="EN">griddedTimeField</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#Information"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="EN"></rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d11">
+    <rdfs:label>smoothed3DModel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d2"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d14">
+    <rdfs:subClassOf rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/UL-Scientific-Publication/UL-Scientific-Publication#d1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="EN">3DVelocityModelProduct</rdfs:label>
+    <rdfs:comment xml:lang="EN"></rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d5">
+    <rdfs:label>shotpoints</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#Information"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#m7">
+    <rdfs:label>addc</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#MethodRule"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d13">
+    <rdfs:subClassOf rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/UL-Scientific-Publication/UL-Scientific-Publication#d5"/>
+    <rdfs:label xml:lang="EN">pickTimes</rdfs:label>
+    <rdfs:comment xml:lang="EN"></rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl">
+    <rdf:type rdf:resource="http://trust.utep.edu/2.0/wdo.owl#WorkflowDrivenOntology"/>
+    <owl:imports rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/UL-Scientific-Publication/UL-Scientific-Publication"/>
+    <owl:imports rdf:resource="http://trust.utep.edu/2.0/wdo.owl"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d12">
+    <rdfs:label>filter3DModel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d2"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#m6">
+    <rdfs:label>duadd</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#MethodRule"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#m8">
+    <rdfs:label>DataSwitch</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#MethodRule"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#m9">
+    <rdfs:label>createGriddedTimeField</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#MethodRule"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d8">
+    <rdfs:label>slownessPerturbationArray</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#Information"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#m2">
+    <rdfs:label>punch</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#MethodRule"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d9">
+    <rdfs:label>pertubationAlongRayArray</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#Information"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#m3">
+    <rdfs:label>cover</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#MethodRule"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d2">
+    <rdfs:label>3DVelocityModel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#Information"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d1">
+    <rdfs:subClassOf rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/UL-Scientific-Publication/UL-Scientific-Publication#d5"/>
+    <rdfs:label>1DModel</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#m5">
+    <rdfs:label>tomosm</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#MethodRule"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#m4">
+    <rdfs:label>finddt</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#MethodRule"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/UL-Scientific-Publication/UL-Scientific-Publication#d5">
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#Information"/>
+  </rdf:Description>
+</rdf:RDF>
