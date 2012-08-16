@@ -17,8 +17,8 @@
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-    <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl">
-        <owl:imports rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/esip-data.owl"/>
+    <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl">
+        <owl:imports rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/esip-data.owl"/>
     </owl:Ontology>
     
 
@@ -34,20 +34,20 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#includesView -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#includesView -->
 
-    <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#includesView">
-        <rdfs:range rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#AtomicView"/>
-        <rdfs:domain rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#CompositeView"/>
+    <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#includesView">
+        <rdfs:range rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#AtomicView"/>
+        <rdfs:domain rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#CompositeView"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#supportsAttribute -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#supportsAttribute -->
 
-    <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#supportsAttribute">
-        <rdfs:range rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#DisplayAttribute"/>
-        <rdfs:domain rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#View"/>
+    <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#supportsAttribute">
+        <rdfs:range rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#DisplayAttribute"/>
+        <rdfs:domain rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#View"/>
     </owl:ObjectProperty>
     
 
@@ -66,124 +66,124 @@
     <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Geometry -->
 
     <rdf:Description rdf:about="&Datatypes;Geometry">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#AtomicView"/>
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#AtomicView"/>
     </rdf:Description>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#AtomicView -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#AtomicView -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#AtomicView">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#View"/>
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#AtomicView">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#View"/>
     </owl:Class>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#ColorFunction -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#ColorFunction -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#ColorFunction">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#GlobalRetinalAttribute"/>
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#ColorFunction">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#GlobalRetinalAttribute"/>
     </owl:Class>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#CompositeView -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#CompositeView -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#CompositeView">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#View"/>
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#CompositeView">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#View"/>
     </owl:Class>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#DisplayAttribute -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#DisplayAttribute -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#DisplayAttribute"/>
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#DisplayAttribute"/>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#GlobalRetinalAttribute -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#GlobalRetinalAttribute -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#GlobalRetinalAttribute">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#DisplayAttribute"/>
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#GlobalRetinalAttribute">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#DisplayAttribute"/>
     </owl:Class>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#Graph -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Graph -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#Graph">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#AtomicView"/>
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Graph">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#AtomicView"/>
     </owl:Class>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#Network -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Network -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#Network">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#AtomicView"/>
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Network">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#AtomicView"/>
     </owl:Class>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#OpacityFunction -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#OpacityFunction -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#OpacityFunction">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#GlobalRetinalAttribute"/>
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#OpacityFunction">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#GlobalRetinalAttribute"/>
     </owl:Class>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#Orientation -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Orientation -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#Orientation">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#SpatialAttribute"/>
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Orientation">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#SpatialAttribute"/>
     </owl:Class>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#Projection -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Projection -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#Projection">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#SpatialAttribute"/>
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Projection">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#SpatialAttribute"/>
     </owl:Class>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#Raster -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Raster -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#Raster">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#AtomicView"/>
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Raster">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#AtomicView"/>
     </owl:Class>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#ShawdowFunction -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#ShawdowFunction -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#ShawdowFunction">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#GlobalRetinalAttribute"/>
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#ShawdowFunction">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#GlobalRetinalAttribute"/>
     </owl:Class>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#SpatialAttribute -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#SpatialAttribute -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#SpatialAttribute">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#DisplayAttribute"/>
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#SpatialAttribute">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#DisplayAttribute"/>
     </owl:Class>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#Tree -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Tree -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#Tree">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#Network"/>
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Tree">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Network"/>
     </owl:Class>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#View -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#View -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#View"/>
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#View"/>
 </rdf:RDF>
 
 
