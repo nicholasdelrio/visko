@@ -5,7 +5,7 @@
     xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:ds="http://inference-web.org/2.0/ds.owl#">
-  <pmlp:InferenceEngine rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/pml/engines/visko-parameter-binder.owl#visko-parameter-binder">
+  <pmlp:InferenceEngine rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/engines/visko-parameter-binder.owl#visko-parameter-binder">
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >VisKo Visualization Parameter Binder</pmlp:hasName>
   </pmlp:InferenceEngine>
