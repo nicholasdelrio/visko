@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY pml-provenance "http://inference-web.org/2.0/pml-provenance.owl#" >
+    <!ENTITY Service "http://www.daml.org/services/owl-s/1.2/Service.owl#" >
+    <!ENTITY Process "http://www.daml.org/services/owl-s/1.2/Process.owl#" >
+    <!ENTITY visko-operator "https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-operator.owl#" >
+]>
+
+
+<rdf:RDF xmlns="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#"
+     xml:base="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl"
+     xmlns:pml-provenance="http://inference-web.org/2.0/pml-provenance.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:Service="http://www.daml.org/services/owl-s/1.2/Service.owl#"
+     xmlns:Process="http://www.daml.org/services/owl-s/1.2/Process.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:visko-operator="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-operator.owl#">
+    <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl">
+        <owl:imports rdf:resource="http://inference-web.org/2.0/pml-provenance.owl"/>
+        <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Process.owl"/>
+        <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Service.owl"/>
+        <owl:imports rdf:resource="http://www.mygrid.org.uk/mygrid-moby-service"/>
+        <owl:imports rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-operator.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#declaresBindings -->
+
+    <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#declaresBindings">
+        <rdfs:range rdf:resource="&Process;InputBinding"/>
+        <rdfs:domain rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#InputParameterBindings"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#extractsFromFormat -->
+
+    <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#extractsFromFormat">
+        <rdfs:range rdf:resource="&pml-provenance;Format"/>
+        <rdfs:domain rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#Extractor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#hasEquivalentSADI -->
+
+    <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#hasEquivalentSADI">
+        <rdfs:domain rdf:resource="&Service;Service"/>
+        <rdfs:range rdf:resource="http://www.mygrid.org.uk/mygrid-moby-service#serviceDescription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#implementsExtractor -->
+
+    <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#implementsExtractor">
+        <rdfs:domain rdf:resource="&Service;Service"/>
+        <rdfs:range rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#Extractor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#implementsOperator -->
+
+    <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#implementsOperator">
+        <rdfs:range rdf:resource="http://trust.utep.edu/visko/ontology/visko-operator.owl#Operator"/>
+        <rdfs:domain rdf:resource="&Service;Service"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#supportedBy -->
+
+    <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#supportedBy">
+        <rdfs:domain rdf:resource="&Service;Service"/>
+        <rdfs:range rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#Toolkit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#createsProfile -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#createsProfile">
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+        <rdfs:domain rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#Extractor"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#extractsFromDataOfType -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#extractsFromDataOfType">
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+        <rdfs:domain rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#Extractor"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#profiles -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#profiles">
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+        <rdfs:domain rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#InputParameterBindings"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#Operator -->
+
+    <owl:Class rdf:about="http://trust.utep.edu/visko/ontology/visko-operator.owl#Operator"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#Extractor -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#Extractor"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#InputParameterBindings -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#InputParameterBindings"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#Toolkit -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-service.owl#Toolkit"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.2/generic/Expression.owl#AlwaysTrue -->
+
+    <rdf:Description rdf:about="http://www.daml.org/services/owl-s/1.2/generic/Expression.owl#AlwaysTrue">
+        <rdf:type rdf:resource="http://org.semanticweb.owlapi/error#Error1"/>
+        <rdf:type rdf:resource="http://org.semanticweb.owlapi/error#Error2"/>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.5.1928) http://owlapi.sourceforge.net -->
+
