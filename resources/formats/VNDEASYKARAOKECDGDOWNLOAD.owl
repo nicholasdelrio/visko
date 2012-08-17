@@ -5,7 +5,7 @@
     xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:ds="http://inference-web.org/2.0/ds.owl#">
-  <pmlp:Format rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/formats/VNDEASYKARAOKECDGDOWNLOAD.owl#VNDEASYKARAOKECDGDOWNLOAD">
+  <pmlp:Format rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/formats/VNDEASYKARAOKECDGDOWNLOAD.owl#VNDEASYKARAOKECDGDOWNLOAD">
     <pmlp:hasDescription>
       <pmlp:Information>
         <pmlp:hasLanguage rdf:resource="http://inference-web.org/registry/LG/English.owl#English"/>
