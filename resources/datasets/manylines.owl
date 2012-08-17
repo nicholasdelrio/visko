@@ -2,10 +2,10 @@
 <rdf:RDF
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:pml-provenance="http://inference-web.org/2.0/pml-provenance.owl#"
-    xmlns:dataset="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/dataset.owl#">
+    xmlns:dataset="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/dataset.owl#">
 
-	<dataset:PSDocument rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/datasets/manylines.owl#manylines">
-		<pml-provenance:hasFormat rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
+	<dataset:PSDocument rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/datasets/manylines.owl#manylines">
+		<pml-provenance:hasFormat rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
 		<pml-provenance:hasURL>http://www.adobetutorialz.com/content_images/AdobeTechnologies/PostScript/manylines.ps</pml-provenance:hasURL>
 	</dataset:PSDocument>
 </rdf:RDF>

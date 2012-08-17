@@ -3,10 +3,10 @@
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:pmlp="http://inference-web.org/2.0/pml-provenance.owl#"
-    xmlns:viskoO="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-operator.owl#"
+    xmlns:viskoO="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
 
-	<rdf:Description rdf:about="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/formats/NETCDFGMT.owl#NETCDFGMT">
-		<viskoO:restrictsFormat rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/formats/NETCDF.owl#NETCDF"/>
+	<rdf:Description rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/formats/NETCDFGMT.owl#NETCDFGMT">
+		<viskoO:restrictsFormat rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/formats/NETCDF.owl#NETCDF"/>
 	</rdf:Description>
 </rdf:RDF>
