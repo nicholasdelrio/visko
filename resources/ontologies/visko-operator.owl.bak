@@ -7,8 +7,8 @@
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY pml-provenance "http://inference-web.org/2.0/pml-provenance.owl#" >
-    <!ENTITY visko-view "https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#" >
-    <!ENTITY visko-operator "https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#" >
+    <!ENTITY visko-view "https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#" >
+    <!ENTITY visko-operator "https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-operator.owl#" >
 ]>
 
 
