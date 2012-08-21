@@ -2,11 +2,11 @@ package edu.utep.trustlab.visko.installation.packages.manager;
 
 import java.io.File;
 
-import edu.utep.trustlab.visko.installation.packages.PackageRDFWriter;
+import edu.utep.trustlab.visko.installation.packages.RDFPackage;
 
 public class PackageInstaller {
 	
-	private static final String PARTIAL_QUALIFIED_NAME = ".rdfWriter.RDFWriter";
+	private static final String PARTIAL_QUALIFIED_NAME = ".rdfPackage.RDFPackage";
 	
 	private String packagesRoot;
 	
@@ -40,19 +40,16 @@ public class PackageInstaller {
 		Class<?> rdfWriterClass;
 		try{
 			rdfWriterClass = Class.forName(rdfWriterQualifiedClassName);
-			PackageRDFWriter writer = (PackageRDFWriter)rdfWriterClass.newInstance();
+			RDFPackage writer = (RDFPackage)rdfWriterClass.newInstance();
 
 			System.out.println("created toolkit");
-			writer.createToolkit();
-			
-			System.out.println("created viewers");
-			writer.createViewers();
+			writer.populateToolkit();
 			
 			System.out.println("created viewer sets");
-			writer.createViewerSets();
+			writer.populateViewerSets();
 			
 			System.out.println("created services");
-			writer.createServices();
+			writer.populateServices();
 			
 			return true;
 		}
