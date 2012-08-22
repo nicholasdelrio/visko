@@ -13,20 +13,20 @@ class PackageViewerSet {
 	private String baseURL;
 	private ArrayList<Viewer> viewers;
 	
-	protected PackageViewerSet(ViskoModel viskoModel, String url){
+	protected PackageViewerSet(String name, ViskoModel viskoModel, String url){
 		model = viskoModel;	
 		baseURL = url;
+		viewers = new ArrayList<Viewer>();
+		viewerSet = new ViewerSet(baseURL, name, model);
 	}
 	
-	protected void addToModel(){		
+	protected void addToModel(){
 		for(Viewer viewer : viewers){
 			viewer.addBelongsToViewerSet(viewerSet);
 			viewer.getIndividual();
 		}
-	}
-	
-	public void setName(String name){
-		viewerSet = new ViewerSet(baseURL, name, model);
+		
+		viewerSet.getIndividual();
 	}
 	
 	public void setComment(String comment){
@@ -39,6 +39,7 @@ class PackageViewerSet {
 	
 	public Viewer createNewViewer(String name){
 		Viewer viewer = new Viewer(baseURL, name, model);
+		viewer.setName(name);
 		viewers.add(viewer);
 		
 		return viewer;

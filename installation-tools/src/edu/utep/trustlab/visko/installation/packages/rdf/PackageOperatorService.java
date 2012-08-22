@@ -27,11 +27,13 @@ class PackageOperatorService {
 	private View view;
 	
 	
-	protected PackageOperatorService(ViskoModel viskoModel, OWLSModel owlsModel, String url){
+	protected PackageOperatorService(String name, ViskoModel viskoModel, OWLSModel owlsModel, String url){
 		vModel = viskoModel;
 		oModel = owlsModel;
 		tempReadingModel = new ViskoModel();
 		baseURL = url;
+		
+		operationName = name;
 	}
 	
 	protected void setToolkit(Toolkit tk){
@@ -68,22 +70,18 @@ class PackageOperatorService {
 		vModel.addToModel(service.toString());
 	}
 	
-	public void setInputFormatURI(String uri){
-		inputFormat = new Format(uri, tempReadingModel);	
+	public void setInputFormatURI(Format format){
+		inputFormat = format;	
 	}
 	
-	public void setOutputFormatURI(String uri){
-		outputFormat = new Format(uri, tempReadingModel);
+	public void setOutputFormatURI(Format format){
+		outputFormat = format;
 	}
 	
 	public void setViewURI(String uri){
 		view = new View(uri, tempReadingModel);
 	}
-	
-	public void setOperationName(String opName){
-		operationName = opName;
-	}
-	
+		
 	public void setWSDLURL(String url){
 		wsdlURL = url;
 	}

@@ -113,22 +113,18 @@ public class Viewer extends Operator {
 	@Override
 	protected void setProperties() {
 		super.setProperties();
-		presentsViewProperty = model
-				.getObjectProperty(ViskoO.PROPERTY_URI_PRESENTSVIEW);
-		addPartOfViewerSetProperty = model
-				.getObjectProperty(ViskoO.PROPERTY_URI_PART_OF_VIEWERSET);
+		presentsViewProperty = model.getObjectProperty(ViskoO.PROPERTY_URI_PRESENTSVIEW);
+		addPartOfViewerSetProperty = model.getObjectProperty(ViskoO.PROPERTY_URI_PART_OF_VIEWERSET);
 	}
 
 	@Override
 	protected void populateFieldsWithIndividual(Individual ind) {
 		super.populateFieldsWithIndividual(ind);
 
-		NodeIterator viewerSets = ind
-				.listPropertyValues(addPartOfViewerSetProperty);
+		NodeIterator viewerSets = ind.listPropertyValues(addPartOfViewerSetProperty);
 		ViewerSet vSet;
 		while (viewerSets.hasNext()) {
-			vSet = new ViewerSet(viewerSets.next().as(Individual.class)
-					.getURI(), model);
+			vSet = new ViewerSet(viewerSets.next().as(Individual.class).getURI(), model);
 			belongsToSets.add(vSet);
 		}
 	}

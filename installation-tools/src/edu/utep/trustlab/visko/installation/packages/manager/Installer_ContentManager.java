@@ -1,6 +1,7 @@
 package edu.utep.trustlab.visko.installation.packages.manager;
 
 import edu.utep.trustlab.contentManagement.CIServer;
+import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.contentManagement.VeloClientAdapter;
 
 public class Installer_ContentManager {
@@ -13,7 +14,7 @@ public class Installer_ContentManager {
 			//package installer based parameters
 			String packagesRootDirectory = args[5];
 			
-			PackageInstaller installer = new PackageInstaller(packagesRootDirectory);
+			PackageInstaller installer = new PackageInstaller(packagesRootDirectory, ContentManager.getViskoRDFContentManager());
 			installer.installPackages();
 		}
 		else
@@ -28,13 +29,15 @@ public class Installer_ContentManager {
 		String username = args[3];
 		String password = args[4];
 		
+		ContentManager client;
 		if(contentManagerType.equals("velo")){
-			VeloClientAdapter client = new VeloClientAdapter(serverURL, username, password);
+			client = new VeloClientAdapter(serverURL, username, password);
 			client.setProjectName(projectName);
 		}
 		else{
-			CIServer client = new CIServer(serverURL, username, password);
+			client = new CIServer(serverURL, username, password);
 			client.setProjectName(projectName);
 		}
+		ContentManager.setViskoRDFContentManager(client);
 	}
 }

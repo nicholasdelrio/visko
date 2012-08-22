@@ -81,8 +81,7 @@ public class ViskoModel{
 	}
 
 	public static OntModel getOntModelFromRDFFile(String rdfFileContents) {
-		OntModel model = ModelFactory
-				.createOntologyModel(OntModelSpec.OWL_DL_MEM);
+		OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
 		StringReader reader = new StringReader(rdfFileContents);
 		model.read(reader, null);
 		return model;
@@ -134,12 +133,17 @@ public class ViskoModel{
 
 	public Individual getIndividual(String uri) {
 		
-		uri = uri.replace("\r", "");
+		if(model.getIndividual(uri) == null)
+			model.read(uri);
 		
-		model.read(uri);
 		return model.getIndividual(uri);
 	}
 
+	public void addToModel(String rdf){
+		StringReader reader = new StringReader(rdf);
+		model.read(reader, null);
+	}
+	
 	public OntClass getOntClass(String uri) {
 		OntModel relevantModel = getRelevantOntModel(uri);
 		return relevantModel.getOntClass(uri);

@@ -1,5 +1,6 @@
 package edu.utep.trustlab.visko.installation.packages.manager;
 
+import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.contentManagement.LocalFileSystem;
 
 public class Installer_LocalFileSystem {
@@ -12,7 +13,7 @@ public class Installer_LocalFileSystem {
 			//package installer based parameters
 			String packagesRootDirectory = args[3];
 			
-			PackageInstaller installer = new PackageInstaller(packagesRootDirectory);
+			PackageInstaller installer = new PackageInstaller(packagesRootDirectory, ContentManager.getViskoRDFContentManager());
 			installer.installPackages();
 		}
 		else
@@ -27,5 +28,6 @@ public class Installer_LocalFileSystem {
 		
 		LocalFileSystem client = new LocalFileSystem(serverURL, serverFilePath);
 		client.setProjectName(projectName);
+		ContentManager.setViskoRDFContentManager(client);
 	}
 }

@@ -58,7 +58,6 @@ public class OWLSService extends OWLSIndividual {
 	private String label;
 
 	private Operator implementedOperator;
-	private String implementedOperatorURI;
 	
 	private Extractor implementedExtractor;
 
@@ -87,10 +86,6 @@ public class OWLSService extends OWLSIndividual {
 		implementedOperator = op;
 	}
 	
-	public void setConceptualOperatorURI(String opURI){
-		implementedOperatorURI = opURI;
-	}
-
 	public Operator getConceptualOperator() {
 		return implementedOperator;
 	}
@@ -136,19 +131,15 @@ public class OWLSService extends OWLSIndividual {
 		Service service = null;
 		if (allFieldsPopulated() && !isForReading) {// create service
 			WSDLTranslatorBuilder builder = new WSDLTranslatorBuilder(model.getOntology(), operationName, wsdlURL);
-
 			service = builder.getTranslator().getService();
-
 			service.setLabel(label, null);
 
 			if (isOperatorService) {
 				service.addProperty(supportingToolkitProperty, getToolkitAsOWLIndividual());
-				
-				if(implementedOperatorURI != null)
-					service.addProperty(implementsOperatorProperty, model.getOWLIndividual(implementedOperatorURI));
-				else
-					service.addProperty(implementsOperatorProperty, getOperatorAsOWLIndividual());
-			} else
+				service.addProperty(implementsOperatorProperty, getOperatorAsOWLIndividual());
+			}
+			
+			else
 				service.addProperty(implementsExtractorProperty, getExtractorAsOWLIndividual());
 		
 		} else if (!allFieldsPopulated() && !isForReading) {
