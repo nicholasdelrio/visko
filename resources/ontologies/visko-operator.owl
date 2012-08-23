@@ -7,8 +7,8 @@
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY pml-provenance "http://inference-web.org/2.0/pml-provenance.owl#" >
-    <!ENTITY visko-view "https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#" >
-    <!ENTITY visko-operator "https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#" >
+    <!ENTITY visko-view "https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#" >
+    <!ENTITY visko-operator "https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-operator.owl#" >
 ]>
 
 
@@ -71,15 +71,6 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#containsOperator -->
-
-    <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#containsOperator">
-        <rdfs:range rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#Operator"/>
-        <rdfs:domain rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#OperatorSet"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#isOperatedOnBy -->
 
     <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#isOperatedOnBy">
@@ -124,8 +115,8 @@
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#presentsView -->
 
     <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#presentsView">
-        <rdfs:range rdf:resource="&visko-view;View"/>
         <rdfs:domain rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#Viewer"/>
+        <rdfs:range rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#View"/>
     </owl:ObjectProperty>
     
 
@@ -147,16 +138,6 @@
         <rdfs:range rdf:resource="&pml-provenance;Format"/>
         <rdfs:domain rdf:resource="&pml-provenance;Format"/>
         <owl:inverseOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#restrictedByFormat"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#supportedBy -->
-
-    <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#supportedBy">
-        <rdfs:domain rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#Operator"/>
-        <rdfs:domain rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#OperatorSet"/>
-        <rdfs:range rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#Toolkit"/>
     </owl:ObjectProperty>
     
 
@@ -187,12 +168,6 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-view.owl#View -->
-
-    <owl:Class rdf:about="&visko-view;View"/>
-    
-
-
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#CompositeOperator -->
 
     <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#CompositeOperator">
@@ -217,18 +192,6 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#OperatorSet -->
-
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#OperatorSet"/>
-    
-
-
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#Toolkit -->
-
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#Toolkit"/>
-    
-
-
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#Transformer -->
 
     <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#Transformer">
@@ -248,6 +211,12 @@
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#ViewerSet -->
 
     <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#ViewerSet"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#View -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#View"/>
 </rdf:RDF>
 
 
