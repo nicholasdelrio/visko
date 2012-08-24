@@ -47,7 +47,7 @@ public class PackageInstaller {
 			rdfWriterClass = Class.forName(rdfWriterQualifiedClassName);
 			RDFPackage rdfPackage = (RDFPackage)rdfWriterClass.newInstance();
 			
-			initializeRDFPackage(rdfPackage);
+			initializeRDFPackage(rdfPackage, aPackageDirectory);
 			
 			System.out.println("created toolkit");
 			rdfPackage.populateToolkit();
@@ -74,8 +74,7 @@ public class PackageInstaller {
 	}
 	
 	private void finalizeRDFPackage(RDFPackage rdfPackage, File packageDirectory){
-		String packageRDF = rdfPackage.getPackageWriter().getRDFString()[0];
 		ContentManager.setWorkspacePath(packageDirectory.getAbsolutePath());
-		ContentManager.getViskoRDFContentManager().saveDocument(packageRDF, packageDirectory.getName() + ".owl");
+		rdfPackage.getPackageWriter().dumpPackageRDF(contentManager);
 	}
 }

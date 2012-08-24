@@ -1,0 +1,74 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:viskoO="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#"
+    xmlns:pmlp="http://inference-web.org/2.0/pml-provenance.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:viskoS="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-service.owl#">
+  <owl:Ontology>
+    <owl:imports rdf:resource="http://inference-web.org/2.0/pml-provenance.owl"/>
+    <owl:imports rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl"/>
+    <owl:imports rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-service.owl"/>
+  </owl:Ontology>
+  <viskoO:Viewer rdf:about="http://iw.cs.utep.edu/visko/broswer-image-viewer.owl#broswer-image-viewer">
+    <viskoO:partOfViewerSet>
+      <viskoO:ViewerSet rdf:about="http://iw.cs.utep.edu/visko/mozilla.owl#mozilla">
+        <rdfs:label>mozilla firefox</rdfs:label>
+        <rdfs:comment>just a test mozilla firefox</rdfs:comment>
+      </viskoO:ViewerSet>
+    </viskoO:partOfViewerSet>
+    <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >broswer-image-viewer</pmlp:hasName>
+    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/formats/AMRWB.owl#AMRWB"/>
+    <rdfs:label>browser image viewer</rdfs:label>
+    <rdfs:comment>views jpegs and such</rdfs:comment>
+  </viskoO:Viewer>
+  <viskoO:Viewer rdf:about="http://iw.cs.utep.edu/visko/pdf-viewer.owl#pdf-viewer">
+    <viskoO:partOfViewerSet rdf:resource="http://iw.cs.utep.edu/visko/mozilla.owl#mozilla"/>
+    <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >pdf-viewer</pmlp:hasName>
+    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/formats/PDF.owl#PDF"/>
+    <rdfs:label>pdf viewer</rdfs:label>
+    <rdfs:comment>views pdfs</rdfs:comment>
+  </viskoO:Viewer>
+  <viskoS:Service rdf:about="http://iw.cs.utep.edu/visko/visko-package.owl#psxy">
+    <viskoS:supportedByOWLSService>http://iw.cs.utep.edu/visko/psxy.owl#psxyService</viskoS:supportedByOWLSService>
+    <viskoS:supportedBy>
+      <viskoS:Toolkit rdf:about="http://iw.cs.utep.edu/visko/gmt.owl#gmt">
+        <rdfs:label>gen map tool</rdfs:label>
+        <rdfs:comment>generic mapping tools</rdfs:comment>
+      </viskoS:Toolkit>
+    </viskoS:supportedBy>
+    <viskoS:implementsOperator>
+      <viskoO:Mapper rdf:about="http://iw.cs.utep.edu/visko/visko-package.owl#psxy-operator">
+        <viskoO:mapsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/views/contour-lines.owl#contour-lines"/>
+        <viskoO:transformsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
+        <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >psxy-operator</pmlp:hasName>
+        <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF"/>
+        <rdfs:label>copy color</rdfs:label>
+        <rdfs:comment>copy some colors</rdfs:comment>
+      </viskoO:Mapper>
+    </viskoS:implementsOperator>
+    <rdfs:label>copy color</rdfs:label>
+    <rdfs:comment>copy some colors</rdfs:comment>
+  </viskoS:Service>
+  <viskoS:Service rdf:about="http://iw.cs.utep.edu/visko/visko-package.owl#grdcontour">
+    <viskoS:supportedByOWLSService>http://iw.cs.utep.edu/visko/grdcontour.owl#grdcontourService</viskoS:supportedByOWLSService>
+    <viskoS:supportedBy rdf:resource="http://iw.cs.utep.edu/visko/gmt.owl#gmt"/>
+    <viskoS:implementsOperator>
+      <viskoO:Mapper rdf:about="http://iw.cs.utep.edu/visko/visko-package.owl#grdcontour-operator">
+        <viskoO:mapsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/views/contour-lines.owl#contour-lines"/>
+        <viskoO:transformsTo rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
+        <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >grdcontour-operator</pmlp:hasName>
+        <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF"/>
+        <rdfs:label>copy color</rdfs:label>
+        <rdfs:comment>copy some colors</rdfs:comment>
+      </viskoO:Mapper>
+    </viskoS:implementsOperator>
+    <rdfs:label>copy color</rdfs:label>
+    <rdfs:comment>copy some colors</rdfs:comment>
+  </viskoS:Service>
+</rdf:RDF>

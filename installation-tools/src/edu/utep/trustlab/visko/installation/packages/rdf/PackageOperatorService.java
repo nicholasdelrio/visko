@@ -1,8 +1,5 @@
 package edu.utep.trustlab.visko.installation.packages.rdf;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.operator.Mapper;
 import edu.utep.trustlab.visko.ontology.operator.Transformer;
@@ -12,7 +9,7 @@ import edu.utep.trustlab.visko.ontology.service.Service;
 import edu.utep.trustlab.visko.ontology.service.Toolkit;
 import edu.utep.trustlab.visko.ontology.view.View;
 
-class PackageOperatorService implements PackageElement {	
+class PackageOperatorService {	
 	private String baseURL;
 	private String baseFileURL;
 	
@@ -28,8 +25,8 @@ class PackageOperatorService implements PackageElement {
 	private Format outputFormat;
 	private View view;
 	
-	private ArrayList<OWLSService> owlsServices;
-		
+	private OWLSService owlsService;
+			
 	protected PackageOperatorService(String name, ViskoModel viskoModel, String bURL, String bFURL){
 		vModel = viskoModel;
 		
@@ -43,8 +40,8 @@ class PackageOperatorService implements PackageElement {
 		toolkit = tk;
 	}
 	
-	public List<OWLSService> getOWLSServices(){
-		return owlsServices;
+	public OWLSService getOWLSService(){
+		return owlsService;
 	}
 	
 	public void addToModel() {
@@ -66,7 +63,7 @@ class PackageOperatorService implements PackageElement {
 		transformer.setName(operatorName);
 		
 		//create owlsService
-		OWLSService owlsService = new OWLSService(baseURL, operationName);
+		owlsService = new OWLSService(baseURL, operationName);
 		owlsService.setWSDLURL(wsdlURL);
 		owlsService.setOperationName(operationName);
 		owlsService.setLabel(label);
@@ -78,9 +75,7 @@ class PackageOperatorService implements PackageElement {
 		service.setComment(comment);		
 		service.setOWLSService(owlsService);		
 		service.setConceptualOperator(transformer);
-		service.getIndividual();
-		
-		owlsServices.add(owlsService);
+		service.getIndividual();		
 	}
 	
 	public void setInputFormatURI(Format format){

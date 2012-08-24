@@ -86,6 +86,10 @@ public abstract class OWLSIndividual implements ViskoIndividual {
 		return uri;
 	}
 
+	public OWLSModel getModel(){
+		return model;
+	}
+	
 	public abstract OWLIndividual getIndividual();
 
 	protected abstract void setProperties();
