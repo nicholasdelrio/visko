@@ -34,7 +34,14 @@ public class PackageWriterTest {
 		viewer1.setLabel("pdf viewer");
 		viewer1.addOperatesOnFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/resources/formats/PDF.owl#PDF"));
 		
-		viewerSet.addToModel();
+		PackageViewerSet ieExplorer = writer.createNewViewerSet("iexplorer");
+		ieExplorer.setLabel("internet explorere");
+		ieExplorer.setComment("some thing");
+		
+		Viewer viewer2 = ieExplorer.createNewViewer("some-gosh-darn-viewer");
+		viewer2.setComment("some gosh darn");
+		viewer2.setLabel("some gosh darn");
+		viewer2.addOperatesOnFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/resources/formats/PDF.owl#PDF"));
 		
 		Toolkit tk = writer.createNewToolkit("gmt");
 		tk.setComment("generic mapping tools");

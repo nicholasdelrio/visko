@@ -36,9 +36,13 @@
 	<property name="query-examples" value="../../visko-rdf/rdf-writer/query-examples-functional/query.jsp"/>
 		
 	<!-- build properties -->
-	<property name="jarfile" value="installer-tools.jar"/>
+	<property name="jarfile" value="installation-tools.jar"/>
 	<property name="build" value="build"/>
 	<property name="src" value="src"/>
+	<property name="lib" value="../api/lib/"/>
+	
+	<property name="visko-api" value="../api"/>
+	<property name="visko-api-jar" value="${visko-api}/visko-api.jar"/>
 	
 	<property name="visko-web" value="../visko-web"/>
 	<property name="visko-web-war-name" value="visko-web.war"/>
@@ -51,9 +55,20 @@
 	</target>
 	
 	<target name="compile" depends="clean" description="Compile installation-tools in build Directory">			
+		<ant antfile="${visko-api}/build.xml" target="build" inheritAll="false" />
+	
 		<mkdir dir="${build}"/>
 		<javac destdir="${build}/" srcdir="${src}" target="1.6"> 
 	    	<include name="**/*.java"/>
+			<classpath>
+				<pathelement location="${visko-api-jar}"/>
+				<fileset dir="${lib}/jena262/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/util/">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>		
 		</javac>
 	</target>
 

@@ -3,6 +3,7 @@
 /.project
 /bin
 /build
-/installer-tools.jar
 /visko-web.war
 /build-local.xml
+
+/installation-tools.jar

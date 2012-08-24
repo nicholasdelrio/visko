@@ -11,6 +11,19 @@
     <owl:imports rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl"/>
     <owl:imports rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-service.owl"/>
   </owl:Ontology>
+  <viskoO:Viewer rdf:about="http://iw.cs.utep.edu/visko/some-gosh-darn-viewer.owl#some-gosh-darn-viewer">
+    <viskoO:partOfViewerSet>
+      <viskoO:ViewerSet rdf:about="http://iw.cs.utep.edu/visko/iexplorer.owl#iexplorer">
+        <rdfs:label>internet explorere</rdfs:label>
+        <rdfs:comment>some thing</rdfs:comment>
+      </viskoO:ViewerSet>
+    </viskoO:partOfViewerSet>
+    <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >some-gosh-darn-viewer</pmlp:hasName>
+    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/formats/PDF.owl#PDF"/>
+    <rdfs:label>some gosh darn</rdfs:label>
+    <rdfs:comment>some gosh darn</rdfs:comment>
+  </viskoO:Viewer>
   <viskoO:Viewer rdf:about="http://iw.cs.utep.edu/visko/broswer-image-viewer.owl#broswer-image-viewer">
     <viskoO:partOfViewerSet>
       <viskoO:ViewerSet rdf:about="http://iw.cs.utep.edu/visko/mozilla.owl#mozilla">

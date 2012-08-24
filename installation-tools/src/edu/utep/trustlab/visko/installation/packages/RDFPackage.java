@@ -4,7 +4,7 @@ import edu.utep.trustlab.visko.installation.packages.rdf.PackageWriter;
 
 public abstract class RDFPackage {
 	
-	public static String PARTIAL_QUALIFIED_NAME = ".rdfPackage.RDFPackage";
+	public static String PARTIAL_QUALIFIED_NAME = ".rdfPackage.Package";
 	
 	private PackageWriter packageWriter;
 	
