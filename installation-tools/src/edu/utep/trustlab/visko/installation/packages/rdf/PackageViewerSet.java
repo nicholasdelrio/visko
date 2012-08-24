@@ -6,7 +6,7 @@ import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.operator.Viewer;
 import edu.utep.trustlab.visko.ontology.operator.ViewerSet;
 
-class PackageViewerSet {
+public class PackageViewerSet {
 	
 	private ViskoModel model;
 	private ViewerSet viewerSet;

@@ -9,7 +9,7 @@ import edu.utep.trustlab.visko.ontology.service.Service;
 import edu.utep.trustlab.visko.ontology.service.Toolkit;
 import edu.utep.trustlab.visko.ontology.view.View;
 
-class PackageOperatorService {	
+public class PackageOperatorService {	
 	private String baseURL;
 	private String baseFileURL;
 	
