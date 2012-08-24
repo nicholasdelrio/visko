@@ -49,8 +49,7 @@ public class OWLS_Service {
 	public static final String ONTOLOGY_OWLS_SERVICE_URI = "http://www.daml.org/services/owl-s/1.2/Service.owl";
 
 	// OWLS Ontology Concepts
-	public static final String CLASS_URI_Service = ONTOLOGY_OWLS_SERVICE_URI
-			+ "#Service";
+	public static final String CLASS_URI_Service = ONTOLOGY_OWLS_SERVICE_URI + "#Service";
 
 	// model and ontology
 	private static OntModel model;

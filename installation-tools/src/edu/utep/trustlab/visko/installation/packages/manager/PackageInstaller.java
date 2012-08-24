@@ -68,13 +68,13 @@ public class PackageInstaller {
 		}
 	}
 	
-	private void initializeRDFPackage(RDFPackage rdfPackage){
-		PackageWriter packageWriter = new PackageWriter(contentManager.getBaseURL());
+	private void initializeRDFPackage(RDFPackage rdfPackage, File packageDirectory){
+		PackageWriter packageWriter = new PackageWriter(contentManager.getBaseURL(), packageDirectory.getName() + ".owl");
 		rdfPackage.setPackageWriter(packageWriter);
 	}
 	
 	private void finalizeRDFPackage(RDFPackage rdfPackage, File packageDirectory){
-		String packageRDF = rdfPackage.getPackageWriter().getRDFString();
+		String packageRDF = rdfPackage.getPackageWriter().getRDFString()[0];
 		ContentManager.setWorkspacePath(packageDirectory.getAbsolutePath());
 		ContentManager.getViskoRDFContentManager().saveDocument(packageRDF, packageDirectory.getName() + ".owl");
 	}

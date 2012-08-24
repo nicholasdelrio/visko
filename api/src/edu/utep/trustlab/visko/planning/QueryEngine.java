@@ -47,13 +47,9 @@ import java.util.Set;
 
 import com.hp.hpl.jena.query.ResultSet;
 
-import edu.utep.trustlab.visko.planning.ExtractorExecutor;
 import edu.utep.trustlab.visko.planning.PipelineSet;
 import edu.utep.trustlab.visko.planning.PipelineSetBuilder;
 import edu.utep.trustlab.visko.planning.Query;
-import edu.utep.trustlab.visko.ontology.model.OWLSModel;
-import edu.utep.trustlab.visko.ontology.service.OWLSService;
-import edu.utep.trustlab.visko.sparql.QueryRDFDocument;
 import edu.utep.trustlab.visko.util.ResultSetToVector;
 
 public class QueryEngine {
@@ -85,8 +81,6 @@ public class QueryEngine {
 		String typeConstraintURI = query.getTypeURI();
 		String viewConstraintURI = query.getViewURI();
 		String targetFormatURI = query.getTargetFormatURI();
-
-		loadParameterBindingsFromExtractor();
 
 		if (typeConstraintURI != null) {
 			loadParameterBindingsFromProfile(typeConstraintURI);
@@ -122,60 +116,6 @@ public class QueryEngine {
 	public boolean canBeVisualizedWithTargetFormat() {
 		return builder.formatPathExistsForTargetFormat(query.getFormatURI(),
 				query.getTargetFormatURI());
-	}
-
-	public void loadParameterBindingsFromExtractor() {
-		ResultSet results = builder.getTripleStore().getExtractorService(
-				query.getTypeURI(), query.getFormatURI());
-		Vector<String> extractorServices = ResultSetToVector
-				.getVectorFromResultSet(results, "service");
-
-		ResultSet profileResults = builder.getTripleStore()
-				.getExtractedProfile(query.getTypeURI(), query.getFormatURI());
-
-		if (!profileResults.hasNext())
-			return;
-
-		Vector<String> profile = ResultSetToVector.getVectorFromResultSet(
-				profileResults, "profile");
-		String profileURI = profile.get(0);
-
-		int index = profileURI.indexOf("^^");
-		profileURI = profileURI.substring(0, index);
-		System.out.println(profileURI);
-
-		if (extractorServices.size() > 0 && query.getArtifactURL() != null) {
-			String profileRDFContents = null;
-			String serviceURI = extractorServices.get(0);
-			OWLSService service = new OWLSService(serviceURI, new OWLSModel());
-			ExtractorExecutor executor = new ExtractorExecutor(service);
-			try {
-				profileRDFContents = executor.executeExtractor(query
-						.getArtifactURL());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			if (profileRDFContents != null) {
-
-				QueryRDFDocument ts = new QueryRDFDocument();
-
-				ResultSet bindingResults = ts
-						.getParameterBindingsFromProfileURI(profileRDFContents,
-								profileURI);
-				Vector<String[]> bindings = ResultSetToVector
-						.getVectorPairsFromResultSet(bindingResults, "param",
-								"value");
-				ts.close();
-				System.out.println("bindings length: " + bindings.size());
-				for (String[] binding : bindings) {
-					System.out.println("parameterURI: " + binding[0]
-							+ ", value: " + binding[1]);
-
-					parameterBindings.put(binding[0], binding[1]);
-				}
-			}
-		}
 	}
 	
 	public void updatePipelinesWithNewParameterBindings(){

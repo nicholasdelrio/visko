@@ -33,7 +33,7 @@ import org.mindswap.query.ValueMap;
 import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.operator.Transformer;
-import edu.utep.trustlab.visko.ontology.service.OWLSService;
+import edu.utep.trustlab.visko.ontology.service.Service;
 import edu.utep.trustlab.visko.util.FileUtils;
 
 public class PMLNodesetLogger {
@@ -54,7 +54,7 @@ public class PMLNodesetLogger {
 		url = baseURL + fileName;
 	}
 
-	public void captureInitialDataset(String inDatasetURL, OWLSService ingestingService){
+	public void captureInitialDataset(String inDatasetURL, Service ingestingService){
 		IWInferenceStep is = (IWInferenceStep) PMLObjectManager.createPMLObject(PMLJ.InferenceStep_lname);
 		is.setHasInferenceRule(PMLResourceURI.RULE_DIRECT_ASSERTION);
 		is.setHasInferenceEngine(PMLResourceURI.ENGINE_VISKO_WEB_SERVICE);
@@ -75,7 +75,7 @@ public class PMLNodesetLogger {
 		serviceNodesets.add(ns);
 	}
 	
-	public void captureProcessingStep(OWLSService service, String inDatasetURL, String outDatasetURL, ValueMap<Input, OWLValue> inputValueMap) {
+	public void captureProcessingStep(Service service, String inDatasetURL, String outDatasetURL, ValueMap<Input, OWLValue> inputValueMap) {
 		//set up transformer
 		Transformer transformer = new Transformer(service.getConceptualOperator().getURI(), new ViskoModel());
 		

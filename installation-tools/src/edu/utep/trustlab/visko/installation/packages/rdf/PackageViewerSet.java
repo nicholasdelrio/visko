@@ -6,7 +6,7 @@ import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.operator.Viewer;
 import edu.utep.trustlab.visko.ontology.operator.ViewerSet;
 
-class PackageViewerSet {
+class PackageViewerSet implements PackageElement {
 	
 	private ViskoModel model;
 	private ViewerSet viewerSet;
@@ -20,7 +20,7 @@ class PackageViewerSet {
 		viewerSet = new ViewerSet(baseURL, name, model);
 	}
 	
-	protected void addToModel(){
+	public void addToModel(){
 		for(Viewer viewer : viewers){
 			viewer.addBelongsToViewerSet(viewerSet);
 			viewer.getIndividual();

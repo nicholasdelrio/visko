@@ -89,7 +89,7 @@ public class ViskoModel{
 
 	public void createOntology(String uri) {
 		if (ontology == null)
-			ontology = model.createOntology(uri);
+			ontology = model.createOntology(null);
 	}
 
 	private OntModel getRelevantOntModel(String uri) {

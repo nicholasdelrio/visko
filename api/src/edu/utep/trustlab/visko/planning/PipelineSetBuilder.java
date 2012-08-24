@@ -119,11 +119,10 @@ public class PipelineSetBuilder {
 			else {
 				operatorImplSets = new Vector<Vector<String>>();
 
-				for (String operatorURI : operatorPath) {
-					ResultSet operatorImplURIs = ts
-							.getOWLSServiceImplementationsURIs(operatorURI);
-					Vector<String> operatorImplURIsVector = ResultSetToVector
-							.getVectorFromResultSet(operatorImplURIs, "opImpl");
+				for (String operatorURI : operatorPath){
+					
+					ResultSet operatorImplURIs = ts.getOWLSServiceImplementationsURIs(operatorURI);
+					Vector<String> operatorImplURIsVector = ResultSetToVector.getVectorFromResultSet(operatorImplURIs, "opImpl");
 
 					if (operatorImplURIsVector.size() > 0)
 						operatorImplSets.add(operatorImplURIsVector);
@@ -135,7 +134,7 @@ public class PipelineSetBuilder {
 
 					for (Vector<String> cartesianPath : cartesianOperatorImpl) {
 						pipe = new Pipeline(operatorPath.getViewerURI(), operatorPath.getViewGenerated(), pipelines);
-						pipe.setOWLSServiceURIs(cartesianPath);
+						pipe.setServiceURIs(cartesianPath);
 						pipelines.add(pipe);
 					}
 				}
@@ -188,7 +187,7 @@ public class PipelineSetBuilder {
 
 					for (Vector<String> cartesianPath : cartesianOperatorImpl) {
 						pipe = new Pipeline(operatorPath.getViewerURI(), operatorPath.getViewGenerated(), pipelines);
-						pipe.setOWLSServiceURIs(cartesianPath);
+						pipe.setServiceURIs(cartesianPath);
 						pipelines.add(pipe);
 					}
 				}

@@ -30,12 +30,12 @@ public class OWLSService extends OWLSIndividual {
 	private String operationName;
 	private String label;
 
-	public OWLSService(String uri, OWLSModel owlsModel) {// for reading
-		super(uri, owlsModel);
+	public OWLSService(String uri) {// for reading
+		super(uri, new OWLSModel());
 	}
 
-	public OWLSService(String baseURI, String name, OWLSModel owlsModel) {// for writing
-		super(baseURI, name, owlsModel);
+	public OWLSService(String baseURI, String name) {// for writing
+		super(baseURI, name, new OWLSModel());
 	}
 
 	public void setLabel(String lbl) {

@@ -149,8 +149,7 @@ public abstract class JenaIndividual implements ViskoIndividual {
 		}
 
 		else {
-			System.out
-					.println("please populate the necessary fields of a new object set as a writer...");
+			System.out.println("please populate the necessary fields of a new object set as a writer...");
 			return null;
 		}
 	}
@@ -164,7 +163,8 @@ public abstract class JenaIndividual implements ViskoIndividual {
 			fileName = baseURL.substring(baseURL.lastIndexOf("/") + 1);
 			fullURL = baseURL;
 			uri = fullURL + "#" + name;
-		} else {
+		}
+		else {
 			fileName = makeFileName(name);
 			fullURL = baseURL + fileName;
 			uri = fullURL + "#" + name;

@@ -40,6 +40,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.ontology.model;
 
+import java.io.StringWriter;
 import java.net.URI;
 
 import org.mindswap.owl.OWLFactory;
@@ -109,6 +110,13 @@ public class OWLSModel {
 	public OWLIndividual getOWLIndividual(String uri){
 		URI uriObject = GetURLContents.getURI(uri);
 		return kb.getIndividual(uriObject);
+	}
+	
+	public String getModelAsRDFString(){
+		StringWriter wtr = new StringWriter();
+		getOntology().write(wtr, getOntology().getURI());
+		String rdfString = wtr.toString();
+		return rdfString;
 	}
 	
 	public OWLIndividual convertJenaToOWLIndividual(JenaIndividual ind) {

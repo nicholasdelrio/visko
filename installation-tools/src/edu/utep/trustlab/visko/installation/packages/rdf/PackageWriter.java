@@ -1,28 +1,29 @@
 package edu.utep.trustlab.visko.installation.packages.rdf;
 
-import edu.utep.trustlab.visko.ontology.model.OWLSModel;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
 import edu.utep.trustlab.visko.ontology.service.Toolkit;
+import edu.utep.trustlab.visko.ontology.view.View;
 
 public class PackageWriter {
+	
 	private String baseURL;
+	private String baseFileURL;
 	
 	private ViskoModel viskoModel;
-	private OWLSModel owlsModel;
-	
 	private static ViskoModel loadingModel = new ViskoModel();
-	
 	private Toolkit toolkit;
-	
-	public PackageWriter(String url){
+
+	public PackageWriter(String url, String packageFileName){
 		baseURL = url;
-		viskoModel = new ViskoModel();
-		owlsModel = new OWLSModel();
+		baseFileURL = baseURL + packageFileName;
+		
+		viskoModel = new ViskoModel();		
+		viskoModel.createOntology(baseFileURL);
 	}
 	
 	public PackageOperatorService createNewOperatorService(String name){
-		PackageOperatorService service = new PackageOperatorService(name, viskoModel, owlsModel, baseURL);
+		PackageOperatorService service = new PackageOperatorService(name, viskoModel, baseURL, baseFileURL);
 		service.setToolkit(toolkit);
 		return service;
 	}
@@ -40,7 +41,11 @@ public class PackageWriter {
 		return new Format(formatURI, loadingModel);
 	}
 	
-	public String getRDFString(){
-		return viskoModel.getModelAsRDFString();
+	public static View getView(String viewURI){
+		return new View(viewURI, loadingModel);
+	}
+	
+	public void write(){
+		
 	}
 }

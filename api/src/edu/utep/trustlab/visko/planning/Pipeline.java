@@ -45,18 +45,17 @@ import java.util.List;
 import java.util.Vector;
 
 import edu.utep.trustlab.visko.planning.PipelineSet;
-import edu.utep.trustlab.visko.ontology.model.OWLSModel;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.operator.Viewer;
-import edu.utep.trustlab.visko.ontology.service.OWLSService;
+import edu.utep.trustlab.visko.ontology.service.Service;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.util.ResultSetToVector;
+
 
 public class Pipeline extends Vector<String> {
 	private String viewer;
 	private Vector<String> viewerSets;
 	private String view;
-	private OWLSModel owlsLoadingModel;
 	private ViskoModel viskoLoadingModel;
 	private PipelineSet parentContainer;
 
@@ -66,7 +65,6 @@ public class Pipeline extends Vector<String> {
 	public Pipeline(String viewerURI, String viewURI, PipelineSet parent) {
 		super();
 		viskoLoadingModel = new ViskoModel();
-		owlsLoadingModel = new OWLSModel();
 		parentContainer = parent;
 		viewer = viewerURI;
 		view = viewURI;
@@ -122,20 +120,20 @@ public class Pipeline extends Vector<String> {
 		return parentContainer.getArtifactURL();
 	}
 
-	public void addOWLSServiceURI(String serviceURI) {
+	public void addServiceURI(String serviceURI) {
 		add(serviceURI);
 	}
 
-	public void setOWLSServiceURIs(Vector<String> serviceURIs) {
+	public void setServiceURIs(Vector<String> serviceURIs) {
 		for (String serviceImplURI : serviceURIs) {
-			addOWLSServiceURI(serviceImplURI);
+			addServiceURI(serviceImplURI);
 		}
 	}
 	
-	public OWLSService getService(int i){
-		return new OWLSService(get(i), owlsLoadingModel);
+	public Service getService(int i){
+		return new Service(get(i), viskoLoadingModel);
 	}
-	
+
 	public boolean requiresInputURL(){
 		String firstServiceURI = get(0);
 		Vector<String> params = ResultSetToVector.getVectorFromResultSet(new ViskoTripleStore().getInputParameters(firstServiceURI), "parameter");

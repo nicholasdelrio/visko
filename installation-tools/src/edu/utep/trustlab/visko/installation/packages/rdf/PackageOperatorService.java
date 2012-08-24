@@ -1,21 +1,23 @@
 package edu.utep.trustlab.visko.installation.packages.rdf;
 
-import edu.utep.trustlab.visko.ontology.model.OWLSModel;
+import java.util.ArrayList;
+import java.util.List;
+
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.operator.Mapper;
 import edu.utep.trustlab.visko.ontology.operator.Transformer;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
+import edu.utep.trustlab.visko.ontology.service.Service;
 import edu.utep.trustlab.visko.ontology.service.Toolkit;
 import edu.utep.trustlab.visko.ontology.view.View;
 
-class PackageOperatorService {	
+class PackageOperatorService implements PackageElement {	
 	private String baseURL;
+	private String baseFileURL;
 	
 	private ViskoModel vModel;
-	private ViskoModel tempReadingModel;
-	private OWLSModel oModel;
-	
+		
 	private String operationName;
 	private String wsdlURL;
 	private Toolkit toolkit;
@@ -26,12 +28,13 @@ class PackageOperatorService {
 	private Format outputFormat;
 	private View view;
 	
-	
-	protected PackageOperatorService(String name, ViskoModel viskoModel, OWLSModel owlsModel, String url){
+	private ArrayList<OWLSService> owlsServices;
+		
+	protected PackageOperatorService(String name, ViskoModel viskoModel, String bURL, String bFURL){
 		vModel = viskoModel;
-		oModel = owlsModel;
-		tempReadingModel = new ViskoModel();
-		baseURL = url;
+		
+		baseURL = bURL;
+		baseFileURL = bFURL;
 		
 		operationName = name;
 	}
@@ -40,19 +43,16 @@ class PackageOperatorService {
 		toolkit = tk;
 	}
 	
-	protected void addToModel(){
-		//create service
-		OWLSService service = new OWLSService(baseURL, operationName, oModel);
-		service.setLabel(label);
-		service.setOperationName(operationName);
-		service.setSupportingToolkit(toolkit);
-		service.setWSDLURL(wsdlURL);
-		
+	public List<OWLSService> getOWLSServices(){
+		return owlsServices;
+	}
+	
+	public void addToModel() {
 		//create operator
 		String operatorName = operationName + "-operator";
 		Transformer transformer;
 		if(view != null){
-			Mapper mapper = new Mapper(baseURL, operatorName, vModel);
+			Mapper mapper = new Mapper(baseFileURL, operatorName, vModel);
 			mapper.setViewToMapTo(view);
 			transformer = mapper;
 		}
@@ -63,11 +63,24 @@ class PackageOperatorService {
 		transformer.setLabel(label);
 		transformer.setTransformsToFormat(outputFormat);
 		transformer.addOperatesOnFormat(inputFormat);
+		transformer.setName(operatorName);
 		
+		//create owlsService
+		OWLSService owlsService = new OWLSService(baseURL, operationName);
+		owlsService.setWSDLURL(wsdlURL);
+		owlsService.setOperationName(operationName);
+		owlsService.setLabel(label);
+		
+		//create visko service
+		Service service = new Service(baseFileURL, operationName, vModel);
+		service.setLabel(label);
+		service.setSupportingToolkit(toolkit);
+		service.setComment(comment);		
+		service.setOWLSService(owlsService);		
 		service.setConceptualOperator(transformer);
 		service.getIndividual();
 		
-		vModel.addToModel(service.toString());
+		owlsServices.add(owlsService);
 	}
 	
 	public void setInputFormatURI(Format format){
@@ -79,7 +92,7 @@ class PackageOperatorService {
 	}
 	
 	public void setViewURI(String uri){
-		view = new View(uri, tempReadingModel);
+		view = PackageWriter.getView(uri);
 	}
 		
 	public void setWSDLURL(String url){

@@ -34,7 +34,6 @@ import org.mindswap.query.ValueMap;
 
 import edu.utep.trustlab.visko.execution.provenance.PMLNodesetLogger;
 import edu.utep.trustlab.visko.execution.provenance.PMLQueryLogger;
-import edu.utep.trustlab.visko.ontology.service.OWLSService;
 import edu.utep.trustlab.visko.util.OWLSParameterBinder;
 
 public class PipelineExecutor implements Runnable {	
@@ -113,14 +112,15 @@ public class PipelineExecutor implements Runnable {
     	
     	System.out.println(job.getJobStatus());
     	    	
-    	for(int i = 0; i < job.getPipeline().size(); i ++){    		
-    		OWLSService viskoService = job.getPipeline().getService(i);
+    	for(int i = 0; i < job.getPipeline().size(); i ++){
+ 
+    		edu.utep.trustlab.visko.ontology.service.Service viskoService = job.getPipeline().getService(i);
  
         	//capture initial dataset
             if(job.getProvenanceLogging() && i == 0)
-            	traceLogger.captureInitialDataset(resultURL, viskoService);
+            	traceLogger.captureInitialDataset(resultURL, job.getPipeline().getService(i));
     		
-       		job.getJobStatus().setCurrentService(viskoService.getURI(), i);
+       		job.getJobStatus().setCurrentService(viskoService.getOWLSService().getURI(), i);
     		System.out.println(job.getJobStatus());
     		
     		resultURL = executeService(viskoService, resultURL, i);
@@ -150,9 +150,9 @@ public class PipelineExecutor implements Runnable {
     	job.setPMLQueryURI(pmlQueryURI);
     }
     
-    private String executeService(OWLSService owlsService, String inputDataURL, int serviceIndex) throws ExecutionException{		
+    private String executeService(edu.utep.trustlab.visko.ontology.service.Service viskoService, String inputDataURL, int serviceIndex) throws ExecutionException{		
 		OWLKnowledgeBase kb = OWLFactory.createKB();
-		Service service = owlsService.getIndividual();
+		Service service = viskoService.getOWLSService().getIndividual();
 		Process process = service.getProcess();
 
 		ValueMap<Input, OWLValue> inputs = OWLSParameterBinder.buildInputValueMap(process, inputDataURL, job.getPipeline().getParameterBindings(), kb);
@@ -167,7 +167,7 @@ public class PipelineExecutor implements Runnable {
 	        outputDataURL =  out.toString();
 
 	        if(job.getProvenanceLogging())
-	        	traceLogger.captureProcessingStep(owlsService, inputDataURL, outputDataURL, inputs);
+	        	traceLogger.captureProcessingStep(viskoService, inputDataURL, outputDataURL, inputs);
 		}
 		return outputDataURL;
     }

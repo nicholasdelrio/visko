@@ -49,6 +49,7 @@ public class ViskoS {
 	public static final String ONTOLOGY_VISKO_S_URI = Visko.VISKO_S;
 
 	// Concepts
+	public static final String CLASS_URI_SERVICE = ONTOLOGY_VISKO_S_URI	+ "#Service";
 	public static final String CLASS_URI_TOOLKIT = ONTOLOGY_VISKO_S_URI	+ "#Toolkit";
 	public static final String CLASS_URI_EXTRACTOR = ONTOLOGY_VISKO_S_URI + "#Extractor";
 	public static final String CLASS_URI_TOOLKIT_PROFILE = ONTOLOGY_VISKO_S_URI	+ "#ToolkitProfile";
@@ -61,6 +62,8 @@ public class ViskoS {
 	public static final String PROPERTY_URI_IMPLEMENTS_OPERATOR = ONTOLOGY_VISKO_S_URI + "#implementsOperator";
 	public static final String PROPERTY_URI_BASED_ON = ONTOLOGY_VISKO_S_URI + "#basedOn";
 	public static final String PROPERTY_URI_SUPPORTED_BY = ONTOLOGY_VISKO_S_URI + "#supportedBy";
+	public static final String PROPERTY_URI_SUPPORTED_BY_OWLS = ONTOLOGY_VISKO_S_URI + "#supportedByOWLSService";
+	public static final String PROPERTY_URI_SUPPORTED_BY_SADI = ONTOLOGY_VISKO_S_URI + "#supportedBySADIService";
 	public static final String PROPERTY_URI_DECLARES_BINDINGS = ONTOLOGY_VISKO_S_URI + "#declaresBindings";
 
 	// Datatype Properties
