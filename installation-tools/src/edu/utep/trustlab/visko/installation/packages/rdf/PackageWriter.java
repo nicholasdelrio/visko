@@ -1,6 +1,7 @@
 package edu.utep.trustlab.visko.installation.packages.rdf;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
@@ -22,6 +23,21 @@ public class PackageWriter {
 	private ArrayList<PackageViewerSet> viewerSets;
 	private ArrayList<PackageOperatorService> services;
 	
+	private HashMap<String, PackageOperatorService> operatorServices;
+	
+	private void addOperatorService(PackageOperatorService operatorService){
+		operatorServices.put(operatorService.getName(), operatorService);
+	}
+	
+	public PackageInputParameterBindings getInputParameterBindings(String operationName){
+		PackageOperatorService operatorService = operatorServices.get(operationName);
+		
+		if(operatorService != null)
+			return operatorService.createNewInputParameterBindings();
+		else
+			return null;
+	}
+	
 	public PackageWriter(String url, String packageFileName){
 		baseURL = url;
 		baseFileURL = baseURL + packageFileName;
@@ -38,6 +54,9 @@ public class PackageWriter {
 		PackageOperatorService service = new PackageOperatorService(name, viskoModel, baseURL, baseFileURL);
 		service.setToolkit(toolkit);
 		services.add(service);
+		
+		addOperatorService(service);
+		
 		return service;
 	}
 	

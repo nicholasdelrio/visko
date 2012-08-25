@@ -39,6 +39,10 @@ public class PackageOperatorService {
 		operationName = name;
 	}
 	
+	public String getName(){
+		return operationName;
+	}
+	
 	protected void setToolkit(Toolkit tk){
 		toolkit = tk;
 	}
