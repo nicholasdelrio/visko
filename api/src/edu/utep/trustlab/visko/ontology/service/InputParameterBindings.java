@@ -54,20 +54,18 @@ import edu.utep.trustlab.visko.ontology.vocabulary.XSD;
 import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoS;
 
-public class InputParameterBinding extends JenaIndividual {
+public class InputParameterBindings extends JenaIndividual {
 	private Vector<String> profiledDataTypes;
 	private Vector<InputBinding> inputBindings;
 
-	// properties
-	private ObjectProperty basedOnProperty;
 	private ObjectProperty declaresBindingsProperty;
 	private DatatypeProperty profilesProperty;
 
-	public InputParameterBinding(String baseURL, String name, ViskoModel viskoModel) {
-		super(ViskoS.CLASS_URI_TOOLKIT_PROFILE, baseURL, name, viskoModel);
+	public InputParameterBindings(String baseURL, String name, ViskoModel viskoModel) {
+		super(ViskoS.CLASS_URI_INPUT_PARAMETER_BINDINGS, baseURL, name, viskoModel);
 	}
 
-	public InputParameterBinding(String uri, ViskoModel viskoModel) {
+	public InputParameterBindings(String uri, ViskoModel viskoModel) {
 		super(uri, viskoModel);
 	}
 
@@ -137,11 +135,8 @@ public class InputParameterBinding extends JenaIndividual {
 
 	@Override
 	protected void setProperties() {
-		basedOnProperty = model.getObjectProperty(ViskoS.PROPERTY_URI_BASED_ON);
-		declaresBindingsProperty = model
-				.getObjectProperty(ViskoS.PROPERTY_URI_DECLARES_BINDINGS);
-		profilesProperty = model
-				.getDatatypeProperty(ViskoS.DATATYPE_PROPERTY_URI_PROFILES);
+		declaresBindingsProperty = model.getObjectProperty(ViskoS.PROPERTY_URI_DECLARES_BINDINGS);
+		profilesProperty = model.getDatatypeProperty(ViskoS.DATATYPE_PROPERTY_URI_PROFILES);
 	}
 
 	@Override

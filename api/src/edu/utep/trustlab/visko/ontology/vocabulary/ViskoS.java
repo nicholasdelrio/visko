@@ -52,7 +52,7 @@ public class ViskoS {
 	public static final String CLASS_URI_SERVICE = ONTOLOGY_VISKO_S_URI	+ "#Service";
 	public static final String CLASS_URI_TOOLKIT = ONTOLOGY_VISKO_S_URI	+ "#Toolkit";
 	public static final String CLASS_URI_EXTRACTOR = ONTOLOGY_VISKO_S_URI + "#Extractor";
-	public static final String CLASS_URI_TOOLKIT_PROFILE = ONTOLOGY_VISKO_S_URI	+ "#ToolkitProfile";
+	public static final String CLASS_URI_INPUT_PARAMETER_BINDINGS = ONTOLOGY_VISKO_S_URI	+ "#InputParameterBindings";
 
 	/*****************************************************************************************/
 

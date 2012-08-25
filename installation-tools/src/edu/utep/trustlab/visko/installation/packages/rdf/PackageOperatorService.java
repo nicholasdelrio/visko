@@ -1,5 +1,7 @@
 package edu.utep.trustlab.visko.installation.packages.rdf;
 
+import org.mindswap.owl.OWLIndividual;
+
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.operator.Mapper;
 import edu.utep.trustlab.visko.ontology.operator.Transformer;
@@ -26,7 +28,8 @@ public class PackageOperatorService {
 	private View view;
 	
 	private OWLSService owlsService;
-			
+	private PackageInputParameterBindings bindings;
+	
 	protected PackageOperatorService(String name, ViskoModel viskoModel, String bURL, String bFURL){
 		vModel = viskoModel;
 		
@@ -40,11 +43,30 @@ public class PackageOperatorService {
 		toolkit = tk;
 	}
 	
+	public PackageInputParameterBindings createNewInputParameterBindings(){
+		
+		if(bindings == null)
+		{
+			addToModel();
+		
+			ViskoModel paramsModel = new ViskoModel();
+			
+			for(OWLIndividual input : owlsService.getIndividual().getProfile().getInputs()){
+				System.out.println(input.toRDF(true, false));
+				paramsModel.addToModel(input.toRDF(true, false));			
+			}
+		
+			String owlsServiceURL = baseURL + owlsService.getFileName();
+			bindings = new PackageInputParameterBindings(operationName, vModel, baseFileURL, owlsServiceURL, paramsModel);
+		}
+		return bindings;
+	}
+	
 	public OWLSService getOWLSService(){
 		return owlsService;
 	}
 	
-	public void addToModel() {
+	protected void addToModel() {
 		//create operator
 		String operatorName = operationName + "-operator";
 		Transformer transformer;
@@ -75,19 +97,22 @@ public class PackageOperatorService {
 		service.setComment(comment);		
 		service.setOWLSService(owlsService);		
 		service.setConceptualOperator(transformer);
-		service.getIndividual();		
+		service.getIndividual();
+		
+		if(bindings != null)
+			bindings.addToModel();
 	}
 	
-	public void setInputFormatURI(Format format){
+	public void setInputFormat(Format format){
 		inputFormat = format;	
 	}
 	
-	public void setOutputFormatURI(Format format){
+	public void setOutputFormat(Format format){
 		outputFormat = format;
 	}
 	
-	public void setViewURI(String uri){
-		view = PackageWriter.getView(uri);
+	public void setView(View generatedView){
+		view = generatedView;
 	}
 		
 	public void setWSDLURL(String url){

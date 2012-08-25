@@ -46,13 +46,13 @@ import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.service.Input;
 import edu.utep.trustlab.visko.ontology.service.InputBinding;
-import edu.utep.trustlab.visko.ontology.service.InputParameterBinding;
+import edu.utep.trustlab.visko.ontology.service.InputParameterBindings;
 import edu.utep.trustlab.visko.ontology.writer.ViskoWriter;
 
 public class ToolkitProfileWriter extends ViskoWriter {
 	private Vector<InputBinding> inputBindings;
 
-	private InputParameterBinding profile;
+	private InputParameterBindings profile;
 	private ViskoModel loadingModel;
 	private Vector<String> dataTypes;
 	private int counter;
@@ -60,7 +60,7 @@ public class ToolkitProfileWriter extends ViskoWriter {
 
 	public ToolkitProfileWriter(String name) {
 		loadingModel = new ViskoModel();
-		profile = new InputParameterBinding(ContentManager.getViskoRDFContentManager().getBaseURL(),
+		profile = new InputParameterBindings(ContentManager.getViskoRDFContentManager().getBaseURL(),
 				name, viskoModel);
 		counter = 0;
 		inputBindings = new Vector<InputBinding>();

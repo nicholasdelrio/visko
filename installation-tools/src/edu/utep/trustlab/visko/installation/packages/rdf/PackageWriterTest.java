@@ -51,20 +51,26 @@ public class PackageWriterTest {
 		PackageOperatorService opService = writer.createNewOperatorService("psxy");
 		opService.setComment("copy some colors");
 		opService.setLabel("copy color");
-		opService.setViewURI("https://raw.github.com/nicholasdelrio/visko/master/resources/views/contour-lines.owl#contour-lines");
-		opService.setInputFormatURI(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF"));
-		opService.setOutputFormatURI(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT"));
+		opService.setView(PackageWriter.getView("https://raw.github.com/nicholasdelrio/visko/master/resources/views/contour-lines.owl#contour-lines"));
+		opService.setInputFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF"));
+		opService.setOutputFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT"));
 		opService.setWSDLURL(wsdlURL);
 
 		opService = writer.createNewOperatorService("grdcontour");
 		opService.setComment("copy some colors");
 		opService.setLabel("copy color");
-		opService.setViewURI("https://raw.github.com/nicholasdelrio/visko/master/resources/views/contour-lines.owl#contour-lines");
-		opService.setInputFormatURI(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF"));
-		opService.setOutputFormatURI(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT"));
+		opService.setView(PackageWriter.getView("https://raw.github.com/nicholasdelrio/visko/master/resources/views/contour-lines.owl#contour-lines"));
+		opService.setInputFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF"));
+		opService.setOutputFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT"));
 		opService.setWSDLURL(wsdlURL);
-
 		
+		PackageInputParameterBindings bindings = opService.createNewInputParameterBindings();
+		bindings.addDataType("http://iw.cs.utep.edu/data1");
+		bindings.addDataType("http://iw.cs.utep.edu/data2");
+		bindings.addInputBinding("A", "red");
+		bindings.addInputBinding("J", "jedi");
+		bindings.addInputBinding("B", "goodness");
+				
 		writer.dumpPackageRDF(local);
 	}
 }

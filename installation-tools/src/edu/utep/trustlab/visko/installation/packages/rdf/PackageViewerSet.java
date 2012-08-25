@@ -20,7 +20,7 @@ public class PackageViewerSet {
 		viewerSet = new ViewerSet(baseURL, name, model);
 	}
 	
-	public void addToModel(){
+	protected void addToModel(){
 		for(Viewer viewer : viewers){
 			viewer.addBelongsToViewerSet(viewerSet);
 			viewer.getIndividual();
