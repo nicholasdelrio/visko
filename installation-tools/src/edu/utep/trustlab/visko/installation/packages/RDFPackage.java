@@ -11,6 +11,7 @@ public abstract class RDFPackage {
 	public abstract void populateViewerSets();
 	public abstract void populateToolkit();
 	public abstract void populateServices();
+	public abstract void populateParameterBindings();
 	
 	public void setPackageWriter(PackageWriter writer){
 		packageWriter = writer;
