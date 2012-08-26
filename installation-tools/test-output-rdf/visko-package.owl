@@ -13,7 +13,31 @@
     <owl:imports rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl"/>
     <owl:imports rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-service.owl"/>
   </owl:Ontology>
-  <viskoO:Viewer rdf:about="http://iw.cs.utep.edu/visko/broswer-image-viewer.owl#broswer-image-viewer">
+  <viskoS:InputParameterBindings rdf:about="http://iw.cs.utep.edu/visko/visko-package.owl#grdcontour-bindings-1">
+    <viskoS:profiles rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://iw.cs.utep.edu/data13</viskoS:profiles>
+    <viskoS:profiles rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://iw.cs.utep.edu/data12</viskoS:profiles>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://iw.cs.utep.edu/visko/visko-package.owl#grdcontour-bindings-1-binding-2">
+        <owlsProcess:valueData>brod</owlsProcess:valueData>
+        <owlsProcess:toParam>http://iw.cs.utep.edu/visko/grdcontour.owl#B</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://iw.cs.utep.edu/visko/visko-package.owl#grdcontour-bindings-1-binding-1">
+        <owlsProcess:valueData>jrod</owlsProcess:valueData>
+        <owlsProcess:toParam>http://iw.cs.utep.edu/visko/grdcontour.owl#J</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://iw.cs.utep.edu/visko/visko-package.owl#grdcontour-bindings-1-binding-0">
+        <owlsProcess:valueData>arod</owlsProcess:valueData>
+        <owlsProcess:toParam>http://iw.cs.utep.edu/visko/grdcontour.owl#A</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+  </viskoS:InputParameterBindings>
+  <viskoO:Viewer rdf:about="http://iw.cs.utep.edu/visko/pdf-viewer.owl#pdf-viewer">
     <viskoO:partOfViewerSet>
       <viskoO:ViewerSet rdf:about="http://iw.cs.utep.edu/visko/mozilla.owl#mozilla">
         <rdfs:label>mozilla firefox</rdfs:label>
@@ -21,18 +45,18 @@
       </viskoO:ViewerSet>
     </viskoO:partOfViewerSet>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >broswer-image-viewer</pmlp:hasName>
-    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/formats/AMRWB.owl#AMRWB"/>
-    <rdfs:label>browser image viewer</rdfs:label>
-    <rdfs:comment>views jpegs and such</rdfs:comment>
-  </viskoO:Viewer>
-  <viskoO:Viewer rdf:about="http://iw.cs.utep.edu/visko/pdf-viewer.owl#pdf-viewer">
-    <viskoO:partOfViewerSet rdf:resource="http://iw.cs.utep.edu/visko/mozilla.owl#mozilla"/>
-    <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >pdf-viewer</pmlp:hasName>
     <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/formats/PDF.owl#PDF"/>
     <rdfs:label>pdf viewer</rdfs:label>
     <rdfs:comment>views pdfs</rdfs:comment>
+  </viskoO:Viewer>
+  <viskoO:Viewer rdf:about="http://iw.cs.utep.edu/visko/broswer-image-viewer.owl#broswer-image-viewer">
+    <viskoO:partOfViewerSet rdf:resource="http://iw.cs.utep.edu/visko/mozilla.owl#mozilla"/>
+    <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >broswer-image-viewer</pmlp:hasName>
+    <viskoO:operatesOn rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/formats/AMRWB.owl#AMRWB"/>
+    <rdfs:label>browser image viewer</rdfs:label>
+    <rdfs:comment>views jpegs and such</rdfs:comment>
   </viskoO:Viewer>
   <viskoS:Service rdf:about="http://iw.cs.utep.edu/visko/visko-package.owl#psxy">
     <viskoS:supportedByOWLSService>http://iw.cs.utep.edu/visko/psxy.owl#psxyService</viskoS:supportedByOWLSService>
@@ -73,30 +97,6 @@
     <rdfs:label>copy color</rdfs:label>
     <rdfs:comment>copy some colors</rdfs:comment>
   </viskoS:Service>
-  <viskoS:InputParameterBindings rdf:about="http://iw.cs.utep.edu/visko/visko-package.owl#grdcontour-bindings">
-    <viskoS:profiles rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://iw.cs.utep.edu/data2</viskoS:profiles>
-    <viskoS:profiles rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://iw.cs.utep.edu/data1</viskoS:profiles>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://iw.cs.utep.edu/visko/visko-package.owl#binding-2">
-        <owlsProcess:valueData>goodness</owlsProcess:valueData>
-        <owlsProcess:toParam>http://iw.cs.utep.edu/visko/grdcontour.owl#B</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://iw.cs.utep.edu/visko/visko-package.owl#binding-1">
-        <owlsProcess:valueData>jedi</owlsProcess:valueData>
-        <owlsProcess:toParam>http://iw.cs.utep.edu/visko/grdcontour.owl#J</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://iw.cs.utep.edu/visko/visko-package.owl#binding-0">
-        <owlsProcess:valueData>red</owlsProcess:valueData>
-        <owlsProcess:toParam>http://iw.cs.utep.edu/visko/grdcontour.owl#A</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-  </viskoS:InputParameterBindings>
   <viskoO:Viewer rdf:about="http://iw.cs.utep.edu/visko/some-gosh-darn-viewer.owl#some-gosh-darn-viewer">
     <viskoO:partOfViewerSet>
       <viskoO:ViewerSet rdf:about="http://iw.cs.utep.edu/visko/iexplorer.owl#iexplorer">
@@ -110,4 +110,28 @@
     <rdfs:label>some gosh darn</rdfs:label>
     <rdfs:comment>some gosh darn</rdfs:comment>
   </viskoO:Viewer>
+  <viskoS:InputParameterBindings rdf:about="http://iw.cs.utep.edu/visko/visko-package.owl#grdcontour-bindings-0">
+    <viskoS:profiles rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://iw.cs.utep.edu/data2</viskoS:profiles>
+    <viskoS:profiles rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://iw.cs.utep.edu/data1</viskoS:profiles>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://iw.cs.utep.edu/visko/visko-package.owl#grdcontour-bindings-0-binding-2">
+        <owlsProcess:valueData>goodness</owlsProcess:valueData>
+        <owlsProcess:toParam>http://iw.cs.utep.edu/visko/grdcontour.owl#B</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://iw.cs.utep.edu/visko/visko-package.owl#grdcontour-bindings-0-binding-1">
+        <owlsProcess:valueData>jedi</owlsProcess:valueData>
+        <owlsProcess:toParam>http://iw.cs.utep.edu/visko/grdcontour.owl#J</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://iw.cs.utep.edu/visko/visko-package.owl#grdcontour-bindings-0-binding-0">
+        <owlsProcess:valueData>red</owlsProcess:valueData>
+        <owlsProcess:toParam>http://iw.cs.utep.edu/visko/grdcontour.owl#A</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+  </viskoS:InputParameterBindings>
 </rdf:RDF>

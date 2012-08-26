@@ -1,5 +1,7 @@
 package edu.utep.trustlab.visko.installation.packages.rdf;
 
+import java.util.ArrayList;
+
 import org.mindswap.owl.OWLIndividual;
 
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
@@ -28,15 +30,17 @@ public class PackageOperatorService {
 	private View view;
 	
 	private OWLSService owlsService;
-	private PackageInputParameterBindings bindings;
+	private ArrayList<PackageInputParameterBindings> bindingsSet;
+	
+	private int counter;
 	
 	protected PackageOperatorService(String name, ViskoModel viskoModel, String bURL, String bFURL){
 		vModel = viskoModel;
-		
 		baseURL = bURL;
 		baseFileURL = bFURL;
-		
 		operationName = name;
+		bindingsSet = new ArrayList<PackageInputParameterBindings>();
+		counter = 0;
 	}
 	
 	public String getName(){
@@ -48,21 +52,19 @@ public class PackageOperatorService {
 	}
 	
 	public PackageInputParameterBindings createNewInputParameterBindings(){
+		addToModel();
 		
-		if(bindings == null)
-		{
-			addToModel();
-		
-			ViskoModel paramsModel = new ViskoModel();
+		ViskoModel paramsModel = new ViskoModel();
 			
-			for(OWLIndividual input : owlsService.getIndividual().getProfile().getInputs()){
-				System.out.println(input.toRDF(true, false));
-				paramsModel.addToModel(input.toRDF(true, false));			
-			}
-		
-			String owlsServiceURL = baseURL + owlsService.getFileName();
-			bindings = new PackageInputParameterBindings(operationName, vModel, baseFileURL, owlsServiceURL, paramsModel);
+		for(OWLIndividual input : owlsService.getIndividual().getProfile().getInputs()){
+			System.out.println(input.toRDF(true, false));
+			paramsModel.addToModel(input.toRDF(true, false));			
 		}
+		
+		String owlsServiceURL = baseURL + owlsService.getFileName();
+		String bindingsName = operationName + "-bindings-" + counter++;
+		PackageInputParameterBindings bindings = new PackageInputParameterBindings(bindingsName, vModel, baseFileURL, owlsServiceURL, paramsModel);
+		bindingsSet.add(bindings);
 		return bindings;
 	}
 	
@@ -103,8 +105,9 @@ public class PackageOperatorService {
 		service.setConceptualOperator(transformer);
 		service.getIndividual();
 		
-		if(bindings != null)
+		for(PackageInputParameterBindings bindings : bindingsSet){
 			bindings.addToModel();
+		}
 	}
 	
 	public void setInputFormat(Format format){

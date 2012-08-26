@@ -12,12 +12,13 @@ import edu.utep.trustlab.visko.ontology.view.View;
 
 public class PackageWriter {
 	
+	private static ViskoModel loadingModel = new ViskoModel();
+	
 	private String baseURL;
 	private String baseFileURL;
 	private String fileName;
 	
 	private ViskoModel viskoModel;
-	private static ViskoModel loadingModel = new ViskoModel();
 	private Toolkit toolkit;
 	
 	private ArrayList<PackageViewerSet> viewerSets;
@@ -29,13 +30,8 @@ public class PackageWriter {
 		operatorServices.put(operatorService.getName(), operatorService);
 	}
 	
-	public PackageInputParameterBindings getInputParameterBindings(String operationName){
-		PackageOperatorService operatorService = operatorServices.get(operationName);
-		
-		if(operatorService != null)
-			return operatorService.createNewInputParameterBindings();
-		else
-			return null;
+	public PackageOperatorService getOperatorService(String operationName){
+		return operatorServices.get(operationName);
 	}
 	
 	public PackageWriter(String url, String packageFileName){
@@ -48,6 +44,7 @@ public class PackageWriter {
 		
 		viewerSets = new ArrayList<PackageViewerSet>();
 		services = new ArrayList<PackageOperatorService>();
+		operatorServices = new HashMap<String, PackageOperatorService>();
 	}
 	
 	public PackageOperatorService createNewOperatorService(String name){

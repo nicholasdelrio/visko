@@ -7,8 +7,6 @@ import edu.utep.trustlab.visko.ontology.service.InputParameterBindings;
 
 public class PackageInputParameterBindings {
 	
-	private static final String BINDING_PREFIX = "binding-";
-	
 	private ViskoModel vModel;
 	private ViskoModel pModel;
 	private InputParameterBindings parameterBindings;
@@ -18,11 +16,14 @@ public class PackageInputParameterBindings {
 
 	private int counter;
 
-	protected PackageInputParameterBindings(String operationName, ViskoModel viskoModel, String bFURL, String owlsServiceURL, ViskoModel paramsModel){
+	private String bindingsName;
+	
+	protected PackageInputParameterBindings(String name, ViskoModel viskoModel, String bFURL, String owlsServiceURL, ViskoModel paramsModel){
 		baseFileURL = bFURL;
 		vModel = viskoModel;
 		pModel = paramsModel;
-		parameterBindings = new InputParameterBindings(baseFileURL, operationName + "-bindings", vModel);
+		bindingsName= name;
+		parameterBindings = new InputParameterBindings(baseFileURL, name, vModel);
 		counter = 0;
 		
 		serviceURL = owlsServiceURL;
@@ -40,7 +41,7 @@ public class PackageInputParameterBindings {
 		String parameterURI = serviceURL + "#" + parameterName;
 		Input input = new Input(parameterURI, pModel);
 
-		String bindingName = BINDING_PREFIX + counter++;
+		String bindingName = bindingsName + "-binding-" +  counter++;
 		InputBinding binding = new InputBinding(baseFileURL, bindingName, vModel);
 		binding.setInputParameter(input);
 		binding.setValueData(value);
