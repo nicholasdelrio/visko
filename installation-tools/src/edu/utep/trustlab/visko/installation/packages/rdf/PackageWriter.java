@@ -46,7 +46,6 @@ public class PackageWriter {
 			owlsService = operatorServices.get(key).getOWLSService();
 			
 			for(OWLIndividual input : owlsService.getIndividual().getProfile().getInputs()){
-				System.out.println(input.toRDF(true, false));
 				paramsModel.addToModel(input.toRDF(true, false));				
 			}
 		}		

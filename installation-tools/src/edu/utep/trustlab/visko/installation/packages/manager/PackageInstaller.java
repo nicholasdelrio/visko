@@ -49,14 +49,17 @@ public class PackageInstaller {
 			
 			initializeRDFPackage(rdfPackage, aPackageDirectory);
 			
-			System.out.println("created toolkit");
 			rdfPackage.populateToolkit();
-			
-			System.out.println("created viewer sets");
+			System.out.println("populated toolkit");
+
 			rdfPackage.populateViewerSets();
+			System.out.println("populated viewer sets");
 			
-			System.out.println("created services");
 			rdfPackage.populateServices();
+			System.out.println("populated services");
+	
+			rdfPackage.populateParameterBindings();
+			System.out.println("populated parameter bindings");
 			
 			finalizeRDFPackage(rdfPackage, aPackageDirectory);
 			

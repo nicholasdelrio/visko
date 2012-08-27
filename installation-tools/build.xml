@@ -13,7 +13,7 @@
 	<!-- update value --><property name="host-port" value="80" />
 	<!-- update value --><property name="tdb-path" value="/usr/local/git/git-repos/visko-rdf/tdb"/>
 	
-	<!-- Move Data -->
+	<!-- Move Service Output data to content manager -->
 	<!-- update value --><property name="move-data" value="false"/>
 	
 	<!-- VisKo Provenance Content Manager Info (local | ciserver | velo) -->
@@ -34,6 +34,9 @@
 
 	<!-- Visualization query examples page -->
 	<property name="query-examples" value="../../visko-rdf/rdf-writer/query-examples-functional/query.jsp"/>
+	
+	<!-- Content Management Libs -->
+	<property name="content-management-libs" value="../../content-management-connectors/clients/lib"/>	
 		
 	<!-- build properties -->
 	<property name="jarfile" value="installation-tools.jar"/>
@@ -47,12 +50,23 @@
 	<property name="visko-web" value="../visko-web"/>
 	<property name="visko-web-war-name" value="visko-web.war"/>
 	<property name="visko-web-war" value="${visko-web}/${visko-web-war-name}"/>
-
+	
+	<property name="visko-packages" value="../../visko-packages/"/>
+	<property name="build-packages" value="build-packages"/>
+	<property name="packages-jarfile" value="packages.jar"/>
+	
 	<target name="build" depends="compile">
 		<jar destfile="${jarfile}">
 			<fileset dir="${build}" includes="**/*.*" />
 		</jar>
 	</target>
+
+	<target name="build-packages" depends="compile-packages">
+		<jar destfile="${packages-jarfile}">
+			<fileset dir="${build-packages}" includes="**/*.*" />
+		</jar>
+	</target>
+
 	
 	<target name="compile" depends="clean" description="Compile installation-tools in build Directory">			
 		<ant antfile="${visko-api}/build.xml" target="build" inheritAll="false" />
@@ -72,6 +86,45 @@
 		</javac>
 	</target>
 
+	<target name="compile-packages" depends="build" description="Compile packages in build-packages Directory">			
+		
+		<mkdir dir="${build-packages}"/>
+		<javac destdir="${build-packages}/" srcdir="${visko-packages}" target="1.6"> 
+	    	<include name="**/*.java"/>
+			<classpath>
+				<pathelement location="${visko-api-jar}"/>
+				<pathelement location="${jarfile}"/>
+			</classpath>		
+		</javac>
+	</target>
+	
+	<target name="install-packages-local" depends="build-packages" description="Run the RDF generation package code">
+		<java classname="edu.utep.trustlab.visko.installation.packages.manager.Installer_LocalFileSystem">
+			<arg value="http://iw.cs.utep.edu/"/>
+			<arg value="../../visko-rdf/"/>	
+			<arg value="visko-rdf"/>
+			<arg value="../../visko-packages/"/>
+			
+			<classpath>
+				<pathelement location="${packages-jarfile}"/>
+				<pathelement location="${visko-api-jar}"/>
+				<pathelement location="${jarfile}"/>
+				<fileset dir="${content-management-libs}/libs-velo/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/axis4/">
+					<include name="*.jar"/>
+				</fileset>
+					<fileset dir="${lib}/jena262/">
+				<include name="*.jar"/>
+					</fileset>	
+				<fileset dir="${lib}/util/">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>
+		</java>
+	</target>
+	
 	<target name="build-visko-web" depends="build-web-configuration" description="Generate visko-web.war file">
 		<copy todir="${visko-web}/WebContent/logos">
     		<fileset dir="logos"/>
