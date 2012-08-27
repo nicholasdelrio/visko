@@ -24,6 +24,9 @@ public class PackageWriter {
 	private ViskoModel viskoModel;
 	private Toolkit toolkit;
 	
+	private boolean servicesAddedToModel;
+	
+	
 	private ArrayList<PackageViewerSet> viewerSets;
 	private HashMap<String, PackageOperatorService> operatorServices;
 	private ArrayList<PackageInputParameterBindings> bindingsSet;
@@ -35,7 +38,10 @@ public class PackageWriter {
 	}
 	
 	public PackageInputParameterBindings createNewInputParameterBindings(){
-		addServicesToModel();	
+		if(!servicesAddedToModel)
+			addServicesToModel();
+		
+		servicesAddedToModel = true;
 	
 		ViskoModel paramsModel = new ViskoModel();
 		OWLSService owlsService;
@@ -69,6 +75,7 @@ public class PackageWriter {
 		operatorServices = new HashMap<String, PackageOperatorService>();
 		bindingsSet = new ArrayList<PackageInputParameterBindings>();
 		counter = 0;
+		servicesAddedToModel = false;
 	}
 	
 	public PackageOperatorService createNewOperatorService(String operationName){
@@ -123,7 +130,8 @@ public class PackageWriter {
 	}
 	
 	private void addToModel(){
-		addViewerSetsToModel();
+		if(!servicesAddedToModel)
+			addViewerSetsToModel();
 		addServicesToModel();
 		addBindingsToModel();
 	}
