@@ -65,20 +65,20 @@ public class PackageWriterTest {
 		opService1.setWSDLURL(wsdlURL);
 		
 		
-		PackageOperatorService psxyService = writer.getOperatorService("grdcontour");
-		PackageInputParameterBindings bindings = psxyService.createNewInputParameterBindings();
+		PackageInputParameterBindings bindings = writer.createNewInputParameterBindings();
 		bindings.addDataType("http://iw.cs.utep.edu/data1");
 		bindings.addDataType("http://iw.cs.utep.edu/data2");
-		bindings.addInputBinding("A", "red");
-		bindings.addInputBinding("J", "jedi");
-		bindings.addInputBinding("B", "goodness");
+		bindings.addInputBinding("grdcontour", "A", "red");
+		bindings.addInputBinding("grdcontour", "J", "jedi");
+		bindings.addInputBinding("grdcontour", "B", "goodness");
+		bindings.addInputBinding("psxy", "B", "bodificition");
 		
-		PackageInputParameterBindings bindings1 = psxyService.createNewInputParameterBindings();
+		PackageInputParameterBindings bindings1 = writer.createNewInputParameterBindings();
 		bindings1.addDataType("http://iw.cs.utep.edu/data12");
 		bindings1.addDataType("http://iw.cs.utep.edu/data13");
-		bindings1.addInputBinding("A", "arod");
-		bindings1.addInputBinding("J", "jrod");
-		bindings1.addInputBinding("B", "brod");
+		bindings1.addInputBinding("grdcontour", "A", "arod");
+		bindings1.addInputBinding("grdcontour", "J", "jrod");
+		bindings1.addInputBinding("grdcontour", "B", "brod");
 		
 		writer.dumpPackageRDF(local);
 	}

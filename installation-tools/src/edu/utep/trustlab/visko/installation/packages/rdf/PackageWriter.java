@@ -2,6 +2,9 @@ package edu.utep.trustlab.visko.installation.packages.rdf;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+
+import org.mindswap.owl.OWLIndividual;
 
 import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
@@ -22,16 +25,37 @@ public class PackageWriter {
 	private Toolkit toolkit;
 	
 	private ArrayList<PackageViewerSet> viewerSets;
-	private ArrayList<PackageOperatorService> services;
-	
 	private HashMap<String, PackageOperatorService> operatorServices;
+	private ArrayList<PackageInputParameterBindings> bindingsSet;
+	
+	private int counter;
 	
 	private void addOperatorService(PackageOperatorService operatorService){
 		operatorServices.put(operatorService.getName(), operatorService);
 	}
 	
-	public PackageOperatorService getOperatorService(String operationName){
-		return operatorServices.get(operationName);
+	public PackageInputParameterBindings createNewInputParameterBindings(){
+		addServicesToModel();	
+	
+		ViskoModel paramsModel = new ViskoModel();
+		OWLSService owlsService;
+		Iterator<String> keysIterator = operatorServices.keySet().iterator();
+		String key;
+		while(keysIterator.hasNext()){
+			key = keysIterator.next();
+			owlsService = operatorServices.get(key).getOWLSService();
+			
+			for(OWLIndividual input : owlsService.getIndividual().getProfile().getInputs()){
+				System.out.println(input.toRDF(true, false));
+				paramsModel.addToModel(input.toRDF(true, false));				
+			}
+		}		
+		
+		String bindingsName = "bindings-" + counter++;
+		PackageInputParameterBindings bindings = new PackageInputParameterBindings(bindingsName, viskoModel, baseFileURL, paramsModel, operatorServices);
+		bindingsSet.add(bindings);
+		return bindings;
+		
 	}
 	
 	public PackageWriter(String url, String packageFileName){
@@ -43,14 +67,15 @@ public class PackageWriter {
 		viskoModel.createOntology(baseFileURL);
 		
 		viewerSets = new ArrayList<PackageViewerSet>();
-		services = new ArrayList<PackageOperatorService>();
 		operatorServices = new HashMap<String, PackageOperatorService>();
+		bindingsSet = new ArrayList<PackageInputParameterBindings>();
+		counter = 0;
 	}
 	
-	public PackageOperatorService createNewOperatorService(String name){
-		PackageOperatorService service = new PackageOperatorService(name, viskoModel, baseURL, baseFileURL);
+	public PackageOperatorService createNewOperatorService(String operationName){
+		PackageOperatorService service = new PackageOperatorService(operationName, viskoModel, baseURL, baseFileURL);
 		service.setToolkit(toolkit);
-		services.add(service);
+		operatorServices.put(operationName, service);
 		
 		addOperatorService(service);
 		
@@ -76,14 +101,32 @@ public class PackageWriter {
 		return new View(viewURI, loadingModel);
 	}
 	
-	private void addToModel(){
+	private void addViewerSetsToModel(){
 		for(PackageViewerSet viewerSet : viewerSets){
 			viewerSet.addToModel();
 		}
-		
-		for(PackageOperatorService service : services){
-			service.addToModel();
+	}
+
+	private void addServicesToModel(){
+		Iterator<String> keysIterator = operatorServices.keySet().iterator();
+		String key;
+		while(keysIterator.hasNext()){
+			key = keysIterator.next();
+			operatorServices.get(key).addToModel();
 		}
+
+	}
+	
+	private void addBindingsToModel(){
+		for(PackageInputParameterBindings bindingSet : bindingsSet){
+			bindingSet.addToModel();
+		}
+	}
+	
+	private void addToModel(){
+		addViewerSetsToModel();
+		addServicesToModel();
+		addBindingsToModel();
 	}
 	
 	public void dumpPackageRDF(ContentManager manager){
@@ -98,9 +141,12 @@ public class PackageWriter {
 	
 	private void writeOWLSRDF(ContentManager manager){
 		OWLSService owlsService;
-		for(PackageOperatorService service : services){
-			owlsService = service.getOWLSService();
+		Iterator<String> keysIterator = operatorServices.keySet().iterator();
+		String key;
+		while(keysIterator.hasNext()){
+			key = keysIterator.next();
+			owlsService = operatorServices.get(key).getOWLSService();
 			manager.saveDocument(owlsService.getModel().getModelAsRDFString(), owlsService.getFileName());
-		}
+		}		
 	}
 }

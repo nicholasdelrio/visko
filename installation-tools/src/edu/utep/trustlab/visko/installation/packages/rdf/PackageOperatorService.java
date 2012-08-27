@@ -1,9 +1,5 @@
 package edu.utep.trustlab.visko.installation.packages.rdf;
 
-import java.util.ArrayList;
-
-import org.mindswap.owl.OWLIndividual;
-
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.operator.Mapper;
 import edu.utep.trustlab.visko.ontology.operator.Transformer;
@@ -30,17 +26,12 @@ public class PackageOperatorService {
 	private View view;
 	
 	private OWLSService owlsService;
-	private ArrayList<PackageInputParameterBindings> bindingsSet;
-	
-	private int counter;
 	
 	protected PackageOperatorService(String name, ViskoModel viskoModel, String bURL, String bFURL){
 		vModel = viskoModel;
 		baseURL = bURL;
 		baseFileURL = bFURL;
 		operationName = name;
-		bindingsSet = new ArrayList<PackageInputParameterBindings>();
-		counter = 0;
 	}
 	
 	public String getName(){
@@ -51,21 +42,8 @@ public class PackageOperatorService {
 		toolkit = tk;
 	}
 	
-	public PackageInputParameterBindings createNewInputParameterBindings(){
-		addToModel();
-		
-		ViskoModel paramsModel = new ViskoModel();
-			
-		for(OWLIndividual input : owlsService.getIndividual().getProfile().getInputs()){
-			System.out.println(input.toRDF(true, false));
-			paramsModel.addToModel(input.toRDF(true, false));			
-		}
-		
-		String owlsServiceURL = baseURL + owlsService.getFileName();
-		String bindingsName = operationName + "-bindings-" + counter++;
-		PackageInputParameterBindings bindings = new PackageInputParameterBindings(bindingsName, vModel, baseFileURL, owlsServiceURL, paramsModel);
-		bindingsSet.add(bindings);
-		return bindings;
+	public String getOWLSServiceURL(){
+		return baseURL + owlsService.getFileName();
 	}
 	
 	public OWLSService getOWLSService(){
@@ -104,10 +82,6 @@ public class PackageOperatorService {
 		service.setOWLSService(owlsService);		
 		service.setConceptualOperator(transformer);
 		service.getIndividual();
-		
-		for(PackageInputParameterBindings bindings : bindingsSet){
-			bindings.addToModel();
-		}
 	}
 	
 	public void setInputFormat(Format format){

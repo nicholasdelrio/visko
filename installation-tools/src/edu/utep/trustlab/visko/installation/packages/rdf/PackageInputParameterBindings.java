@@ -1,5 +1,7 @@
 package edu.utep.trustlab.visko.installation.packages.rdf;
 
+import java.util.HashMap;
+
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.service.Input;
 import edu.utep.trustlab.visko.ontology.service.InputBinding;
@@ -7,26 +9,25 @@ import edu.utep.trustlab.visko.ontology.service.InputParameterBindings;
 
 public class PackageInputParameterBindings {
 	
-	private ViskoModel vModel;
-	private ViskoModel pModel;
+	private ViskoModel packageModel;
+	private ViskoModel parametersModel;
 	private InputParameterBindings parameterBindings;
 
-	private String serviceURL;
 	private String baseFileURL;
 
 	private int counter;
 
+	private HashMap <String, PackageOperatorService> operatorServices;
 	private String bindingsName;
 	
-	protected PackageInputParameterBindings(String name, ViskoModel viskoModel, String bFURL, String owlsServiceURL, ViskoModel paramsModel){
+	protected PackageInputParameterBindings(String name, ViskoModel viskoModel, String bFURL, ViskoModel paramsModel, HashMap<String, PackageOperatorService> services){
 		baseFileURL = bFURL;
-		vModel = viskoModel;
-		pModel = paramsModel;
+		packageModel = viskoModel;
+		parametersModel = paramsModel;
 		bindingsName= name;
-		parameterBindings = new InputParameterBindings(baseFileURL, name, vModel);
+		parameterBindings = new InputParameterBindings(baseFileURL, name, packageModel);
 		counter = 0;
-		
-		serviceURL = owlsServiceURL;
+		operatorServices = services;
 	}
 	
 	public void addDataType(String dataTypeURI){
@@ -37,12 +38,14 @@ public class PackageInputParameterBindings {
 		parameterBindings.getIndividual();
 	}
 	
-	public void addInputBinding(String parameterName, String value){
-		String parameterURI = serviceURL + "#" + parameterName;
-		Input input = new Input(parameterURI, pModel);
+	public void addInputBinding(String operationName, String parameterName, String value){
+		PackageOperatorService service = operatorServices.get(operationName);
+		
+		String parameterURI = service.getOWLSServiceURL() + "#" + parameterName;
+		Input input = new Input(parameterURI, parametersModel);
 
 		String bindingName = bindingsName + "-binding-" +  counter++;
-		InputBinding binding = new InputBinding(baseFileURL, bindingName, vModel);
+		InputBinding binding = new InputBinding(baseFileURL, bindingName, packageModel);
 		binding.setInputParameter(input);
 		binding.setValueData(value);
 		
