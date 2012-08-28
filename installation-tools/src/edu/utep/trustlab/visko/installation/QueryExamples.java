@@ -36,7 +36,7 @@ public class QueryExamples {
 		System.out.println("generating query examples!");
 		QueryExamples qe;
 		
-		if(args.length == 3)
+		if(args.length == 2)
 			qe = new QueryExamples(args[0], args[1], null);
 		else
 			qe = new QueryExamples(args[0], args[1], args[2]);

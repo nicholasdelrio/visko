@@ -6,22 +6,20 @@
 	<!-- Do not change --><property name="github-server-url" value="https://raw.github.com/${your-github-username}/visko-packages-installed/master/"/>
 	
 	<!-- Velo Configuration (Assumes you have a space Projects/visko under Company Home -->
-	<!-- update value --><property name="velo-server-url" value="http://localhost:8080/alfresco/"/>
+	<!-- update value --><property name="velo-server-connection-url" value="http://localhost:8080/alfresco/"/>
 	<!-- update value --><property name="velo-server-username" value="admin"/>
 	<!-- update value --><property name="velo-server-password" value="booger1"/>
+	<!-- Do not change --><property name="server-project-name" value="visko"/>
+	<!-- Do not change --><property name="velo-server-url" value="${velo-server-connection-url}/webdav/Projects/${server-project-name}"/>
 	
 	<!-- Uncomment the server that is hosing your rdf (github, alfresco/cat, or ci-sever) -->
 	<property name="server-url" value="${github-server-url}"/>
-	<!-- <property name="server-url" value="${cat-server-url}"/> -->
+	<!-- <property name="server-url" value="${velo-server-url}"/> -->
 		
 	<!-- DO NOT CHANGE SETTINGS BELOW -->
-	
 	<!-- Path to visko-packages and visko-packages-installed -->
 	<property name="visko-packages-installed-path" value="../../visko-packages-installed/" />	
 	
-	<!-- Name of project under server to dump visko RDF -->
-	<property name="server-project-name" value="visko"/>
-
 	<!-- Query Examples -->
 	<property name="query-template" value="query-examples-template/query.jsp"/>
 	<property name="query-deployment-dir" value="query-examples-functional"/>
@@ -59,6 +57,51 @@
 		</javac>
 	</target>
 	
+	<target name="build-query-html" description="Generate the query examples html specific for your VisKo RDF deployment">
+		<ant antfile="build-installation-visko.xml" target="build" inheritAll="false" />
+				
+		<java classname="edu.utep.trustlab.visko.installation.QueryExamples">
+			<arg value="${query-template}"/>
+			<arg value="${server-url}"/>
+			<arg value="${query-deployment-dir}"/>
+			
+			<classpath>
+				<pathelement location="${installation-tools-jar}"/>
+				<pathelement location="${visko-api-jar}"/>
+			</classpath>
+		</java>		
+	</target>
+	
+	<target name="install-packages-remote" depends="build-packages" description="Run the RDF generation package code">
+		<java classname="edu.utep.trustlab.visko.installation.packages.manager.Installer_ContentManager">
+			
+			<arg value="velo"/>
+			<arg value="${velo-server-connection-url}"/>
+			<arg value="${server-project-name}"/>
+			<arg value="${velo-server-username}"/>
+			<arg value="${velo-server-password}"/>
+			<arg value="${visko-packages}"/>
+			
+			<classpath>
+				<pathelement location="${packages-jar}"/>
+				<pathelement location="${visko-api-jar}"/>
+				<pathelement location="${installation-tools-jar}"/>
+				<fileset dir="${content-management-libs}/libs-velo/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/axis4/">
+					<include name="*.jar"/>
+				</fileset>
+					<fileset dir="${lib}/jena262/">
+				<include name="*.jar"/>
+					</fileset>	
+				<fileset dir="${lib}/util/">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>
+		</java>
+	</target>
+	
 	<target name="install-packages-local" depends="build-packages" description="Run the RDF generation package code">
 		<java classname="edu.utep.trustlab.visko.installation.packages.manager.Installer_LocalFileSystem">
 			
@@ -67,7 +110,7 @@
 			<arg value="${visko-packages}"/>
 			
 			<classpath>
-				<pathelement location="${packages-jarf}"/>
+				<pathelement location="${packages-jar}"/>
 				<pathelement location="${visko-api-jar}"/>
 				<pathelement location="${installation-tools-jar}"/>
 				<fileset dir="${content-management-libs}/libs-velo/">

@@ -81,9 +81,10 @@ public class PackageInstaller {
 		ContentManager.setWorkspacePath(packageDirectory.getAbsolutePath());
 		rdfPackage.getPackageWriter().dumpPackageRDF(contentManager);
 		
+		/*
 		PackageIndex index = new PackageIndex(packageDirectory);
 		String packageHTML = index.getHTMLIndex();
 		
-		FileUtils.writeTextFile(packageHTML, packageDirectory.getName(), packageDirectory.getName() + ".html");
+		FileUtils.writeTextFile(packageHTML, packageDirectory.getName(), "index" + ".html");*/
 	}
 }

@@ -146,7 +146,7 @@ public class PackageIndex {
 		
 		try{
 			FileReader reader = new FileReader(owlFile);
-			model.read(reader, null, " RDF/XML");
+			model.read(reader, null);
 		}
 		catch(Exception e){
 			e.printStackTrace();
