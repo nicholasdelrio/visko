@@ -33,7 +33,7 @@
 	<property name="web-xml-deployment-dir" value="../visko-web/WebContent/WEB-INF"/>
 
 	<!-- Visualization query examples page -->
-	<property name="query-examples" value="../../visko-rdf/rdf-writer/query-examples-functional/query.jsp"/>
+	<property name="query-examples" value="query-examples-functional/query.jsp"/>
 			
 	<!-- build properties -->
 	<property name="jarfile" value="installation-tools.jar"/>

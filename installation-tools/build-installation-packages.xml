@@ -3,7 +3,7 @@
 	
 	<!-- GitHub Configuration (Assumes you have a forked version of repository visko-rdf on GitHub -->
 	<!-- update value --><property name="your-github-username" value="nicholasdelrio"/>
-	<!-- Do not change --><property name="github-server-url" value="https://raw.github.com/${your-github-username}/visko-packages-installed/master/"/>
+	<!-- Do not change --><property name="github-server-url" value="https://raw.github.com/${your-github-username}/visko-packages-rdf/master/"/>
 	
 	<!-- Velo Configuration (Assumes you have a space Projects/visko under Company Home -->
 	<!-- update value --><property name="velo-server-connection-url" value="http://localhost:8080/alfresco/"/>
@@ -18,7 +18,7 @@
 		
 	<!-- DO NOT CHANGE SETTINGS BELOW -->
 	<!-- Path to visko-packages and visko-packages-installed -->
-	<property name="visko-packages-installed-path" value="../../visko-packages-installed/" />	
+	<property name="visko-packages-rdf" value="../../visko-packages-rdf/" />	
 	
 	<!-- Query Examples -->
 	<property name="query-template" value="query-examples-template/query.jsp"/>
@@ -37,6 +37,9 @@
 	<property name="visko-packages" value="../../visko-packages/"/>
 	<property name="build-packages" value="build-packages"/>
 	<property name="packages-jar" value="packages.jar"/>
+	
+	<property name="visko-tdb" value="../tdb/"/>
+	<property name="visko-resources" value="../resources/"/>
 	
 	<target name="build-packages" depends="compile-packages">		
 		<jar destfile="${packages-jar}">
@@ -106,7 +109,7 @@
 		<java classname="edu.utep.trustlab.visko.installation.packages.manager.Installer_LocalFileSystem">
 			
 			<arg value="${server-url}"/>
-			<arg value="${visko-packages-installed-path}"/>
+			<arg value="${visko-packages-rdf}"/>
 			<arg value="${visko-packages}"/>
 			
 			<classpath>
@@ -128,7 +131,31 @@
 			</classpath>
 		</java>
 	</target>
-				
+	
+	<target name="build-triple-store" description="Generate a TDB Triple Store From a Bundle of RDF Documents">
+		<ant antfile="build-installation-visko.xml" target="build" inheritAll="false" />
+		
+		<java classname="edu.utep.trustlab.visko.triplestore.TripleStore">
+			<arg value="${visko-packages}"/>
+			<arg value="${visko-resources}"/>
+			<arg value="${visko-tdb}"/>
+			
+			<classpath>
+				<pathelement location="${installation-tools-jar}"/>
+				<pathelement location="${visko-api-jar}"/>
+				<fileset dir="${lib}/axis4/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/jena262/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/util/">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>   
+		</java>	
+	</target>
+	
 	<target name="clean" description="Delete the Build Directory">
 		<delete dir="${build-packages}" />
 		<delete file="${packages-jar}"/>
