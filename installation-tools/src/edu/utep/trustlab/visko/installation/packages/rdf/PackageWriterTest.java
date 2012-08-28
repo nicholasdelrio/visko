@@ -11,7 +11,6 @@ public class PackageWriterTest {
 		
 		ContentManager.setWorkspacePath("C:/Users/Public/git/visko/installation-tools/test-output-rdf/");
 		LocalFileSystem local = new LocalFileSystem("http://iw.cs.utep.edu/visko/", "C:/Users/Public/git/visko/installation-tools/test-output-rdf/");
-		local.setProjectName("visko-rdf");
 		
 		PackageWriter writer = new PackageWriter(local.getBaseURL(), "visko-package.owl");
 		

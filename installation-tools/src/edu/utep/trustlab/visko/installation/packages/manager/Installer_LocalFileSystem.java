@@ -7,11 +7,11 @@ public class Installer_LocalFileSystem {
 	
 	public static void main(String[] args){
 		
-		if(args.length == 4){
+		if(args.length == 3){
 			configureContentManager(args);
 			
 			//package installer based parameters
-			String packagesRootDirectory = args[3];
+			String packagesRootDirectory = args[2];
 			
 			PackageInstaller installer = new PackageInstaller(packagesRootDirectory, ContentManager.getViskoRDFContentManager());
 			installer.installPackages();
@@ -24,10 +24,9 @@ public class Installer_LocalFileSystem {
 		//content manager based parameters
 		String serverURL = args[0];
 		String serverFilePath = args[1];
-		String projectName = args[2];
 		
 		LocalFileSystem client = new LocalFileSystem(serverURL, serverFilePath);
-		client.setProjectName(projectName);
+		client.setSaveInWorkspace();
 		ContentManager.setViskoRDFContentManager(client);
 	}
 }
