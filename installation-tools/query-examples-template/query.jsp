@@ -60,10 +60,10 @@
 <pre>
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#
-PREFIX visko REPLACE-VISKO/package
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl#package_mozilla.owl#
 PREFIX params REPLACE-VISKOgrdcontour.owl#
 VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
-AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/contour-lines.owl#contour-lines IN visko:mozilla-firefox.owl#mozilla-firefox
+AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/contour-lines.owl#contour-lines IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII
 	AND TYPE = types:d19
@@ -82,9 +82,9 @@ WHERE
 <pre>
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
-PREFIX visko REPLACE-VISKO 
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl#package_mozilla.owl# 
 VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
-AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/raster.owl#raster IN visko:mozilla-firefox.owl#mozilla-firefox
+AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/raster.owl#raster IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII
 	AND TYPE = types:d19
@@ -101,10 +101,10 @@ WHERE
 <pre>
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
-PREFIX visko REPLACE-VISKO 
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
 PREFIX params REPLACE-VISKOgrdimage.owl# 
 VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
-AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/raster.owl#raster IN visko:mozilla-firefox.owl#mozilla-firefox
+AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/raster.owl#raster IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII
 	AND TYPE = types:d19 
@@ -122,9 +122,9 @@ WHERE
 <pre>
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
-PREFIX visko REPLACE-VISKO 
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
 VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
-AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/plot-2D.owl#plot-2D IN visko:mozilla-firefox.owl#mozilla-firefox
+AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/plot-2D.owl#plot-2D IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII
 	AND TYPE = types:d19
@@ -141,9 +141,9 @@ WHERE
 <pre>
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
-PREFIX visko REPLACE-VISKO 
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
 VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
-AS * IN visko:mozilla-firefox.owl#mozilla-firefox
+AS * IN visko:mozilla-firefox
 WHERE
 	FORMAT = FORMAT formats:SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII 
 	AND TYPE = types:d19
@@ -171,12 +171,12 @@ WHERE
 <pre>
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
-PREFIX visko REPLACE-VISKO
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl#
 PREFIX dataParams REPLACE-VISKOvtkImageDataReader.owl#
 PREFIX contourParams REPLACE-VISKOvtkContourFilter.owl#
 PREFIX renderParams REPLACE-VISKOvtkPolyDataMapper.owl#
 VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/02029349145023569_vel.3d
-AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/iso-surfaces.owl#iso-surfaces IN visko:mozilla-firefox.owl#mozilla-firefox
+AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/iso-surfaces.owl#iso-surfaces IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN 
 	AND TYPE = types:d2
@@ -205,10 +205,10 @@ WHERE
 <pre>
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
-PREFIX visko REPLACE-VISKO 
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
 PREFIX params REPLACE-VISKOvtkPolyDataMapper.owl# 
 VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/02029349145023569_vel.3d
-AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/iso-surfaces.owl#iso-surfaces IN visko:mozilla-firefox.owl#mozilla-firefox
+AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/iso-surfaces.owl#iso-surfaces IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN 
 	AND TYPE = types:d2 
@@ -226,10 +226,10 @@ WHERE
 <pre>
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
-PREFIX visko REPLACE-VISKO 
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
 PREFIX params REPLACE-VISKOvtkVolume.owl# 
 VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/02029349145023569_vel.3d
-AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/volume.owl#volume IN visko:mozilla-firefox.owl#mozilla-firefox
+AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/volume.owl#volume IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN 
 	AND TYPE = types:d2 
@@ -249,9 +249,9 @@ WHERE
 <pre>
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
-PREFIX visko REPLACE-VISKO 
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
 VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/032289675474805557_dusum.3d
-AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/iso-surfaces.owl#iso-surfaces IN visko:mozilla-firefox.owl#mozilla-firefox
+AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/iso-surfaces.owl#iso-surfaces IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN
 	AND TYPE = types:d8
@@ -269,9 +269,9 @@ WHERE
 <pre>
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
-PREFIX visko REPLACE-VISKO 
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
 VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/05729227976475819_time.3d
-AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/iso-surfaces.owl#iso-surfaces IN visko:mozilla-firefox.owl#mozilla-firefox
+AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/iso-surfaces.owl#iso-surfaces IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN 
 	AND TYPE = types:d4
@@ -289,10 +289,10 @@ WHERE
 <pre>
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
-PREFIX visko REPLACE-VISKO 
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
 PREFIX params REPLACE-VISKOvtkPolyDataMapper.owl# 
 VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/05729227976475819_time.3d
-AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/iso-surfaces.owl#iso-surfaces IN visko:mozilla-firefox.owl#mozilla-firefox
+AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/iso-surfaces.owl#iso-surfaces IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:BINARYFLOATARRAYLENDIAN.owl#BINARYFLOATARRAYLENDIAN 
 	AND TYPE = types:d4
@@ -312,10 +312,10 @@ WHERE
 <pre>
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#
-PREFIX visko REPLACE-VISKO 
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
 PREFIX params REPLACE-VISKOvtkVolume.owl# 
 VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/01146509090356318_icov.3d
-AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/volume.owl#volume IN visko:mozilla-firefox.owl#mozilla-firefox
+AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/volume.owl#volume IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:BINARYINTARRAYLENDIAN.owl#BINARYINTARRAYLENDIAN 
 	AND TYPE = types:d7-0 
@@ -337,10 +337,10 @@ WHERE
 <div class="code" style="overflow:scroll;">
 <pre>
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/ 
-PREFIX visko REPLACE-VISKO 
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
 PREFIX params REPLACE-VISKOgsn_csm_contour_map.owl# 
 VISUALIZE http://disc2.nascom.nasa.gov/daac-bin/OTF/HTTP_services.cgi?SERVICE=SUBSET_YOTC_LATS4D&BBOX=-65.390625,7.734375,-10.546875,42.890625&SHORTNAME=mergedIR&VARIABLES=ch4&TIME=2008-05-31T00:00:00
-AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/contour-lines.owl#contour-lines IN visko:mozilla-firefox.owl#mozilla-firefox
+AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/contour-lines.owl#contour-lines IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:NETCDF.owl#NETCDF 
 	AND TYPE = http://giovanni.gsfc.nasa.gov/data/brightness.owl#brightness 
@@ -362,10 +362,10 @@ WHERE
 <div class="code"  style="overflow:scroll;">
 <pre>
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/ 
-PREFIX visko REPLACE-VISKO 
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
 PREFIX params REPLACE-VISKOgsn_csm_contour_map_raster.owl# 
 VISUALIZE http://disc2.nascom.nasa.gov/daac-bin/OTF/HTTP_services.cgi?SERVICE=SUBSET_YOTC_LATS4D&BBOX=-65.390625,7.734375,-10.546875,42.890625&SHORTNAME=mergedIR&VARIABLES=ch4&TIME=2008-05-31T00:00:00
-AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/raster.owl#raster IN visko:mozilla-firefox.owl#mozilla-firefox
+AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/raster.owl#raster IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:NETCDF.owl#NETCDF
 	AND TYPE = http://giovanni.gsfc.nasa.gov/data/brightness.owl#brightness 
@@ -391,10 +391,10 @@ WHERE
 <pre>
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
-PREFIX visko REPLACE-VISKO 
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
 PREFIX renderParams REPLACE-VISKOvtkPolyDataMapper.owl# 
 VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#
-AS * IN visko:mozilla-firefox.owl#mozilla-firefox
+AS * IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:VTKPOLYDATA.owl#VTKPOLYDATA 
 	AND TYPE = types:d2 
