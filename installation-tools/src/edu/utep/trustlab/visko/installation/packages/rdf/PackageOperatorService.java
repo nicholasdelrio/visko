@@ -60,7 +60,7 @@ public class PackageOperatorService {
 			transformer = mapper;
 		}
 		else
-			transformer = new Transformer(baseURL, operatorName, vModel);
+			transformer = new Transformer(baseFileURL, operatorName, vModel);
 		
 		transformer.setComment(comment);
 		transformer.setLabel(label);
