@@ -191,12 +191,10 @@ public abstract class JenaIndividual implements ViskoIndividual {
 		boolean labelPropertyAsserted = ind.getPropertyValue(labelProperty) != null;
 
 		if (commentPropertyAsserted)
-			comment = (String) ind.getPropertyValue(commentProperty)
-					.as(Literal.class).getValue();
+			comment = (String) ind.getPropertyValue(commentProperty).as(Literal.class).getValue();
 
 		if (labelPropertyAsserted)
-			label = (String) ind.getPropertyValue(labelProperty)
-					.as(Literal.class).getValue();
+			label = (String) ind.getPropertyValue(labelProperty).as(Literal.class).getValue();
 	}
 
 	private void addCommentProperty(Individual subjectInd) {

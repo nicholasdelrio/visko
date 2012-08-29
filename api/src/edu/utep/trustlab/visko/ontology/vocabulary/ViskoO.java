@@ -55,8 +55,6 @@ public class ViskoO {
 	public static final String CLASS_URI_MAPPER = ONTOLOGY_VISKO_O_URI + "#Mapper";
 	public static final String CLASS_URI_VIEWER = ONTOLOGY_VISKO_O_URI + "#Viewer";
 	public static final String CLASS_URI_VIEWERSET = ONTOLOGY_VISKO_O_URI + "#ViewerSet";
-	public static final String CLASS_URI_TOOLKIT = ONTOLOGY_VISKO_O_URI	+ "#Toolkit";
-	public static final String CLASS_URI_OPERATORSET = ONTOLOGY_VISKO_O_URI	+ "#OperatorSet";
 
 	/*****************************************************************************************/
 	// Properties
@@ -66,8 +64,6 @@ public class ViskoO {
 	public static final String PROPERTY_URI_TRANSFORMS_TO = ONTOLOGY_VISKO_O_URI + "#transformsTo";
 	public static final String PROPERTY_URI_PRESENTSVIEW = ONTOLOGY_VISKO_O_URI + "#presentsView";
 	public static final String PROPERTY_URI_COMPOSED_OF = ONTOLOGY_VISKO_O_URI + "#composedOf";
-	public static final String PROPERTY_URI_SUPPORTEDBY = ONTOLOGY_VISKO_O_URI + "#supportedBy";
-	public static final String PROPERTY_URI_CONTAINS_OPERATOR = ONTOLOGY_VISKO_O_URI + "#containsOperator";
 	public static final String PROPERTY_URI_CANBETRANSFRORMEDTO = ONTOLOGY_VISKO_O_URI + "#canBeTransformedTo";
 	public static final String PROPERTY_URI_CANBETRANSFRORMEDTOTRANS = ONTOLOGY_VISKO_O_URI + "#canBeTransformedToTransitive";
 

@@ -83,8 +83,9 @@ public class Service extends JenaIndividual {
 	}
 	
 	private void addSupportingOWSServiceProperty(Individual subjectInd) {		
+		Individual owlsServiceIndividual = model.getIndividualFromOWLIndividual(owlsService.getIndividual());
 		if(owlsService != null)
-			subjectInd.addProperty(supportedByOWLSServiceProperty, owlsService.getIndividual().getURI().toASCIIString());
+			subjectInd.addProperty(supportedByOWLSServiceProperty, owlsServiceIndividual);
 	}
 
 	@Override

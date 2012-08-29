@@ -44,6 +44,8 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.Vector;
 
+import org.mindswap.owl.OWLIndividual;
+
 import edu.utep.trustlab.visko.ontology.vocabulary.ESIPData;
 import edu.utep.trustlab.visko.ontology.vocabulary.OWLS_Process;
 import edu.utep.trustlab.visko.ontology.vocabulary.OWLS_Service;
@@ -131,6 +133,15 @@ public class ViskoModel{
 		return wtr.toString();
 	}
 
+	public Individual getIndividualFromOWLIndividual(OWLIndividual owlIndividual){
+		OntModel loadingModel = ModelFactory.createOntologyModel();
+		String owlIndividualURI = owlIndividual.getURI().toASCIIString();
+		String owlIndividualRDF = owlIndividual.toRDF(true, false);
+		StringReader rdr = new StringReader(owlIndividualRDF);
+		loadingModel.read(rdr, null);
+		return loadingModel.getIndividual(owlIndividualURI);
+	}
+	
 	public Individual getIndividual(String uri) {
 		
 		if(model.getIndividual(uri) == null)

@@ -58,14 +58,12 @@ import edu.utep.trustlab.visko.ontology.vocabulary.XSD;
 
 public class Operator extends JenaIndividual {
 	private Vector<Format> inputFormats;
-	private Toolkit toolkit;
 
 	private String name;
 
 	// properties
 	private ObjectProperty operatesOnProperty;
-	private ObjectProperty supportedByProperty;
-
+	
 	// datatype properties
 	private DatatypeProperty hasNameProperty;
 
@@ -84,14 +82,6 @@ public class Operator extends JenaIndividual {
 
 	public String getName() {
 		return name;
-	}
-
-	public void setSupportedByToolkit(Toolkit tk) {
-		toolkit = tk;
-	}
-
-	public Toolkit getSupportedToolkit() {
-		return toolkit;
 	}
 
 	public void setOperatesOnFormats(Vector<Format> inFormats) {
@@ -113,16 +103,8 @@ public class Operator extends JenaIndividual {
 	}
 
 	private void addHasNameProperty(Individual subjectInd) {
-		Literal stringName = model
-				.createTypedLiteral(name, XSD.TYPE_URI_STRING);
+		Literal stringName = model.createTypedLiteral(name, XSD.TYPE_URI_STRING);
 		subjectInd.addProperty(hasNameProperty, stringName);
-	}
-
-	private void addSupportedByToolkitProperty(Individual subjectInd) {
-		if (toolkit != null) {
-			subjectInd
-					.addProperty(supportedByProperty, toolkit.getIndividual());
-		}
 	}
 
 	@Override
@@ -139,11 +121,8 @@ public class Operator extends JenaIndividual {
 			inputFormats.add(fmt);
 		}
 
-		RDFNode supportingTK = ind.getPropertyValue(supportedByProperty);
-		if (supportingTK != null)
-			toolkit = new Toolkit(supportingTK.as(Individual.class).getURI(),
-					model);
-
+		System.out.println("finished loading formats...");
+		
 		RDFNode theName = ind.getPropertyValue(hasNameProperty);
 		if (theName != null)
 			name = (String) theName.as(Literal.class).getValue();
@@ -154,18 +133,13 @@ public class Operator extends JenaIndividual {
 		Individual ind = super.createNewIndividual();
 		this.addOperatesOnFormatProperties(ind);
 		this.addHasNameProperty(ind);
-		this.addSupportedByToolkitProperty(ind);
 		return ind;
 	}
 
 	@Override
 	protected void setProperties() {
-		operatesOnProperty = model
-				.getObjectProperty(ViskoO.PROPERTY_URI_OPERATESON);
-		hasNameProperty = model
-				.getDatatypeProperty(PMLP.DATATYPE_PROPERTY_URI_PMLP_HASNAME);
-		supportedByProperty = model
-				.getObjectProperty(ViskoO.PROPERTY_URI_SUPPORTEDBY);
+		operatesOnProperty = model.getObjectProperty(ViskoO.PROPERTY_URI_OPERATESON);
+		hasNameProperty = model.getDatatypeProperty(PMLP.DATATYPE_PROPERTY_URI_PMLP_HASNAME);
 	}
 
 	@Override

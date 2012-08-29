@@ -455,7 +455,8 @@ public class ViskoTripleStore {
 		serviceURI = "<" + serviceURI + ">";
 		String stringQuery = QUERY_PREFIX + "SELECT ?parameter "
 				+ "WHERE {"
-				+ serviceURI + " owlsService:describedBy ?process . "
+				+ serviceURI + " viskoS:supportedByOWLSService ?owlsService . "
+				+ "?owlsService owlsService:describedBy ?process . "
 				+ "?process owlsProcess:hasInput ?parameter . " + "}";
 
 		return endpoint.executeQuery(stringQuery);
