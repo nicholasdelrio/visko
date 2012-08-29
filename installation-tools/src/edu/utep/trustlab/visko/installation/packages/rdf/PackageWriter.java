@@ -89,13 +89,13 @@ public class PackageWriter {
 	}
 	
 	public PackageViewerSet createNewViewerSet(String name){
-		PackageViewerSet viewerSet =  new PackageViewerSet(name, viskoModel, baseURL);
+		PackageViewerSet viewerSet =  new PackageViewerSet(name, viskoModel, baseFileURL);
 		viewerSets.add(viewerSet);
 		return viewerSet;
 	}
 
 	public Toolkit createNewToolkit(String name){
-		toolkit = new Toolkit(baseURL, name, viskoModel);
+		toolkit = new Toolkit(baseFileURL, name, viskoModel);
 		return toolkit;
 	}
 	

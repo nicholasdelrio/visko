@@ -5,11 +5,11 @@
 	<!-- update value --><property name="your-github-username" value="nicholasdelrio"/>
 	<!-- Do not change --><property name="github-server-url" value="https://raw.github.com/${your-github-username}/visko-packages-rdf/master/"/>
 	
-	<!-- Velo Configuration (Assumes you have a space Projects/visko under Company Home -->
+	<!-- Velo Configuration (Assumes you have a space Projects/visko-packages-rdf under Company Home -->
 	<!-- update value --><property name="velo-server-connection-url" value="http://localhost:8080/alfresco/"/>
 	<!-- update value --><property name="velo-server-username" value="admin"/>
 	<!-- update value --><property name="velo-server-password" value="booger1"/>
-	<!-- Do not change --><property name="server-project-name" value="visko"/>
+	<!-- Do not change --><property name="server-project-name" value="visko-packages-rdf"/>
 	<!-- Do not change --><property name="velo-server-url" value="${velo-server-connection-url}/webdav/Projects/${server-project-name}"/>
 	
 	<!-- Uncomment the server that is hosing your rdf (github, alfresco/cat, or ci-sever) -->
@@ -135,7 +135,7 @@
 	<target name="build-triple-store" description="Generate a TDB Triple Store From a Bundle of RDF Documents">
 		<ant antfile="build-installation-visko.xml" target="build" inheritAll="false" />
 		
-		<java classname="edu.utep.trustlab.visko.triplestore.TripleStore">
+		<java classname="edu.utep.trustlab.visko.installation.TripleStore">
 			<arg value="${visko-packages}"/>
 			<arg value="${visko-resources}"/>
 			<arg value="${visko-tdb}"/>

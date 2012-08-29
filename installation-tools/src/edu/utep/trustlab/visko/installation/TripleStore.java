@@ -81,7 +81,7 @@ import com.hp.hpl.jena.tdb.*;
 			if(dirName.equals(illegalDir))
 				isLegal = false;
 		}
-		return isLegal;
+		return isLegal && resourceDirectory.isDirectory();
 	}
 	
 	private void aggregatePackages(){
@@ -111,14 +111,15 @@ import com.hp.hpl.jena.tdb.*;
 	
 	private void aggregate(File directory){
 		// Iterate through all ontology files and load any pml data found
+		System.out.println("Adding OWL/RDF files in directory: " + directory.getAbsolutePath());
 		
 		for(File aFile : directory.listFiles()){
-			if(aFile.getName().endsWith(".owl") || aFile.getName().endsWith(".rdf"))
-			try{
-				model.read(new FileInputStream(aFile), null);
-			}
-			catch(Exception e){
-				System.out.println("error: " + e.getMessage());
+			if(aFile.getName().endsWith(".owl") || aFile.getName().endsWith(".rdf")){
+				System.out.println("aggregating file: " + aFile.getName());
+				try{model.read(new FileInputStream(aFile), null);}
+				catch(Exception e){
+					System.out.println("error: " + e.getMessage());
+				}
 			}
 		}
 	}

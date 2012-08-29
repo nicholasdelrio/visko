@@ -10,14 +10,14 @@ public class PackageViewerSet {
 	
 	private ViskoModel model;
 	private ViewerSet viewerSet;
-	private String baseURL;
+	private String baseFileURL;
 	private ArrayList<Viewer> viewers;
 	
 	protected PackageViewerSet(String name, ViskoModel viskoModel, String url){
 		model = viskoModel;	
-		baseURL = url;
+		baseFileURL = url;
 		viewers = new ArrayList<Viewer>();
-		viewerSet = new ViewerSet(baseURL, name, model);
+		viewerSet = new ViewerSet(baseFileURL, name, model);
 	}
 	
 	protected void addToModel(){
@@ -38,7 +38,7 @@ public class PackageViewerSet {
 	}
 	
 	public Viewer createNewViewer(String name){
-		Viewer viewer = new Viewer(baseURL, name, model);
+		Viewer viewer = new Viewer(baseFileURL, name, model);
 		viewer.setName(name);
 		viewers.add(viewer);
 		

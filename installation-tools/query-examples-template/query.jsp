@@ -60,7 +60,7 @@
 <pre>
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#
-PREFIX visko REPLACE-VISKO
+PREFIX visko REPLACE-VISKO/package
 PREFIX params REPLACE-VISKOgrdcontour.owl#
 VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
 AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/contour-lines.owl#contour-lines IN visko:mozilla-firefox.owl#mozilla-firefox
