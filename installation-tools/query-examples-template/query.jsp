@@ -60,7 +60,7 @@
 <pre>
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#
-PREFIX visko REPLACE-VISKOpackage_mozilla.owl#package_mozilla.owl#
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl#
 PREFIX params REPLACE-VISKOgrdcontour.owl#
 VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
 AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/contour-lines.owl#contour-lines IN visko:mozilla-firefox
@@ -82,7 +82,7 @@ WHERE
 <pre>
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
-PREFIX visko REPLACE-VISKOpackage_mozilla.owl#package_mozilla.owl# 
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
 VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
 AS https://raw.github.com/nicholasdelrio/visko/master/resources/views/raster.owl#raster IN visko:mozilla-firefox
 WHERE
