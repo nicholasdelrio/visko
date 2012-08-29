@@ -132,7 +132,7 @@
 		</java>
 	</target>
 	
-	<target name="build-triple-store" description="Generate a TDB Triple Store From a Bundle of RDF Documents">
+	<target name="build-triple-store" depends="build-query-html" description="Generate a TDB Triple Store From a Bundle of RDF Documents">
 		<ant antfile="build-installation-visko.xml" target="build" inheritAll="false" />
 		
 		<java classname="edu.utep.trustlab.visko.installation.TripleStore">
