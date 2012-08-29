@@ -11,3 +11,5 @@
 /test-output-rdf
 /packages.jar
 /build-packages
+/build-installation-packages-local.xml
+/build-installation-visko-local.xml
