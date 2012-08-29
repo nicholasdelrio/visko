@@ -1,7 +1,5 @@
 package edu.utep.trustlab.visko.execution;
 
-import edu.utep.trustlab.visko.planning.Pipeline;
-
 public class PipelineExecutorJobStatus {
 	
 	private int totalServiceCount;
