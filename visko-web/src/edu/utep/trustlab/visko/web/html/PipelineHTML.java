@@ -32,6 +32,7 @@ import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.ontology.operator.Viewer;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
+import edu.utep.trustlab.visko.ontology.service.Service;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 
 public class PipelineHTML {
@@ -42,14 +43,15 @@ public class PipelineHTML {
 		HashMap<String, String> bindings = pipe.getParameterBindings();
 
 		for(int i = 0; i < pipe.size(); i ++){
-			OWLSService service = pipe.getService(i);
+			Service viskoService = pipe.getService(i);
+			OWLSService service = viskoService.getOWLSService();
 			String uri = service.getURI();
 			html += "<li><b>Service Name:</b> <a href=\"" + uri + "\">" + uri + "</a></li>";
 			html += "<ul>";
 
 			html += "<li><b>Operator Type:</b> ";
 
-			String operatorURI = service.getConceptualOperator().getURI();
+			String operatorURI = viskoService.getConceptualOperator().getURI();
 			ViskoTripleStore ts = new ViskoTripleStore();
 
 			if (!ts.isMapper(operatorURI)) {
@@ -87,13 +89,13 @@ public class PipelineHTML {
 
 			html += "<ul>";
 			html += "<li><b>Supporting Toolkit:</b> <a href=\""
-					+ service.getSupportingToolkit().getURI() + "\">"
-					+ service.getSupportingToolkit().getLabel() + "</a></li>";
+					+ viskoService.getSupportingToolkit().getURI() + "\">"
+					+ viskoService.getSupportingToolkit().getLabel() + "</a></li>";
 			html += "<li><b>Implements Operator:</b> <a href=\""
-					+ service.getConceptualOperator().getURI() + "\">"
-					+ service.getConceptualOperator().getURI() + "</a></li>";
+					+ viskoService.getConceptualOperator().getURI() + "\">"
+					+ viskoService.getConceptualOperator().getURI() + "</a></li>";
 			html += "<li><b>Input Format(s):</b>";
-			html += getInputFormatList(service.getConceptualOperator()
+			html += getInputFormatList(viskoService.getConceptualOperator()
 					.getOperatesOnFormats()) + "</li>";
 			html += "</ul>";
 			html += "<br/>";

@@ -27,6 +27,7 @@ import org.mindswap.owls.process.variable.Input;
 
 import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
+import edu.utep.trustlab.visko.ontology.service.Service;
 
 public class ParameterBindingsHTML {
 
@@ -36,12 +37,13 @@ public class ParameterBindingsHTML {
 		HashMap<String, String> bindings = pipe.getParameterBindings();
 
 		for(int i = 0; i < pipe.size(); i ++){
-			OWLSService service = pipe.getService(i);
+			Service viskoService = pipe.getService(i);
+			OWLSService service = viskoService.getOWLSService();
 			String uri = service.getURI();
 			
 			html += "<li><b>Service Name:</b> <a href=\"" + uri + "\">" + uri + "</a></li>";
 			html += "<ul>";
-			html += "<li><b>Supporting Toolkit:</b> <a href=\"" + service.getSupportingToolkit().getURI() + "\">" + service.getSupportingToolkit().getLabel() + "</a></li>";
+			html += "<li><b>Supporting Toolkit:</b> <a href=\"" + viskoService.getSupportingToolkit().getURI() + "\">" + viskoService.getSupportingToolkit().getLabel() + "</a></li>";
 			html += "</ul>";
 			
 			OWLIndividualList<Input> paramList = service.getIndividual().getProfile().getInputs();

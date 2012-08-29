@@ -59,22 +59,22 @@ public class PipelineGraphData {
 
 		int nodeCount = 0;
 		int parameterCount = 0;
-		for(String serviceURI : pipe){
+		for(String viskoServiceURI : pipe){
 
 			//add pipeline operators to list of nodes
-			Vector<String> implOf = ResultSetToVector.getVectorFromResultSet(ts.getImplemenationOf(serviceURI), "operator");
+			Vector<String> implOf = ResultSetToVector.getVectorFromResultSet(ts.getImplemenationOf(viskoServiceURI), "operator");
 			
 			if(implOf != null && ts.isMapper(implOf.firstElement()))
-				nodesList.add(new JSONObject().put("instanceURI", serviceURI).put("viskoType", "Mapper"));
+				nodesList.add(new JSONObject().put("instanceURI", viskoServiceURI).put("viskoType", "Mapper"));
 			else
-				nodesList.add(new JSONObject().put("instanceURI", serviceURI).put("viskoType", "Transformer"));
+				nodesList.add(new JSONObject().put("instanceURI", viskoServiceURI).put("viskoType", "Transformer"));
 			nodeCount++;
 			
 			if(nodeCount > 1){
 				linksList.add(new JSONObject().put("source", nodeCount  - parameterCount - 2).put("target", nodeCount - 1).put("linkType", "nextService"));
 			}
 			
-			Vector<String>params = ResultSetToVector.getVectorFromResultSet(ts.getInputParameters(serviceURI), "parameter");
+			Vector<String>params = ResultSetToVector.getVectorFromResultSet(ts.getInputParameters(viskoServiceURI), "parameter");
 			
 		
 			String boundValue;
