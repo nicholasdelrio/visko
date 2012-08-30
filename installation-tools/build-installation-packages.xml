@@ -41,6 +41,8 @@
 	<property name="visko-tdb" value="../tdb/"/>
 	<property name="visko-resources" value="../resources/"/>
 	
+	<property name="package-vtk" value="${visko-packages}/package_vtk"/>
+	
 	<target name="build-packages" depends="compile-packages">		
 		<jar destfile="${packages-jar}">
 			<fileset dir="${build-packages}" includes="**/*.*" />
@@ -154,6 +156,10 @@
 				</fileset>
 			</classpath>   
 		</java>	
+	</target>
+	
+	<target name="remove-package-vtk" description="Delete the VTK VisKo package">
+		<delete dir="${package-vtk}"/>
 	</target>
 	
 	<target name="clean" description="Delete the Build Directory">
