@@ -12,6 +12,7 @@ public abstract class RDFPackage {
 	public abstract void populateToolkit();
 	public abstract void populateServices();
 	public abstract void populateParameterBindings();
+	public abstract String getWSDLURL();
 	
 	public void setPackageWriter(PackageWriter writer){
 		packageWriter = writer;
