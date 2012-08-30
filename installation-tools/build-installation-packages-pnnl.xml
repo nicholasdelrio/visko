@@ -107,7 +107,7 @@
 		</java>
 	</target>
 	
-	<target name="install-packages-local" depends="build-packages" description="Run the RDF generation package code">
+	<target name="install-packages-local" depends="build-packages,clean-visko-packages-rdf" description="Run the RDF generation package code">
 		<java classname="edu.utep.trustlab.visko.installation.packages.manager.Installer_LocalFileSystem">
 			
 			<arg value="${server-url}"/>
@@ -160,6 +160,12 @@
 	
 	<target name="remove-package-vtk" description="Delete the VTK VisKo package">
 		<delete dir="${package-vtk}"/>
+	</target>
+	
+	<target name="clean-visko-packages-rdf" description="Delete the Build Directory">
+		<delete>
+			<fileset dir="${visko-packages-rdf}" includes=".owl"/>  
+		</delete>
 	</target>
 	
 	<target name="clean" description="Delete the Build Directory">
