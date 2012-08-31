@@ -33,6 +33,8 @@ public class PackageInstaller {
 					else
 						System.out.println("package: " + viskoPackage.getName() + " failed to install!");
 				}
+				else
+					System.out.println("ignoring non visko-package: " + viskoPackage.getName());
 			}
 		}
 	}

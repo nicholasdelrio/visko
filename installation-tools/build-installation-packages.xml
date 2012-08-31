@@ -51,7 +51,13 @@
 
 	<target name="compile-packages" depends="clean" description="Compile packages in build-packages Directory">			
 		<ant antfile="build-installation-visko.xml" target="build" inheritAll="false" />
-			
+		
+		<unzip dest="${visko-packages}">
+		    <fileset dir="${visko-packages}">
+		        <include name="package_*.zip"/>
+		    </fileset>
+		</unzip>
+		
 		<mkdir dir="${build-packages}"/>
 		<javac destdir="${build-packages}/" srcdir="${visko-packages}" target="1.6"> 
 	    	<include name="**/*.java"/>
