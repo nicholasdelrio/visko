@@ -25,7 +25,7 @@ public class PackageInstaller {
 			packages = packagesRootDir.listFiles();
 			
 			for(File viskoPackage : packages){
-				if(viskoPackage.getName().startsWith("package")){
+				if(viskoPackage.getName().startsWith("package") && viskoPackage.isDirectory()){
 					installSuccess = installPackage(viskoPackage);
 					
 					if(installSuccess)
