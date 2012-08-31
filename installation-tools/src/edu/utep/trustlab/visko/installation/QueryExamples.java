@@ -12,14 +12,19 @@ public class QueryExamples {
 	
 	public QueryExamples(String templateFilePath, String viskoRDFBaseURL, String newDirectoryPath){
 		templatePath = templateFilePath;
-		viskoURL = viskoRDFBaseURL;
+		
+		if(!viskoRDFBaseURL.endsWith("/"))
+			viskoURL = viskoRDFBaseURL + "/";
+		else
+			viskoURL = viskoRDFBaseURL;
+		
 		newDirectory = newDirectoryPath;
 	}
 	
 	public String generateQueryExamples(){	
 		File templateFile = new File(templatePath);
 		String html = FileUtils.readTextFile(templatePath);
-		html = html.replaceAll("REPLACE-VISKO", viskoURL);	
+		html = html.replaceAll("REPLACE-VISKO", viskoURL);
 		
 		String queryFilePath;
 		
