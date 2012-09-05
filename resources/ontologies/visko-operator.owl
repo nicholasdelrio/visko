@@ -103,6 +103,14 @@
     
 
 
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#operatesOnDataType -->
+
+    <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#operatesOnDataType">
+        <rdfs:domain rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#Operator"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#partOfViewerSet -->
 
     <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#partOfViewerSet">
