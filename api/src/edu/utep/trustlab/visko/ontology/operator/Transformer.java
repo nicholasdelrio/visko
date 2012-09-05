@@ -42,15 +42,19 @@ package edu.utep.trustlab.visko.ontology.operator;
 
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.ObjectProperty;
+import com.hp.hpl.jena.ontology.OntResource;
 
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
+import edu.utep.trustlab.visko.ontology.vocabulary.OWL;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 
 public class Transformer extends Operator {
 	private Format outputFormat;
+	private OntResource outputDataType;
 
 	private ObjectProperty transformsToFormatProperty;
+	private ObjectProperty transformsToDataTypeProperty;
 
 	public Transformer(String classURI, String baseURL, String name,
 			ViskoModel viskoModel) {
@@ -72,10 +76,26 @@ public class Transformer extends Operator {
 	public Format getTransformsToFormat() {
 		return outputFormat;
 	}
+	
+	public void setTransformsToDataType(OntResource outDataType){
+		outputDataType = outDataType;
+	}
+	
+	public OntResource getTransformsToDataType(){
+		return outputDataType;
+	}
 
 	private void addTransformsToFormatProperty(Individual subjectInd) {
 		subjectInd.addProperty(transformsToFormatProperty,
 				outputFormat.getIndividual());
+	}
+	
+	private void addTransformsToDataTypeProperty(Individual subjectInd) {
+		
+		if(outputDataType == null)
+			subjectInd.addProperty(transformsToDataTypeProperty, OWL.getOWLThing());
+		else
+			subjectInd.addProperty(transformsToDataTypeProperty, outputDataType);
 	}
 
 	@Override
@@ -89,23 +109,25 @@ public class Transformer extends Operator {
 	protected Individual createNewIndividual() {
 		Individual ind = super.createNewIndividual();
 		this.addTransformsToFormatProperty(ind);
+		this.addTransformsToDataTypeProperty(ind);
 		return ind;
 	}
 
 	@Override
 	protected void setProperties() {
 		super.setProperties();
-		transformsToFormatProperty = model
-				.getObjectProperty(ViskoO.PROPERTY_URI_TRANSFORMS_TO);
+		transformsToFormatProperty = model.getObjectProperty(ViskoO.PROPERTY_URI_TRANSFORMS_TO);
+		transformsToDataTypeProperty = model.getObjectProperty(ViskoO.PROPERTY_URI_TRANSFORMS_TO_DATATYPE);
 	}
 
 	@Override
 	protected void populateFieldsWithIndividual(Individual ind) {
 		super.populateFieldsWithIndividual(ind);
-		Format fmt = new Format(ind
-				.getPropertyValue(transformsToFormatProperty)
-				.as(Individual.class).getURI(), model);
+		
+		Format fmt = new Format(ind.getPropertyValue(transformsToFormatProperty).as(Individual.class).getURI(), model);
 		outputFormat = fmt;
+		
+		outputDataType = ind.getPropertyValue(transformsToDataTypeProperty).as(Individual.class);		
 	}
 
 	@Override
