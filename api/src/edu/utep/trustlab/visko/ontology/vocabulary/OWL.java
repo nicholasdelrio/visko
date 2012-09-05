@@ -7,7 +7,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 public class OWL {
 	
-	private static final String ONTOLOGY_OWL_URI = "http://www.w3.org/2002/07/owl#";
+	private static final String ONTOLOGY_OWL_URI = "http://www.w3.org/2002/07/owl";
 	
 	public static final String THING = ONTOLOGY_OWL_URI + "#Thing";
 	

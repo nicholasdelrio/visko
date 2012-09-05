@@ -122,7 +122,6 @@ public class Operator extends JenaIndividual {
 		
 		if(inputDataTypes == null || inputDataTypes.size() == 0)
 			subjectInd.addProperty(operatesOnDataTypeProperty, OWL.getOWLThing());
-		
 		else
 			for (OntResource dataType : inputDataTypes)
 				subjectInd.addProperty(operatesOnDataTypeProperty, dataType);
