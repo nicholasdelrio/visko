@@ -159,6 +159,14 @@
     
 
 
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#transformsToDataType -->
+
+    <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#transformsToDataType">
+        <rdfs:domain rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#Transformer"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //

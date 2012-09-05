@@ -59,6 +59,7 @@ public class ViskoO {
 	/*****************************************************************************************/
 	// Properties
 	public static final String PROPERTY_URI_OPERATESON = ONTOLOGY_VISKO_O_URI + "#operatesOn";
+	public static final String PROPERTY_URI_OPERATESON_DATATYPE = ONTOLOGY_VISKO_O_URI + "#operatesOnDataType";
 	public static final String PROPERTY_URI_PART_OF_VIEWERSET = ONTOLOGY_VISKO_O_URI + "#partOfViewerSet";
 	public static final String PROPERTY_URI_MAPS_TO = ONTOLOGY_VISKO_O_URI + "#mapsTo";
 	public static final String PROPERTY_URI_TRANSFORMS_TO = ONTOLOGY_VISKO_O_URI + "#transformsTo";
