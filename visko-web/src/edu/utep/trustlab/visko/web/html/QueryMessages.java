@@ -29,13 +29,15 @@ public class QueryMessages {
 		html += "<tr><td colspan=2>Query Errors</td></tr>";
 		html += "<tr><td><b>Variable</b></td><td><b>Message</b></td></tr>";
 		boolean error = false;
-		if (query.getFormatURI() == null) {
+		
+		if (query.getFormatURI() == null && query.getNodesetURI() == null) {
 			error = true;
-			html += "<tr><td>FORMAT</td><td>Need to specify FORMAT of input data!</td></tr>";
+			html += "<tr><td>PMLP:Format</td><td>Need to specify FORMAT of input data or specify a PML2 NodeSet URI!</td></tr>";
 		}
+		
 		if (query.getViewerSetURI() == null) {
 			error = true;
-			html += "<tr><td>IN-VIEWER</td><td>Need to specify VIEWERSET!</td></tr>";
+			html += "<tr><td>ViewerSet</td><td>Need to specify VIEWERSET!</td></tr>";
 		}
 		html += "</table>";
 
@@ -70,7 +72,7 @@ public class QueryMessages {
 		
 		if (query.getArtifactURL() == null) {
 			warn = true;
-			html += "<tr><td>?CONTENTURL</td><td>?CONTENTURL unbound. No visualizations will be returned.</td></tr>";
+			html += "<tr><td>?CONTENT URL</td><td>?CONTENT URL unbound. No visualizations will be returned.</td></tr>";
 		}
 		html += "</table>";
 

@@ -68,8 +68,11 @@ public class QueryParserV3 implements QueryParser {
 		//String query1 = "PREFIX ns1 http://test1.owl# PREFIX ns http://test.owl# VISUALIZE LOCAL NODESET http://nodeset1.owl AS * IN ns1:viewer1 WHERE FORMAT = http://someformat.owl AND TYPE = http://sometype.owl AND http://spacing = 1 AND ns:color = marroon AND ns1:bg = black";
 		//String query2 = "PREFIX ns1 http://test1.owl# PREFIX ns http://test.owl# VISUALIZE http://dataset1.txt AS * IN ns1:viewer1 WHERE FORMAT = http://someformat.owl AND TYPE = http://sometype.owl AND http://spacing = 1 AND ns:color = marroon AND ns1:bg = black";
 		String query3 = "VISUALIZE http://someartifact.txt AS * IN https://raw.github.com/nicholasdelrio/visko/master/rdf/mozilla-firefox.owl#mozilla-firefox WHERE FORMAT = https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/TIFF.owl#TIFF AND TYPE = http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d13 AND https://raw.github.com/nicholasdelrio/visko/master/rdf/grdcontour.owl#A = k AND https://raw.github.com/nicholasdelrio/visko/master/rdf/grdimage.owl#J = 0";
-				
-		QueryParserV3 parser = new QueryParserV3(query3);
+		
+		String query4 = "VISUALIZE NODESET http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt_08475589929900726.owl#answer AS * IN https://raw.github.com/nicholasdelrio/visko/master/rdf/mozilla-firefox.owl#mozilla-firefox";	
+		
+		
+		QueryParserV3 parser = new QueryParserV3(query4);
 		parser.parse();
 
 		System.out.println("viewerset: " + parser.getViewerSetURI());
@@ -84,6 +87,8 @@ public class QueryParserV3 implements QueryParser {
 		for (String key : keys) {
 			System.out.println("key: " + key + " value: " + parser.getParameterBindings().get(key));
 		}
+		
+		System.out.println("isValid: " + parser.isValidQuery());
 	}
 
 	public String getContentURL() {
@@ -421,7 +426,7 @@ public class QueryParserV3 implements QueryParser {
 
 	@Override
 	public boolean isValidQuery() {
-		if(this.getFormatURI() != null && this.getViewerSetURI() != null)
+		if((this.getFormatURI() != null && this.getViewerSetURI() != null) || this.getNodesetURI() != null)
 			return true;
 		return false;
 	}
