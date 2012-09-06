@@ -40,6 +40,14 @@
     
 
 
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#1D_Function_Plot -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#1D_Function_Plot">
+        <rdfs:subClassOf rdf:resource="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Line"/>
+    </owl:Class>
+    
+
+
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#2DGrid -->
 
     <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#2DGrid">
@@ -60,6 +68,14 @@
 
     <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#2DPoint">
         <rdfs:subClassOf rdf:resource="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Point"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#2D_Point_Plot -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#2D_Point_Plot">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#2DPoint"/>
     </owl:Class>
     
 
@@ -88,11 +104,17 @@
     
 
 
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#Contour_Map -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#Contour_Map">
+        <rdfs:subClassOf rdf:resource="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Contour"/>
+    </owl:Class>
+    
+
+
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#DataType -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#DataType">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#Plot"/>
-    </owl:Class>
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#DataType"/>
     
 
 
@@ -112,6 +134,14 @@
     
 
 
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#ISO_Surfaces -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#ISO_Surfaces">
+        <rdfs:subClassOf rdf:resource="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Surface"/>
+    </owl:Class>
+    
+
+
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#Mesh -->
 
     <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#Mesh">
@@ -120,9 +150,27 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#Plot -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#Raster_Cube -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#Plot"/>
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#Raster_Cube">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#3DGrid"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#Raster_Map -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#Raster_Map">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#2DGrid"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#Time_Series_Plot -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#Time_Series_Plot">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#1D_Function_Plot"/>
+    </owl:Class>
     
 
 

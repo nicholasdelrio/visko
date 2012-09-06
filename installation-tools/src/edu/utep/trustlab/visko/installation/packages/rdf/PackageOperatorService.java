@@ -71,9 +71,9 @@ public class PackageOperatorService {
 		transformer.addOperatesOnFormat(inputFormat);
 		transformer.setName(operatorName);
 		
-		if(inputDataTypeURI == null)
+		if(inputDataTypeURI != null)
 			transformer.addOperatesOnDataType(inputDataTypeURI);
-		if(outputDataTypeURI == null)
+		if(outputDataTypeURI != null)
 			transformer.setTransformsToDataType(outputDataTypeURI);
 		
 		//create owlsService

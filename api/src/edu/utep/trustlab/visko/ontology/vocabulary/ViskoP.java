@@ -59,6 +59,15 @@ public class ViskoP {
 	public static final String CLASS_URI_2DPoint = ONTOLOGY_VISKO_P_URI + "#2DPoint";
 	public static final String CLASS_URI_3DPoint = ONTOLOGY_VISKO_P_URI + "#3DPoint";
 
+	public static final String CLASS_URI_CONTOUR_MAP = ONTOLOGY_VISKO_P_URI + "#Contour_Map";
+	public static final String CLASS_URI_1DFUNCTION_PLOT = ONTOLOGY_VISKO_P_URI + "#1D_Function_Plot";
+	public static final String CLASS_URI_TIMESERIES_PlOT = ONTOLOGY_VISKO_P_URI + "#Time_Series_Plot";
+	public static final String CLASS_URI_RASTER_MAP = ONTOLOGY_VISKO_P_URI + "#Raster_Map";
+	public static final String CLASS_URI_RASTER_CUBE = ONTOLOGY_VISKO_P_URI + "#Raster_Cube";
+	public static final String CLASS_URI_2DPOINT_PLOT = ONTOLOGY_VISKO_P_URI + "#2D_Point_Plot";
+	public static final String CLASS_URI_ISO_SURFACES = ONTOLOGY_VISKO_P_URI + "ISO_Surfaces";
+	
+	
 	/*****************************************************************************************/
 	
 	// model and ontology
