@@ -24,25 +24,6 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
-    // Object Properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#containedInPlot -->
-
-    <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#containedInPlot">
-        <rdfs:range rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#Plot"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
