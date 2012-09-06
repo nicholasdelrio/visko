@@ -25,6 +25,9 @@ public class PackageOperatorService {
 	private Format outputFormat;
 	private View view;
 	
+	private String inputDataTypeURI;
+	private String outputDataTypeURI;
+	
 	private OWLSService owlsService;
 	
 	protected PackageOperatorService(String name, ViskoModel viskoModel, String bURL, String bFURL){
@@ -68,6 +71,11 @@ public class PackageOperatorService {
 		transformer.addOperatesOnFormat(inputFormat);
 		transformer.setName(operatorName);
 		
+		if(inputDataTypeURI == null)
+			transformer.addOperatesOnDataType(inputDataTypeURI);
+		if(outputDataTypeURI == null)
+			transformer.setTransformsToDataType(outputDataTypeURI);
+		
 		//create owlsService
 		owlsService = new OWLSService(baseURL, operationName);
 		owlsService.setWSDLURL(wsdlURL);
@@ -82,6 +90,14 @@ public class PackageOperatorService {
 		service.setOWLSService(owlsService);		
 		service.setConceptualOperator(transformer);
 		service.getIndividual();
+	}
+	
+	public void setInputDataType(String inDataTypeURI){
+		inputDataTypeURI = inDataTypeURI;
+	}
+
+	public void setOutputDataType(String outDataTypeURI){
+		outputDataTypeURI = outDataTypeURI;
 	}
 	
 	public void setInputFormat(Format format){

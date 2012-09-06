@@ -6,12 +6,15 @@ import java.util.Iterator;
 
 import org.mindswap.owl.OWLIndividual;
 
+import com.hp.hpl.jena.ontology.OntResource;
+
 import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
 import edu.utep.trustlab.visko.ontology.service.Toolkit;
 import edu.utep.trustlab.visko.ontology.view.View;
+import edu.utep.trustlab.visko.ontology.vocabulary.ViskoP;
 
 public class PackageWriter {
 	
@@ -101,6 +104,10 @@ public class PackageWriter {
 	
 	public static Format getFormat(String formatURI){
 		return new Format(formatURI, loadingModel);
+	}
+	
+	public static OntResource getDataType(String classURI){
+		return ViskoP.getModel().getOntResource(classURI);
 	}
 	
 	public static View getView(String viewURI){
