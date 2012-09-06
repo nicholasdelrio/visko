@@ -48,6 +48,7 @@ import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
 import edu.utep.trustlab.visko.ontology.vocabulary.OWL;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
+import edu.utep.trustlab.visko.ontology.vocabulary.ViskoP;
 
 public class Transformer extends Operator {
 	private Format outputFormat;
@@ -77,8 +78,8 @@ public class Transformer extends Operator {
 		return outputFormat;
 	}
 	
-	public void setTransformsToDataType(OntResource outDataType){
-		outputDataType = outDataType;
+	public void setTransformsToDataType(String outDataTypeURI){
+		outputDataType = ViskoP.getModel().getIndividual(outDataTypeURI);
 	}
 	
 	public OntResource getTransformsToDataType(){

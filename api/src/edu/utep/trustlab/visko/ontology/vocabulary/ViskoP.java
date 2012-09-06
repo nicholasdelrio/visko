@@ -52,7 +52,13 @@ public class ViskoP {
 	// Concepts
 	public static final String CLASS_URI_TREE = ONTOLOGY_VISKO_P_URI + "#Tree";
 	public static final String CLASS_URI_GRAPH = ONTOLOGY_VISKO_P_URI + "#Graph";
-	
+	public static final String CLASS_URI_2DGrid = ONTOLOGY_VISKO_P_URI + "#2DGrid";
+	public static final String CLASS_URI_3DGrid = ONTOLOGY_VISKO_P_URI + "#3DGrid";
+	public static final String CLASS_URI_2DMesh = ONTOLOGY_VISKO_P_URI + "#2DMesh";
+	public static final String CLASS_URI_3DMesh = ONTOLOGY_VISKO_P_URI + "#3DMesh";
+	public static final String CLASS_URI_2DPoint = ONTOLOGY_VISKO_P_URI + "#2DPoint";
+	public static final String CLASS_URI_3DPoint = ONTOLOGY_VISKO_P_URI + "#3DPoint";
+
 	/*****************************************************************************************/
 	
 	// model and ontology
