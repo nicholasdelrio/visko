@@ -40,6 +40,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.ontology.operator;
 
+
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.ObjectProperty;
 import com.hp.hpl.jena.ontology.OntResource;
@@ -48,7 +49,6 @@ import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
 import edu.utep.trustlab.visko.ontology.vocabulary.OWL;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
-import edu.utep.trustlab.visko.ontology.vocabulary.ViskoP;
 
 public class Transformer extends Operator {
 	private Format outputFormat;
@@ -79,7 +79,7 @@ public class Transformer extends Operator {
 	}
 	
 	public void setTransformsToDataType(String outDataTypeURI){
-		outputDataType = ViskoP.getModel().getIndividual(outDataTypeURI);
+		outputDataType = model.getOntResource(outDataTypeURI);
 	}
 	
 	public OntResource getTransformsToDataType(){
@@ -87,8 +87,7 @@ public class Transformer extends Operator {
 	}
 
 	private void addTransformsToFormatProperty(Individual subjectInd) {
-		subjectInd.addProperty(transformsToFormatProperty,
-				outputFormat.getIndividual());
+		subjectInd.addProperty(transformsToFormatProperty, outputFormat.getIndividual());
 	}
 	
 	private void addTransformsToDataTypeProperty(Individual subjectInd) {

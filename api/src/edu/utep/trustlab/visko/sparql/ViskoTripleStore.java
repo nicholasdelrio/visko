@@ -461,7 +461,6 @@ public class ViskoTripleStore {
 
 		return endpoint.executeQuery(stringQuery);
 	}
-
 	
 	public ResultSet submitQuery(String query){
 		return endpoint.executeQuery(query);

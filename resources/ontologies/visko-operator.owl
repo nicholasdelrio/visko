@@ -39,12 +39,43 @@
     
 
 
+    <!-- http://www.w3.org/2000/01/rdf-schema#subClassOf -->
+
+    <owl:ObjectProperty rdf:about="&rdfs;subClassOf"/>
+    
+
+
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#canBeTransformedTo -->
 
     <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#canBeTransformedTo">
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#isOperatedOnBy"/>
             <rdf:Description rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#transformsTo"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#canBeTransformedToDataType -->
+
+    <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#canBeTransformedToDataType">
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+        <rdfs:range rdf:resource="&owl;Thing"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#dataTypeIsOperatedOnBy"/>
+            <rdf:Description rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#transformsToDataType"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#canBeTransformedToDataTypeTransitive -->
+
+    <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#canBeTransformedToDataTypeTransitive">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#dataTypeIsOperatedOnBy"/>
+            <rdf:Description rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#transformsToDataType"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -67,6 +98,20 @@
     <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#composedOf">
         <rdfs:domain rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#CompositeOperator"/>
         <rdfs:range rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#Operator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#dataTypeIsOperatedOnBy -->
+
+    <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#dataTypeIsOperatedOnBy">
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+        <rdfs:range rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#Operator"/>
+        <owl:inverseOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#operatesOnDataType"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&rdfs;subClassOf"/>
+            <rdf:Description rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#dataTypeIsOperatedOnBy"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -106,6 +151,7 @@
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#operatesOnDataType -->
 
     <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#operatesOnDataType">
+        <rdfs:range rdf:resource="&owl;Thing"/>
         <rdfs:domain rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#Operator"/>
     </owl:ObjectProperty>
     

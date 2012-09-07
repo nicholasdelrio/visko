@@ -40,14 +40,6 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#1D_Function_Plot -->
-
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#1D_Function_Plot">
-        <rdfs:subClassOf rdf:resource="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Line"/>
-    </owl:Class>
-    
-
-
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#2DGrid -->
 
     <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#2DGrid">
@@ -169,7 +161,7 @@
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#Time_Series_Plot -->
 
     <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#Time_Series_Plot">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#1D_Function_Plot"/>
+        <rdfs:subClassOf rdf:resource="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Line"/>
     </owl:Class>
     
 

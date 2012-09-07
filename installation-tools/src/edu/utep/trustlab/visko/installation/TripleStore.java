@@ -89,7 +89,7 @@ import com.hp.hpl.jena.tdb.*;
 		if(packageDirectory.isDirectory()){
 			File[] packages = packageDirectory.listFiles();
 			for(File aPackage : packages){
-				if(aPackage.getName().startsWith("package")){
+				if(aPackage.getName().startsWith("package") && aPackage.isDirectory()){
 					aggregate(aPackage);
 				}
 			}

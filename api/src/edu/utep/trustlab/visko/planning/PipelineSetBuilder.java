@@ -76,18 +76,15 @@ public class PipelineSetBuilder {
 		return ts;
 	}
 
-	public boolean formatPathExistsForViewerSet(String formatURI,
-			String viewerSetURI) {
+	public boolean formatPathExistsForViewerSet(String formatURI, String viewerSetURI) {
 		return ts.canBeVisualizedWithViewerSet(formatURI, viewerSetURI);
 	}
 
-	public boolean formatPathExistsForTargetFormat(String formatURI,
-			String targetFormatURI) {
+	public boolean formatPathExistsForTargetFormat(String formatURI, String targetFormatURI) {
 		return ts.canBeVisualizedWithTargetFormat(formatURI, targetFormatURI);
 	}
 
-	public boolean isAlreadyVisualizableWithViewerSet(String formatURI,
-			String viewerSetURI) {
+	public boolean isAlreadyVisualizableWithViewerSet(String formatURI, String viewerSetURI) {
 		return ts.isAlreadyVisualizableWithViewerSet(formatURI, viewerSetURI);
 	}
 

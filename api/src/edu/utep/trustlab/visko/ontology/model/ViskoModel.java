@@ -52,6 +52,7 @@ import edu.utep.trustlab.visko.ontology.vocabulary.OWLS_Service;
 import edu.utep.trustlab.visko.ontology.vocabulary.PMLP;
 import edu.utep.trustlab.visko.ontology.vocabulary.RDFS;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
+import edu.utep.trustlab.visko.ontology.vocabulary.ViskoP;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoS;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoV;
 
@@ -61,6 +62,7 @@ import com.hp.hpl.jena.ontology.ObjectProperty;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
+import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.ontology.Ontology;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -94,8 +96,9 @@ public class ViskoModel{
 			ontology = model.createOntology(null);
 	}
 
-	private OntModel getRelevantOntModel(String uri) {
+	private OntModel getRelevantOntModel(String uri) {		
 		OntModel ontModel = null;
+	
 		if (uri.contains(ViskoV.ONTOLOGY_VISKO_V_URI)) {
 			ontModel = ViskoV.getModel();
 			this.addViskoVImport();
@@ -117,14 +120,19 @@ public class ViskoModel{
 		} else if (uri.contains(OWLS_Process.ONTOLOGY_OWLS_PROCESS_URI)) {
 			ontModel = OWLS_Process.getModel();
 			this.addOWLSProcessImport();
-		} else if (uri.contains(RDFS.ONTOLOGY_RDFS_URI)) {
+		}else if(uri.contains(ViskoP.ONTOLOGY_VISKO_P_URI)){
+			ontModel = ViskoP.getModel();
+			this.addViskoPImport();
+		}else if (uri.contains(RDFS.ONTOLOGY_RDFS_URI)) {
 			ontModel = RDFS.getModel();
 		} else
-			System.out
-					.println("Couldn't find OntClass in VisKo ontology collection...");
+			System.out.println("Couldn't find OntClass in VisKo ontology collection...");
 
 		return ontModel;
-
+	}
+	
+	public OntResource getOntResource(String uri){
+		return getRelevantOntModel(uri).getOntResource(uri);
 	}
 
 	public String getModelAsRDFString() {
@@ -220,6 +228,14 @@ public class ViskoModel{
 			ontology.addImport(ESIPData.getOntology());
 			model.addLoadedImport(ESIPData.ONTOLOGY_ESIP_URI);
 			model.setNsPrefix("esip", ESIPData.ONTOLOGY_ESIP_NS + "#");
+		}
+	}
+	
+	private void addViskoPImport() {
+		if (ontology != null) {
+			ontology.addImport(ViskoP.getOntology());
+			model.addLoadedImport(ViskoP.ONTOLOGY_VISKO_P_URI);
+			model.setNsPrefix("viskoP", ViskoP.ONTOLOGY_VISKO_P_URI + "#");
 		}
 	}
 

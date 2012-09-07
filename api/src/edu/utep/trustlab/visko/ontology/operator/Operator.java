@@ -56,7 +56,6 @@ import edu.utep.trustlab.visko.ontology.pmlp.Format;
 import edu.utep.trustlab.visko.ontology.vocabulary.OWL;
 import edu.utep.trustlab.visko.ontology.vocabulary.PMLP;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
-import edu.utep.trustlab.visko.ontology.vocabulary.ViskoP;
 import edu.utep.trustlab.visko.ontology.vocabulary.XSD;
 
 public class Operator extends JenaIndividual {
@@ -98,7 +97,7 @@ public class Operator extends JenaIndividual {
 		inputDataTypes.removeAllElements();
 		
 		for(String inDataTypeURI : inDataTypeURIs)
-			inputDataTypes.add(ViskoP.getModel().getIndividual(inDataTypeURI));		
+			inputDataTypes.add(model.getOntResource(inDataTypeURI));		
 	}
 
 	public void addOperatesOnFormat(Format inFormat) {
@@ -106,7 +105,7 @@ public class Operator extends JenaIndividual {
 	}
 	
 	public void addOperatesOnDataType(String inDataTypeURI) {
-		inputDataTypes.add(ViskoP.getModel().getIndividual(inDataTypeURI));
+		inputDataTypes.add(model.getOntResource(inDataTypeURI));
 	}	
 
 	public Vector<Format> getOperatesOnFormats() {
