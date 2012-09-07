@@ -84,21 +84,26 @@ public class PipelineSetBuilder {
 		return ts.canBeVisualizedWithTargetFormat(formatURI, targetFormatURI);
 	}
 
-	public boolean isAlreadyVisualizableWithViewerSet(String formatURI, String viewerSetURI) {
-		return ts.isAlreadyVisualizableWithViewerSet(formatURI, viewerSetURI);
+	public boolean isAlreadyVisualizableWithViewerSet(String formatURI, String dataTypeURI, String viewerSetURI) {
+		boolean formatCheck = ts.isAlreadyVisualizableWithViewerSet(formatURI, viewerSetURI);
+		boolean typeCheck = ts.isDataTypeAlreadyVisualizableWithViewerSet(dataTypeURI, viewerSetURI) || ts.isSubClassOfDataTypeAlreadyVisualizableWithViewerSet(dataTypeURI, viewerSetURI);
+		
+		return formatCheck && typeCheck;
 	}
 
-	public void setPipelines(String formatURI, String viewerSetURI, String viewConstraintURI) {
+	public void setPipelines(String formatURI, String dataTypeURI, String viewerSetURI, String viewConstraintURI) {
 		setFormatPaths(formatURI, viewerSetURI);
 		System.out.println("Num format paths: " + formatPaths.size());
 
 		setOperatorPathsForViewers();
 		System.out.println("Num operator paths: " + operatorPaths.size());
 
+		filterOperatorPathsByTypeRestriction(dataTypeURI);
+		System.out.println("Num operator paths after type restrictions: " + operatorPaths.size());
+		
 		if (viewConstraintURI != null) {
 			filterOperatorPathsWithViewRestriction(viewConstraintURI);
-			System.out.println("Num operator paths after view restrictions: "
-					+ operatorPaths.size());
+			System.out.println("Num operator paths after view restrictions: " + operatorPaths.size());
 		}
 
 		Vector<Vector<String>> operatorImplSets;
@@ -139,18 +144,19 @@ public class PipelineSetBuilder {
 		}
 	}
 
-	public void setPipelinesUsingTargetFormat(String formatURI,
-			String targetFormatURI, String viewConstraintURI) {
+	public void setPipelinesUsingTargetFormat(String formatURI, String dataTypeURI, String targetFormatURI, String viewConstraintURI) {
 		setFormatPathsUsingTargetFormat(formatURI, targetFormatURI);
 		System.out.println("Num format paths: " + formatPaths.size());
 
 		setOperatorPathsForViewers();
 		System.out.println("Num operator paths: " + operatorPaths.size());
+		
+		filterOperatorPathsByTypeRestriction(dataTypeURI);
+		System.out.println("Num operator paths after type restrictions: " + operatorPaths.size());
 
 		if (viewConstraintURI != null) {
 			filterOperatorPathsWithViewRestriction(viewConstraintURI);
-			System.out.println("Num operator paths after view restrictions: "
-					+ operatorPaths.size());
+			System.out.println("Num operator paths after view restrictions: " + operatorPaths.size());
 		}
 
 		Vector<Vector<String>> operatorImplSets;
@@ -196,6 +202,10 @@ public class PipelineSetBuilder {
 		operatorPaths.filterByView(requiredViewURI, ts);
 	}
 
+	private void filterOperatorPathsByTypeRestriction(String inputDataType){
+		operatorPaths.filterByType(inputDataType, ts);
+	}
+	
 	private void setOperatorPathsForViewers() {
 		operatorPaths = new OperatorPaths();
 		OperatorPath operatorPath;

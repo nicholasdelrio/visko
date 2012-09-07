@@ -64,6 +64,7 @@ public class OperatorPaths extends Vector<OperatorPath> {
 		return false;
 	}
 
+	/*
 	public void filterByView(String requiredViewURI, ViskoTripleStore ts) {
 		boolean maintainsViewRestriction;
 		boolean matchesAView;
@@ -78,17 +79,49 @@ public class OperatorPaths extends Vector<OperatorPath> {
 			if (aPath.size() > 0) {
 				for (String operatorURI : aPath) {
 					ResultSet views = ts.getViewsGeneratedFrom(operatorURI);
-					Vector<String> viewURIs = ResultSetToVector
-							.getVectorFromResultSet(views, "view");
+					Vector<String> viewURIs = ResultSetToVector.getVectorFromResultSet(views, "view");
 					matchesAView = false;
 
 					for (String viewURI : viewURIs) {
-						matchesAView = matchesAView
-								|| requiredViewURI.equals(viewURI);
+						matchesAView = matchesAView || requiredViewURI.equals(viewURI);
 					}
 
-					maintainsViewRestriction = maintainsViewRestriction
-							|| matchesAView;
+					maintainsViewRestriction = maintainsViewRestriction || matchesAView;
+				}
+
+				if (!maintainsViewRestriction)
+					badOperatorPaths.add(aPath);
+			}
+		}
+		removeAll(badOperatorPaths);
+	}*/
+	
+	public void filterByView(String requiredViewURI, ViskoTripleStore ts) {
+		boolean maintainsViewRestriction;
+		boolean matchesAView;
+
+		OperatorPaths badOperatorPaths = new OperatorPaths();
+		OperatorPath aPath;
+		
+		for (int i = 0; i < size(); i++) {
+			maintainsViewRestriction = false;
+			aPath = this.get(i);
+
+			if (aPath.size() > 0) {
+				for (int j = aPath.size() - 1; j >= 0; j --) {
+					
+					String operatorURI = aPath.get(j);
+					
+					ResultSet dataTypeResultSet = ts.getTransformedToDataType(operatorURI);
+					Vector<String> dataTypes = ResultSetToVector.getVectorFromResultSet(dataTypeResultSet, "dataType");
+					
+					String dataTypeURI = dataTypes.firstElement();
+					
+					matchesAView = false;
+
+					matchesAView = matchesAView || requiredViewURI.equals(dataTypeURI);
+
+					maintainsViewRestriction = maintainsViewRestriction || matchesAView;
 				}
 
 				if (!maintainsViewRestriction)
@@ -98,30 +131,44 @@ public class OperatorPaths extends Vector<OperatorPath> {
 		removeAll(badOperatorPaths);
 	}
 
-	/*
-	 * public void filterByType(String requiredTypeURI, ViskoTripleStore ts) {
-	 * boolean maintainsTypeRestriction; boolean matchesAType;
-	 * 
-	 * OperatorPaths badOperatorPaths = new OperatorPaths(); OperatorPath aPath;
-	 * 
-	 * for(int i = 0; i < size(); i ++) { maintainsTypeRestriction = true; aPath
-	 * = this.get(i);
-	 * 
-	 * if(aPath.size() > 0) { for(String operatorURI : aPath) { ResultSet types
-	 * = ts.getTypesOperatedOn(operatorURI); Vector<String> typeURIs =
-	 * ResultSetToVector.getVectorFromResultSet(types, "type");
-	 * 
-	 * matchesAType = false;
-	 * 
-	 * for(String typeURI : typeURIs) {matchesAType = matchesAType ||
-	 * typeURI.equals(requiredTypeURI +
-	 * "^^http://www.w3.org/2001/XMLSchema#anyURI") ||
-	 * typeURI.equals(ViskoS.URI_ANYTYPE +
-	 * "^^http://www.w3.org/2001/XMLSchema#anyURI");}
-	 * 
-	 * maintainsTypeRestriction = maintainsTypeRestriction && matchesAType; }
-	 * 
-	 * if(!maintainsTypeRestriction) badOperatorPaths.add(aPath); } }
-	 * removeAll(badOperatorPaths); }
-	 */
+
+	public void filterByType(String inputDataType, ViskoTripleStore ts) {
+		boolean canBeOperatedOn = true;
+
+		OperatorPaths badOperatorPaths = new OperatorPaths();
+		OperatorPath aPath;
+		
+		for (int i = 0; i < size(); i++) {
+		
+			String inDataType = inputDataType;
+			
+			aPath = this.get(i);
+
+			if (aPath.size() > 0) {
+				for (String operatorURI : aPath) {
+										
+					canBeOperatedOn = ts.canOperateOnDataType(operatorURI, inDataType) || ts.canOperateOnSuperTypeOfDataType(operatorURI, inDataType);
+					
+					System.out.println("current in datatype: " + inDataType);
+					
+					if(!canBeOperatedOn){
+						System.out.println(inDataType + " can't be consumed by: " + operatorURI);
+						break;
+					}
+					
+					ResultSet dataTypeResultSet = ts.getTransformedToDataType(operatorURI);
+					Vector<String> dataTypes = ResultSetToVector.getVectorFromResultSet(dataTypeResultSet, "dataType");
+					
+					inDataType = dataTypes.firstElement();
+				}
+				
+				boolean viewerCanOperateOn = ts.canOperateOnDataType(aPath.getViewerURI(), inDataType) || ts.canOperateOnSuperTypeOfDataType(aPath.getViewerURI(), inDataType);
+				boolean maintainsTypeRestriction = canBeOperatedOn && viewerCanOperateOn;
+				
+				if (!maintainsTypeRestriction)
+					badOperatorPaths.add(aPath);
+			}
+		}
+		removeAll(badOperatorPaths);
+	}
 }

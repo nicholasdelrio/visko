@@ -93,10 +93,9 @@ public class QueryEngine {
 		}
 
 		if (targetFormatURI != null)
-			builder.setPipelinesUsingTargetFormat(formatURI, targetFormatURI,
-					viewConstraintURI);
+			builder.setPipelinesUsingTargetFormat(formatURI, typeConstraintURI, targetFormatURI, viewConstraintURI);
 		else
-			builder.setPipelines(formatURI, viewerSetURI, viewConstraintURI);
+			builder.setPipelines(formatURI, typeConstraintURI, viewerSetURI, viewConstraintURI);
 
 		pipelines = builder.getPipelines();
 		pipelines.setParameterBindings(parameterBindings);
@@ -104,8 +103,7 @@ public class QueryEngine {
 	}
 
 	public boolean isAlreadyVisualizableWithViewerSet() {
-		return builder.isAlreadyVisualizableWithViewerSet(query.getFormatURI(),
-				query.getViewerSetURI());
+		return builder.isAlreadyVisualizableWithViewerSet(query.getFormatURI(), query.getTypeURI(), query.getViewerSetURI());
 	}
 
 	public boolean canBeVisualizedWithViewerSet() {
