@@ -40,6 +40,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.ontology.operator;
 
+
 import java.util.Vector;
 
 import com.hp.hpl.jena.ontology.DatatypeProperty;
@@ -59,8 +60,9 @@ import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 import edu.utep.trustlab.visko.ontology.vocabulary.XSD;
 
 public class Operator extends JenaIndividual {
-	private Vector<Format> inputFormats;
-	private Vector<OntResource> inputDataTypes;
+	
+	private Format inputFormat;
+	private OntResource inputDataType;
 	
 	private String name;
 
@@ -71,8 +73,7 @@ public class Operator extends JenaIndividual {
 	// datatype properties
 	private DatatypeProperty hasNameProperty;
 
-	public Operator(String classURI, String baseURL, String name,
-			ViskoModel viskoModel) {
+	public Operator(String classURI, String baseURL, String name, ViskoModel viskoModel) {
 		super(classURI, baseURL, name, viskoModel);
 	}
 

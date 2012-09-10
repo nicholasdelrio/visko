@@ -56,7 +56,20 @@ public class ViskoV {
 	public static final String CLASS_URI_1D_DATASTRUCTURE_VIEW = ONTOLOGY_VISKO_V_URI + "#1D_DataStructure_View";
 	public static final String CLASS_URI_2D_DATASTRUCTURE_VIEW = ONTOLOGY_VISKO_V_URI + "#2D_DataStructure_View";
 	public static final String CLASS_URI_3D_DATASTRUCTURE_VIEW = ONTOLOGY_VISKO_V_URI + "#3D_DataStructure_View";
-	public static final String CLASS_URI_4D_DATASTRUCTURE_VIEW = ONTOLOGY_VISKO_V_URI + "#4D_DataStructure_View";	
+	public static final String CLASS_URI_4D_DATASTRUCTURE_VIEW = ONTOLOGY_VISKO_V_URI + "#4D_DataStructure_View";
+	
+	// Individuals
+	
+	public static final String INDIVIDUAL_URI_TIMELINE = ONTOLOGY_VISKO_V_URI + "#Timeline";
+	
+	public static final String INDIVIDUAL_URI_CONTOURMAP = ONTOLOGY_VISKO_V_URI + "#ContourMap";
+	public static final String INDIVIDUAL_URI_POINTPLOT = ONTOLOGY_VISKO_V_URI + "#PointPlot";
+	public static final String INDIVIDUAL_URI_RASTERMAP = ONTOLOGY_VISKO_V_URI + "#RasterMap";
+	public static final String INDIVIDUAL_URI_TIMESERIESPLOT = ONTOLOGY_VISKO_V_URI + "#TimeSeriesPlot";
+	
+	public static final String INDIVIDUAL_URI_ISOSURFACESRENDERING = ONTOLOGY_VISKO_V_URI + "#IsoSurfacesRendering";
+	public static final String INDIVIDUAL_URI_MESHPLOT = ONTOLOGY_VISKO_V_URI + "#MeshPlot";
+	public static final String INDIVIDUAL_URI_VOLUMERENDERING = ONTOLOGY_VISKO_V_URI + "#VolumeRendering";
 
 	/*****************************************************************************************/
 	// model and ontology

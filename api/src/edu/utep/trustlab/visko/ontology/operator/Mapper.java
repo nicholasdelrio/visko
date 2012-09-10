@@ -40,20 +40,19 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.ontology.operator;
 
+
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.ObjectProperty;
 
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
-import edu.utep.trustlab.visko.ontology.view.View;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 
 public class Mapper extends Transformer {
-	private View mappedToView;
 
 	private ObjectProperty mapsToViewProperty;
 
 	public Mapper(String baseURL, String name, ViskoModel viskoModel) {
-		super(ViskoO.CLASS_URI_MAPPER, baseURL, name, viskoModel);
+		super(ViskoO.CLASS_URI_VIEWMAPPER, baseURL, name, viskoModel);
 	}
 
 	public Mapper(String uri, ViskoModel viskoModel) {

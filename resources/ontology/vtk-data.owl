@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#"
+     xml:base="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkArrayData -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkArrayData">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkDataObject"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkDataObject -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkDataObject"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkDataSet -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkDataSet">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkDataObject"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkDirectedGraph -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkDirectedGraph">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkGraph"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkGraph -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkGraph">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkDataObject"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkImageData -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkImageData">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkDataSet"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkImageDataFloats -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkImageDataFloats">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkImageData"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkImageDataShortIntegers -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkImageDataShortIntegers">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkImageData"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkPath -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkPath">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkPointSet"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkPointSet -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkPointSet">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkDataSet"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkPolyData -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkPolyData">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkPointSet"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkStructuredGrid -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkStructuredGrid">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkPointSet"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkUndirectedGraph -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkUndirectedGraph">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkGraph"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkUnstructuredPath -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkUnstructuredPath">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl#vtkPointSet"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.5.1928) http://owlapi.sourceforge.net -->
+

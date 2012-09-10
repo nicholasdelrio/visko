@@ -50,31 +50,31 @@ public class ViskoO {
 
 	// Concepts
 	public static final String CLASS_URI_OPERATOR = ONTOLOGY_VISKO_O_URI + "#Operator";
-	public static final String CLASS_URI_COMPOSITEOPERATOR = ONTOLOGY_VISKO_O_URI + "#CompositeOperator";
-	public static final String CLASS_URI_TRANSFORMER = ONTOLOGY_VISKO_O_URI + "#Transformer";
-	public static final String CLASS_URI_MAPPER = ONTOLOGY_VISKO_O_URI + "#Mapper";
+	public static final String CLASS_URI_VIEWMAPPER = ONTOLOGY_VISKO_O_URI + "#ViewMapper";
+	public static final String CLASS_URI_FORMATCONVERTER = ONTOLOGY_VISKO_O_URI + "#FormatConverter";
+	public static final String CLASS_URI_DATATRANSFORMER = ONTOLOGY_VISKO_O_URI + "#DataTransformer";
+	public static final String CLASS_URI_DATAFILTER = ONTOLOGY_VISKO_O_URI + "#DataFilter";
+
 	public static final String CLASS_URI_VIEWER = ONTOLOGY_VISKO_O_URI + "#Viewer";
 	public static final String CLASS_URI_VIEWERSET = ONTOLOGY_VISKO_O_URI + "#ViewerSet";
 
 	/*****************************************************************************************/
 	// Properties
-	public static final String PROPERTY_URI_OPERATESON = ONTOLOGY_VISKO_O_URI + "#operatesOn";
-	public static final String PROPERTY_URI_OPERATESON_DATATYPE = ONTOLOGY_VISKO_O_URI + "#operatesOnDataType";
+	public static final String PROPERTY_URI_HASINPUTFORMAT = ONTOLOGY_VISKO_O_URI + "#hasInputFormat";
+	public static final String PROPERTY_URI_HASOUTPUTFORMAT = ONTOLOGY_VISKO_O_URI + "#hasOutputFormat";
+	
+	public static final String PROPERTY_URI_HASINPUTDATATYPE = ONTOLOGY_VISKO_O_URI + "#hasInputDataType";
+	public static final String PROPERTY_URI_HASOUTPUTDATATYPE = ONTOLOGY_VISKO_O_URI + "#hasOutputDataType";	
+	
+	public static final String PROPERTY_URI_MAPS_TO = ONTOLOGY_VISKO_O_URI + "#mapsToView";
 	public static final String PROPERTY_URI_PART_OF_VIEWERSET = ONTOLOGY_VISKO_O_URI + "#partOfViewerSet";
-	public static final String PROPERTY_URI_MAPS_TO = ONTOLOGY_VISKO_O_URI + "#mapsTo";
-	public static final String PROPERTY_URI_TRANSFORMS_TO = ONTOLOGY_VISKO_O_URI + "#transformsTo";
-	public static final String PROPERTY_URI_TRANSFORMS_TO_DATATYPE = ONTOLOGY_VISKO_O_URI + "#transformsToDataType";
-	public static final String PROPERTY_URI_PRESENTSVIEW = ONTOLOGY_VISKO_O_URI + "#presentsView";
-	public static final String PROPERTY_URI_COMPOSED_OF = ONTOLOGY_VISKO_O_URI + "#composedOf";
-	public static final String PROPERTY_URI_CANBETRANSFRORMEDTO = ONTOLOGY_VISKO_O_URI + "#canBeTransformedTo";
-	public static final String PROPERTY_URI_CANBETRANSFRORMEDTOTRANS = ONTOLOGY_VISKO_O_URI + "#canBeTransformedToTransitive";
-
+	
 	// model and ontology
 	private static OntModel model;
 	private static Ontology ontology;
 
 	static {
-		model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
+		model = ModelFactory.createOntologyModel();
 		model.read(ONTOLOGY_VISKO_O_URI);
 		ontology = model.getOntology(ONTOLOGY_VISKO_O_URI);
 	}
