@@ -41,7 +41,6 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.ontology.vocabulary;
 
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.Ontology;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
@@ -49,25 +48,23 @@ public class ViskoV {
 	public static final String ONTOLOGY_VISKO_V_URI = Visko.VISKO_V;
 
 	// Concepts
-	public static final String CLASS_URI_VIEW = ONTOLOGY_VISKO_V_URI + "#View";
-	public static final String CLASS_URI_COMPOSITE_VIEW = ONTOLOGY_VISKO_V_URI + "#CompositeView";
-	public static final String CLASS_URI_ATOMIC_VIEW = ONTOLOGY_VISKO_V_URI	+ "#AtomicView";
-	public static final String CLASS_URI_NETWORK = ONTOLOGY_VISKO_V_URI	+ "#Network";
-	public static final String CLASS_URI_GRAPH = ONTOLOGY_VISKO_V_URI + "#Graph";
-	public static final String CLASS_URI_TREE = ONTOLOGY_VISKO_V_URI + "#Tree";
-	public static final String CLASS_URI_RASTER = ONTOLOGY_VISKO_V_URI + "#Raster";
+	public static final String CLASS_URI_1D_GEOMETRIC_VIEW = ONTOLOGY_VISKO_V_URI + "#1D_Geometric_View";
+	public static final String CLASS_URI_2D_GEOMETRIC_VIEW = ONTOLOGY_VISKO_V_URI + "#2D_Geometric_View";
+	public static final String CLASS_URI_3D_GEOMETRIC_VIEW = ONTOLOGY_VISKO_V_URI + "#3D_Geometric_View";
+	public static final String CLASS_URI_4D_GEOMETRIC_VIEW = ONTOLOGY_VISKO_V_URI + "#4D_Geometric_View";
+
+	public static final String CLASS_URI_1D_DATASTRUCTURE_VIEW = ONTOLOGY_VISKO_V_URI + "#1D_DataStructure_View";
+	public static final String CLASS_URI_2D_DATASTRUCTURE_VIEW = ONTOLOGY_VISKO_V_URI + "#2D_DataStructure_View";
+	public static final String CLASS_URI_3D_DATASTRUCTURE_VIEW = ONTOLOGY_VISKO_V_URI + "#3D_DataStructure_View";
+	public static final String CLASS_URI_4D_DATASTRUCTURE_VIEW = ONTOLOGY_VISKO_V_URI + "#4D_DataStructure_View";	
 
 	/*****************************************************************************************/
-
-	// Properties
-	public static final String PROPERTY_URI_INCLUDES_VIEW = ONTOLOGY_VISKO_V_URI + "#includesView";
-
 	// model and ontology
 	private static OntModel model;
 	private static Ontology ontology;
 
 	static {
-		model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
+		model = ModelFactory.createOntologyModel();
 		model.read(ONTOLOGY_VISKO_V_URI);
 		ontology = model.getOntology(ONTOLOGY_VISKO_V_URI);
 	}
