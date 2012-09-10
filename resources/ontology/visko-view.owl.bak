@@ -1,0 +1,266 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/nicholas/ontologies/2012/8/untitled-ontology-135#"
+     xml:base="http://www.semanticweb.org/nicholas/ontologies/2012/8/untitled-ontology-135"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl">
+        <owl:imports rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/esip-data.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#hasProjectionInSpace -->
+
+    <owl:ObjectProperty rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#hasProjectionInSpace"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#1D_View -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#1D_View">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#View"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#hasProjectionInSpace"/>
+                <owl:hasValue rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#1D_Space"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Curve"/>
+                    <rdf:Description rdf:about="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Point"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#2D_View -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#2D_View">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#View"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Curve"/>
+                    <rdf:Description rdf:about="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Point"/>
+                    <rdf:Description rdf:about="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Surface"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#hasProjectionInSpace"/>
+                <owl:hasValue rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#2D_Space"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#3D_View -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#3D_View">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#View"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Curve"/>
+                    <rdf:Description rdf:about="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Point"/>
+                    <rdf:Description rdf:about="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Surface"/>
+                    <rdf:Description rdf:about="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Volume"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#hasProjectionInSpace"/>
+                <owl:hasValue rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#3D_Space"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#4D_View -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#4D_View">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#View"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Curve"/>
+                    <rdf:Description rdf:about="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Point"/>
+                    <rdf:Description rdf:about="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Surface"/>
+                    <rdf:Description rdf:about="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Volume"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#hasProjectionInSpace"/>
+                <owl:hasValue rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#4D_Space"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Space -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Space"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#View -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#View"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#1D_Space -->
+
+    <owl:NamedIndividual rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#1D_Space">
+        <rdf:type rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Space"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#2D_Space -->
+
+    <owl:NamedIndividual rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#2D_Space">
+        <rdf:type rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Space"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#3D_Space -->
+
+    <owl:NamedIndividual rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#3D_Space">
+        <rdf:type rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Space"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#4D_Space -->
+
+    <owl:NamedIndividual rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#4D_Space">
+        <rdf:type rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Space"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Contour_Map -->
+
+    <owl:NamedIndividual rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Contour_Map">
+        <rdf:type rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#2D_View"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#ISO_Surfaces -->
+
+    <owl:NamedIndividual rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#ISO_Surfaces">
+        <rdf:type rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#3D_View"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Mesh_Plot -->
+
+    <owl:NamedIndividual rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Mesh_Plot">
+        <rdf:type rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#3D_View"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Point_Plot -->
+
+    <owl:NamedIndividual rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Point_Plot">
+        <rdf:type rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#2D_View"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Raster_Map -->
+
+    <owl:NamedIndividual rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Raster_Map">
+        <rdf:type rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#2D_View"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Time_Series_Plot -->
+
+    <owl:NamedIndividual rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Time_Series_Plot">
+        <rdf:type rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#2D_View"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Timeline -->
+
+    <owl:NamedIndividual rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Timeline">
+        <rdf:type rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#1D_View"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Volume_Rendering -->
+
+    <owl:NamedIndividual rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#Volume_Rendering">
+        <rdf:type rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl#3D_View"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.5.1928) http://owlapi.sourceforge.net -->
+
