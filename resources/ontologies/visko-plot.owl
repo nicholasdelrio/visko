@@ -104,9 +104,25 @@
     
 
 
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#DAG -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#DAG">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#DirectedGraph"/>
+    </owl:Class>
+    
+
+
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#DataType -->
 
     <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#DataType"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#DirectedGraph -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#DirectedGraph">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#Graph"/>
+    </owl:Class>
     
 
 
@@ -169,7 +185,7 @@
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#Tree -->
 
     <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#Tree">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#DataType"/>
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#DAG"/>
     </owl:Class>
 </rdf:RDF>
 

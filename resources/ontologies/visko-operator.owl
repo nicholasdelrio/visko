@@ -12,8 +12,8 @@
 ]>
 
 
-<rdf:RDF xmlns="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-operator.owl#"
-     xml:base="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/ontology/visko-operator.owl"
+<rdf:RDF xmlns="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl#"
+     xml:base="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-operator.owl"
      xmlns:pml-provenance="http://inference-web.org/2.0/pml-provenance.owl#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
