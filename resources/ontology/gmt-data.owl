@@ -15,7 +15,9 @@
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-    <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/gmt-data.owl"/>
+    <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/gmt-data.owl">
+        <owl:imports rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/netCDF-data.owl"/>
+    </owl:Ontology>
     
 
 
@@ -30,21 +32,11 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/gmt-data.owl#1D_Array -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/gmt-data.owl#2D_Grid_COARDS -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/gmt-data.owl#1D_Array"/>
-    
-
-
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/gmt-data.owl#2D_Array -->
-
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/gmt-data.owl#2D_Array"/>
-    
-
-
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/gmt-data.owl#3D_Array -->
-
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/gmt-data.owl#3D_Array"/>
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/gmt-data.owl#2D_Grid_COARDS">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/netCDF-data.owl#2D_Array"/>
+    </owl:Class>
 </rdf:RDF>
 
 
