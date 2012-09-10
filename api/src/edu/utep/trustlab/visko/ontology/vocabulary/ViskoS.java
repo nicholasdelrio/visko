@@ -67,9 +67,7 @@ public class ViskoS {
 	public static final String PROPERTY_URI_DECLARES_BINDINGS = ONTOLOGY_VISKO_S_URI + "#declaresBindings";
 
 	// Datatype Properties
-	public static final String DATATYPE_PROPERTY_URI_CREATES_PROFILE = ONTOLOGY_VISKO_S_URI	+ "#createsProfile";
 	public static final String DATATYPE_PROPERTY_URI_PROFILES = ONTOLOGY_VISKO_S_URI + "#profiles";
-	public static final String DATATYPE_PROPERTY_URI_EXTRACTS_DATA_OFTYPE = ONTOLOGY_VISKO_S_URI + "#extractsFromDataOfType";
 
 	// model and ontology
 	private static OntModel model;
