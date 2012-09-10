@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY pml-provenance "http://inference-web.org/2.0/pml-provenance.owl#" >
+    <!ENTITY visko-view "https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#" >
+    <!ENTITY visko-operator "https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#" >
+]>
+
+
+<rdf:RDF xmlns="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#"
+     xml:base="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl"
+     xmlns:pml-provenance="http://inference-web.org/2.0/pml-provenance.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:visko-view="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#"
+     xmlns:visko-operator="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#">
+    <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl">
+        <owl:imports rdf:resource="http://inference-web.org/2.0/pml-provenance.owl"/>
+        <owl:imports rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#canBeConvertedToFormat -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;canBeConvertedToFormat">
+        <rdfs:domain rdf:resource="&pml-provenance;Format"/>
+        <rdfs:range rdf:resource="&pml-provenance;Format"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&visko-operator;isInputFormatTo"/>
+            <rdf:Description rdf:about="&visko-operator;hasOutputFormat"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#canBeConvertedToFormatTransitive -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;canBeConvertedToFormatTransitive">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="&pml-provenance;Format"/>
+        <rdfs:range rdf:resource="&pml-provenance;Format"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&visko-operator;isInputFormatTo"/>
+            <rdf:Description rdf:about="&visko-operator;hasOutputFormat"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#hasInputDataType -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;hasInputDataType">
+        <rdfs:domain rdf:resource="&visko-operator;PipelineComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#hasInputFormat -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;hasInputFormat">
+        <rdfs:range rdf:resource="&pml-provenance;Format"/>
+        <rdfs:domain rdf:resource="&visko-operator;PipelineComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#hasOutputDataType -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;hasOutputDataType">
+        <rdfs:domain rdf:resource="&visko-operator;Operator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#hasOutputFormat -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;hasOutputFormat">
+        <rdfs:range rdf:resource="&pml-provenance;Format"/>
+        <rdfs:domain rdf:resource="&visko-operator;Operator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#isInputFormatTo -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;isInputFormatTo">
+        <owl:inverseOf rdf:resource="&visko-operator;hasInputFormat"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#mapsToView -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;mapsToView">
+        <rdfs:domain rdf:resource="&visko-operator;ViewMapper"/>
+        <rdfs:range rdf:resource="&visko-view;View"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#partOfViewerSet -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;partOfViewerSet">
+        <rdfs:domain rdf:resource="&visko-operator;Viewer"/>
+        <rdfs:range rdf:resource="&visko-operator;ViewerSet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#DataFilter -->
+
+    <owl:Class rdf:about="&visko-operator;DataFilter">
+        <rdfs:subClassOf rdf:resource="&visko-operator;Operator"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#DataTransformer -->
+
+    <owl:Class rdf:about="&visko-operator;DataTransformer">
+        <rdfs:subClassOf rdf:resource="&visko-operator;Operator"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#FormatConverter -->
+
+    <owl:Class rdf:about="&visko-operator;FormatConverter">
+        <rdfs:subClassOf rdf:resource="&visko-operator;Operator"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#Operator -->
+
+    <owl:Class rdf:about="&visko-operator;Operator">
+        <rdfs:subClassOf rdf:resource="&visko-operator;PipelineComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#PipelineComponent -->
+
+    <owl:Class rdf:about="&visko-operator;PipelineComponent">
+        <rdfs:subClassOf rdf:resource="&pml-provenance;InferenceRule"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#ViewMapper -->
+
+    <owl:Class rdf:about="&visko-operator;ViewMapper">
+        <rdfs:subClassOf rdf:resource="&visko-operator;Operator"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#Viewer -->
+
+    <owl:Class rdf:about="&visko-operator;Viewer">
+        <rdfs:subClassOf rdf:resource="&visko-operator;PipelineComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#ViewerSet -->
+
+    <owl:Class rdf:about="&visko-operator;ViewerSet"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.5.1928) http://owlapi.sourceforge.net -->
+

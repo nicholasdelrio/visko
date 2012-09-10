@@ -2,7 +2,8 @@
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <uri id="Imports Wizard Entry" name="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl" uri="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1347292419584" name="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl" uri="esip-data.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1347292419584" name="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl" uri="visko-view.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1347294029351" name="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl" uri="esip-data.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1347294029351" name="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl" uri="visko-operator.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1347294029351" name="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl" uri="visko-view.owl"/>
     </group>
 </catalog>
