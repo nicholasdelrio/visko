@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1347338722450" name="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl" uri="esip-data.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1347338722450" name="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl" uri="visko-operator.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1347338722450" name="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-service.owl" uri="visko-service.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1347338722450" name="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl" uri="visko-view.owl"/>
+    </group>
+</catalog>
