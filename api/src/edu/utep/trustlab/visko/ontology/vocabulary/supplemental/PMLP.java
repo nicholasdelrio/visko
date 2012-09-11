@@ -38,71 +38,37 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.ontology.operator;
+package edu.utep.trustlab.visko.ontology.vocabulary.supplemental;
 
 
-import com.hp.hpl.jena.ontology.Individual;
-import com.hp.hpl.jena.ontology.ObjectProperty;
+import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.Ontology;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
 
-import edu.utep.trustlab.visko.ontology.model.ViskoModel;
-import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
+public class PMLP {
+	public static final String ONTOLOGY_PMLP_URI = "http://inference-web.org/2.0/pml-provenance.owl";
 
-public class Mapper extends Transformer {
+	// Classes
+	public static final String CLASS_URI_Format = ONTOLOGY_PMLP_URI + "#Format";
+	public static final String CLASS_URI_Language = ONTOLOGY_PMLP_URI + "#Language";
 
-	private ObjectProperty mapsToViewProperty;
+	// DataType Properties
+	public static final String DATATYPE_PROPERTY_URI_hasName = ONTOLOGY_PMLP_URI + "#hasName";
 
-	public Mapper(String baseURL, String name, ViskoModel viskoModel) {
-		super(ViskoO.CLASS_URI_VIEWMAPPER, baseURL, name, viskoModel);
+	private static OntModel model;
+	private static Ontology ontology;
+
+	static {
+		model = ModelFactory.createOntologyModel();
+		model.read(ONTOLOGY_PMLP_URI);
+		ontology = model.getOntology(ONTOLOGY_PMLP_URI);
 	}
 
-	public Mapper(String uri, ViskoModel viskoModel) {
-		super(uri, viskoModel);
+	public static OntModel getModel() {
+		return model;
 	}
 
-	public void setViewToMapTo(View mappedToView) {
-		this.mappedToView = mappedToView;
-	}
-
-	public View getViewToMapTo() {
-		return mappedToView;
-	}
-
-	private void addMapsToViewProperty(Individual subjectInd) {
-		subjectInd
-				.addProperty(mapsToViewProperty, mappedToView.getIndividual());
-	}
-
-	@Override
-	protected boolean allFieldsPopulated() {
-		if (super.allFieldsPopulated() && mappedToView != null)
-			return true;
-		return false;
-	}
-
-	@Override
-	protected Individual createNewIndividual() {
-		Individual ind = super.createNewIndividual();
-		addMapsToViewProperty(ind);
-		return ind;
-	}
-
-	@Override
-	protected void setProperties() {
-		super.setProperties();
-		mapsToViewProperty = model
-				.getObjectProperty(ViskoO.PROPERTY_URI_MAPS_TO);
-	}
-
-	@Override
-	protected void populateFieldsWithIndividual(Individual ind) {
-		super.populateFieldsWithIndividual(ind);
-		View view = new View(ind.getPropertyValue(mapsToViewProperty)
-				.as(Individual.class).getURI(), model);
-		mappedToView = view;
-	}
-
-	@Override
-	protected void initializeFields() {
-		super.initializeFields();
+	public static Ontology getOntology() {
+		return ontology;
 	}
 }

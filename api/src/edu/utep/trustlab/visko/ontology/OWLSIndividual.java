@@ -59,7 +59,6 @@ public abstract class OWLSIndividual implements ViskoIndividual {
 
 		model = owlsModel;
 		model.createOntology(fullURL);
-		model.addImportsToOntology();
 
 		setProperties();
 	}

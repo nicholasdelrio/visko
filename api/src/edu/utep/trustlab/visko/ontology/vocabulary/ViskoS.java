@@ -41,42 +41,33 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.ontology.vocabulary;
 
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.Ontology;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 public class ViskoS {
-	public static final String ONTOLOGY_VISKO_S_URI = Visko.VISKO_S;
+	
+	// Classes
+	public static final String CLASS_URI_Service = Visko.CORE_VISKO_S	+ "#Service";
+	public static final String CLASS_URI_Toolkit = Visko.CORE_VISKO_S	+ "#Toolkit";
+	public static final String CLASS_URI_Extractor = Visko.CORE_VISKO_S + "#Extractor";
+	public static final String CLASS_URI_InputParameterBindings = Visko.CORE_VISKO_S	+ "#InputParameterBindings";
 
-	// Concepts
-	public static final String CLASS_URI_SERVICE = ONTOLOGY_VISKO_S_URI	+ "#Service";
-	public static final String CLASS_URI_TOOLKIT = ONTOLOGY_VISKO_S_URI	+ "#Toolkit";
-	public static final String CLASS_URI_EXTRACTOR = ONTOLOGY_VISKO_S_URI + "#Extractor";
-	public static final String CLASS_URI_INPUT_PARAMETER_BINDINGS = ONTOLOGY_VISKO_S_URI	+ "#InputParameterBindings";
-
-	/*****************************************************************************************/
-
-	// Properties
-	public static final String PROPERTY_URI_EXTRACTS_FROM_FORMAT = ONTOLOGY_VISKO_S_URI + "#extractsFromFormat";
-	public static final String PROPERTY_URI_IMPLEMENTS_EXTRACTOR = ONTOLOGY_VISKO_S_URI + "#implementsExtractor";
-	public static final String PROPERTY_URI_IMPLEMENTS_OPERATOR = ONTOLOGY_VISKO_S_URI + "#implementsOperator";
-	public static final String PROPERTY_URI_BASED_ON = ONTOLOGY_VISKO_S_URI + "#basedOn";
-	public static final String PROPERTY_URI_SUPPORTED_BY = ONTOLOGY_VISKO_S_URI + "#supportedBy";
-	public static final String PROPERTY_URI_SUPPORTED_BY_OWLS = ONTOLOGY_VISKO_S_URI + "#supportedByOWLSService";
-	public static final String PROPERTY_URI_SUPPORTED_BY_SADI = ONTOLOGY_VISKO_S_URI + "#supportedBySADIService";
-	public static final String PROPERTY_URI_DECLARES_BINDINGS = ONTOLOGY_VISKO_S_URI + "#declaresBindings";
+	// Object Properties
+	public static final String PROPERTY_URI_implementsOperator = Visko.CORE_VISKO_S + "#implementsOperator";
+	public static final String PROPERTY_URI_supportedByToolkit = Visko.CORE_VISKO_S + "#supportedByToolkit";
+	public static final String PROPERTY_URI_supportedByOWLSService = Visko.CORE_VISKO_S + "#supportedByOWLSService";
+	public static final String PROPERTY_URI_declaresBindings = Visko.CORE_VISKO_S + "#declaresBindings";
 
 	// Datatype Properties
-	public static final String DATATYPE_PROPERTY_URI_PROFILES = ONTOLOGY_VISKO_S_URI + "#profiles";
+	public static final String DATATYPE_PROPERTY_URI_profiles = Visko.CORE_VISKO_S + "#profiles";
 
-	// model and ontology
 	private static OntModel model;
 	private static Ontology ontology;
 
 	static {
-		model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
-		model.read(ONTOLOGY_VISKO_S_URI);
-		ontology = model.getOntology(ONTOLOGY_VISKO_S_URI);
+		model = ModelFactory.createOntologyModel();
+		model.read(Visko.CORE_VISKO_S);
+		ontology = model.getOntology(Visko.CORE_VISKO_S);
 	}
 
 	public static OntModel getModel() {

@@ -38,27 +38,26 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.ontology.vocabulary;
+package edu.utep.trustlab.visko.ontology.vocabulary.supplemental;
 
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.Ontology;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
-public class OWLS_Service {
-	public static final String ONTOLOGY_OWLS_SERVICE_URI = "http://www.daml.org/services/owl-s/1.2/Service.owl";
+public class RDFS {
+	public static final String ONTOLOGY_RDFS_URI = "http://www.w3.org/2000/01/rdf-schema";
 
-	// OWLS Ontology Concepts
-	public static final String CLASS_URI_Service = ONTOLOGY_OWLS_SERVICE_URI + "#Service";
+	// Properties
+	public static final String PROPERTY_URI_comment = ONTOLOGY_RDFS_URI + "#comment";
+	public static final String PROPERTY_URI_label = ONTOLOGY_RDFS_URI + "#label";
 
-	// model and ontology
 	private static OntModel model;
 	private static Ontology ontology;
 
 	static {
-		model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
-		model.read(ONTOLOGY_OWLS_SERVICE_URI + "#");
-		ontology = model.getOntology(ONTOLOGY_OWLS_SERVICE_URI);
+		model = ModelFactory.createOntologyModel();
+		model.read(ONTOLOGY_RDFS_URI);
+		ontology = model.getOntology(ONTOLOGY_RDFS_URI);
 	}
 
 	public static OntModel getModel() {

@@ -43,7 +43,7 @@ package edu.utep.trustlab.visko.ontology;
 import com.hp.hpl.jena.ontology.Individual;
 
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
-import edu.utep.trustlab.visko.ontology.vocabulary.RDFS;
+import edu.utep.trustlab.visko.ontology.vocabulary.supplemental.RDFS;
 
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.rdf.model.Literal;
@@ -182,8 +182,8 @@ public abstract class JenaIndividual implements ViskoIndividual {
 	}
 
 	private void setCommonProperties() {
-		commentProperty = model.getProperty(RDFS.PROPERTY_URI_RDFS_COMMENT);
-		labelProperty = model.getProperty(RDFS.PROPERTY_URI_RDFS_LABEL);
+		commentProperty = model.getProperty(RDFS.PROPERTY_URI_comment);
+		labelProperty = model.getProperty(RDFS.PROPERTY_URI_label);
 	}
 
 	private void populateCommonFields(Individual ind) {

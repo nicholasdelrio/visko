@@ -42,7 +42,7 @@ package edu.utep.trustlab.visko.planning.paths;
 
 import java.util.*;
 import edu.utep.trustlab.visko.util.ResultSetToVector;
-import edu.utep.trustlab.visko.ontology.vocabulary.OWL;
+import edu.utep.trustlab.visko.ontology.vocabulary.supplemental.OWL;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 
 public class OperatorPath extends Vector<String> {

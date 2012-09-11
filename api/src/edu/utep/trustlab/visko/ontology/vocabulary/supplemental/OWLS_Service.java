@@ -38,89 +38,32 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.ontology.model;
+package edu.utep.trustlab.visko.ontology.vocabulary.supplemental;
 
-import java.io.StringWriter;
-import java.net.URI;
+import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.Ontology;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
 
-import org.mindswap.owl.OWLFactory;
-import org.mindswap.owl.OWLIndividual;
-import org.mindswap.owl.OWLKnowledgeBase;
-import org.mindswap.owl.OWLObjectProperty;
-import org.mindswap.owl.OWLOntology;
-import org.mindswap.owls.service.Service;
+public class OWLS_Service {
+	public static final String ONTOLOGY_OWLS_SERVICE_URI = "http://www.daml.org/services/owl-s/1.2/Service.owl";
 
-import edu.utep.trustlab.visko.ontology.JenaIndividual;
-import edu.utep.trustlab.visko.util.GetURLContents;
+	// Classes
+	public static final String CLASS_URI_Service = ONTOLOGY_OWLS_SERVICE_URI + "#Service";
 
-public class OWLSModel {
-	private OWLKnowledgeBase kb;
-	private OWLOntology ontology;
-	
-	public OWLSModel() {
-		loadKB();
-	}
-		public OWLKnowledgeBase getOWLKnowledgeBase() {
-		return kb;
+	private static OntModel model;
+	private static Ontology ontology;
+
+	static {
+		model = ModelFactory.createOntologyModel();
+		model.read(ONTOLOGY_OWLS_SERVICE_URI + "#");
+		ontology = model.getOntology(ONTOLOGY_OWLS_SERVICE_URI);
 	}
 
-	public Service readService(String serviceURI) {
-		Service service = null;
-		
-		URI uri = GetURLContents.getURI(serviceURI);
-		try {
-			service = kb.readService(uri);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return service;
+	public static OntModel getModel() {
+		return model;
 	}
 
-	public void createOntology(String uri) {
-		URI ontologyURI = GetURLContents.getURI(uri);
-		ontology = kb.createOntology(ontologyURI);
-	}
-
-	public OWLObjectProperty getObjectProperty(String uri) {
-		URI propertyURI = GetURLContents.getURI(uri);
-		try {
-			kb.read(propertyURI);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return kb.getObjectProperty(propertyURI);
-	}
-
-	public OWLOntology getOntology() {
+	public static Ontology getOntology() {
 		return ontology;
-	}
-
-	public OWLIndividual getOWLIndividual(String uri){
-		URI uriObject = GetURLContents.getURI(uri);
-		return kb.getIndividual(uriObject);
-	}
-	
-	public String getModelAsRDFString(){
-		StringWriter wtr = new StringWriter();
-		getOntology().write(wtr, getOntology().getURI());
-		String rdfString = wtr.toString();
-		return rdfString;
-	}
-	
-	public OWLIndividual convertJenaToOWLIndividual(JenaIndividual ind) {
-		URI uri = GetURLContents.getURI(ind.getURI());
-		try {
-			kb.read(uri);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return kb.getIndividual(uri);
-	}
-
-	private void loadKB() {
-		kb = OWLFactory.createKB();
 	}
 }

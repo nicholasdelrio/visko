@@ -47,7 +47,7 @@ import edu.utep.trustlab.visko.ontology.vocabulary.ViskoS;
 
 public class Toolkit extends JenaIndividual {
 	public Toolkit(String baseURL, String name, ViskoModel viskoModel) {
-		super(ViskoS.CLASS_URI_TOOLKIT, baseURL, name, viskoModel);
+		super(ViskoS.CLASS_URI_Toolkit, baseURL, name, viskoModel);
 	}
 
 	public Toolkit(String uri, ViskoModel viskoModel) {

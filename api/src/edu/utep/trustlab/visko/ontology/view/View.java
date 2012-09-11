@@ -37,13 +37,54 @@ GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWE
 LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
+package edu.utep.trustlab.visko.ontology.view;
 
-package edu.utep.trustlab.visko.ontology.vocabulary;
+import com.hp.hpl.jena.ontology.Individual;
 
-public class XSD {
-	public static final String XSD_URI = "http://www.w3.org/2001/XMLSchema";
+import edu.utep.trustlab.visko.ontology.JenaIndividual;
+import edu.utep.trustlab.visko.ontology.model.ViskoModel;
+import edu.utep.trustlab.visko.ontology.vocabulary.ViskoV;
 
-	// XSD Types
-	public static final String TYPE_URI_ANYURI = XSD_URI + "#anyURI";
-	public static final String TYPE_URI_STRING = XSD_URI + "#string";
+public class View extends JenaIndividual {
+	public View(String baseURL, String name, ViskoModel viskoModel) {
+		super(ViskoV.CLASS_URI_View, baseURL, name, viskoModel);
+	}
+
+	public View(String uri, ViskoModel viskoModel) {
+		super(uri, viskoModel);
+	}
+
+	public String getURI(String uri) {
+		return uri;
+	}
+
+	@Override
+	protected Individual createNewIndividual() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected void populateFieldsWithIndividual(Individual ind) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void setProperties() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void initializeFields() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected boolean allFieldsPopulated() {
+		// TODO Auto-generated method stub
+		return true;
+	}
 }

@@ -42,9 +42,9 @@ package edu.utep.trustlab.visko.sparql;
 
 import com.hp.hpl.jena.query.*;
 
-import edu.utep.trustlab.visko.ontology.vocabulary.OWLS_Process;
-import edu.utep.trustlab.visko.ontology.vocabulary.OWLS_Service;
 import edu.utep.trustlab.visko.ontology.vocabulary.Visko;
+import edu.utep.trustlab.visko.ontology.vocabulary.supplemental.OWLS_Process;
+import edu.utep.trustlab.visko.ontology.vocabulary.supplemental.OWLS_Service;
 
 public class ViskoTripleStore {
 	
@@ -65,10 +65,9 @@ public class ViskoTripleStore {
 	}
 	
 	public static String QUERY_PREFIX = 
-			  "PREFIX viskoV: <" + Visko.VISKO_V + "#> "
-			+ "PREFIX viskoO: <" + Visko.VISKO_O + "#> "
-			+ "PREFIX viskoS: <" + Visko.VISKO_S + "#> "
-			+ "PREFIX viskoP: <" + Visko.VISKO_P + "#> "
+			  "PREFIX viskoV: <" + Visko.CORE_VISKO_V + "#> "
+			+ "PREFIX viskoO: <" + Visko.CORE_VISKO_O + "#> "
+			+ "PREFIX viskoS: <" + Visko.CORE_VISKO_S + "#> "
 			+ "PREFIX owlsService: <" + OWLS_Service.ONTOLOGY_OWLS_SERVICE_URI + "#> "
 			+ "PREFIX owlsProcess: <" + OWLS_Process.ONTOLOGY_OWLS_PROCESS_URI + "#> "
 			+ "PREFIX owl: <http://www.w3.org/2002/07/owl#> "

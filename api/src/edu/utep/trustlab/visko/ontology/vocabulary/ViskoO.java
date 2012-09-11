@@ -41,42 +41,38 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.ontology.vocabulary;
 
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.Ontology;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 public class ViskoO {
-	public static final String ONTOLOGY_VISKO_O_URI = Visko.VISKO_O;
 
-	// Concepts
-	public static final String CLASS_URI_OPERATOR = ONTOLOGY_VISKO_O_URI + "#Operator";
-	public static final String CLASS_URI_VIEWMAPPER = ONTOLOGY_VISKO_O_URI + "#ViewMapper";
-	public static final String CLASS_URI_FORMATCONVERTER = ONTOLOGY_VISKO_O_URI + "#FormatConverter";
-	public static final String CLASS_URI_DATATRANSFORMER = ONTOLOGY_VISKO_O_URI + "#DataTransformer";
-	public static final String CLASS_URI_DATAFILTER = ONTOLOGY_VISKO_O_URI + "#DataFilter";
+	// Classes
+	public static final String CLASS_URI_Operator = Visko.CORE_VISKO_O + "#Operator";
+	public static final String CLASS_URI_ViewMapper = Visko.CORE_VISKO_O + "#ViewMapper";
+	public static final String CLASS_URI_FormatConverter = Visko.CORE_VISKO_O + "#FormatConverter";
+	public static final String CLASS_URI_DataTransformer = Visko.CORE_VISKO_O + "#DataTransformer";
+	public static final String CLASS_URI_DataFilter = Visko.CORE_VISKO_O + "#DataFilter";
 
-	public static final String CLASS_URI_VIEWER = ONTOLOGY_VISKO_O_URI + "#Viewer";
-	public static final String CLASS_URI_VIEWERSET = ONTOLOGY_VISKO_O_URI + "#ViewerSet";
+	public static final String CLASS_URI_Viewer = Visko.CORE_VISKO_O + "#Viewer";
+	public static final String CLASS_URI_ViewerSet = Visko.CORE_VISKO_O + "#ViewerSet";
 
-	/*****************************************************************************************/
-	// Properties
-	public static final String PROPERTY_URI_HASINPUTFORMAT = ONTOLOGY_VISKO_O_URI + "#hasInputFormat";
-	public static final String PROPERTY_URI_HASOUTPUTFORMAT = ONTOLOGY_VISKO_O_URI + "#hasOutputFormat";
+	// Object Properties
+	public static final String PROPERTY_URI_hasInputFormat = Visko.CORE_VISKO_O + "#hasInputFormat";
+	public static final String PROPERTY_URI_hasOutputFormat = Visko.CORE_VISKO_O + "#hasOutputFormat";
 	
-	public static final String PROPERTY_URI_HASINPUTDATATYPE = ONTOLOGY_VISKO_O_URI + "#hasInputDataType";
-	public static final String PROPERTY_URI_HASOUTPUTDATATYPE = ONTOLOGY_VISKO_O_URI + "#hasOutputDataType";	
+	public static final String PROPERTY_URI_hasInputDataType = Visko.CORE_VISKO_O + "#hasInputDataType";
+	public static final String PROPERTY_URI_hasOutputDataType = Visko.CORE_VISKO_O + "#hasOutputDataType";	
 	
-	public static final String PROPERTY_URI_MAPS_TO = ONTOLOGY_VISKO_O_URI + "#mapsToView";
-	public static final String PROPERTY_URI_PART_OF_VIEWERSET = ONTOLOGY_VISKO_O_URI + "#partOfViewerSet";
+	public static final String PROPERTY_URI_mapsToView = Visko.CORE_VISKO_O + "#mapsToView";
+	public static final String PROPERTY_URI_partOfViewerSet = Visko.CORE_VISKO_O + "#partOfViewerSet";
 	
-	// model and ontology
 	private static OntModel model;
 	private static Ontology ontology;
 
 	static {
 		model = ModelFactory.createOntologyModel();
-		model.read(ONTOLOGY_VISKO_O_URI);
-		ontology = model.getOntology(ONTOLOGY_VISKO_O_URI);
+		model.read(Visko.CORE_VISKO_O);
+		ontology = model.getOntology(Visko.CORE_VISKO_O);
 	}
 
 	public static OntModel getModel() {

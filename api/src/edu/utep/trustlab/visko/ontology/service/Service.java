@@ -32,15 +32,15 @@ import edu.utep.trustlab.visko.ontology.vocabulary.ViskoS;
 public class Service extends JenaIndividual {
 	
 	private OWLSService owlsService;
-	private Operator implementedOperator;
-	private Toolkit supportingToolkit;
+	private Operator operator;
+	private Toolkit toolkit;
 	
-	private ObjectProperty implementsOperatorProperty;
-	private ObjectProperty supportingToolkitProperty;
-	private ObjectProperty supportedByOWLSServiceProperty;
+	private ObjectProperty implementsOperator;
+	private ObjectProperty supportingToolkit;
+	private ObjectProperty supportedByOWLSService;
 	
 	public Service(String baseURL, String name, ViskoModel viskoModel) {
-		super(ViskoS.CLASS_URI_SERVICE, baseURL, name, viskoModel);
+		super(ViskoS.CLASS_URI_Service, baseURL, name, viskoModel);
 	}
 
 	public Service(String uri, ViskoModel viskoModel) {
@@ -56,71 +56,74 @@ public class Service extends JenaIndividual {
 	}
 	
 	public void setConceptualOperator(Operator op) {
-		implementedOperator = op;
+		operator = op;
 	}
 	
 	public Operator getConceptualOperator() {
-		return implementedOperator;
+		return operator;
 	}
 
 	public void setSupportingToolkit(Toolkit tk) {
-		supportingToolkit = tk;
+		toolkit = tk;
 	}
 
 	public Toolkit getSupportingToolkit() {
-		return supportingToolkit;
+		return toolkit;
 	}
 	
 	
-	private void addImplementsOperatorProperty(Individual subjectInd) {
-		if (implementedOperator != null)
-			subjectInd.addProperty(implementsOperatorProperty, implementedOperator.getIndividual());
+	private void addImplementsOperator(Individual subjectInd) {
+		if (operator != null)
+			subjectInd.addProperty(implementsOperator, operator.getIndividual());
 	}
 
-	private void addSupportingToolkitProperty(Individual subjectInd) {
-		if(supportingToolkit != null)
-			subjectInd.addProperty(supportingToolkitProperty, supportingToolkit.getIndividual());
+	private void addSupportingToolkit(Individual subjectInd) {
+		if(toolkit != null)
+			subjectInd.addProperty(supportingToolkit, toolkit.getIndividual());
 	}
 	
-	private void addSupportingOWSServiceProperty(Individual subjectInd) {		
+	private void addSupportingOWSService(Individual subjectInd) {		
 		Individual owlsServiceIndividual = model.getIndividualFromOWLIndividual(owlsService.getIndividual());
 		if(owlsService != null)
-			subjectInd.addProperty(supportedByOWLSServiceProperty, owlsServiceIndividual);
+			subjectInd.addProperty(supportedByOWLSService, owlsServiceIndividual);
 	}
 
 	@Override
 	protected boolean allFieldsPopulated() {
-		return implementedOperator != null && supportingToolkit != null && owlsService != null;
+		return operator != null && toolkit != null && owlsService != null;
 	}
 
 	@Override
 	protected Individual createNewIndividual() {
 		Individual ind = super.createNewIndividual();
 
-		this.addImplementsOperatorProperty(ind);
-		this.addSupportingToolkitProperty(ind);
-		this.addSupportingOWSServiceProperty(ind);
+		this.addImplementsOperator(ind);
+		this.addSupportingToolkit(ind);
+		this.addSupportingOWSService(ind);
 		
 		return ind;
 	}
 
 	@Override
 	protected void setProperties() {
-		implementsOperatorProperty = model.getObjectProperty(ViskoS.PROPERTY_URI_IMPLEMENTS_OPERATOR);
-		supportingToolkitProperty = model.getObjectProperty(ViskoS.PROPERTY_URI_SUPPORTED_BY);
-		supportedByOWLSServiceProperty = model.getObjectProperty(ViskoS.PROPERTY_URI_SUPPORTED_BY_OWLS);
+		implementsOperator = model.getObjectProperty(ViskoS.PROPERTY_URI_implementsOperator);
+		supportingToolkit = model.getObjectProperty(ViskoS.PROPERTY_URI_supportedByToolkit);
+		supportedByOWLSService = model.getObjectProperty(ViskoS.PROPERTY_URI_supportedByOWLSService);
 	}
 
 	@Override
 	protected void populateFieldsWithIndividual(Individual ind) {
 		
-		RDFNode operatorNode = ind.getPropertyValue(implementsOperatorProperty);
-		implementedOperator = new Operator(operatorNode.as(Individual.class).getURI(), model);
+		// populate operator
+		RDFNode operatorNode = ind.getPropertyValue(implementsOperator);
+		operator = new Operator(operatorNode.as(Individual.class).getURI(), model);
 		
-		RDFNode toolkitNode = ind.getPropertyValue(supportingToolkitProperty);
-		supportingToolkit = new Toolkit(toolkitNode.as(Individual.class).getURI(), model);
+		// populate toolkit
+		RDFNode toolkitNode = ind.getPropertyValue(supportingToolkit);
+		toolkit = new Toolkit(toolkitNode.as(Individual.class).getURI(), model);
 		
-		RDFNode serviceNode = ind.getPropertyValue(supportedByOWLSServiceProperty);
+		// populate owlsService
+		RDFNode serviceNode = ind.getPropertyValue(supportedByOWLSService);
 		owlsService = new OWLSService(serviceNode.as(Individual.class).getURI());
 	}
 

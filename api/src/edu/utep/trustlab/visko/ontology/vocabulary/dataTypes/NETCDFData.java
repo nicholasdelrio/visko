@@ -38,34 +38,28 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.ontology.vocabulary;
+package edu.utep.trustlab.visko.ontology.vocabulary.dataTypes;
 
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.Ontology;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
-public class PMLP {
-	public static final String ONTOLOGY_PMLP_URI = "http://inference-web.org/2.0/pml-provenance.owl";
+import edu.utep.trustlab.visko.ontology.vocabulary.Visko;
 
-	// PMLP Ontology Concepts
-	public static final String CLASS_URI_PMLP_FORMAT = ONTOLOGY_PMLP_URI
-			+ "#Format";
-	public static final String CLASS_URI_PMLP_LANGUAGE = ONTOLOGY_PMLP_URI
-			+ "#Language";
+public class NETCDFData {
 
-	// PMLP Ontology Properties
-	public static final String DATATYPE_PROPERTY_URI_PMLP_HASNAME = ONTOLOGY_PMLP_URI
-			+ "#hasName";
-
-	// model and ontology
+	// Classes
+	public static final String CLASS_URI_1D_Array = Visko.DATA_NETCDF + "#1D_Array";
+	public static final String CLASS_URI_2D_Array = Visko.DATA_NETCDF + "#2D_Array";
+	public static final String CLASS_URI_3D_Array = Visko.DATA_NETCDF + "#3D_Array";
+	
 	private static OntModel model;
 	private static Ontology ontology;
 
 	static {
-		model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
-		model.read(ONTOLOGY_PMLP_URI);
-		ontology = model.getOntology(ONTOLOGY_PMLP_URI);
+		model = ModelFactory.createOntologyModel();
+		model.read(Visko.DATA_NETCDF);
+		ontology = model.getOntology(Visko.DATA_NETCDF);
 	}
 
 	public static OntModel getModel() {

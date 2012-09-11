@@ -45,41 +45,39 @@ import com.hp.hpl.jena.ontology.Ontology;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 public class ViskoV {
-	public static final String ONTOLOGY_VISKO_V_URI = Visko.VISKO_V;
 
-	// Concepts
-	public static final String CLASS_URI_1D_GEOMETRIC_VIEW = ONTOLOGY_VISKO_V_URI + "#1D_Geometric_View";
-	public static final String CLASS_URI_2D_GEOMETRIC_VIEW = ONTOLOGY_VISKO_V_URI + "#2D_Geometric_View";
-	public static final String CLASS_URI_3D_GEOMETRIC_VIEW = ONTOLOGY_VISKO_V_URI + "#3D_Geometric_View";
-	public static final String CLASS_URI_4D_GEOMETRIC_VIEW = ONTOLOGY_VISKO_V_URI + "#4D_Geometric_View";
+	// Classes
+	public static final String CLASS_URI_View = Visko.CORE_VISKO_V + "#View";
+	
+	public static final String CLASS_URI_1D_Geometric_View = Visko.CORE_VISKO_V + "#1D_Geometric_View";
+	public static final String CLASS_URI_2D_Geometric_View = Visko.CORE_VISKO_V + "#2D_Geometric_View";
+	public static final String CLASS_URI_3D_Geometric_View = Visko.CORE_VISKO_V + "#3D_Geometric_View";
+	public static final String CLASS_URI_4D_Geometric_View = Visko.CORE_VISKO_V + "#4D_Geometric_View";
 
-	public static final String CLASS_URI_1D_DATASTRUCTURE_VIEW = ONTOLOGY_VISKO_V_URI + "#1D_DataStructure_View";
-	public static final String CLASS_URI_2D_DATASTRUCTURE_VIEW = ONTOLOGY_VISKO_V_URI + "#2D_DataStructure_View";
-	public static final String CLASS_URI_3D_DATASTRUCTURE_VIEW = ONTOLOGY_VISKO_V_URI + "#3D_DataStructure_View";
-	public static final String CLASS_URI_4D_DATASTRUCTURE_VIEW = ONTOLOGY_VISKO_V_URI + "#4D_DataStructure_View";
+	public static final String CLASS_URI_1D_DataStructure_View = Visko.CORE_VISKO_V + "#1D_DataStructure_View";
+	public static final String CLASS_URI_2D_DataStructure_View = Visko.CORE_VISKO_V + "#2D_DataStructure_View";
+	public static final String CLASS_URI_3D_DataStructure_View = Visko.CORE_VISKO_V + "#3D_DataStructure_View";
+	public static final String CLASS_URI_4D_DataStructure_View = Visko.CORE_VISKO_V + "#4D_DataStructure_View";
 	
 	// Individuals
+	public static final String INDIVIDUAL_URI_Timeline = Visko.CORE_VISKO_V + "#Timeline";
 	
-	public static final String INDIVIDUAL_URI_TIMELINE = ONTOLOGY_VISKO_V_URI + "#Timeline";
+	public static final String INDIVIDUAL_URI_ContourMap = Visko.CORE_VISKO_V + "#ContourMap";
+	public static final String INDIVIDUAL_URI_PointPlot = Visko.CORE_VISKO_V + "#PointPlot";
+	public static final String INDIVIDUAL_URI_RasterMap = Visko.CORE_VISKO_V + "#RasterMap";
+	public static final String INDIVIDUAL_URI_TimeSeriesPlot = Visko.CORE_VISKO_V + "#TimeSeriesPlot";
 	
-	public static final String INDIVIDUAL_URI_CONTOURMAP = ONTOLOGY_VISKO_V_URI + "#ContourMap";
-	public static final String INDIVIDUAL_URI_POINTPLOT = ONTOLOGY_VISKO_V_URI + "#PointPlot";
-	public static final String INDIVIDUAL_URI_RASTERMAP = ONTOLOGY_VISKO_V_URI + "#RasterMap";
-	public static final String INDIVIDUAL_URI_TIMESERIESPLOT = ONTOLOGY_VISKO_V_URI + "#TimeSeriesPlot";
-	
-	public static final String INDIVIDUAL_URI_ISOSURFACESRENDERING = ONTOLOGY_VISKO_V_URI + "#IsoSurfacesRendering";
-	public static final String INDIVIDUAL_URI_MESHPLOT = ONTOLOGY_VISKO_V_URI + "#MeshPlot";
-	public static final String INDIVIDUAL_URI_VOLUMERENDERING = ONTOLOGY_VISKO_V_URI + "#VolumeRendering";
+	public static final String INDIVIDUAL_URI_IsoSurfaceRendering = Visko.CORE_VISKO_V + "#IsoSurfacesRendering";
+	public static final String INDIVIDUAL_URI_MeshPlot = Visko.CORE_VISKO_V + "#MeshPlot";
+	public static final String INDIVIDUAL_URI_VolumeRendering = Visko.CORE_VISKO_V + "#VolumeRendering";
 
-	/*****************************************************************************************/
-	// model and ontology
 	private static OntModel model;
 	private static Ontology ontology;
 
 	static {
 		model = ModelFactory.createOntologyModel();
-		model.read(ONTOLOGY_VISKO_V_URI);
-		ontology = model.getOntology(ONTOLOGY_VISKO_V_URI);
+		model.read(Visko.CORE_VISKO_V);
+		ontology = model.getOntology(Visko.CORE_VISKO_V);
 	}
 
 	public static OntModel getModel() {

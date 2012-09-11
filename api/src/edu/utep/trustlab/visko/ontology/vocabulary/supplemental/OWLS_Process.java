@@ -38,30 +38,31 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.ontology.vocabulary;
+package edu.utep.trustlab.visko.ontology.vocabulary.supplemental;
 
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.Ontology;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
-public class RDFS {
-	public static final String ONTOLOGY_RDFS_URI = "http://www.w3.org/2000/01/rdf-schema";
+public class OWLS_Process {
+	public static final String ONTOLOGY_OWLS_PROCESS_URI = "http://www.daml.org/services/owl-s/1.2/Process.owl";
 
-	// RDFS Properties
-	public static final String PROPERTY_URI_RDFS_COMMENT = ONTOLOGY_RDFS_URI
-			+ "#comment";
-	public static final String PROPERTY_URI_RDFS_LABEL = ONTOLOGY_RDFS_URI
-			+ "#label";
+	// Classes
+	public static final String CLASS_URI_Input = ONTOLOGY_OWLS_PROCESS_URI + "#Input";
+	public static final String CLASS_URI_InputBinding = ONTOLOGY_OWLS_PROCESS_URI + "#InputBinding";
 
-	// model and ontology
+	// Object Properties
+	public static final String PROPERTY_URI_valueData = ONTOLOGY_OWLS_PROCESS_URI + "#valueData";
+	public static final String PROPERTY_URI_toParam = ONTOLOGY_OWLS_PROCESS_URI + "#toParam";
+	public static final String PROPERTY_URI_paramType = ONTOLOGY_OWLS_PROCESS_URI + "#parameterType";
+
 	private static OntModel model;
 	private static Ontology ontology;
 
 	static {
-		model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
-		model.read(ONTOLOGY_RDFS_URI);
-		ontology = model.getOntology(ONTOLOGY_RDFS_URI);
+		model = ModelFactory.createOntologyModel();
+		model.read(ONTOLOGY_OWLS_PROCESS_URI + "#");
+		ontology = model.getOntology(ONTOLOGY_OWLS_PROCESS_URI);
 	}
 
 	public static OntModel getModel() {

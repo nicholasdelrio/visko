@@ -38,89 +38,12 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.ontology.model;
+package edu.utep.trustlab.visko.ontology.vocabulary.supplemental;
 
-import java.io.StringWriter;
-import java.net.URI;
+public class XSD {
+	public static final String XSD_URI = "http://www.w3.org/2001/XMLSchema";
 
-import org.mindswap.owl.OWLFactory;
-import org.mindswap.owl.OWLIndividual;
-import org.mindswap.owl.OWLKnowledgeBase;
-import org.mindswap.owl.OWLObjectProperty;
-import org.mindswap.owl.OWLOntology;
-import org.mindswap.owls.service.Service;
-
-import edu.utep.trustlab.visko.ontology.JenaIndividual;
-import edu.utep.trustlab.visko.util.GetURLContents;
-
-public class OWLSModel {
-	private OWLKnowledgeBase kb;
-	private OWLOntology ontology;
-	
-	public OWLSModel() {
-		loadKB();
-	}
-		public OWLKnowledgeBase getOWLKnowledgeBase() {
-		return kb;
-	}
-
-	public Service readService(String serviceURI) {
-		Service service = null;
-		
-		URI uri = GetURLContents.getURI(serviceURI);
-		try {
-			service = kb.readService(uri);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return service;
-	}
-
-	public void createOntology(String uri) {
-		URI ontologyURI = GetURLContents.getURI(uri);
-		ontology = kb.createOntology(ontologyURI);
-	}
-
-	public OWLObjectProperty getObjectProperty(String uri) {
-		URI propertyURI = GetURLContents.getURI(uri);
-		try {
-			kb.read(propertyURI);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return kb.getObjectProperty(propertyURI);
-	}
-
-	public OWLOntology getOntology() {
-		return ontology;
-	}
-
-	public OWLIndividual getOWLIndividual(String uri){
-		URI uriObject = GetURLContents.getURI(uri);
-		return kb.getIndividual(uriObject);
-	}
-	
-	public String getModelAsRDFString(){
-		StringWriter wtr = new StringWriter();
-		getOntology().write(wtr, getOntology().getURI());
-		String rdfString = wtr.toString();
-		return rdfString;
-	}
-	
-	public OWLIndividual convertJenaToOWLIndividual(JenaIndividual ind) {
-		URI uri = GetURLContents.getURI(ind.getURI());
-		try {
-			kb.read(uri);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return kb.getIndividual(uri);
-	}
-
-	private void loadKB() {
-		kb = OWLFactory.createKB();
-	}
+	// DataTypes
+	public static final String DATATYPE_URI_ANYURI = XSD_URI + "#anyURI";
+	public static final String DATATYPE_URI_STRING = XSD_URI + "#string";
 }

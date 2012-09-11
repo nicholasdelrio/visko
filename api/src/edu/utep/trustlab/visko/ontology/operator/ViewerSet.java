@@ -48,7 +48,7 @@ import com.hp.hpl.jena.ontology.Individual;
 
 public class ViewerSet extends JenaIndividual {
 	public ViewerSet(String baseURL, String name, ViskoModel viskoModel) {
-		super(ViskoO.CLASS_URI_VIEWERSET, baseURL, name, viskoModel);
+		super(ViskoO.CLASS_URI_ViewerSet, baseURL, name, viskoModel);
 	}
 
 	public ViewerSet(String uri, ViskoModel viskoModel) {

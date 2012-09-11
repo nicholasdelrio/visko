@@ -44,11 +44,11 @@ import com.hp.hpl.jena.ontology.Individual;
 
 import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
-import edu.utep.trustlab.visko.ontology.vocabulary.PMLP;
+import edu.utep.trustlab.visko.ontology.vocabulary.supplemental.PMLP;
 
 public class Format extends JenaIndividual {
 	public Format(String baseURL, String name, ViskoModel viskoModel) {
-		super(PMLP.CLASS_URI_PMLP_FORMAT, baseURL, name, viskoModel);
+		super(PMLP.CLASS_URI_Format, baseURL, name, viskoModel);
 	}
 
 	public Format(String uri, ViskoModel viskoModel) {

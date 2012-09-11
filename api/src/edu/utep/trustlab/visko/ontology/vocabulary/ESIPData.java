@@ -46,10 +46,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 public class ESIPData {
 
-	public static final String ONTOLOGY_ESIP_URI = Visko.ESIP;
 	public static final String ONTOLOGY_ESIP_NS = "http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl";
-
-	/*****************************************************************************************/
 
 	// model and ontology
 	private static OntModel model;
@@ -57,8 +54,8 @@ public class ESIPData {
 
 	static {
 		model = ModelFactory.createOntologyModel();
-		model.read(ONTOLOGY_ESIP_URI);
-		ontology = model.getOntology(ONTOLOGY_ESIP_URI);
+		model.read(Visko.CORE_ESIP);
+		ontology = model.getOntology(Visko.CORE_ESIP);
 	}
 
 	public static OntModel getModel() {

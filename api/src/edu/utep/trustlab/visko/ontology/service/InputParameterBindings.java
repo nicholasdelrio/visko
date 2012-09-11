@@ -47,22 +47,21 @@ import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.ObjectProperty;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
-import com.hp.hpl.jena.rdf.model.RDFNode;
 
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
-import edu.utep.trustlab.visko.ontology.vocabulary.XSD;
 import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoS;
+import edu.utep.trustlab.visko.ontology.vocabulary.supplemental.XSD;
 
 public class InputParameterBindings extends JenaIndividual {
-	private Vector<String> profiledDataTypes;
-	private Vector<InputBinding> inputBindings;
+	private Vector<String> types;
+	private Vector<InputBinding> bindings;
 
-	private ObjectProperty declaresBindingsProperty;
-	private DatatypeProperty profilesProperty;
+	private ObjectProperty declaresBindings;
+	private DatatypeProperty profiles;
 
 	public InputParameterBindings(String baseURL, String name, ViskoModel viskoModel) {
-		super(ViskoS.CLASS_URI_INPUT_PARAMETER_BINDINGS, baseURL, name, viskoModel);
+		super(ViskoS.CLASS_URI_InputParameterBindings, baseURL, name, viskoModel);
 	}
 
 	public InputParameterBindings(String uri, ViskoModel viskoModel) {
@@ -70,83 +69,79 @@ public class InputParameterBindings extends JenaIndividual {
 	}
 
 	public void addInputBinding(InputBinding ib) {
-		inputBindings.add(ib);
+		bindings.add(ib);
 	}
 
 	public void setInputBindings(Vector<InputBinding> ibs) {
-		inputBindings = ibs;
+		bindings = ibs;
 	}
 
 	public Vector<InputBinding> getInputBindings() {
-		return inputBindings;
+		return bindings;
 	}
 
-	public void addProfiledDataType(String dataType) {
-		profiledDataTypes.add(dataType);
+	public void setProfiledTypes(Vector<String> someTypes){
+		types = someTypes;
+	}
+	
+	public void addProfileType(String dataType) {
+		types.add(dataType);
 	}
 
-	public Vector<String> getProfiledDataTypes() {
-		return profiledDataTypes;
+	public Vector<String> getProfiledTypes() {
+		return types;
 	}
 
-	private void addProfilesProperty(Individual subjectInd) {
-		for (String type : profiledDataTypes) {
-			System.out.println("adding profiled type....");
-			Literal dataType = model.createTypedLiteral(type,
-					XSD.TYPE_URI_ANYURI);
-			subjectInd.addProperty(profilesProperty, dataType);
+	private void addProfiles(Individual subjectInd) {
+		for (String type : types) {
+			Literal dataTypeLiteral = model.createTypedLiteral(type, XSD.DATATYPE_URI_ANYURI);
+			subjectInd.addProperty(profiles, dataTypeLiteral);
 		}
 	}
 
-	private void addDeclaresBindingsProperty(Individual subjectInd) {
-		for (InputBinding ib : inputBindings) {
-			subjectInd
-					.addProperty(declaresBindingsProperty, ib.getIndividual());
+	private void addDeclaresBindings(Individual subjectInd) {
+		for (InputBinding ib : bindings) {
+			subjectInd.addProperty(declaresBindings, ib.getIndividual());
 		}
 	}
 
 	@Override
 	public Individual createNewIndividual() {
 		Individual subjectInd = super.createNewIndividual();
-		this.addDeclaresBindingsProperty(subjectInd);
-		this.addProfilesProperty(subjectInd);
+		this.addDeclaresBindings(subjectInd);
+		this.addProfiles(subjectInd);
 
 		return subjectInd;
 	}
 
 	@Override
 	protected void populateFieldsWithIndividual(Individual ind) {
-		NodeIterator iterator = ind.listPropertyValues(profilesProperty);
-		RDFNode dataType;
-		String profiledDataType;
-		while (iterator.hasNext()) {
-			dataType = iterator.next();
-			profiledDataType = (String) dataType.as(Literal.class).getValue();
-			profiledDataTypes.add(profiledDataType);
-		}
+		
+		// populate types
+		NodeIterator semanticTypes = ind.listPropertyValues(profiles);
+		while (semanticTypes.hasNext())
+			types.add((String) semanticTypes.next().as(Literal.class).getValue());
 
-		NodeIterator ibInds = ind.listPropertyValues(declaresBindingsProperty);
-		String ibURI;
-		while (ibInds.hasNext()) {
-			ibURI = ibInds.next().as(Individual.class).getURI();
-			inputBindings.add(new InputBinding(ibURI, model));
-		}
+		// populate bindings
+		NodeIterator inBindings = ind.listPropertyValues(declaresBindings);
+		while (inBindings.hasNext())
+			bindings.add(new InputBinding(inBindings.next().as(Individual.class).getURI(), model));
 	}
 
 	@Override
 	protected void setProperties() {
-		declaresBindingsProperty = model.getObjectProperty(ViskoS.PROPERTY_URI_DECLARES_BINDINGS);
-		profilesProperty = model.getDatatypeProperty(ViskoS.DATATYPE_PROPERTY_URI_PROFILES);
+		declaresBindings = model.getObjectProperty(ViskoS.PROPERTY_URI_declaresBindings);
+		profiles = model.getDatatypeProperty(ViskoS.DATATYPE_PROPERTY_URI_profiles);
 	}
 
 	@Override
 	protected void initializeFields() {
-		inputBindings = new Vector<InputBinding>();
-		profiledDataTypes = new Vector<String>();
+		bindings = new Vector<InputBinding>();
+		types = new Vector<String>();
 	}
 
 	@Override
 	protected boolean allFieldsPopulated() {
-		return inputBindings.size() > 0 && profiledDataTypes.size() > 0;
+		return bindings.size() > 0 && types.size() > 0;
 	}
 }

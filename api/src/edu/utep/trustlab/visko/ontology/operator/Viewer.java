@@ -42,96 +42,127 @@ package edu.utep.trustlab.visko.ontology.operator;
 
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.ObjectProperty;
+import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
 
+import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
-import edu.utep.trustlab.visko.ontology.view.View;
+import edu.utep.trustlab.visko.ontology.pmlp.Format;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
+import edu.utep.trustlab.visko.ontology.vocabulary.supplemental.OWL;
 
 import java.util.Vector;
 
-public class Viewer extends Operator {
-	View viewToPresent;
-	Vector<ViewerSet> belongsToSets;
+public class Viewer extends JenaIndividual {
 
-	ObjectProperty presentsViewProperty;
-	ObjectProperty addPartOfViewerSetProperty;
+	Vector<ViewerSet> viewerSets;
+	ObjectProperty partOfViewerSet;
+	
+	// input formats and data types
+	private Format inputFormat;	
+	private OntResource inputDataType;
+	
+	// Object Properties
+	private ObjectProperty hasInputFormat;	
+	private ObjectProperty hasInputDataType;
 
 	public Viewer(String baseURL, String name, ViskoModel viskoModel) {
-		super(ViskoO.CLASS_URI_VIEWER, baseURL, name, viskoModel);
+		super(ViskoO.CLASS_URI_Viewer, baseURL, name, viskoModel);
 	}
 
 	public Viewer(String uri, ViskoModel viskoModel) {
 		super(uri, viskoModel);
 	}
 
-	public void setBelongsToViewerSets(Vector<ViewerSet> sets) {
-		belongsToSets = sets;
+	public void setViewerSets(Vector<ViewerSet> someViewerSets) {
+		viewerSets = someViewerSets;
 	}
 
-	public void addBelongsToViewerSet(ViewerSet set) {
-		belongsToSets.add(set);
+	public void addBelongsToViewerSet(ViewerSet viewerSet) {
+		viewerSets.add(viewerSet);
 	}
 
-	public Vector<ViewerSet> getBelongsToViewerSets() {
-		return belongsToSets;
+	public Vector<ViewerSet> getViewerSets() {
+		return viewerSets;
 	}
 
-	public void setViewToPresent(View viewToPresent) {
-		this.viewToPresent = viewToPresent;
+	public void setInputFormat(Format inFormat) {
+		inputFormat = inFormat;
+	}
+		
+	public Format getInputFormat(){
+		return inputFormat;
+	}
+		
+	public void setInputDataType(OntResource inDataType) {
+		inputDataType = inDataType;
+	}	
+		
+	public String getInputDataTypeURI(){
+		return inputDataType.getURI();
+	}
+	
+	private void addHasInputFormat(Individual subjectInd) {
+		subjectInd.addProperty(hasInputFormat, inputFormat.getIndividual());		
+	}
+	
+	private void addHasInputDataType(Individual subjectInd) {
+		
+		if(inputDataType == null)
+			subjectInd.addProperty(hasInputDataType, OWL.getOWLThing());
+		else
+			subjectInd.addProperty(hasInputDataType, inputDataType);
 	}
 
-	private void addPresentsViewProperty(Individual subjectInd) {
-		if (viewToPresent != null)
-			subjectInd.addProperty(presentsViewProperty,
-					viewToPresent.getIndividual());
-	}
-
-	private void addPartOfViewerSetProperty(Individual subjectInd) {
-		for (ViewerSet set : belongsToSets)
-			subjectInd.addProperty(addPartOfViewerSetProperty,
-					set.getIndividual());
+	private void addPartOfViewerSet(Individual subjectInd) {
+		for (ViewerSet set : viewerSets)
+			subjectInd.addProperty(partOfViewerSet, set.getIndividual());
 	}
 
 	@Override
 	protected boolean allFieldsPopulated() {
-		if (super.allFieldsPopulated() && belongsToSets.size() > 0)
-			return true;
-		return false;
+		boolean hasInputFormat = inputFormat != null;
+		boolean hasInputDataType = inputDataType != null;
+		
+		return viewerSets.size() > 0 && hasInputFormat && hasInputDataType;		
 	}
 
 	@Override
 	protected Individual createNewIndividual() {
 		Individual ind = super.createNewIndividual();
 
-		this.addPartOfViewerSetProperty(ind);
-		this.addPresentsViewProperty(ind);
+		this.addHasInputDataType(ind);
+		this.addHasInputFormat(ind);
+		this.addPartOfViewerSet(ind);
 
 		return ind;
 	}
 
 	@Override
 	protected void setProperties() {
-		super.setProperties();
-		presentsViewProperty = model.getObjectProperty(ViskoO.PROPERTY_URI_PRESENTSVIEW);
-		addPartOfViewerSetProperty = model.getObjectProperty(ViskoO.PROPERTY_URI_PART_OF_VIEWERSET);
+		partOfViewerSet = model.getObjectProperty(ViskoO.PROPERTY_URI_partOfViewerSet);
+		hasInputFormat = model.getObjectProperty(ViskoO.PROPERTY_URI_hasInputFormat);
+		hasInputDataType = model.getObjectProperty(ViskoO.PROPERTY_URI_hasInputDataType);		
 	}
 
 	@Override
 	protected void populateFieldsWithIndividual(Individual ind) {
-		super.populateFieldsWithIndividual(ind);
-
-		NodeIterator viewerSets = ind.listPropertyValues(addPartOfViewerSetProperty);
-		ViewerSet vSet;
-		while (viewerSets.hasNext()) {
-			vSet = new ViewerSet(viewerSets.next().as(Individual.class).getURI(), model);
-			belongsToSets.add(vSet);
-		}
+		// populate viewer sets
+		NodeIterator vSets = ind.listPropertyValues(partOfViewerSet);
+		while (vSets.hasNext())
+			viewerSets.add(new ViewerSet(vSets.next().as(Individual.class).getURI(), model));
+		
+		// populate input format
+		NodeIterator inFormat = ind.listPropertyValues(hasInputFormat);
+		inputFormat = new Format(inFormat.next().as(Individual.class).getURI(), model);
+	
+		// populate input data type
+		NodeIterator inDataType = ind.listPropertyValues(hasInputDataType);
+		inputDataType = inDataType.next().as(Individual.class);
 	}
 
 	@Override
 	protected void initializeFields() {
-		super.initializeFields();
-		belongsToSets = new Vector<ViewerSet>();
+		viewerSets = new Vector<ViewerSet>();
 	}
 }
