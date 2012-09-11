@@ -1,8 +1,8 @@
 package edu.utep.trustlab.visko.installation.packages.rdf;
 
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
-import edu.utep.trustlab.visko.ontology.operator.Mapper;
-import edu.utep.trustlab.visko.ontology.operator.Transformer;
+import edu.utep.trustlab.visko.ontology.operator.ViewMapper;
+import edu.utep.trustlab.visko.ontology.operator.DataTransformer;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
 import edu.utep.trustlab.visko.ontology.service.Service;
@@ -56,14 +56,14 @@ public class PackageOperatorService {
 	protected void addToModel() {
 		//create operator
 		String operatorName = operationName + "-operator";
-		Transformer transformer;
+		DataTransformer transformer;
 		if(view != null){
-			Mapper mapper = new Mapper(baseFileURL, operatorName, vModel);
+			ViewMapper mapper = new ViewMapper(baseFileURL, operatorName, vModel);
 			mapper.setViewToMapTo(view);
 			transformer = mapper;
 		}
 		else
-			transformer = new Transformer(baseFileURL, operatorName, vModel);
+			transformer = new DataTransformer(baseFileURL, operatorName, vModel);
 		
 		transformer.setComment(comment);
 		transformer.setLabel(label);

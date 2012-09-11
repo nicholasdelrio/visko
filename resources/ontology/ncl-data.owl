@@ -4,19 +4,23 @@
 <!DOCTYPE rdf:RDF [
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY ncl-data "http://www.ncl.ucar.edu/ncl-data.owl#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY netcdf-data "http://www.unidata.ucar.edu/software/netcdf/netCDF-data.owl#" >
 ]>
 
 
-<rdf:RDF xmlns="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/ncl-data.owl#"
-     xml:base="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/ncl-data.owl"
+<rdf:RDF xmlns="http://www.ncl.ucar.edu/ncl-data.owl#"
+     xml:base="http://www.ncl.ucar.edu/ncl-data.owl"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:netcdf-data="http://www.unidata.ucar.edu/software/netcdf/netCDF-data.owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-    <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/ncl-data.owl">
-        <owl:imports rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/netCDF-data.owl"/>
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ncl-data="http://www.ncl.ucar.edu/ncl-data.owl#">
+    <owl:Ontology rdf:about="http://www.ncl.ucar.edu/ncl-data.owl">
+        <owl:imports rdf:resource="http://www.unidata.ucar.edu/software/netcdf/netCDF-data.owl"/>
     </owl:Ontology>
     
 
@@ -32,45 +36,45 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/ncl-data.owl#1D_Array -->
+    <!-- http://www.ncl.ucar.edu/ncl-data.owl#1D_Array -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/ncl-data.owl#1D_Array">
-        <owl:equivalentClass rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/netCDF-data.owl#1D_Array"/>
+    <owl:Class rdf:about="&ncl-data;1D_Array">
+        <owl:equivalentClass rdf:resource="&netcdf-data;1D_Array"/>
     </owl:Class>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/ncl-data.owl#2D_Array -->
+    <!-- http://www.ncl.ucar.edu/ncl-data.owl#2D_Array -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/ncl-data.owl#2D_Array">
-        <owl:equivalentClass rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/netCDF-data.owl#2D_Array"/>
+    <owl:Class rdf:about="&ncl-data;2D_Array">
+        <owl:equivalentClass rdf:resource="&netcdf-data;2D_Array"/>
     </owl:Class>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/ncl-data.owl#3D_Array -->
+    <!-- http://www.ncl.ucar.edu/ncl-data.owl#3D_Array -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/ncl-data.owl#3D_Array">
-        <owl:equivalentClass rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/netCDF-data.owl#3D_Array"/>
+    <owl:Class rdf:about="&ncl-data;3D_Array">
+        <owl:equivalentClass rdf:resource="&netcdf-data;3D_Array"/>
     </owl:Class>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/netCDF-data.owl#1D_Array -->
+    <!-- http://www.unidata.ucar.edu/software/netcdf/netCDF-data.owl#1D_Array -->
 
-    <rdf:Description rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/netCDF-data.owl#1D_Array"/>
+    <rdf:Description rdf:about="&netcdf-data;1D_Array"/>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/netCDF-data.owl#2D_Array -->
+    <!-- http://www.unidata.ucar.edu/software/netcdf/netCDF-data.owl#2D_Array -->
 
-    <rdf:Description rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/netCDF-data.owl#2D_Array"/>
+    <rdf:Description rdf:about="&netcdf-data;2D_Array"/>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/netCDF-data.owl#3D_Array -->
+    <!-- http://www.unidata.ucar.edu/software/netcdf/netCDF-data.owl#3D_Array -->
 
-    <rdf:Description rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/netCDF-data.owl#3D_Array"/>
+    <rdf:Description rdf:about="&netcdf-data;3D_Array"/>
 </rdf:RDF>
 
 

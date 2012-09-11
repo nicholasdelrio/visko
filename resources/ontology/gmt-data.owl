@@ -5,18 +5,22 @@
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY gmt-data "http://gmt.soest.hawaii.edu/gmt-data.owl#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY netcdf-data "http://www.unidata.ucar.edu/software/netcdf/netCDF-data.owl#" >
 ]>
 
 
-<rdf:RDF xmlns="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/gmt-data.owl#"
-     xml:base="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/gmt-data.owl"
+<rdf:RDF xmlns="http://gmt.soest.hawaii.edu/gmt-data.owl#"
+     xml:base="http://gmt.soest.hawaii.edu/gmt-data.owl"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:gmt-data="http://gmt.soest.hawaii.edu/gmt-data.owl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:netcdf-data="http://www.unidata.ucar.edu/software/netcdf/netCDF-data.owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-    <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/gmt-data.owl">
-        <owl:imports rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/netCDF-data.owl"/>
+    <owl:Ontology rdf:about="http://gmt.soest.hawaii.edu/gmt-data.owl">
+        <owl:imports rdf:resource="http://www.unidata.ucar.edu/software/netcdf/netCDF-data.owl"/>
     </owl:Ontology>
     
 
@@ -32,10 +36,10 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/gmt-data.owl#2D_Grid_COARDS -->
+    <!-- http://gmt.soest.hawaii.edu/gmt-data.owl#2D_Grid_COARDS -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/gmt-data.owl#2D_Grid_COARDS">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/netCDF-data.owl#2D_Array"/>
+    <owl:Class rdf:about="&gmt-data;2D_Grid_COARDS">
+        <rdfs:subClassOf rdf:resource="&netcdf-data;2D_Array"/>
     </owl:Class>
 </rdf:RDF>
 

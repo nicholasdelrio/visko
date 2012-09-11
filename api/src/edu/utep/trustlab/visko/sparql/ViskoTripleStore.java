@@ -105,7 +105,7 @@ public class ViskoTripleStore {
 		viewerURI = "<" + viewerURI + ">";
 
 		String stringQuery = QUERY_PREFIX + "SELECT ?format " + "WHERE {"
-				+ viewerURI + " viskoO:operatesOn ?format . " + "}";
+				+ viewerURI + " viskoO:hasInputFormat ?format . " + "}";
 
 		return endpoint.executeQuery(stringQuery);
 	}
@@ -131,21 +131,37 @@ public class ViskoTripleStore {
 
 	}
 
-	public ResultSet getTransformers() {
-		String stringQuery = QUERY_PREFIX + "SELECT ?trans ?transLbl "
-				+ "WHERE { " + "?trans rdf:type viskoO:Transformer . "
-				+ "?trans rdfs:label ?transLbl . " + "}";
+	public ResultSet getDataTransformers() {
+		String stringQuery = QUERY_PREFIX + "SELECT ?operator ?lbl "
+				+ "WHERE { " + "?operator rdf:type viskoO:DataTransformer . "
+				+ "?operator rdfs:label ?lbl . " + "}";
+
+		return endpoint.executeQuery(stringQuery);
+	}
+	
+	public ResultSet getDataFilters() {
+		String stringQuery = QUERY_PREFIX + "SELECT ?operator ?lbl "
+				+ "WHERE { " + "?operator rdf:type viskoO:DataFilter . "
+				+ "?operator rdfs:label ?lbl . " + "}";
 
 		return endpoint.executeQuery(stringQuery);
 	}
 
-	public ResultSet getTransformerInformation() {
+	public ResultSet getFormatConverters() {
+		String stringQuery = QUERY_PREFIX + "SELECT ?operator ?lbl "
+				+ "WHERE { " + "?operator rdf:type viskoO:FormatConverter . "
+				+ "?operator rdfs:label ?lbl . " + "}";
+
+		return endpoint.executeQuery(stringQuery);
+	}
+
+	public ResultSet getOperatorInformation() {
 		String stringQuery = QUERY_PREFIX
-				+ "SELECT ?trans ?transLbl ?input ?output " + "WHERE { "
-				+ "?trans rdf:type viskoO:Transformer . "
-				+ "?trans rdfs:label ?transLbl . "
-				+ "?trans viskoO:operatesOn ?input. "
-				+ "?trans viskoO:transformsTo ?output. " + "}";
+				+ "SELECT ?operator ?lbl ?input ?output " + "WHERE { "
+				+ "?operator rdf:type viskoO:Transformer . "
+				+ "?operator rdfs:label ?lbl . "
+				+ "?operator viskoO:hasInputFormat ?input. "
+				+ "?operator viskoO:hasOutputFormat ?output. " + "}";
 		return endpoint.executeQuery(stringQuery);
 	}
 

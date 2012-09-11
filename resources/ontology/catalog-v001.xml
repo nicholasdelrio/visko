@@ -3,13 +3,13 @@
     <uri id="Imports Wizard Entry" name="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/netCDF-data.owl" uri="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/netCDF-data.owl"/>
     <uri id="Imports Wizard Entry" name="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-view.owl" uri="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1347319846564" name="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl" uri="esip-data.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1347319846564" name="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/gmt-data.owl" uri="gmt-data.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1347319846564" name="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/ncl-data.owl" uri="ncl-data.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1347319846564" name="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/netCDF-data.owl" uri="netCDF-data.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1347319846564" name="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl" uri="visko-operator.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1347319846564" name="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-service.owl" uri="visko-service.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1347319846564" name="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl" uri="visko-view.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1347319846564" name="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/vtk-data.owl" uri="vtk-data.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1347335619549" name="http://gmt.soest.hawaii.edu/gmt-data.owl" uri="gmt-data.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1347335619549" name="http://www.ncl.ucar.edu/ncl-data.owl" uri="ncl-data.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1347335619549" name="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl" uri="esip-data.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1347335619549" name="http://www.unidata.ucar.edu/software/netcdf/netCDF-data.owl" uri="netCDF-data.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1347335619549" name="http://www.vtk.org/vtk-data.owl" uri="vtk-data.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1347335619549" name="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl" uri="visko-operator.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1347335619549" name="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-service.owl" uri="visko-service.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1347335619549" name="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl" uri="visko-view.owl"/>
     </group>
 </catalog>
