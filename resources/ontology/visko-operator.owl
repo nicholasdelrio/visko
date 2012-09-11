@@ -52,6 +52,20 @@
     
 
 
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#canBeConvertedToFormatRequiredByViewerSet -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;canBeConvertedToFormatRequiredByViewerSet">
+        <rdfs:domain rdf:resource="&pml-provenance;Format"/>
+        <rdfs:range rdf:resource="&visko-operator;ViewerSet"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&visko-operator;canBeConvertedToFormatTransitive"/>
+            <rdf:Description rdf:about="&visko-operator;isInputFormatTo"/>
+            <rdf:Description rdf:about="&visko-operator;partOfViewerSet"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#canBeConvertedToFormatTransitive -->
 
     <owl:ObjectProperty rdf:about="&visko-operator;canBeConvertedToFormatTransitive">
@@ -83,6 +97,33 @@
     
 
 
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#hasNextOperatorWithCommonFormat -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;hasNextOperatorWithCommonFormat">
+        <rdfs:range rdf:resource="&visko-operator;Operator"/>
+        <rdfs:domain rdf:resource="&visko-operator;Operator"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&visko-operator;hasOutputFormat"/>
+            <rdf:Description rdf:about="&visko-operator;isInputFormatTo"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#hasNextOperatorWithCommonFormatTransitive -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;hasNextOperatorWithCommonFormatTransitive">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="&visko-operator;Operator"/>
+        <rdfs:range rdf:resource="&visko-operator;Operator"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&visko-operator;hasOutputFormat"/>
+            <rdf:Description rdf:about="&visko-operator;isInputFormatTo"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#hasOutputDataType -->
 
     <owl:ObjectProperty rdf:about="&visko-operator;hasOutputDataType">
@@ -104,6 +145,20 @@
 
     <owl:ObjectProperty rdf:about="&visko-operator;isInputFormatTo">
         <owl:inverseOf rdf:resource="&visko-operator;hasInputFormat"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#isOperatorRequiredByViewerSet -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;isOperatorRequiredByViewerSet">
+        <rdfs:domain rdf:resource="&visko-operator;Operator"/>
+        <rdfs:range rdf:resource="&visko-operator;ViewerSet"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&visko-operator;hasNextOperatorWithCommonFormatTransitive"/>
+            <rdf:Description rdf:about="&visko-operator;isInputFormatTo"/>
+            <rdf:Description rdf:about="&visko-operator;partOfViewerSet"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
