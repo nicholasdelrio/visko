@@ -42,25 +42,19 @@ package edu.utep.trustlab.visko.planning;
 
 import java.util.HashMap;
 import java.util.Vector;
-
 import java.util.Set;
-
 import com.hp.hpl.jena.query.ResultSet;
-
-import edu.utep.trustlab.visko.planning.PipelineSet;
-import edu.utep.trustlab.visko.planning.PipelineSetBuilder;
-import edu.utep.trustlab.visko.planning.Query;
 import edu.utep.trustlab.visko.util.ResultSetToVector;
 
 public class QueryEngine {
 	private Query query;
-	private PipelineSetBuilder builder;
+	private PipelineSetBuilder1 builder;
 	private HashMap<String, String> parameterBindings;
 	private PipelineSet pipelines;
 
 	public QueryEngine(Query q) {
 		query = q;
-		builder = new PipelineSetBuilder(query);
+		builder = new PipelineSetBuilder1(query);
 		parameterBindings = new HashMap<String, String>();
 	}
 
@@ -80,7 +74,7 @@ public class QueryEngine {
 		String viewerSetURI = query.getViewerSetURI();
 		String typeConstraintURI = query.getTypeURI();
 		String viewConstraintURI = query.getViewURI();
-		String targetFormatURI = query.getTargetFormatURI();
+		//String targetFormatURI = query.getTargetFormatURI();
 
 		if (typeConstraintURI != null) {
 			loadParameterBindingsFromProfile(typeConstraintURI);
@@ -92,10 +86,7 @@ public class QueryEngine {
 			loadParameterBindingsFromQuery();
 		}
 
-		if (targetFormatURI != null)
-			builder.setPipelinesUsingTargetFormat(formatURI, typeConstraintURI, targetFormatURI, viewConstraintURI);
-		else
-			builder.setPipelines(formatURI, typeConstraintURI, viewerSetURI, viewConstraintURI);
+		builder.setPipelines(formatURI, typeConstraintURI, viewerSetURI, viewConstraintURI);
 
 		pipelines = builder.getPipelines();
 		pipelines.setParameterBindings(parameterBindings);
@@ -106,16 +97,6 @@ public class QueryEngine {
 		return builder.isAlreadyVisualizableWithViewerSet(query.getFormatURI(), query.getTypeURI(), query.getViewerSetURI());
 	}
 
-	public boolean canBeVisualizedWithViewerSet() {
-		return builder.formatPathExistsForViewerSet(query.getFormatURI(),
-				query.getViewerSetURI());
-	}
-
-	public boolean canBeVisualizedWithTargetFormat() {
-		return builder.formatPathExistsForTargetFormat(query.getFormatURI(),
-				query.getTargetFormatURI());
-	}
-	
 	public void updatePipelinesWithNewParameterBindings(){
 		pipelines.setParameterBindings(parameterBindings);
 	}

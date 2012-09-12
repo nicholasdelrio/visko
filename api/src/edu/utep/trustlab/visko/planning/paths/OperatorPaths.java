@@ -42,11 +42,6 @@ package edu.utep.trustlab.visko.planning.paths;
 
 import java.util.*;
 
-import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
-import edu.utep.trustlab.visko.util.ResultSetToVector;
-
-import com.hp.hpl.jena.query.ResultSet;
-
 public class OperatorPaths extends Vector<OperatorPath> {
 	public boolean add(OperatorPath path) {
 		if (!isExistingPath(path)) {
@@ -64,111 +59,24 @@ public class OperatorPaths extends Vector<OperatorPath> {
 		return false;
 	}
 
-	/*
-	public void filterByView(String requiredViewURI, ViskoTripleStore ts) {
-		boolean maintainsViewRestriction;
-		boolean matchesAView;
-
-		OperatorPaths badOperatorPaths = new OperatorPaths();
-		OperatorPath aPath;
-
-		for (int i = 0; i < size(); i++) {
-			maintainsViewRestriction = false;
-			aPath = this.get(i);
-
-			if (aPath.size() > 0) {
-				for (String operatorURI : aPath) {
-					ResultSet views = ts.getViewsGeneratedFrom(operatorURI);
-					Vector<String> viewURIs = ResultSetToVector.getVectorFromResultSet(views, "view");
-					matchesAView = false;
-
-					for (String viewURI : viewURIs) {
-						matchesAView = matchesAView || requiredViewURI.equals(viewURI);
-					}
-
-					maintainsViewRestriction = maintainsViewRestriction || matchesAView;
-				}
-
-				if (!maintainsViewRestriction)
-					badOperatorPaths.add(aPath);
-			}
+	public void filterByView(String requiredViewURI) {
+		for(OperatorPath aPath : this){
+			if(!aPath.generatesView(requiredViewURI))
+				this.remove(aPath);
 		}
-		removeAll(badOperatorPaths);
-	}*/
-	
-	public void filterByView(String requiredViewURI, ViskoTripleStore ts) {
-		boolean maintainsViewRestriction;
-		boolean matchesAView;
-
-		OperatorPaths badOperatorPaths = new OperatorPaths();
-		OperatorPath aPath;
-		
-		for (int i = 0; i < size(); i++) {
-			maintainsViewRestriction = false;
-			aPath = this.get(i);
-
-			if (aPath.size() > 0) {
-				for (int j = aPath.size() - 1; j >= 0; j --) {
-					
-					String operatorURI = aPath.get(j);
-					
-					ResultSet dataTypeResultSet = ts.getTransformedToDataType(operatorURI);
-					Vector<String> dataTypes = ResultSetToVector.getVectorFromResultSet(dataTypeResultSet, "dataType");
-					
-					String dataTypeURI = dataTypes.firstElement();
-					
-					matchesAView = false;
-
-					matchesAView = matchesAView || requiredViewURI.equals(dataTypeURI);
-
-					maintainsViewRestriction = maintainsViewRestriction || matchesAView;
-				}
-
-				if (!maintainsViewRestriction)
-					badOperatorPaths.add(aPath);
-			}
-		}
-		removeAll(badOperatorPaths);
 	}
-
-
-	public void filterByType(String inputDataType, ViskoTripleStore ts) {
-		boolean canBeOperatedOn = true;
-
-		OperatorPaths badOperatorPaths = new OperatorPaths();
-		OperatorPath aPath;
-		
-		for (int i = 0; i < size(); i++) {
-		
-			String inDataType = inputDataType;
-			
-			aPath = this.get(i);
-
-			if (aPath.size() > 0) {
-				for (String operatorURI : aPath) {
-										
-					canBeOperatedOn = ts.canOperateOnDataType(operatorURI, inDataType) || ts.canOperateOnSuperTypeOfDataType(operatorURI, inDataType);
-					
-					System.out.println("current in datatype: " + inDataType);
-					
-					if(!canBeOperatedOn){
-						System.out.println(inDataType + " can't be consumed by: " + operatorURI);
-						break;
-					}
-					
-					ResultSet dataTypeResultSet = ts.getTransformedToDataType(operatorURI);
-					Vector<String> dataTypes = ResultSetToVector.getVectorFromResultSet(dataTypeResultSet, "dataType");
-					
-					inDataType = dataTypes.firstElement();
-				}
-				
-				boolean viewerCanOperateOn = ts.canOperateOnDataType(aPath.getViewerURI(), inDataType) || ts.canOperateOnSuperTypeOfDataType(aPath.getViewerURI(), inDataType);
-				boolean maintainsTypeRestriction = canBeOperatedOn && viewerCanOperateOn;
-				
-				if (!maintainsTypeRestriction)
-					badOperatorPaths.add(aPath);
-			}
+	
+	public void filterByViewerSet(String viewerSetURI){
+		for(OperatorPath operatorPath : this){
+			if(operatorPath.outputCanBeViewedByViewerSet(viewerSetURI))
+				remove(operatorPath);
 		}
-		removeAll(badOperatorPaths);
+	}
+	
+	public void filterByType(String inputDataType) {
+		for(OperatorPath operatorPath : this){
+			if(!operatorPath.adheresToDataTypeRestriction(inputDataType))
+				remove(operatorPath);
+		}
 	}
 }

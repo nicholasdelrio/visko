@@ -36,7 +36,7 @@ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIM
 GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
 LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-
+/*
 
 package edu.utep.trustlab.visko.planning;
 
@@ -85,7 +85,7 @@ public class PipelineSetBuilder {
 	}
 
 	public boolean isAlreadyVisualizableWithViewerSet(String formatURI, String dataTypeURI, String viewerSetURI) {
-		boolean formatCheck = ts.isAlreadyVisualizableWithViewerSet(formatURI, viewerSetURI);
+		boolean formatCheck = ts.isFormatAlreadyVisualizableWithViewerSet(formatURI, viewerSetURI);
 		boolean typeCheck = ts.isDataTypeAlreadyVisualizableWithViewerSet(dataTypeURI, viewerSetURI) || ts.isSubClassOfDataTypeAlreadyVisualizableWithViewerSet(dataTypeURI, viewerSetURI);
 		
 		return formatCheck && typeCheck;
@@ -257,7 +257,7 @@ public class PipelineSetBuilder {
 		formatPaths = new FormatPaths();
 		FormatPath formatPath;
 
-		if (ts.isAlreadyVisualizableWithViewerSet(formatURI, viewerSetURI)) {
+		if (ts.isFormatAlreadyVisualizableWithViewerSet(formatURI, viewerSetURI)) {
 			System.out.println("already visualizable...");
 			Vector<String> targetViewer = ResultSetToVector.getVectorFromResultSet(ts.getTargetViewerOfViewerSet(formatURI, viewerSetURI), "viewer");
 			formatPath = new FormatPath(targetViewer.get(0));
@@ -303,3 +303,4 @@ public class PipelineSetBuilder {
 		}
 	}
 }
+*/

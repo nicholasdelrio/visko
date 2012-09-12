@@ -55,6 +55,10 @@ public class Operator extends JenaIndividual {
 	// DataType properties
 	private DatatypeProperty hasName;
 
+	public Operator(String baseURL, String name, ViskoModel viskoModel) {
+		super(ViskoO.CLASS_URI_Operator, baseURL, name, viskoModel);
+	}
+	
 	public Operator(String classURI, String baseURL, String name, ViskoModel viskoModel) {
 		super(classURI, baseURL, name, viskoModel);
 	}

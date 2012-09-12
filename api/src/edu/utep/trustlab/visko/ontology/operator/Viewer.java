@@ -59,7 +59,7 @@ public class Viewer extends JenaIndividual {
 	ObjectProperty partOfViewerSet;
 	
 	// input formats and data types
-	private Format inputFormat;	
+	private Vector<Format> inputFormats;	
 	private OntResource inputDataType;
 	
 	// Object Properties
@@ -86,12 +86,12 @@ public class Viewer extends JenaIndividual {
 		return viewerSets;
 	}
 
-	public void setInputFormat(Format inFormat) {
-		inputFormat = inFormat;
+	public void addInputFormat(Format inFormat) {
+		inputFormats.add(inFormat);
 	}
 		
-	public Format getInputFormat(){
-		return inputFormat;
+	public Vector<Format> getInputFormats(){
+		return inputFormats;
 	}
 		
 	public void setInputDataType(OntResource inDataType) {
@@ -103,7 +103,8 @@ public class Viewer extends JenaIndividual {
 	}
 	
 	private void addHasInputFormat(Individual subjectInd) {
-		subjectInd.addProperty(hasInputFormat, inputFormat.getIndividual());		
+		for(Format inputFormat : inputFormats)
+			subjectInd.addProperty(hasInputFormat, inputFormat.getIndividual());		
 	}
 	
 	private void addHasInputDataType(Individual subjectInd) {
@@ -121,10 +122,10 @@ public class Viewer extends JenaIndividual {
 
 	@Override
 	protected boolean allFieldsPopulated() {
-		boolean hasInputFormat = inputFormat != null;
+		boolean hasInputFormats = inputFormats.size() > 0;
 		boolean hasInputDataType = inputDataType != null;
 		
-		return viewerSets.size() > 0 && hasInputFormat && hasInputDataType;		
+		return viewerSets.size() > 0 && hasInputFormats && hasInputDataType;		
 	}
 
 	@Override
@@ -152,9 +153,10 @@ public class Viewer extends JenaIndividual {
 		while (vSets.hasNext())
 			viewerSets.add(new ViewerSet(vSets.next().as(Individual.class).getURI(), model));
 		
-		// populate input format
-		NodeIterator inFormat = ind.listPropertyValues(hasInputFormat);
-		inputFormat = new Format(inFormat.next().as(Individual.class).getURI(), model);
+		// populate input formats
+		NodeIterator inFormats = ind.listPropertyValues(hasInputFormat);
+		while(inFormats.hasNext())
+			inputFormats.add(new Format(inFormats.next().as(Individual.class).getURI(), model));
 	
 		// populate input data type
 		NodeIterator inDataType = ind.listPropertyValues(hasInputDataType);

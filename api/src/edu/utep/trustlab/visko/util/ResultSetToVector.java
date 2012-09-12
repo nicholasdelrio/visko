@@ -47,13 +47,13 @@ import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 
 public class ResultSetToVector {
-	public static Vector<String> getVectorFromResultSet(ResultSet rs,
-			String variableName) {
+	public static Vector<String> getVectorFromResultSet(ResultSet rs, String variableName) {
 		Vector<String> vector = new Vector<String>();
 
 		if (rs == null) {
 			System.out.println("The result set is null.");
-		} else if (rs.getResultVars().contains(variableName)) {
+		}
+		else if (rs.getResultVars().contains(variableName)) {
 			while (rs.hasNext()) {
 				RDFNode node = rs.next().get("?" + variableName);
 				if (node != null)
@@ -62,9 +62,9 @@ public class ResultSetToVector {
 					System.out.println("Value of variable is null. Variable: "
 							+ variableName);
 			}
-		} else
-			System.out.println("Variable: " + variableName
-					+ " is not part the input ResultSet!");
+		}
+		else
+			System.out.println("Variable: " + variableName + " is not part the input ResultSet!");
 
 		return vector;
 	}
