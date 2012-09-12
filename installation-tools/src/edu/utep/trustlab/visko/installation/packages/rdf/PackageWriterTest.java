@@ -25,13 +25,13 @@ public class PackageWriterTest {
 		Viewer viewer = viewerSet.createNewViewer("broswer-image-viewer");
 		viewer.setComment("views jpegs and such");
 		viewer.setLabel("browser image viewer");
-		viewer.addOperatesOnFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/resources/formats/AMRWB.owl#AMRWB"));
-		viewer.addOperatesOnFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/resources/formats/AMRWB.owl#AMRWB"));
+		viewer.addInputFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/resources/formats/AMRWB.owl#AMRWB"));
+		viewer.addInputFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/resources/formats/AMRWB.owl#AMRWB"));
 	
 		Viewer viewer1 = viewerSet.createNewViewer("pdf-viewer");
 		viewer1.setComment("views pdfs");
 		viewer1.setLabel("pdf viewer");
-		viewer1.addOperatesOnFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/resources/formats/PDF.owl#PDF"));
+		viewer1.addInputFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/resources/formats/PDF.owl#PDF"));
 		
 		PackageViewerSet ieExplorer = writer.createNewViewerSet("iexplorer");
 		ieExplorer.setLabel("internet explorere");
@@ -40,7 +40,7 @@ public class PackageWriterTest {
 		Viewer viewer2 = ieExplorer.createNewViewer("some-gosh-darn-viewer");
 		viewer2.setComment("some gosh darn");
 		viewer2.setLabel("some gosh darn");
-		viewer2.addOperatesOnFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/resources/formats/PDF.owl#PDF"));
+		viewer2.addInputFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/resources/formats/PDF.owl#PDF"));
 		
 		Toolkit tk = writer.createNewToolkit("gmt");
 		tk.setComment("generic mapping tools");

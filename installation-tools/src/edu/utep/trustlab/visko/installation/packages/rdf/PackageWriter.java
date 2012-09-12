@@ -6,6 +6,9 @@ import java.util.Iterator;
 
 import org.mindswap.owl.OWLIndividual;
 
+import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntResource;
+
 import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
@@ -17,6 +20,8 @@ public class PackageWriter {
 	
 	private static ViskoModel loadingModel = new ViskoModel();
 	
+	private static OntModel dataTypesModel;
+	
 	private String baseURL;
 	private String baseFileURL;
 	private String fileName;
@@ -25,7 +30,6 @@ public class PackageWriter {
 	private Toolkit toolkit;
 	
 	private boolean servicesAddedToModel;
-	
 	
 	private ArrayList<PackageViewerSet> viewerSets;
 	private HashMap<String, PackageOperatorService> operatorServices;
@@ -63,6 +67,10 @@ public class PackageWriter {
 		
 	}
 	
+	public void setDataTypesOntModel(OntModel dataTypes){
+		dataTypesModel = dataTypes;
+	}
+	
 	public PackageWriter(String url, String packageFileName){
 		baseURL = url;
 		baseFileURL = baseURL + packageFileName;
@@ -97,6 +105,20 @@ public class PackageWriter {
 	public Toolkit createNewToolkit(String name){
 		toolkit = new Toolkit(baseFileURL, name, viskoModel);
 		return toolkit;
+	}
+	
+	public static OntResource getDataType(String dataTypeURI){
+		try{
+			OntResource dataTypeResource = dataTypesModel.getOntResource(dataTypeURI);
+			return dataTypeResource;
+		}catch(Exception e){
+			System.out.println("You are referencing a data type and did\n"
+					+ "not provide an ontology in the package directory\n"
+					+ "dataTypes or your referenced data type is not contained\n"
+					+ "in the ontology. URI being referenced: " + dataTypeURI);
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public static Format getFormat(String formatURI){

@@ -1,8 +1,10 @@
 package edu.utep.trustlab.visko.installation.packages.rdf;
 
+import com.hp.hpl.jena.ontology.OntResource;
+
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
+import edu.utep.trustlab.visko.ontology.operator.Operator;
 import edu.utep.trustlab.visko.ontology.operator.ViewMapper;
-import edu.utep.trustlab.visko.ontology.operator.DataTransformer;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
 import edu.utep.trustlab.visko.ontology.service.OWLSService;
 import edu.utep.trustlab.visko.ontology.service.Service;
@@ -25,8 +27,8 @@ public class PackageOperatorService {
 	private Format outputFormat;
 	private View view;
 	
-	private String inputDataTypeURI;
-	private String outputDataTypeURI;
+	private OntResource inputDataType;
+	private OntResource outputDataType;
 	
 	private OWLSService owlsService;
 	
@@ -56,25 +58,25 @@ public class PackageOperatorService {
 	protected void addToModel() {
 		//create operator
 		String operatorName = operationName + "-operator";
-		DataTransformer transformer;
+		Operator operator;
 		if(view != null){
 			ViewMapper mapper = new ViewMapper(baseFileURL, operatorName, vModel);
-			mapper.setViewToMapTo(view);
-			transformer = mapper;
+			mapper.setView(view);
+			operator = mapper;
 		}
 		else
-			transformer = new DataTransformer(baseFileURL, operatorName, vModel);
+			operator = new Operator(baseFileURL, operatorName, vModel);
 		
-		transformer.setComment(comment);
-		transformer.setLabel(label);
-		transformer.setTransformsToFormat(outputFormat);
-		transformer.addOperatesOnFormat(inputFormat);
-		transformer.setName(operatorName);
+		operator.setComment(comment);
+		operator.setLabel(label);
+		operator.setOutputFormat(outputFormat);
+		operator.setInputFormat(inputFormat);
+		operator.setName(operatorName);
 		
-		if(inputDataTypeURI != null)
-			transformer.addOperatesOnDataType(inputDataTypeURI);
-		if(outputDataTypeURI != null)
-			transformer.setTransformsToDataType(outputDataTypeURI);
+		if(inputDataType != null)
+			operator.setInputDataType(inputDataType);
+		if(outputDataType != null)
+			operator.setOutputDataType(outputDataType);
 		
 		//create owlsService
 		owlsService = new OWLSService(baseURL, operationName);
@@ -88,16 +90,16 @@ public class PackageOperatorService {
 		service.setSupportingToolkit(toolkit);
 		service.setComment(comment);		
 		service.setOWLSService(owlsService);		
-		service.setConceptualOperator(transformer);
+		service.setConceptualOperator(operator);
 		service.getIndividual();
 	}
 	
-	public void setInputDataType(String inDataTypeURI){
-		inputDataTypeURI = inDataTypeURI;
+	public void setInputDataType(OntResource inDataType){
+		inputDataType = inDataType;
 	}
 
-	public void setOutputDataType(String outDataTypeURI){
-		outputDataTypeURI = outDataTypeURI;
+	public void setOutputDataType(OntResource outDataType){
+		outputDataType = outDataType;
 	}
 	
 	public void setInputFormat(Format format){

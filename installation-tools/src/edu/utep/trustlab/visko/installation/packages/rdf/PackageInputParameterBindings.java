@@ -31,7 +31,7 @@ public class PackageInputParameterBindings {
 	}
 	
 	public void addDataType(String dataTypeURI){
-		parameterBindings.addProfiledDataType(dataTypeURI);
+		parameterBindings.addProfileType(dataTypeURI);
 	}
 	
 	protected void addToModel(){
