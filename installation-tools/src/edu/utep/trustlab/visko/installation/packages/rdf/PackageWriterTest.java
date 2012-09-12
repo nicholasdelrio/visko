@@ -51,16 +51,16 @@ public class PackageWriterTest {
 		opService.setComment("copy some colors");
 		opService.setLabel("copy color");
 		opService.setView(PackageWriter.getView("https://raw.github.com/nicholasdelrio/visko/master/resources/views/contour-lines.owl#contour-lines"));
-		opService.setInputFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF"));
-		opService.setOutputFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT"));
+		opService.setInputFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/resources/formats/NETCDF.owl#NETCDF"));
+		opService.setOutputFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/resources/formats/POSTSCRIPT.owl#POSTSCRIPT"));
 		opService.setWSDLURL(wsdlURL);
 
 		PackageOperatorService opService1 = writer.createNewOperatorService("grdcontour");
 		opService1.setComment("copy some colors");
 		opService1.setLabel("copy color");
-		opService1.setView(PackageWriter.getView("https://raw.github.com/nicholasdelrio/visko/master/resources/views/contour-lines.owl#contour-lines"));
-		opService1.setInputFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/NETCDF.owl#NETCDF"));
-		opService1.setOutputFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/POSTSCRIPT.owl#POSTSCRIPT"));
+		//opService1.setView(PackageWriter.getView("https://raw.github.com/nicholasdelrio/visko/master/resources/views/contour-lines.owl#contour-lines"));
+		opService1.setInputFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/resources/formats/NETCDF.owl#NETCDF"));
+		opService1.setOutputFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/resources/formats/POSTSCRIPT.owl#POSTSCRIPT"));
 		opService1.setWSDLURL(wsdlURL);
 		
 		

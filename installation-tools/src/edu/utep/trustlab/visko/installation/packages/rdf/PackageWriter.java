@@ -77,7 +77,6 @@ public class PackageWriter {
 		fileName = packageFileName;
 		
 		viskoModel = new ViskoModel();		
-		viskoModel.createOntology(baseFileURL);
 		
 		viewerSets = new ArrayList<PackageViewerSet>();
 		operatorServices = new HashMap<String, PackageOperatorService>();
