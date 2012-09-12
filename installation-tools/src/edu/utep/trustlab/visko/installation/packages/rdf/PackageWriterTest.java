@@ -1,9 +1,17 @@
 package edu.utep.trustlab.visko.installation.packages.rdf;
 
+import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntResource;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+
 import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.contentManagement.LocalFileSystem;
-import edu.utep.trustlab.visko.ontology.operator.Viewer;
-import edu.utep.trustlab.visko.ontology.service.Toolkit;
+import edu.utep.trustlab.visko.ontology.model.ViskoModel;
+import edu.utep.trustlab.visko.ontology.viskoOperator.Viewer;
+import edu.utep.trustlab.visko.ontology.viskoService.Toolkit;
+import edu.utep.trustlab.visko.ontology.viskoView.View;
+import edu.utep.trustlab.visko.ontology.vocabulary.Visko;
+import edu.utep.trustlab.visko.ontology.vocabulary.ViskoV;
 
 public class PackageWriterTest {
 	
@@ -13,6 +21,16 @@ public class PackageWriterTest {
 		LocalFileSystem local = new LocalFileSystem("http://iw.cs.utep.edu/visko/", "C:/Users/Public/git/visko/installation-tools/test-output-rdf/");
 		
 		PackageWriter writer = new PackageWriter(local.getBaseURL(), "visko-package.owl");
+		
+		OntModel typesModel = ModelFactory.createOntologyModel();
+		typesModel.read("http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl");
+		OntResource data1 = typesModel.getOntResource("http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d13");
+		OntResource data2 = typesModel.getOntResource("http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d12");
+		
+		View contourMapView = new View(ViskoV.INDIVIDUAL_URI_ContourMap, new ViskoModel());
+		
+		if(data1 == null || data2 == null)
+			System.out.println("darn they ar nul");
 		
 		Toolkit toolkit = writer.createNewToolkit("gmt");
 		toolkit.setComment("just a stinkin gmt toolkit");
@@ -50,10 +68,11 @@ public class PackageWriterTest {
 		PackageOperatorService opService = writer.createNewOperatorService("psxy");
 		opService.setComment("copy some colors");
 		opService.setLabel("copy color");
-		opService.setView(PackageWriter.getView("https://raw.github.com/nicholasdelrio/visko/master/resources/views/contour-lines.owl#contour-lines"));
+		opService.setView(contourMapView);
 		opService.setInputFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/resources/formats/NETCDF.owl#NETCDF"));
 		opService.setOutputFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/resources/formats/POSTSCRIPT.owl#POSTSCRIPT"));
 		opService.setWSDLURL(wsdlURL);
+		opService.setOutputDataType(data1);
 
 		PackageOperatorService opService1 = writer.createNewOperatorService("grdcontour");
 		opService1.setComment("copy some colors");
@@ -62,19 +81,20 @@ public class PackageWriterTest {
 		opService1.setInputFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/resources/formats/NETCDF.owl#NETCDF"));
 		opService1.setOutputFormat(PackageWriter.getFormat("https://raw.github.com/nicholasdelrio/visko/master/resources/formats/POSTSCRIPT.owl#POSTSCRIPT"));
 		opService1.setWSDLURL(wsdlURL);
+		opService1.setInputDataType(data2);
 		
 		
 		PackageInputParameterBindings bindings = writer.createNewInputParameterBindings();
-		bindings.addDataType("http://iw.cs.utep.edu/data1");
-		bindings.addDataType("http://iw.cs.utep.edu/data2");
+		bindings.addSemanticType(data1);
+		bindings.addSemanticType(data2);
 		bindings.addInputBinding("grdcontour", "A", "red");
 		bindings.addInputBinding("grdcontour", "J", "jedi");
 		bindings.addInputBinding("grdcontour", "B", "goodness");
 		bindings.addInputBinding("psxy", "B", "bodificition");
 		
 		PackageInputParameterBindings bindings1 = writer.createNewInputParameterBindings();
-		bindings1.addDataType("http://iw.cs.utep.edu/data12");
-		bindings1.addDataType("http://iw.cs.utep.edu/data13");
+		bindings1.addSemanticType(data1);
+		bindings1.addSemanticType(data2);
 		bindings1.addInputBinding("grdcontour", "A", "arod");
 		bindings1.addInputBinding("grdcontour", "J", "jrod");
 		bindings1.addInputBinding("grdcontour", "B", "brod");

@@ -2,10 +2,12 @@ package edu.utep.trustlab.visko.installation.packages.rdf;
 
 import java.util.HashMap;
 
+import com.hp.hpl.jena.ontology.OntResource;
+
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
-import edu.utep.trustlab.visko.ontology.service.Input;
-import edu.utep.trustlab.visko.ontology.service.InputBinding;
-import edu.utep.trustlab.visko.ontology.service.InputParameterBindings;
+import edu.utep.trustlab.visko.ontology.viskoService.Input;
+import edu.utep.trustlab.visko.ontology.viskoService.InputBinding;
+import edu.utep.trustlab.visko.ontology.viskoService.InputParameterBindings;
 
 public class PackageInputParameterBindings {
 	
@@ -30,8 +32,8 @@ public class PackageInputParameterBindings {
 		operatorServices = services;
 	}
 	
-	public void addDataType(String dataTypeURI){
-		parameterBindings.addProfileType(dataTypeURI);
+	public void addSemanticType(OntResource semanticType){
+		parameterBindings.addProfileType(semanticType);
 	}
 	
 	protected void addToModel(){

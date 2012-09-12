@@ -9,6 +9,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.visko.installation.packages.RDFPackage;
 import edu.utep.trustlab.visko.installation.packages.rdf.PackageWriter;
+import edu.utep.trustlab.visko.ontology.vocabulary.Visko;
 import edu.utep.trustlab.visko.util.FileUtils;
 
 public class PackageInstaller {
@@ -83,7 +84,8 @@ public class PackageInstaller {
 	
 	private void initializeRDFPackage(RDFPackage rdfPackage, File packageDirectory){
 		PackageWriter packageWriter = new PackageWriter(contentManager.getBaseURL(), packageDirectory.getName() + ".owl");
-		packageWriter.setDataTypesOntModel(getDataTypesFromPackageOntology(packageDirectory));
+		OntModel dataTypesModel = getDataTypesFromPackageOntology(packageDirectory);
+		packageWriter.setDataTypesModel(dataTypesModel);
 		rdfPackage.setPackageWriter(packageWriter);
 	}
 	
@@ -94,10 +96,12 @@ public class PackageInstaller {
 		for(File subpackageDirectory : subpackageDirectories){
 			if(subpackageDirectory.isDirectory() && subpackageDirectory.getName().equals(DATA_TYPES_DIRECTORY_NAME)){
 				for(File dataTypeFile : subpackageDirectory.listFiles()){
-					dataTypesModel = ModelFactory.createOntologyModel();
-					try{dataTypesModel.read(new FileReader(dataTypeFile), null);}
-					catch(Exception e){
-						e.printStackTrace();
+					if(dataTypeFile.getName().endsWith(".owl")){
+						dataTypesModel = ModelFactory.createOntologyModel();
+						try{dataTypesModel.read(new FileReader(dataTypeFile), null);}
+						catch(Exception e){
+							e.printStackTrace();
+						}
 					}
 				}
 			}

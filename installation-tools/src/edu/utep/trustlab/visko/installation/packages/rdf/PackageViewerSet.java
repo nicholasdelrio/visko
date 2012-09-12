@@ -3,8 +3,8 @@ package edu.utep.trustlab.visko.installation.packages.rdf;
 import java.util.ArrayList;
 
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
-import edu.utep.trustlab.visko.ontology.operator.Viewer;
-import edu.utep.trustlab.visko.ontology.operator.ViewerSet;
+import edu.utep.trustlab.visko.ontology.viskoOperator.Viewer;
+import edu.utep.trustlab.visko.ontology.viskoOperator.ViewerSet;
 
 public class PackageViewerSet {
 	

@@ -3,13 +3,13 @@ package edu.utep.trustlab.visko.installation.packages.rdf;
 import com.hp.hpl.jena.ontology.OntResource;
 
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
-import edu.utep.trustlab.visko.ontology.operator.Operator;
-import edu.utep.trustlab.visko.ontology.operator.ViewMapper;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
-import edu.utep.trustlab.visko.ontology.service.OWLSService;
-import edu.utep.trustlab.visko.ontology.service.Service;
-import edu.utep.trustlab.visko.ontology.service.Toolkit;
-import edu.utep.trustlab.visko.ontology.view.View;
+import edu.utep.trustlab.visko.ontology.viskoOperator.Operator;
+import edu.utep.trustlab.visko.ontology.viskoOperator.ViewMapper;
+import edu.utep.trustlab.visko.ontology.viskoService.OWLSService;
+import edu.utep.trustlab.visko.ontology.viskoService.Service;
+import edu.utep.trustlab.visko.ontology.viskoService.Toolkit;
+import edu.utep.trustlab.visko.ontology.viskoView.View;
 
 public class PackageOperatorService {	
 	private String baseURL;

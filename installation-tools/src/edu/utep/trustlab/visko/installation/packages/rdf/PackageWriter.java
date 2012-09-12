@@ -12,9 +12,9 @@ import com.hp.hpl.jena.ontology.OntResource;
 import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
-import edu.utep.trustlab.visko.ontology.service.OWLSService;
-import edu.utep.trustlab.visko.ontology.service.Toolkit;
-import edu.utep.trustlab.visko.ontology.view.View;
+import edu.utep.trustlab.visko.ontology.viskoService.OWLSService;
+import edu.utep.trustlab.visko.ontology.viskoService.Toolkit;
+import edu.utep.trustlab.visko.ontology.viskoView.View;
 
 public class PackageWriter {
 	
@@ -67,8 +67,8 @@ public class PackageWriter {
 		
 	}
 	
-	public void setDataTypesOntModel(OntModel dataTypes){
-		dataTypesModel = dataTypes;
+	public void setDataTypesModel(OntModel model){
+		dataTypesModel = model;
 	}
 	
 	public PackageWriter(String url, String packageFileName){
