@@ -60,7 +60,7 @@ public class PipelineHTML {
 
 			else {
 				Vector<String> viewURIs = ResultSetToVector.getVectorFromResultSet(ts.getViewsGeneratedFrom(operatorURI), "view");
-				html += "<a href=\"" + ViskoO.CLASS_URI_VIEWMAPPER + "\">Mapper</a>";
+				html += "<a href=\"" + ViskoO.CLASS_URI_ViewMapper + "\">Mapper</a>";
 				html += "<ul><li>Generates View: <a href=\""
 						+ viewURIs.firstElement() + "\">"
 						+ viewURIs.firstElement() + "</a></li></ul>";

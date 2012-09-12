@@ -34,17 +34,6 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
-    // Datatypes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
     // Object Properties
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -71,6 +60,14 @@
     
 
 
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-service.owl#profiles -->
+
+    <owl:ObjectProperty rdf:about="&visko-service;profiles">
+        <rdfs:domain rdf:resource="&visko-service;InputParameterBindings"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-service.owl#supportedByOWLSService -->
 
     <owl:ObjectProperty rdf:about="&visko-service;supportedByOWLSService">
@@ -86,26 +83,6 @@
         <rdfs:domain rdf:resource="&visko-service;Service"/>
         <rdfs:range rdf:resource="&visko-service;Toolkit"/>
     </owl:ObjectProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Data properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-service.owl#profiles -->
-
-    <owl:DatatypeProperty rdf:about="&visko-service;profiles">
-        <rdfs:range rdf:resource="&xsd;anyURI"/>
-        <rdfs:domain rdf:resource="&visko-service;InputParameterBindings"/>
-    </owl:DatatypeProperty>
     
 
 

@@ -23,7 +23,6 @@
         <rdfs:comment xml:lang="en">Ontology about the process of creating crustal models of the Earth with the use of Gravity, Magnetic, and Receiver Function data.</rdfs:comment>
         <owl:imports rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl"/>
         <owl:imports rdf:resource="http://trust.utep.edu/2.0/wdo.owl"/>
-        <owl:imports rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl"/>
     </owl:Ontology>
     
 
@@ -138,7 +137,6 @@
     <owl:Class rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d19">
         <rdfs:label>Gravity Data</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d18"/>
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontologies/visko-plot.owl#2DPoint"/>
     </owl:Class>
     
 
