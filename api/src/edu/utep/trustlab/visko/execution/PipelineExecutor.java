@@ -114,7 +114,7 @@ public class PipelineExecutor implements Runnable {
     	    	
     	for(int i = 0; i < job.getPipeline().size(); i ++){
  
-    		edu.utep.trustlab.visko.ontology.service.Service viskoService = job.getPipeline().getService(i);
+    		edu.utep.trustlab.visko.ontology.viskoService.Service viskoService = job.getPipeline().getService(i);
  
         	//capture initial dataset
             if(job.getProvenanceLogging() && i == 0)
@@ -150,7 +150,7 @@ public class PipelineExecutor implements Runnable {
     	job.setPMLQueryURI(pmlQueryURI);
     }
     
-    private String executeService(edu.utep.trustlab.visko.ontology.service.Service viskoService, String inputDataURL, int serviceIndex) throws ExecutionException{		
+    private String executeService(edu.utep.trustlab.visko.ontology.viskoService.Service viskoService, String inputDataURL, int serviceIndex) throws ExecutionException{		
 		OWLKnowledgeBase kb = OWLFactory.createKB();
 		Service service = viskoService.getOWLSService().getIndividual();
 		Process process = service.getProcess();

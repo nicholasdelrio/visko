@@ -18,7 +18,7 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.ontology.service;
+package edu.utep.trustlab.visko.ontology.viskoService;
 
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.ObjectProperty;
@@ -26,7 +26,7 @@ import com.hp.hpl.jena.rdf.model.RDFNode;
 
 import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
-import edu.utep.trustlab.visko.ontology.operator.Operator;
+import edu.utep.trustlab.visko.ontology.viskoOperator.Operator;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoS;
 
 public class Service extends JenaIndividual {

@@ -46,8 +46,8 @@ import java.util.Vector;
 
 import edu.utep.trustlab.visko.planning.PipelineSet;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
-import edu.utep.trustlab.visko.ontology.operator.Viewer;
-import edu.utep.trustlab.visko.ontology.service.Service;
+import edu.utep.trustlab.visko.ontology.viskoOperator.Viewer;
+import edu.utep.trustlab.visko.ontology.viskoService.Service;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.util.ResultSetToVector;
 

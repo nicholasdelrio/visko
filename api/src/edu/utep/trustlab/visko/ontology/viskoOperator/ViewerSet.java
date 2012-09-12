@@ -37,37 +37,27 @@ GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWE
 LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-package edu.utep.trustlab.visko.ontology.view;
 
-import com.hp.hpl.jena.ontology.Individual;
+package edu.utep.trustlab.visko.ontology.viskoOperator;
 
 import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
-import edu.utep.trustlab.visko.ontology.vocabulary.ViskoV;
+import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 
-public class View extends JenaIndividual {
-	public View(String baseURL, String name, ViskoModel viskoModel) {
-		super(ViskoV.CLASS_URI_View, baseURL, name, viskoModel);
+import com.hp.hpl.jena.ontology.Individual;
+
+public class ViewerSet extends JenaIndividual {
+	public ViewerSet(String baseURL, String name, ViskoModel viskoModel) {
+		super(ViskoO.CLASS_URI_ViewerSet, baseURL, name, viskoModel);
 	}
 
-	public View(String uri, ViskoModel viskoModel) {
+	public ViewerSet(String uri, ViskoModel viskoModel) {
 		super(uri, viskoModel);
-	}
-
-	public String getURI(String uri) {
-		return uri;
-	}
-
-	@Override
-	protected Individual createNewIndividual() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
 	protected void populateFieldsWithIndividual(Individual ind) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override

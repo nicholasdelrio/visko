@@ -38,50 +38,102 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.ontology.service;
+package edu.utep.trustlab.visko.ontology.viskoService;
 
-import com.hp.hpl.jena.ontology.DatatypeProperty;
+import java.util.Vector;
+
 import com.hp.hpl.jena.ontology.Individual;
-import com.hp.hpl.jena.rdf.model.Literal;
-import com.hp.hpl.jena.rdf.model.RDFNode;
+import com.hp.hpl.jena.ontology.ObjectProperty;
+import com.hp.hpl.jena.ontology.OntResource;
+import com.hp.hpl.jena.rdf.model.NodeIterator;
 
-import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
-import edu.utep.trustlab.visko.ontology.vocabulary.supplemental.OWLS_Process;
+import edu.utep.trustlab.visko.ontology.JenaIndividual;
+import edu.utep.trustlab.visko.ontology.vocabulary.ViskoS;
 
-public class Input extends JenaIndividual {
-	private String type;
-	private DatatypeProperty parameterType;
+public class InputParameterBindings extends JenaIndividual {
+	private Vector<OntResource> types;
+	private Vector<InputBinding> bindings;
 
-	public Input(String baseURL, String name, ViskoModel viskoModel) {
-		super(OWLS_Process.CLASS_URI_Input, baseURL, name, viskoModel);
+	private ObjectProperty declaresBindings;
+	private ObjectProperty profiles;
+
+	public InputParameterBindings(String baseURL, String name, ViskoModel viskoModel) {
+		super(ViskoS.CLASS_URI_InputParameterBindings, baseURL, name, viskoModel);
 	}
 
-	public Input(String uri, ViskoModel viskoModel) {
+	public InputParameterBindings(String uri, ViskoModel viskoModel) {
 		super(uri, viskoModel);
 	}
 
+	public void addInputBinding(InputBinding ib) {
+		bindings.add(ib);
+	}
+
+	public void setInputBindings(Vector<InputBinding> ibs) {
+		bindings = ibs;
+	}
+
+	public Vector<InputBinding> getInputBindings() {
+		return bindings;
+	}
+	
+	public void addProfileType(OntResource dataType) {
+		types.add(dataType);
+	}
+
+	public Vector<OntResource> getProfiledTypes() {
+		return types;
+	}
+
+	private void addProfiles(Individual subjectInd) {
+		for (OntResource type : types)
+			subjectInd.addProperty(profiles, type);
+	}
+
+	private void addDeclaresBindings(Individual subjectInd) {
+		for (InputBinding ib : bindings) {
+			subjectInd.addProperty(declaresBindings, ib.getIndividual());
+		}
+	}
+
 	@Override
-	protected void initializeFields() {
-		// TODO Auto-generated method stub
+	public Individual createNewIndividual() {
+		Individual subjectInd = super.createNewIndividual();
+		this.addDeclaresBindings(subjectInd);
+		this.addProfiles(subjectInd);
+
+		return subjectInd;
 	}
 
 	@Override
 	protected void populateFieldsWithIndividual(Individual ind) {
-		// TODO Auto-generated method stub
-		RDFNode parameterTypeLit = ind.getPropertyValue(parameterType);
-		type = (String) parameterTypeLit.as(Literal.class).getValue();
+		
+		// populate types
+		NodeIterator semanticTypes = ind.listPropertyValues(profiles);
+		while (semanticTypes.hasNext())
+			types.add(semanticTypes.next().as(Individual.class));
+
+		// populate bindings
+		NodeIterator inBindings = ind.listPropertyValues(declaresBindings);
+		while (inBindings.hasNext())
+			bindings.add(new InputBinding(inBindings.next().as(Individual.class).getURI(), model));
 	}
 
 	@Override
 	protected void setProperties() {
-		// TODO Auto-generated method stub
-		parameterType = model.getDatatypeProperty(OWLS_Process.PROPERTY_URI_paramType);
+		declaresBindings = model.getObjectProperty(ViskoS.PROPERTY_URI_declaresBindings);
+		profiles = model.getObjectProperty(ViskoS.PROPERTY_URI_profiles);
+	}
+
+	@Override
+	protected void initializeFields() {
+		bindings = new Vector<InputBinding>();
+		types = new Vector<OntResource>();
 	}
 
 	@Override
 	protected boolean allFieldsPopulated() {
-		// TODO Auto-generated method stub
-		return type != null;
+		return bindings.size() > 0 && types.size() > 0;
 	}
 }

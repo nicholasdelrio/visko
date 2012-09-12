@@ -38,73 +38,50 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.ontology.operator;
+package edu.utep.trustlab.visko.ontology.viskoService;
 
+import com.hp.hpl.jena.ontology.DatatypeProperty;
 import com.hp.hpl.jena.ontology.Individual;
-import com.hp.hpl.jena.ontology.ObjectProperty;
+import com.hp.hpl.jena.rdf.model.Literal;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 
+import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
-import edu.utep.trustlab.visko.ontology.view.View;
-import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
+import edu.utep.trustlab.visko.ontology.vocabulary.supplemental.OWLS_Process;
 
-public class ViewMapper extends Operator {
+public class Input extends JenaIndividual {
+	private String type;
+	private DatatypeProperty parameterType;
 
-	private View view;
-	
-	private ObjectProperty mapsToView;
-	
-	
-	public ViewMapper(String baseURL, String name, ViskoModel viskoModel) {
-		super(ViskoO.CLASS_URI_ViewMapper, baseURL, name, viskoModel);
+	public Input(String baseURL, String name, ViskoModel viskoModel) {
+		super(OWLS_Process.CLASS_URI_Input, baseURL, name, viskoModel);
 	}
-	
-	public ViewMapper(String uri, ViskoModel viskoModel) {
+
+	public Input(String uri, ViskoModel viskoModel) {
 		super(uri, viskoModel);
-	}
-
-	public void setView(View aView) {
-		view = aView;
-	}
-
-	public View getView() {
-		return view;
-	}
-
-	private void addMapsToView(Individual subjectInd) {
-		subjectInd.addProperty(mapsToView, view.getIndividual());
-	}
-
-	@Override
-	protected boolean allFieldsPopulated() {
-		if (super.allFieldsPopulated() && view != null)
-			return true;
-		
-		return false;
-	}
-
-	@Override
-	protected Individual createNewIndividual() {
-		Individual ind = super.createNewIndividual();
-		addMapsToView(ind);
-		return ind;
-	}
-
-	@Override
-	protected void setProperties() {
-		super.setProperties();
-		mapsToView = model.getObjectProperty(ViskoO.PROPERTY_URI_mapsToView);
-	}
-
-	@Override
-	protected void populateFieldsWithIndividual(Individual ind) {
-		super.populateFieldsWithIndividual(ind);
-		
-		// populate view
-		view = new View(ind.getPropertyValue(mapsToView).as(Individual.class).getURI(), model);
 	}
 
 	@Override
 	protected void initializeFields() {
-		super.initializeFields();
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	protected void populateFieldsWithIndividual(Individual ind) {
+		// TODO Auto-generated method stub
+		RDFNode parameterTypeLit = ind.getPropertyValue(parameterType);
+		type = (String) parameterTypeLit.as(Literal.class).getValue();
+	}
+
+	@Override
+	protected void setProperties() {
+		// TODO Auto-generated method stub
+		parameterType = model.getDatatypeProperty(OWLS_Process.PROPERTY_URI_paramType);
+	}
+
+	@Override
+	protected boolean allFieldsPopulated() {
+		// TODO Auto-generated method stub
+		return type != null;
 	}
 }

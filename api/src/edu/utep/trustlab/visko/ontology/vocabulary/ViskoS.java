@@ -57,9 +57,7 @@ public class ViskoS {
 	public static final String PROPERTY_URI_supportedByToolkit = Visko.CORE_VISKO_S + "#supportedByToolkit";
 	public static final String PROPERTY_URI_supportedByOWLSService = Visko.CORE_VISKO_S + "#supportedByOWLSService";
 	public static final String PROPERTY_URI_declaresBindings = Visko.CORE_VISKO_S + "#declaresBindings";
-
-	// Datatype Properties
-	public static final String DATATYPE_PROPERTY_URI_profiles = Visko.CORE_VISKO_S + "#profiles";
+	public static final String PROPERTY_URI_profiles = Visko.CORE_VISKO_S + "#profiles";
 
 	private static OntModel model;
 

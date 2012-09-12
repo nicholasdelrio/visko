@@ -77,7 +77,7 @@ import org.mindswap.owls.process.variable.Output;
 import org.mindswap.owls.service.Service;
 import org.mindswap.query.ValueMap;
 
-import edu.utep.trustlab.visko.ontology.service.OWLSService;
+import edu.utep.trustlab.visko.ontology.viskoService.OWLSService;
 
 /**
  * 

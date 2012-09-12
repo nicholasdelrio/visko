@@ -38,36 +38,36 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.ontology.operator;
-
-import edu.utep.trustlab.visko.ontology.JenaIndividual;
-import edu.utep.trustlab.visko.ontology.model.ViskoModel;
-import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
+package edu.utep.trustlab.visko.ontology.viskoService;
 
 import com.hp.hpl.jena.ontology.Individual;
+import edu.utep.trustlab.visko.ontology.JenaIndividual;
+import edu.utep.trustlab.visko.ontology.model.ViskoModel;
+import edu.utep.trustlab.visko.ontology.vocabulary.ViskoS;
 
-public class ViewerSet extends JenaIndividual {
-	public ViewerSet(String baseURL, String name, ViskoModel viskoModel) {
-		super(ViskoO.CLASS_URI_ViewerSet, baseURL, name, viskoModel);
+public class Toolkit extends JenaIndividual {
+	public Toolkit(String baseURL, String name, ViskoModel viskoModel) {
+		super(ViskoS.CLASS_URI_Toolkit, baseURL, name, viskoModel);
 	}
 
-	public ViewerSet(String uri, ViskoModel viskoModel) {
+	public Toolkit(String uri, ViskoModel viskoModel) {
 		super(uri, viskoModel);
+	}
+
+	@Override
+	protected void initializeFields() {
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override
 	protected void populateFieldsWithIndividual(Individual ind) {
 		// TODO Auto-generated method stub
+
 	}
 
 	@Override
 	protected void setProperties() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	protected void initializeFields() {
 		// TODO Auto-generated method stub
 
 	}

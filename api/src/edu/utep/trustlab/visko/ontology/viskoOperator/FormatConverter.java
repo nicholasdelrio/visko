@@ -18,20 +18,20 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.ontology.operator;
+package edu.utep.trustlab.visko.ontology.viskoOperator;
 
 
 import com.hp.hpl.jena.ontology.Individual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 
-public class DataFilter extends Operator {
+public class FormatConverter extends Operator {
 
-	public DataFilter(String classURI, String baseURL, String name, ViskoModel viskoModel) {
-		super(ViskoO.CLASS_URI_DataFilter, baseURL, name, viskoModel);
+	public FormatConverter(String classURI, String baseURL, String name, ViskoModel viskoModel) {
+		super(ViskoO.CLASS_URI_FormatConverter, baseURL, name, viskoModel);
 	}
 
-	public DataFilter(String uri, ViskoModel viskoModel) {
+	public FormatConverter(String uri, ViskoModel viskoModel) {
 		super(uri, viskoModel);
 	}
 	

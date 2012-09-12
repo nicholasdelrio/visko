@@ -32,8 +32,8 @@ import org.mindswap.query.ValueMap;
 
 import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
-import edu.utep.trustlab.visko.ontology.operator.DataTransformer;
-import edu.utep.trustlab.visko.ontology.service.Service;
+import edu.utep.trustlab.visko.ontology.viskoOperator.DataTransformer;
+import edu.utep.trustlab.visko.ontology.viskoService.Service;
 import edu.utep.trustlab.visko.util.FileUtils;
 
 public class PMLNodesetLogger {
