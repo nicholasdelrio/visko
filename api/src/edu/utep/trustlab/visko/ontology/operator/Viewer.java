@@ -59,8 +59,8 @@ public class Viewer extends JenaIndividual {
 	ObjectProperty partOfViewerSet;
 	
 	// input formats and data types
-	private Vector<Format> inputFormats;	
-	private OntResource inputDataType;
+	private Vector<Format> inputFormats;
+	private Vector<OntResource> inputDataTypes;
 	
 	// Object Properties
 	private ObjectProperty hasInputFormat;	
@@ -94,12 +94,12 @@ public class Viewer extends JenaIndividual {
 		return inputFormats;
 	}
 		
-	public void setInputDataType(OntResource inDataType) {
-		inputDataType = inDataType;
+	public void addInputDataType(OntResource inDataType) {
+		inputDataTypes.add(inDataType);
 	}	
 		
-	public String getInputDataTypeURI(){
-		return inputDataType.getURI();
+	public Vector<OntResource> getInputDataTypes(){
+		return inputDataTypes;
 	}
 	
 	private void addHasInputFormat(Individual subjectInd) {
@@ -108,11 +108,11 @@ public class Viewer extends JenaIndividual {
 	}
 	
 	private void addHasInputDataType(Individual subjectInd) {
-		
-		if(inputDataType == null)
+		if(inputDataTypes.size() == 0)
 			subjectInd.addProperty(hasInputDataType, OWL.getOWLThing());
 		else
-			subjectInd.addProperty(hasInputDataType, inputDataType);
+			for(OntResource inputDataType : inputDataTypes)
+				subjectInd.addProperty(hasInputDataType, inputDataType);
 	}
 
 	private void addPartOfViewerSet(Individual subjectInd) {
@@ -123,7 +123,7 @@ public class Viewer extends JenaIndividual {
 	@Override
 	protected boolean allFieldsPopulated() {
 		boolean hasInputFormats = inputFormats.size() > 0;
-		boolean hasInputDataType = inputDataType != null;
+		boolean hasInputDataType = inputDataTypes.size() > 0;
 		
 		return viewerSets.size() > 0 && hasInputFormats && hasInputDataType;		
 	}
@@ -159,12 +159,15 @@ public class Viewer extends JenaIndividual {
 			inputFormats.add(new Format(inFormats.next().as(Individual.class).getURI(), model));
 	
 		// populate input data type
-		NodeIterator inDataType = ind.listPropertyValues(hasInputDataType);
-		inputDataType = inDataType.next().as(Individual.class);
+		NodeIterator inDataTypes = ind.listPropertyValues(hasInputDataType);
+		while(inDataTypes.hasNext())
+			inputDataTypes.add(inDataTypes.next().as(Individual.class));
 	}
 
 	@Override
 	protected void initializeFields() {
 		viewerSets = new Vector<ViewerSet>();
+		inputDataTypes = new Vector<OntResource>();
+		inputFormats = new Vector<Format>();
 	}
 }

@@ -60,19 +60,25 @@ import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.ObjectProperty;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.Ontology;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
 
 public class ViskoModel{
 	private OntModel model;
-	private Ontology ontology;
 	private static Vector<ViskoModel> models = new Vector<ViskoModel>();
 	
 	public ViskoModel() {
 		models.add(this);
 		model = ModelFactory.createOntologyModel();
+
+		//add namespace mappings
+		model.setNsPrefix("viskoV", Visko.CORE_VISKO_V + "#");
+		model.setNsPrefix("viskoO", Visko.CORE_VISKO_O + "#");
+		model.setNsPrefix("viskoS", Visko.CORE_VISKO_S + "#");
+		model.setNsPrefix("pmlp", PMLP.ONTOLOGY_PMLP_URI + "#");
+		model.setNsPrefix("owlsService", OWLS_Service.ONTOLOGY_OWLS_SERVICE_URI + "#");
+		model.setNsPrefix("owlsProcess", OWLS_Process.ONTOLOGY_OWLS_PROCESS_URI + "#");
 	}
 
 	public static void closeModels() {
@@ -88,35 +94,24 @@ public class ViskoModel{
 		return model;
 	}
 
-	public void createOntology(String uri) {
-		if (ontology == null)
-			ontology = model.createOntology(null);
-	}
-
 	private OntModel getRelevantOntModel(String uri) {		
 		OntModel ontModel = null;
-	
-		if (uri.contains(Visko.CORE_VISKO_V)) {
+		
+		if (uri.contains(Visko.CORE_VISKO_V))
 			ontModel = ViskoV.getModel();
-			this.addViskoVImport();
-		} else if (uri.contains(Visko.CORE_VISKO_O)) {
+		else if (uri.contains(Visko.CORE_VISKO_O))
 			ontModel = ViskoO.getModel();
-			this.addViskoOImport();
-		} else if (uri.contains(Visko.CORE_VISKO_O)) {
+		else if (uri.contains(Visko.CORE_VISKO_S))
 			ontModel = ViskoS.getModel();
-			this.addViskoSImport();
-		} else if (uri.contains(PMLP.ONTOLOGY_PMLP_URI)) {
+		else if (uri.contains(PMLP.ONTOLOGY_PMLP_URI))
 			ontModel = ViskoO.getModel();
-			this.addPMLPImport();
-		} else if (uri.contains(OWLS_Service.ONTOLOGY_OWLS_SERVICE_URI)) {
+		else if (uri.contains(OWLS_Service.ONTOLOGY_OWLS_SERVICE_URI))
 			ontModel = OWLS_Service.getModel();
-			this.addOWLSServiceImport();
-		} else if (uri.contains(OWLS_Process.ONTOLOGY_OWLS_PROCESS_URI)) {
+		else if (uri.contains(OWLS_Process.ONTOLOGY_OWLS_PROCESS_URI))
 			ontModel = OWLS_Process.getModel();
-			this.addOWLSProcessImport();
-		}else if (uri.contains(RDFS.ONTOLOGY_RDFS_URI)) {
+		else if (uri.contains(RDFS.ONTOLOGY_RDFS_URI))
 			ontModel = RDFS.getModel();
-		} else
+		else
 			System.out.println("Couldn't find OntClass in VisKo ontology collection...");
 
 		return ontModel;
@@ -184,53 +179,5 @@ public class ViskoModel{
 
 	public void closeModel() {
 		model.close();
-	}
-
-	private void addViskoVImport() {
-		if (ontology != null) {
-			ontology.addImport(ViskoV.getOntology());
-			model.addLoadedImport(Visko.CORE_VISKO_V);
-			model.setNsPrefix("viskoV", Visko.CORE_VISKO_V + "#");
-		}
-	}
-
-	private void addViskoOImport() {
-		if (ontology != null) {
-			ontology.addImport(ViskoO.getOntology());
-			model.addLoadedImport(Visko.CORE_VISKO_O);
-			model.setNsPrefix("viskoO", Visko.CORE_VISKO_O + "#");
-		}
-	}
-
-	private void addViskoSImport() {
-		if (ontology != null) {
-			ontology.addImport(ViskoS.getOntology());
-			model.addLoadedImport(Visko.CORE_VISKO_S);
-			model.setNsPrefix("viskoS", Visko.CORE_VISKO_S + "#");
-		}
-	}
-	
-	private void addPMLPImport() {
-		if (ontology != null) {
-			ontology.addImport(PMLP.getOntology());
-			model.addLoadedImport(PMLP.ONTOLOGY_PMLP_URI);
-			model.setNsPrefix("pmlp", PMLP.ONTOLOGY_PMLP_URI + "#");
-		}
-	}
-
-	private void addOWLSServiceImport() {
-		if (ontology != null) {
-			ontology.addImport(OWLS_Service.getOntology());
-			model.addLoadedImport(OWLS_Service.ONTOLOGY_OWLS_SERVICE_URI);
-			model.setNsPrefix("owlsService", OWLS_Service.ONTOLOGY_OWLS_SERVICE_URI + "#");
-		}
-	}
-
-	private void addOWLSProcessImport() {
-		if (ontology != null) {
-			ontology.addImport(OWLS_Process.getOntology());
-			model.addLoadedImport(OWLS_Process.ONTOLOGY_OWLS_PROCESS_URI);
-			model.setNsPrefix("owlsProcess", OWLS_Process.ONTOLOGY_OWLS_PROCESS_URI + "#");
-		}
 	}
 }

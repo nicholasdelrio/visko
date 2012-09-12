@@ -40,8 +40,8 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.ontology.vocabulary;
 
+
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.Ontology;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 public class ViskoV {
@@ -72,19 +72,13 @@ public class ViskoV {
 	public static final String INDIVIDUAL_URI_VolumeRendering = Visko.CORE_VISKO_V + "#VolumeRendering";
 
 	private static OntModel model;
-	private static Ontology ontology;
 
 	static {
 		model = ModelFactory.createOntologyModel();
 		model.read(Visko.CORE_VISKO_V);
-		ontology = model.getOntology(Visko.CORE_VISKO_V);
 	}
 
 	public static OntModel getModel() {
 		return model;
-	}
-
-	public static Ontology getOntology() {
-		return ontology;
 	}
 }

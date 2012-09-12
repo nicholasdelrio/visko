@@ -41,7 +41,6 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.ontology.vocabulary.supplemental;
 
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.Ontology;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 public class RDFS {
@@ -52,19 +51,13 @@ public class RDFS {
 	public static final String PROPERTY_URI_label = ONTOLOGY_RDFS_URI + "#label";
 
 	private static OntModel model;
-	private static Ontology ontology;
 
 	static {
 		model = ModelFactory.createOntologyModel();
 		model.read(ONTOLOGY_RDFS_URI);
-		ontology = model.getOntology(ONTOLOGY_RDFS_URI);
 	}
 
 	public static OntModel getModel() {
 		return model;
-	}
-
-	public static Ontology getOntology() {
-		return ontology;
 	}
 }

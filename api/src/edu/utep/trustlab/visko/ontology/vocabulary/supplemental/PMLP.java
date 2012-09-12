@@ -41,8 +41,8 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 package edu.utep.trustlab.visko.ontology.vocabulary.supplemental;
 
 
+
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.Ontology;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 public class PMLP {
@@ -56,19 +56,14 @@ public class PMLP {
 	public static final String DATATYPE_PROPERTY_URI_hasName = ONTOLOGY_PMLP_URI + "#hasName";
 
 	private static OntModel model;
-	private static Ontology ontology;
 
 	static {
 		model = ModelFactory.createOntologyModel();
 		model.read(ONTOLOGY_PMLP_URI);
-		ontology = model.getOntology(ONTOLOGY_PMLP_URI);
 	}
 
 	public static OntModel getModel() {
 		return model;
 	}
 
-	public static Ontology getOntology() {
-		return ontology;
-	}
 }

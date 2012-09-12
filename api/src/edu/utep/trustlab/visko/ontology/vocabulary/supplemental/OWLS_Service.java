@@ -40,8 +40,8 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.ontology.vocabulary.supplemental;
 
+
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.Ontology;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 public class OWLS_Service {
@@ -51,19 +51,13 @@ public class OWLS_Service {
 	public static final String CLASS_URI_Service = ONTOLOGY_OWLS_SERVICE_URI + "#Service";
 
 	private static OntModel model;
-	private static Ontology ontology;
 
 	static {
 		model = ModelFactory.createOntologyModel();
 		model.read(ONTOLOGY_OWLS_SERVICE_URI + "#");
-		ontology = model.getOntology(ONTOLOGY_OWLS_SERVICE_URI);
 	}
 
 	public static OntModel getModel() {
 		return model;
-	}
-
-	public static Ontology getOntology() {
-		return ontology;
 	}
 }

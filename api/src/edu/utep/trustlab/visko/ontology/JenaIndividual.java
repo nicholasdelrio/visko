@@ -77,9 +77,6 @@ public abstract class JenaIndividual implements ViskoIndividual {
 		// construct the uri using the baseURL (ci-server) and some name
 		setURI(baseURL, name);
 
-		// create ontology for new individual
-		model.createOntology(fullURL);
-
 		// initialize the OntClass that the individual will be a type of
 		setOntClass(classURI);
 

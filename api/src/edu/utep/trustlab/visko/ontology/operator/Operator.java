@@ -139,8 +139,7 @@ public class Operator extends JenaIndividual {
 	@Override
 	protected boolean allFieldsPopulated() {
 		boolean hasInputOutputFormats = inputFormat != null && outputFormat != null;
-		boolean hasInputOutputDataTypes = inputDataType != null && outputDataType != null;
-		return hasInputOutputFormats && hasInputOutputDataTypes && name != null;
+		return hasInputOutputFormats && name != null;
 	}
 
 	@Override
