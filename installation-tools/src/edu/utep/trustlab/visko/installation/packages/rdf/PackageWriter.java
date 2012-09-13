@@ -67,7 +67,7 @@ public class PackageWriter {
 		
 	}
 	
-	public void setDataTypesModel(OntModel model){
+	public static void setDataTypesModel(OntModel model){
 		dataTypesModel = model;
 	}
 	

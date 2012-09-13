@@ -26,6 +26,8 @@ import java.io.FileInputStream;
 import com.hp.hpl.jena.rdf.model.*;
 import com.hp.hpl.jena.tdb.*;
 
+import edu.utep.trustlab.visko.installation.packages.manager.PackageInstaller;
+
 	public class TripleStore {
 
 	private String packageDir;
@@ -51,6 +53,7 @@ import com.hp.hpl.jena.tdb.*;
 		
 		aggregatePackages();
 		aggregateResources();
+		this.aggregatePackageDataTypes();
 				
 		System.out.println("Model now has " + model.size() + " statements.");
 		model.close();
@@ -82,6 +85,12 @@ import com.hp.hpl.jena.tdb.*;
 				isLegal = false;
 		}
 		return isLegal && resourceDirectory.isDirectory();
+	}
+	
+	private void aggregatePackageDataTypes(){
+		File dataTypesDir = new File(packageDir + PackageInstaller.DATA_TYPES_DIRECTORY_NAME);
+		if(dataTypesDir.exists())
+			this.aggregate(dataTypesDir);
 	}
 	
 	private void aggregatePackages(){

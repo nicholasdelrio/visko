@@ -64,6 +64,9 @@
 			<classpath>
 				<pathelement location="${visko-api-jar}"/>
 				<pathelement location="${installation-tools-jar}"/>
+				<fileset dir="${lib}/jena262/">
+					<include name="*.jar"/>
+				</fileset>	
 			</classpath>		
 		</javac>
 	</target>
@@ -103,9 +106,9 @@
 				<fileset dir="${lib}/axis4/">
 					<include name="*.jar"/>
 				</fileset>
-					<fileset dir="${lib}/jena262/">
-				<include name="*.jar"/>
-					</fileset>	
+				<fileset dir="${lib}/jena262/">
+					<include name="*.jar"/>
+				</fileset>	
 				<fileset dir="${lib}/util/">
 					<include name="*.jar"/>
 				</fileset>
@@ -130,9 +133,9 @@
 				<fileset dir="${lib}/axis4/">
 					<include name="*.jar"/>
 				</fileset>
-					<fileset dir="${lib}/jena262/">
-				<include name="*.jar"/>
-					</fileset>	
+				<fileset dir="${lib}/jena262/">
+					<include name="*.jar"/>
+				</fileset>	
 				<fileset dir="${lib}/util/">
 					<include name="*.jar"/>
 				</fileset>
