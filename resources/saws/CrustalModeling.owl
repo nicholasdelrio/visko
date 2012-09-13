@@ -21,6 +21,7 @@
      xmlns:pmlp="http://inference-web.org/2.0/pml-provenance.owl#">
     <owl:Ontology rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl">
         <rdfs:comment xml:lang="en">Ontology about the process of creating crustal models of the Earth with the use of Gravity, Magnetic, and Receiver Function data.</rdfs:comment>
+        <owl:imports rdf:resource="http://gmt.soest.hawaii.edu/gmt-data.owl"/>
         <owl:imports rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl"/>
         <owl:imports rdf:resource="http://trust.utep.edu/2.0/wdo.owl"/>
     </owl:Ontology>
@@ -82,6 +83,7 @@
 
     <owl:Class rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d12">
         <rdfs:label>Gridded Gravity Data</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://gmt.soest.hawaii.edu/gmt-data.owl#2D_Grid_COARDS"/>
         <rdfs:subClassOf rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d6"/>
     </owl:Class>
     

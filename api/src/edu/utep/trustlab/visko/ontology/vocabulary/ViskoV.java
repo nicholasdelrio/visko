@@ -70,6 +70,7 @@ public class ViskoV {
 	public static final String INDIVIDUAL_URI_IsoSurfaceRendering = Visko.CORE_VISKO_V + "#IsoSurfacesRendering";
 	public static final String INDIVIDUAL_URI_MeshPlot = Visko.CORE_VISKO_V + "#MeshPlot";
 	public static final String INDIVIDUAL_URI_VolumeRendering = Visko.CORE_VISKO_V + "#VolumeRendering";
+	public static final String INDIVIDUAL_URI_RasterCube = Visko.CORE_VISKO_V + "#RasterCube";
 
 	private static OntModel model;
 

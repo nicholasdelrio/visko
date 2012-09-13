@@ -5,13 +5,15 @@
     xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:ds="http://inference-web.org/2.0/ds.owl#">
-  <pmlp:Format rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/formats/BINARYINTARRAYBENDIAN.owl#BINARYINTARRAYBENDIAN">
+  <pmlp:Format rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/formats/LITTLE-ENDIAN-UNSIGNED-INTEGERS.owl#LITTLE-ENDIAN-UNSIGNED-INTEGERS">
     <pmlp:hasDescription>
       <pmlp:Information>
         <pmlp:hasLanguage rdf:resource="http://inference-web.org/registry/LG/English.owl#English"/>
+        <pmlp:hasURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/TR/2009/CR-exi-20091208/#mediaTypeRegistration</pmlp:hasURL>
       </pmlp:Information>
     </pmlp:hasDescription>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >binaryIntArrayBEndian</pmlp:hasName>
+    >exi</pmlp:hasName>
   </pmlp:Format>
 </rdf:RDF>
