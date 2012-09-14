@@ -168,7 +168,11 @@ public class Pipeline extends Vector<String> {
 	}
 	
 	public String toString(){
-		return super.toString() + ", viewerURI: " + this.viewerURI;
+		String stringRepresentation = 
+				"Pipeline:\n"
+				+ super.toString() + "\n"
+				+ "Viewer: " + this.viewerURI;
+		return stringRepresentation;
 	}
 	
 	public PipelineSet getParentPipelineSet(){

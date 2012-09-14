@@ -172,10 +172,9 @@ public class OperatorPath extends Vector<String> {
 	
 	public String toString(){
 		String stringRepresentation = 
-				"Operator Pipeline:\n"
+				"Operator path:\n"
 				+ super.toString() + "\n"
-				+ "Viewer:\n"
-				+ this.viewerURI;
+				+ "Viewer: " + this.viewerURI;
 		return stringRepresentation;
 	}
 }
