@@ -53,21 +53,21 @@ import edu.utep.trustlab.visko.util.ResultSetToVector;
 
 
 public class Pipeline extends Vector<String> {
-	private String viewer;
+	private String viewerURI;
 	private Vector<String> viewerSets;
-	private String view;
+	private String viewURI;
 	private ViskoModel viskoLoadingModel;
 	private PipelineSet parentContainer;
 
 	private ArrayList<String> unboundParameters;
 	private ArrayList<String> allParameters;
 	
-	public Pipeline(String viewerURI, String viewURI, PipelineSet parent) {
+	public Pipeline(String aViewerURI, String aViewURI, PipelineSet parent) {
 		super();
 		viskoLoadingModel = new ViskoModel();
 		parentContainer = parent;
-		viewer = viewerURI;
-		view = viewURI;
+		viewerURI = aViewerURI;
+		viewURI = aViewURI;
 		
 		setViewerSets(viewerURI);
 	}
@@ -87,11 +87,11 @@ public class Pipeline extends Vector<String> {
 	}
 
 	public String getViewURI(){
-		return view;
+		return viewURI;
 	}
 	
 	public Viewer getViewer() {
-		return new Viewer(viewer, viskoLoadingModel);
+		return new Viewer(viewerURI, viskoLoadingModel);
 	}
 
 	public List<String> getAllParameters(){
@@ -109,7 +109,7 @@ public class Pipeline extends Vector<String> {
 	}
 	
 	public String getViewerURI() {
-		return new Viewer(viewer, viskoLoadingModel).getURI();
+		return new Viewer(viewerURI, viskoLoadingModel).getURI();
 	}
 	
 	public HashMap<String, String> getParameterBindings() {
@@ -168,7 +168,7 @@ public class Pipeline extends Vector<String> {
 	}
 	
 	public String toString(){
-		return super.toString() + ", viewerURI: " + this.viewer;
+		return super.toString() + ", viewerURI: " + this.viewerURI;
 	}
 	
 	public PipelineSet getParentPipelineSet(){

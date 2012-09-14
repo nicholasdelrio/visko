@@ -124,7 +124,7 @@ import edu.utep.trustlab.visko.installation.packages.manager.PackageInstaller;
 		System.out.println("Adding OWL/RDF files in directory: " + directory.getAbsolutePath());
 		
 		for(File aFile : directory.listFiles()){
-			if(aFile.getName().endsWith(".owl") || aFile.getName().endsWith(".rdf")){
+			if((aFile.getName().endsWith(".owl") || aFile.getName().endsWith(".rdf")) && isAcceptedFile(aFile)){
 				System.out.println("aggregating file: " + aFile.getName());
 				try{model.read(new FileInputStream(aFile), null);}
 				catch(Exception e){
@@ -132,6 +132,18 @@ import edu.utep.trustlab.visko.installation.packages.manager.PackageInstaller;
 				}
 			}
 		}
+	}
+	
+	public boolean isAcceptedFile(File file){
+		String[] badFiles = new String[]{"cf-obj.owl"};
+		for(String badFileName : badFiles){
+			if(badFileName.equals(file.getName()))
+			{
+				System.out.println("ignoring file: " + file.getName());
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	public static void main(String[] args){

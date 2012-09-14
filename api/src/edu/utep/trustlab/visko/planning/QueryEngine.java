@@ -48,13 +48,13 @@ import edu.utep.trustlab.visko.util.ResultSetToVector;
 
 public class QueryEngine {
 	private Query query;
-	private PipelineSetBuilder1 builder;
+	private PipelineSetBuilder builder;
 	private HashMap<String, String> parameterBindings;
 	private PipelineSet pipelines;
 
 	public QueryEngine(Query q) {
 		query = q;
-		builder = new PipelineSetBuilder1(query);
+		builder = new PipelineSetBuilder(query);
 		parameterBindings = new HashMap<String, String>();
 	}
 

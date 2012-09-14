@@ -87,22 +87,13 @@ public class OperatorPath extends Vector<String> {
 		String operatorURI = this.firstElement();
 		if(ts.operatorAcceptsInputDataType(operatorURI, inputDataType)){
 			for(int i = 0; i < this.size() - 1; i ++){
-				
-				System.out.println("checking operators: " + get(i) + " and " + get(i + 1));
-				
-				if(!ts.canBeAdjacentOperatorsAccordingToType(this.get(i), this.get(i + 1))){
-					System.out.println("and they failed");
+				if(!ts.canBeAdjacentOperatorsAccordingToType(this.get(i), this.get(i + 1)))
 					return false;
-				}
-				System.out.println("and they passed");
 			}
-			System.out.println("all passed --------------------------------------");
 			return true;
 		}
-		else{
-			System.out.println("first operator: " + this.firstElement() + " failed type check of: " + inputDataType);
+		else
 			return false;
-		}
 	}
 	
 	public boolean outputCanBeViewedByViewerSet(String viewerSetURI){
@@ -154,9 +145,7 @@ public class OperatorPath extends Vector<String> {
 	public boolean add(String operatorURI){
 		 if(ts.isMapper(operatorURI)){
  			 Vector<String> view = ResultSetToVector.getVectorFromResultSet(ts.getViewGeneratedByMapper(operatorURI), "view");
- 			 viewURI = view.firstElement();
- 			 
- 			 System.out.println("is a mapper and has view of: " + viewURI);
+ 			 viewURI = view.firstElement(); 			 
 		 }
 		 return super.add(operatorURI);
 	}
@@ -182,6 +171,11 @@ public class OperatorPath extends Vector<String> {
 	}
 	
 	public String toString(){
-		return super.toString() + " viewer: " + this.viewerURI;
+		String stringRepresentation = 
+				"Operator Pipeline:\n"
+				+ super.toString() + "\n"
+				+ "Viewer:\n"
+				+ this.viewerURI;
+		return stringRepresentation;
 	}
 }

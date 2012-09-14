@@ -36,7 +36,7 @@ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIM
 GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
 LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-/*
+
 
 package edu.utep.trustlab.visko.planning;
 
@@ -45,8 +45,6 @@ import java.util.Vector;
 import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.planning.PipelineSet;
 import edu.utep.trustlab.visko.planning.Query;
-import edu.utep.trustlab.visko.planning.paths.FormatPath;
-import edu.utep.trustlab.visko.planning.paths.FormatPaths;
 import edu.utep.trustlab.visko.planning.paths.OperatorPath;
 import edu.utep.trustlab.visko.planning.paths.OperatorPaths;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
@@ -58,10 +56,11 @@ import com.hp.hpl.jena.query.*;
 public class PipelineSetBuilder {
 	private ViskoTripleStore ts;
 
-	private FormatPaths formatPaths;
 	private OperatorPaths operatorPaths;
 	private PipelineSet pipelines;
 	private Query query;
+	
+	private Vector<String> targetFormats;
 
 	public PipelineSetBuilder(Query drivingQuery) {
 		ts = new ViskoTripleStore();
@@ -76,14 +75,6 @@ public class PipelineSetBuilder {
 		return ts;
 	}
 
-	public boolean formatPathExistsForViewerSet(String formatURI, String viewerSetURI) {
-		return ts.canBeVisualizedWithViewerSet(formatURI, viewerSetURI);
-	}
-
-	public boolean formatPathExistsForTargetFormat(String formatURI, String targetFormatURI) {
-		return ts.canBeVisualizedWithTargetFormat(formatURI, targetFormatURI);
-	}
-
 	public boolean isAlreadyVisualizableWithViewerSet(String formatURI, String dataTypeURI, String viewerSetURI) {
 		boolean formatCheck = ts.isFormatAlreadyVisualizableWithViewerSet(formatURI, viewerSetURI);
 		boolean typeCheck = ts.isDataTypeAlreadyVisualizableWithViewerSet(dataTypeURI, viewerSetURI) || ts.isSubClassOfDataTypeAlreadyVisualizableWithViewerSet(dataTypeURI, viewerSetURI);
@@ -91,23 +82,38 @@ public class PipelineSetBuilder {
 		return formatCheck && typeCheck;
 	}
 
-	public void setPipelines(String formatURI, String dataTypeURI, String viewerSetURI, String viewConstraintURI) {
-		setFormatPaths(formatURI, viewerSetURI);
-		System.out.println("Num format paths: " + formatPaths.size());
+	private void setUpTargetFormats(String viewerSetURI){
+		// get listing of target formats
+		ResultSet viewerFormatResults = ts.getFormatsFromViewerSet(viewerSetURI);
+		targetFormats = ResultSetToVector.getVectorFromResultSet(viewerFormatResults, "format");		
+	}
+	
+	public void setPipelines(String formatURI, String dataTypeURI, String viewerSetURI, String viewURI) {
 
-		setOperatorPathsForViewers();
-		System.out.println("Num operator paths: " + operatorPaths.size());
-
-		filterOperatorPathsByTypeRestriction(dataTypeURI);
-		System.out.println("Num operator paths after type restrictions: " + operatorPaths.size());
+		//set up target formats
+		setUpTargetFormats(viewerSetURI);
 		
-		if (viewConstraintURI != null) {
-			filterOperatorPathsWithViewRestriction(viewConstraintURI);
-			System.out.println("Num operator paths after view restrictions: " + operatorPaths.size());
-		}
-
+		setOperatorPaths(formatURI);
+		System.out.println("Number of operator paths by only Format restriction: " + operatorPaths.size());
+		
+		operatorPaths.filterByType(dataTypeURI);
+		System.out.println("Number of operator paths after additional DataType restriction: " + operatorPaths.size());
+		
+		operatorPaths.filterByViewerSet(viewerSetURI);
+		System.out.println("Number of operator paths after additional ViewerSet restriction: " + operatorPaths.size());
+		
+		if (viewURI != null) {
+			operatorPaths.filterByView(viewURI);
+			System.out.println("Number of operator paths after additional View restrictions: " + operatorPaths.size());
+		}				
+		
+		setOperatorImplementations();
+		System.out.println("Number of executable pipelines: " + pipelines.size());
+		
+	}
+	
+	private void setOperatorImplementations(){
 		Vector<Vector<String>> operatorImplSets;
-
 		pipelines = new PipelineSet(query);
 		Pipeline pipe;
 
@@ -143,164 +149,63 @@ public class PipelineSetBuilder {
 			}
 		}
 	}
-
-	public void setPipelinesUsingTargetFormat(String formatURI, String dataTypeURI, String targetFormatURI, String viewConstraintURI) {
-		setFormatPathsUsingTargetFormat(formatURI, targetFormatURI);
-		System.out.println("Num format paths: " + formatPaths.size());
-
-		setOperatorPathsForViewers();
-		System.out.println("Num operator paths: " + operatorPaths.size());
 		
-		filterOperatorPathsByTypeRestriction(dataTypeURI);
-		System.out.println("Num operator paths after type restrictions: " + operatorPaths.size());
-
-		if (viewConstraintURI != null) {
-			filterOperatorPathsWithViewRestriction(viewConstraintURI);
-			System.out.println("Num operator paths after view restrictions: " + operatorPaths.size());
+	private void setOperatorPaths(String inputFormat){
+		operatorPaths = new OperatorPaths();
+		
+		// get a listing of all operators that process the inputFormat
+		// these operators will be the starting point for our search algorithm
+		ResultSet operatorResults = ts.getOperatorsThatProcessFormat(inputFormat);
+		Vector<String> operatorURIs = ResultSetToVector.getVectorFromResultSet(operatorResults, "operator");		
+				
+		// for each root operatorURI, start a new path and populate it
+		OperatorPath operatorPath;
+		for(String operatorURI : operatorURIs){
+			operatorPath = new OperatorPath(ts);
+			operatorPath.add(operatorURI);
+			constructOperatorPaths(operatorPath);
 		}
-
-		Vector<Vector<String>> operatorImplSets;
-
-		pipelines = new PipelineSet(query);
-		Pipeline pipe;
-
-		for (OperatorPath operatorPath : operatorPaths) {
-			pipe = new Pipeline(operatorPath.getViewerURI(), operatorPath.getViewGenerated(), pipelines);
-
-			if (operatorPath.isEmpty()) {
-				pipelines.add(pipe);
-			}
-
-			else {
-				operatorImplSets = new Vector<Vector<String>>();
-
-				for (String operatorURI : operatorPath) {
-					ResultSet operatorImplURIs = ts
-							.getOWLSServiceImplementationsURIs(operatorURI);
-					Vector<String> operatorImplURIsVector = ResultSetToVector
-							.getVectorFromResultSet(operatorImplURIs, "opImpl");
-
-					if (operatorImplURIsVector.size() > 0)
-						operatorImplSets.add(operatorImplURIsVector);
-				}
-
-				if (operatorImplSets.size() == operatorPath.size()) {
-					Vector<Vector<String>> cartesianOperatorImpl = CartesianProduct
-							.cartesianProduct(operatorImplSets, 0);
-
-					for (Vector<String> cartesianPath : cartesianOperatorImpl) {
-						pipe = new Pipeline(operatorPath.getViewerURI(), operatorPath.getViewGenerated(), pipelines);
-						pipe.setServiceURIs(cartesianPath);
-						pipelines.add(pipe);
-					}
-				}
-			}
-		}
-	}
-
-	private void filterOperatorPathsWithViewRestriction(String requiredViewURI) {
-		operatorPaths.filterByView(requiredViewURI, ts);
-	}
-
-	private void filterOperatorPathsByTypeRestriction(String inputDataType){
-		operatorPaths.filterByType(inputDataType, ts);
 	}
 	
-	private void setOperatorPathsForViewers() {
-		operatorPaths = new OperatorPaths();
-		OperatorPath operatorPath;
-		Vector<Vector<String>> operatorSets;
-
-		for (FormatPath formatPath : formatPaths) {
-			operatorPath = new OperatorPath(formatPath.getViewerURI());
-			operatorSets = new Vector<Vector<String>>();
-
-			// to support null pipelines (when no transformation is needed to
-			// view current format)
-			if (formatPath.isEmptyPath()) {
-				operatorPaths.add(operatorPath);
+	private void constructOperatorPaths(OperatorPath operatorPath){
+		// get a listing of all operators that can proceed input operator
+		ResultSet operatorResults = ts.getNextOperatorWithCommonFormat(operatorPath.lastElement());
+		
+		// filter out any operators that are already in this path
+		Vector<String> operatorURIs = ResultSetToVector.getVectorFromResultSet(operatorResults, "operator");
+		operatorURIs = operatorPath.removeOperatorsAlreadyInPath(operatorURIs);
+		
+		// recursive base case, we hit the end of an operator path
+		if(operatorURIs.size() == 0)
+			operatorPaths.add(operatorPath);
+		
+		// recursive case, there are more operators to add
+		else{
+			OperatorPath clonedPath;
+			
+			if(generatesTargetFormat(operatorPath.lastElement())){
+				clonedPath = operatorPath.clonePath();
+				operatorPaths.add(clonedPath);
 			}
-
-			else {
-				for (int i = 0; i < formatPath.size() - 1; i++) {
-					ResultSet operatorURIs = ts.getTransformers(
-							formatPath.get(i), formatPath.get(i + 1));
-					Vector<String> operatorURIsVector = ResultSetToVector
-							.getVectorFromResultSet(operatorURIs, "transformer");
-					operatorSets.add(operatorURIsVector);
-				}
-
-				Vector<Vector<String>> productOperatorPaths = CartesianProduct
-						.cartesianProduct(operatorSets, 0);
-
-				for (Vector<String> productOperatorPath : productOperatorPaths) {
-					operatorPath = new OperatorPath(formatPath.getViewerURI());
-					operatorPath.set(productOperatorPath);
-					operatorPaths.add(operatorPath);
-				}
+			
+			for(String nextOperatorURI : operatorURIs){
+				clonedPath = operatorPath.clonePath();
+				clonedPath.add(nextOperatorURI);
+				constructOperatorPaths(clonedPath);
 			}
 		}
 	}
-
-	private void setFormatPathsUsingTargetFormat(String formatURI,
-			String targetFormatURI) {
-		formatPaths = new FormatPaths();
-		FormatPath formatPath = new FormatPath(null);
-		populateFormatPaths(formatPath, formatPaths, formatURI, targetFormatURI);
-	}
-
-	private void setFormatPaths(String formatURI, String viewerSetURI) {
-		System.out.println("setting format paths...");
-		String targetFormatURI;
-		String targetViewerURI;
-
-		formatPaths = new FormatPaths();
-		FormatPath formatPath;
-
-		if (ts.isFormatAlreadyVisualizableWithViewerSet(formatURI, viewerSetURI)) {
-			System.out.println("already visualizable...");
-			Vector<String> targetViewer = ResultSetToVector.getVectorFromResultSet(ts.getTargetViewerOfViewerSet(formatURI, viewerSetURI), "viewer");
-			formatPath = new FormatPath(targetViewer.get(0));
-			formatPath.add(formatURI);
-			formatPaths.add(formatPath);
-		}
-
-		ResultSet targetFormats = ts.getTargetFormatsFromViewerSet(formatURI,viewerSetURI);
-		Vector<String[]> targetFormatsVector = ResultSetToVector.getVectorPairsFromResultSet(targetFormats, "format", "viewer");
-		System.out.println(targetFormatsVector.size());
-
-		for (String[] targetFormatAndViewer : targetFormatsVector) {
-			targetFormatURI = targetFormatAndViewer[0];
-			targetViewerURI = targetFormatAndViewer[1];
-
-			System.out.println("target viewer: " + targetViewerURI);
-
-			formatPath = new FormatPath(targetViewerURI);
-			populateFormatPaths(formatPath, formatPaths, formatURI,
-					targetFormatURI);
-		}
-	}
-
-	private void populateFormatPaths(FormatPath formatPath,
-			FormatPaths formatPaths, String currentFormatURI,
-			String targetFormatURI) {
-		formatPath.add(currentFormatURI);
-
-		if (currentFormatURI.equals(targetFormatURI)) {
-			formatPaths.add(formatPath);
-		}
-
-		else {
-			ResultSet nextFormats = ts.getNextFormats(currentFormatURI,
-					targetFormatURI);
-			Vector<String> nextFormatsVector = ResultSetToVector
-					.getVectorFromResultSet(nextFormats, "format");
-			for (String nextFormatURI : nextFormatsVector) {
-				FormatPath duplicateFormatPath = formatPath.copy();
-				populateFormatPaths(duplicateFormatPath, formatPaths,
-						nextFormatURI, targetFormatURI);
+	
+	private boolean generatesTargetFormat(String operatorURI){
+		ResultSet outputFormatResults = ts.getOutputFormatsOfOperator(operatorURI);
+		Vector<String> outputFormats = ResultSetToVector.getVectorFromResultSet(outputFormatResults, "format");
+		
+		for(String outputFormat : outputFormats){
+			for(String targetFormat :targetFormats){
+				if(targetFormat.equals(outputFormat))
+					return true;
 			}
 		}
+		return false;
 	}
 }
-*/

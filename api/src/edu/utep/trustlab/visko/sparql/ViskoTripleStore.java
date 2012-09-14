@@ -496,8 +496,6 @@ public class ViskoTripleStore {
 		operatorURI = "<" + operatorURI + ">";
 		viewerSetURI = "<" + viewerSetURI + ">";
 		
-		System.out.println("checking operator: " + operatorURI);
-		
 		String stringQuery = QUERY_PREFIX
 				+ "ASK WHERE {{"
 				+ "?viewer viskoO:partOfViewerSet " + viewerSetURI + " . "

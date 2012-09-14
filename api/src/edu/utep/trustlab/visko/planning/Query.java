@@ -94,20 +94,13 @@ public class Query {
 		ContentManager.setProvenanceContentManager(fs);
 		
 		
-		ViskoTripleStore ts = new ViskoTripleStore();
-		ResultSet results = ts.getOperators();
-		
-		Vector<String> stringResults = ResultSetToVector.getVectorFromResultSet(results, "operator");
-		for(String result: stringResults){
-			System.out.println(result);
-		}
-		
+		ViskoTripleStore ts = new ViskoTripleStore();		
 		
 		String url = "http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt";
 		String formatURI = "https://raw.github.com/nicholasdelrio/visko/master/resources/formats/SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES";
 		String viewerSetURI = "https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_mozilla.owl#mozilla-firefox";
 		String typeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d19";
-		String viewURI = ViskoV.INDIVIDUAL_URI_ContourMap;
+		String viewURI = null;
 		Query query = new Query(url, formatURI, viewerSetURI);
 		query.setTypeURI(typeURI);
 		query.setViewURI(viewURI);
@@ -117,7 +110,6 @@ public class Query {
 	
 		for(Pipeline pipe : pipes){
 			System.out.println(pipe);
-			System.out.println("generates view: " + pipe.getViewURI());
 			
 			/*
 			PipelineExecutorJob job = new PipelineExecutorJob(pipes.firstElement(), true);
