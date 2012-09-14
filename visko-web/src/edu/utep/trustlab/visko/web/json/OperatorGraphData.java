@@ -50,7 +50,7 @@ public class OperatorGraphData {
 
 	private static ArrayList<JSONObject> getNodes(ViskoTripleStore ts) {
 		ResultSet viewers = ts.getViewers();
-		ResultSet transformers = ts.getTransformers();
+		ResultSet transformers = ts.getOperators();
 
 		System.out.println(transformers.hasNext());
 		

@@ -76,7 +76,7 @@ public class FormatGraphData {
 	}
 
 	private static ArrayList<JSONObject> getLinks(ViskoTripleStore ts) {
-		ResultSet transformerInfo = ts.getTransformerInformation();
+		ResultSet transformerInfo = ts.getOperatorInformation();
 		ArrayList<JSONObject> linksList = new ArrayList<JSONObject>();
 		QuerySolution solution;
 		String input;

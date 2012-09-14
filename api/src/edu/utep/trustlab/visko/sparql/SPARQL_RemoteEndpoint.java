@@ -49,12 +49,12 @@ import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.query.ResultSetFactory;
 
 
-public class ViskoSPARQLEndpoint {
+public class SPARQL_RemoteEndpoint implements SPARQL_Endpoint{
 	
 	private String endpointURL;
 	
-	public ViskoSPARQLEndpoint(String sparqlEndpointURL){
-		endpointURL = sparqlEndpointURL;
+	public SPARQL_RemoteEndpoint(String sparqlEndpointURL){
+		endpointURL = sparqlEndpointURL;		
 	}
 	
 	public boolean executeAskQuery(String query) {

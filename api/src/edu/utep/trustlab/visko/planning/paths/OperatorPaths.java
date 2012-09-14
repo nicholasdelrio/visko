@@ -60,23 +60,41 @@ public class OperatorPaths extends Vector<OperatorPath> {
 	}
 
 	public void filterByView(String requiredViewURI) {
-		for(OperatorPath aPath : this){
-			if(!aPath.generatesView(requiredViewURI))
-				this.remove(aPath);
+		OperatorPath operatorPath;
+		
+		Vector<OperatorPath> nonCompliantPaths = new Vector<OperatorPath>();
+		
+		for(int i = 0; i < this.size(); i ++){
+			operatorPath = this.get(i);
+			if(!operatorPath.generatesView(requiredViewURI))
+				nonCompliantPaths.add(operatorPath);
 		}
+		
+		this.removeAll(nonCompliantPaths);
 	}
 	
 	public void filterByViewerSet(String viewerSetURI){
-		for(OperatorPath operatorPath : this){
-			if(operatorPath.outputCanBeViewedByViewerSet(viewerSetURI))
-				remove(operatorPath);
+		Vector<OperatorPath> nonCompliantPaths = new Vector<OperatorPath>();
+
+		OperatorPath operatorPath;
+		for(int i = 0; i < this.size(); i ++){
+			operatorPath = this.get(i);
+			if(!operatorPath.outputCanBeViewedByViewerSet(viewerSetURI))
+				nonCompliantPaths.add(operatorPath);
 		}
+		this.removeAll(nonCompliantPaths);
 	}
 	
 	public void filterByType(String inputDataType) {
-		for(OperatorPath operatorPath : this){
+		Vector<OperatorPath> nonCompliantPaths = new Vector<OperatorPath>();
+
+		OperatorPath operatorPath;
+		for(int i = 0; i < this.size();  i++){
+			operatorPath = this.get(i);
 			if(!operatorPath.adheresToDataTypeRestriction(inputDataType))
-				remove(operatorPath);
+				nonCompliantPaths.add(operatorPath);
 		}
+		
+		this.removeAll(nonCompliantPaths);
 	}
 }

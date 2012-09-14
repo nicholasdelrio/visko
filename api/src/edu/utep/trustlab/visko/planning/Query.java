@@ -44,17 +44,22 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
 
+import com.hp.hpl.jena.query.ResultSet;
+
 import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.contentManagement.LocalFileSystem;
 import edu.utep.trustlab.visko.execution.PipelineExecutor;
 import edu.utep.trustlab.visko.execution.PipelineExecutorJob;
+import edu.utep.trustlab.visko.ontology.vocabulary.ViskoV;
 import edu.utep.trustlab.visko.planning.Query;
 import edu.utep.trustlab.visko.planning.queryParsing.QueryParser;
 import edu.utep.trustlab.visko.planning.queryParsing.QueryParserV2;
 import edu.utep.trustlab.visko.planning.queryParsing.QueryParserV3;
 import edu.utep.trustlab.visko.sparql.QueryRDFDocument;
+import edu.utep.trustlab.visko.sparql.SPARQL_EndpointFactory;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.util.GetURLContents;
+import edu.utep.trustlab.visko.util.ResultSetToVector;
 
 public class Query {
 	// required information for VisKo reasoning
@@ -82,16 +87,27 @@ public class Query {
 
 	public static void main(String[] args){
 		
-		ViskoTripleStore.setEndpointURL("http://iw.cs.utep.edu/visko-web/ViskoServletManager?requestType=query-triple-store");
+		SPARQL_EndpointFactory.setUpEndpointConnection("C:/Users/Public/git/visko/tdb");
+		
 		LocalFileSystem fs = new LocalFileSystem("http://iw.cs.utep.edu:8080/toolkits/output/", "C:/Users/Public/git/visko/api/output/");
 		ContentManager.setWorkspacePath("C:/Users/Public/git/visko/api/output/");
 		ContentManager.setProvenanceContentManager(fs);
 		
+		
+		ViskoTripleStore ts = new ViskoTripleStore();
+		ResultSet results = ts.getOperators();
+		
+		Vector<String> stringResults = ResultSetToVector.getVectorFromResultSet(results, "operator");
+		for(String result: stringResults){
+			System.out.println(result);
+		}
+		
+		
 		String url = "http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt";
-		String formatURI = "https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII";
-		String viewerSetURI = "https://raw.github.com/nicholasdelrio/visko/master/rdf/mozilla-firefox.owl#mozilla-firefox";
+		String formatURI = "https://raw.github.com/nicholasdelrio/visko/master/resources/formats/SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES";
+		String viewerSetURI = "https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_mozilla.owl#mozilla-firefox";
 		String typeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d19";
-		String viewURI = "https://raw.github.com/nicholasdelrio/visko/master/rdf/contour-lines.owl#contour-lines";
+		String viewURI = ViskoV.INDIVIDUAL_URI_ContourMap;
 		Query query = new Query(url, formatURI, viewerSetURI);
 		query.setTypeURI(typeURI);
 		query.setViewURI(viewURI);
@@ -99,7 +115,11 @@ public class Query {
 		QueryEngine engine = new QueryEngine(query);
 		PipelineSet pipes = engine.getPipelines();
 	
-		if(pipes.size() > 0){
+		for(Pipeline pipe : pipes){
+			System.out.println(pipe);
+			System.out.println("generates view: " + pipe.getViewURI());
+			
+			/*
 			PipelineExecutorJob job = new PipelineExecutorJob(pipes.firstElement(), true);
 			PipelineExecutor executor = new PipelineExecutor(job);
 			executor.process();
@@ -107,7 +127,7 @@ public class Query {
 			while(executor.isAlive()){
 			}
 			
-			System.out.println("Final Result = " + job.getFinalResultURL());
+			System.out.println("Final Result = " + job.getFinalResultURL());*/
 		}
 	}
 	

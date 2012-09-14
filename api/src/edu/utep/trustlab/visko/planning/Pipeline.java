@@ -167,6 +167,10 @@ public class Pipeline extends Vector<String> {
 		return allParamsBounded;
 	}
 	
+	public String toString(){
+		return super.toString() + ", viewerURI: " + this.viewer;
+	}
+	
 	public PipelineSet getParentPipelineSet(){
 		return parentContainer;
 	}

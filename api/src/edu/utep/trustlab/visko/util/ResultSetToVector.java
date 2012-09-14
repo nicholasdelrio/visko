@@ -56,8 +56,9 @@ public class ResultSetToVector {
 		else if (rs.getResultVars().contains(variableName)) {
 			while (rs.hasNext()) {
 				RDFNode node = rs.next().get("?" + variableName);
-				if (node != null)
+				if (node != null){
 					vector.add(node.toString());
+				}
 				else
 					System.out.println("Value of variable is null. Variable: "
 							+ variableName);

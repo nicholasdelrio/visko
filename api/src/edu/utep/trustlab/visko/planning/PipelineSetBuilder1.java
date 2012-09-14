@@ -59,6 +59,8 @@ public class PipelineSetBuilder1 {
 	private OperatorPaths operatorPaths;
 	private PipelineSet pipelines;
 	private Query query;
+	
+	private Vector<String> targetFormats;
 
 	public PipelineSetBuilder1(Query drivingQuery) {
 		ts = new ViskoTripleStore();
@@ -80,19 +82,33 @@ public class PipelineSetBuilder1 {
 		return formatCheck && typeCheck;
 	}
 
+	private void setUpTargetFormats(String viewerSetURI){
+		// get listing of target formats
+		ResultSet viewerFormatResults = ts.getFormatsFromViewerSet(viewerSetURI);
+		targetFormats = ResultSetToVector.getVectorFromResultSet(viewerFormatResults, "format");
+		
+		for(String targetFormat : targetFormats)
+			System.out.println("a target format: " + targetFormat);
+		
+	}
+	
 	public void setPipelines(String formatURI, String dataTypeURI, String viewerSetURI, String viewURI) {
 
+		//set up target formats
+		setUpTargetFormats(viewerSetURI);
+		
 		setOperatorPaths(formatURI);
-		System.out.println("Number of operator paths by only format restriction: " + operatorPaths.size());
+		System.out.println("Number of operator paths by only Format restriction: " + operatorPaths.size());
 		
 		operatorPaths.filterByType(dataTypeURI);
-		System.out.println("Number of operator paths after additional data type restriction: " + operatorPaths.size());
+		System.out.println("Number of operator paths after additional DataType restriction: " + operatorPaths.size());
 		
 		operatorPaths.filterByViewerSet(viewerSetURI);
+		System.out.println("Number of operator paths after additional ViewerSet restriction: " + operatorPaths.size());
 		
 		if (viewURI != null) {
 			operatorPaths.filterByView(viewURI);
-			System.out.println("Number of operator paths after additional view restrictions: " + operatorPaths.size());
+			System.out.println("Number of operator paths after additional View restrictions: " + operatorPaths.size());
 		}				
 		
 		setOperatorImplementations();
@@ -144,8 +160,8 @@ public class PipelineSetBuilder1 {
 		// get a listing of all operators that process the inputFormat
 		// these operators will be the starting point for our search algorithm
 		ResultSet operatorResults = ts.getOperatorsThatProcessFormat(inputFormat);
-		Vector<String> operatorURIs = ResultSetToVector.getVectorFromResultSet(operatorResults, "operator");
-		
+		Vector<String> operatorURIs = ResultSetToVector.getVectorFromResultSet(operatorResults, "operator");		
+				
 		// for each root operatorURI, start a new path and populate it
 		OperatorPath operatorPath;
 		for(String operatorURI : operatorURIs){
@@ -170,11 +186,30 @@ public class PipelineSetBuilder1 {
 		// recursive case, there are more operators to add
 		else{
 			OperatorPath clonedPath;
+			
+			if(generatesTargetFormat(operatorPath.lastElement())){
+				clonedPath = operatorPath.clonePath();
+				operatorPaths.add(clonedPath);
+			}
+			
 			for(String nextOperatorURI : operatorURIs){
 				clonedPath = operatorPath.clonePath();
 				clonedPath.add(nextOperatorURI);
 				constructOperatorPaths(clonedPath);
 			}
 		}
+	}
+	
+	private boolean generatesTargetFormat(String operatorURI){
+		ResultSet outputFormatResults = ts.getOutputFormatsOfOperator(operatorURI);
+		Vector<String> outputFormats = ResultSetToVector.getVectorFromResultSet(outputFormatResults, "format");
+		
+		for(String outputFormat : outputFormats){
+			for(String targetFormat :targetFormats){
+				if(targetFormat.equals(outputFormat))
+					return true;
+			}
+		}
+		return false;
 	}
 }

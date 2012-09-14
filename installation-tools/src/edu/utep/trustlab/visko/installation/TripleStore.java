@@ -77,13 +77,14 @@ import edu.utep.trustlab.visko.installation.packages.manager.PackageInstaller;
 	
 	private boolean isValidResourceDirectory(File resourceDirectory){
 		String dirName = resourceDirectory.getName();
-		String[] illegalDirs = new String[]{"bin","datasets","engines", "parameters", "queries"};
+		String[] legalDirs = new String[]{"ontology", "formats"};
 		
-		boolean isLegal = true;
-		for(String illegalDir : illegalDirs){
-			if(dirName.equals(illegalDir))
-				isLegal = false;
+		boolean isLegal = false;
+		for(String legalDir : legalDirs){
+			if(dirName.equals(legalDir))
+				isLegal = true;
 		}
+		
 		return isLegal && resourceDirectory.isDirectory();
 	}
 	

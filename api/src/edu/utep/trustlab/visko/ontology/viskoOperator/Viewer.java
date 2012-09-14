@@ -123,9 +123,7 @@ public class Viewer extends JenaIndividual {
 	@Override
 	protected boolean allFieldsPopulated() {
 		boolean hasInputFormats = inputFormats.size() > 0;
-		boolean hasInputDataType = inputDataTypes.size() > 0;
-		
-		return viewerSets.size() > 0 && hasInputFormats && hasInputDataType;		
+		return viewerSets.size() > 0 && hasInputFormats;		
 	}
 
 	@Override

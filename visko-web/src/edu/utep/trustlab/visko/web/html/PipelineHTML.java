@@ -29,10 +29,10 @@ import org.mindswap.owls.process.variable.Input;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.util.ResultSetToVector;
 import edu.utep.trustlab.visko.planning.Pipeline;
-import edu.utep.trustlab.visko.ontology.operator.Viewer;
+import edu.utep.trustlab.visko.ontology.viskoOperator.Viewer;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
-import edu.utep.trustlab.visko.ontology.service.OWLSService;
-import edu.utep.trustlab.visko.ontology.service.Service;
+import edu.utep.trustlab.visko.ontology.viskoService.OWLSService;
+import edu.utep.trustlab.visko.ontology.viskoService.Service;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 
 public class PipelineHTML {
@@ -55,7 +55,7 @@ public class PipelineHTML {
 			ViskoTripleStore ts = new ViskoTripleStore();
 
 			if (!ts.isMapper(operatorURI)) {
-				html += "<a href=\""+ ViskoO.CLASS_URI_TRANSFORMER + "\">Transformer</a>";
+				html += "<a href=\""+ ViskoO.CLASS_URI_Operator + "\">Transformer</a>";
 			}
 
 			else {
@@ -95,8 +95,7 @@ public class PipelineHTML {
 					+ viskoService.getConceptualOperator().getURI() + "\">"
 					+ viskoService.getConceptualOperator().getURI() + "</a></li>";
 			html += "<li><b>Input Format(s):</b>";
-			html += getInputFormatList(viskoService.getConceptualOperator()
-					.getOperatesOnFormats()) + "</li>";
+			html += viskoService.getConceptualOperator().getInputFormat() + "</li>";
 			html += "</ul>";
 			html += "<br/>";
 			html += "<hr/>";
@@ -128,7 +127,7 @@ public class PipelineHTML {
 					+ viewer.getURI() + "</a></li>";
 
 			html += "<li><b>Input Format(s):</b>";
-			html += getInputFormatList(viewer.getOperatesOnFormats()) + "</li>";
+			html += getInputFormatList(viewer.getInputFormats()) + "</li>";
 
 			html += "<ul>";
 		} else
