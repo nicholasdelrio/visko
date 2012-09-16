@@ -62,6 +62,7 @@ public class ViskoV {
 	// Individuals
 	public static final String INDIVIDUAL_URI_Timeline = Visko.CORE_VISKO_V + "#Timeline";
 	
+	public static final String INDIVIDUAL_URI_SurfacePlot = Visko.CORE_VISKO_V + "#SurfacePlot";
 	public static final String INDIVIDUAL_URI_ContourMap = Visko.CORE_VISKO_V + "#ContourMap";
 	public static final String INDIVIDUAL_URI_PointPlot = Visko.CORE_VISKO_V + "#PointPlot";
 	public static final String INDIVIDUAL_URI_RasterMap = Visko.CORE_VISKO_V + "#RasterMap";

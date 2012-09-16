@@ -18,6 +18,7 @@ public class PackageOperatorService {
 	private ViskoModel vModel;
 		
 	private String operationName;
+	private String name;
 	private String wsdlURL;
 	private Toolkit toolkit;
 	
@@ -40,7 +41,13 @@ public class PackageOperatorService {
 	}
 	
 	public String getName(){
+		if(name != null)
+			return name;
 		return operationName;
+	}
+	
+	public void setName(String aName){
+		name = aName;
 	}
 	
 	protected void setToolkit(Toolkit tk){
@@ -56,8 +63,18 @@ public class PackageOperatorService {
 	}
 	
 	protected void addToModel() {
+		String operatorPostfix = "-operator";
+		String serviceName;
+		String operatorName;
+		
+		if(name != null)
+			serviceName = name;
+		else
+			serviceName = operationName;
+		
+		operatorName = serviceName + operatorPostfix;
+		
 		//create operator
-		String operatorName = operationName + "-operator";
 		Operator operator;
 		if(view != null){
 			ViewMapper mapper = new ViewMapper(baseFileURL, operatorName, vModel);
@@ -79,13 +96,13 @@ public class PackageOperatorService {
 			operator.setOutputDataType(outputDataType);
 		
 		//create owlsService
-		owlsService = new OWLSService(baseURL, operationName);
+		owlsService = new OWLSService(baseURL, serviceName);
 		owlsService.setWSDLURL(wsdlURL);
 		owlsService.setOperationName(operationName);
 		owlsService.setLabel(label);
 		
 		//create visko service
-		Service service = new Service(baseFileURL, operationName, vModel);
+		Service service = new Service(baseFileURL, serviceName, vModel);
 		service.setLabel(label);
 		service.setSupportingToolkit(toolkit);
 		service.setComment(comment);		
