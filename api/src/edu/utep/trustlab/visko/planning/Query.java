@@ -100,7 +100,7 @@ public class Query {
 		String formatURI = "https://raw.github.com/nicholasdelrio/visko/master/resources/formats/SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES";
 		String viewerSetURI = "https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_mozilla.owl#mozilla-firefox";
 		String typeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d19";
-		String viewURI = null;
+		String viewURI = ViskoV.INDIVIDUAL_URI_ContourMap;
 		Query query = new Query(url, formatURI, viewerSetURI);
 		query.setTypeURI(typeURI);
 		query.setViewURI(viewURI);

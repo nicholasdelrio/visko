@@ -86,7 +86,7 @@ public class QueryEngine {
 			loadParameterBindingsFromQuery();
 		}
 
-		builder.setPipelines(formatURI, typeConstraintURI, viewerSetURI, viewConstraintURI);
+		builder.setPipelines();
 
 		pipelines = builder.getPipelines();
 		pipelines.setParameterBindings(parameterBindings);
@@ -94,7 +94,7 @@ public class QueryEngine {
 	}
 
 	public boolean isAlreadyVisualizableWithViewerSet() {
-		return builder.isAlreadyVisualizableWithViewerSet(query.getFormatURI(), query.getTypeURI(), query.getViewerSetURI());
+		return builder.isAlreadyVisualizableWithViewerSet();
 	}
 
 	public void updatePipelinesWithNewParameterBindings(){

@@ -132,8 +132,10 @@ public class OperatorPath extends Vector<String> {
 		for(String potentialEligibleOperatorURI : operatorURIs){
 			isEligible = true;
 			for(String pathOperatorURI : this){
-				if(potentialEligibleOperatorURI.equals(pathOperatorURI))
+				if(potentialEligibleOperatorURI.equals(pathOperatorURI)){
 					isEligible = false;
+					break;
+				}
 			}
 			if(isEligible)
 				eligibleOperatorURIs.add(potentialEligibleOperatorURI);
