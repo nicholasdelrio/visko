@@ -85,11 +85,16 @@ public class PackageWriter {
 		servicesAddedToModel = false;
 	}
 	
-	public PackageOperatorService createNewOperatorService(String operationName){
+	public PackageOperatorService createNewOperatorService(String name, String operationName){
 		PackageOperatorService service = new PackageOperatorService(operationName, viskoModel, baseURL, baseFileURL);
-		service.setToolkit(toolkit);
-		operatorServices.put(operationName, service);
 		
+		if(name != null)
+			service.setName(name);
+		else
+			service.setName(operationName);
+		
+		service.setToolkit(toolkit);
+		operatorServices.put(name, service);
 		addOperatorService(service);
 		
 		return service;

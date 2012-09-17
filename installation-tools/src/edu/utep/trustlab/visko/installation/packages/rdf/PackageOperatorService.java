@@ -46,7 +46,7 @@ public class PackageOperatorService {
 		return operationName;
 	}
 	
-	public void setName(String aName){
+	void setName(String aName){
 		name = aName;
 	}
 	
@@ -64,15 +64,8 @@ public class PackageOperatorService {
 	
 	protected void addToModel() {
 		String operatorPostfix = "-operator";
-		String serviceName;
-		String operatorName;
-		
-		if(name != null)
-			serviceName = name;
-		else
-			serviceName = operationName;
-		
-		operatorName = serviceName + operatorPostfix;
+		String serviceName = name;
+		String operatorName = serviceName + operatorPostfix;
 		
 		//create operator
 		Operator operator;

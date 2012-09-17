@@ -10,7 +10,6 @@ import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.viskoOperator.Viewer;
 import edu.utep.trustlab.visko.ontology.viskoService.Toolkit;
 import edu.utep.trustlab.visko.ontology.viskoView.View;
-import edu.utep.trustlab.visko.ontology.vocabulary.Visko;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoV;
 
 public class PackageWriterTest {
@@ -65,7 +64,7 @@ public class PackageWriterTest {
 		tk.setLabel("gen map tool");
 		
 		String wsdlURL = "http://iw.cs.utep.edu:8080/toolkits/services/ToolkitServices?wsdl";
-		PackageOperatorService opService = writer.createNewOperatorService("psxy");
+		PackageOperatorService opService = writer.createNewOperatorService("psxy", "psxy");
 		opService.setComment("copy some colors");
 		opService.setLabel("copy color");
 		opService.setView(contourMapView);
@@ -74,7 +73,7 @@ public class PackageWriterTest {
 		opService.setWSDLURL(wsdlURL);
 		opService.setOutputDataType(data1);
 
-		PackageOperatorService opService1 = writer.createNewOperatorService("grdcontour");
+		PackageOperatorService opService1 = writer.createNewOperatorService("grdcontour", "grdcontour");
 		opService1.setComment("copy some colors");
 		opService1.setLabel("copy color");
 		//opService1.setView(PackageWriter.getView("https://raw.github.com/nicholasdelrio/visko/master/resources/views/contour-lines.owl#contour-lines"));
