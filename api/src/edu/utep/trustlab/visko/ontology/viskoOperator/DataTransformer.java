@@ -27,7 +27,7 @@ import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 
 public class DataTransformer extends Operator {
 
-	public DataTransformer(String classURI, String baseURL, String name, ViskoModel viskoModel) {
+	public DataTransformer(String baseURL, String name, ViskoModel viskoModel) {
 		super(ViskoO.CLASS_URI_DataTransformer, baseURL, name, viskoModel);
 	}
 

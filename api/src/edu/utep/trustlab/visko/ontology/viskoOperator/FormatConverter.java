@@ -27,7 +27,7 @@ import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 
 public class FormatConverter extends Operator {
 
-	public FormatConverter(String classURI, String baseURL, String name, ViskoModel viskoModel) {
+	public FormatConverter(String baseURL, String name, ViskoModel viskoModel) {
 		super(ViskoO.CLASS_URI_FormatConverter, baseURL, name, viskoModel);
 	}
 

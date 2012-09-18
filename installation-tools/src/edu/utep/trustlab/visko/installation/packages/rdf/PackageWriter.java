@@ -94,6 +94,8 @@ public class PackageWriter {
 			service.setName(operationName);
 		
 		service.setToolkit(toolkit);
+		service.setDataTypesModel(dataTypesModel);
+		
 		operatorServices.put(name, service);
 		addOperatorService(service);
 		

@@ -27,7 +27,7 @@ import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 
 public class DataFilter extends Operator {
 
-	public DataFilter(String classURI, String baseURL, String name, ViskoModel viskoModel) {
+	public DataFilter(String baseURL, String name, ViskoModel viskoModel) {
 		super(ViskoO.CLASS_URI_DataFilter, baseURL, name, viskoModel);
 	}
 

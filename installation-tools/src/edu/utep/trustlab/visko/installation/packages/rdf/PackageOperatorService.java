@@ -1,11 +1,12 @@
 package edu.utep.trustlab.visko.installation.packages.rdf;
 
+import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntResource;
 
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
 import edu.utep.trustlab.visko.ontology.viskoOperator.Operator;
-import edu.utep.trustlab.visko.ontology.viskoOperator.ViewMapper;
+import edu.utep.trustlab.visko.ontology.viskoOperator.OperatorFactory;
 import edu.utep.trustlab.visko.ontology.viskoService.OWLSService;
 import edu.utep.trustlab.visko.ontology.viskoService.Service;
 import edu.utep.trustlab.visko.ontology.viskoService.Toolkit;
@@ -22,15 +23,8 @@ public class PackageOperatorService {
 	private String wsdlURL;
 	private Toolkit toolkit;
 	
-	private String label;
-	private String comment;
-	private Format inputFormat;
-	private Format outputFormat;
-	private View view;
-	
-	private OntResource inputDataType;
-	private OntResource outputDataType;
-	
+	private OperatorFactory operatorFactory;
+		
 	private OWLSService owlsService;
 	
 	protected PackageOperatorService(String name, ViskoModel viskoModel, String bURL, String bFURL){
@@ -38,6 +32,10 @@ public class PackageOperatorService {
 		baseURL = bURL;
 		baseFileURL = bFURL;
 		operationName = name;
+		
+		operatorFactory = new OperatorFactory();
+		operatorFactory.setModel(vModel);
+		operatorFactory.setBaseURL(baseFileURL);
 	}
 	
 	public String getName(){
@@ -48,6 +46,10 @@ public class PackageOperatorService {
 	
 	void setName(String aName){
 		name = aName;
+	}
+	
+	void setDataTypesModel(OntModel dTypesModel){
+		operatorFactory.setDataTypesModel(dTypesModel);
 	}
 	
 	protected void setToolkit(Toolkit tk){
@@ -66,62 +68,44 @@ public class PackageOperatorService {
 		String operatorPostfix = "-operator";
 		String serviceName = name;
 		String operatorName = serviceName + operatorPostfix;
-		
+			
 		//create operator
-		Operator operator;
-		if(view != null){
-			ViewMapper mapper = new ViewMapper(baseFileURL, operatorName, vModel);
-			mapper.setView(view);
-			operator = mapper;
-		}
-		else
-			operator = new Operator(baseFileURL, operatorName, vModel);
-		
-		operator.setComment(comment);
-		operator.setLabel(label);
-		operator.setOutputFormat(outputFormat);
-		operator.setInputFormat(inputFormat);
-		operator.setName(operatorName);
-		
-		if(inputDataType != null)
-			operator.setInputDataType(inputDataType);
-		if(outputDataType != null)
-			operator.setOutputDataType(outputDataType);
-		
+		Operator operator = operatorFactory.createOperator(operatorName);
+				
 		//create owlsService
 		owlsService = new OWLSService(baseURL, serviceName);
 		owlsService.setWSDLURL(wsdlURL);
 		owlsService.setOperationName(operationName);
-		owlsService.setLabel(label);
+		owlsService.setLabel(operatorFactory.getLabel());
 		
 		//create visko service
 		Service service = new Service(baseFileURL, serviceName, vModel);
-		service.setLabel(label);
+		service.setLabel(operatorFactory.getLabel());
 		service.setSupportingToolkit(toolkit);
-		service.setComment(comment);		
+		service.setComment(operatorFactory.getComment());		
 		service.setOWLSService(owlsService);		
 		service.setConceptualOperator(operator);
 		service.getIndividual();
 	}
 	
 	public void setInputDataType(OntResource inDataType){
-		inputDataType = inDataType;
+		operatorFactory.setInputDataType(inDataType);
 	}
 
 	public void setOutputDataType(OntResource outDataType){
-		outputDataType = outDataType;
+		operatorFactory.setOutputDataType(outDataType);
 	}
 	
 	public void setInputFormat(Format format){
-		inputFormat = format;	
+		operatorFactory.setInputFormat(format);
 	}
 	
 	public void setOutputFormat(Format format){
-		outputFormat = format;
+		operatorFactory.setOutputFormat(format);
 	}
 	
 	public void setView(View generatedView){
-		view = generatedView;
+		operatorFactory.setView(generatedView);
 	}
 		
 	public void setWSDLURL(String url){
@@ -129,10 +113,10 @@ public class PackageOperatorService {
 	}
 	
 	public void setLabel(String lbl){
-		label = lbl;
+		operatorFactory.setLabel(lbl);
 	}
 	
 	public void setComment(String com){
-		comment = com;
+		operatorFactory.setComment(com);
 	}
 }

@@ -45,8 +45,6 @@ import java.util.Vector;
 import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.planning.PipelineSet;
 import edu.utep.trustlab.visko.planning.Query;
-import edu.utep.trustlab.visko.planning.paths.OperatorPath;
-import edu.utep.trustlab.visko.planning.paths.OperatorPaths;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.util.CartesianProduct;
 import edu.utep.trustlab.visko.util.ResultSetToVector;

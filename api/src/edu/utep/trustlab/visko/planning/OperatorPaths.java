@@ -38,9 +38,10 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-package edu.utep.trustlab.visko.planning.paths;
+package edu.utep.trustlab.visko.planning;
 
 import java.util.*;
+
 
 public class OperatorPaths extends Vector<OperatorPath> {
 	public boolean add(OperatorPath path) {

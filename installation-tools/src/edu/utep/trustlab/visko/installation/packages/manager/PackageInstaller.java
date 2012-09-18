@@ -1,7 +1,7 @@
 package edu.utep.trustlab.visko.installation.packages.manager;
 
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileInputStream;
 
 import com.hp.hpl.jena.ontology.OntDocumentManager;
 import com.hp.hpl.jena.ontology.OntModel;
@@ -11,8 +11,6 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.visko.installation.packages.RDFPackage;
 import edu.utep.trustlab.visko.installation.packages.rdf.PackageWriter;
-import edu.utep.trustlab.visko.ontology.vocabulary.Visko;
-import edu.utep.trustlab.visko.util.FileUtils;
 
 public class PackageInstaller {
 	
@@ -118,7 +116,7 @@ public class PackageInstaller {
 		for(File dataTypeFile : dataTypeOWLs){
 			if(dataTypeFile.getName().endsWith(".owl")){
 				System.out.println("Adding DataType File: " + dataTypeFile.getAbsolutePath());
-				try{dataTypesModel.read(new FileReader(dataTypeFile), null);}
+				try{dataTypesModel.read(new FileInputStream(dataTypeFile), null);}
 				catch(Exception e){
 					e.printStackTrace();
 				}
