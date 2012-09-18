@@ -31,6 +31,8 @@
 	<property name="installation-tools-jar" value="installation-tools.jar"/>
 	<property name="lib" value="../api/lib/"/>
 	
+	<property name="policy" value="java.policy" />
+	
 	<property name="visko-api" value="../api"/>
 	<property name="visko-api-jar" value="${visko-api}/visko-api.jar"/>
 		
@@ -88,6 +90,8 @@
 	
 	<target name="install-packages-remote" depends="build-packages" description="Run the RDF generation package code">
 		<java classname="edu.utep.trustlab.visko.installation.packages.manager.Installer_ContentManager">
+		
+			<jvmarg value="-Djava.security.policy=${policy}"/>
 			
 			<arg value="velo"/>
 			<arg value="${velo-server-connection-url}"/>
@@ -119,6 +123,8 @@
 	<target name="install-packages-local" depends="build-packages,clean-visko-packages-rdf" description="Run the RDF generation package code">
 		<java classname="edu.utep.trustlab.visko.installation.packages.manager.Installer_LocalFileSystem">
 			
+			<jvmarg value="-Djava.security.policy=${policy}"/>
+			
 			<arg value="${server-url}"/>
 			<arg value="${visko-packages-rdf}"/>
 			<arg value="${visko-packages}"/>
@@ -147,6 +153,9 @@
 		<ant antfile="build-installation-visko.xml" target="build" inheritAll="false" />
 		
 		<java classname="edu.utep.trustlab.visko.installation.TripleStore">
+			
+			<jvmarg value="-Djava.security.policy=${policy}"/>
+
 			<arg value="${visko-packages}"/>
 			<arg value="${visko-resources}"/>
 			<arg value="${visko-tdb}"/>
@@ -165,10 +174,6 @@
 				</fileset>
 			</classpath>   
 		</java>	
-	</target>
-	
-	<target name="remove-package-vtk" description="Delete the VTK VisKo package">
-		<delete dir="${package-vtk}"/>
 	</target>
 	
 	<target name="clean-visko-packages-rdf" description="Delete the Build Directory">

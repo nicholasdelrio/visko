@@ -1,7 +1,7 @@
 package edu.utep.trustlab.visko.installation.packages.manager;
 
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,20 +28,28 @@ public class PackageIndex {
 	public String getHTMLIndex(){
 		aggregateOWLDocuments();
 
-		String indexHTML = "<h1>Toolkit</h1>";
+		String indexHTML = "<h2>Toolkit</h2>";
 		indexHTML += getToolkitHTML();
 		
-		indexHTML += "<h1>ViewerSets</h1>\n";
+		indexHTML += "<h2>ViewerSets</h2>\n";
 		indexHTML += getViewerSetsHTML();
 		
-		indexHTML += "<h1>Services</h1>";
+		indexHTML += "<h2>Services</h2>";
 		indexHTML += getServicesHTML();
 		
-		return indexHTML;
+		return 
+				"<html><head><title>Package Contents: " + packageDir.getName() + "</title></head><body>"
+				+ indexHTML
+				+ "</body></html>";
 	}
 	
 	private String getToolkitHTML(){
-		String queryString = "SELECT ?toolkit WHERE { ?toolkit a viskoS:Toolkit . ?toolkit rdfs:label ?label . }";
+		String queryString = 
+				ViskoTripleStore.QUERY_PREFIX
+				+ "SELECT ?toolkit ?label WHERE {"
+				+ "?toolkit a viskoS:Toolkit . "
+				+ "?toolkit rdfs:label ?label . }";
+		
 		ResultSet results = executeQuery(queryString);
 		
 		QuerySolution aSolution;
@@ -50,7 +58,7 @@ public class PackageIndex {
 		String html = "<p>No Toolkit installed...error!</p>";
 		if(results.hasNext()){
 			aSolution = results.next();
-			toolkit = new String[]{aSolution.get("?toolkit").toString(), aSolution.get("?toolkit").toString()};
+			toolkit = new String[]{aSolution.get("?toolkit").toString(), aSolution.get("?label").toString()};
 			html = "<ul><li>" + toolkit[1] + "</li></ul>";			
 		}		
 		return html;
@@ -80,7 +88,11 @@ public class PackageIndex {
 	}
 	
 	private String getServicesHTML(){
-		String queryString = "SELECT ? WHERE { ?service a viskoS:Service . ?service rdfs:label ?label . }";
+		String queryString = ViskoTripleStore.QUERY_PREFIX
+				+ "SELECT ?service ?label WHERE {"
+				+ "?service a viskoS:Service . "
+				+ "?service rdfs:label ?label . }";
+		
 		ResultSet results = executeQuery(queryString);
 		
 		QuerySolution aSolution;
@@ -92,7 +104,7 @@ public class PackageIndex {
 			html = "<ul>\n";
 			while(results.hasNext()){
 				aSolution = results.next();
-				service = new String[]{aSolution.get("?toolkit").toString(), aSolution.get("?toolkit").toString()};
+				service = new String[]{aSolution.get("?service").toString(), aSolution.get("?label").toString()};
 				html += "\t<li>" + service[1] + "</li>\n";
 			}
 			html += "</ul>\n";
@@ -101,14 +113,18 @@ public class PackageIndex {
 	}
 	
 	private List<String[]> getViewerSets(){
-		String queryString = "SELECT ?viewerSet WHERE { ?viewerSet a viskoO:ViewerSet . ?viewerSet rdfs:label ?label . }";
+		String queryString = ViskoTripleStore.QUERY_PREFIX
+				+ "SELECT ?viewerSet ?label WHERE {"
+				+ "?viewerSet a viskoO:ViewerSet . "
+				+ "?viewerSet rdfs:label ?label . }";
+
 		ResultSet results = executeQuery(queryString);
 		
 		ArrayList<String[]> viewerSets = new ArrayList<String[]>();
 		QuerySolution aSolution;
 		while(results.hasNext()){
 			aSolution = results.next();
-			viewerSets.add(new String[]{aSolution.get("?viewer").toString(), aSolution.get("?label").toString()});
+			viewerSets.add(new String[]{aSolution.get("?viewerSet").toString(), aSolution.get("?label").toString()});
 		}
 		return viewerSets;
 	}
@@ -117,9 +133,10 @@ public class PackageIndex {
 		viewerSetURI = "<" + viewerSetURI + ">";
 		
 		String queryString = 
-				"SELECT ?viewer ?label WHERE " +
-				"{ ?viewer viskoO:partOfViewerSet " + viewerSetURI + " . " +
-				"?viewer rdfs:label ?label . }";
+				ViskoTripleStore.QUERY_PREFIX
+				+ "SELECT ?viewer ?label WHERE "
+				+ "{ ?viewer viskoO:partOfViewerSet " + viewerSetURI + " . "
+				+ "?viewer rdfs:label ?label . }";
 		
 		queryString = ViskoTripleStore.QUERY_PREFIX + queryString;
 		
@@ -135,18 +152,18 @@ public class PackageIndex {
 	}
 	
 	private void aggregateOWLDocuments(){
+		model = ModelFactory.createOntologyModel();
+
 		for(File aFile :packageDir.listFiles()){
 			if(aFile.isFile() && aFile.getName().endsWith(".owl"))
 				aggregateOWLDocument(aFile);
 		}
 	}
 	
-	private void aggregateOWLDocument(File owlFile){
-		model = ModelFactory.createOntologyModel();
-		
+	private void aggregateOWLDocument(File owlFile){		
 		try{
-			FileReader reader = new FileReader(owlFile);
-			model.read(reader, null);
+			FileInputStream stream = new FileInputStream(owlFile);
+			model.read(stream, null);
 		}
 		catch(Exception e){
 			e.printStackTrace();
