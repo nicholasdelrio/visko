@@ -60,19 +60,20 @@ public class ViskoV {
 	public static final String CLASS_URI_4D_DataStructure_View = Visko.CORE_VISKO_V + "#4D_DataStructure_View";
 	
 	// Individuals
-	public static final String INDIVIDUAL_URI_Timeline = Visko.CORE_VISKO_V + "#Timeline";
+	public static final String INDIVIDUAL_URI_1D_Timeline = Visko.CORE_VISKO_V + "#1D_Timeline";
 	
-	public static final String INDIVIDUAL_URI_SurfacePlot = Visko.CORE_VISKO_V + "#SurfacePlot";
-	public static final String INDIVIDUAL_URI_ContourMap = Visko.CORE_VISKO_V + "#ContourMap";
-	public static final String INDIVIDUAL_URI_PointPlot = Visko.CORE_VISKO_V + "#PointPlot";
-	public static final String INDIVIDUAL_URI_RasterMap = Visko.CORE_VISKO_V + "#RasterMap";
-	public static final String INDIVIDUAL_URI_TimeSeriesPlot = Visko.CORE_VISKO_V + "#TimeSeriesPlot";
-	
-	public static final String INDIVIDUAL_URI_IsoSurfaceRendering = Visko.CORE_VISKO_V + "#IsoSurfacesRendering";
-	public static final String INDIVIDUAL_URI_MeshPlot = Visko.CORE_VISKO_V + "#MeshPlot";
-	public static final String INDIVIDUAL_URI_VolumeRendering = Visko.CORE_VISKO_V + "#VolumeRendering";
-	public static final String INDIVIDUAL_URI_RasterCube = Visko.CORE_VISKO_V + "#RasterCube";
+	public static final String INDIVIDUAL_URI_2D_ContourMap = Visko.CORE_VISKO_V + "#2D_ContourMap";
+	public static final String INDIVIDUAL_URI_2D_PointMap = Visko.CORE_VISKO_V + "#2D_PointMap";
+	public static final String INDIVIDUAL_URI_2D_RasterMap = Visko.CORE_VISKO_V + "#2D_RasterMap";
+	public static final String INDIVIDUAL_URI_2D_TimeSeriesPlot = Visko.CORE_VISKO_V + "#2D_TimeSeriesPlot";
 
+	public static final String INDIVIDUAL_URI_3D_IsoSurfaceRendering = Visko.CORE_VISKO_V + "#3D_IsoSurfacesRendering";
+	public static final String INDIVIDUAL_URI_3D_MeshPlot = Visko.CORE_VISKO_V + "#3D_MeshPlot";
+	public static final String INDIVIDUAL_URI_3D_VolumeRendering = Visko.CORE_VISKO_V + "#3D_VolumeRendering";
+	public static final String INDIVIDUAL_URI_3D_RasterCube = Visko.CORE_VISKO_V + "#3D_RasterCube";
+	public static final String INDIVIDUAL_URI_3D_SurfacePlot = Visko.CORE_VISKO_V + "#3D_SurfacePlot";
+	public static final String INDIVIDUAL_URI_3D_PointPlot = Visko.CORE_VISKO_V + "#3D_PointPlot";
+	
 	private static OntModel model;
 
 	static {
