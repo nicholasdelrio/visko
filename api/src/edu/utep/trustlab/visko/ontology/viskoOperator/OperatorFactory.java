@@ -110,7 +110,6 @@ public class OperatorFactory {
 		label = aLabel;
 	}
 	
-	
 	public boolean isFilter(){
 		boolean isFilter = isOutputDataTypeSubtypeOfInput() || areDataTypesEqual() || doDataTypesHaveCommonParent();
 		return isFilter;
@@ -135,8 +134,8 @@ public class OperatorFactory {
 		else if(inputDataType == null && outputDataType != null)
 			return true;
 		
-		String inputDataTypeURI = inputDataType.getURI();
-		String outputDataTypeURI = outputDataType.getURI();
+		String inputDataTypeURI = "<" + inputDataType.getURI() + ">";
+		String outputDataTypeURI = "<" + outputDataType.getURI() + ">";
 		
 		String queryString = 
 				ViskoTripleStore.QUERY_PREFIX
@@ -153,14 +152,13 @@ public class OperatorFactory {
 		else if(inputDataType == null && outputDataType != null)
 			return false;
 
-		String inputDataTypeURI = inputDataType.getURI();
-		String outputDataTypeURI = outputDataType.getURI();
+		String inputDataTypeURI = "<" + inputDataType.getURI() + ">";
+		String outputDataTypeURI = "<" + outputDataType.getURI() + ">";
 		
 		String queryString = 
 				ViskoTripleStore.QUERY_PREFIX
 				+ "ASK WHERE {" + outputDataTypeURI + " rdfs:subClassOf " + inputDataTypeURI + " . }";
 		
-		System.out.println(queryString);
 		return executeAskQuery(queryString);
 	}
 	
@@ -168,8 +166,8 @@ public class OperatorFactory {
 		if(inputDataType == null || outputDataType == null)
 			return false;
 
-		String inputDataTypeURI = inputDataType.getURI();
-		String outputDataTypeURI = outputDataType.getURI();
+		String inputDataTypeURI = "<" + inputDataType.getURI() + ">";
+		String outputDataTypeURI = "<" + outputDataType.getURI() + ">";
 		
 		String queryString = 
 				ViskoTripleStore.QUERY_PREFIX
