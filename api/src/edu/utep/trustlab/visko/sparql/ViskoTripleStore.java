@@ -289,6 +289,17 @@ public class ViskoTripleStore {
 
 		return SPARQL_EndpointFactory.executeAskQuery(stringQuery);
 	}
+	
+	public boolean isDataFilter(String uri) {
+		uri = "<" + uri + ">";
+
+		String stringQuery = QUERY_PREFIX
+				+ "ASK "
+				+ "WHERE {" + uri + " rdf:type viskoO:DataFilter . }";
+
+		return SPARQL_EndpointFactory.executeAskQuery(stringQuery);
+	}
+
 
 	public ResultSet getViewGeneratedByMapper(String mapperURI) {
 		String uri = "<" + mapperURI + ">";
@@ -677,8 +688,10 @@ public class ViskoTripleStore {
 	}
 
 	public ResultSet getParameterBindings(String typeURI) {
-		typeURI = "\"" + typeURI + "\"^^xsd:anyURI";
-		String stringQuery = QUERY_PREFIX + "SELECT ?param ?value " + "WHERE {"
+		typeURI = "<" + typeURI + ">";
+		String stringQuery = 
+				QUERY_PREFIX 
+				+ "SELECT ?param ?value " + "WHERE {"
 				+ "?profile viskoS:profiles " + typeURI + " . "
 				+ "?profile viskoS:declaresBindings ?binding ."
 				+ "?binding owlsProcess:toParam ?param . "

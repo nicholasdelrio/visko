@@ -119,8 +119,9 @@ public class OperatorFactory {
 	}
 	
 	public boolean isFilter(){
-		boolean isFilter = isOutputDataTypeSubtypeOfInput() || areDataTypesEqual() || doDataTypesHaveCommonParent();
-		return isFilter;
+		boolean dataTypesComply = isOutputDataTypeSubtypeOfInput() || areDataTypesEqual() || doDataTypesHaveCommonParent();
+		boolean formatsComply = inputFormat.getURI().equals(outputFormat.getURI());
+		return dataTypesComply && formatsComply;
 	}
 	
 	private boolean areDataTypesEqual(){

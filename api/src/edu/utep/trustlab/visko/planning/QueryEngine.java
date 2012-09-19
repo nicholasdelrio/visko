@@ -70,11 +70,7 @@ public class QueryEngine {
 	}
 
 	private void createPipelines() {
-		String formatURI = query.getFormatURI();
-		String viewerSetURI = query.getViewerSetURI();
 		String typeConstraintURI = query.getTypeURI();
-		String viewConstraintURI = query.getViewURI();
-		//String targetFormatURI = query.getTargetFormatURI();
 
 		if (typeConstraintURI != null) {
 			loadParameterBindingsFromProfile(typeConstraintURI);
@@ -87,7 +83,6 @@ public class QueryEngine {
 		}
 
 		builder.setPipelines();
-
 		pipelines = builder.getPipelines();
 		pipelines.setParameterBindings(parameterBindings);
 		pipelines.setArtifactURL(query.getArtifactURL());
@@ -102,10 +97,8 @@ public class QueryEngine {
 	}
 
 	public void loadParameterBindingsFromProfile(String dataTypeURI) {
-		ResultSet results = builder.getTripleStore().getParameterBindings(
-				dataTypeURI);
-		Vector<String[]> bindings = ResultSetToVector
-				.getVectorPairsFromResultSet(results, "param", "value");
+		ResultSet results = builder.getTripleStore().getParameterBindings(dataTypeURI);
+		Vector<String[]> bindings = ResultSetToVector.getVectorPairsFromResultSet(results, "param", "value");
 
 		for (String[] binding : bindings) {
 			parameterBindings.put(binding[0], binding[1]);

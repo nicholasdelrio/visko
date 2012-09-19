@@ -57,6 +57,11 @@ public class OperatorPath extends Vector<String> {
 	//the triple store instance this operator relies on
 	private ViskoTripleStore ts;
 	
+	private boolean containsDataFilter;
+	
+	private boolean violatesSingleMapperRule;
+	private boolean violatesSingleFilterRule;
+	
 	public OperatorPath(String viewerURI) {
 		super();
 		this.viewerURI = viewerURI;
@@ -125,31 +130,46 @@ public class OperatorPath extends Vector<String> {
 		return clonedPath;
 	}
 	
-	public Vector<String> removeOperatorsAlreadyInPath(Vector<String> operatorURIs){
+	public Vector<String> filterOperatorsAlreadyInPath(Vector<String> operatorURIs){
 		Vector<String> eligibleOperatorURIs = new Vector<String>();
-		boolean isEligible;
 		
-		for(String potentialEligibleOperatorURI : operatorURIs){
-			isEligible = true;
-			for(String pathOperatorURI : this){
-				if(potentialEligibleOperatorURI.equals(pathOperatorURI)){
-					isEligible = false;
-					break;
-				}
-			}
-			if(isEligible)
-				eligibleOperatorURIs.add(potentialEligibleOperatorURI);
-		}
-		
+		for(String potentialEligibleOperatorURI : operatorURIs)
+			if(!isAlreadyInPath(potentialEligibleOperatorURI))
+				eligibleOperatorURIs.add(potentialEligibleOperatorURI);		
 		return eligibleOperatorURIs;
 	}
 	
 	public boolean add(String operatorURI){
-		 if(ts.isMapper(operatorURI)){
- 			 Vector<String> view = ResultSetToVector.getVectorFromResultSet(ts.getViewGeneratedByMapper(operatorURI), "view");
+		 if(ts.isMapper(operatorURI)){		 
+			 
+			 if(viewURI != null)
+				 this.violatesSingleMapperRule = true;
+			 
+			 Vector<String> view = ResultSetToVector.getVectorFromResultSet(ts.getViewGeneratedByMapper(operatorURI), "view");
  			 viewURI = view.firstElement(); 			 
 		 }
+		 else if(ts.isDataFilter(operatorURI)){
+			 if(containsDataFilter)
+				 violatesSingleFilterRule = true;
+			 else
+				 containsDataFilter = true;
+		 }
+		 
 		 return super.add(operatorURI);
+	}
+	
+	public boolean violatesRequestedView(String requestedViewURI){
+		if(viewURI != null && !requestedViewURI.equals(viewURI))
+			return true;
+		return false;
+	}
+	
+	public boolean violatesSingleMapperRule(){
+		return violatesSingleMapperRule;
+	}
+	
+	public boolean violatesSingleFilterRule(){
+		return violatesSingleFilterRule;
 	}
 	
 	public String getViewGenerated(){

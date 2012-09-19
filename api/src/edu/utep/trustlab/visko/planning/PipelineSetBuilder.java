@@ -45,6 +45,7 @@ import java.util.Vector;
 import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.planning.PipelineSet;
 import edu.utep.trustlab.visko.planning.Query;
+import edu.utep.trustlab.visko.sparql.SPARQL_EndpointFactory;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.util.CartesianProduct;
 import edu.utep.trustlab.visko.util.ResultSetToVector;
@@ -78,8 +79,7 @@ public class PipelineSetBuilder {
 		return formatCheck && typeCheck;
 	}
 	
-	public void setPipelines() {
-		
+	public void setPipelines() {	
 		System.out.println("Finding operator paths...");
 		setOperatorPaths();
 		
@@ -160,19 +160,31 @@ public class PipelineSetBuilder {
 	}
 	
 	private void constructOperatorPaths(OperatorPath operatorPath){
+
+		if(operatorPath.violatesSingleFilterRule() || operatorPath.violatesSingleMapperRule())
+			return;
+		
+		if(query.getViewURI() != null && operatorPath.violatesRequestedView(query.getViewURI())){
+			System.out.println("operator violated view: ");
+			System.out.println(operatorPath);
+			return;
+		}
+				
 		// get a listing of all operators that can process input operator
 		ResultSet operatorResults = ts.getAdjacentOperatorsAccordingToFormatAndDataType(operatorPath.lastElement());
 		Vector<String> operatorURIs = ResultSetToVector.getVectorFromResultSet(operatorResults, "operator");
 		
-		System.out.println("an Operator path: " + operatorPath);
+		//System.out.println("an Operator path: " + operatorPath);
 		
 		// filter out any operators that are already in this path		
-		operatorURIs = operatorPath.removeOperatorsAlreadyInPath(operatorURIs);
+		operatorURIs = operatorPath.filterOperatorsAlreadyInPath(operatorURIs);
 		
 		// recursive base case, we hit the end of an operator path
-		if(operatorURIs.size() == 0)
+		if(operatorURIs.size() == 0){
 			operatorPaths.add(operatorPath);
-		
+			return;
+		}
+
 		// recursive case, there are more operators to add
 		else{
 			OperatorPath clonedPath;

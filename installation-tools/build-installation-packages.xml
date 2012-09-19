@@ -89,7 +89,7 @@
 	</target>
 	
 	<target name="install-packages-remote" depends="build-packages" description="Run the RDF generation package code">
-		<java classname="edu.utep.trustlab.visko.installation.packages.manager.Installer_ContentManager">
+		<java classname="edu.utep.trustlab.visko.installation.packages.manager.Installer_ContentManager" fork="true">
 		
 			<jvmarg value="-Djava.security.policy=${policy}"/>
 			
@@ -121,7 +121,7 @@
 	</target>
 	
 	<target name="install-packages-local" depends="build-packages,clean-visko-packages-rdf" description="Run the RDF generation package code">
-		<java classname="edu.utep.trustlab.visko.installation.packages.manager.Installer_LocalFileSystem">
+		<java classname="edu.utep.trustlab.visko.installation.packages.manager.Installer_LocalFileSystem" fork="true">
 			
 			<jvmarg value="-Djava.security.policy=${policy}"/>
 			
@@ -152,7 +152,7 @@
 	<target name="build-triple-store" depends="build-query-html" description="Generate a TDB Triple Store From a Bundle of RDF Documents">
 		<ant antfile="build-installation-visko.xml" target="build" inheritAll="false" />
 		
-		<java classname="edu.utep.trustlab.visko.installation.TripleStore">
+		<java classname="edu.utep.trustlab.visko.installation.TripleStore" fork="true">
 			
 			<jvmarg value="-Djava.security.policy=${policy}"/>
 

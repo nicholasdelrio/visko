@@ -31,6 +31,7 @@ public class OWLSParameterBinder {
 				}
 				
 				else{
+					System.out.println("can't find binding for " + input.getURI().toASCIIString());
 					error = true;
 				}
 			}
