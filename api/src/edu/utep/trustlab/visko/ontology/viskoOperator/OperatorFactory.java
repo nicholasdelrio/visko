@@ -11,6 +11,7 @@ import com.hp.hpl.jena.query.ResultSet;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
 import edu.utep.trustlab.visko.ontology.viskoView.View;
+import edu.utep.trustlab.visko.ontology.vocabulary.supplemental.OWL;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 
 public class OperatorFactory {
@@ -72,8 +73,15 @@ public class OperatorFactory {
 		return comment;
 	}
 	
+	private void adjustForNullDataTypes(){
+		if(inputDataType == null)
+			inputDataType = OWL.getOWLThing();
+		if(outputDataType == null)
+			outputDataType = OWL.getOWLThing();
+	}
+	
 	public Operator createOperator(String operatorName){
-		
+		adjustForNullDataTypes();
 		Operator theOperator;
 		
 		if(view != null){
@@ -116,24 +124,10 @@ public class OperatorFactory {
 	}
 	
 	private boolean areDataTypesEqual(){
-		if(inputDataType == null && outputDataType == null)
-			return false;
-		else if(inputDataType == null && outputDataType != null)
-			return false;
-		else if(inputDataType != null && outputDataType == null)
-			return false;
-		else
-			return inputDataType.equals(outputDataType);
+		return inputDataType.equals(outputDataType);
 	}
 	
-	private boolean isInputDataTypeSubtypeOfOutput(){
-		if(inputDataType == null && outputDataType == null)
-			return false;
-		else if(inputDataType != null && outputDataType == null)
-			return false;
-		else if(inputDataType == null && outputDataType != null)
-			return true;
-		
+	private boolean isInputDataTypeSubtypeOfOutput(){		
 		String inputDataTypeURI = "<" + inputDataType.getURI() + ">";
 		String outputDataTypeURI = "<" + outputDataType.getURI() + ">";
 		
@@ -145,13 +139,6 @@ public class OperatorFactory {
 	}
 	
 	private boolean isOutputDataTypeSubtypeOfInput(){
-		if(inputDataType == null && outputDataType == null)
-			return false;
-		else if(inputDataType != null && outputDataType == null)
-			return true;
-		else if(inputDataType == null && outputDataType != null)
-			return false;
-
 		String inputDataTypeURI = "<" + inputDataType.getURI() + ">";
 		String outputDataTypeURI = "<" + outputDataType.getURI() + ">";
 		
@@ -163,8 +150,6 @@ public class OperatorFactory {
 	}
 	
 	private boolean doDataTypesHaveCommonParent(){
-		if(inputDataType == null || outputDataType == null)
-			return false;
 
 		String inputDataTypeURI = "<" + inputDataType.getURI() + ">";
 		String outputDataTypeURI = "<" + outputDataType.getURI() + ">";
