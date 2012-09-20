@@ -143,19 +143,13 @@ public class PipelineSetBuilder {
 		// these operators will be the starting point for our search algorithm
 		ResultSet operatorResults = ts.getOperatorsThatProcessData(query.getFormatURI(), query.getTypeURI());
 		Vector<String> operatorURIs = ResultSetToVector.getVectorFromResultSet(operatorResults, "operator");		
-		
-		System.out.println("input operators...");
-		for(String operatorURI : operatorURIs)
-			System.out.println(operatorURI);
-		
+				
 		// for each root operatorURI, start a new path and populate it
 		OperatorPath operatorPath;
 		for(String operatorURI : operatorURIs){
-			//if(!operatorURI.equals("https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_vtk.owl#vtkDataObjectToDataSetFilter3DGravityData-operator")){
-				operatorPath = new OperatorPath(ts);
-				operatorPath.add(operatorURI);
-				constructOperatorPaths(operatorPath);
-			//}
+			operatorPath = new OperatorPath(ts);
+			operatorPath.add(operatorURI);
+			constructOperatorPaths(operatorPath);
 		}
 	}
 	

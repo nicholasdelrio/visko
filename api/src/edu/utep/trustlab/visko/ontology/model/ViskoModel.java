@@ -60,6 +60,7 @@ import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.ObjectProperty;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
@@ -70,7 +71,7 @@ public class ViskoModel{
 	
 	public ViskoModel() {
 		models.add(this);
-		model = ModelFactory.createOntologyModel();
+		model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
 
 		//add namespace mappings
 		model.setNsPrefix("viskoV", Visko.CORE_VISKO_V + "#");

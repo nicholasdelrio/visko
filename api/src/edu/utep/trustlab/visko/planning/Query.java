@@ -93,14 +93,18 @@ public class Query {
 		ContentManager.setWorkspacePath("C:/Users/Public/git/visko/api/output/");
 		ContentManager.setProvenanceContentManager(fs);
 		
-		
-		ViskoTripleStore ts = new ViskoTripleStore();		
-		
 		String url = "http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt";
 		String formatURI = "https://raw.github.com/nicholasdelrio/visko/master/resources/formats/SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES";
 		String viewerSetURI = "https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_mozilla.owl#mozilla-firefox";
 		String typeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d19";
-		String viewURI = ViskoV.INDIVIDUAL_URI_2D_ContourMap;
+		String viewURI = ViskoV.INDIVIDUAL_URI_3D_IsoSurfaceRendering;
+		
+		//String url = "";
+		//String formatURI = "";
+		//String viewerSetURI = "";
+		//String typeURI = "";
+		//String viewURI = ViskoV.INDIVIDUAL_URI_2D_ContourMap;
+		
 		Query query = new Query(url, formatURI, viewerSetURI);
 		query.setTypeURI(typeURI);
 		query.setViewURI(viewURI);
@@ -108,6 +112,9 @@ public class Query {
 		QueryEngine engine = new QueryEngine(query);
 		PipelineSet pipes = engine.getPipelines();
 	
+		for(Pipeline pipe : pipes)
+			System.out.println(pipe);
+		
 		if(pipes.size() > 0){
 			System.out.println(pipes.firstElement());
 			

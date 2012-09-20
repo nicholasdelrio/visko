@@ -6,7 +6,6 @@ import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
-import com.hp.hpl.jena.query.ResultSet;
 
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
@@ -119,24 +118,13 @@ public class OperatorFactory {
 	}
 	
 	public boolean isFilter(){
-		boolean dataTypesComply = isOutputDataTypeSubtypeOfInput() || areDataTypesEqual() || doDataTypesHaveCommonParent();
+		boolean dataTypesComply = isOutputDataTypeSubtypeOfInput() || areDataTypesEqual();
 		boolean formatsComply = inputFormat.getURI().equals(outputFormat.getURI());
 		return dataTypesComply && formatsComply;
 	}
 	
 	private boolean areDataTypesEqual(){
 		return inputDataType.equals(outputDataType);
-	}
-	
-	private boolean isInputDataTypeSubtypeOfOutput(){		
-		String inputDataTypeURI = "<" + inputDataType.getURI() + ">";
-		String outputDataTypeURI = "<" + outputDataType.getURI() + ">";
-		
-		String queryString = 
-				ViskoTripleStore.QUERY_PREFIX
-				+ "ASK WHERE {" + inputDataTypeURI + " rdfs:subClassOf " + outputDataTypeURI + " . }";
-		
-		return executeAskQuery(queryString);
 	}
 	
 	private boolean isOutputDataTypeSubtypeOfInput(){
@@ -149,28 +137,7 @@ public class OperatorFactory {
 		
 		return executeAskQuery(queryString);
 	}
-	
-	private boolean doDataTypesHaveCommonParent(){
-
-		String inputDataTypeURI = "<" + inputDataType.getURI() + ">";
-		String outputDataTypeURI = "<" + outputDataType.getURI() + ">";
-		
-		String queryString = 
-				ViskoTripleStore.QUERY_PREFIX
-				+ "ASK WHERE {" 
-				+ inputDataTypeURI + " rdfs:subClassOf ?parentClass . "
-				+ outputDataTypeURI + " rdfs:subClassOf ?parentClass . }";
-		
-		return executeAskQuery(queryString);
-	}
-	
-	private ResultSet executeQuery(String queryString){
-		  Query query = QueryFactory.create(queryString) ;
-		  QueryExecution qexec = QueryExecutionFactory.create(query, dataTypes);
-		  ResultSet results = qexec.execSelect();
-		  return results;
-	}
-	
+			
 	private boolean executeAskQuery(String askQueryString){
 		  Query query = QueryFactory.create(askQueryString) ;
 		  QueryExecution qexec = QueryExecutionFactory.create(query, dataTypes);
