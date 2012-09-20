@@ -8,6 +8,7 @@ import edu.utep.trustlab.contentManagement.VeloClientAdapter;
 import edu.utep.trustlab.contentManagement.CIServer;
 import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.contentManagement.LocalFileSystem;
+import edu.utep.trustlab.visko.sparql.SPARQL_EndpointFactory;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.web.html.Template;
 import edu.utep.trustlab.visko.web.requestHandler.sparql.TDBTripleStore;
@@ -130,7 +131,6 @@ public class ContextListener implements ServletContextListener {
 	}
 	private static void setViskoSPARQLEndpointURL(ServletContext context) {
 		String viskoEndpoint = context.getInitParameter("visko-sparql-endpoint");
-		ViskoTripleStore.setEndpointURL(viskoEndpoint);
+		SPARQL_EndpointFactory.setUpEndpointConnection(viskoEndpoint);
 	}
-
 }

@@ -94,8 +94,12 @@ public class PipelineHTML {
 			html += "<li><b>Implements Operator:</b> <a href=\""
 					+ viskoService.getConceptualOperator().getURI() + "\">"
 					+ viskoService.getConceptualOperator().getURI() + "</a></li>";
-			html += "<li><b>Input Format(s):</b>";
-			html += viskoService.getConceptualOperator().getInputFormat() + "</li>";
+			html += "<li><b>Input Format: </b>";
+			
+			String formatURI = viskoService.getConceptualOperator().getInputFormat().getURI();
+			String formatName = getURIFragment(formatURI);
+			
+			html += "<a href=\"" + formatURI + "\">" + formatName + "</a></li>";
 			html += "</ul>";
 			html += "<br/>";
 			html += "<hr/>";
@@ -108,9 +112,12 @@ public class PipelineHTML {
 
 	private static String getInputFormatList(Vector<Format> formats) {
 		String html = "<ul>";
+		String formatURI;
+		String formatName;
 		for (Format format : formats) {
-			html += "<li><a href=\"" + format.getURI() + "\">"
-					+ format.getURI() + "</a>";
+			formatURI = format.getURI();
+			formatName = getURIFragment(formatURI);
+			html += "<li><a href=\"" + format.getURI() + "\">" + formatName + "</a>";
 		}
 		html += "</ul>";
 

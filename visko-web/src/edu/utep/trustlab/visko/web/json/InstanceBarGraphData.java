@@ -33,7 +33,7 @@ public class InstanceBarGraphData {
 		int paramCount = numResults(ts.getAllParameters());
 		int viewerSetCount = numResults(ts.getViewerSets());
 		int viewerCount = numResults(ts.getViewers());
-		int transformerCount = numResults(ts.geto);
+		int transformerCount = numResults(ts.getOperators());
 		int toolkitCount = numResults(ts.getToolkits());
 		int mapperCount = numResults(ts.getMappers());
 		int formatCount = numResults(ts.getOperatedOnFormats());
