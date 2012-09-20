@@ -45,6 +45,11 @@ WHERE
 </div>
 <table>
 <tr>
+<td align="center"><b>Generic Mapping Tools</b></td>
+<td align="center"><b>Visualization Toolkit</b></td>
+<td align="center"><b>NCAR Command Language</b></td>
+</tr>
+<tr>
 <td><img src="./visualization-examples/gravity-2d-contourmap-gmt.png" width="350px"></td>
 <td><img src="./visualization-examples/gravity-2d-contourmap-vtk.png" width="350px"></td>
 <td><img src="./visualization-examples/gravity-2d-contourmap-ncl.png" width="350px"></td>
@@ -66,6 +71,11 @@ WHERE
 </pre>
 </div>
 <table>
+<tr>
+<td align="center"><b>Generic Mapping Tools</b></td>
+<td align="center"><b>NCAR Command Language</b></td>
+</tr>
+<tr>
 <tr>
 <td><img src="./visualization-examples/gravity-2d-rastermap-gmt.png" width="350px"></td>
 <td><img src="./visualization-examples/gravity-2d-rastermap-ncl.png" width="350px"></td>
@@ -89,6 +99,11 @@ WHERE
 
 <table>
 <tr>
+<td align="center"><b>Generic Mapping Tools</b></td>
+</tr>
+<tr>
+
+<tr>
 <td><img src="./visualization-examples/gravity-2d-pointmap-gmt.png" width="350px"></td>
 </tr>
 </table>
@@ -109,6 +124,11 @@ WHERE
 </div>
 
 <table>
+<tr>
+<td align="center"><b>Visualization Toolkit</b></td>
+</tr>
+<tr>
+
 <tr>
 <td><img src="./visualization-examples/gravity-3d-pointplot-vtk.png" width="350px"></td>
 </tr>
@@ -132,6 +152,11 @@ WHERE
 
 <table>
 <tr>
+<td align="center"><b>Visualization Toolkit</b></td>
+</tr>
+<tr>
+
+<tr>
 <td><img src="./visualization-examples/gravity-3d-isosurfacesrendering-vtk.png" width="350px"></td>
 </tr>
 </table>
@@ -152,6 +177,11 @@ WHERE
 </div>
 
 <table>
+<tr>
+<td align="center"><b>Visualization Toolkit</b></td>
+</tr>
+<tr>
+
 <tr>
 <td><img src="./visualization-examples/gravity-3d-surfaceplot-vtk.png" width="350px"></td>
 </tr>
@@ -177,6 +207,11 @@ WHERE
 
 <table>
 <tr>
+<td align="center"><b>Visualization Toolkit</b></td>
+</tr>
+<tr>
+
+<tr>
 <td><img src="./visualization-examples/velocity-3d-isosurfacesrendering-vtk.png" width="450px"></td>
 </tr>
 </table>
@@ -199,6 +234,10 @@ WHERE
 
 <table>
 <tr>
+<td align="center"><b>Visualization Toolkit</b></td>
+</tr>
+
+<tr>
 <td><img src="./visualization-examples/velocity-3d-volumerendering-vtk.png" width="450px"></td>
 </tr>
 </table>
@@ -219,6 +258,10 @@ WHERE
 </div>
 
 <table>
+<tr>
+<td align="center"><b>Visualization Toolkit</b></td>
+</tr>
+
 <tr>
 <td><img src="./visualization-examples/slowness-3d-isosurfacesrendering-vtk.png" width="450px"></td>
 </tr>
@@ -241,6 +284,10 @@ WHERE
 
 <table>
 <tr>
+<td align="center"><b>Visualization Toolkit</b></td>
+</tr>
+
+<tr>
 <td><img src="./visualization-examples/time-3d-isosurfacesrendering-vtk.png" width="450px"></td>
 </tr>
 </table>
@@ -261,6 +308,10 @@ WHERE
 </div>
 
 <table>
+<tr>
+<td align="center"><b>Visualization Toolkit</b></td>
+</tr>
+
 <tr>
 <td><img src="./visualization-examples/coverage-3d-volumerendering-vtk.png" width="450px"></td>
 </tr>
@@ -292,6 +343,10 @@ WHERE
 
 <table>
 <tr>
+<td align="center"><b>NCAR Command Language</b></td>
+</tr>
+
+<tr>
 <td><img src="./visualization-examples/brightness-2d-contourmap-ncl.png" width="450px"></td>
 </tr>
 </table>
@@ -318,6 +373,10 @@ WHERE
 </div>
 
 <table>
+<tr>
+<td align="center"><b>NCAR Command Language</b></td>
+</tr>
+
 <tr>
 <td><img src="./visualization-examples/brightness-2d-contourmap-ncl.png" width="450px"></td>
 </tr>
@@ -348,6 +407,10 @@ WHERE
 </div>
 
 <table>
+<tr>
+<td align="center"><b>Visualization Toolkit</b></td>
+</tr>
+
 <tr>
 <td><img src="./visualization-examples/cube-3d-polydata-vtk.png" width="350px"></td>
 </tr>
