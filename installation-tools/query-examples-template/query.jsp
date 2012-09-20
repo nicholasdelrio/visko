@@ -250,7 +250,7 @@ WHERE
 <pre>
 PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
-PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
+PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl# 
 PREFIX visko REPLACE-VISKOpackage_mozilla.owl#
 VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/01146509090356318_icov.3d
 AS views:3D_VolumeRendering IN visko:mozilla-firefox
@@ -307,7 +307,7 @@ VISUALIZE http://disc2.nascom.nasa.gov/daac-bin/OTF/HTTP_services.cgi?SERVICE=SU
 AS views:2D_RasterMap IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:NETCDF.owl#NETCDF
-	AND TYPE = http://giovanni.gsfc.nasa.gov/data/brightness.owl#brightness 
+	AND TYPE = http://giovanni.gsfc.nasa.gov/giovanni-data.owl#BrightnessTemperature
 	AND params:cnFillOn = True
 	AND params:cnLinesOn = True 
 	AND params:cnLevelSpacingF = 20 
