@@ -102,12 +102,12 @@ text.shadow {
     	.attr("x", 8)
     	.attr("y", ".31em")
     	.attr("class", "shadow")
-    	.text(function(d) { return getURIFrag(d.formatURI); });
+    	.text(function(d) { return getURIFragments(d.formatURI); });
 	
     	text.append("svg:text")
     	.attr("x", 8)
     	.attr("y", ".31em")
-    	.text(function(d) { return getURIFrag(d.formatURI); });
+    	.text(function(d) { return getURIFragments(d.formatURI); });
 	
     	// Use elliptical arc path segments to doubly-encode directionality.
     	function tick() {    		
@@ -133,9 +133,18 @@ text.shadow {
     	}
     })
     
-    function getURIFrag(stringToTrim)
-    {return stringToTrim.split("#")[1];}
+    function getURIFragments(stringToTrim)
+    {
+    	formatAndType = stringToTrim.split("---");
+    	format = formatAndType[0];
+    	type = formatAndType[1];
+    	
+    	return getURIFragment(format) + "/" + getURIFragment(type);
+    }
     
+    function getURIFragment(stringToTrim)
+    {return stringToTrim.split("#")[1];}
+        
     </script>
   </body>
 </html>

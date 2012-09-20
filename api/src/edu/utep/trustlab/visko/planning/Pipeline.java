@@ -185,14 +185,14 @@ public class Pipeline extends Vector<String> {
 	}
 	
 	public String getToolkitThatGeneratesView(){
+		String toolkitURI = null;
 		if(viewURI != null){
 			for(String serviceURI : this){
-				if(ts.isImplemenationOfServiceAMapper(serviceURI)){
-					return ResultSetToVector.getVectorFromResultSet(ts.getToolkitOf(serviceURI), "toolkit").firstElement();
-				}
+				if(ts.isImplemenationOfServiceAMapper(serviceURI))
+					toolkitURI = ResultSetToVector.getVectorFromResultSet(ts.getToolkitOf(serviceURI), "toolkit").firstElement();
 			}
 		}
-		return null;
+		return toolkitURI;
 	}
 
 	public boolean hasAllInputParameters(){

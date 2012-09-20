@@ -47,6 +47,7 @@ WHERE
 <tr>
 <td><img src="./visualization-examples/gravity-2d-contourmap-gmt.png" width="350px"></td>
 <td><img src="./visualization-examples/gravity-2d-contourmap-vtk.png" width="350px"></td>
+<td><img src="./visualization-examples/gravity-2d-contourmap-ncl.png" width="350px"></td>
 </tr>
 </table>
 

@@ -105,7 +105,7 @@ public class ViskoTripleStore {
 		String stringQuery =
 				QUERY_PREFIX
 				+ "SELECT ?toolkit WHERE{"
-				+ serviceURI + " viskoS:supportedBy ?toolkit . }";
+				+ serviceURI + " viskoS:supportedByToolkit ?toolkit . }";
 		
 		return SPARQL_EndpointFactory.executeQuery(stringQuery);
 	}
@@ -151,12 +151,16 @@ public class ViskoTripleStore {
 	}
 
 	public ResultSet getOperatorInformation() {
-		String stringQuery = QUERY_PREFIX
-				+ "SELECT ?operator ?lbl ?input ?output " + "WHERE { "
-				+ "?operator rdf:type viskoO:Transformer . "
+		String stringQuery = 
+				QUERY_PREFIX
+				+ "SELECT ?operator ?lbl ?inputFormat ?outputFormat ?inputDataType ?outputDataType WHERE { "
+				+ "?operator a viskoO:Operator . "
 				+ "?operator rdfs:label ?lbl . "
-				+ "?operator viskoO:hasInputFormat ?input. "
-				+ "?operator viskoO:hasOutputFormat ?output. " + "}";
+				+ "?operator viskoO:hasInputDataType ?inputDataType . "
+				+ "?operator viskoO:hasOutputDataType ?outputDataType . "
+				+ "?operator viskoO:hasInputFormat ?inputFormat . "
+				+ "?operator viskoO:hasOutputFormat ?outputFormat . " + "}";
+		
 		return SPARQL_EndpointFactory.executeQuery(stringQuery);
 	}
 
@@ -170,10 +174,33 @@ public class ViskoTripleStore {
 	public ResultSet getOperatedOnFormats(String viskoOperatorURI) {
 		viskoOperatorURI = "<" + viskoOperatorURI + ">";
 
-		String stringQuery = QUERY_PREFIX + "SELECT ?inputFormat " + "WHERE { "
+		String stringQuery = 
+				QUERY_PREFIX 
+				+ "SELECT DISTINCT ?inputFormat WHERE { "
 				+ viskoOperatorURI + " viskoO:hasInputFormat ?inputFormat . " + "}";
+
 		return SPARQL_EndpointFactory.executeQuery(stringQuery);
 	}
+	
+	public ResultSet getOperatedOnDataTypes(String viskoOperatorURI) {
+		viskoOperatorURI = "<" + viskoOperatorURI + ">";
+
+		String stringQuery = 
+				QUERY_PREFIX 
+				+ "SELECT DISTINCT ?dataType WHERE { "
+				+ viskoOperatorURI + " viskoO:hasInputDataType ?dataType . " + "}";
+		return SPARQL_EndpointFactory.executeQuery(stringQuery);
+	}
+	
+	public ResultSet getOperatedOnFormatsAndDataTypes() {
+
+		String stringQuery = 
+				QUERY_PREFIX 
+				+ "SELECT DISTINCT ?format ?dataType WHERE { "
+				+ "?operator viskoO:hasInputFormat ?format . "
+				+ "?operator viskoO:hasInputDataType ?dataType . " + "}";
+		return SPARQL_EndpointFactory.executeQuery(stringQuery);
+	}	
 
 	public ResultSet getOperatedOnFormats() {
 		String stringQuery = QUERY_PREFIX + "SELECT DISTINCT ?inputFormat "
@@ -256,6 +283,22 @@ public class ViskoTripleStore {
 				+ formatURI + " . }";
 		return SPARQL_EndpointFactory.executeAskQuery(stringQuery);
 	}
+	
+	public boolean isFormatAndDataTypeAlreadyVisualizable(String formatURI, String dataTypeURI) {
+
+		formatURI = "<" + formatURI + ">";
+		dataTypeURI = "<" + dataTypeURI + ">";
+
+		String stringQuery = 
+				QUERY_PREFIX
+				+ "ASK WHERE { "
+				+ "?viewer a viskoO:Viewer. "
+				+ "?viewer viskoO:hasInputFormat " + formatURI + " . "
+				+ "?viewer viskoO:hasInputDataType " + dataTypeURI + " . }";
+		
+		return SPARQL_EndpointFactory.executeAskQuery(stringQuery);
+	}
+
 
 	public ResultSet getViewerSetsOfViewer(String viewerURI) {
 		viewerURI = "<" + viewerURI + ">";
@@ -408,7 +451,7 @@ public class ViskoTripleStore {
 				QUERY_PREFIX
 				+ "ASK WHERE {"
 				+ serviceURI + " viskoS:implementsOperator ?operator . "
-				+ "?operator a viskoO:Mapper . "
+				+ "?operator a viskoO:ViewMapper . "
 				+ "}";
 		
 		return SPARQL_EndpointFactory.executeAskQuery(stringQuery);
@@ -677,7 +720,7 @@ public class ViskoTripleStore {
 
 	public ResultSet getMappers() {
 		String stringQuery = QUERY_PREFIX + "SELECT ?mapper " + "WHERE {"
-				+ "      ?mapper rdf:type viskoO:Mapper . " + "      }";
+				+ "      ?mapper rdf:type viskoO:ViewMapper . " + "      }";
 
 		return SPARQL_EndpointFactory.executeQuery(stringQuery);
 	}

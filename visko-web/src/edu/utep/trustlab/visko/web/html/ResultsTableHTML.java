@@ -19,26 +19,36 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 
 package edu.utep.trustlab.visko.web.html;
+import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.planning.PipelineSet;
 import edu.utep.trustlab.visko.planning.QueryEngine;
 
 public class ResultsTableHTML {
 	public static String getHTML(QueryEngine engine, boolean withProvenance) {
-		String html = "<table width=\"700\" border=\"1\">";
+		String html = "<table width=\"900\" border=\"1\">";
 
 		PipelineSet pipes = engine.getPipelines();
 
-		if (pipes.size() > 0 && withProvenance) {
-			html += "<tr><td><b>Index</b></td><td><b>Run</b><td><b>Configure</b></td></td><td><b>Resulting View</b></td><td><b>Run and Capture Provenance</b></td><td><b>Description</b></td></tr>";
-			html += getVisualizationAndPipelineResultRows(pipes, true, engine.getQuery().hasValidDataPointer());
-		} else if (pipes.size() > 0 && !withProvenance) {
-			html += "<tr><td><b>Index</b></td><td><b>Run</b></td><td><b>Configure</b></td><td><b>Resulting View</b></td><td><b>Description</b></td></tr>";
-			html += getVisualizationAndPipelineResultRows(pipes, false, engine.getQuery().hasValidDataPointer());
-		} else if (!(pipes.size() > 0)) {
+		if (pipes.size() > 0 && withProvenance) {	
+			html += 
+					"<tr>" +
+					"<td><b>Index</b></td>" +
+					"<td><b>Run</b></td>" +
+					"<td><b>Run and Capture Provenance</b></td>" +
+					"<td><b>Configure</b></td>" +
+					"<td><b>View</b></td>" +
+					"<td><b>View Based On</b></td>" +
+					"<td><b>Description</b></td>" +
+					"</tr>";
+			html += getVisualizationAndPipelineResultRows(pipes, engine.getQuery().hasValidDataPointer());
+		}	
+		else if (!(pipes.size() > 0)) {
 			html += "<tr><td><p>Empty Set</p></td></tr>";
-		} else if (engine.getQuery().getViewerSetURI() != null && engine.isAlreadyVisualizableWithViewerSet()) {
+		}
+		else if (engine.getQuery().getViewerSetURI() != null && engine.isAlreadyVisualizableWithViewerSet()) {
 			html += "<tr><td><p>Format can already be viewed by ViewerSet.</p></td></tr>";
-		} else if (engine.getQuery().getTargetFormatURI() != null && engine.getQuery().getTargetFormatURI()
+		}
+		else if (engine.getQuery().getTargetFormatURI() != null && engine.getQuery().getTargetFormatURI()
 						.equals(engine.getQuery().getFormatURI())) {
 			html += "<tr><td><p>Format is same as target format.</p></td></tr>";
 		}
@@ -46,18 +56,16 @@ public class ResultsTableHTML {
 		return html;
 	}
 
-	private static String getVisualizationAndPipelineResultRows(PipelineSet pipes, boolean withProvenance, boolean validDatasetReference) {
+	private static String getVisualizationAndPipelineResultRows(PipelineSet pipes, boolean validDatasetReference) {
 		String html = "";
 		for (int i = 0; i < pipes.size(); i++) {
 			html += "<tr>";
 			html += "<td>" + i + "</td>";
 			html += "<td>" + getExecutePipelineLink(i, pipes.getArtifactURL(), pipes.get(i).requiresInputURL(), pipes.get(i).hasAllInputParameters(), validDatasetReference, false) + "</td>";
+			html += "<td>" + getExecutePipelineLink(i, pipes.getArtifactURL(), pipes.get(i).requiresInputURL(), pipes.get(i).hasAllInputParameters(), validDatasetReference, true) + "</td>";
 			html += "<td>" + getEditParametersLink(i);
-			html += "<td>" + getViewLink(pipes.get(i).getViewURI()) + "</td>";
-			
-			if (withProvenance)
-				html += "<td>"+ getExecutePipelineLink(i, pipes.getArtifactURL(), pipes.get(i).requiresInputURL(), pipes.get(i).hasAllInputParameters(), validDatasetReference, true) + "</td>";
-			
+			html += "<td>" + getViewLink(pipes.get(i)) + "</td>";
+			html += "<td>" + getToolkitOfViewLink(pipes.get(i)) + "</td>";			
 			html += "<td>" + getShowPipelineLink(i) + "</td>";
 			html += "</tr>";
 		}
@@ -73,14 +81,26 @@ public class ResultsTableHTML {
 		return uri.substring(uri.indexOf("#") + 1);
 	}
 	
-	private static String getViewLink(String viewURI){	
+	private static String getViewLink(Pipeline pipe){	
+		String viewURI = pipe.getViewURI();
 		if(viewURI != null){
 			String html = "<a href=\"" + viewURI + "\">" + 	getURIFragment(viewURI) +  "</a>";
 			return html;
 		}
 		else
-			return "No View Information";			
+			return "Unknown";			
 	}
+	
+	private static String getToolkitOfViewLink(Pipeline pipe){	
+		String toolkitURI = pipe.getToolkitThatGeneratesView();
+		if(toolkitURI != null){
+			String html = "<a href=\"" + toolkitURI + "\">" + 	getURIFragment(toolkitURI) +  "</a>";
+			return html;
+		}
+		else
+			return "Unknown";			
+	}
+
 
 	private static String getShowPipelineLink(int index) {
 		String html = "<a href=\"ViskoServletManager?requestType=show-pipeline&index=" + index;

@@ -37,6 +37,7 @@ public class InstanceBarGraphData {
 		int toolkitCount = numResults(ts.getToolkits());
 		int mapperCount = numResults(ts.getMappers());
 		int formatCount = numResults(ts.getOperatedOnFormats());
+		int dataTypeCount = numResults(ts.getOperatedOnDataTypes());
 		int serviceCount = numResults(ts.getOWLSServices());
 		int viewCount = numResults(ts.getViews());
 
@@ -53,6 +54,7 @@ public class InstanceBarGraphData {
 			data.add(new JSONObject().put("viskoType", "Toolkits").put("count",	toolkitCount));
 			data.add(new JSONObject().put("viskoType", "Mappers").put("count", mapperCount));
 			data.add(new JSONObject().put("viskoType", "Used Formats").put("count", formatCount));
+			data.add(new JSONObject().put("viskoType", "Used Data Types").put("count", dataTypeCount));
 			data.add(new JSONObject().put("viskoType", "Services").put("count", serviceCount));
 
 			jsonGraphData.put("instanceGraphData", data);

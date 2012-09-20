@@ -22,7 +22,7 @@ package edu.utep.trustlab.visko.web.requestHandler.knowledgeBaseInfo;
 
 import javax.servlet.http.HttpServletRequest;
 
-import edu.utep.trustlab.visko.web.json.FormatGraphData;
+import edu.utep.trustlab.visko.web.json.FormatAndDataTypeGraphData;
 import edu.utep.trustlab.visko.web.json.OperatorGraphData;
 import edu.utep.trustlab.visko.web.json.InstanceBarGraphData;
 import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerJSON;
@@ -35,7 +35,7 @@ public class KnowledgeBaseInformationJSONServlet extends RequestHandlerJSON {
 		if (infoType.equals("rdfInstances")) {
 			json = InstanceBarGraphData.getBarGraph();
 		} else if (infoType.equals("formatPaths")) {
-			json = FormatGraphData.getPathsGraphJSON();
+			json = FormatAndDataTypeGraphData.getPathsGraphJSON();
 		} else if (infoType.equals("pipelines")) {
 			json = OperatorGraphData.getPathsGraphJSON();
 		}

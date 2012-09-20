@@ -30,10 +30,16 @@ import com.hp.hpl.jena.query.ResultSet;
 
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 
-public class FormatGraphData {
+public class FormatAndDataTypeGraphData {
 	public static HashMap<String, Integer> formats;
 
+	private static String jsonGraph;
+	
 	public static String getPathsGraphJSON() {
+		
+		if(jsonGraph != null)
+			return jsonGraph;
+		
 		formats = new HashMap<String, Integer>();
 		ViskoTripleStore ts = new ViskoTripleStore();
 
@@ -44,28 +50,32 @@ public class FormatGraphData {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return pathsGraph.toString();
+		
+		jsonGraph = pathsGraph.toString();
+		return jsonGraph;
 	}
 
 	private static ArrayList<JSONObject> getNodes(ViskoTripleStore ts) {
-		ResultSet formats = ts.getOperatedOnFormats();
+		ResultSet formatsAndTypes = ts.getOperatedOnFormatsAndDataTypes();
 
 		ArrayList<JSONObject> nodeList = new ArrayList<JSONObject>();
 		QuerySolution solution;
 		String formatURI;
+		String dataTypeURI;
 		boolean isViewable;
 		try {
-			while (formats.hasNext()) {
-				solution = formats.nextSolution();
-				formatURI = solution.get("inputFormat").toString();
+			while (formatsAndTypes.hasNext()) {
+				solution = formatsAndTypes.nextSolution();
+				formatURI = solution.get("format").toString();
+				dataTypeURI = solution.get("dataType").toString();
 
-				isViewable = ts.isAlreadyVisualizable(formatURI);
+				isViewable = ts.isFormatAndDataTypeAlreadyVisualizable(formatURI, dataTypeURI);
 
-				if (FormatGraphData.formats.get(formatURI) == null) {
-					FormatGraphData.formats.put(formatURI,
-							new Integer(nodeList.size()));
-					nodeList.add(new JSONObject().put("formatURI", formatURI)
-							.put("visualizable", isViewable));
+				if (FormatAndDataTypeGraphData.formats.get(formatURI + "---" + dataTypeURI) == null) {
+					FormatAndDataTypeGraphData.formats.put(formatURI + "---" + dataTypeURI, new Integer(nodeList.size()));
+					nodeList.add(new JSONObject().put("formatURI", formatURI + "---" + dataTypeURI).put("visualizable", isViewable));
+					
+					System.out.println("added: " + formatURI + "---" + dataTypeURI);
 				}
 
 			}
@@ -79,31 +89,44 @@ public class FormatGraphData {
 		ResultSet transformerInfo = ts.getOperatorInformation();
 		ArrayList<JSONObject> linksList = new ArrayList<JSONObject>();
 		QuerySolution solution;
-		String input;
-		String output;
-		String transURI;
-		String transLbl;
+		String inputFormat;
+		String outputFormat;
+		String inputDataType;
+		String outputDataType;
+		String operatorURI;
+		String operatorLbl;
 
 		int source;
 		int target;
-		try {
+		
+		
 			while (transformerInfo.hasNext()) {
+				
 				solution = transformerInfo.nextSolution();
-				input = solution.get("input").toString();
-				output = solution.get("output").toString();
-				transURI = solution.get("trans").toString();
-				transLbl = solution.get("transLbl").toString();
+				inputFormat = solution.get("inputFormat").toString();
+				outputFormat = solution.get("outputFormat").toString();
+				inputDataType = solution.get("inputDataType").toString();
+				outputDataType = solution.get("outputDataType").toString();
+				operatorURI = solution.get("operator").toString();
+				operatorLbl = solution.get("lbl").toString();
+		
+				try
+				{
+					source = formats.get(inputFormat + "---" + inputDataType);
+					target = formats.get(outputFormat + "---" + outputDataType);
 
-				source = formats.get(input);
-				target = formats.get(output);
-
-				linksList.add(new JSONObject().put("source", source)
-						.put("target", target).put("transURI", transURI)
-						.put("transLbl", transLbl));
+					linksList.add(new JSONObject().put("source", source)
+							.put("target", target).put("transURI", operatorURI)
+							.put("transLbl", operatorLbl));
+				
+				}
+				catch (Exception e) {
+					System.out.println("couldn't find: " + inputFormat + "---" + inputDataType);
+					System.out.println(" or couldn't find " + outputFormat + "---" + outputDataType);
+					
+					e.printStackTrace();
+				}
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		return linksList;
 	}
 }

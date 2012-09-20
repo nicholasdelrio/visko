@@ -46,11 +46,8 @@
 <h2>Class Instances</h2>
 <iframe width="900" height="290" src="InstanceBarGraph.html" frameborder="0"></iframe>
 
-<h2>Format Transformation Paths:</h2>
+<h2>Format/Data Type Transformation Paths:</h2>
 <iframe width="900" height="500" src="FormatTransformationPaths.html" frameborder="1"></iframe>
-
-<h2>Operator Pipelines</h2>
-<iframe width="900" height="500" src="OperatorPipelines.html" frameborder="1"></iframe>
 
 <a name="Querying"></a>
 <h2>Querying your Knowledge Base</h2>
