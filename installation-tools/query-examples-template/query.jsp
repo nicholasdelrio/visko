@@ -216,6 +216,36 @@ WHERE
 </tr>
 </table>
 
+
+
+<h5>Velocity Model Isosurfaces Rendering Query</h5>
+<div class="code">
+<pre>
+PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#
+PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
+PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl#
+VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/02029349145023569_vel.3d
+AS views:2D_ContourMap IN visko:mozilla-firefox
+WHERE
+	FORMAT = formats:LITTLE-ENDIAN-SEQUENCE.owl#LITTLE-ENDIAN-SEQUENCE
+	AND TYPE = types:d2
+</pre>
+</div>
+
+<table>
+<tr>
+<td align="center"><b>Visualization Toolkit</b></td>
+</tr>
+<tr>
+
+<tr>
+<td><img src="./visualization-examples/velocity-2d-contourmap-vtk.png" width="450px"></td>
+</tr>
+</table>
+
+
+
 <a name="seis-ex3">
 <h5>Velocity Model Volume Query</h5>
 <div class="code">
