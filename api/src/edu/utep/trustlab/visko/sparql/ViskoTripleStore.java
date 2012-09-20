@@ -71,6 +71,18 @@ public class ViskoTripleStore {
 		return SPARQL_EndpointFactory.executeQuery(stringQuery);
 	}
 
+	
+	public ResultSet getSuperClasses(String classURI){
+		classURI = "<" + classURI + ">";
+		
+		String stringQuery =
+				QUERY_PREFIX
+				+ "SELECT ?superClass WHERE{"
+				+ classURI + " rdfs:subClassOf ?superClass . }";
+		
+		return SPARQL_EndpointFactory.executeQuery(stringQuery);
+	}
+	
 	public ResultSet getProfiles(String typeURI) {
 		typeURI = "\"" + typeURI + "\"^^xsd:anyURI";
 

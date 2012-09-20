@@ -22,6 +22,7 @@ package edu.utep.trustlab.visko.web.json;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Vector;
 
 import org.json.JSONObject;
 
@@ -29,11 +30,13 @@ import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
+import edu.utep.trustlab.visko.util.ResultSetToVector;
 
 public class FormatAndDataTypeGraphData {
 	public static HashMap<String, Integer> formats;
 
 	private static String jsonGraph;
+	private static ViskoTripleStore ts;
 	
 	public static String getPathsGraphJSON() {
 		
@@ -41,7 +44,7 @@ public class FormatAndDataTypeGraphData {
 			return jsonGraph;
 		
 		formats = new HashMap<String, Integer>();
-		ViskoTripleStore ts = new ViskoTripleStore();
+		ts = new ViskoTripleStore();
 
 		JSONObject pathsGraph = new JSONObject();
 		try {
@@ -52,6 +55,7 @@ public class FormatAndDataTypeGraphData {
 		}
 		
 		jsonGraph = pathsGraph.toString();
+		System.out.println(jsonGraph);
 		return jsonGraph;
 	}
 
@@ -99,9 +103,7 @@ public class FormatAndDataTypeGraphData {
 		int source;
 		int target;
 		
-		
 			while (transformerInfo.hasNext()) {
-				
 				solution = transformerInfo.nextSolution();
 				inputFormat = solution.get("inputFormat").toString();
 				outputFormat = solution.get("outputFormat").toString();
@@ -109,24 +111,68 @@ public class FormatAndDataTypeGraphData {
 				outputDataType = solution.get("outputDataType").toString();
 				operatorURI = solution.get("operator").toString();
 				operatorLbl = solution.get("lbl").toString();
-		
+	
+				JSONObject job = new JSONObject();
+				try{job = job.put("transURI", operatorURI).put("transLbl", operatorLbl);}
+				catch (Exception e){
+					e.printStackTrace();
+				}
+
 				try
 				{
 					source = formats.get(inputFormat + "---" + inputDataType);
-					target = formats.get(outputFormat + "---" + outputDataType);
-
-					linksList.add(new JSONObject().put("source", source)
-							.put("target", target).put("transURI", operatorURI)
-							.put("transLbl", operatorLbl));
-				
+					job = job.put("source", source);			
 				}
 				catch (Exception e) {
-					System.out.println("couldn't find: " + inputFormat + "---" + inputDataType);
-					System.out.println(" or couldn't find " + outputFormat + "---" + outputDataType);
-					
+					System.out.println("couldn't find source: " + inputFormat + "---" + inputDataType);
+					System.out.println("for: " + operatorURI);
 					e.printStackTrace();
 				}
+
+				job = addTargetLink(job, outputFormat, outputDataType);
+				
+				if(job != null)
+					linksList.add(job);
 			}
 		return linksList;
+	}
+	
+	private static JSONObject addTargetLink(JSONObject job, String formatURI, String dataTypeURI){
+		String key = formatURI + "---" + dataTypeURI;
+		Integer target = formats.get(key);
+		
+		if(target == null){
+			target = findSuperDataType(formatURI, dataTypeURI);
+			if(target != null)
+				return addLink(job, "target", target);
+			else
+				return null;
+		}
+		else
+			return addLink(job, "target", target);
+	}
+	
+	private static Integer findSuperDataType(String formatURI, String dataTypeURI){
+		String key;
+		Vector<String> superClassURIs = ResultSetToVector.getVectorFromResultSet(ts.getSuperClasses(dataTypeURI), "superClass");
+		for(String superClassURI : superClassURIs){
+			System.out.println("trying super class: " + superClassURI);
+			key = formatURI + "---" + superClassURI;
+			Integer id = formats.get(key);
+			if(id != null){
+				System.out.println("found an id: " + id + " using key: " + key);
+				return id;
+			}
+		}
+		return null;
+	}
+	
+	private static JSONObject addLink(JSONObject job, String key, int value){
+		try
+		{job = job.put(key, value);}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return job;
 	}
 }
