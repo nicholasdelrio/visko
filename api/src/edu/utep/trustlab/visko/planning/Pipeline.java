@@ -62,14 +62,19 @@ public class Pipeline extends Vector<String> {
 	private ArrayList<String> unboundParameters;
 	private ArrayList<String> allParameters;
 	
+	private ViskoTripleStore ts;
+	
 	public Pipeline(String aViewerURI, String aViewURI, PipelineSet parent) {
 		super();
+		
+		ts = new ViskoTripleStore();
+		
 		viskoLoadingModel = new ViskoModel();
 		parentContainer = parent;
 		viewerURI = aViewerURI;
 		viewURI = aViewURI;
 		
-		setViewerSets(viewerURI);
+		setViewerSets(viewerURI);		
 	}
 	
 	public boolean hasInputData(){
@@ -83,7 +88,7 @@ public class Pipeline extends Vector<String> {
 	}
 	
 	private void setViewerSets(String viewerURI){
-		viewerSets = ResultSetToVector.getVectorFromResultSet(new ViskoTripleStore().getViewerSetsOfViewer(viewerURI), "viewerSet");
+		viewerSets = ResultSetToVector.getVectorFromResultSet(ts.getViewerSetsOfViewer(viewerURI), "viewerSet");
 	}
 
 	public String getViewURI(){
@@ -136,7 +141,7 @@ public class Pipeline extends Vector<String> {
 
 	public boolean requiresInputURL(){
 		String firstServiceURI = get(0);
-		Vector<String> params = ResultSetToVector.getVectorFromResultSet(new ViskoTripleStore().getInputParameters(firstServiceURI), "parameter");
+		Vector<String> params = ResultSetToVector.getVectorFromResultSet(ts.getInputParameters(firstServiceURI), "parameter");
 		
 		for(String parameterURI : params){
 			if(parameterURI.contains("url") || parameterURI.contains("URL") || parameterURI.contains("fileLoc"))
@@ -149,7 +154,7 @@ public class Pipeline extends Vector<String> {
 	private boolean hasAllInputParameters(String serviceURI){		
 		String boundedValue;
 		boolean allParamsBounded = true;
-		Vector<String> params = ResultSetToVector.getVectorFromResultSet(new ViskoTripleStore().getInputParameters(serviceURI), "parameter");
+		Vector<String> params = ResultSetToVector.getVectorFromResultSet(ts.getInputParameters(serviceURI), "parameter");
 		
 		for (String parameterURI : params) {
 
@@ -177,6 +182,17 @@ public class Pipeline extends Vector<String> {
 	
 	public PipelineSet getParentPipelineSet(){
 		return parentContainer;
+	}
+	
+	public String getToolkitThatGeneratesView(){
+		if(viewURI != null){
+			for(String serviceURI : this){
+				if(ts.isImplemenationOfServiceAMapper(serviceURI)){
+					return ResultSetToVector.getVectorFromResultSet(ts.getToolkitOf(serviceURI), "toolkit").firstElement();
+				}
+			}
+		}
+		return null;
 	}
 
 	public boolean hasAllInputParameters(){

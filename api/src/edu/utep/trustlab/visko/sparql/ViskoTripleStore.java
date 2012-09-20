@@ -99,6 +99,17 @@ public class ViskoTripleStore {
 		return SPARQL_EndpointFactory.executeQuery(stringQuery);
 	}
 	
+	public ResultSet getToolkitOf(String serviceURI){
+		serviceURI = "<" + serviceURI + ">";
+		
+		String stringQuery =
+				QUERY_PREFIX
+				+ "SELECT ?toolkit WHERE{"
+				+ serviceURI + " viskoS:supportedBy ?toolkit . }";
+		
+		return SPARQL_EndpointFactory.executeQuery(stringQuery);
+	}
+	
 	public ResultSet getAllParameters() {
 		String stringQuery = QUERY_PREFIX + "SELECT ?param " + "WHERE { "
 				+ "?service rdf:type owlsService:Service . "
@@ -249,7 +260,9 @@ public class ViskoTripleStore {
 	public ResultSet getViewerSetsOfViewer(String viewerURI) {
 		viewerURI = "<" + viewerURI + ">";
 
-		String stringQuery = QUERY_PREFIX + "SELECT ?viewerSet " + "WHERE { " +
+		String stringQuery = 
+				QUERY_PREFIX
+				+ "SELECT ?viewerSet WHERE { " +
 				viewerURI + " viskoO:partOfViewerSet ?viewerSet .}";
 
 		return SPARQL_EndpointFactory.executeQuery(stringQuery);
@@ -387,11 +400,26 @@ public class ViskoTripleStore {
 				+ "}";
 		return SPARQL_EndpointFactory.executeQuery(stringQuery);
 	}
+
+	public boolean isImplemenationOfServiceAMapper(String serviceURI) {
+		serviceURI = "<" + serviceURI + ">";
+
+		String stringQuery = 
+				QUERY_PREFIX
+				+ "ASK WHERE {"
+				+ serviceURI + " viskoS:implementsOperator ?operator . "
+				+ "?operator a viskoO:Mapper . "
+				+ "}";
+		
+		return SPARQL_EndpointFactory.executeAskQuery(stringQuery);
+	}
 	
 	public ResultSet getImplemenationOf(String serviceURI) {
 		serviceURI = "<" + serviceURI + ">";
 
-		String stringQuery = QUERY_PREFIX + "SELECT ?operator " + "WHERE {"
+		String stringQuery = 
+				QUERY_PREFIX
+				+ "SELECT ?operator WHERE {"
 				+ serviceURI + " viskoS:implementsOperator ?operator . "
 				+ "}";
 		return SPARQL_EndpointFactory.executeQuery(stringQuery);

@@ -159,8 +159,8 @@ public class PipelineSetBuilder {
 			return;
 		
 		if(query.getViewURI() != null && operatorPath.violatesRequestedView(query.getViewURI())){
-			System.out.println("operator violated view: ");
-			System.out.println(operatorPath);
+			//System.out.println("operator violated view: ");
+			//System.out.println(operatorPath);
 			return;
 		}
 				
