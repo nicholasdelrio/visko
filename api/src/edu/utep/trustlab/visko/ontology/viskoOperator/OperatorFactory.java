@@ -1,17 +1,10 @@
 package edu.utep.trustlab.visko.ontology.viskoOperator;
 
-import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntResource;
-import com.hp.hpl.jena.query.Query;
-import com.hp.hpl.jena.query.QueryExecution;
-import com.hp.hpl.jena.query.QueryExecutionFactory;
-import com.hp.hpl.jena.query.QueryFactory;
-
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
 import edu.utep.trustlab.visko.ontology.viskoView.View;
 import edu.utep.trustlab.visko.ontology.vocabulary.supplemental.OWL;
-import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 
 public class OperatorFactory {
 	
@@ -30,16 +23,25 @@ public class OperatorFactory {
 
 	private String baseURL;
 	
-	private OntModel dataTypes;
+	//this is a hack, we can infer this in the future if we reason with dimensions
+	private boolean isDimensionFilter;
+	
+	//this is a hack, we can infer this in the future based on if the input type is a sub class of non-uniform data
+	// the output is a sub class of uniform data
+	private boolean isInterpolator;
+	
+	public void setAsDimensionFilter(){
+		isDimensionFilter = true;
+	}
+	
+	public void setAsInterpolator(){
+		isInterpolator = true;
+	}
 	
 	public void setInputDataType(OntResource aDataType){
 		inputDataType = aDataType;
 	}
-	
-	public void setDataTypesModel(OntModel dataTypesModel){
-		dataTypes = dataTypesModel;
-	}
-	
+		
 	public void setOutputDataType(OntResource aDataType){
 		outputDataType = aDataType;
 	}
@@ -83,15 +85,21 @@ public class OperatorFactory {
 		adjustForNullDataTypes();
 		Operator theOperator;
 		
-		if(view != null){
+		if(isViewMapper()){
 			ViewMapper viewMapper = new ViewMapper(baseURL, operatorName, viskoModel);
 			viewMapper.setView(view);
 			theOperator = viewMapper;
 		}
-		else if(isFilter())
-			theOperator = new Filter(baseURL, operatorName, viskoModel);
+		else if(isInterpolator())
+			theOperator = new Interpolator(baseURL, operatorName, viskoModel); 
+		else if(isDimensionFilter())
+			theOperator = new DimensionFilter(baseURL, operatorName, viskoModel);
+		else if(isDataFilter())
+			theOperator = new DataFilter(baseURL, operatorName, viskoModel);
+		else if(isFormatConverter())
+			theOperator = new FormatConverter(baseURL, operatorName, viskoModel);
 		else
-			theOperator = new Operator(baseURL, operatorName, viskoModel);
+			theOperator = new DataTransformer(baseURL, operatorName, viskoModel);
 	
 		//add data types
 		theOperator.setInputDataType(inputDataType);
@@ -117,31 +125,31 @@ public class OperatorFactory {
 		label = aLabel;
 	}
 	
-	public boolean isFilter(){
-		boolean dataTypesComply = isOutputDataTypeSubtypeOfInput() || areDataTypesEqual();
-		boolean formatsComply = inputFormat.getURI().equals(outputFormat.getURI());
-		return dataTypesComply && formatsComply;
+	public boolean isDataFilter(){
+		return areDataTypesEqual() && areFormatsEqual();
+	}
+	
+	public boolean isDimensionFilter(){
+		return isDimensionFilter;
+	}
+	
+	public boolean isInterpolator(){
+		return isInterpolator;
+	}
+	
+	public boolean isFormatConverter(){
+		return areDataTypesEqual() && !areFormatsEqual();
+	}
+	
+	public boolean isViewMapper(){
+		return view != null;
 	}
 	
 	private boolean areDataTypesEqual(){
-		return inputDataType.equals(outputDataType);
+		return inputDataType.getURI().equals(outputDataType.getURI());
 	}
 	
-	private boolean isOutputDataTypeSubtypeOfInput(){
-		String inputDataTypeURI = "<" + inputDataType.getURI() + ">";
-		String outputDataTypeURI = "<" + outputDataType.getURI() + ">";
-		
-		String queryString = 
-				ViskoTripleStore.QUERY_PREFIX
-				+ "ASK WHERE {" + outputDataTypeURI + " rdfs:subClassOf " + inputDataTypeURI + " . }";
-		
-		return executeAskQuery(queryString);
+	private boolean areFormatsEqual(){
+		return inputFormat.getURI().equals(outputFormat.getURI());
 	}
-			
-	private boolean executeAskQuery(String askQueryString){
-		  Query query = QueryFactory.create(askQueryString) ;
-		  QueryExecution qexec = QueryExecutionFactory.create(query, dataTypes);
-		  boolean result = qexec.execAsk();
-		  return result;		
-	}	
 }

@@ -159,6 +159,14 @@
     
 
 
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#Interpolator -->
+
+    <owl:Class rdf:about="&visko-operator;Interpolator">
+        <rdfs:subClassOf rdf:resource="&visko-operator;DataTransformer"/>
+    </owl:Class>
+    
+
+
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#Operator -->
 
     <owl:Class rdf:about="&visko-operator;Operator">

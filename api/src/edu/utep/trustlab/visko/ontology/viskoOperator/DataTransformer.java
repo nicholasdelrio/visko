@@ -30,6 +30,10 @@ public class DataTransformer extends Operator {
 	public DataTransformer(String baseURL, String name, ViskoModel viskoModel) {
 		super(ViskoO.CLASS_URI_DataTransformer, baseURL, name, viskoModel);
 	}
+	
+	public DataTransformer(String classURI, String baseURL, String name, ViskoModel viskoModel) {
+		super(classURI, baseURL, name, viskoModel);
+	}
 
 	public DataTransformer(String uri, ViskoModel viskoModel) {
 		super(uri, viskoModel);

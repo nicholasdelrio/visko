@@ -19,7 +19,6 @@ import edu.utep.trustlab.visko.ontology.viskoView.View;
 public class PackageWriter {
 	
 	private static ViskoModel loadingModel = new ViskoModel();
-	
 	private static OntModel dataTypesModel;
 	
 	private String baseURL;
@@ -91,14 +90,11 @@ public class PackageWriter {
 		if(name != null)
 			service.setName(name);
 		else
-			service.setName(operationName);
+			service.setName(operationName);		
 		
 		service.setToolkit(toolkit);
-		service.setDataTypesModel(dataTypesModel);
-		
 		operatorServices.put(name, service);
 		addOperatorService(service);
-		
 		return service;
 	}
 	

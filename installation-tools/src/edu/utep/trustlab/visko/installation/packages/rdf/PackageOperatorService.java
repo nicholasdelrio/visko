@@ -1,6 +1,5 @@
 package edu.utep.trustlab.visko.installation.packages.rdf;
 
-import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntResource;
 
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
@@ -48,10 +47,6 @@ public class PackageOperatorService {
 		name = aName;
 	}
 	
-	void setDataTypesModel(OntModel dTypesModel){
-		operatorFactory.setDataTypesModel(dTypesModel);
-	}
-	
 	protected void setToolkit(Toolkit tk){
 		toolkit = tk;
 	}
@@ -86,6 +81,14 @@ public class PackageOperatorService {
 		service.setOWLSService(owlsService);		
 		service.setConceptualOperator(operator);
 		service.getIndividual();
+	}
+	
+	public void setAsDimensionFilter(){
+		operatorFactory.setAsDimensionFilter();
+	}
+	
+	public void setAsInterpolator(){
+		operatorFactory.setAsInterpolator();
 	}
 	
 	public void setInputDataType(OntResource inDataType){
