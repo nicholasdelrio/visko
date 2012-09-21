@@ -5,13 +5,13 @@ import com.hp.hpl.jena.ontology.Individual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 
-public class DataFilter extends Filter {
+public class DimensionFilter extends Filter {
 
-	public DataFilter(String baseURL, String name, ViskoModel viskoModel) {
+	public DimensionFilter(String baseURL, String name, ViskoModel viskoModel) {
 		super(ViskoO.CLASS_URI_DataFilter, baseURL, name, viskoModel);
 	}
 		
-	public DataFilter(String uri, ViskoModel viskoModel) {
+	public DimensionFilter(String uri, ViskoModel viskoModel) {
 		super(uri, viskoModel);
 	}
 	

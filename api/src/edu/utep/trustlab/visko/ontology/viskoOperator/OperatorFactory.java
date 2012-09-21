@@ -89,7 +89,7 @@ public class OperatorFactory {
 			theOperator = viewMapper;
 		}
 		else if(isFilter())
-			theOperator = new DataFilter(baseURL, operatorName, viskoModel);
+			theOperator = new Filter(baseURL, operatorName, viskoModel);
 		else
 			theOperator = new Operator(baseURL, operatorName, viskoModel);
 	

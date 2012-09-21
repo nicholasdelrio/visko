@@ -122,7 +122,7 @@
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#DataFilter -->
 
     <owl:Class rdf:about="&visko-operator;DataFilter">
-        <rdfs:subClassOf rdf:resource="&visko-operator;Operator"/>
+        <rdfs:subClassOf rdf:resource="&visko-operator;Filter"/>
     </owl:Class>
     
 
@@ -130,6 +130,22 @@
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#DataTransformer -->
 
     <owl:Class rdf:about="&visko-operator;DataTransformer">
+        <rdfs:subClassOf rdf:resource="&visko-operator;Operator"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#DimensionFilter -->
+
+    <owl:Class rdf:about="&visko-operator;DimensionFilter">
+        <rdfs:subClassOf rdf:resource="&visko-operator;Filter"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#Filter -->
+
+    <owl:Class rdf:about="&visko-operator;Filter">
         <rdfs:subClassOf rdf:resource="&visko-operator;Operator"/>
     </owl:Class>
     

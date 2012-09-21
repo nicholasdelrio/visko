@@ -51,7 +51,9 @@ public class ViskoO {
 	public static final String CLASS_URI_ViewMapper = Visko.CORE_VISKO_O + "#ViewMapper";
 	public static final String CLASS_URI_FormatConverter = Visko.CORE_VISKO_O + "#FormatConverter";
 	public static final String CLASS_URI_DataTransformer = Visko.CORE_VISKO_O + "#DataTransformer";
+	public static final String CLASS_URI_Filter = Visko.CORE_VISKO_O + "#Filter";
 	public static final String CLASS_URI_DataFilter = Visko.CORE_VISKO_O + "#DataFilter";
+	public static final String CLASS_URI_DimensionFilter = Visko.CORE_VISKO_O + "#DimensionFilter";
 
 	public static final String CLASS_URI_Viewer = Visko.CORE_VISKO_O + "#Viewer";
 	public static final String CLASS_URI_ViewerSet = Visko.CORE_VISKO_O + "#ViewerSet";
