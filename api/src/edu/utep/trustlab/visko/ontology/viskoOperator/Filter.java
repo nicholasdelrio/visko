@@ -25,7 +25,7 @@ import com.hp.hpl.jena.ontology.Individual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 
-public class Filter extends Operator {
+public abstract class Filter extends Operator {
 
 	public Filter(String baseURL, String name, ViskoModel viskoModel) {
 		super(ViskoO.CLASS_URI_Filter, baseURL, name, viskoModel);

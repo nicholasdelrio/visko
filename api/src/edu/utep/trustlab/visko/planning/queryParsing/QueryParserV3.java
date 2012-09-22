@@ -55,6 +55,8 @@ public class QueryParserV3 implements QueryParser {
 	private String contentURL;
 	private String viewerSetURI;
 	private boolean isLocal;
+	private boolean isFiltered;
+	
 	private HashMap<String, String> bindings;
 	private ArrayList<String[]> bindingsList;
 	private HashMap<String, String> prefixes;
@@ -117,6 +119,10 @@ public class QueryParserV3 implements QueryParser {
 	
 	public HashMap<String, String> getPrefixes(){
 		return prefixes;
+	}
+	
+	public boolean isFiltered(){
+		return isFiltered;
 	}
 
 	public String getNodesetURI() {
@@ -196,7 +202,7 @@ public class QueryParserV3 implements QueryParser {
 		else if (token.equalsIgnoreCase("PREFIX")) {
 			getPrefixNS();
 		} else if (token.equalsIgnoreCase("VISUALIZE")) {
-			getDataInfo();
+			checkIfFiltered();
 		} else
 			System.out.println("Expecting PREFIX or VISUALIZE keywords, got: " + token);
 	}
@@ -267,6 +273,16 @@ public class QueryParserV3 implements QueryParser {
 			endState();
 		} else
 			System.out.println("Expecting viewer URI, got: " + token);
+	}
+	
+	private void checkIfFiltered(){
+		String token = tokenQueue.peek();
+		if(token.equalsIgnoreCase("FILTERED")){
+			isFiltered = true;
+			tokenQueue.poll();
+		}
+		else
+			getDataInfo();
 	}
 
 	private void getDataInfo() {

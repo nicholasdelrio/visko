@@ -565,7 +565,8 @@ public class ViskoTripleStore {
 		
 		return SPARQL_EndpointFactory.executeAskQuery(stringQuery);
 	}
-	
+
+	// Queries used for my backward chaining reasoning	
 	public ResultSet getAdjacentOperatorsAccordingToFormatAndDataType(String operatorURI){
 		
 		operatorURI = "<" + operatorURI + ">";
@@ -586,7 +587,6 @@ public class ViskoTripleStore {
 		
 		return SPARQL_EndpointFactory.executeQuery(stringQuery);
 	}
-
 	
 	public boolean canBeAdjacentOperatorsAccordingToType(String operator1URI, String operator2URI){
 		operator1URI = "<" + operator1URI + ">";

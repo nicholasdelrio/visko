@@ -154,7 +154,6 @@ public class PipelineSetBuilder {
 	}
 	
 	private void constructOperatorPaths(OperatorPath operatorPath){
-
 		if(operatorPath.violatesSingleFilterRule() || operatorPath.violatesSingleMapperRule())
 			return;
 		
