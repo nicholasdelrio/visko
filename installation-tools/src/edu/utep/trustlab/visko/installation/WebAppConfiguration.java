@@ -85,17 +85,16 @@ public class WebAppConfiguration {
 		WebAppConfiguration.hosting_organization = args[5];
 		
 		//SPARQL endpoint and TDB path
-		WebAppConfiguration.visko_sparql_endpoint = args[6];
-		WebAppConfiguration.visko_tdb_path = args[7];
+		WebAppConfiguration.visko_tdb_path = args[6];
 		
 		//content manager info
-		WebAppConfiguration.content_manager_type = args[8];
-		WebAppConfiguration.content_manager_url = args[9];
-		WebAppConfiguration.content_manager_username = args[10];
-		WebAppConfiguration.content_manager_password = args[11];
-		WebAppConfiguration.content_manager_project = args[12];
+		WebAppConfiguration.content_manager_type = args[7];
+		WebAppConfiguration.content_manager_url = args[8];
+		WebAppConfiguration.content_manager_username = args[9];
+		WebAppConfiguration.content_manager_password = args[10];
+		WebAppConfiguration.content_manager_project = args[11];
 		
-		WebAppConfiguration.move_data = args[13];
+		WebAppConfiguration.move_data = args[12];
 		
 		WebAppConfiguration webXMLGenerator = new WebAppConfiguration();
 		String deployedPath = webXMLGenerator.generateWebXML();

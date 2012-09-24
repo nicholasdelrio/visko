@@ -9,8 +9,7 @@
 	<!-- update value --><property name="org-acronym" value="UTEP" />
 	<!-- update value --><property name="logo-file-name" value="LogoUTEP.jpg" />
 	
-	<!-- VisKo SPARQL Endpoint and TDB -->
-	<!-- update value --><property name="host-port" value="8081" />
+	<!-- VisKo TDB Path -->
 	<!-- update value --><property name="tdb-path" value="C:/Users/Public/git/visko/tdb"/>
 		
 	<!-- VisKo Provenance Content Manager Info (local | ciserver | velo) -->
@@ -26,7 +25,6 @@
 	<!-- DO NOT CHANGE SETTINGS BELOW -->
 	<!-- web.xml configuration -->
 	<property name="logo-path" value="logos/${logo-file-name}"/>
-	<property name="sparql-endpoint" value="http://localhost:${host-port}/visko-web/ViskoServletManager?requestType=query-triple-store"/>
 	
 	<!-- web.xml paths -->
 	<property name="web-xml-template" value="webxml-template/web.xml"/>
@@ -108,7 +106,6 @@
 			<arg value="${org-acronym}"/>
 			<arg value="${logo-path}"/>
 			
-			<arg value="${sparql-endpoint}"/>
 			<arg value="${tdb-path}"/>			
 
 			<arg value="${content-manager-type}"/>

@@ -35,11 +35,7 @@
     <param-value>REPLACE-LOGO-PATH</param-value>
   </context-param>
   
-  <!-- SPARQL Endpoint and TDB store that the Pipeline Generator Consults -->  
-  <context-param>
-    <param-name>visko-sparql-endpoint</param-name>
-    <param-value>REPLACE-ENDPOINT-URL</param-value>
-  </context-param>
+  <!-- TDB store containing the VisKo knoweldge base -->  
   <context-param>
     <param-name>visko-tdb-path</param-name>
     <param-value>REPLACE-TDB-PATH</param-value>
