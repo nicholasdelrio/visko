@@ -164,11 +164,11 @@ public class PipelineSetBuilder {
 		// get a listing of all operators that can process input operator
 		ResultSet operatorResults;
 				
-		if(!query.dataIsFiltered())
-			operatorResults =ts.getAdjacentOperatorsAccordingToFormatAndDataType(operatorPath.lastElement());
+		if(query.dataIsFiltered())
+			operatorResults = ts.getAdjacentOperatorsAccordingToFormatAndDataType(operatorPath.lastElement());
 		else
 			operatorResults = ts.getAdjacentNonDataFilterOperatorsAccordingToFormatAndDataType(operatorPath.lastElement());
-		
+			
 		Vector<String> operatorURIs = ResultSetToVector.getVectorFromResultSet(operatorResults, "operator");
 		
 		// filter out any operators that are already in this path		

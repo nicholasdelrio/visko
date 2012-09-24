@@ -44,8 +44,6 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
 
-import com.hp.hpl.jena.query.ResultSet;
-
 import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.contentManagement.LocalFileSystem;
 import edu.utep.trustlab.visko.execution.PipelineExecutor;
@@ -57,9 +55,8 @@ import edu.utep.trustlab.visko.planning.queryParsing.QueryParserV2;
 import edu.utep.trustlab.visko.planning.queryParsing.QueryParserV3;
 import edu.utep.trustlab.visko.sparql.QueryRDFDocument;
 import edu.utep.trustlab.visko.sparql.SPARQL_EndpointFactory;
-import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.util.GetURLContents;
-import edu.utep.trustlab.visko.util.ResultSetToVector;
+
 
 public class Query {
 	// required information for VisKo reasoning
@@ -158,8 +155,9 @@ public class Query {
 			try {
 				String nodesetContents = GetURLContents.downloadText(nodesetURI);
 				QueryRDFDocument rdf = new QueryRDFDocument();
-
-				Vector<String[]> results = rdf.getURLFormatAndType(nodesetContents, nodesetURI);
+				rdf.aggregateRDFFile(nodesetContents);
+				Vector<String[]> results = rdf.getURLFormatAndType(nodesetURI);
+				
 				// rdf.close();
 				datasetURL = results.firstElement()[0].split("\\^\\^")[0];
 				System.out.println("datasetURL " + datasetURL);
