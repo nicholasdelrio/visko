@@ -16,10 +16,13 @@
 	
 		<war destfile="${warfile}" webxml="${config-file}">
 			<lib file="${visko-api-jar}"/>
-			<lib dir="${lib}/axis4"/>
-			<lib dir="${lib}/jena262"/>
-			<lib dir="${lib}/util"/>
-			<lib dir="${lib}/pml2"/>
+			<lib dir="${lib}/axis-1.4"/>
+			<lib dir="${lib}/commons-logging"/>
+			<lib dir="${lib}/content-manager"/>
+			<lib dir="${lib}/jena-2.7.3"/>
+			<lib dir="${lib}/owls-3.0"/>
+			<lib dir="${lib}/pellet-2.3.0"/>
+			<lib dir="${lib}/pml-2.0"/>
 			<lib dir="${content-management-libs}/libs-velo"/>
 			<fileset dir="${web-content}"/>
 			
@@ -53,6 +56,9 @@
 					<include name="*.jar"/>
 				</fileset>
 				<fileset dir="${lib}/pellet-2.3.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/tomcat">
 					<include name="*.jar"/>
 				</fileset>
 			</classpath>			
