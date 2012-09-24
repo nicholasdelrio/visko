@@ -15,5 +15,6 @@ public interface QueryParser {
 	public String[] getTokens();
 	public void parse();
 	public boolean isValidQuery();
+	public boolean dataIsFiltered();
 	
 }

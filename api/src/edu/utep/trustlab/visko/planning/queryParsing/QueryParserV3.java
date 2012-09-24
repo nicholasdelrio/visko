@@ -121,10 +121,6 @@ public class QueryParserV3 implements QueryParser {
 		return prefixes;
 	}
 	
-	public boolean isFiltered(){
-		return isFiltered;
-	}
-
 	public String getNodesetURI() {
 		return nodesetURI;
 	}
@@ -445,5 +441,11 @@ public class QueryParserV3 implements QueryParser {
 		if((this.getFormatURI() != null && this.getViewerSetURI() != null) || this.getNodesetURI() != null)
 			return true;
 		return false;
+	}
+
+	@Override
+	public boolean dataIsFiltered() {
+		// TODO Auto-generated method stub
+		return isFiltered;
 	}
 }

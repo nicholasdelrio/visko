@@ -14,19 +14,28 @@
 	
 	<target name="compile" depends="clean" description="Compile VisKo API in build Directory">		
 		<mkdir dir="${build}"/>
-		<javac destdir="${build}/" srcdir="${src}" target="1.6"> 
+		<javac destdir="${build}/" srcdir="${src}" target="1.6">
 	    	<include name="**/*.java"/>
 			<classpath>
-				<fileset dir="${lib}/axis4/">
+				<fileset dir="${lib}/axis-1.4/">
 					<include name="*.jar"/>
 				</fileset>
-				<fileset dir="${lib}/pml2/">
-					<include name="*.jar"/>
-				</fileset>
-				<fileset dir="${lib}/jena262/">
+				<fileset dir="${lib}/jena-2.7.3/">
 					<include name="*.jar"/>
 				</fileset>	
-				<fileset dir="${lib}/util/">
+				<fileset dir="${lib}/commons-logging/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/owls-3.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/content-manager/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pml-2.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pellet-2.3.0/">
 					<include name="*.jar"/>
 				</fileset>
 			</classpath>			
@@ -42,18 +51,27 @@
 	           windowtitle="VisKo Javadoc">
 
 			<classpath>
-				<fileset dir="${lib}/axis4/">
+				<fileset dir="${lib}/axis-1.4/">
 					<include name="*.jar"/>
 				</fileset>
-				<fileset dir="${lib}/jena262/">
+				<fileset dir="${lib}/jena-2.7.3/">
 					<include name="*.jar"/>
 				</fileset>	
-				<fileset dir="${lib}/pml2/">
+				<fileset dir="${lib}/commons-logging/">
 					<include name="*.jar"/>
 				</fileset>
-				<fileset dir="${lib}/util/">
+				<fileset dir="${lib}/owls-3.0/">
 					<include name="*.jar"/>
 				</fileset>
+				<fileset dir="${lib}/content-manager/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pml-2.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pellet-2.3.0/">
+					<include name="*.jar"/>
+				</fileset>	
 			</classpath>	
 	    	
 	      <fileset dir="${basedir}/src/" defaultexcludes="yes">

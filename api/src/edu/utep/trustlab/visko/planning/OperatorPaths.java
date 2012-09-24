@@ -84,18 +84,5 @@ public class OperatorPaths extends Vector<OperatorPath> {
 				nonCompliantPaths.add(operatorPath);
 		}
 		this.removeAll(nonCompliantPaths);
-	}
-	
-	public void filterByType(String inputDataType) {
-		Vector<OperatorPath> nonCompliantPaths = new Vector<OperatorPath>();
-
-		OperatorPath operatorPath;
-		for(int i = 0; i < this.size();  i++){
-			operatorPath = this.get(i);
-			if(!operatorPath.adheresToDataTypeRestriction(inputDataType))
-				nonCompliantPaths.add(operatorPath);
-		}
-		
-		this.removeAll(nonCompliantPaths);
-	}
+	}	
 }

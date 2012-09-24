@@ -58,9 +58,14 @@ public class OperatorPath extends Vector<String> {
 	private ViskoTripleStore ts;
 	
 	private boolean containsDataFilter;
+	private boolean containsDimensionFilter;
+	private boolean containsViewMapper;
+	private boolean containsInterpolator;
 	
-	private boolean violatesSingleMapperRule;
-	private boolean violatesSingleFilterRule;
+	private boolean violatesRuleSingleDataFilter;
+	private boolean violatesRuleSingleDimensionFilter;
+	private boolean violatesRuleSingleViewMapper;
+	private boolean violatesRuleSingleInterpolator;
 	
 	public OperatorPath(String viewerURI) {
 		super();
@@ -77,7 +82,23 @@ public class OperatorPath extends Vector<String> {
 			add(operatorURI);
 	}
 	
-	public boolean isAlreadyInPath(String operatorURI){		
+	public boolean containsViewMapper(){
+		return containsViewMapper;
+	}
+
+	public boolean containsDataFilter(){
+		return containsDataFilter;
+	}
+
+	public boolean containsDimensionFilter(){
+		return containsDimensionFilter;
+	}
+	
+	public boolean containsInterpolator(){
+		return containsInterpolator;
+	}
+
+	private boolean isAlreadyInPath(String operatorURI){		
 		for(String anOperatorURI : this)
 			if(operatorURI.equals(anOperatorURI))
 				return true;
@@ -85,22 +106,12 @@ public class OperatorPath extends Vector<String> {
 	}
 	
 	public boolean generatesView(String aViewURI){
-		return aViewURI.equals(viewURI);
+		if(viewURI != null && aViewURI != null)
+			return viewURI.equals(aViewURI);
+		
+		return false;
 	}
-	
-	public boolean adheresToDataTypeRestriction(String inputDataType){
-		String operatorURI = this.firstElement();
-		if(ts.operatorAcceptsInputDataType(operatorURI, inputDataType)){
-			for(int i = 0; i < this.size() - 1; i ++){
-				if(!ts.canBeAdjacentOperatorsAccordingToType(this.get(i), this.get(i + 1)))
-					return false;
-			}
-			return true;
-		}
-		else
-			return false;
-	}
-	
+		
 	public boolean outputCanBeViewedByViewerSet(String viewerSetURI){
 		String finalOperatorURI = this.lastElement();
 		if(ts.outputCanBeViewedByViewerSet(finalOperatorURI, viewerSetURI)){
@@ -140,22 +151,41 @@ public class OperatorPath extends Vector<String> {
 	}
 	
 	public boolean add(String operatorURI){
-		 if(ts.isMapper(operatorURI)){		 
-			 
-			 if(viewURI != null)
-				 this.violatesSingleMapperRule = true;
-			 
-			 Vector<String> view = ResultSetToVector.getVectorFromResultSet(ts.getViewGeneratedByMapper(operatorURI), "view");
- 			 viewURI = view.firstElement(); 			 
+		 if(ts.isViewMapper(operatorURI)){
+			 if(containsViewMapper)
+				 violatesRuleSingleViewMapper = true;
+			 else containsViewMapper = true;
+			 setViewGeneratedByViewMapper(operatorURI);
 		 }
-		 else if(ts.isDataFilter(operatorURI)){
+		 else if(ts.isDataFilter(operatorURI))
 			 if(containsDataFilter)
-				 violatesSingleFilterRule = true;
+				 violatesRuleSingleDataFilter = true;
 			 else
 				 containsDataFilter = true;
-		 }
-		 
+		 else if(ts.isDimensionFilter(operatorURI))
+			 if(containsDimensionFilter)
+				 violatesRuleSingleDimensionFilter = true;
+			 else
+				 containsDimensionFilter = true;
+		 else if(ts.isInterpolator(operatorURI))
+			 if(containsInterpolator)
+				 violatesRuleSingleInterpolator = true;
+			 else
+				 containsInterpolator = true;
+
 		 return super.add(operatorURI);
+	}
+	
+	public boolean violatesRules(){
+		return violatesRuleSingleDataFilter
+				|| violatesRuleSingleDimensionFilter
+				|| violatesRuleSingleInterpolator
+				|| violatesRuleSingleViewMapper;
+	}
+	
+	private void setViewGeneratedByViewMapper(String viewMapperURI){
+		Vector<String> view = ResultSetToVector.getVectorFromResultSet(ts.getViewGeneratedByMapper(viewMapperURI), "view");
+		viewURI = view.firstElement(); 
 	}
 	
 	public boolean violatesRequestedView(String requestedViewURI){
@@ -163,15 +193,7 @@ public class OperatorPath extends Vector<String> {
 			return true;
 		return false;
 	}
-	
-	public boolean violatesSingleMapperRule(){
-		return violatesSingleMapperRule;
-	}
-	
-	public boolean violatesSingleFilterRule(){
-		return violatesSingleFilterRule;
-	}
-	
+		
 	public String getViewGenerated(){
 		return viewURI;
 	}

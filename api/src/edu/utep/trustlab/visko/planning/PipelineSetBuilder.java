@@ -45,7 +45,6 @@ import java.util.Vector;
 import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.planning.PipelineSet;
 import edu.utep.trustlab.visko.planning.Query;
-import edu.utep.trustlab.visko.sparql.SPARQL_EndpointFactory;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.util.CartesianProduct;
 import edu.utep.trustlab.visko.util.ResultSetToVector;
@@ -78,8 +77,8 @@ public class PipelineSetBuilder {
 		
 		return formatCheck && typeCheck;
 	}
-	
-	public void setPipelines() {	
+		
+	public void setPipelines() {		
 		System.out.println("Finding operator paths...");
 		setOperatorPaths();
 		
@@ -154,20 +153,23 @@ public class PipelineSetBuilder {
 	}
 	
 	private void constructOperatorPaths(OperatorPath operatorPath){
-		if(operatorPath.violatesSingleFilterRule() || operatorPath.violatesSingleMapperRule())
+		
+		if(operatorPath.violatesRules())
 			return;
 		
 		if(query.getViewURI() != null && operatorPath.violatesRequestedView(query.getViewURI())){
-			//System.out.println("operator violated view: ");
-			//System.out.println(operatorPath);
 			return;
 		}
-				
+			
 		// get a listing of all operators that can process input operator
-		ResultSet operatorResults = ts.getAdjacentOperatorsAccordingToFormatAndDataType(operatorPath.lastElement());
-		Vector<String> operatorURIs = ResultSetToVector.getVectorFromResultSet(operatorResults, "operator");
+		ResultSet operatorResults;
+				
+		if(!query.dataIsFiltered())
+			operatorResults =ts.getAdjacentOperatorsAccordingToFormatAndDataType(operatorPath.lastElement());
+		else
+			operatorResults = ts.getAdjacentNonDataFilterOperatorsAccordingToFormatAndDataType(operatorPath.lastElement());
 		
-		//System.out.println("an Operator path: " + operatorPath);
+		Vector<String> operatorURIs = ResultSetToVector.getVectorFromResultSet(operatorResults, "operator");
 		
 		// filter out any operators that are already in this path		
 		operatorURIs = operatorPath.filterOperatorsAlreadyInPath(operatorURIs);

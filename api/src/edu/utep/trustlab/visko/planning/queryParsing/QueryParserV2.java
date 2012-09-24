@@ -449,4 +449,10 @@ public class QueryParserV2 implements QueryParser {
 			return true;
 		return false;
 	}
+
+	@Override
+	public boolean dataIsFiltered() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

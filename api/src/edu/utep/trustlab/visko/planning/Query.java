@@ -74,6 +74,8 @@ public class Query {
 	private String typeURI;
 	private String viewURI;
 
+	private boolean dataIsFiltered;
+	
 	// optional target format
 	private String targetFormatURI;
 
@@ -97,7 +99,7 @@ public class Query {
 		String formatURI = "https://raw.github.com/nicholasdelrio/visko/master/resources/formats/SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES";
 		String viewerSetURI = "https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_mozilla.owl#mozilla-firefox";
 		String typeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d19";
-		String viewURI = ViskoV.INDIVIDUAL_URI_3D_IsoSurfaceRendering;
+		String viewURI = ViskoV.INDIVIDUAL_URI_2D_ContourMap;
 		
 		//String url = "";
 		//String formatURI = "";
@@ -149,6 +151,7 @@ public class Query {
 		if (viewURI != null && viewURI.equals("*"))
 			viewURI = null;
 
+		dataIsFiltered = parser.dataIsFiltered();
 		this.nodesetURI = parser.getNodesetURI();
 
 		if (nodesetURI != null) {
@@ -163,10 +166,12 @@ public class Query {
 				formatURI = results.firstElement()[1];
 				typeURI = results.firstElement()[2];
 
-			} catch (Exception e) {
+			} 
+			catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else {
+		}
+		else {
 			this.datasetURL = parser.getContentURL();
 			this.formatURI = parser.getFormatURI();
 			this.typeURI = parser.getSemanticTypeURI();
@@ -219,8 +224,12 @@ public class Query {
 
 	public boolean hasWarnings() {
 		return typeURI == null || viewURI == null || datasetURL == null;
-	};
+	}
 
+	public boolean dataIsFiltered(){
+		return dataIsFiltered;
+	}
+	
 	public String getFormatURI() {
 		return this.formatURI;
 	}

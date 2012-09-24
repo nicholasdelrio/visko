@@ -348,7 +348,7 @@ public class ViskoTripleStore {
 		return SPARQL_EndpointFactory.executeAskQuery(stringQuery);
 	}
 
-	public boolean isMapper(String uri) {
+	public boolean isViewMapper(String uri) {
 		uri = "<" + uri + ">";
 
 		String stringQuery = QUERY_PREFIX
@@ -367,7 +367,26 @@ public class ViskoTripleStore {
 
 		return SPARQL_EndpointFactory.executeAskQuery(stringQuery);
 	}
+	
+	public boolean isInterpolator(String uri) {
+		uri = "<" + uri + ">";
 
+		String stringQuery = QUERY_PREFIX
+				+ "ASK "
+				+ "WHERE {" + uri + " rdf:type viskoO:Interpolator . }";
+
+		return SPARQL_EndpointFactory.executeAskQuery(stringQuery);
+	}
+
+	public boolean isDimensionFilter(String uri) {
+		uri = "<" + uri + ">";
+
+		String stringQuery = QUERY_PREFIX
+				+ "ASK "
+				+ "WHERE {" + uri + " rdf:type viskoO:DimensionFilter . }";
+
+		return SPARQL_EndpointFactory.executeAskQuery(stringQuery);
+	}
 
 	public ResultSet getViewGeneratedByMapper(String mapperURI) {
 		String uri = "<" + mapperURI + ">";
@@ -584,6 +603,79 @@ public class ViskoTripleStore {
 				+ "?operator viskoO:hasInputDataType ?superDataType . "
 				+ "?operator viskoO:hasInputFormat ?format . "
 				+ "?subDataType rdfs:subClassOf ?superDataType . }}";
+		
+		return SPARQL_EndpointFactory.executeQuery(stringQuery);
+	}
+
+	public ResultSet getAdjacentNonViewMapperOperatorsAccordingToFormatAndDataType(String operatorURI){
+		
+		operatorURI = "<" + operatorURI + ">";
+		
+		String stringQuery = QUERY_PREFIX
+				+ "SELECT ?operator WHERE {"
+				+ "{"
+				+ operatorURI + " viskoO:hasOutputDataType ?dataType . "
+				+ operatorURI + " viskoO:hasOutputFormat ?format . "
+				+ "?operator a viskoO:Operator . "				
+				+ "?operator viskoO:hasInputDataType ?dataType . "
+				+ "?operator viskoO:hasInputFormat ?format . } UNION {"
+				+ operatorURI + " viskoO:hasOutputDataType ?subDataType . "
+				+ operatorURI + " viskoO:hasOutputFormat ?format . "
+				+ "?operator a viskoO:Operator . "
+				+ "?operator viskoO:hasInputDataType ?superDataType . "
+				+ "?operator viskoO:hasInputFormat ?format . "
+				+ "?subDataType rdfs:subClassOf ?superDataType . "
+				+ "} FILTER NOTEXISTS {?operator a viskoO:ViewMapper}"
+				+ "}";
+		
+		return SPARQL_EndpointFactory.executeQuery(stringQuery);
+	}
+	
+	public ResultSet getAdjacentNonDimensionFilterOperatorsAccordingToFormatAndDataType(String operatorURI){
+		
+		operatorURI = "<" + operatorURI + ">";
+		
+		String stringQuery = QUERY_PREFIX
+				+ "SELECT ?operator WHERE {"
+				+ "{"
+				+ operatorURI + " viskoO:hasOutputDataType ?dataType . "
+				+ operatorURI + " viskoO:hasOutputFormat ?format . "
+				+ "?operator a viskoO:Operator . "				
+				+ "?operator viskoO:hasInputDataType ?dataType . "
+				+ "?operator viskoO:hasInputFormat ?format . } UNION {"
+				+ operatorURI + " viskoO:hasOutputDataType ?subDataType . "
+				+ operatorURI + " viskoO:hasOutputFormat ?format . "
+				+ "?operator a viskoO:Operator . "
+				+ "?operator viskoO:hasInputDataType ?superDataType . "
+				+ "?operator viskoO:hasInputFormat ?format . "
+				+ "?subDataType rdfs:subClassOf ?superDataType . "
+				+ "} FILTER NOTEXISTS {?operator a viskoO:DimensionFilter}"
+				+ "}";
+		
+		return SPARQL_EndpointFactory.executeQuery(stringQuery);
+	}
+	
+	
+	public ResultSet getAdjacentNonDataFilterOperatorsAccordingToFormatAndDataType(String operatorURI){
+		
+		operatorURI = "<" + operatorURI + ">";
+		
+		String stringQuery = QUERY_PREFIX
+				+ "SELECT ?operator WHERE {"
+				+ "{"
+				+ operatorURI + " viskoO:hasOutputDataType ?dataType . "
+				+ operatorURI + " viskoO:hasOutputFormat ?format . "
+				+ "?operator a viskoO:Operator . "				
+				+ "?operator viskoO:hasInputDataType ?dataType . "
+				+ "?operator viskoO:hasInputFormat ?format . } UNION {"
+				+ operatorURI + " viskoO:hasOutputDataType ?subDataType . "
+				+ operatorURI + " viskoO:hasOutputFormat ?format . "
+				+ "?operator a viskoO:Operator . "
+				+ "?operator viskoO:hasInputDataType ?superDataType . "
+				+ "?operator viskoO:hasInputFormat ?format . "
+				+ "?subDataType rdfs:subClassOf ?superDataType . "
+				+ "} FILTER NOTEXISTS {?operator a viskoO:DataFilter}"
+				+ "}";
 		
 		return SPARQL_EndpointFactory.executeQuery(stringQuery);
 	}
