@@ -77,7 +77,7 @@ public class OperatorGraphData {
 
 				if (OperatorGraphData.operators.get(transformerURI) == null) {
 					OperatorGraphData.operators.put(transformerURI, nodeList.size());
-					if (ts.isMapper(transformerURI)){
+					if (ts.isViewMapper(transformerURI)){
 						nodeList.add(new JSONObject().put("operatorURI",
 								transformerURI).put("viskoType", "Mapper"));
 					}

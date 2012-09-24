@@ -54,7 +54,7 @@ public class PipelineHTML {
 			String operatorURI = viskoService.getConceptualOperator().getURI();
 			ViskoTripleStore ts = new ViskoTripleStore();
 
-			if (!ts.isMapper(operatorURI)) {
+			if (!ts.isViewMapper(operatorURI)) {
 				html += "<a href=\""+ ViskoO.CLASS_URI_Operator + "\">Transformer</a>";
 			}
 

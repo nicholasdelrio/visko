@@ -22,7 +22,6 @@ package edu.utep.trustlab.visko.web.requestHandler.planning;
 
 import javax.servlet.http.HttpServletRequest;
 
-import edu.utep.trustlab.visko.sparql.UTEPProvenanceRDFStore;
 import edu.utep.trustlab.visko.web.context.ViskoWebSession;
 import edu.utep.trustlab.visko.web.html.QueryMessages;
 import edu.utep.trustlab.visko.web.html.QueryHTML;
@@ -36,19 +35,6 @@ public class ExecuteQueryServlet extends RequestHandlerHTML {
 	private Query query;
 	private QueryEngine engine;
 	
-	private void populateQueryForEntryPoint(HttpServletRequest request) {
-		String artifactURL = request.getParameter("artifactURL");
-		String viewerSetURI = request.getParameter("viewerSetURI");
-
-		UTEPProvenanceRDFStore rdfStore = new UTEPProvenanceRDFStore();
-		String formatURI = rdfStore.getFormatFromArtifactURL(artifactURL);
-		String typeURI = rdfStore.getTypeFromArtifactURL(artifactURL);
-
-		String stringQuery = "SELECT * IN-VIEWER " + viewerSetURI + " FROM " + artifactURL + " FORMAT " + formatURI + " TYPE " + typeURI;
-
-		query = new Query(stringQuery);
-	}
-
 	public String doGet(HttpServletRequest request){
 		String stringQuery = request.getParameter("query");
 		String reuse = request.getParameter("reuse");
@@ -58,14 +44,12 @@ public class ExecuteQueryServlet extends RequestHandlerHTML {
 			engine = session.getQueryEngine();
 			query = engine.getQuery();
 		}
-		else if (stringQuery != null)
-			query = new Query(stringQuery);
-		else
-			populateQueryForEntryPoint(request);
-
-		if(engine == null)
-			engine = new QueryEngine(query);
 		
+		else{
+			query = new Query(stringQuery);
+			engine = new QueryEngine(query);
+		}
+
 		String html = "<h2>VisKo Query</h2>";
 		
 		if (query.isValidQuery()) {
@@ -79,7 +63,10 @@ public class ExecuteQueryServlet extends RequestHandlerHTML {
 			html += "<h2>Visualization Pipelines</h2>";
 			html += ResultsTableHTML.getHTML(engine, true);
 			html += "<hr>";
-		} else {
+		}
+		
+		else {
+		
 			html += "<p>Query is invalid!</p>";
 			html += QueryHTML.getHTML(query);
 			html += "<hr>";
