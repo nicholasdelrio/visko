@@ -184,7 +184,7 @@ public class OperatorPath extends Vector<String> {
 	}
 	
 	private void setViewGeneratedByViewMapper(String viewMapperURI){
-		Vector<String> view = ResultSetToVector.getVectorFromResultSet(ts.getViewGeneratedByMapper(viewMapperURI), "view");
+		Vector<String> view = ResultSetToVector.getVectorFromResultSet(ts.getViewGeneratedByViewMapper(viewMapperURI), "view");
 		viewURI = view.firstElement(); 
 	}
 	

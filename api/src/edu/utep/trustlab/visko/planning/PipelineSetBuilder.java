@@ -72,10 +72,7 @@ public class PipelineSetBuilder {
 	}
 
 	public boolean isAlreadyVisualizableWithViewerSet() {
-		boolean formatCheck = ts.isFormatAlreadyVisualizableWithViewerSet(query.getFormatURI(), query.getViewerSetURI());
-		boolean typeCheck = ts.isDataTypeAlreadyVisualizableWithViewerSet(query.getTypeURI(), query.getViewerSetURI()) || ts.isSubClassOfDataTypeAlreadyVisualizableWithViewerSet(query.getTypeURI(), query.getViewerSetURI());
-		
-		return formatCheck && typeCheck;
+		return ts.isAlreadyVisualizableWithViewerSet(query.getFormatURI(), query.getTypeURI(), query.getViewerSetURI());
 	}
 		
 	public void setPipelines() {		
