@@ -6,10 +6,12 @@ public class SPARQL_EndpointFactory{
 	
 	private static SPARQL_Endpoint endPointConnection;
 
-	public static void setUpEndpointConnection(String endPointLocation){
+	public static SPARQL_Endpoint setUpEndpointConnection(String endPointLocation){
 		if(endPointConnection == null){
 			endPointConnection = createNewEndpointConnection(endPointLocation);
 		}
+		
+		return endPointConnection;
 	}
 	
 	private static SPARQL_Endpoint createNewEndpointConnection(String endPointLocation){

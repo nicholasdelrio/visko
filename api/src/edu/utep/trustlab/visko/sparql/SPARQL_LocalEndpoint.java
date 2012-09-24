@@ -17,7 +17,7 @@ public class SPARQL_LocalEndpoint implements SPARQL_Endpoint {
 	private InfModel model;
 	
 	public SPARQL_LocalEndpoint(String tdbStorePath){
-		Model assertedModel = TDBFactory.createModel(tdbStorePath);
+		Model assertedModel = TDBFactory.createDataset(tdbStorePath).getDefaultModel();
 		model = ModelFactory.createInfModel(PelletReasonerFactory.theInstance().create(), assertedModel);
 		assertedModel.close();
 	}
