@@ -23,6 +23,7 @@
 			<lib dir="${lib}/owls-3.0"/>
 			<lib dir="${lib}/pellet-2.3.0"/>
 			<lib dir="${lib}/pml-2.0"/>
+			<lib dir="${lib}/jgrapht"/>
 			<lib dir="${content-management-libs}/libs-velo"/>
 			<fileset dir="${web-content}"/>
 			
