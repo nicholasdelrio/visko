@@ -66,9 +66,27 @@
 			<classpath>
 				<pathelement location="${visko-api-jar}"/>
 				<pathelement location="${installation-tools-jar}"/>
-				<fileset dir="${lib}/jena262/">
+				<fileset dir="${lib}/axis-1.4/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/jena-2.7.3/">
 					<include name="*.jar"/>
 				</fileset>	
+				<fileset dir="${lib}/commons-logging/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/owls-3.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/content-manager/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pml-2.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pellet-2.3.0/">
+					<include name="*.jar"/>
+				</fileset>
 			</classpath>		
 		</javac>
 	</target>
@@ -107,13 +125,25 @@
 				<fileset dir="${content-management-libs}/libs-velo/">
 					<include name="*.jar"/>
 				</fileset>	
-				<fileset dir="${lib}/axis4/">
+				<fileset dir="${lib}/axis-1.4/">
 					<include name="*.jar"/>
 				</fileset>
-				<fileset dir="${lib}/jena262/">
+				<fileset dir="${lib}/jena-2.7.3/">
 					<include name="*.jar"/>
 				</fileset>	
-				<fileset dir="${lib}/util/">
+				<fileset dir="${lib}/commons-logging/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/owls-3.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/content-manager/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pml-2.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pellet-2.3.0/">
 					<include name="*.jar"/>
 				</fileset>
 			</classpath>
@@ -135,14 +165,26 @@
 				<pathelement location="${installation-tools-jar}"/>
 				<fileset dir="${content-management-libs}/libs-velo/">
 					<include name="*.jar"/>
-				</fileset>	
-				<fileset dir="${lib}/axis4/">
+				</fileset>
+				<fileset dir="${lib}/axis-1.4/">
 					<include name="*.jar"/>
 				</fileset>
-				<fileset dir="${lib}/jena262/">
+				<fileset dir="${lib}/jena-2.7.3/">
 					<include name="*.jar"/>
 				</fileset>	
-				<fileset dir="${lib}/util/">
+				<fileset dir="${lib}/commons-logging/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/owls-3.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/content-manager/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pml-2.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pellet-2.3.0/">
 					<include name="*.jar"/>
 				</fileset>
 			</classpath>
@@ -163,16 +205,27 @@
 			<classpath>
 				<pathelement location="${installation-tools-jar}"/>
 				<pathelement location="${visko-api-jar}"/>
-				<fileset dir="${lib}/axis4/">
+				<fileset dir="${lib}/axis-1.4/">
 					<include name="*.jar"/>
 				</fileset>
-				<fileset dir="${lib}/jena262/">
+				<fileset dir="${lib}/jena-2.7.3/">
 					<include name="*.jar"/>
 				</fileset>	
-				<fileset dir="${lib}/util/">
+				<fileset dir="${lib}/commons-logging/">
 					<include name="*.jar"/>
 				</fileset>
-			</classpath>   
+				<fileset dir="${lib}/owls-3.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/content-manager/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pml-2.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pellet-2.3.0/">
+					<include name="*.jar"/>
+				</fileset>			</classpath>   
 		</java>	
 	</target>
 	

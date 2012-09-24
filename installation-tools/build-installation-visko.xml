@@ -62,10 +62,25 @@
 	    	<include name="**/*.java"/>
 			<classpath>
 				<pathelement location="${visko-api-jar}"/>
-				<fileset dir="${lib}/jena262/">
+				<fileset dir="${lib}/axis-1.4/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/jena-2.7.3/">
 					<include name="*.jar"/>
 				</fileset>	
-				<fileset dir="${lib}/util/">
+				<fileset dir="${lib}/commons-logging/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/owls-3.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/content-manager/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pml-2.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pellet-2.3.0/">
 					<include name="*.jar"/>
 				</fileset>
 			</classpath>		
