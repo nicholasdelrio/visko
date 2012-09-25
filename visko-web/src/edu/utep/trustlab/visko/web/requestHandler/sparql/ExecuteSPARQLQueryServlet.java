@@ -22,26 +22,27 @@ package edu.utep.trustlab.visko.web.requestHandler.sparql;
 
 import javax.servlet.http.HttpServletRequest;
 import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.query.ResultSetFormatter;
+
+import edu.utep.trustlab.visko.sparql.SPARQL_EndpointFactory;
 import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerSparqlXML;
 
 public class ExecuteSPARQLQueryServlet extends RequestHandlerSparqlXML {
 
 	public String doGet(HttpServletRequest request){
 		String query = request.getParameter("query");
-		TDBTripleStore viskoTripleStore = new TDBTripleStore();
-		
+	
 		ResultSet results;
 		if(query.toLowerCase().contains("ask"))
-			return "<?xml version=\"1.0\"?><result>" + viskoTripleStore.executeAsk(query) + "</result>";
-		else
-			results = viskoTripleStore.execute(query);
-		
-		if(results != null){
-			String xml = TDBTripleStore.toXML(results);
-			return xml;
-		}
-		else{
-			return "<?xml version=\"1.0\"?><message>Query Yielded a Null Response.</message>";
+			return "<?xml version=\"1.0\"?><result>" + SPARQL_EndpointFactory.executeAskQuery(query) + "</result>";
+		else {
+			results = SPARQL_EndpointFactory.executeQuery(query);
+			if(results != null){
+				String xml = ResultSetFormatter.asXMLString(results);
+				return xml;
+			}
+			else
+				return "<?xml version=\"1.0\"?><message>Query Yielded a Null Response.</message>";
 		}
 	}
 }

@@ -26,153 +26,121 @@ import java.util.Vector;
 
 import org.json.JSONObject;
 
-import com.hp.hpl.jena.query.QuerySolution;
-import com.hp.hpl.jena.query.ResultSet;
-
+import edu.utep.trustlab.visko.planning.OperatorPath;
+import edu.utep.trustlab.visko.planning.OperatorPaths;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.util.ResultSetToVector;
 
 public class FormatAndDataTypeGraphData {
-	public static HashMap<String, Integer> formats;
-
+	public static HashMap<String, Integer> data;
+	public static HashMap<String, String> dataLinks;
+	
 	private static String jsonGraph;
 	private static ViskoTripleStore ts;
+	private static ArrayList<JSONObject> linksList;
+	private static ArrayList<JSONObject> nodesList;
+
 	
-	public static String getPathsGraphJSON() {
-		
+	public static String getDataPathsGraphJSON(){
+	
 		if(jsonGraph != null)
 			return jsonGraph;
 		
-		formats = new HashMap<String, Integer>();
 		ts = new ViskoTripleStore();
+		linksList = new ArrayList<JSONObject>();
+		nodesList = new ArrayList<JSONObject>();
+		data = new HashMap<String, Integer>();
+		dataLinks = new HashMap<String, String>();
+		
+		populateNodesAndLinks(OperatorPathsSets.getOperatorPathsSets());
 
 		JSONObject pathsGraph = new JSONObject();
 		try {
-			pathsGraph.put("nodes", getNodes(ts));
-			pathsGraph.put("links", getLinks(ts));
+			pathsGraph.put("nodes", nodesList);
+			pathsGraph.put("links", linksList);
+
+			jsonGraph = pathsGraph.toString();
+			System.out.println(jsonGraph);
+			return jsonGraph;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}
-		
-		jsonGraph = pathsGraph.toString();
-		System.out.println(jsonGraph);
-		return jsonGraph;
 	}
+		
+	private static void processPaths(OperatorPaths paths){
+		
+		for(OperatorPath path : paths){
+			String[] inputData = null;
+			String[] outputData = null;
+			
+			String operatorURI;
+			for(int i = 0; i < path.size(); i ++){
+				operatorURI = path.get(i);
 
-	private static ArrayList<JSONObject> getNodes(ViskoTripleStore ts) {
-		ResultSet formatsAndTypes = ts.getOperatedOnFormatsAndDataTypes();
-
-		ArrayList<JSONObject> nodeList = new ArrayList<JSONObject>();
-		QuerySolution solution;
-		String formatURI;
-		String dataTypeURI;
-		boolean isViewable;
-		try {
-			while (formatsAndTypes.hasNext()) {
-				solution = formatsAndTypes.nextSolution();
-				formatURI = solution.get("format").toString();
-				dataTypeURI = solution.get("dataType").toString();
-
-				isViewable = ts.isFormatAndDataTypeAlreadyVisualizable(formatURI, dataTypeURI);
-
-				if (FormatAndDataTypeGraphData.formats.get(formatURI + "---" + dataTypeURI) == null) {
-					FormatAndDataTypeGraphData.formats.put(formatURI + "---" + dataTypeURI, new Integer(nodeList.size()));
-					nodeList.add(new JSONObject().put("formatURI", formatURI + "---" + dataTypeURI).put("visualizable", isViewable));
+				if(i == 0){
+					inputData = ResultSetToVector.getVectorPairsFromResultSet(ts.getInputData(operatorURI), "format", "dataType").firstElement();
+					outputData = ResultSetToVector.getVectorPairsFromResultSet(ts.getOutputData(operatorURI), "format", "dataType").firstElement();
+				}
+				else{
+					inputData = outputData;
+					outputData = ResultSetToVector.getVectorPairsFromResultSet(ts.getOutputData(operatorURI), "format", "dataType").firstElement();
+				}
 					
-					System.out.println("added: " + formatURI + "---" + dataTypeURI);
-				}
-
+				addNodesAndLinks(inputData, outputData);
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
-		return nodeList;
 	}
-
-	private static ArrayList<JSONObject> getLinks(ViskoTripleStore ts) {
-		ResultSet transformerInfo = ts.getOperatorInformation();
-		ArrayList<JSONObject> linksList = new ArrayList<JSONObject>();
-		QuerySolution solution;
-		String inputFormat;
-		String outputFormat;
-		String inputDataType;
-		String outputDataType;
-		String operatorURI;
-		String operatorLbl;
-
-		int source;
-		int target;
-		
-			while (transformerInfo.hasNext()) {
-				solution = transformerInfo.nextSolution();
-				inputFormat = solution.get("inputFormat").toString();
-				outputFormat = solution.get("outputFormat").toString();
-				inputDataType = solution.get("inputDataType").toString();
-				outputDataType = solution.get("outputDataType").toString();
-				operatorURI = solution.get("operator").toString();
-				operatorLbl = solution.get("lbl").toString();
 	
-				JSONObject job = new JSONObject();
-				try{job = job.put("transURI", operatorURI).put("transLbl", operatorLbl);}
-				catch (Exception e){
-					e.printStackTrace();
-				}
-
-				try
-				{
-					source = formats.get(inputFormat + "---" + inputDataType);
-					job = job.put("source", source);			
-				}
-				catch (Exception e) {
-					System.out.println("couldn't find source: " + inputFormat + "---" + inputDataType);
-					System.out.println("for: " + operatorURI);
-					e.printStackTrace();
-				}
-
-				job = addTargetLink(job, outputFormat, outputDataType);
+	private static void addNodesAndLinks(String[] inputData, String[] outputData){
 				
-				if(job != null)
-					linksList.add(job);
-			}
-		return linksList;
+		int source = addNode(inputData[0], inputData[1]);
+		int target = addNode(outputData[0], outputData[1]);
+		
+		if(source != target)		
+			addLink(source, target, linksList);
 	}
 	
-	private static JSONObject addTargetLink(JSONObject job, String formatURI, String dataTypeURI){
-		String key = formatURI + "---" + dataTypeURI;
-		Integer target = formats.get(key);
+	private static void addLink(int source, int target, ArrayList<JSONObject> linksList){
+		String link = dataLinks.get(source + "-" + target);
+		if(link == null){
 		
-		if(target == null){
-			target = findSuperDataType(formatURI, dataTypeURI);
-			if(target != null)
-				return addLink(job, "target", target);
-			else
-				return null;
+			dataLinks.put(source + "-" + target, "exists");
+			
+			try{
+				linksList.add(new JSONObject().put("source", source).put("target", target));
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	private static int addNode(String formatURI, String dataTypeURI){
+		String key = formatURI + "---" + dataTypeURI;
+		Integer index = data.get(key);
+		int newIndex;
+		boolean isViewable;
+		if(index == null){
+			isViewable = ts.isAlreadyVisualizableWithViewerSet(formatURI, dataTypeURI);
+			newIndex = nodesList.size();
+			data.put(key, newIndex);
+			try{
+				nodesList.add(new JSONObject().put("data", key).put("visualizable", isViewable));
+				return newIndex;
+			}
+			catch(Exception e){
+				e.printStackTrace();
+				return 0;
+			}
 		}
 		else
-			return addLink(job, "target", target);
+			return index.intValue();
 	}
-	
-	private static Integer findSuperDataType(String formatURI, String dataTypeURI){
-		String key;
-		Vector<String> superClassURIs = ResultSetToVector.getVectorFromResultSet(ts.getSuperClasses(dataTypeURI), "superClass");
-		for(String superClassURI : superClassURIs){
-			System.out.println("trying super class: " + superClassURI);
-			key = formatURI + "---" + superClassURI;
-			Integer id = formats.get(key);
-			if(id != null){
-				System.out.println("found an id: " + id + " using key: " + key);
-				return id;
-			}
-		}
-		return null;
-	}
-	
-	private static JSONObject addLink(JSONObject job, String key, int value){
-		try
-		{job = job.put(key, value);}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-		return job;
+
+	private static void populateNodesAndLinks(Vector<OperatorPaths> pathsSets) {
+		for(OperatorPaths paths: pathsSets)
+			FormatAndDataTypeGraphData.processPaths(paths);
 	}
 }

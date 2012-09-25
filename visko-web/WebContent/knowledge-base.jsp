@@ -49,6 +49,9 @@
 <h2>Format/Data Type Transformation Paths:</h2>
 <iframe width="900" height="500" src="FormatTransformationPaths.html" frameborder="1"></iframe>
 
+<h2>Operator Pipeline Paths:</h2>
+<iframe width="900" height="500" src="OperatorPipelines.html" frameborder="1"></iframe>
+
 <a name="Querying"></a>
 <h2>Querying your Knowledge Base</h2>
 <p>You can submit SPARQL queries against the VisKo knowledge base.</p>

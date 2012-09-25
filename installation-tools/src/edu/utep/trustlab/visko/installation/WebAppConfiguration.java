@@ -46,8 +46,7 @@ public class WebAppConfiguration {
 		webXML = webXML.replace("REPLACE-ORGANIZATION", WebAppConfiguration.logo_path);
 		webXML = webXML.replace("REPLACE-LOGO-PATH", WebAppConfiguration.hosting_organization);
 		
-		//SPARQL endpoint and TDB path
-		webXML = webXML.replace("REPLACE-ENDPOINT-URL", WebAppConfiguration.visko_sparql_endpoint);
+		//TDB path
 		webXML = webXML.replace("REPLACE-TDB-PATH", WebAppConfiguration.visko_tdb_path);
 		
 		//move data

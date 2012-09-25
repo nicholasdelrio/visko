@@ -27,18 +27,40 @@ import org.json.*;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 
 public class InstanceBarGraphData {
+	
+	private static String jsonBarGraph;
+	private static ViskoTripleStore ts = new ViskoTripleStore();
+	
 	public static String getBarGraph() {
-		ViskoTripleStore ts = new ViskoTripleStore();
-
+	
+		if(jsonBarGraph != null)
+			return jsonBarGraph;
+		
+		//params stuff
 		int paramCount = numResults(ts.getAllParameters());
+		
+		//viewerset and viewers stuff
 		int viewerSetCount = numResults(ts.getViewerSets());
 		int viewerCount = numResults(ts.getViewers());
-		int transformerCount = numResults(ts.getOperators());
+
+		//operators count
+		int dataTransformerCount = numResults(ts.getDataTransformers());
+		int viewMapperCount = numResults(ts.getViewMappers());
+		int dataFilterCount = numResults(ts.getDataFilters());
+		int dimFilterCount = numResults(ts.getDimensionFilters());
+		int interpolatorCount = numResults(ts.getInterpolators());
+		
+		//toolkits stuff
 		int toolkitCount = numResults(ts.getToolkits());
-		int mapperCount = numResults(ts.getMappers());
-		int formatCount = numResults(ts.getOperatedOnFormats());
-		int dataTypeCount = numResults(ts.getOperatedOnDataTypes());
+
+		//formats and types stuff
+		int formatCount = numResults(ts.getInputFormats());
+		int dataTypeCount = numResults(ts.getInputDataTypes());
+		
+		//implementing services stuff
 		int serviceCount = numResults(ts.getOWLSServices());
+		
+		//generated views
 		int viewCount = numResults(ts.getViews());
 
 		JSONObject jsonGraphData = new JSONObject();
@@ -46,16 +68,23 @@ public class InstanceBarGraphData {
 		try {
 			ArrayList<JSONObject> data = new ArrayList<JSONObject>();
 
-			data.add(new JSONObject().put("viskoType", "Viewer Sets").put("count", viewerSetCount));
-			data.add(new JSONObject().put("viskoType", "Views").put("count", viewCount));
-			data.add(new JSONObject().put("viskoType", "Viewers").put("count", viewerCount));
-			data.add(new JSONObject().put("viskoType", "Transformers").put("count", transformerCount));
-			data.add(new JSONObject().put("viskoType", "Parameters").put("count", paramCount));
 			data.add(new JSONObject().put("viskoType", "Toolkits").put("count",	toolkitCount));
-			data.add(new JSONObject().put("viskoType", "Mappers").put("count", mapperCount));
+			data.add(new JSONObject().put("viskoType", "Services").put("count", serviceCount));
+			data.add(new JSONObject().put("viskoType", "Parameters").put("count", paramCount));
+
 			data.add(new JSONObject().put("viskoType", "Used Formats").put("count", formatCount));
 			data.add(new JSONObject().put("viskoType", "Used Data Types").put("count", dataTypeCount));
-			data.add(new JSONObject().put("viskoType", "Services").put("count", serviceCount));
+			
+			data.add(new JSONObject().put("viskoType", "Viewer Sets").put("count", viewerSetCount));
+			data.add(new JSONObject().put("viskoType", "Viewers").put("count", viewerCount));
+			data.add(new JSONObject().put("viskoType", "Views").put("count", viewCount));
+
+			data.add(new JSONObject().put("viskoType", "Data Transformers").put("count", dataTransformerCount));
+			data.add(new JSONObject().put("viskoType", "Data Filters").put("count", dataFilterCount));
+			data.add(new JSONObject().put("viskoType", "Dimension Filters").put("count", dimFilterCount));
+			data.add(new JSONObject().put("viskoType", "View Mappers").put("count", viewMapperCount));
+			data.add(new JSONObject().put("viskoType", "Interpolators").put("count", interpolatorCount));
+
 
 			jsonGraphData.put("instanceGraphData", data);
 
@@ -63,7 +92,8 @@ public class InstanceBarGraphData {
 			e.printStackTrace();
 		}
 
-		return jsonGraphData.toString();
+		jsonBarGraph =jsonGraphData.toString();
+		return jsonBarGraph;
 	}
 
 	private static int numResults(ResultSet rs) {
@@ -74,5 +104,4 @@ public class InstanceBarGraphData {
 		}
 		return count;
 	}
-
 }

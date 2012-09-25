@@ -9,9 +9,7 @@ import edu.utep.trustlab.contentManagement.CIServer;
 import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.contentManagement.LocalFileSystem;
 import edu.utep.trustlab.visko.sparql.SPARQL_EndpointFactory;
-import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.web.html.Template;
-import edu.utep.trustlab.visko.web.requestHandler.sparql.TDBTripleStore;
 
 public class ContextListener implements ServletContextListener {
 
@@ -26,7 +24,6 @@ public class ContextListener implements ServletContextListener {
 		ServletContext context = event.getServletContext();
 		
 		//SPARQL Query Support
-		setViskoSPARQLEndpointURL(context);
 		setViskoTDBFilePath(context);
 		
 		//HTML Template Customization
@@ -126,11 +123,6 @@ public class ContextListener implements ServletContextListener {
 	
 	private static void setViskoTDBFilePath(ServletContext context){
 		String tdbFilePath = context.getInitParameter("visko-tdb-path");
-		TDBTripleStore.setTDBStoreFilePath(tdbFilePath);
-		
-	}
-	private static void setViskoSPARQLEndpointURL(ServletContext context) {
-		String viskoEndpoint = context.getInitParameter("visko-sparql-endpoint");
-		SPARQL_EndpointFactory.setUpEndpointConnection(viskoEndpoint);
+		SPARQL_EndpointFactory.setUpEndpointConnection(tdbFilePath);		
 	}
 }

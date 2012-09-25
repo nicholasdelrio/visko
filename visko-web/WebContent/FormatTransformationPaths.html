@@ -41,8 +41,8 @@ text.shadow {
   <body>
     <script type="text/javascript">
 
-    var w = 960,
-    h = 500;
+    var w = 1000,
+    h = 700;
     
     
     
@@ -52,8 +52,8 @@ text.shadow {
     	.nodes(json.nodes)
     	.links(json.links)
 	    .size([w, h])
-	    .linkDistance(60)
-	    .charge(-300)
+	    .linkDistance(100)
+	    .charge(-700)
 	    .on("tick", tick)
 	    .start();
 
@@ -102,12 +102,12 @@ text.shadow {
     	.attr("x", 8)
     	.attr("y", ".31em")
     	.attr("class", "shadow")
-    	.text(function(d) { return getURIFragments(d.formatURI); });
+    	.text(function(d) { return getURIFragments(d.data); });
 	
     	text.append("svg:text")
     	.attr("x", 8)
     	.attr("y", ".31em")
-    	.text(function(d) { return getURIFragments(d.formatURI); });
+    	.text(function(d) { return getURIFragments(d.data); });
 	
     	// Use elliptical arc path segments to doubly-encode directionality.
     	function tick() {    		

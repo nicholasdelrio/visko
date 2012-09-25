@@ -35,9 +35,9 @@ public class KnowledgeBaseInformationJSONServlet extends RequestHandlerJSON {
 		if (infoType.equals("rdfInstances")) {
 			json = InstanceBarGraphData.getBarGraph();
 		} else if (infoType.equals("formatPaths")) {
-			json = FormatAndDataTypeGraphData.getPathsGraphJSON();
+			json = FormatAndDataTypeGraphData.getDataPathsGraphJSON();
 		} else if (infoType.equals("pipelines")) {
-			json = OperatorGraphData.getPathsGraphJSON();
+			json = OperatorGraphData.getOperatorPathsGraphJSON();
 		}
 
 		else

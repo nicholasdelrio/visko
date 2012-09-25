@@ -22,105 +22,118 @@ package edu.utep.trustlab.visko.web.json;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Vector;
 
 import org.json.JSONObject;
 
-import com.hp.hpl.jena.query.QuerySolution;
-import com.hp.hpl.jena.query.ResultSet;
-
+import edu.utep.trustlab.visko.planning.OperatorPath;
+import edu.utep.trustlab.visko.planning.OperatorPaths;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 
-public class OperatorGraphData {
+public class OperatorGraphData {	
 	public static HashMap<String, Integer> operators;
+	public static HashMap<String, String> operatorLinks;
+	
+	private static String jsonGraph;
+	private static ViskoTripleStore ts;
+	private static ArrayList<JSONObject> linksList;
+	private static ArrayList<JSONObject> nodesList;
 
-	public static String getPathsGraphJSON() {
+	
+	public static String getOperatorPathsGraphJSON(){
+	
+		if(jsonGraph != null)
+			return jsonGraph;
+		
+		ts = new ViskoTripleStore();
+		linksList = new ArrayList<JSONObject>();
+		nodesList = new ArrayList<JSONObject>();
 		operators = new HashMap<String, Integer>();
-
-		ViskoTripleStore ts = new ViskoTripleStore();
+		operatorLinks = new HashMap<String, String>();
+		
+		populateNodesAndLinks(OperatorPathsSets.getOperatorPathsSets());
 
 		JSONObject pathsGraph = new JSONObject();
 		try {
-			pathsGraph.put("nodes", getNodes(ts));
-			pathsGraph.put("links", getLinks(ts));
+			pathsGraph.put("nodes", nodesList);
+			pathsGraph.put("links", linksList);
+
+			jsonGraph = pathsGraph.toString();
+			System.out.println(jsonGraph);
+			return jsonGraph;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}
-		return pathsGraph.toString();
 	}
-
-	private static ArrayList<JSONObject> getNodes(ViskoTripleStore ts) {
-		ResultSet viewers = ts.getViewers();
-		ResultSet transformers = ts.getOperators();
-
-		System.out.println(transformers.hasNext());
 		
-		ArrayList<JSONObject> nodeList = new ArrayList<JSONObject>();
-		QuerySolution solution;
-		String viewerURI;
-		String transformerURI;
+	private static void processPaths(OperatorPaths paths){
+		String operator1 = null;
+		String operator2 = null;
+		for(OperatorPath path : paths){
+			for(int i = 0; i < path.size(); i ++){
 
-		try {
-			while (viewers.hasNext()) {
-				solution = viewers.nextSolution();
-				viewerURI = solution.get("viewer").toString();
-
-				if (OperatorGraphData.operators.get(viewerURI) == null) {
-					OperatorGraphData.operators.put(viewerURI, nodeList.size());
-					nodeList.add(new JSONObject().put("operatorURI", viewerURI)
-							.put("viskoType", "Viewer"));
-				}
+				if(i > 0){
+					operator1 = path.get(i - 1);
+					operator2 = path.get(i);
+					addNodesAndLinks(operator1, operator2);
+				}			
 			}
-
-			while (transformers.hasNext()) {
-				solution = transformers.nextSolution();
-				transformerURI = solution.get("trans").toString();
-
-				if (OperatorGraphData.operators.get(transformerURI) == null) {
-					OperatorGraphData.operators.put(transformerURI, nodeList.size());
-					if (ts.isViewMapper(transformerURI)){
-						nodeList.add(new JSONObject().put("operatorURI",
-								transformerURI).put("viskoType", "Mapper"));
-					}
-					else
-						nodeList.add(new JSONObject().put("operatorURI",
-								transformerURI).put("viskoType", "Transformer"));
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
-
-		return nodeList;
 	}
-
-	private static ArrayList<JSONObject> getLinks(ViskoTripleStore ts) {
-		ResultSet formatsInfo = ts.getTransformedFormats();
-
-		ArrayList<JSONObject> linksList = new ArrayList<JSONObject>();
-
-		QuerySolution solution;
-		String outputOfOperator;
-		String inputToOperator;
-		String formatURI;
+	
+	private static void addNodesAndLinks(String operator1, String operator2){
+				
+		int source = addNode(operator1);
+		int target = addNode(operator2);
 		
-		int source;
-		int target;
-		try {
-			while (formatsInfo.hasNext()) {
-				solution = formatsInfo.nextSolution();
-				formatURI = solution.get("format").toString();
-				outputOfOperator = solution.get("outputOf").toString();
-				inputToOperator = solution.get("inputTo").toString();
-
-				source = operators.get(outputOfOperator);
-				target = operators.get(inputToOperator);
-
-				linksList.add(new JSONObject().put("source", source)
-						.put("target", target).put("format", formatURI));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return linksList;
+		if(source != target)		
+			addLink(source, target, linksList);
 	}
+	
+	private static void addLink(int source, int target, ArrayList<JSONObject> linksList){
+		String link = operatorLinks.get(source + "-" + target);
+		if(link == null){
+		
+			operatorLinks.put(source + "-" + target, "exists");
+			
+			try{
+				linksList.add(new JSONObject().put("source", source).put("target", target));
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	private static int addNode(String operatorURI){
+		Integer index = operators.get(operatorURI);
+		int newIndex;
+		
+		if(index == null){
+			newIndex = nodesList.size();
+			operators.put(operatorURI, newIndex);
+			try{
+				if(ts.isViewMapper(operatorURI))
+					nodesList.add(new JSONObject().put("operatorURI", operatorURI).put("viskoType", "Mapper"));
+				else
+					nodesList.add(new JSONObject().put("operatorURI", operatorURI).put("viskoType", "Transformer"));
+					
+				return newIndex;
+			}
+			catch(Exception e){
+				e.printStackTrace();
+				return 0;
+			}
+		}
+		else
+			return index.intValue();
+	}
+
+	private static void populateNodesAndLinks(Vector<OperatorPaths> pathsSets) {
+		for(OperatorPaths paths: pathsSets)
+			processPaths(paths);
+	}
+
 }

@@ -45,7 +45,7 @@ public class SelectionOptionsHTML {
 	}
 
 	public String getFormats() {
-		ResultSet formats = viskoStore.getOperatedOnFormats();
+		ResultSet formats = viskoStore.getInputFormats();
 
 		String options = "<option value=\"" + DEFAULT
 				+ "\">-- Choose Format --</option>";
