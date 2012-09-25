@@ -60,18 +60,6 @@ public class ViskoTripleStore {
 			+ "PREFIX pmlp: <http://inference-web.org/2.0/pml-provenance.owl#> "
 			+ "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ";
 
-	/*
-	public ResultSet getSuperClasses(String classURI){
-		classURI = "<" + classURI + ">";
-		
-		String stringQuery =
-				QUERY_PREFIX
-				+ "SELECT ?superClass WHERE{"
-				+ classURI + " rdfs:subClassOf ?superClass . }";
-		
-		return submitQuery(stringQuery);
-	}*/
-		
 	public ResultSet getInformationSubclasses(){
 		String query =
 				QUERY_PREFIX
@@ -161,20 +149,29 @@ public class ViskoTripleStore {
 		return submitQuery(stringQuery);
 	}
 
-	/*
-	public ResultSet getOperatorInformation() {
-		String stringQuery = 
+	public ResultSet getInputData(String operatorURI){
+		operatorURI = "<" + operatorURI + ">";
+		
+		String stringQuery =
 				QUERY_PREFIX
-				+ "SELECT ?operator ?lbl ?inputFormat ?outputFormat ?inputDataType ?outputDataType WHERE { "
-				+ "?operator a viskoO:Operator . "
-				+ "?operator rdfs:label ?lbl . "
-				+ "?operator viskoO:hasInputDataType ?inputDataType . "
-				+ "?operator viskoO:hasOutputDataType ?outputDataType . "
-				+ "?operator viskoO:hasInputFormat ?inputFormat . "
-				+ "?operator viskoO:hasOutputFormat ?outputFormat . " + "}";
+				+ "SELECT ?format ?dataType WHERE{"
+				+ operatorURI + "viskoO:hasInputFormat ?format . "
+				+ operatorURI + "viskoO:hasInputDataType ?dataType . }";
 		
 		return submitQuery(stringQuery);
-	}*/
+	}
+	
+	public ResultSet getOutputData(String operatorURI){
+		operatorURI = "<" + operatorURI + ">";
+		
+		String stringQuery =
+				QUERY_PREFIX
+				+ "SELECT ?format ?dataType WHERE{"
+				+ operatorURI + "viskoO:hasOutputFormat ?format . "
+				+ operatorURI + "viskoO:hasOutputDataType ?dataType . }";
+		
+		return submitQuery(stringQuery);
+	}
 
 	public ResultSet getToolkits() {
 		String stringQuery = 
@@ -212,6 +209,24 @@ public class ViskoTripleStore {
 		return submitQuery(stringQuery);
 	}
 
+	public boolean isAlreadyVisualizableWithViewerSet(String formatURI, String dataTypeURI){
+		formatURI = "<" + formatURI + ">";
+		dataTypeURI = "<" + dataTypeURI + ">";
+
+		String stringQuery = 
+				QUERY_PREFIX
+				+ "ASK WHERE {{"
+				+ "?viewer viskoO:partOfViewerSet ?viewerSet . "
+				+ "?viewer viskoO:hasInputFormat " + formatURI + " . "
+				+ "?viewer viskoO:hasInputDataType " + dataTypeURI + " . } UNION {"
+				+ "?viewer viskoO:partOfViewerSet ?viewerSet . "
+				+ "?viewer viskoO:hasInputFormat " + formatURI + " . "
+				+ "?viewer viskoO:hasInputDataType ?superDataType . "
+				+ dataTypeURI + " rdfs:subClassOf ?superDataType . }}";
+				
+		return submitAskQuery(stringQuery);
+	}
+	
 	public boolean isAlreadyVisualizableWithViewerSet(String formatURI, String dataTypeURI, String viewerSetURI) {
 		formatURI = "<" + formatURI + ">";
 		dataTypeURI = "<" + dataTypeURI + ">";
@@ -361,15 +376,6 @@ public class ViskoTripleStore {
 		return submitAskQuery(stringQuery);
 	}
 
-	/*
-	public ResultSet getTransformedFormats() {
-		String stringQuery = QUERY_PREFIX
-				+ "SELECT ?format ?outputOf ?inputTo " + "WHERE {"
-				+ "?outputOf viskoO:hasOutputFormat ?format . "
-				+ "?inputTo viskoO:hasInputFormat ?format . " + "}";
-		return submitQuery(stringQuery);
-	}*/
-
 	public ResultSet getViews() {
 		String stringQuery = 
 				QUERY_PREFIX
@@ -396,48 +402,67 @@ public class ViskoTripleStore {
 	}
 	
 	// Queries used for my backward chaining reasoning	
-	public ResultSet getAdjacentOperatorsAccordingToFormatAndDataType(String operatorURI){
-		
+	public ResultSet getAdjacentOperatorsAccordingToFormatAndDataType(String operatorURI, String currentTypeURI){
+		currentTypeURI = "<" + currentTypeURI + ">";
 		operatorURI = "<" + operatorURI + ">";
 		
 		String stringQuery = 
 				QUERY_PREFIX
 				+ "SELECT ?operator WHERE {{"
-				+ operatorURI + " viskoO:hasOutputDataType ?dataType . "
+				//+ operatorURI + " viskoO:hasOutputDataType ?dataType . "
 				+ operatorURI + " viskoO:hasOutputFormat ?format . "
 				+ "?operator a viskoO:Operator . "				
-				+ "?operator viskoO:hasInputDataType ?dataType . "
+				//+ "?operator viskoO:hasInputDataType ?dataType . "
+				+ "?operator viskoO:hasInputDataType " + currentTypeURI + " . "
 				+ "?operator viskoO:hasInputFormat ?format . } UNION {"
-				+ operatorURI + " viskoO:hasOutputDataType ?subDataType . "
+				//+ operatorURI + " viskoO:hasOutputDataType ?subDataType . "
 				+ operatorURI + " viskoO:hasOutputFormat ?format . "
 				+ "?operator a viskoO:Operator . "
 				+ "?operator viskoO:hasInputDataType ?superDataType . "
 				+ "?operator viskoO:hasInputFormat ?format . "
-				+ "?subDataType rdfs:subClassOf ?superDataType . }}";
+				//+ "?subDataType rdfs:subClassOf ?superDataType . }}";
+				+ currentTypeURI + " rdfs:subClassOf ?superDataType . }}";
 		
 		return submitQuery(stringQuery);
 	}
 	
-	public ResultSet getAdjacentNonDataFilterOperatorsAccordingToFormatAndDataType(String operatorURI){
+	public ResultSet getAdjacentNonDataFilterOperatorsAccordingToFormatAndDataType(String operatorURI, String currentTypeURI){
+		currentTypeURI = "<" + currentTypeURI + ">";
 		operatorURI = "<" + operatorURI + ">";
 		
 		String stringQuery = 
 				QUERY_PREFIX
 				+ "SELECT ?operator WHERE {"
 				+ "{"
-				+ operatorURI + " viskoO:hasOutputDataType ?dataType . "
+				//+ operatorURI + " viskoO:hasOutputDataType ?dataType . "
 				+ operatorURI + " viskoO:hasOutputFormat ?format . "
 				+ "?operator a viskoO:Operator . "				
-				+ "?operator viskoO:hasInputDataType ?dataType . "
+				//+ "?operator viskoO:hasInputDataType ?dataType . "
+				+ "?operator viskoO:hasInputDataType " + currentTypeURI + " . "
 				+ "?operator viskoO:hasInputFormat ?format . } UNION {"
-				+ operatorURI + " viskoO:hasOutputDataType ?subDataType . "
+				//+ operatorURI + " viskoO:hasOutputDataType ?subDataType . "
 				+ operatorURI + " viskoO:hasOutputFormat ?format . "
 				+ "?operator a viskoO:Operator . "
 				+ "?operator viskoO:hasInputDataType ?superDataType . "
 				+ "?operator viskoO:hasInputFormat ?format . "
-				+ "?subDataType rdfs:subClassOf ?superDataType . "
+				//+ "?subDataType rdfs:subClassOf ?superDataType . "
+				+ currentTypeURI + " rdfs:subClassOf ?superDataType . "
 				+ "} FILTER NOTEXISTS {?operator a viskoO:DataFilter}"
 				+ "}";
+		
+		return submitQuery(stringQuery);
+	}
+	
+	public ResultSet getAdjacentOperatorsAccordingToFormat(String operatorURI){
+		operatorURI = "<" + operatorURI + ">";
+		
+		String stringQuery = 
+				QUERY_PREFIX
+				+ "SELECT ?operator WHERE {"
+				+ "{"
+				+ operatorURI + " viskoO:hasOutputFormat ?format . "
+				+ "?operator a viskoO:Operator . "				
+				+ "?operator viskoO:hasInputFormat ?format . }}";
 		
 		return submitQuery(stringQuery);
 	}

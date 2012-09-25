@@ -74,6 +74,25 @@ public class OperatorPaths extends Vector<OperatorPath> {
 		this.removeAll(nonCompliantPaths);
 	}
 	
+	public void filterByViewerSets(Vector<String> viewerSetURIs){
+		boolean canBeViewedByViewerSet;
+		Vector<OperatorPath> nonCompliantPaths = new Vector<OperatorPath>();		
+		OperatorPath aPath;
+		for(int i = 0; i < this.size(); i ++){
+			aPath = this.get(i);
+			canBeViewedByViewerSet = false;
+			for(String viewerSetURI : viewerSetURIs){
+				if(aPath.outputCanBeViewedByViewerSet(viewerSetURI)){
+					canBeViewedByViewerSet = true;
+					break;
+				}
+			}
+			
+			if(!canBeViewedByViewerSet)
+				nonCompliantPaths.add(aPath);
+		}	
+	}
+	
 	public void filterByViewerSet(String viewerSetURI){
 		Vector<OperatorPath> nonCompliantPaths = new Vector<OperatorPath>();
 

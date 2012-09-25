@@ -42,6 +42,7 @@ package edu.utep.trustlab.visko.planning;
 
 import java.util.Vector;
 
+import edu.utep.trustlab.visko.ontology.vocabulary.supplemental.OWL;
 import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.planning.PipelineSet;
 import edu.utep.trustlab.visko.planning.Query;
@@ -92,6 +93,18 @@ public class PipelineSetBuilder {
 		setOperatorImplementations();
 		System.out.println("Number of executable pipelines: " + pipelines.size());
 		
+	}
+	
+	public OperatorPaths getAllOperatorPaths(Vector<String> viewerSetURIs) {		
+		System.out.println("Finding operator paths...");
+		setOperatorPaths();
+		
+		System.out.println("Number of operator paths: " + operatorPaths.size());		
+
+		operatorPaths.filterByViewerSets(viewerSetURIs);
+		
+		System.out.println("Number of operator paths after additional ViewerSet restriction: " + operatorPaths.size());
+		return operatorPaths;
 	}
 	
 	private void setOperatorImplementations(){
@@ -145,32 +158,32 @@ public class PipelineSetBuilder {
 		for(String operatorURI : operatorURIs){
 			operatorPath = new OperatorPath(ts);
 			operatorPath.add(operatorURI);
-			constructOperatorPaths(operatorPath);
+			String newDataType = this.getNextDataType(query.getTypeURI(), operatorURI);
+			constructOperatorPaths(operatorPath, newDataType);
 		}
 	}
 	
-	private void constructOperatorPaths(OperatorPath operatorPath){
-		
+	private void constructOperatorPaths(OperatorPath operatorPath, String inputTypeURI){
 		if(operatorPath.violatesRules())
 			return;
-		
-		if(query.getViewURI() != null && operatorPath.violatesRequestedView(query.getViewURI())){
+		else if(query.getViewURI() != null && operatorPath.violatesRequestedView(query.getViewURI()))
 			return;
-		}
-			
+		
 		// get a listing of all operators that can process input operator
 		ResultSet operatorResults;
-				
-		if(query.dataIsFiltered())
-			operatorResults = ts.getAdjacentOperatorsAccordingToFormatAndDataType(operatorPath.lastElement());
+		
+		if(inputTypeURI.equals(OWL.CLASS_URI_Thing))
+			operatorResults = ts.getAdjacentOperatorsAccordingToFormat(operatorPath.lastElement());
+		else if(query.dataIsFiltered())
+			operatorResults = ts.getAdjacentOperatorsAccordingToFormatAndDataType(operatorPath.lastElement(), inputTypeURI);
 		else
-			operatorResults = ts.getAdjacentNonDataFilterOperatorsAccordingToFormatAndDataType(operatorPath.lastElement());
-			
+			operatorResults = ts.getAdjacentNonDataFilterOperatorsAccordingToFormatAndDataType(operatorPath.lastElement(), inputTypeURI);
+		
 		Vector<String> operatorURIs = ResultSetToVector.getVectorFromResultSet(operatorResults, "operator");
 		
 		// filter out any operators that are already in this path		
 		operatorURIs = operatorPath.filterOperatorsAlreadyInPath(operatorURIs);
-		
+	
 		// recursive base case, we hit the end of an operator path
 		if(operatorURIs.size() == 0){
 			operatorPaths.add(operatorPath);
@@ -187,10 +200,22 @@ public class PipelineSetBuilder {
 			}
 			
 			for(String nextOperatorURI : operatorURIs){
+				
 				clonedPath = operatorPath.clonePath();
 				clonedPath.add(nextOperatorURI);
-				constructOperatorPaths(clonedPath);
+				String dType = getNextDataType(inputTypeURI, nextOperatorURI);
+				constructOperatorPaths(clonedPath, dType);
 			}
 		}
 	}	
+	
+	private String getNextDataType(String currentDataType, String operatorURI){
+		String[] dataURIs = ResultSetToVector.getVectorPairsFromResultSet(ts.getOutputData(operatorURI), "format", "dataType").firstElement();
+		String dataTypeURI = dataURIs[1];
+		
+		if(dataTypeURI.equals(OWL.CLASS_URI_Thing))
+			return currentDataType;
+		else
+			return dataTypeURI;
+	}
 }
