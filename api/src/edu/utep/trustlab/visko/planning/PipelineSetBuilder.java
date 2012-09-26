@@ -58,16 +58,28 @@ public class PipelineSetBuilder {
 	private OperatorPaths operatorPaths;
 	private PipelineSet pipelines;
 	private Query query;
+	
+	private String formatURI;
+	private String dataTypeURI;
+	private Vector<String> viewerURIs;
+	private String viewURI;
 
 	public PipelineSetBuilder(Query drivingQuery) {
 		ts = new ViskoTripleStore();
 		query = drivingQuery;
+		formatURI = query.getFormatURI();
+		dataTypeURI = query.getTypeURI();
+		viewerURIs = ResultSetToVector.getVectorFromResultSet(ts.getViewersOfViewerSet(query.getViewerSetURI()), "viewer");
+		viewURI = query.getViewURI();
 	}
-
-	public PipelineSet getPipelines() {
-		return pipelines;
+	
+	public PipelineSetBuilder(String aFormatURI, String aDataTypeURI, Vector<String> viewers, String aViewURI){
+		formatURI = aFormatURI;
+		dataTypeURI = aDataTypeURI;
+		viewerURIs = viewers;
+		viewURI = aViewURI;
 	}
-
+	
 	public ViskoTripleStore getTripleStore() {
 		return ts;
 	}
@@ -76,37 +88,29 @@ public class PipelineSetBuilder {
 		return ts.isAlreadyVisualizableWithViewerSet(query.getFormatURI(), query.getTypeURI(), query.getViewerSetURI());
 	}
 		
-	public void setPipelines() {		
+	public OperatorPaths getOperatorPaths() {		
 		System.out.println("Finding operator paths...");
 		setOperatorPaths();
 		
 		System.out.println("Number of operator paths: " + operatorPaths.size());
-				
-		operatorPaths.filterByViewerSet(query.getViewerSetURI());
-		System.out.println("Number of operator paths after additional ViewerSet restriction: " + operatorPaths.size());
-		
+						
 		if (query.getViewURI() != null) {
 			operatorPaths.filterByView(query.getViewURI());
 			System.out.println("Number of operator paths after additional View restrictions: " + operatorPaths.size());
-		}				
+		}					
+		return operatorPaths;		
+	}
+	
+	public PipelineSet getPipelineSet(){
+		if(operatorPaths == null)
+			getOperatorPaths();
 		
 		setOperatorImplementations();
 		System.out.println("Number of executable pipelines: " + pipelines.size());
 		
+		return pipelines;
 	}
-	
-	public OperatorPaths getAllOperatorPaths(Vector<String> viewerSetURIs) {		
-		System.out.println("Finding operator paths...");
-		setOperatorPaths();
 		
-		System.out.println("Number of operator paths: " + operatorPaths.size());		
-
-		operatorPaths.filterByViewerSets(viewerSetURIs);
-		
-		System.out.println("Number of operator paths after additional ViewerSet restriction: " + operatorPaths.size());
-		return operatorPaths;
-	}
-	
 	private void setOperatorImplementations(){
 		Vector<Vector<String>> operatorImplSets;
 		pipelines = new PipelineSet(query);
@@ -115,13 +119,11 @@ public class PipelineSetBuilder {
 		for (OperatorPath operatorPath : operatorPaths) {
 			pipe = new Pipeline(operatorPath.getViewerURI(), operatorPath.getViewGenerated(), pipelines);
 
-			if (operatorPath.isEmpty()) {
+			if (operatorPath.isEmpty())
 				pipelines.add(pipe);
-			}
 
 			else {
 				operatorImplSets = new Vector<Vector<String>>();
-
 				for (String operatorURI : operatorPath){
 					
 					ResultSet operatorImplURIs = ts.getOWLSServiceImplementationsURIs(operatorURI);
@@ -132,8 +134,7 @@ public class PipelineSetBuilder {
 				}
 
 				if (operatorImplSets.size() == operatorPath.size()) {
-					Vector<Vector<String>> cartesianOperatorImpl = CartesianProduct
-							.cartesianProduct(operatorImplSets, 0);
+					Vector<Vector<String>> cartesianOperatorImpl = CartesianProduct.cartesianProduct(operatorImplSets, 0);
 
 					for (Vector<String> cartesianPath : cartesianOperatorImpl) {
 						pipe = new Pipeline(operatorPath.getViewerURI(), operatorPath.getViewGenerated(), pipelines);
@@ -148,63 +149,58 @@ public class PipelineSetBuilder {
 	private void setOperatorPaths(){
 		operatorPaths = new OperatorPaths();
 		
-		// get a listing of all operators that process the inputFormat
-		// these operators will be the starting point for our search algorithm
-		ResultSet operatorResults = ts.getOperatorsThatProcessData(query.getFormatURI(), query.getTypeURI());
+		ResultSet operatorResults = ts.getOperatorsThatProcessData(formatURI, dataTypeURI);
 		Vector<String> operatorURIs = ResultSetToVector.getVectorFromResultSet(operatorResults, "operator");		
 				
-		// for each root operatorURI, start a new path and populate it
 		OperatorPath operatorPath;
 		for(String operatorURI : operatorURIs){
 			operatorPath = new OperatorPath(ts);
 			operatorPath.add(operatorURI);
-			String newDataType = this.getNextDataType(query.getTypeURI(), operatorURI);
-			constructOperatorPaths(operatorPath, newDataType);
+			String transformedDataType = getNextDataType(dataTypeURI, operatorURI);
+			constructOperatorPaths(operatorPath, transformedDataType);
 		}
 	}
 	
-	private void constructOperatorPaths(OperatorPath operatorPath, String inputTypeURI){
-		if(operatorPath.violatesRules())
-			return;
-		else if(query.getViewURI() != null && operatorPath.violatesRequestedView(query.getViewURI()))
-			return;
-		
-		// get a listing of all operators that can process input operator
-		ResultSet operatorResults;
-		
-		if(inputTypeURI.equals(OWL.CLASS_URI_Thing))
-			operatorResults = ts.getAdjacentOperatorsAccordingToFormat(operatorPath.lastElement());
-		else if(query.dataIsFiltered())
-			operatorResults = ts.getAdjacentOperatorsAccordingToFormatAndDataType(operatorPath.lastElement(), inputTypeURI);
-		else
-			operatorResults = ts.getAdjacentNonDataFilterOperatorsAccordingToFormatAndDataType(operatorPath.lastElement(), inputTypeURI);
-		
-		Vector<String> operatorURIs = ResultSetToVector.getVectorFromResultSet(operatorResults, "operator");
-		
-		// filter out any operators that are already in this path		
-		operatorURIs = operatorPath.filterOperatorsAlreadyInPath(operatorURIs);
+	private boolean operatorPathViolatesCompositionRules(OperatorPath path){
+		return path.violatesRules() || path.violatesRequestedView(viewURI);
+	}
 	
-		// recursive base case, we hit the end of an operator path
-		if(operatorURIs.size() == 0){
-			operatorPaths.add(operatorPath);
-			return;
-		}
+	private void constructOperatorPaths(OperatorPath operatorPath, String inputTypeURI){
+		if(!operatorPathViolatesCompositionRules(operatorPath)){
+			
+			ResultSet operatorResults;
+			if(inputTypeURI.equals(OWL.CLASS_URI_Thing))
+				operatorResults = ts.getAdjacentOperatorsAccordingToFormat(operatorPath.lastElement());
+			else if(query.dataIsFiltered())
+				operatorResults = ts.getAdjacentOperatorsAccordingToFormatAndDataType(operatorPath.lastElement(), inputTypeURI);
+			else
+				operatorResults = ts.getAdjacentNonDataFilterOperatorsAccordingToFormatAndDataType(operatorPath.lastElement(), inputTypeURI);
+		
+			Vector<String> operatorURIs = ResultSetToVector.getVectorFromResultSet(operatorResults, "operator");	
+			operatorURIs = operatorPath.filterOperatorsAlreadyInPath(operatorURIs);
+	
+			if(operatorURIs.size() > 0){
+				OperatorPath clonedPath;
+				String targetViewerURI = operatorPath.outputCanBeViewedByViewerSet(viewerURIs);
 
-		// recursive case, there are more operators to add
-		else{
-			OperatorPath clonedPath;
+				if(targetViewerURI != null){
+					clonedPath = operatorPath.clonePath();
+					clonedPath.setViewer(targetViewerURI);
+					operatorPaths.add(clonedPath);
+				}
 			
-			if(ts.generatesTargetFormatOfViewerSet(operatorPath.lastElement(), query.getViewerSetURI())){
-				clonedPath = operatorPath.clonePath();
-				operatorPaths.add(clonedPath);
+				for(String nextOperatorURI : operatorURIs){				
+					clonedPath = operatorPath.clonePath();
+					clonedPath.add(nextOperatorURI);
+					String transformedDataType = getNextDataType(inputTypeURI, nextOperatorURI);
+					constructOperatorPaths(clonedPath, transformedDataType);
+				}
 			}
-			
-			for(String nextOperatorURI : operatorURIs){
-				
-				clonedPath = operatorPath.clonePath();
-				clonedPath.add(nextOperatorURI);
-				String dType = getNextDataType(inputTypeURI, nextOperatorURI);
-				constructOperatorPaths(clonedPath, dType);
+			else {
+				String targetViewerURI = operatorPath.outputCanBeViewedByViewerSet(viewerURIs);				
+				if(targetViewerURI != null)
+					operatorPath.setViewer(targetViewerURI);
+					operatorPaths.add(operatorPath);
 			}
 		}
 	}	

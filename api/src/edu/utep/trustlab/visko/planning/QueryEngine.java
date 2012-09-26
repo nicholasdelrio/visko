@@ -65,25 +65,20 @@ public class QueryEngine {
 	public PipelineSet getPipelines() {
 		if (pipelines == null)
 			createPipelines();
-
 		return pipelines;
 	}
 
 	private void createPipelines() {
 		String typeConstraintURI = query.getTypeURI();
 
-		if (typeConstraintURI != null) {
+		if (typeConstraintURI != null)
 			loadParameterBindingsFromProfile(typeConstraintURI);
-		}
 
-		// this one might replace bindings in the profile, but that is good
-		// since query bindings take precedence
-		if (query.getParameterBindings().size() > 0) {
+		// this one might replace bindings in the profile, but that is good since query bindings take precedence
+		if (query.getParameterBindings().size() > 0)
 			loadParameterBindingsFromQuery();
-		}
 
-		builder.setPipelines();
-		pipelines = builder.getPipelines();
+		pipelines = builder.getPipelineSet();
 		pipelines.setParameterBindings(parameterBindings);
 		pipelines.setArtifactURL(query.getArtifactURL());
 	}
@@ -100,15 +95,13 @@ public class QueryEngine {
 		ResultSet results = builder.getTripleStore().getParameterBindings(dataTypeURI);
 		Vector<String[]> bindings = ResultSetToVector.getVectorPairsFromResultSet(results, "param", "value");
 
-		for (String[] binding : bindings) {
+		for (String[] binding : bindings)
 			parameterBindings.put(binding[0], binding[1]);
-		}
 	}
 
 	public void loadParameterBindingsFromQuery() {
 		Set<String> keySet = query.getParameterBindings().keySet();
-		for (String key : keySet) {
+		for (String key : keySet)
 			parameterBindings.put(key, query.getParameterBindings().get(key));
-		}
 	}
 }

@@ -261,6 +261,17 @@ public class ViskoTripleStore {
 		return submitAskQuery(stringQuery);
 	}
 
+	public ResultSet getViewersOfViewerSet(String viewerSetURI) {
+		viewerSetURI = "<" + viewerSetURI + ">";
+
+		String stringQuery = 
+				QUERY_PREFIX
+				+ "SELECT ?viewer WHERE { "
+				+ "?viewer viskoO:partOfViewerSet " + viewerSetURI + " .}";
+
+		return submitQuery(stringQuery);
+	}
+	
 	public ResultSet getViewerSetsOfViewer(String viewerURI) {
 		viewerURI = "<" + viewerURI + ">";
 
@@ -278,6 +289,16 @@ public class ViskoTripleStore {
 		String stringQuery = QUERY_PREFIX
 				+ "ASK "
 				+ "WHERE {" + uri + " rdf:type viskoO:ViewMapper . }";
+
+		return submitAskQuery(stringQuery);
+	}
+	
+	public boolean isViewer(String uri) {
+		uri = "<" + uri + ">";
+
+		String stringQuery = QUERY_PREFIX
+				+ "ASK "
+				+ "WHERE {" + uri + " rdf:type viskoO:Viewer . }";
 
 		return submitAskQuery(stringQuery);
 	}
@@ -487,6 +508,28 @@ public class ViskoTripleStore {
 				+ "?subDataType rdfs:subClassOf ?superDataType . }}";
 		
 		return submitQuery(stringQuery);
+	}
+	
+	public boolean outputCanBeViewedByViewer(String operatorURI, String viewerURI){
+		operatorURI = "<" + operatorURI + ">";
+		viewerURI = "<" + viewerURI + ">";
+		
+		String stringQuery = 
+				QUERY_PREFIX
+				+ "ASK WHERE {{"
+				+ viewerURI + " a viskoO:Viewer . "
+				+ viewerURI + " viskoO:hasInputFormat ?format . "
+				+ viewerURI + " viskoO:hasInputDataType ?dataType . "
+				+ operatorURI + " viskoO:hasOutputFormat ?format . "
+				+ operatorURI + " viskoO:hasOutputDataType ?dataType . }UNION{"
+				+ viewerURI + " a viskoO:Viewer . "
+				+ viewerURI + " viskoO:hasInputFormat ?format . "
+				+ viewerURI + " viskoO:hasInputDataType ?superDataType . "
+				+ operatorURI + " viskoO:hasOutputFormat ?format . "
+				+ operatorURI + " viskoO:hasOutputDataType ?subDataType ."
+				+ "?subDataType rdfs:subClassOf ?superDataType . }}";
+				
+		return submitAskQuery(stringQuery);
 	}
 	
 	public boolean outputCanBeViewedByViewerSet(String operatorURI, String viewerSetURI){

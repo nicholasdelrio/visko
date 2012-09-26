@@ -37,11 +37,9 @@ GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWE
 LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-
 package edu.utep.trustlab.visko.planning;
 
 import java.util.*;
-
 
 public class OperatorPaths extends Vector<OperatorPath> {
 	public boolean add(OperatorPath path) {
@@ -72,36 +70,5 @@ public class OperatorPaths extends Vector<OperatorPath> {
 		}
 		
 		this.removeAll(nonCompliantPaths);
-	}
-	
-	public void filterByViewerSets(Vector<String> viewerSetURIs){
-		boolean canBeViewedByViewerSet;
-		Vector<OperatorPath> nonCompliantPaths = new Vector<OperatorPath>();		
-		OperatorPath aPath;
-		for(int i = 0; i < this.size(); i ++){
-			aPath = this.get(i);
-			canBeViewedByViewerSet = false;
-			for(String viewerSetURI : viewerSetURIs){
-				if(aPath.outputCanBeViewedByViewerSet(viewerSetURI)){
-					canBeViewedByViewerSet = true;
-					break;
-				}
-			}
-			
-			if(!canBeViewedByViewerSet)
-				nonCompliantPaths.add(aPath);
-		}	
-	}
-	
-	public void filterByViewerSet(String viewerSetURI){
-		Vector<OperatorPath> nonCompliantPaths = new Vector<OperatorPath>();
-
-		OperatorPath operatorPath;
-		for(int i = 0; i < this.size(); i ++){
-			operatorPath = this.get(i);
-			if(!operatorPath.outputCanBeViewedByViewerSet(viewerSetURI))
-				nonCompliantPaths.add(operatorPath);
-		}
-		this.removeAll(nonCompliantPaths);
-	}	
+	}		
 }

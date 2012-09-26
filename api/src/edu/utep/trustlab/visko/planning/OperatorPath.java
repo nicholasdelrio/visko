@@ -57,6 +57,9 @@ public class OperatorPath extends Vector<String> {
 	//the triple store instance this operator relies on
 	private ViskoTripleStore ts;
 	
+	//hashmap to quickly check for operator membership
+	private HashMap<String, Boolean> operatorLookup;
+	
 	private boolean containsDataFilter;
 	private boolean containsDimensionFilter;
 	private boolean containsViewMapper;
@@ -67,14 +70,16 @@ public class OperatorPath extends Vector<String> {
 	private boolean violatesRuleSingleViewMapper;
 	private boolean violatesRuleSingleInterpolator;
 	
-	public OperatorPath(String viewerURI) {
+	public OperatorPath(String aViewerURI) {
 		super();
-		this.viewerURI = viewerURI;
+		viewerURI = aViewerURI;
+		operatorLookup = new HashMap<String, Boolean>();
 	}
 	
 	public OperatorPath(ViskoTripleStore tripleStore) {
 		super();
 		ts = tripleStore;
+		operatorLookup = new HashMap<String, Boolean>();
 	}
 	
 	public void set(Vector<String> operatorURIs) {
@@ -98,10 +103,10 @@ public class OperatorPath extends Vector<String> {
 		return containsInterpolator;
 	}
 
-	private boolean isAlreadyInPath(String operatorURI){		
-		for(String anOperatorURI : this)
-			if(operatorURI.equals(anOperatorURI))
-				return true;
+	private boolean isAlreadyInPath(String operatorURI){
+		Boolean value = operatorLookup.get(operatorURI);
+		if(value != null && value.booleanValue())
+			return true;
 		return false;
 	}
 	
@@ -111,30 +116,28 @@ public class OperatorPath extends Vector<String> {
 		
 		return false;
 	}
-		
-	public boolean outputCanBeViewedByViewerSet(String viewerSetURI){
-		String finalOperatorURI = this.lastElement();
-		if(ts.outputCanBeViewedByViewerSet(finalOperatorURI, viewerSetURI)){
-			setTargetViewerFromViewerSet(viewerSetURI);
-			return true;
-		}
-		
-		return false;
-	}
 	
-	private void setTargetViewerFromViewerSet(String viewerSetURI){
+	public String outputCanBeViewedByViewerSet(Vector<String> viewerURIs){
 		String finalOperatorURI = this.lastElement();
-		ResultSet viewerResults = ts.getTargetViewerForOperator(finalOperatorURI, viewerSetURI);
-		Vector<String> viewerURIs = ResultSetToVector.getVectorFromResultSet(viewerResults, "viewer");
-		viewerURI = viewerURIs.firstElement();
+		for(String aViewerURI : viewerURIs){
+			if(ts.outputCanBeViewedByViewer(finalOperatorURI, aViewerURI)){
+				return aViewerURI;
+			}
+		}
+		return null;
+	}
+		
+	public void setViewer(String aViewerURI){
+		viewerURI = aViewerURI;
 	}
 	
 	public OperatorPath clonePath(){
+
+		@SuppressWarnings("unchecked")
+		Vector<String> operatorURIs = (Vector<String>)clone();
+		
 		OperatorPath clonedPath = new OperatorPath(ts);
-		
-		for(String operatorURI : this)
-			clonedPath.add(operatorURI);
-		
+		clonedPath.set(operatorURIs);		
 		clonedPath.setViewURI(viewURI);
 		clonedPath.setViewerURI(viewerURI);
 		
@@ -152,27 +155,24 @@ public class OperatorPath extends Vector<String> {
 	
 	public boolean add(String operatorURI){
 		 if(ts.isViewMapper(operatorURI)){
-			 if(containsViewMapper)
-				 violatesRuleSingleViewMapper = true;
-			 else containsViewMapper = true;
+			 violatesRuleSingleViewMapper = containsViewMapper;
+			 containsViewMapper = true;
 			 setViewGeneratedByViewMapper(operatorURI);
 		 }
-		 else if(ts.isDataFilter(operatorURI))
-			 if(containsDataFilter)
-				 violatesRuleSingleDataFilter = true;
-			 else
-				 containsDataFilter = true;
-		 else if(ts.isDimensionFilter(operatorURI))
-			 if(containsDimensionFilter)
-				 violatesRuleSingleDimensionFilter = true;
-			 else
-				 containsDimensionFilter = true;
-		 else if(ts.isInterpolator(operatorURI))
-			 if(containsInterpolator)
-				 violatesRuleSingleInterpolator = true;
-			 else
-				 containsInterpolator = true;
-
+		 else if(ts.isDataFilter(operatorURI)){
+			 violatesRuleSingleDataFilter = containsDataFilter;
+			 containsDataFilter = true;
+		 }
+		 else if(ts.isDimensionFilter(operatorURI)){
+			violatesRuleSingleDimensionFilter = containsDimensionFilter;		
+		 	containsDimensionFilter = true;
+		 }
+		 else if(ts.isInterpolator(operatorURI)){
+			 violatesRuleSingleInterpolator = containsInterpolator;
+			 containsInterpolator = true;
+		 }
+		 
+		 operatorLookup.put(operatorURI, new Boolean(true));
 		 return super.add(operatorURI);
 	}
 	
@@ -196,10 +196,6 @@ public class OperatorPath extends Vector<String> {
 		
 	public String getViewGenerated(){
 		return viewURI;
-	}
-	
-	public boolean isEmptyPath() {
-		return size() == 0;
 	}
 	
 	private void setViewURI(String aViewURI){
