@@ -31,7 +31,7 @@ import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.util.ResultSetToVector;
 
-public class PipelineGraphData {
+public class Graph_Pipeline {
 	public static HashMap<String, Integer> operators;
 	
 	private ArrayList<JSONObject> nodesList;

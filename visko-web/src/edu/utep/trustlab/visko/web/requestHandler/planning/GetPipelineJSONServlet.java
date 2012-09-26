@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.planning.QueryEngine;
 import edu.utep.trustlab.visko.web.context.ViskoWebSession;
-import edu.utep.trustlab.visko.web.json.PipelineGraphData;
+import edu.utep.trustlab.visko.web.json.Graph_Pipeline;
 import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerJSON;
 public class GetPipelineJSONServlet extends RequestHandlerJSON{
 
@@ -39,7 +39,7 @@ public class GetPipelineJSONServlet extends RequestHandlerJSON{
 
 		Pipeline pipe = engine.getPipelines().get(index);
 		
-		PipelineGraphData pipelineGraph = new PipelineGraphData();
+		Graph_Pipeline pipelineGraph = new Graph_Pipeline();
 		return pipelineGraph.getPipelineJSON(pipe);
 	}
 }

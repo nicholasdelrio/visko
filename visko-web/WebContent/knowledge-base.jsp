@@ -44,13 +44,13 @@
 
 <a name="Browsing"></a>
 <h2>Class Instances</h2>
-<iframe width="900" height="290" src="InstanceBarGraph.html" frameborder="0"></iframe>
+<iframe width="1050" height="500" src="Bar_Instances.html" frameborder="0"></iframe>
 
 <h2>Format/Data Type Transformation Paths:</h2>
-<iframe width="900" height="500" src="FormatTransformationPaths.html" frameborder="1"></iframe>
+<iframe width="1050" height="700" src="Graph_DataTransformations.html" frameborder="1"></iframe>
 
 <h2>Operator Pipeline Paths:</h2>
-<iframe width="900" height="500" src="OperatorPipelines.html" frameborder="1"></iframe>
+<iframe width="1050" height="700" src="Graph_OperatorPaths.html" frameborder="1"></iframe>
 
 <a name="Querying"></a>
 <h2>Querying your Knowledge Base</h2>

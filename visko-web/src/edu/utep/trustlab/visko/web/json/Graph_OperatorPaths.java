@@ -29,11 +29,10 @@ import org.json.JSONObject;
 import edu.utep.trustlab.visko.planning.OperatorPath;
 import edu.utep.trustlab.visko.planning.OperatorPaths;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
-import edu.utep.trustlab.visko.util.ResultSetToVector;
 
-public class FormatAndDataTypeGraphData {
-	public static HashMap<String, Integer> data;
-	public static HashMap<String, String> dataLinks;
+public class Graph_OperatorPaths {	
+	public static HashMap<String, Integer> operators;
+	public static HashMap<String, String> operatorLinks;
 	
 	private static String jsonGraph;
 	private static ViskoTripleStore ts;
@@ -41,7 +40,7 @@ public class FormatAndDataTypeGraphData {
 	private static ArrayList<JSONObject> nodesList;
 
 	
-	public static String getDataPathsGraphJSON(){
+	public static String getOperatorPathsGraphJSON(){
 	
 		if(jsonGraph != null)
 			return jsonGraph;
@@ -49,10 +48,16 @@ public class FormatAndDataTypeGraphData {
 		ts = new ViskoTripleStore();
 		linksList = new ArrayList<JSONObject>();
 		nodesList = new ArrayList<JSONObject>();
-		data = new HashMap<String, Integer>();
-		dataLinks = new HashMap<String, String>();
+		operators = new HashMap<String, Integer>();
+		operatorLinks = new HashMap<String, String>();
 		
-		populateNodesAndLinks(OperatorPathsSets.getOperatorPathsSets());
+		OperatorPathsSets pathsBuilder = new OperatorPathsSets();
+		pathsBuilder.start();
+		
+		while(pathsBuilder.isAlive())
+			;
+		
+		populateNodesAndLinks(pathsBuilder.getOperatorPathsSets());
 
 		JSONObject pathsGraph = new JSONObject();
 		try {
@@ -70,43 +75,40 @@ public class FormatAndDataTypeGraphData {
 	}
 		
 	private static void processPaths(OperatorPaths paths){
-		
+		String operator1 = null;
+		String operator2 = null;
 		for(OperatorPath path : paths){
-			String[] inputData = null;
-			String[] outputData = null;
-			
-			String operatorURI;
 			for(int i = 0; i < path.size(); i ++){
-				operatorURI = path.get(i);
-
-				if(i == 0){
-					inputData = ResultSetToVector.getVectorPairsFromResultSet(ts.getInputData(operatorURI), "format", "dataType").firstElement();
-					outputData = ResultSetToVector.getVectorPairsFromResultSet(ts.getOutputData(operatorURI), "format", "dataType").firstElement();
-				}
-				else{
-					inputData = outputData;
-					outputData = ResultSetToVector.getVectorPairsFromResultSet(ts.getOutputData(operatorURI), "format", "dataType").firstElement();
-				}
-					
-				addNodesAndLinks(inputData, outputData);
+				if(i > 0){
+					operator1 = path.get(i - 1);
+					operator2 = path.get(i);
+					addNodesAndLinks(operator1, operator2);
+				}			
 			}
+			addNodesAndLinksFromViewers(path);
 		}
 	}
 	
-	private static void addNodesAndLinks(String[] inputData, String[] outputData){
+	private static void addNodesAndLinksFromViewers(OperatorPath path){
+		String operatorURI = path.lastElement();
+		String viewerURI = path.getViewerURI();		
+		addNodesAndLinks(operatorURI, viewerURI);
+	}
+	
+	private static void addNodesAndLinks(String operator1, String operator2){
 				
-		int source = addNode(inputData[0], inputData[1]);
-		int target = addNode(outputData[0], outputData[1]);
+		int source = addNode(operator1);
+		int target = addNode(operator2);
 		
 		if(source != target)		
 			addLink(source, target, linksList);
 	}
 	
 	private static void addLink(int source, int target, ArrayList<JSONObject> linksList){
-		String link = dataLinks.get(source + "-" + target);
+		String link = operatorLinks.get(source + "-" + target);
 		if(link == null){
 		
-			dataLinks.put(source + "-" + target, "exists");
+			operatorLinks.put(source + "-" + target, "exists");
 			
 			try{
 				linksList.add(new JSONObject().put("source", source).put("target", target));
@@ -117,17 +119,20 @@ public class FormatAndDataTypeGraphData {
 		}
 	}
 	
-	private static int addNode(String formatURI, String dataTypeURI){
-		String key = formatURI + "---" + dataTypeURI;
-		Integer index = data.get(key);
+	private static int addNode(String operatorURI){
+		Integer index = operators.get(operatorURI);
 		int newIndex;
-		boolean isViewable;
+		
 		if(index == null){
-			isViewable = ts.isAlreadyVisualizableWithViewerSet(formatURI, dataTypeURI);
 			newIndex = nodesList.size();
-			data.put(key, newIndex);
+			operators.put(operatorURI, newIndex);
 			try{
-				nodesList.add(new JSONObject().put("data", key).put("visualizable", isViewable));
+				if(ts.isViewMapper(operatorURI))
+					nodesList.add(new JSONObject().put("operatorURI", operatorURI).put("viskoType", "ViewMapper"));
+				else if(ts.isViewer(operatorURI))
+					nodesList.add(new JSONObject().put("operatorURI", operatorURI).put("viskoType", "Viewer"));
+				else
+					nodesList.add(new JSONObject().put("operatorURI", operatorURI).put("viskoType", "Transformer"));
 				return newIndex;
 			}
 			catch(Exception e){
@@ -141,6 +146,7 @@ public class FormatAndDataTypeGraphData {
 
 	private static void populateNodesAndLinks(Vector<OperatorPaths> pathsSets) {
 		for(OperatorPaths paths: pathsSets)
-			FormatAndDataTypeGraphData.processPaths(paths);
+			processPaths(paths);
 	}
+
 }

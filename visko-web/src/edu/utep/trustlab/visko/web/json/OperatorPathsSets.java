@@ -11,15 +11,16 @@ import edu.utep.trustlab.visko.planning.Query;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 import edu.utep.trustlab.visko.util.ResultSetToVector;
 
-public class OperatorPathsSets {
+public class OperatorPathsSets extends Thread {
 	
-	private static Vector<OperatorPaths> pathsSets;
-	private static ViskoTripleStore ts;
+	private Vector<OperatorPaths> pathsSets;
+	private ViskoTripleStore ts;
+							
+	public Vector<OperatorPaths> getOperatorPathsSets(){
+		return pathsSets;
+	}
 	
-	public static Vector<OperatorPaths> getOperatorPathsSets(){
-		if(pathsSets != null && pathsSets.size() > 0)
-			return pathsSets;
-		
+	private Vector<OperatorPaths> constructOperatorPathsSets(){		
 		pathsSets = new Vector<OperatorPaths>();
 		ts= new ViskoTripleStore();
 		
@@ -29,19 +30,27 @@ public class OperatorPathsSets {
 		QuerySolution solution;
 		Query query;
 		PipelineSetBuilder builder;
-		Vector<String> viewerSetURIs = ResultSetToVector.getVectorFromResultSet(ts.getViewerSets(), "viewerSet");
 		
 		while(formatsAndDataTypes.hasNext()){
 			solution = formatsAndDataTypes.next();
 			formatURI = solution.get("format").toString();
 			dataTypeURI = solution.get("dataType").toString();
+
+			System.out.println("Finding operator paths for format: " + formatURI + " and dataTypeURI: " + dataTypeURI);
+			
+			Vector<String> allViewerURIs = ResultSetToVector.getVectorFromResultSet(ts.getViewers(), "viewer");
 			
 			query = new Query(null, formatURI, null);
 			query.setTypeURI(dataTypeURI);
 			
-			builder = new PipelineSetBuilder(query);
-			pathsSets.add(builder.getAllOperatorPaths(viewerSetURIs));
+			builder = new PipelineSetBuilder(formatURI, dataTypeURI, allViewerURIs, null);
+			pathsSets.add(builder.getOperatorPaths());
 		}
 		return pathsSets;
+	}
+
+	@Override
+	public void run() {
+		constructOperatorPathsSets();
 	}
 }

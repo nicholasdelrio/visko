@@ -26,7 +26,7 @@ import com.hp.hpl.jena.query.ResultSet;
 import org.json.*;
 import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 
-public class InstanceBarGraphData {
+public class Bars_Instances {
 	
 	private static String jsonBarGraph;
 	private static ViskoTripleStore ts = new ViskoTripleStore();

@@ -38,11 +38,10 @@ PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 
 <h3>What views can VisKo Generate?</h3>
 <pre>
-select ?view ?label
+select ?view
 where
 {
 ?view a viskoV:View.
-?view rdfs:label ?label
 } 
 </pre>
 
