@@ -182,12 +182,14 @@ public class ViskoTripleStore {
 		return submitQuery(stringQuery);
 	}
 		
-	public ResultSet getInputFormatsAndDataTypes() {
+	public ResultSet getInputDataParents() {
 		String stringQuery = 
 				QUERY_PREFIX 
 				+ "SELECT DISTINCT ?format ?dataType WHERE { "
 				+ "?operator viskoO:hasInputFormat ?format . "
-				+ "?operator viskoO:hasInputDataType ?dataType . " + "}";
+				+ "?operator viskoO:hasInputDataType ?dataType . "
+				+ "?operator a viskoO:Operator . "
+				+ "FILTER NOTEXISTS {?previousOperator viskoO:hasOutputFormat ?format . ?previousOperator viskoO:hasOutputDataType ?dataType .}}";
 		return submitQuery(stringQuery);
 	}	
 

@@ -64,9 +64,12 @@ public class PipelineSetBuilder {
 	private Vector<String> viewerURIs;
 	private String viewURI;
 
+	private boolean isDataFiltered;
+	
 	public PipelineSetBuilder(Query drivingQuery) {
 		ts = new ViskoTripleStore();
 		query = drivingQuery;
+		isDataFiltered = query.dataIsFiltered();
 		formatURI = query.getFormatURI();
 		dataTypeURI = query.getTypeURI();
 		viewerURIs = ResultSetToVector.getVectorFromResultSet(ts.getViewersOfViewerSet(query.getViewerSetURI()), "viewer");
@@ -74,6 +77,8 @@ public class PipelineSetBuilder {
 	}
 	
 	public PipelineSetBuilder(String aFormatURI, String aDataTypeURI, Vector<String> viewers, String aViewURI){
+		ts = new ViskoTripleStore();
+		isDataFiltered = false;
 		formatURI = aFormatURI;
 		dataTypeURI = aDataTypeURI;
 		viewerURIs = viewers;
@@ -94,8 +99,8 @@ public class PipelineSetBuilder {
 		
 		System.out.println("Number of operator paths: " + operatorPaths.size());
 						
-		if (query.getViewURI() != null) {
-			operatorPaths.filterByView(query.getViewURI());
+		if (viewURI != null) {
+			operatorPaths.filterByView(viewURI);
 			System.out.println("Number of operator paths after additional View restrictions: " + operatorPaths.size());
 		}					
 		return operatorPaths;		
@@ -167,11 +172,10 @@ public class PipelineSetBuilder {
 	
 	private void constructOperatorPaths(OperatorPath operatorPath, String inputTypeURI){
 		if(!operatorPathViolatesCompositionRules(operatorPath)){
-			
 			ResultSet operatorResults;
 			if(inputTypeURI.equals(OWL.CLASS_URI_Thing))
 				operatorResults = ts.getAdjacentOperatorsAccordingToFormat(operatorPath.lastElement());
-			else if(query.dataIsFiltered())
+			else if(isDataFiltered)
 				operatorResults = ts.getAdjacentOperatorsAccordingToFormatAndDataType(operatorPath.lastElement(), inputTypeURI);
 			else
 				operatorResults = ts.getAdjacentNonDataFilterOperatorsAccordingToFormatAndDataType(operatorPath.lastElement(), inputTypeURI);

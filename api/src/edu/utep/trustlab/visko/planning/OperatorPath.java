@@ -189,7 +189,7 @@ public class OperatorPath extends Vector<String> {
 	}
 	
 	public boolean violatesRequestedView(String requestedViewURI){
-		if(viewURI != null && !requestedViewURI.equals(viewURI))
+		if(viewURI != null && requestedViewURI != null && !requestedViewURI.equals(viewURI))
 			return true;
 		return false;
 	}
