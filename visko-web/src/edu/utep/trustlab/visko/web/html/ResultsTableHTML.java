@@ -104,7 +104,7 @@ public class ResultsTableHTML {
 
 	private static String getShowPipelineLink(int index) {
 		String html = "<a href=\"ViskoServletManager?requestType=show-pipeline&index=" + index;
-		html += "\">Text</a> / <a href=\"Pipeline.html?index=" + index;
+		html += "\">Text</a> / <a href=\"Graph_Pipeline.html?index=" + index;
 		html += "\">Graph</a>";
 		return html;
 	}
