@@ -44,7 +44,7 @@
 
 <a name="Browsing"></a>
 <h2>Class Instances</h2>
-<iframe width="1050" height="500" src="Bar_Instances.html" frameborder="0"></iframe>
+<iframe width="1050" height="500" src="Bars_Instances.html" frameborder="0"></iframe>
 
 <h2>Format/Data Type Transformation Paths:</h2>
 <iframe width="1050" height="700" src="Graph_DataTransformations.html" frameborder="1"></iframe>
