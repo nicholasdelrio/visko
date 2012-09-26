@@ -24,7 +24,7 @@ public class OperatorPathsSets extends Thread {
 		pathsSets = new Vector<OperatorPaths>();
 		ts= new ViskoTripleStore();
 		
-		ResultSet formatsAndDataTypes = ts.getInputFormatsAndDataTypes();
+		ResultSet formatsAndDataTypes = ts.getInputDataParents();
 		String formatURI;
 		String dataTypeURI;
 		QuerySolution solution;
