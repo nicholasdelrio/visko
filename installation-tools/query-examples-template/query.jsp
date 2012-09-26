@@ -45,9 +45,9 @@ WHERE
 </div>
 <table>
 <tr>
-<td align="center"><b>Generic Mapping Tools</b></td>
-<td align="center"><b>Visualization Toolkit</b></td>
-<td align="center"><b>NCAR Command Language</b></td>
+<td align="center"><a href="http://gmt.soest.hawaii.edu/">GMT</a></td>
+<td align="center"><a href="http://www.vtk.org/">VTK</a></td>
+<td align="center"><a href="http://www.ncl.ucar.edu/">NCL</a></td>
 </tr>
 <tr>
 <td><img src="./visualization-examples/gravity-2d-contourmap-gmt.png" width="350px"></td>
@@ -72,8 +72,8 @@ WHERE
 </div>
 <table>
 <tr>
-<td align="center"><b>Generic Mapping Tools</b></td>
-<td align="center"><b>NCAR Command Language</b></td>
+<td align="center"><a href="http://gmt.soest.hawaii.edu/">GMT</a></td>
+<td align="center"><a href="http://www.ncl.ucar.edu/">NCL</a></td>
 </tr>
 <tr>
 <tr>
@@ -99,7 +99,7 @@ WHERE
 
 <table>
 <tr>
-<td align="center"><b>Generic Mapping Tools</b></td>
+<td align="center"><a href="http://gmt.soest.hawaii.edu/">GMT</a></td>
 </tr>
 <tr>
 
@@ -125,7 +125,7 @@ WHERE
 
 <table>
 <tr>
-<td align="center"><b>Visualization Toolkit</b></td>
+<td align="center"><a href="http://www.vtk.org/">VTK</a></td>
 </tr>
 <tr>
 
@@ -152,7 +152,7 @@ WHERE
 
 <table>
 <tr>
-<td align="center"><b>Visualization Toolkit</b></td>
+<td align="center"><a href="http://www.vtk.org/">VTK</a></td>
 </tr>
 <tr>
 
@@ -178,7 +178,7 @@ WHERE
 
 <table>
 <tr>
-<td align="center"><b>Visualization Toolkit</b></td>
+<td align="center"><a href="http://www.vtk.org/">VTK</a></td>
 </tr>
 <tr>
 
@@ -207,7 +207,7 @@ WHERE
 
 <table>
 <tr>
-<td align="center"><b>Visualization Toolkit</b></td>
+<td align="center"><a href="http://www.vtk.org/">VTK</a></td>
 </tr>
 <tr>
 
@@ -235,7 +235,7 @@ WHERE
 
 <table>
 <tr>
-<td align="center"><b>Visualization Toolkit</b></td>
+<td align="center"><a href="http://www.vtk.org/">VTK</a></td>
 </tr>
 <tr>
 
@@ -264,7 +264,7 @@ WHERE
 
 <table>
 <tr>
-<td align="center"><b>Visualization Toolkit</b></td>
+<td align="center"><a href="http://www.vtk.org/">VTK</a></td>
 </tr>
 
 <tr>
@@ -289,7 +289,7 @@ WHERE
 
 <table>
 <tr>
-<td align="center"><b>Visualization Toolkit</b></td>
+<td align="center"><a href="http://www.vtk.org/">VTK</a></td>
 </tr>
 
 <tr>
@@ -314,7 +314,7 @@ WHERE
 
 <table>
 <tr>
-<td align="center"><b>Visualization Toolkit</b></td>
+<td align="center"><a href="http://www.vtk.org/">VTK</a></td>
 </tr>
 
 <tr>
@@ -339,7 +339,7 @@ WHERE
 
 <table>
 <tr>
-<td align="center"><b>Visualization Toolkit</b></td>
+<td align="center"><a href="http://www.vtk.org/">VTK</a></td>
 </tr>
 
 <tr>
@@ -373,7 +373,7 @@ WHERE
 
 <table>
 <tr>
-<td align="center"><b>NCAR Command Language</b></td>
+<td align="center"><a href="http://www.ncl.ucar.edu/">NCL</a></td>
 </tr>
 
 <tr>
@@ -404,7 +404,7 @@ WHERE
 
 <table>
 <tr>
-<td align="center"><b>NCAR Command Language</b></td>
+<td align="center"><a href="http://www.ncl.ucar.edu/">NCL</a></td>
 </tr>
 
 <tr>
@@ -438,7 +438,7 @@ WHERE
 
 <table>
 <tr>
-<td align="center"><b>Visualization Toolkit</b></td>
+<td align="center"><a href="http://www.vtk.org/">VTK</a></td>
 </tr>
 
 <tr>
