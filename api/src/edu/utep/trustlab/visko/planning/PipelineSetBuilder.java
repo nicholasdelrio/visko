@@ -78,7 +78,7 @@ public class PipelineSetBuilder {
 	
 	public PipelineSetBuilder(String aFormatURI, String aDataTypeURI, Vector<String> viewers, String aViewURI){
 		ts = new ViskoTripleStore();
-		isDataFiltered = false;
+		isDataFiltered = true;
 		formatURI = aFormatURI;
 		dataTypeURI = aDataTypeURI;
 		viewerURIs = viewers;
