@@ -64,17 +64,17 @@ public class QueryParserV3 implements QueryParser {
 
 	private String[] tokens;
 
-	private static final String[] KEYWORDS = { "PREFIX", "VISUALIZE", "AS", "IN", "NODESET", "LOCALLY"};
+	private static final String[] KEYWORDS = { "PREFIX", "VISUALIZE", "FILTERED", "AS", "IN", "NODESET", "LOCALLY"};
 
 	public static void main(String[] args) {
 		//String query1 = "PREFIX ns1 http://test1.owl# PREFIX ns http://test.owl# VISUALIZE LOCAL NODESET http://nodeset1.owl AS * IN ns1:viewer1 WHERE FORMAT = http://someformat.owl AND TYPE = http://sometype.owl AND http://spacing = 1 AND ns:color = marroon AND ns1:bg = black";
 		//String query2 = "PREFIX ns1 http://test1.owl# PREFIX ns http://test.owl# VISUALIZE http://dataset1.txt AS * IN ns1:viewer1 WHERE FORMAT = http://someformat.owl AND TYPE = http://sometype.owl AND http://spacing = 1 AND ns:color = marroon AND ns1:bg = black";
-		String query3 = "VISUALIZE http://someartifact.txt AS * IN https://raw.github.com/nicholasdelrio/visko/master/rdf/mozilla-firefox.owl#mozilla-firefox WHERE FORMAT = https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/TIFF.owl#TIFF AND TYPE = http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d13 AND https://raw.github.com/nicholasdelrio/visko/master/rdf/grdcontour.owl#A = k AND https://raw.github.com/nicholasdelrio/visko/master/rdf/grdimage.owl#J = 0";
+		String query3 = "VISUALIZE FILTERED http://someartifact.txt AS * IN https://raw.github.com/nicholasdelrio/visko/master/rdf/mozilla-firefox.owl#mozilla-firefox WHERE FORMAT = https://raw.github.com/nicholasdelrio/visko/master/rdf/formats/TIFF.owl#TIFF AND TYPE = http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d13 AND https://raw.github.com/nicholasdelrio/visko/master/rdf/grdcontour.owl#A = k AND https://raw.github.com/nicholasdelrio/visko/master/rdf/grdimage.owl#J = 0";
 		
 		String query4 = "VISUALIZE NODESET http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt_08475589929900726.owl#answer AS * IN https://raw.github.com/nicholasdelrio/visko/master/rdf/mozilla-firefox.owl#mozilla-firefox";	
 		
 		
-		QueryParserV3 parser = new QueryParserV3(query4);
+		QueryParserV3 parser = new QueryParserV3(query3);
 		parser.parse();
 
 		System.out.println("viewerset: " + parser.getViewerSetURI());
@@ -84,6 +84,7 @@ public class QueryParserV3 implements QueryParser {
 		System.out.println("type: " + parser.getSemanticTypeURI());
 		System.out.println("nodeset: " + parser.nodesetURI);
 		System.out.println("isLocal: " + parser.isLocal);
+		System.out.println("isfiltered: " + parser.isFiltered);
 
 		Set<String> keys = parser.getParameterBindings().keySet();
 		for (String key : keys) {
@@ -276,6 +277,7 @@ public class QueryParserV3 implements QueryParser {
 		if(token.equalsIgnoreCase("FILTERED")){
 			isFiltered = true;
 			tokenQueue.poll();
+			getDataInfo();
 		}
 		else
 			getDataInfo();
