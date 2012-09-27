@@ -166,7 +166,7 @@ public class ViskoTripleStore {
 		
 		String stringQuery =
 				QUERY_PREFIX
-				+ "SELECT ?format ?dataType WHERE{"
+				+ "SELECT DISTINCT ?format ?dataType WHERE{"
 				+ operatorURI + "viskoO:hasOutputFormat ?format . "
 				+ operatorURI + "viskoO:hasOutputDataType ?dataType . }";
 		
@@ -431,7 +431,7 @@ public class ViskoTripleStore {
 		
 		String stringQuery = 
 				QUERY_PREFIX
-				+ "SELECT ?operator WHERE {{"
+				+ "SELECT DISTINCT ?operator WHERE {{"
 				//+ operatorURI + " viskoO:hasOutputDataType ?dataType . "
 				+ operatorURI + " viskoO:hasOutputFormat ?format . "
 				+ "?operator a viskoO:Operator . "				
@@ -455,7 +455,7 @@ public class ViskoTripleStore {
 		
 		String stringQuery = 
 				QUERY_PREFIX
-				+ "SELECT ?operator WHERE {"
+				+ "SELECT DISTINCT ?operator WHERE {"
 				+ "{"
 				//+ operatorURI + " viskoO:hasOutputDataType ?dataType . "
 				+ operatorURI + " viskoO:hasOutputFormat ?format . "
@@ -481,7 +481,7 @@ public class ViskoTripleStore {
 		
 		String stringQuery = 
 				QUERY_PREFIX
-				+ "SELECT ?operator WHERE {"
+				+ "SELECT DISTINCT ?operator WHERE {"
 				+ "{"
 				+ operatorURI + " viskoO:hasOutputFormat ?format . "
 				+ "?operator a viskoO:Operator . "				
