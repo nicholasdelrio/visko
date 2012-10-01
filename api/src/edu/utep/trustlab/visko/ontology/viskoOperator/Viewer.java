@@ -115,6 +115,7 @@ public class Viewer extends Operator {
 
 	@Override
 	protected void setProperties() {
+		super.setProperties();
 		partOfViewerSet = model.getObjectProperty(ViskoO.PROPERTY_URI_partOfViewerSet);
 		hasEndpoint = model.getDatatypeProperty(ViskoO.DATA_PROPERTY_URI_hasEndpoint);
 	}
@@ -132,6 +133,7 @@ public class Viewer extends Operator {
 
 	@Override
 	protected void initializeFields() {
+		super.initializeFields();
 		viewerSets = new Vector<ViewerSet>();
 	}
 }

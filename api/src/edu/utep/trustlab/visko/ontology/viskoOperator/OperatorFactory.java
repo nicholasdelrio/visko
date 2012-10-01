@@ -83,36 +83,36 @@ public class OperatorFactory {
 	
 	public Operator createOperator(String operatorName){
 		adjustForNullDataTypes();
-		InputOutputOperator preViewerOperator;
+		InputOutputOperator inputOutputOperator;
 		
 		if(isInterpolator())
-			preViewerOperator = new Interpolator(baseURL, operatorName, viskoModel); 
+			inputOutputOperator = new Interpolator(baseURL, operatorName, viskoModel); 
 		else if(isDimensionReducer())
-			preViewerOperator = new DimensionReducer(baseURL, operatorName, viskoModel);
+			inputOutputOperator = new DimensionReducer(baseURL, operatorName, viskoModel);
 		else if(isFilter())
-			preViewerOperator = new Filter(baseURL, operatorName, viskoModel);
+			inputOutputOperator = new Filter(baseURL, operatorName, viskoModel);
 		else if(isConverter())
-			preViewerOperator = new Converter(baseURL, operatorName, viskoModel);
+			inputOutputOperator = new Converter(baseURL, operatorName, viskoModel);
 		else
-			preViewerOperator = new Transformer(baseURL, operatorName, viskoModel);
+			inputOutputOperator = new Transformer(baseURL, operatorName, viskoModel);
 	
 		if(view != null)
-			preViewerOperator.setVisualizationAbstraction(view);
+			inputOutputOperator.setVisualizationAbstraction(view);
 		
 		//add data types
-		preViewerOperator.addInputDataType(inputDataType);
-		preViewerOperator.setOutputDataType(outputDataType);
+		inputOutputOperator.addInputDataType(inputDataType);
+		inputOutputOperator.setOutputDataType(outputDataType);
 	
 		//add formats
-		preViewerOperator.addInputFormat(inputFormat);
-		preViewerOperator.setOutputFormat(outputFormat);
+		inputOutputOperator.addInputFormat(inputFormat);
+		inputOutputOperator.setOutputFormat(outputFormat);
 		
 		//add label, comments, and name
-		preViewerOperator.setLabel(label);
-		preViewerOperator.setComment(comment);
-		preViewerOperator.setName(operatorName);
+		inputOutputOperator.setLabel(label);
+		inputOutputOperator.setComment(comment);
+		inputOutputOperator.setName(operatorName);
 		
-		return preViewerOperator;
+		return inputOutputOperator;
 	}
 	
 	public void setComment(String aComment){

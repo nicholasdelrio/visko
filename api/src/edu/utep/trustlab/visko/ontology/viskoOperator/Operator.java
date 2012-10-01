@@ -49,7 +49,6 @@ public class Operator extends JenaIndividual {
 	private ObjectProperty hasInputFormat;	
 	private ObjectProperty hasInputDataType;	
 	private ObjectProperty mapsTo;
-
 	
 	// DataType properties
 	private DatatypeProperty hasName;
@@ -100,8 +99,9 @@ public class Operator extends JenaIndividual {
 	}
 	
 	private void addHasInputFormat(Individual subjectInd) {
-		for(Format inputFormat : inputFormats)
-			subjectInd.addProperty(hasInputFormat, inputFormat.getIndividual());		
+		for(Format inputFormat : inputFormats){
+			subjectInd.addProperty(hasInputFormat, inputFormat.getIndividual());
+		}
 	}
 	
 	private void addHasInputDataType(Individual subjectInd) {

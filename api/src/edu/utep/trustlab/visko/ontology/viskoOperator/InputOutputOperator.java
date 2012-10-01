@@ -106,11 +106,13 @@ public abstract class InputOutputOperator extends Operator {
 
 	@Override
 	protected void setProperties() {
+		super.setProperties();
 		hasOutputFormat = model.getObjectProperty(ViskoO.PROPERTY_URI_hasOutputFormat);		
 		hasOutputDataType = model.getObjectProperty(ViskoO.PROPERTY_URI_hasOutputDataType);
 	}
 
 	@Override
 	protected void initializeFields() {
+		super.initializeFields();
 	}
 }

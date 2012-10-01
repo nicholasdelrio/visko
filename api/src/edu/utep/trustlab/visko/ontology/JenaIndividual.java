@@ -68,8 +68,7 @@ public abstract class JenaIndividual implements ViskoIndividual {
 	private Property commentProperty;
 	private Property labelProperty;
 
-	public JenaIndividual(String classURI, String baseURL, String name,
-			ViskoModel viskoModel) {
+	public JenaIndividual(String classURI, String baseURL, String name, ViskoModel viskoModel) {
 
 		// the model that will be used to house this new individual
 		model = viskoModel;
