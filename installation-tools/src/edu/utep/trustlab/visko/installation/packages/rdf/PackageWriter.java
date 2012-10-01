@@ -14,7 +14,7 @@ import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
 import edu.utep.trustlab.visko.ontology.viskoService.OWLSService;
 import edu.utep.trustlab.visko.ontology.viskoService.Toolkit;
-import edu.utep.trustlab.visko.ontology.viskoView.View;
+import edu.utep.trustlab.visko.ontology.viskoView.VisualizationAbstraction;
 
 public class PackageWriter {
 	
@@ -127,8 +127,8 @@ public class PackageWriter {
 		return new Format(formatURI, loadingModel);
 	}
 		
-	public static View getView(String viewURI){
-		return new View(viewURI, loadingModel);
+	public static VisualizationAbstraction getView(String viewURI){
+		return new VisualizationAbstraction(viewURI, loadingModel);
 	}
 	
 	private void addViewerSetsToModel(){

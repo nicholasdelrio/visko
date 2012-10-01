@@ -3,7 +3,7 @@ package edu.utep.trustlab.visko.ontology.viskoOperator;
 import com.hp.hpl.jena.ontology.OntResource;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
-import edu.utep.trustlab.visko.ontology.viskoView.View;
+import edu.utep.trustlab.visko.ontology.viskoView.VisualizationAbstraction;
 import edu.utep.trustlab.visko.ontology.vocabulary.supplemental.OWL;
 
 public class OperatorFactory {
@@ -19,7 +19,7 @@ public class OperatorFactory {
 	private OntResource outputDataType;
 	private Format outputFormat;
 	
-	private View view;
+	private VisualizationAbstraction view;
 
 	private String baseURL;
 	
@@ -54,7 +54,7 @@ public class OperatorFactory {
 		outputFormat = aFormat;
 	}
 	
-	public void setView(View aView){
+	public void setView(VisualizationAbstraction aView){
 		view = aView;
 	}
 	

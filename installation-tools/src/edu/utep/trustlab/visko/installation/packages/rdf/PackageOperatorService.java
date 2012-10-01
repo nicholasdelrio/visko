@@ -9,7 +9,7 @@ import edu.utep.trustlab.visko.ontology.viskoOperator.OperatorFactory;
 import edu.utep.trustlab.visko.ontology.viskoService.OWLSService;
 import edu.utep.trustlab.visko.ontology.viskoService.Service;
 import edu.utep.trustlab.visko.ontology.viskoService.Toolkit;
-import edu.utep.trustlab.visko.ontology.viskoView.View;
+import edu.utep.trustlab.visko.ontology.viskoView.VisualizationAbstraction;
 
 public class PackageOperatorService {	
 	private String baseURL;
@@ -107,7 +107,7 @@ public class PackageOperatorService {
 		operatorFactory.setOutputFormat(format);
 	}
 	
-	public void setView(View generatedView){
+	public void setView(VisualizationAbstraction generatedView){
 		operatorFactory.setView(generatedView);
 	}
 		

@@ -44,12 +44,12 @@ import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.ObjectProperty;
 
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
-import edu.utep.trustlab.visko.ontology.viskoView.View;
+import edu.utep.trustlab.visko.ontology.viskoView.VisualizationAbstraction;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 
 public class ViewMapper extends Operator {
 
-	private View view;
+	private VisualizationAbstraction view;
 	
 	private ObjectProperty mapsToView;
 	
@@ -62,11 +62,11 @@ public class ViewMapper extends Operator {
 		super(uri, viskoModel);
 	}
 
-	public void setView(View aView) {
+	public void setView(VisualizationAbstraction aView) {
 		view = aView;
 	}
 
-	public View getView() {
+	public VisualizationAbstraction getView() {
 		return view;
 	}
 
@@ -100,7 +100,7 @@ public class ViewMapper extends Operator {
 		super.populateFieldsWithIndividual(ind);
 		
 		// populate view
-		view = new View(ind.getPropertyValue(mapsToView).as(Individual.class).getURI(), model);
+		view = new VisualizationAbstraction(ind.getPropertyValue(mapsToView).as(Individual.class).getURI(), model);
 	}
 
 	@Override

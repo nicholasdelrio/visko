@@ -47,18 +47,8 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 public class ViskoV {
 
 	// Classes
-	public static final String CLASS_URI_View = Visko.CORE_VISKO_V + "#View";
-	
-	public static final String CLASS_URI_1D_Geometric_View = Visko.CORE_VISKO_V + "#1D_Geometric_View";
-	public static final String CLASS_URI_2D_Geometric_View = Visko.CORE_VISKO_V + "#2D_Geometric_View";
-	public static final String CLASS_URI_3D_Geometric_View = Visko.CORE_VISKO_V + "#3D_Geometric_View";
-	public static final String CLASS_URI_4D_Geometric_View = Visko.CORE_VISKO_V + "#4D_Geometric_View";
-
-	public static final String CLASS_URI_1D_DataStructure_View = Visko.CORE_VISKO_V + "#1D_DataStructure_View";
-	public static final String CLASS_URI_2D_DataStructure_View = Visko.CORE_VISKO_V + "#2D_DataStructure_View";
-	public static final String CLASS_URI_3D_DataStructure_View = Visko.CORE_VISKO_V + "#3D_DataStructure_View";
-	public static final String CLASS_URI_4D_DataStructure_View = Visko.CORE_VISKO_V + "#4D_DataStructure_View";
-	
+	public static final String CLASS_URI_VisualizationAbstraction = Visko.CORE_VISKO_V + "#VisualizationAbstraction";
+		
 	// Individuals
 	public static final String INDIVIDUAL_URI_1D_Timeline = Visko.CORE_VISKO_V + "#1D_Timeline";
 	

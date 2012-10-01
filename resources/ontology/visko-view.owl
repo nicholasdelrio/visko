@@ -53,10 +53,10 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#1D_DataStructure_View -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#1D_Space_DataStructure -->
 
-    <owl:Class rdf:about="&visko-view;1D_DataStructure_View">
-        <rdfs:subClassOf rdf:resource="&visko-view;DataStructureView"/>
+    <owl:Class rdf:about="&visko-view;1D_Space_DataStructure">
+        <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction_DataStructure"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
@@ -67,10 +67,16 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#1D_Geometric_View -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#1D_Space_Geometry -->
 
-    <owl:Class rdf:about="&visko-view;1D_Geometric_View">
-        <rdfs:subClassOf rdf:resource="&visko-view;GeometricView"/>
+    <owl:Class rdf:about="&visko-view;1D_Space_Geometry">
+        <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction_Geometry"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
+                <owl:hasValue rdf:resource="&visko-view;1D_Space"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -79,20 +85,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
-                <owl:hasValue rdf:resource="&visko-view;1D_Space"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#2D_DataStructure_View -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#2D_Space_DataStructure -->
 
-    <owl:Class rdf:about="&visko-view;2D_DataStructure_View">
-        <rdfs:subClassOf rdf:resource="&visko-view;DataStructureView"/>
+    <owl:Class rdf:about="&visko-view;2D_Space_DataStructure">
+        <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction_DataStructure"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
@@ -103,10 +103,10 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#2D_Geometric_View -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#2D_Space_Geometry -->
 
-    <owl:Class rdf:about="&visko-view;2D_Geometric_View">
-        <rdfs:subClassOf rdf:resource="&visko-view;GeometricView"/>
+    <owl:Class rdf:about="&visko-view;2D_Space_Geometry">
+        <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction_Geometry"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -126,10 +126,10 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#3D_DataStructure_View -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#3D_Space_DataStructure -->
 
-    <owl:Class rdf:about="&visko-view;3D_DataStructure_View">
-        <rdfs:subClassOf rdf:resource="&visko-view;DataStructureView"/>
+    <owl:Class rdf:about="&visko-view;3D_Space_DataStructure">
+        <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction_DataStructure"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
@@ -140,10 +140,10 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#3D_Geometric_View -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#3D_Space_Geometry -->
 
-    <owl:Class rdf:about="&visko-view;3D_Geometric_View">
-        <rdfs:subClassOf rdf:resource="&visko-view;GeometricView"/>
+    <owl:Class rdf:about="&visko-view;3D_Space_Geometry">
+        <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction_Geometry"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
@@ -164,10 +164,10 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#4D_DataStructure_View -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#4D_Space_DataStructure -->
 
-    <owl:Class rdf:about="&visko-view;4D_DataStructure_View">
-        <rdfs:subClassOf rdf:resource="&visko-view;DataStructureView"/>
+    <owl:Class rdf:about="&visko-view;4D_Space_DataStructure">
+        <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction_DataStructure"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
@@ -178,16 +178,10 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#4D_Geometric_View -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#4D_Space_Geometry -->
 
-    <owl:Class rdf:about="&visko-view;4D_Geometric_View">
-        <rdfs:subClassOf rdf:resource="&visko-view;GeometricView"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
-                <owl:hasValue rdf:resource="&visko-view;4D_Space"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+    <owl:Class rdf:about="&visko-view;4D_Space_Geometry">
+        <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction_Geometry"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -197,6 +191,12 @@
                     <rdf:Description rdf:about="&esip-data;Volume"/>
                 </owl:unionOf>
             </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
+                <owl:hasValue rdf:resource="&visko-view;4D_Space"/>
+            </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
@@ -208,27 +208,10 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#DataStructureView -->
-
-    <owl:Class rdf:about="&visko-view;DataStructureView">
-        <rdfs:subClassOf rdf:resource="&visko-view;DataStructure"/>
-        <rdfs:subClassOf rdf:resource="&visko-view;View"/>
-    </owl:Class>
-    
-
-
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#Directed_Acyclic_Graph -->
 
     <owl:Class rdf:about="&visko-view;Directed_Acyclic_Graph">
         <rdfs:subClassOf rdf:resource="&visko-view;Graph"/>
-    </owl:Class>
-    
-
-
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#GeometricView -->
-
-    <owl:Class rdf:about="&visko-view;GeometricView">
-        <rdfs:subClassOf rdf:resource="&visko-view;View"/>
     </owl:Class>
     
 
@@ -263,9 +246,26 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#View -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#VisualizationAbstraction -->
 
-    <owl:Class rdf:about="&visko-view;View"/>
+    <owl:Class rdf:about="&visko-view;VisualizationAbstraction"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#VisualizationAbstraction_DataStructure -->
+
+    <owl:Class rdf:about="&visko-view;VisualizationAbstraction_DataStructure">
+        <rdfs:subClassOf rdf:resource="&visko-view;DataStructure"/>
+        <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#VisualizationAbstraction_Geometry -->
+
+    <owl:Class rdf:about="&visko-view;VisualizationAbstraction_Geometry">
+        <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction"/>
+    </owl:Class>
     
 
 
@@ -292,7 +292,7 @@
 
     <owl:NamedIndividual rdf:about="&visko-view;1D_Timeline">
         <rdf:type rdf:resource="&esip-data;Line"/>
-        <rdf:type rdf:resource="&visko-view;1D_Geometric_View"/>
+        <rdf:type rdf:resource="&visko-view;1D_Space_DataStructure"/>
     </owl:NamedIndividual>
     
 
@@ -300,7 +300,7 @@
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#2D_BarChart -->
 
     <owl:NamedIndividual rdf:about="&visko-view;2D_BarChart">
-        <rdf:type rdf:resource="&visko-view;2D_DataStructure_View"/>
+        <rdf:type rdf:resource="&visko-view;2D_Space_DataStructure"/>
     </owl:NamedIndividual>
     
 
@@ -309,7 +309,7 @@
 
     <owl:NamedIndividual rdf:about="&visko-view;2D_ContourMap">
         <rdf:type rdf:resource="&esip-data;Contour"/>
-        <rdf:type rdf:resource="&visko-view;2D_Geometric_View"/>
+        <rdf:type rdf:resource="&visko-view;2D_Space_Geometry"/>
     </owl:NamedIndividual>
     
 
@@ -317,7 +317,7 @@
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#2D_ForceGraph -->
 
     <owl:NamedIndividual rdf:about="&visko-view;2D_ForceGraph">
-        <rdf:type rdf:resource="&visko-view;2D_DataStructure_View"/>
+        <rdf:type rdf:resource="&visko-view;2D_Space_DataStructure"/>
     </owl:NamedIndividual>
     
 
@@ -326,7 +326,7 @@
 
     <owl:NamedIndividual rdf:about="&visko-view;2D_PointMap">
         <rdf:type rdf:resource="&esip-data;Point"/>
-        <rdf:type rdf:resource="&visko-view;2D_Geometric_View"/>
+        <rdf:type rdf:resource="&visko-view;2D_Space_Geometry"/>
     </owl:NamedIndividual>
     
 
@@ -335,7 +335,7 @@
 
     <owl:NamedIndividual rdf:about="&visko-view;2D_RasterMap">
         <rdf:type rdf:resource="&esip-data;Surface"/>
-        <rdf:type rdf:resource="&visko-view;2D_Geometric_View"/>
+        <rdf:type rdf:resource="&visko-view;2D_Space_Geometry"/>
     </owl:NamedIndividual>
     
 
@@ -352,7 +352,7 @@
 
     <owl:NamedIndividual rdf:about="&visko-view;2D_TimeSeriesPlot">
         <rdf:type rdf:resource="&esip-data;Curve"/>
-        <rdf:type rdf:resource="&visko-view;2D_Geometric_View"/>
+        <rdf:type rdf:resource="&visko-view;2D_Space_Geometry"/>
     </owl:NamedIndividual>
     
 
@@ -361,7 +361,7 @@
 
     <owl:NamedIndividual rdf:about="&visko-view;3D_IsoSurfacesRendering">
         <rdf:type rdf:resource="&esip-data;Surface"/>
-        <rdf:type rdf:resource="&visko-view;3D_Geometric_View"/>
+        <rdf:type rdf:resource="&visko-view;3D_Space_Geometry"/>
     </owl:NamedIndividual>
     
 
@@ -370,7 +370,7 @@
 
     <owl:NamedIndividual rdf:about="&visko-view;3D_MeshPlot">
         <rdf:type rdf:resource="&esip-data;Point"/>
-        <rdf:type rdf:resource="&visko-view;3D_Geometric_View"/>
+        <rdf:type rdf:resource="&visko-view;3D_Space_Geometry"/>
     </owl:NamedIndividual>
     
 
@@ -378,7 +378,7 @@
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#3D_PointPlot -->
 
     <owl:NamedIndividual rdf:about="&visko-view;3D_PointPlot">
-        <rdf:type rdf:resource="&visko-view;3D_Geometric_View"/>
+        <rdf:type rdf:resource="&visko-view;3D_Space_Geometry"/>
     </owl:NamedIndividual>
     
 
@@ -387,7 +387,7 @@
 
     <owl:NamedIndividual rdf:about="&visko-view;3D_RasterCube">
         <rdf:type rdf:resource="&esip-data;Volume"/>
-        <rdf:type rdf:resource="&visko-view;3D_Geometric_View"/>
+        <rdf:type rdf:resource="&visko-view;3D_Space_Geometry"/>
     </owl:NamedIndividual>
     
 
@@ -403,7 +403,7 @@
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#3D_SurfacePlot -->
 
     <owl:NamedIndividual rdf:about="&visko-view;3D_SurfacePlot">
-        <rdf:type rdf:resource="&visko-view;3D_Geometric_View"/>
+        <rdf:type rdf:resource="&visko-view;3D_Space_Geometry"/>
     </owl:NamedIndividual>
     
 
@@ -412,7 +412,7 @@
 
     <owl:NamedIndividual rdf:about="&visko-view;3D_VolumeRendering">
         <rdf:type rdf:resource="&esip-data;Volume"/>
-        <rdf:type rdf:resource="&visko-view;3D_Geometric_View"/>
+        <rdf:type rdf:resource="&visko-view;3D_Space_Geometry"/>
     </owl:NamedIndividual>
     
 
