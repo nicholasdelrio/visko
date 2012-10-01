@@ -285,6 +285,17 @@ public class ViskoTripleStore {
 		return submitQuery(stringQuery);
 	}
 	
+	public ResultSet getVisualizationAbstractionGeneratedByViewer(String viewerURI){
+		viewerURI = "<" + viewerURI + ">";
+
+		String stringQuery = 
+				QUERY_PREFIX
+				+ "SELECT ?visualizationAbstraction WHERE { "
+				+ viewerURI + " viskoO:mapsTo ?visualizationAbstraction .}";
+
+		return submitQuery(stringQuery);		
+	}
+	
 	public boolean isViewMapper(String uri) {
 		uri = "<" + uri + ">";
 
@@ -339,7 +350,7 @@ public class ViskoTripleStore {
 		String uri = "<" + mapperURI + ">";
 
 		String stringQuery = QUERY_PREFIX
-				+ "SELECT ?view " + "WHERE {" + uri + " viskoO:mapsToView ?view . }";
+				+ "SELECT ?view " + "WHERE {" + uri + " viskoO:mapsTo ?view . }";
 
 		return submitQuery(stringQuery);
 	}
@@ -561,7 +572,7 @@ public class ViskoTripleStore {
 		String stringQuery = 
 				QUERY_PREFIX
 				+ "SELECT ?view WHERE {"
-				+ mapperURI + " viskoO:mapsToView ?view . " + "}";
+				+ mapperURI + " viskoO:mapsTo ?view . " + "}";
 
 		return submitQuery(stringQuery);
 	}

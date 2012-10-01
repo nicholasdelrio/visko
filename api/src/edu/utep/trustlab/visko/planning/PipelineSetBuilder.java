@@ -122,7 +122,7 @@ public class PipelineSetBuilder {
 		Pipeline pipe;
 
 		for (OperatorPath operatorPath : operatorPaths) {
-			pipe = new Pipeline(operatorPath.getViewerURI(), operatorPath.getViewGenerated(), pipelines);
+			pipe = new Pipeline(operatorPath.getViewerURI(), operatorPath.getVisualizationAbstractionGenerated(), pipelines);
 
 			if (operatorPath.isEmpty())
 				pipelines.add(pipe);
@@ -142,7 +142,7 @@ public class PipelineSetBuilder {
 					Vector<Vector<String>> cartesianOperatorImpl = CartesianProduct.cartesianProduct(operatorImplSets, 0);
 
 					for (Vector<String> cartesianPath : cartesianOperatorImpl) {
-						pipe = new Pipeline(operatorPath.getViewerURI(), operatorPath.getViewGenerated(), pipelines);
+						pipe = new Pipeline(operatorPath.getViewerURI(), operatorPath.getVisualizationAbstractionGenerated(), pipelines);
 						pipe.setServiceURIs(cartesianPath);
 						pipelines.add(pipe);
 					}

@@ -40,8 +40,10 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.ontology.viskoOperator;
 
+import com.hp.hpl.jena.ontology.DatatypeProperty;
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.ObjectProperty;
+import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
 
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
@@ -51,8 +53,12 @@ import java.util.Vector;
 
 public class Viewer extends Operator {
 
-	private Vector<ViewerSet> viewerSets;
+	private ObjectProperty mapsTo;
 	private ObjectProperty partOfViewerSet;
+	private DatatypeProperty hasEndpoint;
+	
+	private Vector<ViewerSet> viewerSets;
+	private String endpointURL;
 	
 	public Viewer(String baseURL, String name, ViskoModel viskoModel) {
 		super(ViskoO.CLASS_URI_Viewer, baseURL, name, viskoModel);
@@ -74,9 +80,25 @@ public class Viewer extends Operator {
 		return viewerSets;
 	}
 	
+	public void setEndpointURL(String url){
+		endpointURL = url;
+	}
+	
+	public String getEndpointURL(){
+		return endpointURL;
+	}
+	
 	private void addPartOfViewerSet(Individual subjectInd) {
 		for (ViewerSet set : viewerSets)
 			subjectInd.addProperty(partOfViewerSet, set.getIndividual());
+	}
+	
+	private void addHasEndpoint(Individual subjectInd){
+		Literal urlLiteral;
+		if(endpointURL != null){
+			urlLiteral = model.createLiteral(endpointURL);
+			subjectInd.addProperty(hasEndpoint, urlLiteral);
+		}
 	}
 
 	@Override
@@ -92,14 +114,20 @@ public class Viewer extends Operator {
 	}
 
 	@Override
-	protected void setProperties() {partOfViewerSet = model.getObjectProperty(ViskoO.PROPERTY_URI_partOfViewerSet);}
+	protected void setProperties() {
+		partOfViewerSet = model.getObjectProperty(ViskoO.PROPERTY_URI_partOfViewerSet);
+		hasEndpoint = model.getDatatypeProperty(ViskoO.DATA_PROPERTY_URI_hasEndpoint);
+	}
 
 	@Override
 	protected void populateFieldsWithIndividual(Individual ind) {
 		// populate viewer sets
 		NodeIterator vSets = ind.listPropertyValues(partOfViewerSet);
 		while (vSets.hasNext())
-			viewerSets.add(new ViewerSet(vSets.next().as(Individual.class).getURI(), model));		
+			viewerSets.add(new ViewerSet(vSets.next().as(Individual.class).getURI(), model));
+		
+		// populate hasEndpoint
+		this.addHasEndpoint(ind);
 	}
 
 	@Override

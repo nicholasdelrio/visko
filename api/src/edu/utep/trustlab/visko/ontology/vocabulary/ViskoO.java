@@ -50,6 +50,9 @@ public class ViskoO {
 	public static final String PROPERTY_URI_mapsTo = Visko.CORE_VISKO_O + "#mapsTo";
 	public static final String PROPERTY_URI_partOfViewerSet = Visko.CORE_VISKO_O + "#partOfViewerSet";
 	
+	// Data Properties
+	public static final String DATA_PROPERTY_URI_hasEndpoint = Visko.CORE_VISKO_O + "#hasEndpoint";	
+	
 	private static OntModel model;
 
 	static {

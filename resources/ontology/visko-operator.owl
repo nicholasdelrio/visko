@@ -31,6 +31,17 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Object Properties
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -42,7 +53,7 @@
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#hasInputDataType -->
 
     <owl:ObjectProperty rdf:about="&visko-operator;hasInputDataType">
-        <rdfs:domain rdf:resource="&visko-operator;PipelineComponent"/>
+        <rdfs:domain rdf:resource="&visko-operator;Operator"/>
     </owl:ObjectProperty>
     
 
@@ -51,7 +62,7 @@
 
     <owl:ObjectProperty rdf:about="&visko-operator;hasInputFormat">
         <rdfs:range rdf:resource="&pml-provenance;Format"/>
-        <rdfs:domain rdf:resource="&visko-operator;PipelineComponent"/>
+        <rdfs:domain rdf:resource="&visko-operator;Operator"/>
     </owl:ObjectProperty>
     
 
@@ -59,7 +70,7 @@
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#hasOutputDataType -->
 
     <owl:ObjectProperty rdf:about="&visko-operator;hasOutputDataType">
-        <rdfs:domain rdf:resource="&visko-operator;Operator"/>
+        <rdfs:domain rdf:resource="&visko-operator;PreViewerOperator"/>
     </owl:ObjectProperty>
     
 
@@ -68,33 +79,16 @@
 
     <owl:ObjectProperty rdf:about="&visko-operator;hasOutputFormat">
         <rdfs:range rdf:resource="&pml-provenance;Format"/>
-        <rdfs:domain rdf:resource="&visko-operator;Operator"/>
+        <rdfs:domain rdf:resource="&visko-operator;PreViewerOperator"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#isInputFormatTo -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#mapsTo -->
 
-    <owl:ObjectProperty rdf:about="&visko-operator;isInputFormatTo">
-        <owl:inverseOf rdf:resource="&visko-operator;hasInputFormat"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#isOperatorRequiredByViewerSet -->
-
-    <owl:ObjectProperty rdf:about="&visko-operator;isOperatorRequiredByViewerSet">
-        <rdfs:domain rdf:resource="&visko-operator;Operator"/>
-        <rdfs:range rdf:resource="&visko-operator;ViewerSet"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#mapsToView -->
-
-    <owl:ObjectProperty rdf:about="&visko-operator;mapsToView">
-        <rdfs:domain rdf:resource="&visko-operator;ViewMapper"/>
-        <rdfs:range rdf:resource="&visko-view;View"/>
+    <owl:ObjectProperty rdf:about="&visko-operator;mapsTo">
+        <rdfs:domain rdf:resource="&visko-operator;Mapper"/>
+        <rdfs:range rdf:resource="&visko-view;VisualizationAbstraction"/>
     </owl:ObjectProperty>
     
 
@@ -111,6 +105,26 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#hasEndpoint -->
+
+    <owl:DatatypeProperty rdf:about="&visko-operator;hasEndpoint">
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+        <rdfs:domain rdf:resource="&visko-operator;Viewer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -119,26 +133,18 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#DataFilter -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#Converter -->
 
-    <owl:Class rdf:about="&visko-operator;DataFilter">
-        <rdfs:subClassOf rdf:resource="&visko-operator;Filter"/>
+    <owl:Class rdf:about="&visko-operator;Converter">
+        <rdfs:subClassOf rdf:resource="&visko-operator;PreViewerOperator"/>
     </owl:Class>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#DataTransformer -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#DimensionReducer -->
 
-    <owl:Class rdf:about="&visko-operator;DataTransformer">
-        <rdfs:subClassOf rdf:resource="&visko-operator;Operator"/>
-    </owl:Class>
-    
-
-
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#DimensionFilter -->
-
-    <owl:Class rdf:about="&visko-operator;DimensionFilter">
-        <rdfs:subClassOf rdf:resource="&visko-operator;Filter"/>
+    <owl:Class rdf:about="&visko-operator;DimensionReducer">
+        <rdfs:subClassOf rdf:resource="&visko-operator;PreViewerOperator"/>
     </owl:Class>
     
 
@@ -146,15 +152,7 @@
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#Filter -->
 
     <owl:Class rdf:about="&visko-operator;Filter">
-        <rdfs:subClassOf rdf:resource="&visko-operator;Operator"/>
-    </owl:Class>
-    
-
-
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#FormatConverter -->
-
-    <owl:Class rdf:about="&visko-operator;FormatConverter">
-        <rdfs:subClassOf rdf:resource="&visko-operator;Operator"/>
+        <rdfs:subClassOf rdf:resource="&visko-operator;PreViewerOperator"/>
     </owl:Class>
     
 
@@ -162,7 +160,15 @@
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#Interpolator -->
 
     <owl:Class rdf:about="&visko-operator;Interpolator">
-        <rdfs:subClassOf rdf:resource="&visko-operator;DataTransformer"/>
+        <rdfs:subClassOf rdf:resource="&visko-operator;PreViewerOperator"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#Mapper -->
+
+    <owl:Class rdf:about="&visko-operator;Mapper">
+        <rdfs:subClassOf rdf:resource="&visko-operator;Operator"/>
     </owl:Class>
     
 
@@ -170,23 +176,23 @@
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#Operator -->
 
     <owl:Class rdf:about="&visko-operator;Operator">
-        <rdfs:subClassOf rdf:resource="&visko-operator;PipelineComponent"/>
-    </owl:Class>
-    
-
-
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#PipelineComponent -->
-
-    <owl:Class rdf:about="&visko-operator;PipelineComponent">
         <rdfs:subClassOf rdf:resource="&pml-provenance;InferenceRule"/>
     </owl:Class>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#ViewMapper -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#PreViewerOperator -->
 
-    <owl:Class rdf:about="&visko-operator;ViewMapper">
+    <owl:Class rdf:about="&visko-operator;PreViewerOperator">
         <rdfs:subClassOf rdf:resource="&visko-operator;Operator"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#Transformer -->
+
+    <owl:Class rdf:about="&visko-operator;Transformer">
+        <rdfs:subClassOf rdf:resource="&visko-operator;PreViewerOperator"/>
     </owl:Class>
     
 
@@ -194,7 +200,7 @@
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#Viewer -->
 
     <owl:Class rdf:about="&visko-operator;Viewer">
-        <rdfs:subClassOf rdf:resource="&visko-operator;PipelineComponent"/>
+        <rdfs:subClassOf rdf:resource="&visko-operator;Operator"/>
     </owl:Class>
     
 

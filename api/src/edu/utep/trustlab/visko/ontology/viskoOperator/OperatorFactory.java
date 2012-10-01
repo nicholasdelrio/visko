@@ -85,12 +85,7 @@ public class OperatorFactory {
 		adjustForNullDataTypes();
 		PreViewerOperator preViewerOperator;
 		
-		if(isMapper()){
-			Mapper viewMapper = new Mapper(baseURL, operatorName, viskoModel);
-			viewMapper.setView(view);
-			preViewerOperator = viewMapper;
-		}
-		else if(isInterpolator())
+		if(isInterpolator())
 			preViewerOperator = new Interpolator(baseURL, operatorName, viskoModel); 
 		else if(isDimensionReducer())
 			preViewerOperator = new DimensionReducer(baseURL, operatorName, viskoModel);
@@ -101,6 +96,9 @@ public class OperatorFactory {
 		else
 			preViewerOperator = new Transformer(baseURL, operatorName, viskoModel);
 	
+		if(view != null)
+			preViewerOperator.setVisualizationAbstraction(view);
+		
 		//add data types
 		preViewerOperator.addInputDataType(inputDataType);
 		preViewerOperator.setOutputDataType(outputDataType);
@@ -140,11 +138,7 @@ public class OperatorFactory {
 	public boolean isConverter(){
 		return areDataTypesEqual() && !areFormatsEqual();
 	}
-	
-	public boolean isMapper(){
-		return view != null;
-	}
-	
+		
 	private boolean areDataTypesEqual(){
 		return inputDataType.getURI().equals(outputDataType.getURI());
 	}

@@ -32,6 +32,7 @@ import com.hp.hpl.jena.rdf.model.RDFNode;
 import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
+import edu.utep.trustlab.visko.ontology.viskoView.VisualizationAbstraction;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 import edu.utep.trustlab.visko.ontology.vocabulary.supplemental.OWL;
 import edu.utep.trustlab.visko.ontology.vocabulary.supplemental.PMLP;
@@ -40,13 +41,15 @@ import edu.utep.trustlab.visko.ontology.vocabulary.supplemental.XSD;
 public class Operator extends JenaIndividual {
 	
 	private Vector<Format> inputFormats;
-	private Vector<OntResource> inputDataTypes;
-	
+	private Vector<OntResource> inputDataTypes;	
+	protected VisualizationAbstraction visualizationAbstraction;
 	private String name;
 
 	// Object Properties
 	private ObjectProperty hasInputFormat;	
-	private ObjectProperty hasInputDataType;
+	private ObjectProperty hasInputDataType;	
+	private ObjectProperty mapsTo;
+
 	
 	// DataType properties
 	private DatatypeProperty hasName;
@@ -61,6 +64,14 @@ public class Operator extends JenaIndividual {
 
 	public Operator(String conceptURI, ViskoModel viskoModel) {
 		super(conceptURI, viskoModel);
+	}
+	
+	public void setVisualizationAbstraction(VisualizationAbstraction aView) {
+		visualizationAbstraction = aView;
+	}
+
+	public VisualizationAbstraction getVisualizationAbstraction() {
+		return visualizationAbstraction;
 	}
 
 	public void setName(String aName) {
@@ -85,6 +96,11 @@ public class Operator extends JenaIndividual {
 		
 	public Vector<OntResource> getInputDataTypes(){
 		return inputDataTypes;
+	}
+	
+	private void addMapsToView(Individual subjectInd) {
+		if(visualizationAbstraction != null)
+			subjectInd.addProperty(mapsTo, visualizationAbstraction.getIndividual());
 	}
 	
 	private void addHasInputFormat(Individual subjectInd) {
@@ -122,6 +138,12 @@ public class Operator extends JenaIndividual {
 		NodeIterator inDataTypes = ind.listPropertyValues(hasInputDataType);
 		while(inDataTypes.hasNext())
 			inputDataTypes.add(inDataTypes.next().as(Individual.class));
+
+		// populate visualization abstraction generated
+		RDFNode visualizationAbstractionNode = ind.getPropertyValue(mapsTo);
+		if(visualizationAbstractionNode != null)
+			visualizationAbstraction = new VisualizationAbstraction(visualizationAbstractionNode.as(Individual.class).getURI(), model);
+
 		
 		RDFNode theName = ind.getPropertyValue(hasName);
 		name = (String) theName.as(Literal.class).getValue();		
@@ -137,6 +159,9 @@ public class Operator extends JenaIndividual {
 		// add input/output data types
 		this.addHasInputDataType(ind);
 
+		// add visualization abstraction
+		this.addMapsToView(ind);
+		
 		// add name
 		this.addHasName(ind);
 		
@@ -148,6 +173,7 @@ public class Operator extends JenaIndividual {
 		hasInputFormat = model.getObjectProperty(ViskoO.PROPERTY_URI_hasInputFormat);		
 		hasInputDataType = model.getObjectProperty(ViskoO.PROPERTY_URI_hasInputDataType);
 		hasName = model.getDatatypeProperty(PMLP.DATATYPE_PROPERTY_URI_hasName);
+		mapsTo = model.getObjectProperty(ViskoO.PROPERTY_URI_mapsTo);
 	}
 
 	@Override

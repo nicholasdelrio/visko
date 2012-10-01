@@ -84,7 +84,7 @@ public class PackageOperatorService {
 	}
 	
 	public void setAsDimensionFilter(){
-		operatorFactory.setAsDimensionFilter();
+		operatorFactory.setAsDimensionReducer();
 	}
 	
 	public void setAsInterpolator(){

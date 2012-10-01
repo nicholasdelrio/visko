@@ -65,7 +65,7 @@ public class OperatorPaths extends Vector<OperatorPath> {
 		
 		for(int i = 0; i < this.size(); i ++){
 			operatorPath = this.get(i);
-			if(!operatorPath.generatesView(requiredViewURI))
+			if(!operatorPath.generatesVisualizationAbstraction(requiredViewURI))
 				nonCompliantPaths.add(operatorPath);
 		}
 		
