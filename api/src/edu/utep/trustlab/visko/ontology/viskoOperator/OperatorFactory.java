@@ -30,7 +30,7 @@ public class OperatorFactory {
 	// the output is a sub class of uniform data
 	private boolean isInterpolator;
 	
-	public void setAsDimensionFilter(){
+	public void setAsDimensionReducer(){
 		isDimensionFilter = true;
 	}
 	
@@ -83,38 +83,38 @@ public class OperatorFactory {
 	
 	public Operator createOperator(String operatorName){
 		adjustForNullDataTypes();
-		Operator theOperator;
+		PreViewerOperator preViewerOperator;
 		
-		if(isViewMapper()){
-			ViewMapper viewMapper = new ViewMapper(baseURL, operatorName, viskoModel);
+		if(isMapper()){
+			Mapper viewMapper = new Mapper(baseURL, operatorName, viskoModel);
 			viewMapper.setView(view);
-			theOperator = viewMapper;
+			preViewerOperator = viewMapper;
 		}
 		else if(isInterpolator())
-			theOperator = new Interpolator(baseURL, operatorName, viskoModel); 
-		else if(isDimensionFilter())
-			theOperator = new DimensionFilter(baseURL, operatorName, viskoModel);
-		else if(isDataFilter())
-			theOperator = new DataFilter(baseURL, operatorName, viskoModel);
-		else if(isFormatConverter())
-			theOperator = new FormatConverter(baseURL, operatorName, viskoModel);
+			preViewerOperator = new Interpolator(baseURL, operatorName, viskoModel); 
+		else if(isDimensionReducer())
+			preViewerOperator = new DimensionReducer(baseURL, operatorName, viskoModel);
+		else if(isFilter())
+			preViewerOperator = new Filter(baseURL, operatorName, viskoModel);
+		else if(isConverter())
+			preViewerOperator = new Converter(baseURL, operatorName, viskoModel);
 		else
-			theOperator = new DataTransformer(baseURL, operatorName, viskoModel);
+			preViewerOperator = new Transformer(baseURL, operatorName, viskoModel);
 	
 		//add data types
-		theOperator.setInputDataType(inputDataType);
-		theOperator.setOutputDataType(outputDataType);
+		preViewerOperator.addInputDataType(inputDataType);
+		preViewerOperator.setOutputDataType(outputDataType);
 	
 		//add formats
-		theOperator.setInputFormat(inputFormat);
-		theOperator.setOutputFormat(outputFormat);
+		preViewerOperator.addInputFormat(inputFormat);
+		preViewerOperator.setOutputFormat(outputFormat);
 		
 		//add label, comments, and name
-		theOperator.setLabel(label);
-		theOperator.setComment(comment);
-		theOperator.setName(operatorName);
+		preViewerOperator.setLabel(label);
+		preViewerOperator.setComment(comment);
+		preViewerOperator.setName(operatorName);
 		
-		return theOperator;
+		return preViewerOperator;
 	}
 	
 	public void setComment(String aComment){
@@ -125,11 +125,11 @@ public class OperatorFactory {
 		label = aLabel;
 	}
 	
-	public boolean isDataFilter(){
+	public boolean isFilter(){
 		return areDataTypesEqual() && areFormatsEqual();
 	}
 	
-	public boolean isDimensionFilter(){
+	public boolean isDimensionReducer(){
 		return isDimensionFilter;
 	}
 	
@@ -137,11 +137,11 @@ public class OperatorFactory {
 		return isInterpolator;
 	}
 	
-	public boolean isFormatConverter(){
+	public boolean isConverter(){
 		return areDataTypesEqual() && !areFormatsEqual();
 	}
 	
-	public boolean isViewMapper(){
+	public boolean isMapper(){
 		return view != null;
 	}
 	

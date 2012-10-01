@@ -25,17 +25,13 @@ import com.hp.hpl.jena.ontology.Individual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 
-public class DataTransformer extends Operator {
+public class Converter extends PreViewerOperator {
 
-	public DataTransformer(String baseURL, String name, ViskoModel viskoModel) {
-		super(ViskoO.CLASS_URI_DataTransformer, baseURL, name, viskoModel);
-	}
-	
-	public DataTransformer(String classURI, String baseURL, String name, ViskoModel viskoModel) {
-		super(classURI, baseURL, name, viskoModel);
+	public Converter(String baseURL, String name, ViskoModel viskoModel) {
+		super(ViskoO.CLASS_URI_Converter, baseURL, name, viskoModel);
 	}
 
-	public DataTransformer(String uri, ViskoModel viskoModel) {
+	public Converter(String uri, ViskoModel viskoModel) {
 		super(uri, viskoModel);
 	}
 	

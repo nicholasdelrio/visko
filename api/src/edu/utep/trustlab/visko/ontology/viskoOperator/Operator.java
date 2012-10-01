@@ -19,6 +19,8 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.ontology.viskoOperator;
 
+import java.util.Vector;
+
 import com.hp.hpl.jena.ontology.DatatypeProperty;
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.ObjectProperty;
@@ -37,20 +39,14 @@ import edu.utep.trustlab.visko.ontology.vocabulary.supplemental.XSD;
 
 public class Operator extends JenaIndividual {
 	
-	private Format inputFormat;
-	private Format outputFormat;
-	
-	private OntResource inputDataType;
-	private OntResource outputDataType;
+	private Vector<Format> inputFormats;
+	private Vector<OntResource> inputDataTypes;
 	
 	private String name;
 
 	// Object Properties
-	private ObjectProperty hasInputFormat;
-	private ObjectProperty hasOutputFormat;
-	
+	private ObjectProperty hasInputFormat;	
 	private ObjectProperty hasInputDataType;
-	private ObjectProperty hasOutputDataType;
 	
 	// DataType properties
 	private DatatypeProperty hasName;
@@ -74,61 +70,34 @@ public class Operator extends JenaIndividual {
 	public String getName() {
 		return name;
 	}
-
-	public void setInputFormat(Format inFormat) {
-		inputFormat = inFormat;
-	}
 	
-	public void setOutputFormat(Format outFormat){
-		outputFormat = outFormat;
+	public void addInputFormat(Format inFormat) {
+		inputFormats.add(inFormat);
 	}
-	
-	public Format getInputFormat(){
-		return inputFormat;
+		
+	public Vector<Format> getInputFormats(){
+		return inputFormats;
 	}
-	
-	public Format getOutputFormat(){
-		return outputFormat;
-	}
-	
-	public void setInputDataType(OntResource inDataType) {
-		inputDataType = inDataType;
+		
+	public void addInputDataType(OntResource inDataType) {
+		inputDataTypes.add(inDataType);
 	}	
-	
-	public void setOutputDataType(OntResource outDataType){
-		outputDataType = outDataType;
-	}
-	
-	public String getInputDataTypeURI(){
-		return inputDataType.getURI();
-	}
-	
-	public String getOutputDataTypeURI(){
-		return outputDataType.getURI();
+		
+	public Vector<OntResource> getInputDataTypes(){
+		return inputDataTypes;
 	}
 	
 	private void addHasInputFormat(Individual subjectInd) {
-		subjectInd.addProperty(hasInputFormat, inputFormat.getIndividual());		
-	}
-
-	private void addHasOutputFormat(Individual subjectInd) {
-		subjectInd.addProperty(hasOutputFormat, outputFormat.getIndividual());		
+		for(Format inputFormat : inputFormats)
+			subjectInd.addProperty(hasInputFormat, inputFormat.getIndividual());		
 	}
 	
 	private void addHasInputDataType(Individual subjectInd) {
-		
-		if(inputDataType == null)
+		if(inputDataTypes.size() == 0)
 			subjectInd.addProperty(hasInputDataType, OWL.getOWLThing());
 		else
-			subjectInd.addProperty(hasInputDataType, inputDataType);
-	}
-
-	private void addHasOutputDataType(Individual subjectInd) {
-		
-		if(outputDataType == null)
-			subjectInd.addProperty(hasOutputDataType, OWL.getOWLThing());
-		else
-			subjectInd.addProperty(hasOutputDataType, outputDataType);
+			for(OntResource inputDataType : inputDataTypes)
+				subjectInd.addProperty(hasInputDataType, inputDataType);
 	}
 	
 	private void addHasName(Individual subjectInd) {
@@ -138,29 +107,22 @@ public class Operator extends JenaIndividual {
 
 	@Override
 	protected boolean allFieldsPopulated() {
-		boolean hasInputOutputFormats = inputFormat != null && outputFormat != null;
-		return hasInputOutputFormats && name != null;
+		boolean hasInputFormats = inputFormats.size() > 0;
+		return hasInputFormats && name != null;
 	}
 
 	@Override
 	protected void populateFieldsWithIndividual(Individual ind) {
-		
-		// populate input format
-		NodeIterator inFormat = ind.listPropertyValues(hasInputFormat);
-		inputFormat = new Format(inFormat.next().as(Individual.class).getURI(), model);
-
-		// populate output format
-		NodeIterator outFormat = ind.listPropertyValues(hasOutputFormat);
-		outputFormat = new Format(outFormat.next().as(Individual.class).getURI(), model);
-		
+		// populate input formats
+		NodeIterator inFormats = ind.listPropertyValues(hasInputFormat);
+		while(inFormats.hasNext())
+			inputFormats.add(new Format(inFormats.next().as(Individual.class).getURI(), model));
+	
 		// populate input data type
-		NodeIterator inDataType = ind.listPropertyValues(hasInputDataType);
-		inputDataType = inDataType.next().as(Individual.class);
-
-		// populate input data type
-		NodeIterator outDataType = ind.listPropertyValues(hasOutputDataType);
-		outputDataType = outDataType.next().as(Individual.class);
-				
+		NodeIterator inDataTypes = ind.listPropertyValues(hasInputDataType);
+		while(inDataTypes.hasNext())
+			inputDataTypes.add(inDataTypes.next().as(Individual.class));
+		
 		RDFNode theName = ind.getPropertyValue(hasName);
 		name = (String) theName.as(Literal.class).getValue();		
 	}
@@ -171,11 +133,9 @@ public class Operator extends JenaIndividual {
 		
 		// add input/output formats
 		this.addHasInputFormat(ind);
-		this.addHasOutputFormat(ind);
 		
 		// add input/output data types
 		this.addHasInputDataType(ind);
-		this.addHasOutputDataType(ind);
 
 		// add name
 		this.addHasName(ind);
@@ -185,16 +145,14 @@ public class Operator extends JenaIndividual {
 
 	@Override
 	protected void setProperties() {
-		hasInputFormat = model.getObjectProperty(ViskoO.PROPERTY_URI_hasInputFormat);
-		hasOutputFormat = model.getObjectProperty(ViskoO.PROPERTY_URI_hasOutputFormat);
-		
+		hasInputFormat = model.getObjectProperty(ViskoO.PROPERTY_URI_hasInputFormat);		
 		hasInputDataType = model.getObjectProperty(ViskoO.PROPERTY_URI_hasInputDataType);
-		hasOutputDataType = model.getObjectProperty(ViskoO.PROPERTY_URI_hasOutputDataType);
-	
 		hasName = model.getDatatypeProperty(PMLP.DATATYPE_PROPERTY_URI_hasName);
 	}
 
 	@Override
 	protected void initializeFields() {
+		inputDataTypes = new Vector<OntResource>();
+		inputFormats = new Vector<Format>();
 	}
 }

@@ -42,30 +42,18 @@ package edu.utep.trustlab.visko.ontology.viskoOperator;
 
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.ObjectProperty;
-import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
 
-import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
-import edu.utep.trustlab.visko.ontology.pmlp.Format;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
-import edu.utep.trustlab.visko.ontology.vocabulary.supplemental.OWL;
 
 import java.util.Vector;
 
-public class Viewer extends JenaIndividual {
+public class Viewer extends Operator {
 
-	Vector<ViewerSet> viewerSets;
-	ObjectProperty partOfViewerSet;
+	private Vector<ViewerSet> viewerSets;
+	private ObjectProperty partOfViewerSet;
 	
-	// input formats and data types
-	private Vector<Format> inputFormats;
-	private Vector<OntResource> inputDataTypes;
-	
-	// Object Properties
-	private ObjectProperty hasInputFormat;	
-	private ObjectProperty hasInputDataType;
-
 	public Viewer(String baseURL, String name, ViskoModel viskoModel) {
 		super(ViskoO.CLASS_URI_Viewer, baseURL, name, viskoModel);
 	}
@@ -85,36 +73,7 @@ public class Viewer extends JenaIndividual {
 	public Vector<ViewerSet> getViewerSets() {
 		return viewerSets;
 	}
-
-	public void addInputFormat(Format inFormat) {
-		inputFormats.add(inFormat);
-	}
-		
-	public Vector<Format> getInputFormats(){
-		return inputFormats;
-	}
-		
-	public void addInputDataType(OntResource inDataType) {
-		inputDataTypes.add(inDataType);
-	}	
-		
-	public Vector<OntResource> getInputDataTypes(){
-		return inputDataTypes;
-	}
 	
-	private void addHasInputFormat(Individual subjectInd) {
-		for(Format inputFormat : inputFormats)
-			subjectInd.addProperty(hasInputFormat, inputFormat.getIndividual());		
-	}
-	
-	private void addHasInputDataType(Individual subjectInd) {
-		if(inputDataTypes.size() == 0)
-			subjectInd.addProperty(hasInputDataType, OWL.getOWLThing());
-		else
-			for(OntResource inputDataType : inputDataTypes)
-				subjectInd.addProperty(hasInputDataType, inputDataType);
-	}
-
 	private void addPartOfViewerSet(Individual subjectInd) {
 		for (ViewerSet set : viewerSets)
 			subjectInd.addProperty(partOfViewerSet, set.getIndividual());
@@ -122,50 +81,29 @@ public class Viewer extends JenaIndividual {
 
 	@Override
 	protected boolean allFieldsPopulated() {
-		boolean hasInputFormats = inputFormats.size() > 0;
-		return viewerSets.size() > 0 && hasInputFormats;		
+		return super.allFieldsPopulated() && viewerSets.size() > 0;		
 	}
 
 	@Override
 	protected Individual createNewIndividual() {
 		Individual ind = super.createNewIndividual();
-
-		this.addHasInputDataType(ind);
-		this.addHasInputFormat(ind);
 		this.addPartOfViewerSet(ind);
-
 		return ind;
 	}
 
 	@Override
-	protected void setProperties() {
-		partOfViewerSet = model.getObjectProperty(ViskoO.PROPERTY_URI_partOfViewerSet);
-		hasInputFormat = model.getObjectProperty(ViskoO.PROPERTY_URI_hasInputFormat);
-		hasInputDataType = model.getObjectProperty(ViskoO.PROPERTY_URI_hasInputDataType);		
-	}
+	protected void setProperties() {partOfViewerSet = model.getObjectProperty(ViskoO.PROPERTY_URI_partOfViewerSet);}
 
 	@Override
 	protected void populateFieldsWithIndividual(Individual ind) {
 		// populate viewer sets
 		NodeIterator vSets = ind.listPropertyValues(partOfViewerSet);
 		while (vSets.hasNext())
-			viewerSets.add(new ViewerSet(vSets.next().as(Individual.class).getURI(), model));
-		
-		// populate input formats
-		NodeIterator inFormats = ind.listPropertyValues(hasInputFormat);
-		while(inFormats.hasNext())
-			inputFormats.add(new Format(inFormats.next().as(Individual.class).getURI(), model));
-	
-		// populate input data type
-		NodeIterator inDataTypes = ind.listPropertyValues(hasInputDataType);
-		while(inDataTypes.hasNext())
-			inputDataTypes.add(inDataTypes.next().as(Individual.class));
+			viewerSets.add(new ViewerSet(vSets.next().as(Individual.class).getURI(), model));		
 	}
 
 	@Override
 	protected void initializeFields() {
 		viewerSets = new Vector<ViewerSet>();
-		inputDataTypes = new Vector<OntResource>();
-		inputFormats = new Vector<Format>();
 	}
 }

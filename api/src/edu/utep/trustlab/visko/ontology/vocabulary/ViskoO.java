@@ -28,12 +28,13 @@ public class ViskoO {
 
 	// Classes
 	public static final String CLASS_URI_Operator = Visko.CORE_VISKO_O + "#Operator";
-	public static final String CLASS_URI_ViewMapper = Visko.CORE_VISKO_O + "#ViewMapper";
-	public static final String CLASS_URI_FormatConverter = Visko.CORE_VISKO_O + "#FormatConverter";
-	public static final String CLASS_URI_DataTransformer = Visko.CORE_VISKO_O + "#DataTransformer";
+	public static final String CLASS_URI_PreViewerOperator = Visko.CORE_VISKO_O + "#PreViewerOperator";
+
+	public static final String CLASS_URI_Mapper = Visko.CORE_VISKO_O + "#Mapper";
+	public static final String CLASS_URI_Converter = Visko.CORE_VISKO_O + "#Converter";
+	public static final String CLASS_URI_Transformer = Visko.CORE_VISKO_O + "#Transformer";
 	public static final String CLASS_URI_Filter = Visko.CORE_VISKO_O + "#Filter";
-	public static final String CLASS_URI_DataFilter = Visko.CORE_VISKO_O + "#DataFilter";
-	public static final String CLASS_URI_DimensionFilter = Visko.CORE_VISKO_O + "#DimensionFilter";
+	public static final String CLASS_URI_DimensionReducer = Visko.CORE_VISKO_O + "#DimensionReducer";
 	public static final String CLASS_URI_Interpolator = Visko.CORE_VISKO_O + "#Interpolator";
 
 	public static final String CLASS_URI_Viewer = Visko.CORE_VISKO_O + "#Viewer";
@@ -46,7 +47,7 @@ public class ViskoO {
 	public static final String PROPERTY_URI_hasInputDataType = Visko.CORE_VISKO_O + "#hasInputDataType";
 	public static final String PROPERTY_URI_hasOutputDataType = Visko.CORE_VISKO_O + "#hasOutputDataType";	
 	
-	public static final String PROPERTY_URI_mapsToView = Visko.CORE_VISKO_O + "#mapsToView";
+	public static final String PROPERTY_URI_mapsTo = Visko.CORE_VISKO_O + "#mapsTo";
 	public static final String PROPERTY_URI_partOfViewerSet = Visko.CORE_VISKO_O + "#partOfViewerSet";
 	
 	private static OntModel model;

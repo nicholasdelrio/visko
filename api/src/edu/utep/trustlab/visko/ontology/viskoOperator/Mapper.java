@@ -47,36 +47,34 @@ import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.viskoView.VisualizationAbstraction;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 
-public class ViewMapper extends Operator {
+public class Mapper extends PreViewerOperator {
 
-	private VisualizationAbstraction view;
+	private VisualizationAbstraction visualizationAbstraction;
+	private ObjectProperty mapsTo;
 	
-	private ObjectProperty mapsToView;
-	
-	
-	public ViewMapper(String baseURL, String name, ViskoModel viskoModel) {
-		super(ViskoO.CLASS_URI_ViewMapper, baseURL, name, viskoModel);
+	public Mapper(String baseURL, String name, ViskoModel viskoModel) {
+		super(ViskoO.CLASS_URI_Mapper, baseURL, name, viskoModel);
 	}
 	
-	public ViewMapper(String uri, ViskoModel viskoModel) {
+	public Mapper(String uri, ViskoModel viskoModel) {
 		super(uri, viskoModel);
 	}
 
 	public void setView(VisualizationAbstraction aView) {
-		view = aView;
+		visualizationAbstraction = aView;
 	}
 
 	public VisualizationAbstraction getView() {
-		return view;
+		return visualizationAbstraction;
 	}
 
 	private void addMapsToView(Individual subjectInd) {
-		subjectInd.addProperty(mapsToView, view.getIndividual());
+		subjectInd.addProperty(mapsTo, visualizationAbstraction.getIndividual());
 	}
 
 	@Override
 	protected boolean allFieldsPopulated() {
-		if (super.allFieldsPopulated() && view != null)
+		if (super.allFieldsPopulated() && visualizationAbstraction != null)
 			return true;
 		
 		return false;
@@ -92,7 +90,7 @@ public class ViewMapper extends Operator {
 	@Override
 	protected void setProperties() {
 		super.setProperties();
-		mapsToView = model.getObjectProperty(ViskoO.PROPERTY_URI_mapsToView);
+		mapsTo = model.getObjectProperty(ViskoO.PROPERTY_URI_mapsTo);
 	}
 
 	@Override
@@ -100,7 +98,7 @@ public class ViewMapper extends Operator {
 		super.populateFieldsWithIndividual(ind);
 		
 		// populate view
-		view = new VisualizationAbstraction(ind.getPropertyValue(mapsToView).as(Individual.class).getURI(), model);
+		visualizationAbstraction = new VisualizationAbstraction(ind.getPropertyValue(mapsTo).as(Individual.class).getURI(), model);
 	}
 
 	@Override

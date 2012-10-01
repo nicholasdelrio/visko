@@ -25,13 +25,17 @@ import com.hp.hpl.jena.ontology.Individual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 
-public class FormatConverter extends Operator {
+public class Transformer extends PreViewerOperator {
 
-	public FormatConverter(String baseURL, String name, ViskoModel viskoModel) {
-		super(ViskoO.CLASS_URI_FormatConverter, baseURL, name, viskoModel);
+	public Transformer(String baseURL, String name, ViskoModel viskoModel) {
+		super(ViskoO.CLASS_URI_Transformer, baseURL, name, viskoModel);
+	}
+	
+	public Transformer(String classURI, String baseURL, String name, ViskoModel viskoModel) {
+		super(classURI, baseURL, name, viskoModel);
 	}
 
-	public FormatConverter(String uri, ViskoModel viskoModel) {
+	public Transformer(String uri, ViskoModel viskoModel) {
 		super(uri, viskoModel);
 	}
 	
