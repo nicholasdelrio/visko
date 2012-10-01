@@ -45,12 +45,12 @@ import edu.utep.trustlab.visko.ontology.JenaIndividual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoV;
 
-public class View extends JenaIndividual {
-	public View(String baseURL, String name, ViskoModel viskoModel) {
-		super(ViskoV.CLASS_URI_View, baseURL, name, viskoModel);
+public class VisualizationAbstraction extends JenaIndividual {
+	public VisualizationAbstraction(String baseURL, String name, ViskoModel viskoModel) {
+		super(ViskoV.CLASS_URI_VisualizationAbstraction, baseURL, name, viskoModel);
 	}
 
-	public View(String uri, ViskoModel viskoModel) {
+	public VisualizationAbstraction(String uri, ViskoModel viskoModel) {
 		super(uri, viskoModel);
 	}
 
