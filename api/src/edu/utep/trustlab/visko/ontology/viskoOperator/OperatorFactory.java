@@ -83,7 +83,7 @@ public class OperatorFactory {
 	
 	public Operator createOperator(String operatorName){
 		adjustForNullDataTypes();
-		PreViewerOperator preViewerOperator;
+		InputOutputOperator preViewerOperator;
 		
 		if(isInterpolator())
 			preViewerOperator = new Interpolator(baseURL, operatorName, viskoModel); 

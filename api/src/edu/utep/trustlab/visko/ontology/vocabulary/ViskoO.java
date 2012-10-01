@@ -28,8 +28,6 @@ public class ViskoO {
 
 	// Classes
 	public static final String CLASS_URI_Operator = Visko.CORE_VISKO_O + "#Operator";
-	public static final String CLASS_URI_PreViewerOperator = Visko.CORE_VISKO_O + "#PreViewerOperator";
-
 	public static final String CLASS_URI_Mapper = Visko.CORE_VISKO_O + "#Mapper";
 	public static final String CLASS_URI_Converter = Visko.CORE_VISKO_O + "#Converter";
 	public static final String CLASS_URI_Transformer = Visko.CORE_VISKO_O + "#Transformer";

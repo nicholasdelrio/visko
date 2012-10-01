@@ -25,7 +25,7 @@ import com.hp.hpl.jena.ontology.Individual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 
-public class Transformer extends PreViewerOperator {
+public class Transformer extends InputOutputOperator {
 
 	public Transformer(String baseURL, String name, ViskoModel viskoModel) {
 		super(ViskoO.CLASS_URI_Transformer, baseURL, name, viskoModel);

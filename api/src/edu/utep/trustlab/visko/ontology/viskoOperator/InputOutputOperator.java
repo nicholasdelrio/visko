@@ -29,7 +29,7 @@ import edu.utep.trustlab.visko.ontology.pmlp.Format;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 import edu.utep.trustlab.visko.ontology.vocabulary.supplemental.OWL;
 
-public abstract class PreViewerOperator extends Operator {
+public abstract class InputOutputOperator extends Operator {
 	
 	private Format outputFormat;	
 	private OntResource outputDataType;
@@ -37,16 +37,12 @@ public abstract class PreViewerOperator extends Operator {
 	// Object Properties
 	private ObjectProperty hasOutputFormat;	
 	private ObjectProperty hasOutputDataType;
-
-	public PreViewerOperator(String baseURL, String name, ViskoModel viskoModel) {
-		super(ViskoO.CLASS_URI_PreViewerOperator, baseURL, name, viskoModel);
-	}
 	
-	public PreViewerOperator(String classURI, String baseURL, String name, ViskoModel viskoModel) {
+	public InputOutputOperator(String classURI, String baseURL, String name, ViskoModel viskoModel) {
 		super(classURI, baseURL, name, viskoModel);
 	}
 
-	public PreViewerOperator(String conceptURI, ViskoModel viskoModel) {
+	public InputOutputOperator(String conceptURI, ViskoModel viskoModel) {
 		super(conceptURI, viskoModel);
 	}
 	

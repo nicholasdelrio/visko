@@ -5,7 +5,7 @@ import com.hp.hpl.jena.ontology.Individual;
 import edu.utep.trustlab.visko.ontology.model.ViskoModel;
 import edu.utep.trustlab.visko.ontology.vocabulary.ViskoO;
 
-public class Interpolator extends PreViewerOperator {
+public class Interpolator extends InputOutputOperator {
 
 	public Interpolator(String baseURL, String name, ViskoModel viskoModel) {
 		super(ViskoO.CLASS_URI_Interpolator, baseURL, name, viskoModel);
