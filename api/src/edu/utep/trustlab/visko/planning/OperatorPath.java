@@ -151,16 +151,16 @@ public class OperatorPath extends Vector<String> {
 	}
 	
 	public boolean add(String operatorURI){
-		 if(ts.isViewMapper(operatorURI)){
+		 if(ts.isMapper(operatorURI)){
 			 violatesRuleSingleMapper = containsMapper;
 			 containsMapper = true;
 			 setVisualizationAbstractionGeneratedByViewMapper(operatorURI);
 		 }
-		 else if(ts.isDataFilter(operatorURI)){
+		 else if(ts.isFilter(operatorURI)){
 			 violatesRuleSingleFilter = containsFilter;
 			 containsFilter = true;
 		 }
-		 else if(ts.isDimensionFilter(operatorURI)){
+		 else if(ts.isDimensionReducer(operatorURI)){
 			violatesRuleSingleDimensionReducer = containsDimensionReducer;		
 		 	containsDimensionReducer = true;
 		 }

@@ -18,26 +18,6 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 
-/*
-Copyright (c) 2012, University of Texas at El Paso
-All rights reserved.
-Redistribution and use in source and binary forms, with or without modification, are permitted
-provided that the following conditions are met:
-
-	-Redistributions of source code must retain the above copyright notice, this list of conditions
-	 and the following disclaimer.
-	-Redistributions in binary form must reproduce the above copyright notice, this list of conditions
-	 and the following disclaimer in the documentation and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
-WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
-PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
-GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
-OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-
-
 package edu.utep.trustlab.visko.sparql;
 
 import com.hp.hpl.jena.query.*;
@@ -109,11 +89,11 @@ public class ViskoTripleStore {
 		return submitQuery(stringQuery);
 	}
 	
-	public ResultSet getDataFilters() {
+	public ResultSet getFilters() {
 		String stringQuery = 
 				QUERY_PREFIX 
 				+ "SELECT ?operator ?lbl WHERE { "
-				+ "?operator rdf:type viskoO:DataFilter . "
+				+ "?operator rdf:type viskoO:Filter . "
 				+ "?operator rdfs:label ?lbl . }";
 
 		return submitQuery(stringQuery);
@@ -296,12 +276,12 @@ public class ViskoTripleStore {
 		return submitQuery(stringQuery);		
 	}
 	
-	public boolean isViewMapper(String uri) {
+	public boolean isMapper(String uri) {
 		uri = "<" + uri + ">";
 
 		String stringQuery = QUERY_PREFIX
 				+ "ASK "
-				+ "WHERE {" + uri + " rdf:type viskoO:ViewMapper . }";
+				+ "WHERE {" + uri + " rdf:type viskoO:Mapper . }";
 
 		return submitAskQuery(stringQuery);
 	}
@@ -316,12 +296,12 @@ public class ViskoTripleStore {
 		return submitAskQuery(stringQuery);
 	}
 	
-	public boolean isDataFilter(String uri) {
+	public boolean isFilter(String uri) {
 		uri = "<" + uri + ">";
 
 		String stringQuery = QUERY_PREFIX
 				+ "ASK "
-				+ "WHERE {" + uri + " rdf:type viskoO:DataFilter . }";
+				+ "WHERE {" + uri + " rdf:type viskoO:Filter . }";
 
 		return submitAskQuery(stringQuery);
 	}
@@ -336,12 +316,12 @@ public class ViskoTripleStore {
 		return submitAskQuery(stringQuery);
 	}
 
-	public boolean isDimensionFilter(String uri) {
+	public boolean isDimensionReducer(String uri) {
 		uri = "<" + uri + ">";
 
 		String stringQuery = QUERY_PREFIX
 				+ "ASK "
-				+ "WHERE {" + uri + " rdf:type viskoO:DimensionFilter . }";
+				+ "WHERE {" + uri + " rdf:type viskoO:DimensionReducer . }";
 
 		return submitAskQuery(stringQuery);
 	}
@@ -424,7 +404,7 @@ public class ViskoTripleStore {
 		String stringQuery = 
 				QUERY_PREFIX +
 				"SELECT DISTINCT ?operator WHERE {{"
-				+ "?operator a viskoO:Operator . "
+				+ "?operator a viskoO:InputOutputOperator . "
 				+ "?operator viskoO:hasInputFormat " + formatURI + " . "
 				+ "?operator viskoO:hasInputDataType " + dataTypeURI + " . } UNION {"
 				+ "?operator a viskoO:Operator . "
@@ -445,13 +425,13 @@ public class ViskoTripleStore {
 				+ "SELECT DISTINCT ?operator WHERE {{"
 				//+ operatorURI + " viskoO:hasOutputDataType ?dataType . "
 				+ operatorURI + " viskoO:hasOutputFormat ?format . "
-				+ "?operator a viskoO:Operator . "				
+				+ "?operator a viskoO:InputOutputOperator . "				
 				//+ "?operator viskoO:hasInputDataType ?dataType . "
 				+ "?operator viskoO:hasInputDataType " + currentTypeURI + " . "
-				+ "?operator viskoO:hasInputFormat ?format . } UNION {"
+				+ "?operator viskoO:hasInputFormat ?format . } UNION {"				
 				//+ operatorURI + " viskoO:hasOutputDataType ?subDataType . "
 				+ operatorURI + " viskoO:hasOutputFormat ?format . "
-				+ "?operator a viskoO:Operator . "
+				+ "?operator a viskoO:InputOutputOperator . "
 				+ "?operator viskoO:hasInputDataType ?superDataType . "
 				+ "?operator viskoO:hasInputFormat ?format . "
 				//+ "?subDataType rdfs:subClassOf ?superDataType . }}";
@@ -460,29 +440,27 @@ public class ViskoTripleStore {
 		return submitQuery(stringQuery);
 	}
 	
-	public ResultSet getAdjacentNonDataFilterOperatorsAccordingToFormatAndDataType(String operatorURI, String currentTypeURI){
+	public ResultSet getAdjacentNonFilterOperatorsAccordingToFormatAndDataType(String operatorURI, String currentTypeURI){
 		currentTypeURI = "<" + currentTypeURI + ">";
 		operatorURI = "<" + operatorURI + ">";
 		
 		String stringQuery = 
 				QUERY_PREFIX
-				+ "SELECT DISTINCT ?operator WHERE {"
-				+ "{"
+				+ "SELECT DISTINCT ?operator WHERE {{"
 				//+ operatorURI + " viskoO:hasOutputDataType ?dataType . "
 				+ operatorURI + " viskoO:hasOutputFormat ?format . "
-				+ "?operator a viskoO:Operator . "				
+				+ "?operator a viskoO:InputOutputOperator . "				
 				//+ "?operator viskoO:hasInputDataType ?dataType . "
 				+ "?operator viskoO:hasInputDataType " + currentTypeURI + " . "
 				+ "?operator viskoO:hasInputFormat ?format . } UNION {"
 				//+ operatorURI + " viskoO:hasOutputDataType ?subDataType . "
 				+ operatorURI + " viskoO:hasOutputFormat ?format . "
-				+ "?operator a viskoO:Operator . "
+				+ "?operator a viskoO:InputOutputOperator . "
 				+ "?operator viskoO:hasInputDataType ?superDataType . "
 				+ "?operator viskoO:hasInputFormat ?format . "
 				//+ "?subDataType rdfs:subClassOf ?superDataType . "
-				+ currentTypeURI + " rdfs:subClassOf ?superDataType . "
-				+ "} FILTER NOTEXISTS {?operator a viskoO:DataFilter}"
-				+ "}";
+				+ currentTypeURI + " rdfs:subClassOf ?superDataType . }"
+				+ "FILTER NOTEXISTS {?operator a viskoO:Filter}}";
 		
 		return submitQuery(stringQuery);
 	}
@@ -493,10 +471,9 @@ public class ViskoTripleStore {
 		String stringQuery = 
 				QUERY_PREFIX
 				+ "SELECT DISTINCT ?operator WHERE {"
-				+ "{"
 				+ operatorURI + " viskoO:hasOutputFormat ?format . "
-				+ "?operator a viskoO:Operator . "				
-				+ "?operator viskoO:hasInputFormat ?format . }}";
+				+ "?operator a viskoO:InputOutputOperator . "				
+				+ "?operator viskoO:hasInputFormat ?format . }";
 		
 		return submitQuery(stringQuery);
 	}

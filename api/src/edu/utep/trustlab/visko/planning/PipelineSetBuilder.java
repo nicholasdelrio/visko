@@ -178,15 +178,16 @@ public class PipelineSetBuilder {
 			else if(isDataFiltered)
 				operatorResults = ts.getAdjacentOperatorsAccordingToFormatAndDataType(operatorPath.lastElement(), inputTypeURI);
 			else
-				operatorResults = ts.getAdjacentNonDataFilterOperatorsAccordingToFormatAndDataType(operatorPath.lastElement(), inputTypeURI);
+				operatorResults = ts.getAdjacentNonFilterOperatorsAccordingToFormatAndDataType(operatorPath.lastElement(), inputTypeURI);
 		
 			Vector<String> operatorURIs = ResultSetToVector.getVectorFromResultSet(operatorResults, "operator");	
 			operatorURIs = operatorPath.filterOperatorsAlreadyInPath(operatorURIs);
-	
+			
 			if(operatorURIs.size() > 0){
 				OperatorPath clonedPath;
+				
 				String targetViewerURI = operatorPath.outputCanBeViewedByViewerSet(viewerURIs);
-
+				
 				if(targetViewerURI != null){
 					clonedPath = operatorPath.clonePath();
 					clonedPath.setViewer(targetViewerURI);
@@ -208,7 +209,7 @@ public class PipelineSetBuilder {
 			}
 		}
 	}	
-	
+		
 	private String getNextDataType(String currentDataType, String operatorURI){
 		String[] dataURIs = ResultSetToVector.getVectorPairsFromResultSet(ts.getOutputData(operatorURI), "format", "dataType").firstElement();
 		String dataTypeURI = dataURIs[1];
