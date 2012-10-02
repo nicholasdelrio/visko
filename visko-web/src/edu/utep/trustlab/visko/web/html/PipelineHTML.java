@@ -54,20 +54,19 @@ public class PipelineHTML {
 			String operatorURI = viskoService.getConceptualOperator().getURI();
 			ViskoTripleStore ts = new ViskoTripleStore();
 
-			if (!ts.isViewMapper(operatorURI)) {
+			if (!ts.isMapper(operatorURI)) {
 				html += "<a href=\""+ ViskoO.CLASS_URI_Operator + "\">Transformer</a>";
 			}
 
 			else {
 				Vector<String> viewURIs = ResultSetToVector.getVectorFromResultSet(ts.getViewsGeneratedFrom(operatorURI), "view");
-				html += "<a href=\"" + ViskoO.CLASS_URI_ViewMapper + "\">Mapper</a>";
+				html += "<a href=\"" + ViskoO.CLASS_URI_Mapper + "\">Mapper</a>";
 				html += "<ul><li>Generates View: <a href=\""
 						+ viewURIs.firstElement() + "\">"
 						+ viewURIs.firstElement() + "</a></li></ul>";
 			}
 
-			OWLIndividualList<Input> paramList = service.getIndividual()
-					.getProfile().getInputs();
+			OWLIndividualList<Input> paramList = service.getIndividual().getProfile().getInputs();
 			String parameterURI;
 			String parameterValue;
 			if (paramList.size() > 0) {
@@ -96,7 +95,7 @@ public class PipelineHTML {
 					+ viskoService.getConceptualOperator().getURI() + "</a></li>";
 			html += "<li><b>Input Format: </b>";
 			
-			String formatURI = viskoService.getConceptualOperator().getInputFormat().getURI();
+			String formatURI = viskoService.getConceptualOperator().getInputFormats().firstElement().getURI();
 			String formatName = getURIFragment(formatURI);
 			
 			html += "<a href=\"" + formatURI + "\">" + formatName + "</a></li>";
@@ -114,7 +113,10 @@ public class PipelineHTML {
 		String html = "<ul>";
 		String formatURI;
 		String formatName;
+		if(formats.size() == 0)
+			System.out.println("no formats!");
 		for (Format format : formats) {
+			System.out.println("formatURI: " + format.getURI());
 			formatURI = format.getURI();
 			formatName = getURIFragment(formatURI);
 			html += "<li><a href=\"" + format.getURI() + "\">" + formatName + "</a>";
@@ -129,13 +131,11 @@ public class PipelineHTML {
 		Viewer viewer = pipe.getViewer();
 		if (viewer != null) {
 			html = "<ul>";
-			html += "<li>" + viewer.getLabel() + "</li>";
-			html += "<li><a href=\"" + viewer.getURI() + "\">"
-					+ viewer.getURI() + "</a></li>";
+			html += "<li><a href=\"" + viewer.getURI() + "\">" + viewer.getLabel() + "</a></li>";
 
 			html += "<li><b>Input Format(s):</b>";
-			html += getInputFormatList(viewer.getInputFormats()) + "</li>";
-
+			html += getInputFormatList(viewer.getInputFormats());
+			html += "</li>";
 			html += "<ul>";
 		} else
 			html = "<p>Viewer was not specified.</p>";

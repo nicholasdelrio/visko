@@ -127,7 +127,7 @@ public class Graph_OperatorPaths {
 			newIndex = nodesList.size();
 			operators.put(operatorURI, newIndex);
 			try{
-				if(ts.isViewMapper(operatorURI))
+				if(ts.isMapper(operatorURI))
 					nodesList.add(new JSONObject().put("operatorURI", operatorURI).put("viskoType", "ViewMapper"));
 				else if(ts.isViewer(operatorURI))
 					nodesList.add(new JSONObject().put("operatorURI", operatorURI).put("viskoType", "Viewer"));

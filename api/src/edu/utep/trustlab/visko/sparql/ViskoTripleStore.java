@@ -351,7 +351,7 @@ public class ViskoTripleStore {
 				QUERY_PREFIX
 				+ "ASK WHERE {"
 				+ serviceURI + " viskoS:implementsOperator ?operator . "
-				+ "?operator a viskoO:ViewMapper . "
+				+ "?operator a viskoO:Mapper . "
 				+ "}";
 		
 		return submitAskQuery(stringQuery);

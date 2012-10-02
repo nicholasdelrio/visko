@@ -64,7 +64,7 @@ public class Graph_Pipeline {
 			//add pipeline operators to list of nodes
 			Vector<String> implOf = ResultSetToVector.getVectorFromResultSet(ts.getImplemenationOf(viskoServiceURI), "operator");
 			
-			if(implOf != null && ts.isViewMapper(implOf.firstElement()))
+			if(implOf != null && ts.isMapper(implOf.firstElement()))
 				nodesList.add(new JSONObject().put("instanceURI", viskoServiceURI).put("viskoType", "Mapper"));
 			else
 				nodesList.add(new JSONObject().put("instanceURI", viskoServiceURI).put("viskoType", "Transformer"));

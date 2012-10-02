@@ -123,6 +123,7 @@ public class Viewer extends Operator {
 	@Override
 	protected void populateFieldsWithIndividual(Individual ind) {
 		// populate viewer sets
+		super.populateFieldsWithIndividual(ind);
 		NodeIterator vSets = ind.listPropertyValues(partOfViewerSet);
 		while (vSets.hasNext())
 			viewerSets.add(new ViewerSet(vSets.next().as(Individual.class).getURI(), model));

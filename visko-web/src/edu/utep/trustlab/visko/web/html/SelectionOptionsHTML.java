@@ -120,7 +120,7 @@ public class SelectionOptionsHTML {
 	}
 
 	public String getViskoViews() {
-		ResultSet views = viskoStore.getViews();
+		ResultSet views = viskoStore.getVisualizationAbstractions();
 		String viewURI;
 		String options = "<option value=\"" + DEFAULT
 				+ "\">-- Choose View --</option>";
@@ -129,7 +129,7 @@ public class SelectionOptionsHTML {
 		options += option;
 		
 		while (views.hasNext()) {
-			viewURI = views.nextSolution().get("?view").toString();
+			viewURI = views.nextSolution().get("?visualizationAbstraction").toString();
 			option = "<option title=\"" + viewURI + "\" value=\"" + viewURI
 					+ "\">" + getURIFragment(viewURI) + "</option>";
 			options += option;

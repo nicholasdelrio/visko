@@ -44,10 +44,10 @@ public class Bars_Instances {
 		int viewerCount = numResults(ts.getViewers());
 
 		//operators count
-		int dataTransformerCount = numResults(ts.getDataTransformers());
-		int viewMapperCount = numResults(ts.getViewMappers());
-		int dataFilterCount = numResults(ts.getDataFilters());
-		int dimFilterCount = numResults(ts.getDimensionFilters());
+		int transformerCount = numResults(ts.getTransformers());
+		int mapperCount = numResults(ts.getMappers());
+		int filterCount = numResults(ts.getFilters());
+		int dimReducerCount = numResults(ts.getDimensionReducers());
 		int interpolatorCount = numResults(ts.getInterpolators());
 		
 		//toolkits stuff
@@ -61,29 +61,29 @@ public class Bars_Instances {
 		int serviceCount = numResults(ts.getOWLSServices());
 		
 		//generated views
-		int viewCount = numResults(ts.getViews());
+		int visualizationCount = numResults(ts.getVisualizationAbstractions());
 
 		JSONObject jsonGraphData = new JSONObject();
 
 		try {
 			ArrayList<JSONObject> data = new ArrayList<JSONObject>();
 
-			data.add(new JSONObject().put("viskoType", "Toolkits").put("count",	toolkitCount));
-			data.add(new JSONObject().put("viskoType", "Services").put("count", serviceCount));
-			data.add(new JSONObject().put("viskoType", "Parameters").put("count", paramCount));
+			data.add(new JSONObject().put("viskoType", "Toolkit").put("count",	toolkitCount));
+			data.add(new JSONObject().put("viskoType", "Service").put("count", serviceCount));
+			data.add(new JSONObject().put("viskoType", "Parameter").put("count", paramCount));
 
-			data.add(new JSONObject().put("viskoType", "Used Formats").put("count", formatCount));
-			data.add(new JSONObject().put("viskoType", "Used Data Types").put("count", dataTypeCount));
+			data.add(new JSONObject().put("viskoType", "Format").put("count", formatCount));
+			data.add(new JSONObject().put("viskoType", "DataType").put("count", dataTypeCount));
 			
-			data.add(new JSONObject().put("viskoType", "Viewer Sets").put("count", viewerSetCount));
-			data.add(new JSONObject().put("viskoType", "Viewers").put("count", viewerCount));
-			data.add(new JSONObject().put("viskoType", "Views").put("count", viewCount));
+			data.add(new JSONObject().put("viskoType", "ViewerSet").put("count", viewerSetCount));
+			data.add(new JSONObject().put("viskoType", "Viewer").put("count", viewerCount));
+			data.add(new JSONObject().put("viskoType", "Visualization").put("count", visualizationCount));
 
-			data.add(new JSONObject().put("viskoType", "Data Transformers").put("count", dataTransformerCount));
-			data.add(new JSONObject().put("viskoType", "Data Filters").put("count", dataFilterCount));
-			data.add(new JSONObject().put("viskoType", "Dimension Filters").put("count", dimFilterCount));
-			data.add(new JSONObject().put("viskoType", "View Mappers").put("count", viewMapperCount));
-			data.add(new JSONObject().put("viskoType", "Interpolators").put("count", interpolatorCount));
+			data.add(new JSONObject().put("viskoType", "Transformer").put("count", transformerCount));
+			data.add(new JSONObject().put("viskoType", "Filter").put("count", filterCount));
+			data.add(new JSONObject().put("viskoType", "DimensionReducer").put("count", dimReducerCount));
+			data.add(new JSONObject().put("viskoType", "Mapper").put("count", mapperCount));
+			data.add(new JSONObject().put("viskoType", "Interpolator").put("count", interpolatorCount));
 
 
 			jsonGraphData.put("instanceGraphData", data);
