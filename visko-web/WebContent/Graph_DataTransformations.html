@@ -139,7 +139,7 @@ text.shadow {
     	format = formatAndType[0];
     	type = formatAndType[1];
     	
-    	return getURIFragment(format) + "-" + getURIFragment(type);
+    	return getURIFragment(format) + " [" + getURIFragment(type) + "]";
     }
     
     function getURIFragment(stringToTrim)
