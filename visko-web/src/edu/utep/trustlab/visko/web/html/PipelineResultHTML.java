@@ -30,7 +30,8 @@ public class PipelineResultHTML {
     	
     	else if(viewerSetURI.endsWith("data-driven-documents") && endpointURL != null){
     		endpointURL += "?url=" + resultURL;
-    		resultMessage += "<a href=\"" + endpointURL + "\">Click To Interact with Viewer</a>";
+    		//resultMessage += "<a href=\"" + endpointURL + "\">Click To Interact with Viewer</a>";
+    		resultMessage += "<iframe width=\"1050\" height=\"700\" src=\"" + endpointURL + "\" frameborder=\"1\"></iframe>";
     	}
     	
     	else{
