@@ -22,6 +22,7 @@
 <li><a href="#holes">Seismic Tomography Visualization</a> 
 <li><a href="#brightness">NASA MODIS Brightness Visualization</a>
 <li><a href="#polygons">Polygon Data</a>
+<li><a href="#visko">Visko Knowledge Base Visualizations</a>
 </ul>
 
 
@@ -413,9 +414,9 @@ WHERE
 </table>
 
 <a name="polygons">
-<h4>vtkPolyData Query</h4>
+<h4>vtkPolyData Queries</h4>
 
-<h5>Cube</h5>
+<h5>Cube Query</h5>
 <div class="code">
 <pre>
 PREFIX vtkTypes http://www.vtk.org/vtk-data.owl#
@@ -443,6 +444,85 @@ WHERE
 
 <tr>
 <td><img src="./visualization-examples/cube-3d-polydata-vtk.png" width="350px"></td>
+</tr>
+</table>
+
+<a name="visko">
+<h4>VisKo Queries</h4>
+
+<h5>Operator Paths Force Graph</h5>
+<div class="code">
+<pre>
+PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#
+PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
+PREFIX visko https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_custom.owl#
+PREFIX types https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#
+VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
+AS views:2D_VisKo_OperatorPaths_ForceGraph IN visko:data-driven-documents
+WHERE
+	FORMAT = formats:RDFXML.owl#RDFXML
+	AND TYPE = types:VisKo_KnowledgeBase
+</pre>
+</div>
+
+<table>
+<tr>
+<td align="center"><a href="http://d3js.org/">D3</a></td>
+</tr>
+
+<tr>
+<td><img src="./visualization-examples/operatorpaths-2d-forcegraph-d3.png" width="450px"></td>
+</tr>
+</table>
+
+<h5>Operator Paths Force Graph</h5>
+<div class="code">
+<pre>
+PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#
+PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
+PREFIX visko https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_custom.owl#
+PREFIX types https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#
+VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
+AS views:2D_VisKo_DataTransformations_ForceGraph IN visko:data-driven-documents
+WHERE
+	FORMAT = formats:RDFXML.owl#RDFXML
+	AND TYPE = types:VisKo_KnowledgeBase
+</pre>
+</div>
+
+<table>
+<tr>
+<td align="center"><a href="http://d3js.org/">D3</a></td>
+</tr>
+
+<tr>
+<td><img src="./visualization-examples/datatransformations-2d-forcegraph-d3.png" width="450px"></td>
+</tr>
+</table>
+
+
+<h5>Operator Paths Force Graph</h5>
+<div class="code">
+<pre>
+PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#
+PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
+PREFIX visko https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_custom.owl#
+PREFIX types https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#
+VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
+AS views:2D_VisKo_Instances_BarChart IN visko:data-driven-documents
+WHERE
+	FORMAT = formats:RDFXML.owl#RDFXML
+	AND TYPE = types:VisKo_KnowledgeBase
+</pre>
+</div>
+
+<table>
+<tr>
+<td align="center"><a href="http://d3js.org/">D3</a></td>
+</tr>
+
+<tr>
+<td><img src="./visualization-examples/instances-2d-barchart-d3.png" width="450px"></td>
 </tr>
 </table>
 
