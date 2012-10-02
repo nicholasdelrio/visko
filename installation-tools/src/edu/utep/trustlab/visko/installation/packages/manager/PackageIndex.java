@@ -28,13 +28,13 @@ public class PackageIndex {
 	public String getHTMLIndex(){
 		aggregateOWLDocuments();
 
-		String indexHTML = "<h2>Toolkit</h2>";
+		String indexHTML = "<h2>Toolkit</h2>\n";
 		indexHTML += getToolkitHTML();
 		
 		indexHTML += "<h2>ViewerSets</h2>\n";
 		indexHTML += getViewerSetsHTML();
 		
-		indexHTML += "<h2>Services</h2>";
+		indexHTML += "<h2>Services</h2>\n";
 		indexHTML += getServicesHTML();
 		
 		return 
@@ -83,6 +83,7 @@ public class PackageIndex {
 				}
 				viewerSetsHTML += viewersHTML;
 			}
+			viewerSetsHTML += "</ul>";
 		}
 		return viewerSetsHTML;
 	}

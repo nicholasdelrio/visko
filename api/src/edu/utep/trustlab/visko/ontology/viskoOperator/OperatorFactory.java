@@ -85,7 +85,11 @@ public class OperatorFactory {
 		adjustForNullDataTypes();
 		InputOutputOperator inputOutputOperator;
 		
-		if(isInterpolator())
+		if(view != null){
+			inputOutputOperator = new Transformer(baseURL, operatorName, viskoModel);
+			inputOutputOperator.setVisualizationAbstraction(view);
+		}
+		else if(isInterpolator())
 			inputOutputOperator = new Interpolator(baseURL, operatorName, viskoModel); 
 		else if(isDimensionReducer())
 			inputOutputOperator = new DimensionReducer(baseURL, operatorName, viskoModel);
@@ -96,9 +100,6 @@ public class OperatorFactory {
 		else
 			inputOutputOperator = new Transformer(baseURL, operatorName, viskoModel);
 	
-		if(view != null)
-			inputOutputOperator.setVisualizationAbstraction(view);
-		
 		//add data types
 		inputOutputOperator.addInputDataType(inputDataType);
 		inputOutputOperator.setOutputDataType(outputDataType);

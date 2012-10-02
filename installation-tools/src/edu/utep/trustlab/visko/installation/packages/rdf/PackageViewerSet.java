@@ -39,6 +39,7 @@ public class PackageViewerSet {
 	
 	public Viewer createNewViewer(String name){
 		Viewer viewer = new Viewer(baseFileURL, name, model);
+		viewer.setName(name);
 		viewers.add(viewer);
 		return viewer;
 	}

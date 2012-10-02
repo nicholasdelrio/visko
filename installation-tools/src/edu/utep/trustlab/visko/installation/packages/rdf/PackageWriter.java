@@ -155,8 +155,12 @@ public class PackageWriter {
 	
 	private void addToModel(){
 		if(!servicesAddedToModel)
-			addViewerSetsToModel();
-		addServicesToModel();
+			addServicesToModel();		
+
+		if(toolkit != null)
+			toolkit.getIndividual();
+		
+		addViewerSetsToModel();
 		addBindingsToModel();
 	}
 	
