@@ -129,7 +129,7 @@ public class Viewer extends Operator {
 			viewerSets.add(new ViewerSet(vSets.next().as(Individual.class).getURI(), model));
 		
 		// populate add hasendpoint
-		NodeIterator endpointURLNode = ind.listPropertyValues(partOfViewerSet);
+		NodeIterator endpointURLNode = ind.listPropertyValues(hasEndpoint);
 		if (endpointURLNode.hasNext())
 			endpointURL = endpointURLNode.next().as(Literal.class).toString();
 	}

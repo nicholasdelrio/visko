@@ -15,6 +15,9 @@ public class PipelineResultHTML {
     	String viewerSetURI = job.getPipeline().getViewerSets().firstElement();
  		String endpointURL = job.getPipeline().getViewer().getEndpointURL();
  	   
+ 		System.out.println("viewerSetURL: " + viewerSetURI);
+ 		System.out.println("endpointURL: " + endpointURL);
+ 		
     	String resultMessage = "";
 
     	if(viewerSetURI.endsWith("mozilla-firefox") || viewerSetURI.endsWith("internet-explorer")){
@@ -25,7 +28,7 @@ public class PipelineResultHTML {
     			resultMessage += "<img src=\"" + resultURL + "\" />";
     	}
     	
-    	else if(viewerSetURI.endsWith("data_driven-documents") && endpointURL != null){
+    	else if(viewerSetURI.endsWith("data-driven-documents") && endpointURL != null){
     		endpointURL += "?url=" + resultURL;
     		resultMessage += "<a href=\"" + endpointURL + "\">Click To Interact with Viewer</a>";
     	}
