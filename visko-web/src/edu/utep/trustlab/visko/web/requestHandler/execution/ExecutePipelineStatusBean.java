@@ -1,13 +1,12 @@
 package edu.utep.trustlab.visko.web.requestHandler.execution;
 
-import java.util.Vector;
-
 import edu.utep.trustlab.visko.execution.PipelineExecutorJob;
 import edu.utep.trustlab.visko.execution.PipelineExecutorJobStatus;
+import edu.utep.trustlab.visko.web.html.PipelineResultHTML;
 
 public class ExecutePipelineStatusBean{
 
-	private static final int refreshRate = 3;
+	private static final int refreshRate = 2;
 	
 	private String linkToQuery = "";
     private PipelineExecutorJob job;
@@ -58,40 +57,7 @@ public class ExecutePipelineStatusBean{
     }
     
     public String getCompletedMessage(){
-    	String resultURL = job.getFinalResultURL();
-    	
-    	if(resultURL == null)
-    		return "No result generated!";
-    	
-    	String resultMessage = "";
-    	if(
-    			resultURL.endsWith(".jpg") ||
-    			resultURL.endsWith(".JPG") ||
-    			resultURL.endsWith(".png") ||
-    			resultURL.endsWith(".PNG") ||
-    			resultURL.endsWith(".gif") ||
-    			resultURL.endsWith(".GIF"))
-    		resultMessage += "<img src=\"" + resultURL + "\" />";
-    	
-    	else if(resultURL.endsWith(".pdf") || resultURL.endsWith(".PDF"))
-    		resultMessage += "<a href=\"" + resultURL + "\">Click to view PDF</a>";
-    	
-    	else{
-    		Vector<String> viewerSets = job.getPipeline().getViewerSets();
-    		resultMessage += "<h4>Result</h4>";
-    		resultMessage += "<ul>";
-    		resultMessage += "<li>Resultant URL: <a href=\"" + resultURL + "\">" + resultURL + "</a></li>";
-    		resultMessage += "<li>Viewed Using: " + job.getPipeline().getViewerURI();
-    		resultMessage += "<li>Using the ViewerSet(s)</li>";
-    		resultMessage += "<ul>";
-    		
-    		for(String viewerSet : viewerSets)
-    			resultMessage += "<li>" + viewerSet + "</li>";
-    		
-    		resultMessage += "</ul>";
-    		resultMessage += "</ul>";
-    	}
-    	return resultMessage;
+    	return PipelineResultHTML.getHTML(job);
     }
    
     public void setLinkToQuery(){
