@@ -53,7 +53,6 @@ import java.util.Vector;
 
 public class Viewer extends Operator {
 
-	private ObjectProperty mapsTo;
 	private ObjectProperty partOfViewerSet;
 	private DatatypeProperty hasEndpoint;
 	
@@ -110,6 +109,7 @@ public class Viewer extends Operator {
 	protected Individual createNewIndividual() {
 		Individual ind = super.createNewIndividual();
 		this.addPartOfViewerSet(ind);
+		this.addHasEndpoint(ind);
 		return ind;
 	}
 
@@ -128,8 +128,10 @@ public class Viewer extends Operator {
 		while (vSets.hasNext())
 			viewerSets.add(new ViewerSet(vSets.next().as(Individual.class).getURI(), model));
 		
-		// populate hasEndpoint
-		this.addHasEndpoint(ind);
+		// populate add hasendpoint
+		NodeIterator endpointURLNode = ind.listPropertyValues(partOfViewerSet);
+		if (endpointURLNode.hasNext())
+			endpointURL = endpointURLNode.next().as(Literal.class).toString();
 	}
 
 	@Override

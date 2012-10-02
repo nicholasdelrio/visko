@@ -116,7 +116,7 @@
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-operator.owl#hasEndpoint -->
 
     <owl:DatatypeProperty rdf:about="&visko-operator;hasEndpoint">
-        <rdfs:range rdf:resource="&xsd;anyURI"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
         <rdfs:domain rdf:resource="&visko-operator;Viewer"/>
     </owl:DatatypeProperty>
     
