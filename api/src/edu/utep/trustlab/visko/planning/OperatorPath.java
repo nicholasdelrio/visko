@@ -67,12 +67,13 @@ public class OperatorPath extends Vector<String> {
 	private boolean violatesRuleSingleDimensionReducer;
 	private boolean violatesRuleSingleMapper;
 	private boolean violatesRuleSingleInterpolator;
-	
+
+	/*
 	public OperatorPath(String aViewerURI) {
 		super();
 		viewerURI = aViewerURI;
 		operatorLookup = new HashMap<String, Boolean>();
-	}
+	}*/
 	
 	public OperatorPath(ViskoTripleStore tripleStore) {
 		super();
@@ -126,6 +127,10 @@ public class OperatorPath extends Vector<String> {
 		
 	public void setViewer(String aViewerURI){
 		viewerURI = aViewerURI;
+		
+		Vector<String> visualizationAbstractions = ResultSetToVector.getVectorFromResultSet(ts.getVisualizationAbstractionGeneratedByViewer(viewerURI), "visualizationAbstraction");
+		if(visualizationAbstractions.size() > 0)
+			visualizationAbstractionURI = visualizationAbstractions.firstElement();
 	}
 	
 	public OperatorPath clonePath(){
@@ -136,7 +141,7 @@ public class OperatorPath extends Vector<String> {
 		OperatorPath clonedPath = new OperatorPath(ts);
 		clonedPath.set(operatorURIs);		
 		clonedPath.setVisualizationAbstractionURI(visualizationAbstractionURI);
-		clonedPath.setViewerURI(viewerURI);
+		clonedPath.setViewer(viewerURI);
 		
 		return clonedPath;
 	}
@@ -199,14 +204,6 @@ public class OperatorPath extends Vector<String> {
 		visualizationAbstractionURI = aVisualizationAbstractionURI;
 	}
 	
-	private void setViewerURI(String aViewerURI){
-		viewerURI = aViewerURI;
-		
-		Vector<String> visualizationAbstractions = ResultSetToVector.getVectorFromResultSet(ts.getVisualizationAbstractionGeneratedByViewer(viewerURI), "visualizationAbstraction");
-		if(visualizationAbstractions.size() > 0)
-			visualizationAbstractionURI = visualizationAbstractions.firstElement();
-	}
-
 	public String getViewerURI() {
 		return viewerURI;
 	}
