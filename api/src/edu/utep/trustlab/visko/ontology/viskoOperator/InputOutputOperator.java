@@ -88,7 +88,7 @@ public abstract class InputOutputOperator extends Operator {
 		
 		// populate output data type
 		NodeIterator outDataType = ind.listPropertyValues(hasOutputDataType);
-		outputDataType = outDataType.next().as(Individual.class);
+		outputDataType = outDataType.next().as(OntResource.class);
 	}
 
 	@Override

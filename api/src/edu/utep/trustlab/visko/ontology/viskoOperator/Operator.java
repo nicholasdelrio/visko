@@ -133,7 +133,7 @@ public class Operator extends JenaIndividual {
 		// populate input data type
 		NodeIterator inDataTypes = ind.listPropertyValues(hasInputDataType);
 		while(inDataTypes.hasNext())
-			inputDataTypes.add(inDataTypes.next().as(Individual.class));
+			inputDataTypes.add(inDataTypes.next().as(OntResource.class));
 
 		// populate visualization abstraction generated
 		RDFNode visualizationAbstractionNode = ind.getPropertyValue(mapsTo);

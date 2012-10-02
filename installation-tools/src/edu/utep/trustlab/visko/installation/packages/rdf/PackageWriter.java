@@ -154,9 +154,7 @@ public class PackageWriter {
 	}
 	
 	private void addToModel(){
-		if(!servicesAddedToModel)
-			addServicesToModel();		
-
+		addServicesToModel();		
 		if(toolkit != null)
 			toolkit.getIndividual();
 		
