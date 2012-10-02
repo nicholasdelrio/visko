@@ -457,7 +457,7 @@ PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontolo
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
 PREFIX visko https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_custom.owl#
 PREFIX types https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#
-VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
+VISUALIZE https://github.com/nicholasdelrio/visko-packages-rdf
 AS views:2D_VisKo_OperatorPaths_ForceGraph IN visko:data-driven-documents
 WHERE
 	FORMAT = formats:RDFXML.owl#RDFXML
@@ -482,7 +482,7 @@ PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontolo
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
 PREFIX visko https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_custom.owl#
 PREFIX types https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#
-VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
+VISUALIZE https://github.com/nicholasdelrio/visko-packages-rdf
 AS views:2D_VisKo_DataTransformations_ForceGraph IN visko:data-driven-documents
 WHERE
 	FORMAT = formats:RDFXML.owl#RDFXML
@@ -508,7 +508,7 @@ PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontolo
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
 PREFIX visko https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_custom.owl#
 PREFIX types https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#
-VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
+VISUALIZE https://github.com/nicholasdelrio/visko-packages-rdf
 AS views:2D_VisKo_Instances_BarChart IN visko:data-driven-documents
 WHERE
 	FORMAT = formats:RDFXML.owl#RDFXML
