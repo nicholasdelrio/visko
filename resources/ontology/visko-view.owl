@@ -297,27 +297,11 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#2D_BarChart -->
-
-    <owl:NamedIndividual rdf:about="&visko-view;2D_BarChart">
-        <rdf:type rdf:resource="&visko-view;2D_Space_DataStructure"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#2D_ContourMap -->
 
     <owl:NamedIndividual rdf:about="&visko-view;2D_ContourMap">
         <rdf:type rdf:resource="&esip-data;Contour"/>
         <rdf:type rdf:resource="&visko-view;2D_Space_Geometry"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#2D_ForceGraph -->
-
-    <owl:NamedIndividual rdf:about="&visko-view;2D_ForceGraph">
-        <rdf:type rdf:resource="&visko-view;2D_Space_DataStructure"/>
     </owl:NamedIndividual>
     
 
@@ -353,6 +337,30 @@
     <owl:NamedIndividual rdf:about="&visko-view;2D_TimeSeriesPlot">
         <rdf:type rdf:resource="&esip-data;Curve"/>
         <rdf:type rdf:resource="&visko-view;2D_Space_Geometry"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#2D_VisKo_DataTransformations_ForceGraph -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;2D_VisKo_DataTransformations_ForceGraph">
+        <rdf:type rdf:resource="&visko-view;2D_Space_DataStructure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#2D_VisKo_Instances_BarChart -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;2D_VisKo_Instances_BarChart">
+        <rdf:type rdf:resource="&visko-view;2D_Space_DataStructure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#2D_VisKo_OperatorPaths_ForceGraph -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;2D_VisKo_OperatorPaths_ForceGraph">
+        <rdf:type rdf:resource="&visko-view;2D_Space_DataStructure"/>
     </owl:NamedIndividual>
     
 

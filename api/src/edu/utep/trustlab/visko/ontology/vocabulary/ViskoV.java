@@ -57,8 +57,10 @@ public class ViskoV {
 	public static final String INDIVIDUAL_URI_2D_RasterMap = Visko.CORE_VISKO_V + "#2D_RasterMap";
 	public static final String INDIVIDUAL_URI_2D_TimeSeriesPlot = Visko.CORE_VISKO_V + "#2D_TimeSeriesPlot";
 
-	public static final String INDIVIDUAL_URI_2D_BarChart = Visko.CORE_VISKO_V + "#2D_BarChart";
-	public static final String INDIVIDUAL_URI_2D_ForceGraph = Visko.CORE_VISKO_V + "#2D_ForceGraph";	
+	public static final String INDIVIDUAL_URI_2D_VisKo_Instances_BarChart = Visko.CORE_VISKO_V + "#2D_VisKo_Instances_BarChart";
+	public static final String INDIVIDUAL_URI_2D_VisKo_DataTransformations_ForceGraph = Visko.CORE_VISKO_V + "#2D_VisKo_DataTransformations_ForceGraph";	
+	public static final String INDIVIDUAL_URI_2D_VisKo_OperatorPaths_ForceGraph = Visko.CORE_VISKO_V + "#2D_VisKo_OperatorPaths_ForceGraph";	
+
 	
 	public static final String INDIVIDUAL_URI_3D_IsoSurfaceRendering = Visko.CORE_VISKO_V + "#3D_IsoSurfacesRendering";
 	public static final String INDIVIDUAL_URI_3D_MeshPlot = Visko.CORE_VISKO_V + "#3D_MeshPlot";

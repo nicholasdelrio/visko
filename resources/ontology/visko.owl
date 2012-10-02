@@ -30,31 +30,9 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#DataTransformationPaths -->
-
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#DataTransformationPaths">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#GraphData"/>
-    </owl:Class>
-    
-
-
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#GraphData -->
 
     <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#GraphData"/>
-    
-
-
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#InstanceSummary -->
-
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#InstanceSummary">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#ListData"/>
-    </owl:Class>
-    
-
-
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#KnowledgeBase -->
-
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#KnowledgeBase"/>
     
 
 
@@ -64,17 +42,39 @@
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#OperatorPaths -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#VisKo_DataTransformationPaths -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#OperatorPaths">
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#VisKo_DataTransformationPaths">
         <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#GraphData"/>
     </owl:Class>
     
 
 
-    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#Pipeline -->
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#VisKo_InstanceSummary -->
 
-    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#Pipeline">
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#VisKo_InstanceSummary">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#ListData"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#VisKo_KnowledgeBase -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#VisKo_KnowledgeBase"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#VisKo_OperatorPaths -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#VisKo_OperatorPaths">
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#GraphData"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#VisKo_Pipeline -->
+
+    <owl:Class rdf:about="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#VisKo_Pipeline">
         <rdfs:subClassOf rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#GraphData"/>
     </owl:Class>
 </rdf:RDF>

@@ -79,11 +79,11 @@ public class ViskoTripleStore {
 
 	}
 
-	public ResultSet getDataTransformers() {
+	public ResultSet getTransformers() {
 		String stringQuery = 
 				QUERY_PREFIX 
 				+ "SELECT ?operator ?lbl WHERE { " 
-				+ "?operator rdf:type viskoO:DataTransformer . "
+				+ "?operator rdf:type viskoO:Transformer . "
 				+ "?operator rdfs:label ?lbl . }";
 
 		return submitQuery(stringQuery);
@@ -109,11 +109,11 @@ public class ViskoTripleStore {
 		return submitQuery(stringQuery);
 	}
 	
-	public ResultSet getDimensionFilters() {
+	public ResultSet getDimensionReducers() {
 		String stringQuery = 
 				QUERY_PREFIX 
 				+ "SELECT ?operator ?lbl WHERE { "
-				+ "?operator rdf:type viskoO:DimensionFilter . "
+				+ "?operator rdf:type viskoO:DimensionReducer . "
 				+ "?operator rdfs:label ?lbl . }";
 
 		return submitQuery(stringQuery);
@@ -390,10 +390,10 @@ public class ViskoTripleStore {
 		return submitAskQuery(stringQuery);
 	}
 
-	public ResultSet getViews() {
+	public ResultSet getVisualizationAbstractions() {
 		String stringQuery = 
 				QUERY_PREFIX
-				+ "SELECT ?view WHERE {?view rdf:type viskoV:View .} ORDER BY ?view";
+				+ "SELECT DISTINCT ?visualizationAbstraction WHERE {?visualizationAbstraction rdf:type viskoV:VisualizationAbstraction .} ORDER BY ?visualizationAbstraction";
 		return submitQuery(stringQuery);
 	}
 
@@ -407,7 +407,7 @@ public class ViskoTripleStore {
 				+ "?operator a viskoO:InputOutputOperator . "
 				+ "?operator viskoO:hasInputFormat " + formatURI + " . "
 				+ "?operator viskoO:hasInputDataType " + dataTypeURI + " . } UNION {"
-				+ "?operator a viskoO:Operator . "
+				+ "?operator a viskoO:InputOutputOperator . "
 				+ "?operator viskoO:hasInputFormat " + formatURI + " . "
 				+ "?operator viskoO:hasInputDataType ?superDataType . "
 				+ dataTypeURI + " rdfs:subClassOf ?superDataType . }}";
@@ -447,18 +447,14 @@ public class ViskoTripleStore {
 		String stringQuery = 
 				QUERY_PREFIX
 				+ "SELECT DISTINCT ?operator WHERE {{"
-				//+ operatorURI + " viskoO:hasOutputDataType ?dataType . "
 				+ operatorURI + " viskoO:hasOutputFormat ?format . "
 				+ "?operator a viskoO:InputOutputOperator . "				
-				//+ "?operator viskoO:hasInputDataType ?dataType . "
 				+ "?operator viskoO:hasInputDataType " + currentTypeURI + " . "
 				+ "?operator viskoO:hasInputFormat ?format . } UNION {"
-				//+ operatorURI + " viskoO:hasOutputDataType ?subDataType . "
 				+ operatorURI + " viskoO:hasOutputFormat ?format . "
 				+ "?operator a viskoO:InputOutputOperator . "
 				+ "?operator viskoO:hasInputDataType ?superDataType . "
 				+ "?operator viskoO:hasInputFormat ?format . "
-				//+ "?subDataType rdfs:subClassOf ?superDataType . "
 				+ currentTypeURI + " rdfs:subClassOf ?superDataType . }"
 				+ "FILTER NOTEXISTS {?operator a viskoO:Filter}}";
 		
@@ -582,11 +578,11 @@ public class ViskoTripleStore {
 		return submitQuery(stringQuery);
 	}
 
-	public ResultSet getViewMappers() {
+	public ResultSet getMappers() {
 		String stringQuery = 
 				QUERY_PREFIX
 				+ "SELECT ?mapper " + "WHERE {"
-				+ "?mapper rdf:type viskoO:ViewMapper . }";
+				+ "?mapper rdf:type viskoO:Mapper . }";
 
 		return submitQuery(stringQuery);
 	}
