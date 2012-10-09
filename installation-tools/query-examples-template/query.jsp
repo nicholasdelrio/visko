@@ -19,10 +19,11 @@
 <p>Visualization Queries Associated with:</p>
 <ul>
 <li><a href="#gravity">Gravity Data Visualization Queries</a>
-<li><a href="#holes">Seismic Tomography Visualization</a> 
-<li><a href="#brightness">NASA MODIS Brightness Visualization</a>
-<li><a href="#polygons">Polygon Data</a>
-<li><a href="#visko">Visko Knowledge Base Visualizations</a>
+<li><a href="#holes">Seismic Tomography Visualization Queries</a> 
+<li><a href="#brightness">NASA MODIS Brightness Visualization Queries</a>
+<li><a href="#polygons">Polygon Data Queries</a>
+<li><a href="#visko">Visko Knowledge Base Visualization Queries</a>
+<li><a href="#ecology">UTEP Systems Ecology Lab Visualization Queries</a>
 </ul>
 
 
@@ -358,7 +359,7 @@ PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontolo
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/ 
 PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
 PREFIX params REPLACE-VISKOgsn_csm_contour_map.owl# 
-VISUALIZE http://disc2.nascom.nasa.gov/daac-bin/OTF/HTTP_services.cgi?SERVICE=SUBSET_YOTC_LATS4D&BBOX=-65.390625,7.734375,-10.546875,42.890625&SHORTNAME=mergedIR&VARIABLES=ch4&TIME=2008-05-31T00:00:00
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/giovanni/SUBSET_mergedIR_ch4_2008-05-31.nc
 AS views:2D_ContourMap IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:NETCDF.owl#NETCDF 
@@ -389,7 +390,7 @@ PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontolo
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/ 
 PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
 PREFIX params REPLACE-VISKOgsn_csm_contour_map_raster.owl# 
-VISUALIZE http://disc2.nascom.nasa.gov/daac-bin/OTF/HTTP_services.cgi?SERVICE=SUBSET_YOTC_LATS4D&BBOX=-65.390625,7.734375,-10.546875,42.890625&SHORTNAME=mergedIR&VARIABLES=ch4&TIME=2008-05-31T00:00:00
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/giovanni/SUBSET_mergedIR_ch4_2008-05-31.nc
 AS views:2D_RasterMap IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:NETCDF.owl#NETCDF
@@ -525,6 +526,42 @@ WHERE
 <td><img src="./visualization-examples/instances-2d-barchart-d3.png" width="450px"></td>
 </tr>
 </table>
+
+
+<a name="ecology">
+<h4>UTEP Systems Ecology Lab Visualization Queries</h4>
+
+<h5>H20 Time Series</h5>
+<div class="code">
+<pre>
+PREFIX timeSeries https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/gsn_csm_xy2_time_series.owl#
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/ecology/average_data.nc 
+AS https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#2D_TimeSeriesPlot 
+IN https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_mozilla.owl#mozilla-firefox 
+WHERE
+	FORMAT = https://raw.github.com/nicholasdelrio/visko/master/resources/formats/NETCDF.owl#NETCDF
+	AND TYPE = http://iridl.ldeo.columbia.edu/ontologies/cf-obj.owl#Variable_with_Time
+	AND timeSeries:title = mean-H2O-and-CO2
+	AND timeSeries:xDimName = time
+	AND timeSeries:rPlotVariablesList = mean_CO2
+	AND timeSeries:xDimSize = 338
+	AND timeSeries:yLAxisLabel = mean_H2O_hmp
+	AND timeSeries:lPlotVariablesList = mean_H2O_hmp
+	AND timeSeries:yRAxisLabel = mean_CO2
+</pre>
+</div>
+
+<table>
+<tr>
+<td align="center"><a href="http://www.ncl.ucar.edu/">NCL</a></td>
+</tr>
+
+<tr>
+<td><img src="./visualization-examples/ecology-2d-timeseries-ncl.png" width="450px"></td>
+</tr>
+</table>
+
+
 
 </div>
 </div>

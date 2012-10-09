@@ -185,8 +185,10 @@ public class ViskoTripleStore {
 	public ResultSet getInputDataTypes() {
 		String stringQuery = 
 				QUERY_PREFIX 
-				+ "SELECT DISTINCT ?dataType WHERE {"
-				+ "?pipelineComponent viskoO:hasInputDataType ?dataType . }"
+				+ "SELECT DISTINCT ?dataType ?label WHERE {"
+				+ "?pipelineComponent viskoO:hasInputDataType ?dataType . "
+				+ "OPTIONAL {?dataType rdfs:label ?label}" +
+				"}"
 				+ "ORDER BY ?dataType";
 		return submitQuery(stringQuery);
 	}

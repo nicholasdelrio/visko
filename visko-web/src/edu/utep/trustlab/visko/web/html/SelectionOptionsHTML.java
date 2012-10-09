@@ -69,8 +69,7 @@ public class SelectionOptionsHTML {
 		String viewerSetURI;
 		String option = "";
 		while (viewerSets.hasNext()) {
-			viewerSetURI = viewerSets.nextSolution().get("?viewerSet")
-					.toString();
+			viewerSetURI = viewerSets.nextSolution().get("?viewerSet").toString();
 			option = "<option title=\"" + viewerSetURI + "\" value=\""
 					+ viewerSetURI + "\">" + getURIFragment(viewerSetURI)
 					+ "</option>";
@@ -81,7 +80,7 @@ public class SelectionOptionsHTML {
 	}
 
 	public String getTypes() {
-		ResultSet types = viskoStore.getInformationSubclasses();
+		ResultSet types = viskoStore.getInputDataTypes();
 		String options = "<option value=\"" + DEFAULT
 				+ "\">-- Choose Type --</option>";
 		String typeURI;
@@ -89,10 +88,15 @@ public class SelectionOptionsHTML {
 		String option = "";
 		while (types.hasNext()) {
 			QuerySolution solution = types.nextSolution();
-			typeURI = solution.get("?subclass").toString();
-			label = solution.get("?label").toString();
-			option = "<option title=\"" + typeURI + "\" value=\"" + typeURI
-					+ "\">" + label + "</option>";
+			typeURI = solution.get("?dataType").toString();
+			
+			if(solution.get("?label") != null){
+				label = solution.get("?label").toString();
+				option = "<option title=\"" + typeURI + "\" value=\"" + typeURI + "\">" + label + "</option>";
+			}
+			else
+				option = "<option title=\"" + typeURI + "\" value=\"" + typeURI + "\">" + typeURI + "</option>";
+			
 			options += option;
 		}
 

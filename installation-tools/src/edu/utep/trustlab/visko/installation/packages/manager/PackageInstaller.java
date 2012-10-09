@@ -132,6 +132,6 @@ public class PackageInstaller {
 		
 		PackageIndex index = new PackageIndex(packageDirectory);
 		String packageHTML = index.getHTMLIndex();
-		FileUtils.writeTextFile(packageHTML, packageDirectory.getAbsolutePath(), "index" + ".html");
+		FileUtils.writeTextFile(packageHTML, packageDirectory.getAbsolutePath(), packageDirectory.getName() + ".html");
 	}
 }
