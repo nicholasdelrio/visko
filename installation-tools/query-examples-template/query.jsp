@@ -26,9 +26,55 @@
 <li><a href="#ecology">UTEP Systems Ecology Lab Visualization Queries</a>
 </ul>
 
-
 <a name="gravity"/>
 <h3>Gravity Data Visualization Queries</h3>
+
+<h5>All Possible Visualizations: (AS *)</h5>
+<div class="code">
+<pre>
+PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
+PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl#
+VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
+AS * IN visko:mozilla-firefox
+WHERE
+	FORMAT = formats:SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES
+	AND TYPE = types:d19
+</pre>
+</div>
+
+<table>
+<tr>
+<td align="center"><a href="http://gmt.soest.hawaii.edu/">GMT</a></td>
+<td align="center"><a href="http://www.vtk.org/">VTK</a></td>
+<td align="center"><a href="http://www.ncl.ucar.edu/">NCL</a></td>
+<td align="center"><a href="http://gmt.soest.hawaii.edu/">GMT</a></td>
+</tr>
+<tr>
+<td><img src="./visualization-examples/gravity-2d-contourmap-gmt.png" width="250px"></td>
+<td><img src="./visualization-examples/gravity-2d-contourmap-vtk.png" width="250px"></td>
+<td><img src="./visualization-examples/gravity-2d-contourmap-ncl.png" width="250px"></td>
+<td><img src="./visualization-examples/gravity-2d-rastermap-gmt.png" width="250px"></td>
+</tr>
+<tr>
+<td align="center"><a href="http://gmt.soest.hawaii.edu/">GMT</a></td>
+<td align="center"><a href="http://www.vtk.org/">VTK</a></td>
+<td align="center"><a href="http://www.vtk.org/">VTK</a></td>
+<td align="center"><a href="http://www.vtk.org/">VTK</a></td>
+</tr>
+<tr>
+<td><img src="./visualization-examples/gravity-2d-pointmap-gmt.png" width="250px"></td>
+<td><img src="./visualization-examples/gravity-3d-surfaceplot-vtk.png" width="250px"></td>
+<td><img src="./visualization-examples/gravity-3d-isosurfacesrendering-vtk.png" width="250px"></td>
+<td><img src="./visualization-examples/gravity-3d-surfaceplot-vtk.png" width="250px"></td>
+</tr>
+<tr>
+<td align="center"><a href="http://www.ncl.ucar.edu/">NCL</a></td>
+</tr>
+<tr>
+<td><img src="./visualization-examples/gravity-2d-rastermap-ncl.png" width="250px"></td>
+</tr>
+</table>
 
 <h5>Contour Map Visualization Query</h5>
 <div class="code">
@@ -45,16 +91,18 @@ WHERE
 	AND TYPE = types:d19
 </pre>
 </div>
+
 <table>
 <tr>
 <td align="center"><a href="http://gmt.soest.hawaii.edu/">GMT</a></td>
 <td align="center"><a href="http://www.vtk.org/">VTK</a></td>
 <td align="center"><a href="http://www.ncl.ucar.edu/">NCL</a></td>
+
 </tr>
 <tr>
-<td><img src="./visualization-examples/gravity-2d-contourmap-gmt.png" width="350px"></td>
-<td><img src="./visualization-examples/gravity-2d-contourmap-vtk.png" width="350px"></td>
-<td><img src="./visualization-examples/gravity-2d-contourmap-ncl.png" width="350px"></td>
+<td><img src="./visualization-examples/gravity-2d-contourmap-gmt.png" width="250px"></td>
+<td><img src="./visualization-examples/gravity-2d-contourmap-vtk.png" width="250px"></td>
+<td><img src="./visualization-examples/gravity-2d-contourmap-ncl.png" width="250px"></td>
 </tr>
 </table>
 
