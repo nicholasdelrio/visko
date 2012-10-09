@@ -66,7 +66,7 @@ WHERE
 <td><img src="./visualization-examples/gravity-2d-pointmap-gmt.png" width="250px"></td>
 <td><img src="./visualization-examples/gravity-3d-surfaceplot-vtk.png" width="250px"></td>
 <td><img src="./visualization-examples/gravity-3d-isosurfacesrendering-vtk.png" width="250px"></td>
-<td><img src="./visualization-examples/gravity-3d-surfaceplot-vtk.png" width="250px"></td>
+<td><img src="./visualization-examples/gravity-3d-pointplot-vtk.png" width="250px"></td>
 </tr>
 <tr>
 <td align="center"><a href="http://www.ncl.ucar.edu/">NCL</a></td>
@@ -100,9 +100,9 @@ WHERE
 
 </tr>
 <tr>
-<td><img src="./visualization-examples/gravity-2d-contourmap-gmt.png" width="250px"></td>
-<td><img src="./visualization-examples/gravity-2d-contourmap-vtk.png" width="250px"></td>
-<td><img src="./visualization-examples/gravity-2d-contourmap-ncl.png" width="250px"></td>
+<td><img src="./visualization-examples/gravity-2d-contourmap-gmt.png" width="350px"></td>
+<td><img src="./visualization-examples/gravity-2d-contourmap-vtk.png" width="350px"></td>
+<td><img src="./visualization-examples/gravity-2d-contourmap-ncl.png" width="350px"></td>
 </tr>
 </table>
 
