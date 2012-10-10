@@ -48,17 +48,14 @@ WHERE
 <td align="center"><a href="http://gmt.soest.hawaii.edu/">GMT</a></td>
 <td align="center"><a href="http://www.vtk.org/">VTK</a></td>
 <td align="center"><a href="http://www.ncl.ucar.edu/">NCL</a></td>
-<td align="center"><a href="http://gmt.soest.hawaii.edu/">GMT</a></td>
 </tr>
 <tr>
 <td><img src="./visualization-examples/gravity-2d-contourmap-gmt.png" width="250px"></td>
 <td><img src="./visualization-examples/gravity-2d-contourmap-vtk.png" width="250px"></td>
 <td><img src="./visualization-examples/gravity-2d-contourmap-ncl.png" width="250px"></td>
-<td><img src="./visualization-examples/gravity-2d-rastermap-gmt.png" width="250px"></td>
 </tr>
 <tr>
 <td align="center"><a href="http://gmt.soest.hawaii.edu/">GMT</a></td>
-<td align="center"><a href="http://www.vtk.org/">VTK</a></td>
 <td align="center"><a href="http://www.vtk.org/">VTK</a></td>
 <td align="center"><a href="http://www.vtk.org/">VTK</a></td>
 </tr>
@@ -66,13 +63,16 @@ WHERE
 <td><img src="./visualization-examples/gravity-2d-pointmap-gmt.png" width="250px"></td>
 <td><img src="./visualization-examples/gravity-3d-surfaceplot-vtk.png" width="250px"></td>
 <td><img src="./visualization-examples/gravity-3d-isosurfacesrendering-vtk.png" width="250px"></td>
-<td><img src="./visualization-examples/gravity-3d-pointplot-vtk.png" width="250px"></td>
 </tr>
 <tr>
 <td align="center"><a href="http://www.ncl.ucar.edu/">NCL</a></td>
+<td align="center"><a href="http://gmt.soest.hawaii.edu/">GMT</a></td>
+<td align="center"><a href="http://www.vtk.org/">VTK</a></td>
 </tr>
 <tr>
 <td><img src="./visualization-examples/gravity-2d-rastermap-ncl.png" width="250px"></td>
+<td><img src="./visualization-examples/gravity-2d-rastermap-gmt.png" width="250px"></td>
+<td><img src="./visualization-examples/gravity-3d-pointplot-vtk.png" width="250px"></td>
 </tr>
 </table>
 
