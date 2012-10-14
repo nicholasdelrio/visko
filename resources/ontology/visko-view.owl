@@ -72,18 +72,18 @@
     <owl:Class rdf:about="&visko-view;1D_Space_Geometry">
         <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction_Geometry"/>
         <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
+                <owl:hasValue rdf:resource="&visko-view;1D_Space"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&esip-data;Curve"/>
                     <rdf:Description rdf:about="&esip-data;Point"/>
                 </owl:unionOf>
             </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
-                <owl:hasValue rdf:resource="&visko-view;1D_Space"/>
-            </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
@@ -108,12 +108,6 @@
     <owl:Class rdf:about="&visko-view;2D_Space_Geometry">
         <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction_Geometry"/>
         <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
-                <owl:hasValue rdf:resource="&visko-view;2D_Space"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&esip-data;Curve"/>
@@ -121,6 +115,12 @@
                     <rdf:Description rdf:about="&esip-data;Surface"/>
                 </owl:unionOf>
             </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
+                <owl:hasValue rdf:resource="&visko-view;2D_Space"/>
+            </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
@@ -145,6 +145,12 @@
     <owl:Class rdf:about="&visko-view;3D_Space_Geometry">
         <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction_Geometry"/>
         <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
+                <owl:hasValue rdf:resource="&visko-view;3D_Space"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&esip-data;Curve"/>
@@ -153,12 +159,6 @@
                     <rdf:Description rdf:about="&esip-data;Volume"/>
                 </owl:unionOf>
             </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
-                <owl:hasValue rdf:resource="&visko-view;3D_Space"/>
-            </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
@@ -183,6 +183,12 @@
     <owl:Class rdf:about="&visko-view;4D_Space_Geometry">
         <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction_Geometry"/>
         <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
+                <owl:hasValue rdf:resource="&visko-view;4D_Space"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&esip-data;Curve"/>
@@ -191,12 +197,6 @@
                     <rdf:Description rdf:about="&esip-data;Volume"/>
                 </owl:unionOf>
             </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
-                <owl:hasValue rdf:resource="&visko-view;4D_Space"/>
-            </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
@@ -369,6 +369,14 @@
 
     <owl:NamedIndividual rdf:about="&visko-view;2D_VisKo_OperatorPaths_ForceGraph">
         <rdf:type rdf:resource="&visko-view;2D_Space_DataStructure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#3D_BarChart -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;3D_BarChart">
+        <rdf:type rdf:resource="&visko-view;3D_Space_DataStructure"/>
     </owl:NamedIndividual>
     
 
