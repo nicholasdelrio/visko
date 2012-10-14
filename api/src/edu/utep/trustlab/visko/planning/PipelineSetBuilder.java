@@ -171,6 +171,7 @@ public class PipelineSetBuilder {
 	}
 	
 	private void constructOperatorPaths(OperatorPath operatorPath, String inputTypeURI){
+		String targetViewerURI = null;
 		if(!operatorPathViolatesCompositionRules(operatorPath)){
 			ResultSet operatorResults;
 			if(inputTypeURI.equals(OWL.CLASS_URI_Thing))
@@ -186,7 +187,7 @@ public class PipelineSetBuilder {
 			if(operatorURIs.size() > 0){
 				OperatorPath clonedPath;
 				
-				String targetViewerURI = operatorPath.outputCanBeViewedByViewerSet(viewerURIs);
+				targetViewerURI = operatorPath.outputCanBeViewedByViewerSet(viewerURIs);
 				
 				if(targetViewerURI != null){
 					clonedPath = operatorPath.clonePath();
@@ -202,10 +203,11 @@ public class PipelineSetBuilder {
 				}
 			}
 			else {
-				String targetViewerURI = operatorPath.outputCanBeViewedByViewerSet(viewerURIs);				
-				if(targetViewerURI != null)
-					operatorPath.setViewer(targetViewerURI);
+				targetViewerURI = operatorPath.outputCanBeViewedByViewerSet(viewerURIs);				
+				if(targetViewerURI != null){
+					operatorPath.setViewer(targetViewerURI);				
 					operatorPaths.add(operatorPath);
+				}
 			}
 		}
 	}	
