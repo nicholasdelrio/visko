@@ -61,6 +61,8 @@ public class ViskoV {
 	public static final String INDIVIDUAL_URI_2D_VisKo_DataTransformations_ForceGraph = Visko.CORE_VISKO_V + "#2D_VisKo_DataTransformations_ForceGraph";	
 	public static final String INDIVIDUAL_URI_2D_VisKo_OperatorPaths_ForceGraph = Visko.CORE_VISKO_V + "#2D_VisKo_OperatorPaths_ForceGraph";	
 
+	public static final String INDIVIDUAL_URI_2D_SpherizedRaster = Visko.CORE_VISKO_V + "#2D_SpherizedRaster";
+	public static final String INDIVIDUAL_URI_3D_BarChart = Visko.CORE_VISKO_V + "#3D_BarChart";
 	
 	public static final String INDIVIDUAL_URI_3D_IsoSurfaceRendering = Visko.CORE_VISKO_V + "#3D_IsoSurfacesRendering";
 	public static final String INDIVIDUAL_URI_3D_MeshPlot = Visko.CORE_VISKO_V + "#3D_MeshPlot";
