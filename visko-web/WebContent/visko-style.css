@@ -1,18 +1,19 @@
 body {
-	margin: 0;
-	padding: 0;
-	text-align: left;
-	font: 12px Arial, Helvetica, sans-serif;
-	font-size: 13px;
-	color: #061C37;
-	background: #122E43;
-	background-repeat:repeat-x;
-	background-image:url(http://trust.utep.edu/visko/header.png)
+margin: 0;
+padding: 0;
+text-align: left;
+font: 62.5%/1.5  "Lucida Grande", "Trebuchet MS", Tahoma, Verdana, sans-serif;
+font-size: 13px;
+color: #061C37;
+background: #122E43;
+background-repeat:repeat-x;
+background-image:url(http://trust.utep.edu/visko/header.png)
 }
-*
-{
-  margin: 0 auto 0 auto;
- text-align:left;}
+
+* {
+margin: 0 auto 0 auto;
+text-align:left;
+}
 
 h1,h2,h3,h4,h5,h6 {
 padding-top: 15px;
@@ -20,10 +21,10 @@ padding-top: 15px;
 
 #container
 {
-  display: block; 
-  height:auto;
-  position: relative; 
-  width: 1200px;
+display: block; 
+height:auto;
+position: relative; 
+width: 1200px;
 }
 
 #header
@@ -73,7 +74,6 @@ width:1180px;
 color:#8CBDF2;
 }
 
-
 #footer a, #footer a:visited
 {
 color:#8CBDF2;
@@ -83,7 +83,24 @@ text-decoration:none;
 html, body {
 text-align: center;
 }
-p {text-align: left;}
+
+p {
+text-align: left;
+font-size: 1.2em;
+}
+
+li {
+font-size: 1.2em;
+}
+
+table.visko {
+border-width: 1px;
+border-spacing: 0px;
+border-style: none;
+border-color: gray;
+border-collapse: collapse;
+background-color: white;
+}
 
 div.toc {
 border: 1px solid #aaaaaa;
@@ -96,5 +113,3 @@ border: 1.5px dashed;
 border-color: #3399FF;
 background-color : AliceBlue;
 }
-
-
