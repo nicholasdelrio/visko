@@ -20,14 +20,29 @@
 <ul>
 <li><a href="#gravity">Gravity Data Visualization Queries</a>
 <li><a href="#holes">Seismic Tomography Visualization Queries</a> 
-<li><a href="#brightness">NASA MODIS Brightness Visualization Queries</a>
+<li><a href="#brightness">NASA Goddard MODIS Brightness Visualization Queries</a>
+<li><a href="#solar">NASA JPL Solar Image Processing Queries</a>
 <li><a href="#polygons">Polygon Data Queries</a>
 <li><a href="#visko">Visko Knowledge Base Visualization Queries</a>
 <li><a href="#ecology">UTEP Systems Ecology Lab Visualization Queries</a>
 </ul>
 
+<hr/>
 <a name="gravity"/>
 <h3>Gravity Data Visualization Queries</h3>
+<p>Datasets used in this example set:</p>
+<table border = "1">
+	<tr>
+		<td><b>Data Type</b></td>
+		<td><b>Location</b></td>
+		<td><b>Provider</b></td>
+	</tr>
+	<tr>
+		<td>Gravity Dataset</td>
+		<td><a href="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt">URL</a></td>
+		<td><a href="http://research.utep.edu/Default.aspx?alias=research.utep.edu/paces">UTEP PACES</td>
+	</tr>
+</table>
 
 <h5>All Possible Visualizations: (AS *)</h5>
 <div class="code">
@@ -241,8 +256,39 @@ WHERE
 </tr>
 </table>
 
+<hr/>
 <a name="holes"/>
 <h3>Queries Associated with Seismic Tomography</h3>
+
+<p>Datasets used in this example set:</p>
+<table border = "1">
+	<tr>
+		<td><b>Data Type</b></td>
+		<td><b>Location</b></td>
+		<td><b>Provider</b></td>
+	</tr>
+	<tr>
+		<td>Velocity Model</td>
+		<td><a href="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/02029349145023569_vel.3d">URL</a></td>
+		<td><a href="http://cybershare.utep.edu/">Cyber-ShARE Center</a></td>
+	</tr>
+	<tr>
+		<td>Slowness Perturbation</td>
+		<td><a href="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/032289675474805557_dusum.3d">URL</a></td>
+		<td><a href="http://cybershare.utep.edu/">Cyber-ShARE Center</a></td>
+	</tr>
+	<tr>
+		<td>Arrival Time Field</td>
+		<td><a href="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/05729227976475819_time.3d">URL</a></td>
+		<td><a href="http://cybershare.utep.edu/">Cyber-ShARE Center</a></td>
+	</tr>
+	<tr>
+		<td>Ray Coverage</td>
+		<td><a href="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/01146509090356318_icov.3d">URL</a></td>
+		<td><a href="http://cybershare.utep.edu/">Cyber-ShARE Center</a></td>
+	</tr>
+</table>
+
 
 <h5>Velocity Model Isosurfaces Rendering Query</h5>
 <div class="code">
@@ -401,8 +447,24 @@ WHERE
 </tr>
 </table>
 
+<hr/>
 <a name="brightness"/>
 <h3>NASA MODIS Brightness Visualization</h3>
+
+<p>Datasets used in this example set:</p>
+<table border = "1">
+	<tr>
+		<td><b>Data Type</b></td>
+		<td><b>Location</b></td>
+		<td><b>Provider</b></td>
+	</tr>
+	<tr>
+		<td>MODIS Brightness Temperature</td>
+		<td><a href="http://iw.cs.utep.edu/visko-web/test-data/giovanni/SUBSET_mergedIR_ch4_2008-05-31.nc">URL</a></td>
+		<td><a href="http://daac.gsfc.nasa.gov/">NASA Goddard Earth Sciences (GES) Data and Information Services Center (DISC)</td>
+	</tr>
+</table>
+
 
 <h5>Contour Map Query</h5>
 <div class="code" style="overflow:scroll;">
@@ -466,8 +528,140 @@ WHERE
 </tr>
 </table>
 
-<a name="polygons">
-<h4>vtkPolyData Queries</h4>
+<hr/>
+<a name="solar"/>
+<h3>NASA JPL Solar Image Processing Queries</h3>
+
+<p>Datasets used in this example set:</p>
+<table border = "1">
+	<tr>
+		<td><b>Data Type</b></td>
+		<td><b>Location</b></td>
+		<td><b>Provider</b></td>
+	</tr>
+	<tr>
+		<td>Solar Image Unwrapped Sphere</td>
+		<td><a href="http://iw.cs.utep.edu/visko-web/test-data/jpl/20120717_120115_304_color.png">URL</a></td>
+		<td><a href="http://www.jpl.nasa.gov/">NASA JPL</td>
+	</tr>
+		<tr>
+		<td>Solar Image FITS</td>
+		<td><a href="http://iw.cs.utep.edu/visko-web/test-data/jpl/AIAsynoptic0304.fits">URL</a></td>
+		<td><a href="http://www.jpl.nasa.gov/">NASA JPL</td>
+	</tr>
+	
+</table>
+
+<h5>Sphere Wrap Query</h5>
+<div class="code">
+<pre>
+PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl#
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/jpl/20120717_120115_304_color.png
+AS views:2D_SpherizedRaster IN visko:mozilla-firefox 
+WHERE
+        FORMAT = https://raw.github.com/nicholasdelrio/visko/master/resources/formats/PNG.owl#PNG
+        AND TYPE = http://www.w3.org/2002/07/owl#Thing
+</pre>
+</div>
+
+<table>
+<tr>
+<td align="center"><a href="http://www.imagemagick.org/script/index.php">ImageMagick</a></td>
+</tr>
+
+<tr>
+<td><img src="./visualization-examples/solar-2d-spherizedraster-imageMagick.png" width="450px"></td>
+</tr>
+</table>
+
+<h5>3D Surface Plot of 2D Image Query</h5>
+<div class="code">
+<pre>
+PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl#
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/jpl/20120717_120115_304_color.png
+AS views:3D_SurfacePlot IN visko:mozilla-firefox 
+WHERE
+        FORMAT = https://raw.github.com/nicholasdelrio/visko/master/resources/formats/PNG.owl#PNG
+        AND TYPE = http://www.w3.org/2002/07/owl#Thing
+</pre>
+</div>
+
+<table>
+<tr>
+<td align="center"><a href="http://rsb.info.nih.gov/ij/">ImageJ</a></td>
+</tr>
+
+<tr>
+<td><img src="./visualization-examples/solar-3d-surfaceplot-imageJ.png" width="450px"></td>
+</tr>
+</table>
+
+<h5>Format Transformation: FITS to PNG</h5>
+<div class="code">
+<pre>
+PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl#
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/jpl/AIAsynoptic0304.fits 
+AS * IN visko:mozilla-firefox 
+WHERE
+        FORMAT = https://raw.github.com/nicholasdelrio/visko/master/resources/formats/FITS.owl#FITS
+        AND TYPE = http://www.w3.org/2002/07/owl#Thing
+</pre>
+</div>
+
+<table>
+<tr>
+<td align="center"><a href="http://www.imagemagick.org/script/index.php">ImageJ</a></td>
+</tr>
+
+<tr>
+<td><img src="./visualization-examples/solar-fits2png-imageMagick.png" width="450px"></td>
+</tr>
+</table>
+
+<h5>3D Surface Plot of Solar FITS</h5>
+<div class="code">
+<pre>
+PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#
+PREFIX visko REPLACE-VISKOpackage_mozilla.owl#
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/jpl/AIAsynoptic0304.fits
+AS views:3D_SurfacePlot IN visko:mozilla-firefox 
+WHERE
+        FORMAT = https://raw.github.com/nicholasdelrio/visko/master/resources/formats/PNG.owl#PNG
+        AND TYPE = http://www.w3.org/2002/07/owl#Thing
+</pre>
+</div>
+
+<table>
+<tr>
+<td align="center"><a href="http://rsb.info.nih.gov/ij/">ImageJ</a></td>
+</tr>
+
+<tr>
+<td><img src="./visualization-examples/solar-fits-3d-surfaceplot-imageJ.png" width="450px"></td>
+</tr>
+</table>
+
+
+<hr/>
+<a name="polygons"/>
+<h3>vtkPolyData Queries</h3>
+
+<p>Datasets used in this example set:</p>
+<table border = "1">
+	<tr>
+		<td><b>Data Type</b></td>
+		<td><b>Location</b></td>
+		<td><b>Provider</b></td>
+	</tr>
+	<tr>
+		<td>VTK PolyData</td>
+		<td><a href="http://rio.cs.utep.edu/ciserver/ciprojects/sdata/Cubes.xml">URL</a></td>
+		<td><a href="http://cybershare.utep.edu/">Cyber-ShARE Center</td>
+	</tr>
+</table>
 
 <h5>Cube Query</h5>
 <div class="code">
@@ -500,8 +694,23 @@ WHERE
 </tr>
 </table>
 
+<hr/>
 <a name="visko">
 <h4>VisKo Queries</h4>
+
+<p>Datasets used in this example set:</p>
+<table border = "1">
+	<tr>
+		<td><b>Data Type</b></td>
+		<td><b>Location</b></td>
+		<td><b>Provider</b></td>
+	</tr>
+	<tr>
+		<td>VisKo Knowledge Base</td>
+		<td><a href="https://github.com/nicholasdelrio/visko-packages-rdf">URL</a></td>
+		<td><a href="http://trust.utep.edu/members/nick/">Nicholas Del Rio</td>
+	</tr>
+</table>
 
 <h5>Operator Paths Force Graph</h5>
 <div class="code">
@@ -579,9 +788,23 @@ WHERE
 </tr>
 </table>
 
-
+<hr/>
 <a name="ecology">
 <h4>UTEP Systems Ecology Lab Visualization Queries</h4>
+
+<p>Datasets used in this example set:</p>
+<table border = "1">
+	<tr>
+		<td><b>Data Type</b></td>
+		<td><b>Location</b></td>
+		<td><b>Provider</b></td>
+	</tr>
+	<tr>
+		<td>Time Series for Ecology Data</td>
+		<td><a href="http://iw.cs.utep.edu/visko-web/test-data/ecology/average_data.nc">URL</a></td>
+		<td><a href="http://cybershare.utep.edu/">Cyber-ShARE Center</td>
+	</tr>
+</table>
 
 <h5>H20 Time Series</h5>
 <div class="code">
