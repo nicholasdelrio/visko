@@ -629,7 +629,7 @@ PREFIX visko REPLACE-VISKOpackage_mozilla.owl#
 VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/jpl/AIAsynoptic0304.fits
 AS views:3D_SurfacePlot IN visko:mozilla-firefox 
 WHERE
-        FORMAT = https://raw.github.com/nicholasdelrio/visko/master/resources/formats/PNG.owl#PNG
+        FORMAT = https://raw.github.com/nicholasdelrio/visko/master/resources/formats/FITS.owl#FITS
         AND TYPE = http://www.w3.org/2002/07/owl#Thing
 </pre>
 </div>
