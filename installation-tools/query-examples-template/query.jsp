@@ -31,7 +31,7 @@
 <a name="gravity"/>
 <h3>Gravity Data Visualization Queries</h3>
 <p>Datasets used in this example set:</p>
-<table border = "1">
+<table class="visko" border="1">
 	<tr>
 		<td><b>Data Type</b></td>
 		<td><b>Location</b></td>
@@ -261,7 +261,7 @@ WHERE
 <h3>Queries Associated with Seismic Tomography</h3>
 
 <p>Datasets used in this example set:</p>
-<table border = "1">
+<table class="visko" border="1">
 	<tr>
 		<td><b>Data Type</b></td>
 		<td><b>Location</b></td>
@@ -452,7 +452,7 @@ WHERE
 <h3>NASA MODIS Brightness Visualization</h3>
 
 <p>Datasets used in this example set:</p>
-<table border = "1">
+<table class="visko" border="1">
 	<tr>
 		<td><b>Data Type</b></td>
 		<td><b>Location</b></td>
@@ -533,7 +533,7 @@ WHERE
 <h3>NASA JPL Solar Image Processing Queries</h3>
 
 <p>Datasets used in this example set:</p>
-<table border = "1">
+<table class="visko" border="1">
 	<tr>
 		<td><b>Data Type</b></td>
 		<td><b>Location</b></td>
@@ -650,7 +650,7 @@ WHERE
 <h3>vtkPolyData Queries</h3>
 
 <p>Datasets used in this example set:</p>
-<table border = "1">
+<table class="visko" border="1">
 	<tr>
 		<td><b>Data Type</b></td>
 		<td><b>Location</b></td>
@@ -699,7 +699,7 @@ WHERE
 <h4>VisKo Queries</h4>
 
 <p>Datasets used in this example set:</p>
-<table border = "1">
+<table class="visko" border="1">
 	<tr>
 		<td><b>Data Type</b></td>
 		<td><b>Location</b></td>
@@ -793,7 +793,7 @@ WHERE
 <h4>UTEP Systems Ecology Lab Visualization Queries</h4>
 
 <p>Datasets used in this example set:</p>
-<table border = "1">
+<table class="visko" border="1">
 	<tr>
 		<td><b>Data Type</b></td>
 		<td><b>Location</b></td>
