@@ -39,7 +39,7 @@
 	</tr>
 	<tr>
 		<td>Gravity Dataset</td>
-		<td><a href="http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt">URL</a></td>
+		<td><a href="http://iw.cs.utep.edu/visko-web/test-data/gravity/gravityDataset.txt">URL</a></td>
 		<td><a href="http://research.utep.edu/Default.aspx?alias=research.utep.edu/paces">UTEP PACES</td>
 	</tr>
 </table>
@@ -50,7 +50,7 @@
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#
 PREFIX visko REPLACE-VISKOpackage_mozilla.owl#
-VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/gravity/gravityDataset.txt
 AS * IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES
@@ -103,7 +103,7 @@ PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/form
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#
 PREFIX visko REPLACE-VISKOpackage_mozilla.owl#
 PREFIX params REPLACE-VISKOgrdcontour.owl#
-VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/gravity/gravityDataset.txt
 AS views:2D_ContourMap IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES
@@ -132,7 +132,7 @@ PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontolo
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
 PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
-VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/gravity/gravityDataset.txt
 AS views:2D_RasterMap IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES
@@ -158,7 +158,7 @@ PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontolo
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
 PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
-VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/gravity/gravityDataset.txt
 AS views:2D_PointMap IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES
@@ -184,7 +184,7 @@ PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontolo
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
 PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
-VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/gravity/gravityDataset.txt
 AS views:3D_PointPlot IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES
@@ -211,7 +211,7 @@ PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontolo
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
 PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
-VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/gravity/gravityDataset.txt
 AS views:3D_IsoSurfacesRendering IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES
@@ -237,7 +237,7 @@ PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontolo
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/ 
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
 PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
-VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/gravity/gravityDataset.txt
 AS views:3D_SurfacePlot IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES
@@ -269,22 +269,22 @@ WHERE
 	</tr>
 	<tr>
 		<td>Velocity Model</td>
-		<td><a href="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/02029349145023569_vel.3d">URL</a></td>
+		<td><a href="http://iw.cs.utep.edu/visko-web/test-data/holes/velocity-data.3d">URL</a></td>
 		<td><a href="http://cybershare.utep.edu/">Cyber-ShARE Center</a></td>
 	</tr>
 	<tr>
 		<td>Slowness Perturbation</td>
-		<td><a href="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/032289675474805557_dusum.3d">URL</a></td>
+		<td><a href="http://iw.cs.utep.edu/visko-web/test-data/holes/dusum.3d">URL</a></td>
 		<td><a href="http://cybershare.utep.edu/">Cyber-ShARE Center</a></td>
 	</tr>
 	<tr>
 		<td>Arrival Time Field</td>
-		<td><a href="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/05729227976475819_time.3d">URL</a></td>
+		<td><a href="http://iw.cs.utep.edu/visko-web/test-data/holes/time-data.3d">URL</a></td>
 		<td><a href="http://cybershare.utep.edu/">Cyber-ShARE Center</a></td>
 	</tr>
 	<tr>
 		<td>Ray Coverage</td>
-		<td><a href="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/01146509090356318_icov.3d">URL</a></td>
+		<td><a href="http://iw.cs.utep.edu/visko-web/test-data/holes/icov-data.3d">URL</a></td>
 		<td><a href="http://cybershare.utep.edu/">Cyber-ShARE Center</a></td>
 	</tr>
 </table>
@@ -297,7 +297,7 @@ PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontolo
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
 PREFIX visko REPLACE-VISKOpackage_mozilla.owl#
-VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/02029349145023569_vel.3d
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/holes/velocity-data.3d
 AS views:3D_IsoSurfacesRendering IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:LITTLE-ENDIAN-SEQUENCE.owl#LITTLE-ENDIAN-SEQUENCE
@@ -325,7 +325,7 @@ PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontolo
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
 PREFIX visko REPLACE-VISKOpackage_mozilla.owl#
-VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/02029349145023569_vel.3d
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/holes/velocity-data.3d
 AS views:2D_ContourMap IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:LITTLE-ENDIAN-SEQUENCE.owl#LITTLE-ENDIAN-SEQUENCE
@@ -354,7 +354,7 @@ PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontolo
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
 PREFIX visko REPLACE-VISKOpackage_mozilla.owl#
-VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/02029349145023569_vel.3d
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/holes/velocity-data.3d
 AS views:3D_VolumeRendering IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:LITTLE-ENDIAN-SEQUENCE.owl#LITTLE-ENDIAN-SEQUENCE
@@ -379,7 +379,7 @@ PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontolo
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
 PREFIX visko REPLACE-VISKOpackage_mozilla.owl#
-VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/032289675474805557_dusum.3d
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/holes/dusum.3d
 AS views:3D_IsoSurfacesRendering IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:LITTLE-ENDIAN-SEQUENCE.owl#LITTLE-ENDIAN-SEQUENCE
@@ -404,7 +404,7 @@ PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontolo
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
 PREFIX visko REPLACE-VISKOpackage_mozilla.owl#
-VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/05729227976475819_time.3d
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/holes/time-data.3d
 AS views:3D_IsoSurfacesRendering IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:LITTLE-ENDIAN-SEQUENCE.owl#LITTLE-ENDIAN-SEQUENCE
@@ -429,7 +429,7 @@ PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontolo
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl# 
 PREFIX visko REPLACE-VISKOpackage_mozilla.owl#
-VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/HolesCodeFullPML/01146509090356318_icov.3d
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/holes/icov-data.3d
 AS views:3D_VolumeRendering IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:LITTLE-ENDIAN-SEQUENCE.owl#LITTLE-ENDIAN-SEQUENCE
