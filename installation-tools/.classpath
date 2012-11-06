@@ -17,5 +17,6 @@
 	<classpathentry kind="lib" path="/api/lib/jena-2.7.3/xml-apis-1.4.01.jar"/>
 	<classpathentry kind="lib" path="/api/lib/owls-3.0/owls-api-3.0.jar"/>
 	<classpathentry kind="lib" path="/api/lib/content-manager/content-management-clients.jar"/>
+	<classpathentry kind="lib" path="tomcat/servlet-api.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
