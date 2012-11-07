@@ -658,7 +658,7 @@ WHERE
 	</tr>
 	<tr>
 		<td>VTK PolyData</td>
-		<td><a href="http://rio.cs.utep.edu/ciserver/ciprojects/sdata/Cubes.xml">URL</a></td>
+		<td><a href="http://iw.cs.utep.edu/visko-web/test-data/vtk/Cubes.xml">URL</a></td>
 		<td><a href="http://cybershare.utep.edu/">Cyber-ShARE Center</td>
 	</tr>
 </table>
@@ -671,7 +671,7 @@ PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/form
 PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl# 
 PREFIX visko REPLACE-VISKOpackage_mozilla.owl# 
 PREFIX renderParams REPLACE-VISKOvtkPolyDataMapper.owl# 
-VISUALIZE http://rio.cs.utep.edu/ciserver/ciprojects/sdata/Cubes.xml
+VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/vtk/Cubes.xml
 AS * IN visko:mozilla-firefox
 WHERE
 	FORMAT = formats:XML.owl#XML
