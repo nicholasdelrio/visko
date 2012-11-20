@@ -22,9 +22,16 @@ package edu.utep.trustlab.visko.installation;
 	
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.List;
+import java.util.Properties;
 
-import com.hp.hpl.jena.rdf.model.*;
-import com.hp.hpl.jena.tdb.*;
+import org.velo.java.client.Path;
+import org.velo.java.client.VeloJavaClient;
+
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.tdb.TDBFactory;
 
 import edu.utep.trustlab.visko.installation.packages.manager.PackageInstaller;
 
@@ -34,6 +41,12 @@ import edu.utep.trustlab.visko.installation.packages.manager.PackageInstaller;
 	private String resourcesDir;
 	private String tripleStoreDir;
 	private Model model;
+
+	private String serverUrl;
+	private String serverType;
+	private String serverUsername;
+	private String serverPassword;
+	private String serverProject;
 	
 	public TripleStore(String packageDirectory, String resourcesDirectory, String tripleStoreDirectory){
 		packageDir = packageDirectory;
@@ -42,6 +55,48 @@ import edu.utep.trustlab.visko.installation.packages.manager.PackageInstaller;
 		
 		if(!tripleStoreDir.endsWith("/"))
 			tripleStoreDir += "/";
+		
+		try {
+      Properties props = new Properties();
+      InputStream propsFile = getClass().getResourceAsStream("/build.properties");
+      props.load(propsFile);
+      serverType = props.getProperty("content.management.server.type");
+      serverUrl = props.getProperty("content.management.server.url");
+      serverUsername = props.getProperty("content.management.server.username");
+      serverPassword = props.getProperty("content.management.server.password");
+      serverProject = props.getProperty("content.management.server.project.name");
+
+      // Load RDF 
+      // TODO: support other content management servers besides velo
+      if(serverType.equals("velo")) {
+        loadRDFFromVelo();
+      }
+      
+    } catch (Throwable e) {
+      e.printStackTrace();
+    }
+	}
+	
+	/**
+	 * 
+	 */
+	private void loadRDFFromVelo() {
+	 
+	  VeloJavaClient client = new VeloJavaClient();
+	  client.setBaseUrl(serverUrl);
+    client.setAuthentication(serverUsername, serverPassword);
+    
+    // download all files from the server project to the packageDir directory
+    File packageDirectory = new File(packageDir);
+
+    List<org.velo.java.client.Resource> children = client.getCollection("/Projects/" + serverProject);
+    for (org.velo.java.client.Resource child : children) {
+      System.out.println("child webdav path = " + child.getWebdavPath());
+      String fileName = new Path(child.getWebdavPath()).getFileName();
+      client.getFile("/Projects/" + serverProject + "/" + fileName, packageDirectory.getAbsolutePath());
+      
+    }
+    
 	}
 
 	public String create(){
@@ -51,7 +106,8 @@ import edu.utep.trustlab.visko.installation.packages.manager.PackageInstaller;
 		TripleStore.clean(storesDirectory);
 		model = TDBFactory.createModel(tripleStoreDir);
 		
-		aggregatePackages();
+		File packageDirectory = new File(packageDir);
+		aggregate(packageDirectory);
 		aggregateResources();
 		this.aggregatePackageDataTypes();
 				
