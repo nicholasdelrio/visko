@@ -841,8 +841,61 @@ WHERE
 
 <a name="sparql"/>
 <h4>SPARQL/XML Results Visualization Queries</h4>
+<p>The visualizations below are generated from SPARQL query result data, encoded in SPARQL+XML.</p>
+
+<p>SPARQLEndpoint used in this example set:</p>
+<table class="visko" border="1">
+	<tr>
+		<td><b>Endpoint URL</b></td>
+		<td><b>Contents</b></td>
+		<td><b>Provider</b></td>
+	</tr>
+	<tr>
+		<td><a href="http://iw.cs.utep.edu/visko-web/sparql-query.jsp">URL</a></td>
+		<td>VisKo Knowledge Base</td>
+		<td><a href="http://cybershare.utep.edu/">Cyber-ShARE Center</td>
+	</tr>
+</table>
 
 
+<h5>What VisualizationAbstractions Can Visko Generate?</h5>
+<p>Source SPARQL Query:</p>
+<div class="code" style="overflow:scroll;">
+<pre>
+PREFIX viskoV: &lt;https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+SELECT 
+?s
+(COALESCE(?prd, rdf:type) AS ?p)
+(COALESCE(?obj, viskoV:VisualizationAbstraction) AS ?o)
+WHERE
+{
+?s a viskoV:VisualizationAbstraction
+}
+</pre>
+</div>
+
+<p>Visualization Query (has SPARQL query encoded within)</p>
+<div class="code" style="overflow:scroll;">
+<pre>
+VISUALIZE http://iw.cs.utep.edu/visko-web/ViskoServletManager?requestType=query-triple-store&query=PREFIX+viskoV%3A+%3Chttps%3A%2F%2Fraw.github.com%2Fnicholasdelrio%2Fvisko%2Fmaster%2Fresources%2Fontology%2Fvisko-view.owl%23%3E%0D%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0A%0D%0ASELECT+%0D%0A%3Fs%0D%0A%28COALESCE%28%3Fprd%2C+rdf%3Atype%29+AS+%3Fp%29%0D%0A%28COALESCE%28%3Fobj%2C+viskoV%3AVisualizationAbstraction%29+AS+%3Fo%29%0D%0AWHERE%0D%0A%7B%0D%0A%3Fs+a+viskoV%3AVisualizationAbstraction%0D%0A%7D
+AS * 
+IN https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_d3.owl#d3-viewer-set 
+WHERE
+	FORMAT = https://raw.github.com/nicholasdelrio/visko/master/resources/formats/SPARQLRESULTSXML.owl#SPARQLRESULTSXML
+	AND TYPE = http://www.w3.org/2002/07/owl#Thing
+</pre>
+</div>
+
+<table>
+<tr>
+<td align="center"><a href="http://d3js.org/">D3</a></td>
+</tr>
+
+<tr>
+<td><img src="./visualization-examples/visualization-abstraction-sparql-2d-forcegraph-d3.png" width="450px"></td>
+</tr>
+</table>
 
 </div>
 </div>
