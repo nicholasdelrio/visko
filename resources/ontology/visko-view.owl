@@ -306,6 +306,14 @@
     
 
 
+    <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#2D_ForceGraph -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;2D_ForceGraph">
+        <rdf:type rdf:resource="&visko-view;2D_Space_DataStructure"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#2D_PointMap -->
 
     <owl:NamedIndividual rdf:about="&visko-view;2D_PointMap">
