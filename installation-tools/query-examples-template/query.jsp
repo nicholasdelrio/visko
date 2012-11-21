@@ -859,6 +859,22 @@ WHERE
 
 
 <h5>What VisualizationAbstractions Can Visko Generate?</h5>
+<p>Visualization Query (has SPARQL query encoded within)</p>
+<div class="code" style="overflow:scroll;">
+<pre>
+PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#
+PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
+PREFIX visko https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_d3.owl#
+PREFIX types https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#
+VISUALIZE http://iw.cs.utep.edu/visko-web/ViskoServletManager?requestType=query-triple-store&query=PREFIX+viskoV%3A+%3Chttps%3A%2F%2Fraw.github.com%2Fnicholasdelrio%2Fvisko%2Fmaster%2Fresources%2Fontology%2Fvisko-view.owl%23%3E%0D%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0A%0D%0ASELECT+%0D%0A%3Fs%0D%0A%28COALESCE%28%3Fprd%2C+rdf%3Atype%29+AS+%3Fp%29%0D%0A%28COALESCE%28%3Fobj%2C+viskoV%3AVisualizationAbstraction%29+AS+%3Fo%29%0D%0AWHERE%0D%0A%7B%0D%0A%3Fs+a+viskoV%3AVisualizationAbstraction%0D%0A%7D
+AS * 
+IN https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_d3.owl#d3-viewer-set 
+WHERE
+	FORMAT = https://raw.github.com/nicholasdelrio/visko/master/resources/formats/SPARQLRESULTSXML.owl#SPARQLRESULTSXML
+	AND TYPE = http://www.w3.org/2002/07/owl#Thing
+</pre>
+</div>
+
 <p>Source SPARQL Query:</p>
 <div class="code" style="overflow:scroll;">
 <pre>
@@ -872,18 +888,6 @@ WHERE
 {
 ?s a viskoV:VisualizationAbstraction
 }
-</pre>
-</div>
-
-<p>Visualization Query (has SPARQL query encoded within)</p>
-<div class="code" style="overflow:scroll;">
-<pre>
-VISUALIZE http://iw.cs.utep.edu/visko-web/ViskoServletManager?requestType=query-triple-store&query=PREFIX+viskoV%3A+%3Chttps%3A%2F%2Fraw.github.com%2Fnicholasdelrio%2Fvisko%2Fmaster%2Fresources%2Fontology%2Fvisko-view.owl%23%3E%0D%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0A%0D%0ASELECT+%0D%0A%3Fs%0D%0A%28COALESCE%28%3Fprd%2C+rdf%3Atype%29+AS+%3Fp%29%0D%0A%28COALESCE%28%3Fobj%2C+viskoV%3AVisualizationAbstraction%29+AS+%3Fo%29%0D%0AWHERE%0D%0A%7B%0D%0A%3Fs+a+viskoV%3AVisualizationAbstraction%0D%0A%7D
-AS * 
-IN https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_d3.owl#d3-viewer-set 
-WHERE
-	FORMAT = https://raw.github.com/nicholasdelrio/visko/master/resources/formats/SPARQLRESULTSXML.owl#SPARQLRESULTSXML
-	AND TYPE = http://www.w3.org/2002/07/owl#Thing
 </pre>
 </div>
 

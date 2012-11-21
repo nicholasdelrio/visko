@@ -123,13 +123,9 @@ public class OperatorPath extends Vector<String> {
 		String finalOperatorURI = this.lastElement();
 		Vector<String> viewers = new Vector<String>();
 		for(String aViewerURI : viewerURIs){
-			System.out.println("can finalOperatorURI: " + finalOperatorURI + " be viewed by: " + aViewerURI);
 			if(ts.outputCanBeViewedByViewer(finalOperatorURI, aViewerURI)){
 				viewers.add(aViewerURI);
-				System.out.println("yes");
 			}
-			else
-				System.out.println("no");
 		}
 		return viewers;
 	}
