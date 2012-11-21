@@ -29,19 +29,21 @@ PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
-	</textarea>
+
+
+</textarea>
 	<br>
 	<input type="submit" id="submitButton" style="width: 156px">
 </form>
 
 <h2>Examples</h2>
 
-<h3>What views can VisKo Generate?</h3>
+<h3>What Visualizations can VisKo Generate?</h3>
 <pre>
 select ?view
 where
 {
-?view a viskoV:View.
+?view a viskoV:VisualizationAbstraction.
 } 
 </pre>
 

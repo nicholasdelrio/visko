@@ -25,6 +25,7 @@
 <li><a href="#polygons">Polygon Data Queries</a>
 <li><a href="#visko">Visko Knowledge Base Visualization Queries</a>
 <li><a href="#ecology">UTEP Systems Ecology Lab Visualization Queries</a>
+<li><a href="#sparql">SPARQL/XML Results Visualization Queries</a>
 </ul>
 
 <hr/>
@@ -835,6 +836,11 @@ WHERE
 <td><img src="./visualization-examples/ecology-2d-timeseries-ncl.png" width="450px"></td>
 </tr>
 </table>
+
+<hr>
+
+<a name="sparql"/>
+<h4>SPARQL/XML Results Visualization Queries</h4>
 
 
 
