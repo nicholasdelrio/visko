@@ -717,10 +717,10 @@ WHERE
 <pre>
 PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
-PREFIX visko https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_custom.owl#
+PREFIX visko https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_d3.owl#
 PREFIX types https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#
 VISUALIZE https://github.com/nicholasdelrio/visko-packages-rdf
-AS views:2D_VisKo_OperatorPaths_ForceGraph IN visko:data-driven-documents
+AS views:2D_VisKo_OperatorPaths_ForceGraph IN visko:d3-viewer-set
 WHERE
 	FORMAT = formats:RDFXML.owl#RDFXML
 	AND TYPE = types:VisKo_KnowledgeBase
@@ -742,10 +742,10 @@ WHERE
 <pre>
 PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
-PREFIX visko https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_custom.owl#
+PREFIX visko https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_d3.owl#
 PREFIX types https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#
 VISUALIZE https://github.com/nicholasdelrio/visko-packages-rdf
-AS views:2D_VisKo_DataTransformations_ForceGraph IN visko:data-driven-documents
+AS views:2D_VisKo_DataTransformations_ForceGraph IN visko:d3-viewer-set
 WHERE
 	FORMAT = formats:RDFXML.owl#RDFXML
 	AND TYPE = types:VisKo_KnowledgeBase
@@ -768,10 +768,10 @@ WHERE
 <pre>
 PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#
 PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/
-PREFIX visko https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_custom.owl#
+PREFIX visko https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_d3.owl#
 PREFIX types https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#
 VISUALIZE https://github.com/nicholasdelrio/visko-packages-rdf
-AS views:2D_VisKo_Instances_BarChart IN visko:data-driven-documents
+AS views:2D_VisKo_Instances_BarChart IN visko:d3-viewer-set
 WHERE
 	FORMAT = formats:RDFXML.owl#RDFXML
 	AND TYPE = types:VisKo_KnowledgeBase

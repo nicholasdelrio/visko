@@ -40,6 +40,7 @@ public class ViskoV {
 	public static final String INDIVIDUAL_URI_2D_VisKo_Instances_BarChart = Visko.CORE_VISKO_V + "#2D_VisKo_Instances_BarChart";
 	public static final String INDIVIDUAL_URI_2D_VisKo_DataTransformations_ForceGraph = Visko.CORE_VISKO_V + "#2D_VisKo_DataTransformations_ForceGraph";	
 	public static final String INDIVIDUAL_URI_2D_VisKo_OperatorPaths_ForceGraph = Visko.CORE_VISKO_V + "#2D_VisKo_OperatorPaths_ForceGraph";	
+	public static final String INDIVIDUAL_URI_2D_ForceGraph = Visko.CORE_VISKO_V + "#2D_ForceGraph";	
 
 	public static final String INDIVIDUAL_URI_2D_SpherizedRaster = Visko.CORE_VISKO_V + "#2D_SpherizedRaster";
 	public static final String INDIVIDUAL_URI_3D_BarChart = Visko.CORE_VISKO_V + "#3D_BarChart";

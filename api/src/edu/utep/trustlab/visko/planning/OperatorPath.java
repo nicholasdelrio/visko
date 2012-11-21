@@ -110,19 +110,28 @@ public class OperatorPath extends Vector<String> {
 	}
 	
 	public boolean generatesVisualizationAbstraction(String aVisualizationAbstractionURI){
-		if(visualizationAbstractionURI != null && aVisualizationAbstractionURI != null)
-			 return visualizationAbstractionURI.equals(aVisualizationAbstractionURI);	
-		return false;
+		if(visualizationAbstractionURI != null && aVisualizationAbstractionURI != null){
+			 boolean matches = visualizationAbstractionURI.equals(aVisualizationAbstractionURI);
+			 System.out.println("matches vis abstraction: " + matches);
+			 return matches;
+		}
+		else
+			return false;
 	}
 	
-	public String outputCanBeViewedByViewerSet(Vector<String> viewerURIs){
+	public Vector<String> outputCanBeViewedByViewerSet(Vector<String> viewerURIs){
 		String finalOperatorURI = this.lastElement();
+		Vector<String> viewers = new Vector<String>();
 		for(String aViewerURI : viewerURIs){
+			System.out.println("can finalOperatorURI: " + finalOperatorURI + " be viewed by: " + aViewerURI);
 			if(ts.outputCanBeViewedByViewer(finalOperatorURI, aViewerURI)){
-				return aViewerURI;
+				viewers.add(aViewerURI);
+				System.out.println("yes");
 			}
+			else
+				System.out.println("no");
 		}
-		return null;
+		return viewers;
 	}
 		
 	public void setViewer(String aViewerURI){
@@ -134,12 +143,12 @@ public class OperatorPath extends Vector<String> {
 	}
 	
 	public OperatorPath clonePath(){
-
-		@SuppressWarnings("unchecked")
-		Vector<String> operatorURIs = (Vector<String>)clone();
 		
 		OperatorPath clonedPath = new OperatorPath(ts);
-		clonedPath.set(operatorURIs);		
+
+		for(String operatorURI : this)
+			clonedPath.add(operatorURI);		
+		
 		clonedPath.setVisualizationAbstractionURI(visualizationAbstractionURI);
 		clonedPath.setViewer(viewerURI);
 		

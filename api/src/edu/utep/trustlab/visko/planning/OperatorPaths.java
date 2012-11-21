@@ -67,8 +67,19 @@ public class OperatorPaths extends Vector<OperatorPath> {
 			operatorPath = this.get(i);
 			if(!operatorPath.generatesVisualizationAbstraction(requiredViewURI))
 				nonCompliantPaths.add(operatorPath);
+			else
+				System.out.println("keeping: " + operatorPath);
 		}
 		
-		this.removeAll(nonCompliantPaths);
-	}		
+		removeAll(nonCompliantPaths);
+	}
+	
+	public void removeAll(Vector<OperatorPath> pathsSet){
+		for(OperatorPath badPath : pathsSet){
+			for(int i = 0; i < this.size(); i ++){
+				if(badPath.toString().equals(get(i).toString()))
+						this.remove(i);
+			}
+		}
+	}
 }

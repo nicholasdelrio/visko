@@ -98,8 +98,14 @@ public class PipelineSetBuilder {
 		setOperatorPaths();
 		
 		System.out.println("Number of operator paths: " + operatorPaths.size());
-						
+	
+		for(OperatorPath path : operatorPaths){
+			System.out.println(path);
+			System.out.println("Abstration: " + path.getVisualizationAbstractionGenerated());
+		}
+		
 		if (viewURI != null) {
+			System.out.println("filtering by: " + viewURI);
 			operatorPaths.filterByView(viewURI);
 			System.out.println("Number of operator paths after additional View restrictions: " + operatorPaths.size());
 		}					
@@ -171,7 +177,9 @@ public class PipelineSetBuilder {
 	}
 	
 	private void constructOperatorPaths(OperatorPath operatorPath, String inputTypeURI){
-		String targetViewerURI = null;
+		Vector<String> targetViewerURIs = null;
+		OperatorPath clonedPath;
+
 		if(!operatorPathViolatesCompositionRules(operatorPath)){
 			ResultSet operatorResults;
 			if(inputTypeURI.equals(OWL.CLASS_URI_Thing))
@@ -185,14 +193,20 @@ public class PipelineSetBuilder {
 			operatorURIs = operatorPath.filterOperatorsAlreadyInPath(operatorURIs);
 			
 			if(operatorURIs.size() > 0){
-				OperatorPath clonedPath;
 				
-				targetViewerURI = operatorPath.outputCanBeViewedByViewerSet(viewerURIs);
+				targetViewerURIs = operatorPath.outputCanBeViewedByViewerSet(viewerURIs);
 				
-				if(targetViewerURI != null){
+				for(String targetViewerURI : targetViewerURIs){
 					clonedPath = operatorPath.clonePath();
 					clonedPath.setViewer(targetViewerURI);
+					
+					System.out.println("targetViewer: " + targetViewerURI);
+					System.out.println("adding OperatorPath: " + clonedPath);
+					
+					System.out.println(operatorPaths.size());
 					operatorPaths.add(clonedPath);
+					System.out.println(operatorPaths.size());
+					
 				}
 			
 				for(String nextOperatorURI : operatorURIs){				
@@ -203,10 +217,18 @@ public class PipelineSetBuilder {
 				}
 			}
 			else {
-				targetViewerURI = operatorPath.outputCanBeViewedByViewerSet(viewerURIs);				
-				if(targetViewerURI != null){
-					operatorPath.setViewer(targetViewerURI);				
-					operatorPaths.add(operatorPath);
+				targetViewerURIs = operatorPath.outputCanBeViewedByViewerSet(viewerURIs);				
+				for(String targetViewerURI : targetViewerURIs){
+					clonedPath = operatorPath.clonePath();
+					clonedPath.setViewer(targetViewerURI);
+					//operatorPath.setViewer(targetViewerURI);
+					
+					System.out.println("target-viewer: " + targetViewerURI);
+					System.out.println("adding Operator-Path: " + clonedPath);
+					
+					System.out.println(operatorPaths.size());
+					operatorPaths.add(clonedPath);
+					System.out.println(operatorPaths.size());
 				}
 			}
 		}
