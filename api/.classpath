@@ -40,5 +40,6 @@
 	<classpathentry kind="lib" path="lib/pellet-2.3.0/pellet-rules.jar"/>
 	<classpathentry kind="lib" path="lib/pellet-2.3.0/pellet-datatypes.jar"/>
 	<classpathentry kind="lib" path="lib/pellet-2.3.0/pellet-el.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/content-manager/VeloJavaClient.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
