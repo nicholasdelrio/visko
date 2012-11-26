@@ -36,7 +36,7 @@
 	<property name="visko-api" value="../api"/>
 	<property name="visko-api-jar" value="${visko-api}/visko-api.jar"/>
 		
-	<property name="visko-packages" value="../../visko-packages/"/>
+	<property name="visko-packages" value="../visko-modules/"/>
 	<property name="build-packages" value="build-packages"/>
 	<property name="packages-jar" value="packages.jar"/>
 	
@@ -193,11 +193,11 @@
 	
 	<target name="build-triple-store" depends="build-query-html" description="Generate a TDB Triple Store From a Bundle of RDF Documents">
 		<ant antfile="build-installation-visko.xml" target="build" inheritAll="false" />
-		
+		<delete dir="${visko-packages}"/>
+	    <mkdir dir="${visko-packages}"/>
 		<java classname="edu.utep.trustlab.visko.installation.TripleStore" fork="true">
 			
 			<jvmarg value="-Djava.security.policy=${policy}"/>
-
 			<arg value="${visko-packages}"/>
 			<arg value="${visko-resources}"/>
 			<arg value="${visko-tdb}"/>
@@ -205,6 +205,7 @@
 			<classpath>
 				<pathelement location="${installation-tools-jar}"/>
 				<pathelement location="${visko-api-jar}"/>
+				<pathelement location="${basedir}/config"/>
 				<fileset dir="${lib}/axis-1.4/">
 					<include name="*.jar"/>
 				</fileset>
@@ -225,7 +226,8 @@
 				</fileset>
 				<fileset dir="${lib}/pellet-2.3.0/">
 					<include name="*.jar"/>
-				</fileset>			</classpath>   
+				</fileset>
+			</classpath>   
 		</java>	
 	</target>
 	
