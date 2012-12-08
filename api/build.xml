@@ -6,6 +6,11 @@
 	<property name="src" value="src"/>
 	<property name="doc" value="doc"/>
 	<property name="policy" value="java.policy" />
+	<property name="visko-tdb" value="../tdb" />
+	
+	<property name="q" value="queries/contourmap-gravity.vkq" />
+	<property name="m" value="4" />
+	<property name="p" value="output" />
 	
 	<target name="build" depends="compile" description="Creates the VisKo API jar file">
 		<jar destfile="${jarfile}">
@@ -17,9 +22,10 @@
 	
 		<java classname="edu.utep.trustlab.visko.util.SystemLevelDriver" fork="true">
 			
-<!--				<arg value="${visko-packages}"/>
-				<arg value="${visko-resources}"/>
-				<arg value="${visko-tdb}"/> -->
+			<arg value="${q}"/>
+			<arg value="${m}"/>
+			<arg value="${p}"/>
+			<arg value="${visko-tdb}"/>
 			
 			<jvmarg value="-Djava.security.policy=${policy}"/>
 				

@@ -167,13 +167,9 @@ public class PipelineExecutor implements Runnable {
 
     	queryLogger.setViskoQuery(job.getPipeline().getParentPipelineSet().getQuery().toString());
 
-    	String pmlNodesetURI;
-    	for(PMLNodesetLogger traceLogger : nodesetLoggers){
-    		//dump PML nodeset trace
-        	pmlNodesetURI = traceLogger.dumpNodesets();
-        	
+    	for(PMLNodesetLogger traceLogger : nodesetLoggers){	
         	// add answer to query
-        	queryLogger.addAnswer(pmlNodesetURI);		
+        	queryLogger.addAnswer(traceLogger.dumpTrace());		
     	}
     	
     	//dump query

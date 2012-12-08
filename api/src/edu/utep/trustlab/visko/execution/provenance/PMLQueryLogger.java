@@ -21,6 +21,8 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 import java.io.StringWriter;
 
 import edu.utep.trustlab.visko.util.FileUtils;
+
+import org.inference_web.pml.v2.pmlj.IWNodeSet;
 import org.inference_web.pml.v2.pmlj.IWQuery;
 import org.inference_web.pml.v2.pmlp.IWInformation;
 import org.inference_web.pml.v2.util.PMLObjectManager;
@@ -51,6 +53,10 @@ public class PMLQueryLogger {
   		ContentManager.getProvenanceContentManager().saveDocument(rdfStringWriter.toString(), queryName);
   		
   		return query.getIdentifier().getURIString();
+	}
+	
+	public void addAnswer(IWNodeSet nodeset){
+		query.addHasAnswer(nodeset);
 	}
 	
 	public void addAnswer(String nodesetURI){

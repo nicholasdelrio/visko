@@ -1,10 +1,11 @@
 package edu.utep.trustlab.visko.util;
 
+import java.io.File;
+
 import edu.utep.trustlab.contentManagement.ContentManager;
 import edu.utep.trustlab.contentManagement.LocalFileSystem;
 import edu.utep.trustlab.visko.execution.PipelineExecutor;
 import edu.utep.trustlab.visko.execution.PipelineExecutorJob;
-import edu.utep.trustlab.visko.ontology.vocabulary.ViskoV;
 import edu.utep.trustlab.visko.planning.Pipeline;
 import edu.utep.trustlab.visko.planning.PipelineSet;
 import edu.utep.trustlab.visko.planning.Query;
@@ -15,28 +16,37 @@ public class SystemLevelDriver {
 	
 	public static void main(String[] args){
 		
-		SPARQL_EndpointFactory.setUpEndpointConnection("C:/Users/Public/git/visko/tdb");
+		String queryFile = args[0];
+		int maxPipelines = Integer.valueOf(args[1]);
+		String provDumpDir = args[2];
+		String tripleStoreDir = args[3];
 		
-		LocalFileSystem fs = new LocalFileSystem("file:///Users/Public/git/visko/api/output/", "C:/Users/Public/git/visko/api/output/");
-		ContentManager.setWorkspacePath("C:/Users/Public/git/visko/api/output/");
+		SPARQL_EndpointFactory.setUpEndpointConnection(tripleStoreDir);
+	
+		if(!provDumpDir.endsWith("/"))
+			provDumpDir = provDumpDir + "/";
+
+		File dumpDirectory = new File(provDumpDir);
+		String fullDumpDirectory = dumpDirectory.getAbsolutePath();
+		fullDumpDirectory = fullDumpDirectory.replaceAll("\\\\", "/");
+		
+		String provURIBase;
+		if(fullDumpDirectory.startsWith("c:"))
+			provURIBase = fullDumpDirectory.replaceAll("c:", "file://");
+		else if(fullDumpDirectory.startsWith("C:"))
+			provURIBase = fullDumpDirectory.replaceAll("C:", "file://");
+		else
+			provURIBase = "file://" + provDumpDir;
+		
+		System.out.println("prov base URI: " + provURIBase);
+		
+		LocalFileSystem fs = new LocalFileSystem(provURIBase, provDumpDir);
+		ContentManager.setWorkspacePath(provDumpDir);
 		ContentManager.setProvenanceContentManager(fs);
+
+		String queryContents = FileUtils.readTextFile(queryFile);
 		
-		String url = "http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt";
-		String formatURI = "https://raw.github.com/nicholasdelrio/visko/master/resources/formats/SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES";
-		String viewerSetURI = "https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_mozilla.owl#mozilla-firefox";
-		String typeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d19";
-		String viewURI = ViskoV.INDIVIDUAL_URI_2D_ContourMap;
-		
-		/*
-		String url = "http://testerion.owl";
-		String formatURI = "https://raw.github.com/nicholasdelrio/visko/master/resources/formats/RDFXML.owl#RDFXML";
-		String viewerSetURI = "https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_custom.owl#data-driven-documents";
-		String typeURI = "https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#VisKo_KnowledgeBase";
-		String viewURI = ViskoV.INDIVIDUAL_URI_2D_VisKo_DataTransformations_ForceGraph;
-		*/
-		Query query = new Query(url, formatURI, viewerSetURI);
-		query.setTypeURI(typeURI);
-		query.setViewURI(null);
+		Query query = new Query(queryContents);
 		
 		QueryEngine engine = new QueryEngine(query);
 		PipelineSet pipes = engine.getPipelines();
@@ -46,7 +56,7 @@ public class SystemLevelDriver {
 		
 		PipelineExecutor executor = new PipelineExecutor();
 
-		for(int i = 0; i < pipes.size() && i < 2; i ++){
+		for(int i = 0; i < pipes.size() && i < maxPipelines; i ++){
 			System.out.println(pipes.firstElement());
 			
 			PipelineExecutorJob job = new PipelineExecutorJob(pipes.get(i), true);

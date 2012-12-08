@@ -136,13 +136,9 @@ public class PMLNodesetLogger {
 		conclusion.setHasURL(newURL);
 	}
 	
-	public String dumpNodesets() {
+	public String dumpTrace() {
 
-		IWInferenceStep is;
-		for (int i = (serviceNodesets.size() - 1); i > 0; i--){
-			is = (IWInferenceStep) serviceNodesets.get(i).getIsConsequentOf().get(0);
-			is.addAntecedent(serviceNodesets.get(i - 1));
-		}
+		linkUpSteps();
 
 		StringWriter writer = new StringWriter();
 		IWNodeSet rootNodeset = serviceNodesets.get(serviceNodesets.size() - 1);
@@ -153,5 +149,13 @@ public class PMLNodesetLogger {
 		manager.saveDocument(writer.toString(), fileName);
 		
 		return rootNodeset.getIdentifier().getURIString();
+	}
+	
+	private void linkUpSteps(){
+		IWInferenceStep is;
+		for (int i = (serviceNodesets.size() - 1); i > 0; i--){
+			is = (IWInferenceStep) serviceNodesets.get(i).getIsConsequentOf().get(0);
+			is.addAntecedent(serviceNodesets.get(i - 1));
+		}		
 	}
 }
