@@ -84,51 +84,6 @@ public class Query {
 
 	private QueryParser parser;
 
-	public static void main(String[] args){
-		
-		SPARQL_EndpointFactory.setUpEndpointConnection("C:/Users/Public/git/visko/tdb");
-		
-		LocalFileSystem fs = new LocalFileSystem("http://iw.cs.utep.edu:8080/toolkits/output/", "C:/Users/Public/git/visko/api/output/");
-		ContentManager.setWorkspacePath("C:/Users/Public/git/visko/api/output/");
-		ContentManager.setProvenanceContentManager(fs);
-		
-		String url = "http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt";
-		String formatURI = "https://raw.github.com/nicholasdelrio/visko/master/resources/formats/SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES";
-		String viewerSetURI = "https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_mozilla.owl#mozilla-firefox";
-		String typeURI = "http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d19";
-		String viewURI = ViskoV.INDIVIDUAL_URI_2D_ContourMap;
-		
-		/*
-		String url = "http://testerion.owl";
-		String formatURI = "https://raw.github.com/nicholasdelrio/visko/master/resources/formats/RDFXML.owl#RDFXML";
-		String viewerSetURI = "https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_custom.owl#data-driven-documents";
-		String typeURI = "https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko.owl#VisKo_KnowledgeBase";
-		String viewURI = ViskoV.INDIVIDUAL_URI_2D_VisKo_DataTransformations_ForceGraph;
-		*/
-		Query query = new Query(url, formatURI, viewerSetURI);
-		query.setTypeURI(typeURI);
-		query.setViewURI(null);
-		
-		QueryEngine engine = new QueryEngine(query);
-		PipelineSet pipes = engine.getPipelines();
-	
-		for(Pipeline pipe : pipes)
-			System.out.println(pipe);
-		
-		if(pipes.size() > 0){
-			System.out.println(pipes.firstElement());
-			
-			PipelineExecutorJob job = new PipelineExecutorJob(pipes.firstElement(), true);
-			PipelineExecutor executor = new PipelineExecutor(job);
-			executor.process();
-			
-			while(executor.isAlive()){
-			}
-			
-			System.out.println("Final Result = " + job.getFinalResultURL());
-		}
-	}
-	
 	public Query(String queryString) {
 		inputQuery = queryString;
 		

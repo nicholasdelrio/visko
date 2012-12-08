@@ -19,6 +19,8 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*
 
 package edu.utep.trustlab.visko.execution;
 
+import java.util.ArrayList;
+
 import org.mindswap.exceptions.ExecutionException;
 import org.mindswap.owl.OWLDataValue;
 import org.mindswap.owl.OWLFactory;
@@ -43,21 +45,47 @@ public class PipelineExecutor implements Runnable {
     private Thread t;
     
     private PMLNodesetLogger traceLogger;
-	
+   	private PMLQueryLogger queryLogger;
+    
+   	private ArrayList<PMLNodesetLogger> nodesetLoggers;
+   	
     //use our own interrupt facility, since calling Thread.interrupt() leaves Jena in a crappy unusable state
     private boolean isScheduledForTermination;
     
 	public PipelineExecutor(PipelineExecutorJob pipelineJob) {
 		job = pipelineJob;
-		
+				
 		if(job.getProvenanceLogging())
 			traceLogger = new PMLNodesetLogger();
 
     	job.getJobStatus().setTotalServiceCount(job.getPipeline().size());
-	  	exec = OWLSFactory.createExecutionEngine();	
-	  	isScheduledForTermination = false;
+	  	
+    	init();
 	}
 
+	public PipelineExecutor() {
+    	init();
+	}
+	
+	private void init(){
+		nodesetLoggers = new ArrayList<PMLNodesetLogger>();
+		
+		//always keep query alive because jobs may or may not log provenance
+		queryLogger = new PMLQueryLogger();
+		
+		exec = OWLSFactory.createExecutionEngine();	
+	  	isScheduledForTermination = false;
+	}
+	
+	public void setJob(PipelineExecutorJob pipelineJob) {
+		job = pipelineJob;
+				
+		if(job.getProvenanceLogging())
+			traceLogger = new PMLNodesetLogger();
+
+    	job.getJobStatus().setTotalServiceCount(job.getPipeline().size());
+	}
+	
 	public PipelineExecutorJob getJob(){
 		return job;
 	}
@@ -95,7 +123,7 @@ public class PipelineExecutor implements Runnable {
     			executePipeline();
     		
     			if(job.getProvenanceLogging())
-    				dumpProvenance();
+    				nodesetLoggers.add(traceLogger);
 
     			job.getJobStatus().setPipelineState(PipelineExecutorJobStatus.PipelineState.COMPLETE);
     		}
@@ -135,19 +163,26 @@ public class PipelineExecutor implements Runnable {
     	job.setFinalResultURL(resultURL);
     }
     
-    private void dumpProvenance(){
-    	//dump PML nodeset trace
-    	String pmlNodesetURI = traceLogger.dumpNodesets();
-    	
-    	// dump PMLQuery
-    	PMLQueryLogger queryLogger = new PMLQueryLogger();
+    public String dumpProvenance(){
+
     	queryLogger.setViskoQuery(job.getPipeline().getParentPipelineSet().getQuery().toString());
-    	queryLogger.addAnswer(pmlNodesetURI);
+
+    	String pmlNodesetURI;
+    	for(PMLNodesetLogger traceLogger : nodesetLoggers){
+    		//dump PML nodeset trace
+        	pmlNodesetURI = traceLogger.dumpNodesets();
+        	
+        	// add answer to query
+        	queryLogger.addAnswer(pmlNodesetURI);		
+    	}
+    	
+    	//dump query
     	String pmlQueryURI = queryLogger.dumpPMLQuery();
     	
     	//set URIs on Job
-    	job.setPMLNodesetURI(pmlNodesetURI);
     	job.setPMLQueryURI(pmlQueryURI);
+    	
+    	return pmlQueryURI;
     }
     
     private String executeService(edu.utep.trustlab.visko.ontology.viskoService.Service viskoService, String inputDataURL, int serviceIndex) throws ExecutionException{		
@@ -162,9 +197,14 @@ public class PipelineExecutor implements Runnable {
 		if (inputs != null){		
         	ValueMap<Output, OWLValue> outputs;
         	
-			outputs = exec.execute(process, inputs, kb);
-	        OWLDataValue out = (OWLDataValue) outputs.getValue(process.getOutput());
-	        outputDataURL =  out.toString();
+        	if(job.isSimulated())
+        		outputDataURL = ServiceSimulator.exec();
+        	
+        	else{
+        		outputs = exec.execute(process, inputs, kb);
+        		OWLDataValue out = (OWLDataValue) outputs.getValue(process.getOutput());
+        		outputDataURL =  out.toString();
+        	}
 
 	        if(job.getProvenanceLogging())
 	        	traceLogger.captureProcessingStep(viskoService, inputDataURL, outputDataURL, inputs);

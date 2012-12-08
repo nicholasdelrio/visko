@@ -53,8 +53,8 @@ public class PMLQueryLogger {
   		return query.getIdentifier().getURIString();
 	}
 	
-	public void addAnswer(String nodesetURL){
-		query.addHasAnswer(nodesetURL);
+	public void addAnswer(String nodesetURI){
+		query.addHasAnswer(nodesetURI);
 	}
 	
 	public void setViskoQuery(String viskoQuery){

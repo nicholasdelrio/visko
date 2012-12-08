@@ -4,13 +4,51 @@
 	<property name="build" value="build"/>
 	<property name="lib" value="lib"/>
 	<property name="src" value="src"/>
-	<property name="doc" value="doc"/>	
+	<property name="doc" value="doc"/>
+	<property name="policy" value="java.policy" />
 	
 	<target name="build" depends="compile" description="Creates the VisKo API jar file">
 		<jar destfile="${jarfile}">
 			<fileset dir="${build}" includes="**/*.*" />
 		</jar>
 	</target>	
+	
+	<target name="execute-query" depends="build" description="Executes Query">
+	
+		<java classname="edu.utep.trustlab.visko.util.SystemLevelDriver" fork="true">
+			
+<!--				<arg value="${visko-packages}"/>
+				<arg value="${visko-resources}"/>
+				<arg value="${visko-tdb}"/> -->
+			
+			<jvmarg value="-Djava.security.policy=${policy}"/>
+				
+			<classpath>
+				<pathelement location="${jarfile}"/>
+				<fileset dir="${lib}/axis-1.4/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/jena-2.7.3/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/commons-logging/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/owls-3.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/content-manager/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pml-2.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pellet-2.3.0/">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>   
+		</java>			
+	</target>
 	
 	<target name="compile" depends="clean" description="Compile VisKo API in build Directory">		
 		<mkdir dir="${build}"/>

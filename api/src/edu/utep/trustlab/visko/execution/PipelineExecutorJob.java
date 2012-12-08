@@ -6,9 +6,9 @@ public class PipelineExecutorJob {
 	
 	private Pipeline pipe;
 	private boolean provenance;
+	private boolean simulated;
 	
 	private String finalResultURL;
-	private String pmlNodesetURI;
 	private String pmlQueryURI;
 	
 	private PipelineExecutorJobStatus status;
@@ -17,6 +17,10 @@ public class PipelineExecutorJob {
 		pipe = pipelineToExecute;
 		provenance = logProvenance;
 		status = new PipelineExecutorJobStatus();
+	}
+	
+	public void setAsSimulatedJob(){
+		simulated = true;
 	}
     
 	public PipelineExecutorJobStatus getJobStatus(){
@@ -38,6 +42,10 @@ public class PipelineExecutorJob {
     	return provenance;
     }
     
+    public boolean isSimulated(){
+    	return simulated;
+    }
+    
     public void setFinalResultURL(String resultURL){
     	finalResultURL = resultURL;
     }
@@ -45,15 +53,7 @@ public class PipelineExecutorJob {
     public String getFinalResultURL(){
     	return finalResultURL;
     }
-    
-    public void setPMLNodesetURI(String nodesetURI){
-    	pmlNodesetURI = nodesetURI;
-    }
-    
-    public String getPMLNodesetURI(){
-    	return pmlNodesetURI;
-    }
-    
+        
     public void setPMLQueryURI(String queryURI){
     	pmlQueryURI = queryURI;
     }
