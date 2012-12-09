@@ -119,8 +119,8 @@
 			</classpath>	
 	    	
 	      <fileset dir="${basedir}/src/" defaultexcludes="yes">
-	        <include name="trustlab/*.java" />
-	        <include name="trustlab/**/*.java" />
+	        <include name="edu/*.java" />
+	        <include name="edu/**/*.java" />
 	      </fileset>
 
 	      <doctitle><![CDATA[<h1>VisKo API Javadoc</h1>]]></doctitle>
