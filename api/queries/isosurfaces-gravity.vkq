@@ -1,9 +1,0 @@
-PREFIX views https://raw.github.com/nicholasdelrio/visko/master/resources/ontology/visko-view.owl#
-PREFIX formats https://raw.github.com/nicholasdelrio/visko/master/resources/formats/ 
-PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
-PREFIX visko https://raw.github.com/nicholasdelrio/visko-packages-rdf/master/package_mozilla.owl# 
-VISUALIZE http://iw.cs.utep.edu/visko-web/test-data/gravity/gravityDataset.txt
-AS views:3D_IsoSurfacesRendering IN visko:mozilla-firefox
-WHERE
-	FORMAT = formats:SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES
-	AND TYPE = types:d19
