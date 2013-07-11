@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="deploy" name="VisKo Web Application">
+	
+	<target name="init" depends="load-cms-props,load-server-props">
+		<echo level="info">basedir = ${basedir}</echo>
+
+		<!-- web.xml configuration -->
+		<property name="logo-path" value="logos/${logo-file-name}"/>
+		
+		<!-- web.xml paths -->
+		<property name="web-xml-template" value="${basedir}/webxml-template/web.xml"/>
+		<property name="web-xml-deployment-dir" value="${basedir}/WebContent/WEB-INF"/>
+		
+		<!-- Visualization query examples page -->
+		<property name="query-template" value="${basedir}/query-examples-template/query.jsp"/>
+		<property name="dir.query-deployment" value="${basedir}/WebContent"/>
+					
+		<!-- TDB path -->
+		<property name="triple.store.modules" value="${basedir}/WebContent/registry"/>
+		<property name="triple.store.tdb" value="${basedir}/WebContent/registry-tdb"/>
+		<property name="triple.store.resources" value="${basedir}/../resources/"/>
+
+		<!-- dataTypes directory -->
+		<property name="triple.store.dataTypes" value="${basedir}/../ModuleSDK/dataTypes/"/>
+		
+		<!-- build properties -->	
+		<property name="tomcat-servlet-lib" value="${basedir}/lib/servlet-api.jar"/>
+		
+		<property name="dir.api" value="${basedir}/../api"/>
+		<property name="dir.build" value="${basedir}/build"/>
+		<property name="dir.build.visko-web" value="${dir.build}/visko-web"/>
+		<property name="dir.build.installation" value="${dir.build}/installation"/>
+		<property name="dir.dist" value="${dir.build}/dist" />
+		<property name="dir.src.web" value="${basedir}/src/edu/utep/trustlab/visko/web"/>
+		<property name="dir.src.json" value="${basedir}/src/org/json"/>
+		<property name="dir.src.installation" value="${basedir}/src/edu/utep/trustlab/visko/installation"/>
+			
+		<property name="lib" value="${dir.api}/lib"/>
+		<property name="lib.cms" value="${lib}/cms-clients"/>
+	
+		<property name="jar.api" value="${dir.api}/visko-api.jar"/>
+		<property name="jar.visko-web" value="${dir.dist}/visko-web.jar"/>
+		<property name="jar.installation" value="${dir.dist}/installation-tools.jar"/>
+				
+		<property name="war.visko-web" value="${dir.dist}/visko-web.war" />
+	
+		<property name="config-file" value="${basedir}/WebContent/WEB-INF/web.xml"/>
+		<property name="web-content" value="${basedir}/WebContent"/>
+		
+		<property name="dir.registry" value="${basedir}/WebContent/registry" />
+	</target>
+	
+	<target name="load-cms-props" unless="${content.management.server.url}">
+		 <echo>Loading global cms properties.</echo> 
+		 <property file="${basedir}/../visko-build/registry.properties"/>
+	</target>
+	
+	<target name="load-server-props" unless="${server-base_path}">
+		 <echo>Loading global server properties.</echo> 
+		 <property file="${basedir}/../visko-build/server.properties"/>
+	</target>
+	
+	<target name="build-installation" depends="compile-installation">
+		<mkdir dir="${dir.dist}"/>
+		<jar destfile="${jar.installation}">
+			<fileset dir="${dir.build.installation}" includes="**/*.*" />
+		</jar>
+	</target>
+	
+	<target name="build-web-configuration" depends="build-installation" description="Create web.xml file for visko-web application">
+		<java classname="edu.utep.trustlab.visko.installation.WebAppConfiguration">
+			<arg value="${web-xml-template}"/>
+			<arg value="${web-xml-deployment-dir}"/>
+			
+			<arg value="${server-url}"/>
+			<arg value="${server-base-path}"/>
+			
+			<arg value="${org-acronym}"/>
+			<arg value="${logo-path}"/>
+			
+			<arg value="${triple.store.tdb}"/>			
+
+			<arg value="${content.manager.server.type}"/>
+			<arg value="${content.manager.server.url}"/>
+			<arg value="${content.manager.server.username}"/>
+			<arg value="${content.manager.server.password}"/>
+			<arg value="${content.manager.server.project}"/>
+
+			<arg value="${move-data}"/>
+			
+			<classpath>
+				<pathelement location="${jar.api}"/>
+				<pathelement location="${jar.installation}"/>
+			</classpath>
+		</java>		
+	</target>
+			
+	<target name="build-query-html" depends="build-installation" description="Generate the query examples html specific for your VisKo RDF deployment">
+		<java classname="edu.utep.trustlab.visko.installation.QueryExamples">
+			<arg value="${query-template}"/>
+			<arg value="${server-url}/visko-web/registry/"/>
+			<arg value="${server-url}"/>
+			<arg value="${dir.query-deployment}"/>
+			
+			<classpath>
+				<pathelement location="${jar.api}"/>
+				<pathelement location="${jar.installation}"/>
+			</classpath>
+		</java>		
+	</target>
+	
+	<target name="build-triple-store" depends="build-installation" description="Generate a TDB Triple Store From a Bundle of RDF Documents">
+		
+		<delete dir="${triple.store.tdb}"/>
+	    <mkdir dir="${triple.store.tdb}"/>
+	    
+		<java classname="edu.utep.trustlab.visko.installation.TripleStore" fork="true">
+			
+			<jvmarg value="-Djava.security.policy=${policy}"/>
+			<arg value="${triple.store.modules}"/>
+			<arg value="${triple.store.resources}"/>
+			<arg value="${triple.store.dataTypes}"/>
+			<arg value="${triple.store.tdb}"/>
+			
+			<classpath>
+            	<pathelement location="${basedir}/../visko-build"/>
+				<pathelement location="${jar.installation}"/>
+				<pathelement location="${jar.api}"/>
+				<fileset dir="${lib}/axis-1.4/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/jena-2.7.3/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/commons-logging/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib.cms}">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib.cms}/libs-ciserver">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib.cms}/libs-velo">
+					<include name="*.jar"/>
+				</fileset>				
+				<fileset dir="${lib}/owls-3.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pml-2.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pellet-2.3.0/">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>   
+		</java>	
+	</target>
+	
+	<target name="war" depends="compile-visko-web,build-web-configuration,build-query-html,build-triple-store" description="Creates the VisKo Webapp WAR file"> 
+		
+		<!-- copy server.properties and registry.properties to WEB-INF/Classes -->
+		<mkdir dir="${basedir}/WebContent/WEB-INF/classes" />
+
+		<copy todir="${basedir}/WebContent/WEB-INF/classes" overwrite="true" flatten="true">
+			<fileset dir="${basedir}/../visko-build">
+				<include name="registry.properties" />
+				<include name="server.properties" />
+			</fileset>
+		</copy>
+		
+		<war destfile="${war.visko-web}" webxml="${config-file}">
+			<lib file="${jar.api}"/>
+			<lib dir="${lib}/csv2rdf4lod"/>
+			<lib dir="${lib}/sesame"/>
+			<lib dir="${lib}/cors"/>			
+			<lib dir="${lib}/axis-1.4"/>
+			<lib dir="${lib}/commons-logging"/>
+			<lib dir="${lib}/jena-2.7.3"/>
+			<lib dir="${lib}/owls-3.0"/>
+			<lib dir="${lib}/pellet-2.3.0"/>
+			<lib dir="${lib}/pml-2.0"/>
+			<lib dir="${lib}/jgrapht"/>
+			<lib dir="${lib.cms}"/>
+			<lib dir="${lib.cms}/libs-ciserver"/>
+			<lib dir="${lib.cms}/libs-velo"/>
+			<fileset dir="${web-content}"/>
+			<classes dir="${dir.build.visko-web}/"/>
+		</war>
+	</target>
+	
+	<target name="deploy" depends="war" description="Deploy VisKo Webapp WAR file">
+		<!-- delete old webapp folder so it will force a refresh from the war -->
+		<delete dir="${server-base-path}/webapps/visko-web"/>
+		
+		<!-- deploy the war -->
+		<move file="${war.visko-web}" todir="${server-base-path}/webapps"/>
+	</target>	
+	
+	<target name="update-api" description="Update VisKo API in build Directory">	
+		<ant antfile="${dir.api}/build.xml"  dir="${dir.api}" target="build" inheritAll="false" />
+	</target>
+	
+	<target name="compile-installation" depends="clean-installation,update-api" description="Compile VisKo Installation in build Directory">	
+		<mkdir dir="${dir.build.installation}"/>
+		<javac destdir="${dir.build.installation}/" srcdir="${dir.src.installation}" deprecation="on" debug="on" target="1.6" source="1.6"> 
+	    	<include name="**/*.java"/>
+			<classpath>
+				<pathelement location="${tomcat-servlet-lib}"/>
+				<pathelement location="${jar.api}"/>
+				<fileset dir="${lib}/axis-1.4/">
+					<include name="*.jar"/>
+				</fileset> 
+				<fileset dir="${lib}/jena-2.7.3/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/commons-logging/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/owls-3.0/"> 
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib.cms}">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib.cms}/libs-ciserver">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib.cms}/libs-velo">
+					<include name="*.jar"/>
+				</fileset>				
+				<fileset dir="${lib}/pml-2.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pellet-2.3.0/">
+					<include name="*.jar"/>
+				</fileset> 
+			</classpath>			
+		</javac> 
+	</target>
+	
+	<target name="compile-visko-web" depends="clean-visko-web,update-api" description="Compile VisKo Webapp in build Directory">	
+		<mkdir dir="${dir.build.visko-web}"/>
+		<javac destdir="${dir.build.visko-web}/" srcdir="${dir.src.web}:${dir.src.json}:${dir.src.installation}" deprecation="on" debug="on" target="1.6" source="1.6"> 
+	    	<include name="**/*.java"/>
+			<classpath>
+				<pathelement location="${tomcat-servlet-lib}"/>
+				<pathelement location="${jar.api}"/>
+				<fileset dir="${lib}/axis-1.4/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/jena-2.7.3/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/commons-logging/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/owls-3.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib.cms}">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib.cms}/libs-ciserver">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib.cms}/libs-velo">
+					<include name="*.jar"/>
+				</fileset>				
+				<fileset dir="${lib}/pml-2.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pellet-2.3.0/">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>			
+		</javac> 
+	</target>
+	
+	<target name="clean-installation" depends="init" description="Delete the Build Installation Directory">
+		<delete dir="${dir.build.installation}" />
+	</target>
+	
+	<target name="clean-visko-web" depends="init" description="Delete the Build VisKo Web Directory">
+		<delete dir="${dir.build.visko-web}" />
+	</target>
+	
+</project>

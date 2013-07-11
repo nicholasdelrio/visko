@@ -1,0 +1,492 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY visko-view "http://openvisko.org/rdf/ontology/visko-view.owl#" >
+    <!ENTITY esip-data "http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://openvisko.org/rdf/ontology/visko-view.owl#"
+     xml:base="http://openvisko.org/rdf/ontology/visko-view.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:visko-view="http://openvisko.org/rdf/ontology/visko-view.owl#"
+     xmlns:esip-data="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#">
+    <owl:Ontology rdf:about="http://openvisko.org/rdf/ontology/visko-view.owl">
+        <owl:imports rdf:resource="http://openvisko.org/rdf/ontology/esip-data.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#hasProjectionInSpace -->
+
+    <owl:ObjectProperty rdf:about="&visko-view;hasProjectionInSpace"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#1D_Space_DataStructure -->
+
+    <owl:Class rdf:about="&visko-view;1D_Space_DataStructure">
+        <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction_DataStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
+                <owl:hasValue rdf:resource="&visko-view;1D_Space"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#1D_Space_Geometry -->
+
+    <owl:Class rdf:about="&visko-view;1D_Space_Geometry">
+        <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction_Geometry"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&esip-data;Curve"/>
+                    <rdf:Description rdf:about="&esip-data;Point"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
+                <owl:hasValue rdf:resource="&visko-view;1D_Space"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#2D_Space_DataStructure -->
+
+    <owl:Class rdf:about="&visko-view;2D_Space_DataStructure">
+        <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction_DataStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
+                <owl:hasValue rdf:resource="&visko-view;2D_Space"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#2D_Space_Geometry -->
+
+    <owl:Class rdf:about="&visko-view;2D_Space_Geometry">
+        <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction_Geometry"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
+                <owl:hasValue rdf:resource="&visko-view;2D_Space"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&esip-data;Curve"/>
+                    <rdf:Description rdf:about="&esip-data;Point"/>
+                    <rdf:Description rdf:about="&esip-data;Surface"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#3D_Space_DataStructure -->
+
+    <owl:Class rdf:about="&visko-view;3D_Space_DataStructure">
+        <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction_DataStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
+                <owl:hasValue rdf:resource="&visko-view;3D_Space"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#3D_Space_Geometry -->
+
+    <owl:Class rdf:about="&visko-view;3D_Space_Geometry">
+        <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction_Geometry"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
+                <owl:hasValue rdf:resource="&visko-view;3D_Space"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&esip-data;Curve"/>
+                    <rdf:Description rdf:about="&esip-data;Point"/>
+                    <rdf:Description rdf:about="&esip-data;Surface"/>
+                    <rdf:Description rdf:about="&esip-data;Volume"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#4D_Space_DataStructure -->
+
+    <owl:Class rdf:about="&visko-view;4D_Space_DataStructure">
+        <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction_DataStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
+                <owl:hasValue rdf:resource="&visko-view;4D_Space"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#4D_Space_Geometry -->
+
+    <owl:Class rdf:about="&visko-view;4D_Space_Geometry">
+        <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction_Geometry"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&visko-view;hasProjectionInSpace"/>
+                <owl:hasValue rdf:resource="&visko-view;4D_Space"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&esip-data;Curve"/>
+                    <rdf:Description rdf:about="&esip-data;Point"/>
+                    <rdf:Description rdf:about="&esip-data;Surface"/>
+                    <rdf:Description rdf:about="&esip-data;Volume"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#DataStructure -->
+
+    <owl:Class rdf:about="&visko-view;DataStructure"/>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#Directed_Acyclic_Graph -->
+
+    <owl:Class rdf:about="&visko-view;Directed_Acyclic_Graph">
+        <rdfs:subClassOf rdf:resource="&visko-view;Graph"/>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#Graph -->
+
+    <owl:Class rdf:about="&visko-view;Graph">
+        <rdfs:subClassOf rdf:resource="&visko-view;DataStructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#List -->
+
+    <owl:Class rdf:about="&visko-view;List">
+        <rdfs:subClassOf rdf:resource="&visko-view;DataStructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#Space -->
+
+    <owl:Class rdf:about="&visko-view;Space"/>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#Tree -->
+
+    <owl:Class rdf:about="&visko-view;Tree">
+        <rdfs:subClassOf rdf:resource="&visko-view;Directed_Acyclic_Graph"/>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#VisualizationAbstraction -->
+
+    <owl:Class rdf:about="&visko-view;VisualizationAbstraction"/>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#VisualizationAbstraction_DataStructure -->
+
+    <owl:Class rdf:about="&visko-view;VisualizationAbstraction_DataStructure">
+        <rdfs:subClassOf rdf:resource="&visko-view;DataStructure"/>
+        <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#VisualizationAbstraction_Geometry -->
+
+    <owl:Class rdf:about="&visko-view;VisualizationAbstraction_Geometry">
+        <rdfs:subClassOf rdf:resource="&visko-view;VisualizationAbstraction"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#1D_Space -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;1D_Space">
+        <rdf:type rdf:resource="&visko-view;Space"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#1D_Timeline -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;1D_Timeline">
+        <rdf:type rdf:resource="&visko-view;1D_Space_DataStructure"/>
+        <rdf:type rdf:resource="&esip-data;Line"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#2D_ContourMap -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;2D_ContourMap">
+        <rdf:type rdf:resource="&visko-view;2D_Space_Geometry"/>
+        <rdf:type rdf:resource="&esip-data;Contour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#2D_ForceGraph -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;2D_ForceGraph">
+        <rdf:type rdf:resource="&visko-view;2D_Space_DataStructure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#2D_PointMap -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;2D_PointMap">
+        <rdf:type rdf:resource="&visko-view;2D_Space_Geometry"/>
+        <rdf:type rdf:resource="&esip-data;Point"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#2D_RasterMap -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;2D_RasterMap">
+        <rdf:type rdf:resource="&visko-view;2D_Space_Geometry"/>
+        <rdf:type rdf:resource="&esip-data;Surface"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#2D_Space -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;2D_Space">
+        <rdf:type rdf:resource="&visko-view;Space"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#2D_SpeciesDistribution_Map -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;2D_SpeciesDistribution_Map">
+        <rdf:type rdf:resource="&visko-view;2D_Space_Geometry"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#2D_SpherizedRaster -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;2D_SpherizedRaster">
+        <rdf:type rdf:resource="&visko-view;2D_Space_Geometry"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#2D_TimeSeriesPlot -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;2D_TimeSeriesPlot">
+        <rdf:type rdf:resource="&visko-view;2D_Space_Geometry"/>
+        <rdf:type rdf:resource="&esip-data;Curve"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#2D_VisKo_DataTransformations_ForceGraph -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;2D_VisKo_DataTransformations_ForceGraph">
+        <rdf:type rdf:resource="&visko-view;2D_Space_DataStructure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#2D_VisKo_Instances_BarChart -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;2D_VisKo_Instances_BarChart">
+        <rdf:type rdf:resource="&visko-view;2D_Space_DataStructure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#2D_VisKo_OperatorPaths_ForceGraph -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;2D_VisKo_OperatorPaths_ForceGraph">
+        <rdf:type rdf:resource="&visko-view;2D_Space_DataStructure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#3D_BarChart -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;3D_BarChart">
+        <rdf:type rdf:resource="&visko-view;3D_Space_DataStructure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#3D_IsoSurfacesRendering -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;3D_IsoSurfacesRendering">
+        <rdf:type rdf:resource="&visko-view;3D_Space_Geometry"/>
+        <rdf:type rdf:resource="&esip-data;Surface"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#3D_MeshPlot -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;3D_MeshPlot">
+        <rdf:type rdf:resource="&visko-view;3D_Space_Geometry"/>
+        <rdf:type rdf:resource="&esip-data;Point"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#3D_MolecularStructure -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;3D_MolecularStructure">
+        <rdf:type rdf:resource="&visko-view;3D_Space_Geometry"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#3D_MolecularStructure_Cartoon -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;3D_MolecularStructure_Cartoon">
+        <rdf:type rdf:resource="&visko-view;3D_Space_Geometry"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#3D_MolecularStructure_Ribbon -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;3D_MolecularStructure_Ribbon"/>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#3D_PointPlot -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;3D_PointPlot">
+        <rdf:type rdf:resource="&visko-view;3D_Space_Geometry"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#3D_RasterCube -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;3D_RasterCube">
+        <rdf:type rdf:resource="&visko-view;3D_Space_Geometry"/>
+        <rdf:type rdf:resource="&esip-data;Volume"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#3D_Space -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;3D_Space">
+        <rdf:type rdf:resource="&visko-view;Space"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#3D_SurfacePlot -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;3D_SurfacePlot">
+        <rdf:type rdf:resource="&visko-view;3D_Space_Geometry"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#3D_VolumeRendering -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;3D_VolumeRendering">
+        <rdf:type rdf:resource="&visko-view;3D_Space_Geometry"/>
+        <rdf:type rdf:resource="&esip-data;Volume"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-view.owl#4D_Space -->
+
+    <owl:NamedIndividual rdf:about="&visko-view;4D_Space">
+        <rdf:type rdf:resource="&visko-view;Space"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.5.1928) http://owlapi.sourceforge.net -->
+

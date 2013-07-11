@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="build" name="VisKo API">	
+	<property name="jarfile" value="visko-api.jar" />
+	<property name="build" value="build"/>
+	<property name="lib" value="lib"/>
+	<property name="content-manager-libs" value="${lib}/cms-clients"/>
+	<property name="src" value="src"/>
+	<property name="doc" value="doc"/>	
+	
+	<target name="build" depends="compile" description="Creates the VisKo API jar file">
+		<jar destfile="${jarfile}">
+			<fileset dir="${build}" includes="**/*.*" />
+		</jar>
+	</target>	
+	
+	<target name="compile" depends="clean" description="Compile VisKo API in build Directory">		
+		<mkdir dir="${build}"/>
+		<javac destdir="${build}/" srcdir="${src}" deprecation="on" debug="on" target="1.6" source="1.6">
+	    	<include name="**/*.java"/>
+			<classpath>
+				<fileset dir="${lib}/csv2rdf4lod/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/sesame/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/axis-1.4/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/jena-2.7.3/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/commons-logging/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/owls-3.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${content-manager-libs}">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${content-manager-libs}/libs-ciserver">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${content-manager-libs}/libs-velo">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pml-2.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pellet-2.3.0/">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>			
+		</javac> 
+	</target>
+		
+	<target name="javadoc" depends="compile" description="Generate VisKo API JavaDoc" >
+	    <javadoc
+	           destdir="${basedir}/doc/"
+	           author="true"
+	           version="true"
+	           use="true"
+	           windowtitle="VisKo Javadoc">
+
+			<classpath>
+				<fileset dir="${lib}/axis-1.4/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/jena-2.7.3/">
+					<include name="*.jar"/>
+				</fileset>	
+				<fileset dir="${lib}/commons-logging/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/owls-3.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/content-manager/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pml-2.0/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/pellet-2.3.0/">
+					<include name="*.jar"/>
+				</fileset>	
+			</classpath>	
+	    	
+	      <fileset dir="${basedir}/src/" defaultexcludes="yes">
+	        <include name="trustlab/*.java" />
+	        <include name="trustlab/**/*.java" />
+	      </fileset>
+
+	      <doctitle><![CDATA[<h1>VisKo API Javadoc</h1>]]></doctitle>
+	      <link href="http://trust.utep.edu/visko/download/doc"/>
+	    </javadoc>
+	</target>	
+	
+	<target name="clean" description="Delete the Build Directory and the Jar File">
+		<delete dir="${build}" />
+		<delete dir="${doc}" />
+		<delete file="${basedir}/${jarfile}" />
+	</target>
+</project>

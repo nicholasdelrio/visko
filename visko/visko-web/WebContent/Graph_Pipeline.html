@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>VisKo Pipeline</title>
+    <script type="text/javascript" src="d3/d3.js?1.29.1"></script>
+    <script type="text/javascript" src="d3/d3.geom.js?1.29.1"></script>
+    <script type="text/javascript" src="d3/d3.layout.js?1.29.1"></script>
+
+    <style type="text/css">
+
+path.link {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+marker#arrow {
+  fill: black;
+}
+
+circle {
+  fill: #ccc;
+  stroke: #333;
+  stroke-width: 1.5px;
+}
+
+text {
+  font: 10px sans-serif;
+  pointer-events: none;
+}
+
+text.shadow {
+  stroke: #fff;
+  stroke-width: 3px;
+  stroke-opacity: .8;
+}
+
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+    var w = 600,
+    h = 600;    
+    
+    function getParameter(name){
+ 	   if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+ 	      return decodeURIComponent(name[1]);
+ 	}
+ 
+	var indexValue = getParameter("index");
+
+ 	d3.json("ViskoServletManager?requestType=get-pipeline-json&index=" + indexValue, function(json) {
+
+    	var force = d3.layout.force()
+    	.nodes(json.nodes)
+    	.links(json.links)
+	    .size([w, h])
+	    //.linkDistance(80)
+	    .charge(-500)
+	    .on("tick", tick)
+	    .start();
+
+    	var svg = d3.select("body").append("svg:svg")
+    	.attr("width", w)
+    	.attr("height", h);
+
+    	// Per-type markers, as they don't inherit styles.
+    	svg.append("svg:defs").selectAll("marker")
+    	.data(["arrow"])
+    	.enter().append("svg:marker")
+    	.attr("id", String)
+    	.attr("viewBox", "0 -5 10 10")
+    	.attr("refX", 15)
+    	.attr("refY", -1.5)
+    	.attr("markerWidth", 5)
+    	.attr("markerHeight", 5)
+    	.attr("orient", "auto")
+    	.append("svg:path")
+    	.attr("d", "M0,-5L10,0L0,5");
+
+    	var path = svg.append("svg:g").selectAll("path")
+    	.data(force.links())
+    	.enter().append("svg:path")
+    	.attr("class", function(d) { return "link"; })
+    	.attr("marker-end", function(d) { return "url(#arrow)"; });
+
+    	var circle = svg.append("svg:g").selectAll("circle")    
+    	.data(force.nodes())
+    	.enter().append("svg:circle")
+    	.attr("r", function(d){
+    		if(d.viskoType != "Parameter")
+				return 7;
+    		else
+    			return 1;
+    		})
+    	.style("fill", function(d) {
+    		if(d.viskoType == "Viewer")
+    			return "white";
+    		else if(d.viskoType == "Transformer")
+    			return "purple";
+    		else if(d.viskoType == "Mapper")
+    			return "orange";
+    		else
+    			return "black";
+    		})
+    	.call(force.drag);
+
+    	var text = svg.append("svg:g").selectAll("g")
+    	.data(force.nodes())
+    	.enter().append("svg:g");
+
+    	// A copy of the text with a thick white stroke for legibility.
+    	text.append("svg:text")
+    	.attr("x", 8)
+    	.attr("y", ".31em")
+    	.attr("class", "shadow")
+    	.text(function(d) { return getURIFrag(d.instanceURI); });
+	
+    	text.append("svg:text")
+    	.attr("x", 8)
+    	.attr("y", ".31em")
+    	.text(function(d) { return getURIFrag(d.instanceURI); });
+	
+    	// Use elliptical arc path segments to doubly-encode directionality.
+    	function tick() {    		
+    		
+    		path.attr("stroke-dasharray", function(d){
+    				return "none";
+    		});
+    		
+    		path.attr("d", function(d) {
+    			if(d.linkType == "hasInput")
+    				return "M" + (d.source.x) + "," + (d.source.y) + "L" + (d.target.x) + "," + (d.target.y);
+    			else
+    				return "M" + (d.source.x) + "," + (d.source.y) + "L" + (d.target.x) + "," + (d.target.y);
+    		});
+
+    		circle.attr("transform", function(d) {
+    			return "translate(" + d.x + "," + d.y + ")";	  
+    		});
+
+    		text.attr("transform", function(d) {   
+    			return "translate(" + d.x + "," + d.y + ")";
+    		});
+    	}
+    })
+    
+    function getURIFrag(stringToTrim)
+    {return stringToTrim.split("#")[1];}
+    
+    </script>
+  </body>
+</html>

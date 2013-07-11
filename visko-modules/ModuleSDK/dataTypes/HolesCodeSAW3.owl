@@ -1,0 +1,863 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY wdo "http://trust.utep.edu/2.0/wdo.owl#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY pmlp "http://inference-web.org/2.0/pml-provenance.owl#" >
+    <!ENTITY srcwdo "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#" >
+    <!ENTITY j.0 "http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#"
+     xml:base="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:srcwdo="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:j.0="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#"
+     xmlns:wdo="http://trust.utep.edu/2.0/wdo.owl#"
+     xmlns:pmlp="http://inference-web.org/2.0/pml-provenance.owl#">
+    <owl:Ontology rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl">
+        <owl:imports rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#Array1DFloat -->
+
+    <owl:Class rdf:about="&j.0;Array1DFloat"/>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#Array1DInteger -->
+
+    <owl:Class rdf:about="&j.0;Array1DInteger"/>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#Array1DUnsignedShortInteger -->
+
+    <owl:Class rdf:about="&j.0;Array1DUnsignedShortInteger"/>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#SemanticAbstractWorkflow-0 -->
+
+    <owl:Class rdf:about="&j.0;SemanticAbstractWorkflow-0">
+        <rdfs:subClassOf rdf:resource="&wdo;SemanticAbstractWorkflow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#Source-16 -->
+
+    <owl:Class rdf:about="&j.0;Source-16">
+        <rdfs:subClassOf rdf:resource="&pmlp;Source"/>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#Source-6 -->
+
+    <owl:Class rdf:about="&j.0;Source-6">
+        <rdfs:subClassOf rdf:resource="&pmlp;Source"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#Source-7 -->
+
+    <owl:Class rdf:about="&j.0;Source-7">
+        <rdfs:subClassOf rdf:resource="&pmlp;Source"/>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d1-0 -->
+
+    <owl:Class rdf:about="&j.0;d1-0">
+        <rdfs:subClassOf rdf:resource="&srcwdo;d1"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-0 -->
+
+    <owl:Class rdf:about="&j.0;d13-0">
+        <rdfs:subClassOf rdf:resource="&srcwdo;d13"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-1 -->
+
+    <owl:Class rdf:about="&j.0;d13-1">
+        <rdfs:subClassOf rdf:resource="&srcwdo;d13"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-2 -->
+
+    <owl:Class rdf:about="&j.0;d13-2">
+        <rdfs:subClassOf rdf:resource="&srcwdo;d13"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-3 -->
+
+    <owl:Class rdf:about="&j.0;d13-3">
+        <rdfs:subClassOf rdf:resource="&srcwdo;d13"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-4 -->
+
+    <owl:Class rdf:about="&j.0;d13-4">
+        <rdfs:subClassOf rdf:resource="&srcwdo;d13"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-5 -->
+
+    <owl:Class rdf:about="&j.0;d13-5">
+        <rdfs:subClassOf rdf:resource="&srcwdo;d13"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-6 -->
+
+    <owl:Class rdf:about="&j.0;d13-6">
+        <rdfs:subClassOf rdf:resource="&srcwdo;d13"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d14-0 -->
+
+    <owl:Class rdf:about="&j.0;d14-0">
+        <rdfs:subClassOf rdf:resource="&srcwdo;d14"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d2-0 -->
+
+    <owl:Class rdf:about="&j.0;d2-0">
+        <rdfs:subClassOf rdf:resource="&srcwdo;d2"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d2-1 -->
+
+    <owl:Class rdf:about="&j.0;d2-1">
+        <rdfs:subClassOf rdf:resource="&srcwdo;d2"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d4-0 -->
+
+    <owl:Class rdf:about="&j.0;d4-0">
+        <rdfs:subClassOf rdf:resource="&srcwdo;d4"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d7-0 -->
+
+    <owl:Class rdf:about="&j.0;d7-0">
+        <rdfs:subClassOf rdf:resource="&srcwdo;d7"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d8-0 -->
+
+    <owl:Class rdf:about="&j.0;d8-0">
+        <rdfs:subClassOf rdf:resource="&srcwdo;d8"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#m1-0 -->
+
+    <owl:Class rdf:about="&j.0;m1-0">
+        <rdfs:subClassOf rdf:resource="&srcwdo;m1"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#m2-0 -->
+
+    <owl:Class rdf:about="&j.0;m2-0">
+        <rdfs:subClassOf rdf:resource="&srcwdo;m2"/>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#m3-0 -->
+
+    <owl:Class rdf:about="&j.0;m3-0">
+        <rdfs:subClassOf rdf:resource="&srcwdo;m3"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#m5-0 -->
+
+    <owl:Class rdf:about="&j.0;m5-0">
+        <rdfs:subClassOf rdf:resource="&srcwdo;m5"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d14 -->
+
+    <rdf:Description rdf:about="&srcwdo;d14">
+        <rdfs:subClassOf rdf:resource="&j.0;Array1DFloat"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d2 -->
+
+    <rdf:Description rdf:about="&srcwdo;d2">
+        <rdfs:subClassOf rdf:resource="&j.0;Array1DFloat"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d4 -->
+
+    <rdf:Description rdf:about="&srcwdo;d4">
+        <rdfs:subClassOf rdf:resource="&j.0;Array1DFloat"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d7 -->
+
+    <rdf:Description rdf:about="&srcwdo;d7">
+        <rdfs:subClassOf rdf:resource="&j.0;Array1DInteger"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeWDO.owl#d8 -->
+
+    <rdf:Description rdf:about="&srcwdo;d8">
+        <rdfs:subClassOf rdf:resource="&j.0;Array1DFloat"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl -->
+
+    <owl:NamedIndividual rdf:about="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl">
+        <rdf:type rdf:resource="&wdo;SemanticAbstractWorkflow"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#SemanticAbstractWorkflow-0 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;SemanticAbstractWorkflow-0">
+        <wdo:hasDefaultInstance rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#Source-16 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;Source-16">
+        <pmlp:hasName rdf:datatype="&xsd;string">PickFiles</pmlp:hasName>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+        <wdo:hasDefaultInstance rdf:resource="&j.0;Source-16-default"/>
+        <wdo:hasOutput rdf:resource="&j.0;d13-0"/>
+        <wdo:hasOutput rdf:resource="&j.0;d13-1"/>
+        <wdo:hasOutput rdf:resource="&j.0;d13-2"/>
+        <wdo:hasOutput rdf:resource="&j.0;d13-3"/>
+        <wdo:hasOutput rdf:resource="&j.0;d13-4"/>
+        <wdo:hasOutput rdf:resource="&j.0;d13-5"/>
+        <wdo:hasOutput rdf:resource="&j.0;d13-6"/>
+        <wdo:hasCoordinate>
+            <rdf:Description>
+                <rdf:type rdf:resource="&wdo;RectangularCoordinate"/>
+                <wdo:hasXCoordinateValue rdf:datatype="&xsd;long">104</wdo:hasXCoordinateValue>
+                <wdo:hasYCoordinateValue rdf:datatype="&xsd;long">212</wdo:hasYCoordinateValue>
+            </rdf:Description>
+        </wdo:hasCoordinate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#Source-16-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;Source-16-default">
+        <rdf:type rdf:resource="&j.0;Source-16"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#Source-6 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;Source-6">
+        <wdo:hasDefaultInstance rdf:resource="&j.0;Source-6-default"/>
+        <wdo:hasInput rdf:resource="&j.0;d14-0"/>
+        <wdo:hasCoordinate>
+            <rdf:Description>
+                <rdf:type rdf:resource="&wdo;RectangularCoordinate"/>
+                <wdo:hasYCoordinateValue rdf:datatype="&xsd;long">35</wdo:hasYCoordinateValue>
+                <wdo:hasXCoordinateValue rdf:datatype="&xsd;long">749</wdo:hasXCoordinateValue>
+            </rdf:Description>
+        </wdo:hasCoordinate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#Source-6-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;Source-6-default">
+        <rdf:type rdf:resource="&j.0;Source-6"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#Source-7 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;Source-7">
+        <pmlp:hasName rdf:datatype="&xsd;string">InitialModel</pmlp:hasName>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+        <wdo:hasDefaultInstance rdf:resource="&j.0;Source-7-default"/>
+        <wdo:hasOutput rdf:resource="&j.0;d1-0"/>
+        <wdo:hasCoordinate>
+            <rdf:Description>
+                <rdf:type rdf:resource="&wdo;RectangularCoordinate"/>
+                <wdo:hasXCoordinateValue rdf:datatype="&xsd;long">111</wdo:hasXCoordinateValue>
+                <wdo:hasYCoordinateValue rdf:datatype="&xsd;long">41</wdo:hasYCoordinateValue>
+            </rdf:Description>
+        </wdo:hasCoordinate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#Source-7-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;Source-7-default">
+        <rdf:type rdf:resource="&j.0;Source-7"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d1-0 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d1-0">
+        <wdo:isOutputOf rdf:resource="&j.0;Source-7"/>
+        <wdo:hasDefaultInstance rdf:resource="&j.0;d1-0-default"/>
+        <wdo:isInputTo rdf:resource="&j.0;m1-0"/>
+        <wdo:hasLabelCoordinate>
+            <rdf:Description>
+                <rdf:type rdf:resource="&wdo;RectangularCoordinate"/>
+                <wdo:hasYCoordinateValue rdf:datatype="&xsd;long">-37</wdo:hasYCoordinateValue>
+                <wdo:hasXCoordinateValue rdf:datatype="&xsd;long">479</wdo:hasXCoordinateValue>
+            </rdf:Description>
+        </wdo:hasLabelCoordinate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d1-0-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d1-0-default">
+        <rdf:type rdf:resource="&j.0;d1-0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-0 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d13-0">
+        <wdo:isOutputOf rdf:resource="&j.0;Source-16"/>
+        <wdo:hasDefaultInstance rdf:resource="&j.0;d13-0-default"/>
+        <wdo:isInputTo rdf:resource="&j.0;m3-0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-0-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d13-0-default">
+        <rdf:type rdf:resource="&j.0;d13-0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-1 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d13-1">
+        <wdo:isOutputOf rdf:resource="&j.0;Source-16"/>
+        <wdo:hasDefaultInstance rdf:resource="&j.0;d13-1-default"/>
+        <wdo:isInputTo rdf:resource="&j.0;m3-0"/>
+        <wdo:hasLabelCoordinate>
+            <rdf:Description>
+                <rdf:type rdf:resource="&wdo;RectangularCoordinate"/>
+                <wdo:hasYCoordinateValue rdf:datatype="&xsd;long">25</wdo:hasYCoordinateValue>
+                <wdo:hasXCoordinateValue rdf:datatype="&xsd;long">496</wdo:hasXCoordinateValue>
+            </rdf:Description>
+        </wdo:hasLabelCoordinate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-1-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d13-1-default">
+        <rdf:type rdf:resource="&j.0;d13-1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-2 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d13-2">
+        <wdo:isOutputOf rdf:resource="&j.0;Source-16"/>
+        <wdo:hasDefaultInstance rdf:resource="&j.0;d13-2-default"/>
+        <wdo:isInputTo rdf:resource="&j.0;m3-0"/>
+        <wdo:hasLabelCoordinate>
+            <rdf:Description>
+                <rdf:type rdf:resource="&wdo;RectangularCoordinate"/>
+                <wdo:hasXCoordinateValue rdf:datatype="&xsd;long">480</wdo:hasXCoordinateValue>
+                <wdo:hasYCoordinateValue rdf:datatype="&xsd;long">69</wdo:hasYCoordinateValue>
+            </rdf:Description>
+        </wdo:hasLabelCoordinate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-2-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d13-2-default">
+        <rdf:type rdf:resource="&j.0;d13-2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-3 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d13-3">
+        <wdo:isOutputOf rdf:resource="&j.0;Source-16"/>
+        <wdo:hasDefaultInstance rdf:resource="&j.0;d13-3-default"/>
+        <wdo:isInputTo rdf:resource="&j.0;m3-0"/>
+        <wdo:hasLabelCoordinate>
+            <rdf:Description>
+                <rdf:type rdf:resource="&wdo;RectangularCoordinate"/>
+                <wdo:hasYCoordinateValue rdf:datatype="&xsd;long">-22</wdo:hasYCoordinateValue>
+                <wdo:hasXCoordinateValue rdf:datatype="&xsd;long">489</wdo:hasXCoordinateValue>
+            </rdf:Description>
+        </wdo:hasLabelCoordinate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-3-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d13-3-default">
+        <rdf:type rdf:resource="&j.0;d13-3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-4 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d13-4">
+        <wdo:isOutputOf rdf:resource="&j.0;Source-16"/>
+        <wdo:hasDefaultInstance rdf:resource="&j.0;d13-4-default"/>
+        <wdo:isInputTo rdf:resource="&j.0;m3-0"/>
+        <wdo:hasLabelCoordinate>
+            <rdf:Description>
+                <rdf:type rdf:resource="&wdo;RectangularCoordinate"/>
+                <wdo:hasXCoordinateValue rdf:datatype="&xsd;long">479</wdo:hasXCoordinateValue>
+                <wdo:hasYCoordinateValue rdf:datatype="&xsd;long">92</wdo:hasYCoordinateValue>
+            </rdf:Description>
+        </wdo:hasLabelCoordinate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-4-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d13-4-default">
+        <rdf:type rdf:resource="&j.0;d13-4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-5 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d13-5">
+        <wdo:isOutputOf rdf:resource="&j.0;Source-16"/>
+        <wdo:hasDefaultInstance rdf:resource="&j.0;d13-5-default"/>
+        <wdo:isInputTo rdf:resource="&j.0;m3-0"/>
+        <wdo:hasLabelCoordinate>
+            <rdf:Description>
+                <rdf:type rdf:resource="&wdo;RectangularCoordinate"/>
+                <wdo:hasYCoordinateValue rdf:datatype="&xsd;long">47</wdo:hasYCoordinateValue>
+                <wdo:hasXCoordinateValue rdf:datatype="&xsd;long">495</wdo:hasXCoordinateValue>
+            </rdf:Description>
+        </wdo:hasLabelCoordinate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-5-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d13-5-default">
+        <rdf:type rdf:resource="&j.0;d13-5"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-6 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d13-6">
+        <wdo:isOutputOf rdf:resource="&j.0;Source-16"/>
+        <wdo:hasDefaultInstance rdf:resource="&j.0;d13-6-default"/>
+        <wdo:isInputTo rdf:resource="&j.0;m3-0"/>
+        <wdo:hasLabelCoordinate>
+            <rdf:Description>
+                <rdf:type rdf:resource="&wdo;RectangularCoordinate"/>
+                <wdo:hasYCoordinateValue rdf:datatype="&xsd;long">-44</wdo:hasYCoordinateValue>
+                <wdo:hasXCoordinateValue rdf:datatype="&xsd;long">497</wdo:hasXCoordinateValue>
+            </rdf:Description>
+        </wdo:hasLabelCoordinate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d13-6-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d13-6-default">
+        <rdf:type rdf:resource="&j.0;d13-6"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d14-0 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d14-0">
+        <wdo:isInputTo rdf:resource="&j.0;Source-6"/>
+        <wdo:hasDefaultInstance rdf:resource="&j.0;d14-0-default"/>
+        <wdo:isOutputOf rdf:resource="&j.0;m5-0"/>
+        <wdo:hasLabelCoordinate>
+            <rdf:Description>
+                <rdf:type rdf:resource="&wdo;RectangularCoordinate"/>
+                <wdo:hasYCoordinateValue rdf:datatype="&xsd;long">0</wdo:hasYCoordinateValue>
+                <wdo:hasXCoordinateValue rdf:datatype="&xsd;long">500</wdo:hasXCoordinateValue>
+            </rdf:Description>
+        </wdo:hasLabelCoordinate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d14-0-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d14-0-default">
+        <rdf:type rdf:resource="&j.0;d14-0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d2-0 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d2-0">
+        <wdo:hasDefaultInstance rdf:resource="&j.0;d2-0-default"/>
+        <wdo:isOutputOf rdf:resource="&j.0;m1-0"/>
+        <wdo:isInputTo rdf:resource="&j.0;m2-0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d2-0-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d2-0-default">
+        <rdf:type rdf:resource="&j.0;d2-0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d2-1 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d2-1">
+        <wdo:hasDefaultInstance rdf:resource="&j.0;d2-1-default"/>
+        <wdo:isInputTo rdf:resource="&j.0;m2-0"/>
+        <wdo:isOutputOf rdf:resource="&j.0;m5-0"/>
+        <wdo:hasLabelCoordinate>
+            <rdf:Description>
+                <rdf:type rdf:resource="&wdo;RectangularCoordinate"/>
+                <wdo:hasYCoordinateValue rdf:datatype="&xsd;long">0</wdo:hasYCoordinateValue>
+                <wdo:hasXCoordinateValue rdf:datatype="&xsd;long">500</wdo:hasXCoordinateValue>
+            </rdf:Description>
+        </wdo:hasLabelCoordinate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d2-1-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d2-1-default">
+        <rdf:type rdf:resource="&j.0;d2-1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d4-0 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d4-0">
+        <wdo:hasDefaultInstance rdf:resource="&j.0;d4-0-default"/>
+        <wdo:isOutputOf rdf:resource="&j.0;m2-0"/>
+        <wdo:isInputTo rdf:resource="&j.0;m3-0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d4-0-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d4-0-default">
+        <rdf:type rdf:resource="&j.0;d4-0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d7-0 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d7-0">
+        <wdo:hasDefaultInstance rdf:resource="&j.0;d7-0-default"/>
+        <wdo:isOutputOf rdf:resource="&j.0;m3-0"/>
+        <wdo:isInputTo rdf:resource="&j.0;m5-0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d7-0-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d7-0-default">
+        <rdf:type rdf:resource="&j.0;d7-0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d8-0 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d8-0">
+        <wdo:hasDefaultInstance rdf:resource="&j.0;d8-0-default"/>
+        <wdo:isOutputOf rdf:resource="&j.0;m3-0"/>
+        <wdo:isInputTo rdf:resource="&j.0;m5-0"/>
+        <wdo:hasLabelCoordinate>
+            <rdf:Description>
+                <rdf:type rdf:resource="&wdo;RectangularCoordinate"/>
+                <wdo:hasYCoordinateValue rdf:datatype="&xsd;long">21</wdo:hasYCoordinateValue>
+                <wdo:hasXCoordinateValue rdf:datatype="&xsd;long">493</wdo:hasXCoordinateValue>
+            </rdf:Description>
+        </wdo:hasLabelCoordinate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#d8-0-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;d8-0-default">
+        <rdf:type rdf:resource="&j.0;d8-0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#m1-0 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;m1-0">
+        <wdo:hasInput rdf:resource="&j.0;d1-0"/>
+        <wdo:hasOutput rdf:resource="&j.0;d2-0"/>
+        <wdo:hasDefaultInstance rdf:resource="&j.0;m1-0-default"/>
+        <wdo:hasCoordinate>
+            <rdf:Description>
+                <rdf:type rdf:resource="&wdo;RectangularCoordinate"/>
+                <wdo:hasYCoordinateValue rdf:datatype="&xsd;long">107</wdo:hasYCoordinateValue>
+                <wdo:hasXCoordinateValue rdf:datatype="&xsd;long">112</wdo:hasXCoordinateValue>
+            </rdf:Description>
+        </wdo:hasCoordinate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#m1-0-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;m1-0-default">
+        <rdf:type rdf:resource="&j.0;m1-0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#m2-0 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;m2-0">
+        <pmlp:hasName rdf:datatype="&xsd;string">Punch Method</pmlp:hasName>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+        <wdo:hasInput rdf:resource="&j.0;d2-0"/>
+        <wdo:hasInput rdf:resource="&j.0;d2-1"/>
+        <wdo:hasOutput rdf:resource="&j.0;d4-0"/>
+        <wdo:hasDefaultInstance rdf:resource="&j.0;m2-0-default"/>
+        <wdo:hasCoordinate>
+            <rdf:Description>
+                <rdf:type rdf:resource="&wdo;RectangularCoordinate"/>
+                <wdo:hasYCoordinateValue rdf:datatype="&xsd;long">108</wdo:hasYCoordinateValue>
+                <wdo:hasXCoordinateValue rdf:datatype="&xsd;long">400</wdo:hasXCoordinateValue>
+            </rdf:Description>
+        </wdo:hasCoordinate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#m2-0-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;m2-0-default">
+        <rdf:type rdf:resource="&j.0;m2-0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#m3-0 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;m3-0">
+        <wdo:hasInput rdf:resource="&j.0;d13-0"/>
+        <wdo:hasInput rdf:resource="&j.0;d13-1"/>
+        <wdo:hasInput rdf:resource="&j.0;d13-2"/>
+        <wdo:hasInput rdf:resource="&j.0;d13-3"/>
+        <wdo:hasInput rdf:resource="&j.0;d13-4"/>
+        <wdo:hasInput rdf:resource="&j.0;d13-5"/>
+        <wdo:hasInput rdf:resource="&j.0;d13-6"/>
+        <wdo:hasInput rdf:resource="&j.0;d4-0"/>
+        <wdo:hasOutput rdf:resource="&j.0;d7-0"/>
+        <wdo:hasOutput rdf:resource="&j.0;d8-0"/>
+        <wdo:hasDefaultInstance rdf:resource="&j.0;m3-0-default"/>
+        <wdo:hasCoordinate>
+            <rdf:Description>
+                <rdf:type rdf:resource="&wdo;RectangularCoordinate"/>
+                <wdo:hasYCoordinateValue rdf:datatype="&xsd;long">223</wdo:hasYCoordinateValue>
+                <wdo:hasXCoordinateValue rdf:datatype="&xsd;long">401</wdo:hasXCoordinateValue>
+            </rdf:Description>
+        </wdo:hasCoordinate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#m3-0-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;m3-0-default">
+        <rdf:type rdf:resource="&j.0;m3-0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#m5-0 -->
+
+    <owl:NamedIndividual rdf:about="&j.0;m5-0">
+        <wdo:hasOutput rdf:resource="&j.0;d14-0"/>
+        <wdo:hasOutput rdf:resource="&j.0;d2-1"/>
+        <wdo:hasInput rdf:resource="&j.0;d7-0"/>
+        <wdo:hasInput rdf:resource="&j.0;d8-0"/>
+        <wdo:hasDefaultInstance rdf:resource="&j.0;m5-0-default"/>
+        <wdo:hasCoordinate>
+            <rdf:Description>
+                <rdf:type rdf:resource="&wdo;RectangularCoordinate"/>
+                <wdo:hasYCoordinateValue rdf:datatype="&xsd;long">154</wdo:hasYCoordinateValue>
+                <wdo:hasXCoordinateValue rdf:datatype="&xsd;long">755</wdo:hasXCoordinateValue>
+            </rdf:Description>
+        </wdo:hasCoordinate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rio.cs.utep.edu/ciserver/ciprojects/HolesCode/HolesCodeSAW3.owl#m5-0-default -->
+
+    <owl:NamedIndividual rdf:about="&j.0;m5-0-default">
+        <rdf:type rdf:resource="&j.0;m5-0"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="&wdo;RectangularCoordinate"/>
+        <wdo:hasYCoordinateValue rdf:datatype="&xsd;long">-26</wdo:hasYCoordinateValue>
+        <wdo:hasXCoordinateValue rdf:datatype="&xsd;long">507</wdo:hasXCoordinateValue>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&wdo;RectangularCoordinate"/>
+        <wdo:hasXCoordinateValue rdf:datatype="&xsd;long">503</wdo:hasXCoordinateValue>
+        <wdo:hasYCoordinateValue rdf:datatype="&xsd;long">65</wdo:hasYCoordinateValue>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&wdo;RectangularCoordinate"/>
+        <wdo:hasXCoordinateValue rdf:datatype="&xsd;long">451</wdo:hasXCoordinateValue>
+        <wdo:hasYCoordinateValue rdf:datatype="&xsd;long">52</wdo:hasYCoordinateValue>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.5.1928) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,1 @@
+./matlab2DRaster.sh http://localhost:8080/module_matlab/examples/flucccf1.mat fluccf1.tif /Applications/apache-tomcat-7.0.32/webapps/module_matlab hot

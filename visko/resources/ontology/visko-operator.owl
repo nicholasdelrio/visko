@@ -1,0 +1,224 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY pml-provenance "http://inference-web.org/2.0/pml-provenance.owl#" >
+    <!ENTITY visko-view "http://openvisko.org/rdf/ontology/visko-view.owl#" >
+    <!ENTITY visko-operator "http://openvisko.org/rdf/ontology/visko-operator.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://openvisko.org/rdf/ontology/visko-operator.owl#"
+     xml:base="http://openvisko.org/rdf/ontology/visko-operator.owl"
+     xmlns:pml-provenance="http://inference-web.org/2.0/pml-provenance.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:visko-view="http://openvisko.org/rdf/ontology/visko-view.owl#"
+     xmlns:visko-operator="http://openvisko.org/rdf/ontology/visko-operator.owl#">
+    <owl:Ontology rdf:about="http://openvisko.org/rdf/ontology/visko-operator.owl">
+        <owl:imports rdf:resource="http://inference-web.org/2.0/pml-provenance.owl"/>
+        <owl:imports rdf:resource="http://openvisko.org/rdf/ontology/visko-view.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-operator.owl#hasInputDataType -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;hasInputDataType">
+        <rdfs:domain rdf:resource="&visko-operator;Operator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-operator.owl#hasInputFormat -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;hasInputFormat">
+        <rdfs:range rdf:resource="&pml-provenance;Format"/>
+        <rdfs:domain rdf:resource="&visko-operator;Operator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-operator.owl#hasOutputDataType -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;hasOutputDataType">
+        <rdfs:domain rdf:resource="&visko-operator;InputOutputOperator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-operator.owl#hasOutputFormat -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;hasOutputFormat">
+        <rdfs:range rdf:resource="&pml-provenance;Format"/>
+        <rdfs:domain rdf:resource="&visko-operator;InputOutputOperator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-operator.owl#mapsTo -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;mapsTo">
+        <rdfs:domain rdf:resource="&visko-operator;Mapper"/>
+        <rdfs:range rdf:resource="&visko-view;VisualizationAbstraction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-operator.owl#partOfViewerSet -->
+
+    <owl:ObjectProperty rdf:about="&visko-operator;partOfViewerSet">
+        <rdfs:domain rdf:resource="&visko-operator;Viewer"/>
+        <rdfs:range rdf:resource="&visko-operator;ViewerSet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-operator.owl#hasEndpoint -->
+
+    <owl:DatatypeProperty rdf:about="&visko-operator;hasEndpoint">
+        <rdfs:domain rdf:resource="&visko-operator;Viewer"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-operator.owl#Converter -->
+
+    <owl:Class rdf:about="&visko-operator;Converter">
+        <rdfs:subClassOf rdf:resource="&visko-operator;InputOutputOperator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-operator.owl#DataSource -->
+
+    <owl:Class rdf:about="&visko-operator;DataSource">
+        <rdfs:subClassOf rdf:resource="&pml-provenance;InferenceRule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-operator.owl#DimensionReducer -->
+
+    <owl:Class rdf:about="&visko-operator;DimensionReducer">
+        <rdfs:subClassOf rdf:resource="&visko-operator;InputOutputOperator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-operator.owl#Filter -->
+
+    <owl:Class rdf:about="&visko-operator;Filter">
+        <rdfs:subClassOf rdf:resource="&visko-operator;InputOutputOperator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-operator.owl#InputOutputOperator -->
+
+    <owl:Class rdf:about="&visko-operator;InputOutputOperator">
+        <rdfs:subClassOf rdf:resource="&visko-operator;Operator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-operator.owl#Interpolator -->
+
+    <owl:Class rdf:about="&visko-operator;Interpolator">
+        <rdfs:subClassOf rdf:resource="&visko-operator;InputOutputOperator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-operator.owl#Mapper -->
+
+    <owl:Class rdf:about="&visko-operator;Mapper">
+        <rdfs:subClassOf rdf:resource="&visko-operator;Operator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-operator.owl#Operator -->
+
+    <owl:Class rdf:about="&visko-operator;Operator">
+        <rdfs:subClassOf rdf:resource="&pml-provenance;InferenceRule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-operator.owl#Transformer -->
+
+    <owl:Class rdf:about="&visko-operator;Transformer">
+        <rdfs:subClassOf rdf:resource="&visko-operator;InputOutputOperator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-operator.owl#Viewer -->
+
+    <owl:Class rdf:about="&visko-operator;Viewer">
+        <rdfs:subClassOf rdf:resource="&visko-operator;Operator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-operator.owl#ViewerSet -->
+
+    <owl:Class rdf:about="&visko-operator;ViewerSet"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.5.1928) http://owlapi.sourceforge.net -->
+

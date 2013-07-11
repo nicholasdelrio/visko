@@ -1,0 +1,451 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY esip-data "http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#" >
+    <!ENTITY Datatypes2 "http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#2" >
+    <!ENTITY Datatypes "http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#3" >
+    <!ENTITY Datatypes3 "http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#1" >
+]>
+
+
+<rdf:RDF xmlns="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#"
+     xml:base="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:Datatypes3="&esip-data;1"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:Datatypes="&esip-data;3"
+     xmlns:Datatypes2="&esip-data;2"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl2="http://www.w3.org/2006/12/owl2#"
+     xmlns:esip-data="http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#">
+    <owl:Ontology rdf:about="http://openvisko.org/rdf/ontology/esip-data.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#hasAssociatedFeature -->
+
+    <owl:ObjectProperty rdf:about="&esip-data;hasAssociatedFeature"/>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#hasExtent -->
+
+    <owl:ObjectProperty rdf:about="&esip-data;hasExtent"/>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#hasGeometry -->
+
+    <owl:ObjectProperty rdf:about="&esip-data;hasGeometry">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#hasPhysicalDomain -->
+
+    <owl:ObjectProperty rdf:about="&esip-data;hasPhysicalDomain"/>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#hasPhysicalProperty -->
+
+    <owl:ObjectProperty rdf:about="&esip-data;hasPhysicalProperty"/>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#hasSpatioTemporalDatatype -->
+
+    <owl:ObjectProperty rdf:about="&esip-data;hasSpatioTemporalDatatype"/>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#hasValueRange -->
+
+    <owl:ObjectProperty rdf:about="&esip-data;hasValueRange"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#hasISOProperty -->
+
+    <owl:DatatypeProperty rdf:about="&esip-data;hasISOProperty"/>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#hasISOValue -->
+
+    <owl:DatatypeProperty rdf:about="&esip-data;hasISOValue"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#1DSwath -->
+
+    <owl:Class rdf:about="&esip-data;1DSwath">
+        <owl:equivalentClass rdf:resource="&esip-data;Path"/>
+        <rdfs:subClassOf rdf:resource="&esip-data;Curve"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#2DSwath -->
+
+    <owl:Class rdf:about="&esip-data;2DSwath">
+        <rdfs:subClassOf rdf:resource="&esip-data;Surface"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#3DSwath -->
+
+    <owl:Class rdf:about="&esip-data;3DSwath">
+        <rdfs:subClassOf rdf:resource="&esip-data;Volume"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Contour -->
+
+    <owl:Class rdf:about="&esip-data;Contour">
+        <rdfs:subClassOf rdf:resource="&esip-data;Curve"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&esip-data;hasISOProperty"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&esip-data;hasISOValue"/>
+                <owl:someValuesFrom rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>needs sorting out</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Coverage -->
+
+    <owl:Class rdf:about="&esip-data;Coverage">
+        <owl:equivalentClass rdf:resource="&esip-data;Profile"/>
+        <rdfs:subClassOf rdf:resource="&esip-data;SpatioTemporalFunction"/>
+        <rdfs:comment>More of a measurement concept than theoretical</rdfs:comment>
+        <rdfs:comment>A function of the physical variable and the spatiotemporal variable. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Curve -->
+
+    <owl:Class rdf:about="&esip-data;Curve">
+        <rdfs:subClassOf rdf:resource="&esip-data;Geometry"/>
+        <rdfs:comment>Formal level, the next level down is the representational level</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Feature -->
+
+    <owl:Class rdf:about="&esip-data;Feature">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Geo -->
+
+    <owl:Class rdf:about="&esip-data;Geo">
+        <rdfs:subClassOf rdf:resource="&esip-data;PhysicalDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#GeodataType -->
+
+    <owl:Class rdf:about="&esip-data;GeodataType">
+        <rdfs:subClassOf rdf:resource="&esip-data;SpatioTemporalDatatype"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Geometry -->
+
+    <owl:Class rdf:about="&esip-data;Geometry">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Grid -->
+
+    <owl:Class rdf:about="&esip-data;Grid">
+        <rdfs:subClassOf rdf:resource="&esip-data;GeodataType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Helio -->
+
+    <owl:Class rdf:about="&esip-data;Helio">
+        <rdfs:subClassOf rdf:resource="&esip-data;PhysicalDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Line -->
+
+    <owl:Class rdf:about="&esip-data;Line">
+        <rdfs:subClassOf rdf:resource="&esip-data;Curve"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Path -->
+
+    <owl:Class rdf:about="&esip-data;Path">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#PhysicalDomain -->
+
+    <owl:Class rdf:about="&esip-data;PhysicalDomain">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#PhysicalProperty -->
+
+    <owl:Class rdf:about="&esip-data;PhysicalProperty">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Point -->
+
+    <owl:Class rdf:about="&esip-data;Point">
+        <rdfs:subClassOf rdf:resource="&esip-data;Geometry"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Profile -->
+
+    <owl:Class rdf:about="&esip-data;Profile">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment>A profile does not require an associated feature</rdfs:comment>
+        <rdfs:comment>Needs a definition</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Scale -->
+
+    <owl:Class rdf:about="&esip-data;Scale">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#SpatialExtent -->
+
+    <owl:Class rdf:about="&esip-data;SpatialExtent">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#SpatioTemporalDatatype -->
+
+    <owl:Class rdf:about="&esip-data;SpatioTemporalDatatype">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&esip-data;hasGeometry"/>
+                <owl:someValuesFrom rdf:resource="&esip-data;Geometry"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&esip-data;hasExtent"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&esip-data;SpatialExtent"/>
+                            <rdf:Description rdf:about="&esip-data;TemporalExtent"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&esip-data;hasExtent"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&esip-data;SpatialExtent"/>
+                            <rdf:Description rdf:about="&esip-data;TemporalExtent"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&esip-data;hasPhysicalDomain"/>
+                <owl:someValuesFrom rdf:resource="&esip-data;PhysicalDomain"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#SpatioTemporalFunction -->
+
+    <owl:Class rdf:about="&esip-data;SpatioTemporalFunction">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&esip-data;hasSpatioTemporalDatatype"/>
+                <owl:someValuesFrom rdf:resource="&esip-data;SpatioTemporalDatatype"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&esip-data;hasPhysicalProperty"/>
+                <owl:someValuesFrom rdf:resource="&esip-data;PhysicalProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Coverage may not be a direct subclass</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Surface -->
+
+    <owl:Class rdf:about="&esip-data;Surface">
+        <rdfs:subClassOf rdf:resource="&esip-data;Geometry"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#TemporalExtent -->
+
+    <owl:Class rdf:about="&esip-data;TemporalExtent">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#ValueRange -->
+
+    <owl:Class rdf:about="&esip-data;ValueRange">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ordnancesurvey.co.uk/ontology/Datatypes.owl#Volume -->
+
+    <owl:Class rdf:about="&esip-data;Volume">
+        <rdfs:subClassOf rdf:resource="&esip-data;Geometry"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&esip-data;Curve"/>
+            <rdf:Description rdf:about="&esip-data;Point"/>
+            <rdf:Description rdf:about="&esip-data;Surface"/>
+            <rdf:Description rdf:about="&esip-data;Volume"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.5.1928) http://owlapi.sourceforge.net -->
+

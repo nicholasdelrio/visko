@@ -1,0 +1,680 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY giovanni-data "http://giovanni.gsfc.nasa.gov/giovanni-data.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://giovanni.gsfc.nasa.gov/giovanni-data.owl#"
+     xml:base="http://giovanni.gsfc.nasa.gov/giovanni-data.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:giovanni-data="http://giovanni.gsfc.nasa.gov/giovanni-data.owl#">
+    <owl:Ontology rdf:about="http://giovanni.gsfc.nasa.gov/giovanni-data.owl">
+        <owl:imports rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-obj.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://giovanni.gsfc.nasa.gov/giovanni-data.owl#BrightnessTemperature -->
+
+    <owl:Class rdf:about="&giovanni-data;BrightnessTemperature">
+        <rdfs:subClassOf rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-obj.owl#Variable_with_LatLon"/>
+    </owl:Class>
+    
+
+
+    <!-- http://giovanni.gsfc.nasa.gov/giovanni-data.owl#Giovanni_Time_Series_Data -->
+
+    <owl:Class rdf:about="&giovanni-data;Giovanni_Time_Series_Data">
+        <rdfs:subClassOf rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-obj.owl#Variable_with_Time"/>
+    </owl:Class>
+    <rdf:Description>
+        <rdf:type rdf:resource="&rdf;Statement"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&rdf;Statement"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&rdf;Statement"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof23bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#ConstructRule">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/rights">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Variable">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof21bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof22bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_error_multiplier">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof28bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof29bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#externalInferencing">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof27bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#upload_complete">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof19bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#missing_value">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof26bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/datatypesasclasses.owl#datatypeSubClassOf_implies_subClassOf">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/datatypesasclasses.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#grid_mapping">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_name">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl#propertyChain4">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl#propertyChain3">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl#propertyChain2">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/creator">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl#propertyChain1">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl#propertyChain4owl">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof20bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl#propertyChain1owl">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof9">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof8">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#hasXslTransformToRdf">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#history">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#rangeProperty">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#month_lengths">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof1">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof3">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof24bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#VirtualRDFDocument">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof2">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof5">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof4">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof7">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof6">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/language">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Conventions">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof33bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-obj.owl#Gridlatlon_abscissa">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-obj.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/source">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof21">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof20">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof23">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof22">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#valid_min">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof25">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof24">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof13bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof27">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof26">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof29">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#RDFDocument">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof28">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#domainProperty">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#leap_month">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#StartingPoint">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof37bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof18bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof12bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof38bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Coordinate_Variable">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#comment">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof12">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof11">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof10">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof47bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof50bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof16">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/subject">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof15">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof14">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof13">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof43bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof19">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof18">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof17">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl#Construct_for_InheritUndefinedProperties">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof48bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#ancillary_variables">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof6bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof40">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof41">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof5bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl#EquivalentOutsidePropertiesForDualDefinedObjects">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#valid_range">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof47">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof46">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof49">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof48">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof43">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof42">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof45">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/type">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof44">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#cachecontext">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-obj.owl#Projection_abscissa">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-obj.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#Rule_has_Coordinate">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof1bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof30">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof2bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof38">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof37">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof36">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof35">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof34">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#formula_terms">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof33">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof32">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof31">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/relation">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof39">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#startingPoints">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof42bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#serql_text">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#scale_factor">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof30bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#_FillValue">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof32bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#ContainsNoTriples">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#cell_methods">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof40bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#flag_values">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof9bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#Rule_Is_a_coodinate_variable">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof44bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof17bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Non-Coordinate_Variable">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof50">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#isReplacedBy">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl#propertyChain2owl">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#CF_Convention">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof7bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#title">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#queryresult">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#cell_measures">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof49bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#last_modified">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#long_name">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/publisher">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#code_last_modified">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#XslTransform">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof36bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/title">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/contributor">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#id">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof14bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#bounds">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof16bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof34bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/date">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#add_offset">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#isContainedBy">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/format">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl#EquivalentObjectPropertiesForDualDefinedObjects">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#calendar">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof41bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#references">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl#retypedLiteralsForRetypedSubPropertyOf">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof31bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Dataset">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof11bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#compress">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#coordinates">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof39bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof10bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#source">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#valid_max">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/description">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof8bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/identifier">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#units">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#dependsOn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#positive">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#axis">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof45bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#climatology">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof35bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#institution">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl#sparql_text">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/rdfcache.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof46bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl#propertyChain3owl">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof25bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-obj.owl#Gridlatlon_ordinate">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-obj.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#Rule_Covariance">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#leap_year">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#flag_meanings">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof3bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#links">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/coverage">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof15bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-obj.owl#Projection_ordinate">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-obj.owl"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#memberof4bn">
+        <rdfs:isDefinedBy rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl"/>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.5.1928) http://owlapi.sourceforge.net -->
+

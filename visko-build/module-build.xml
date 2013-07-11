@@ -1,0 +1,281 @@
+<project name="module-build" default="war">
+
+	<target name="init" depends="load-cms-props">
+		<echo level="info">basedir = ${basedir}</echo>
+				
+		<!-- common build properties -->
+		<property name="dir.src" value="${basedir}/src" />
+		<property name="dir.webapp" value="${basedir}/webapp" />
+		<property name="dir.build" value="${basedir}/build" />
+		<property name="dir.classes" value="${dir.build}/classes" />
+		<property name="dir.dist" value="${dir.build}/dist" />
+		<property name="dir.lib" value="${basedir}/webapp/WEB-INF/lib" />
+		<property name="dir.sdk" value="${basedir}/../ModuleSDK"/>	
+		<property name="dir.sdk.src" value="${dir.sdk}/src" />
+		<property name="dir.sdk.webapp" value="${dir.sdk}/webapp" />
+		<basename property="webapp.name" file="${basedir}"/>
+		<property name="file.name.war" value="${webapp.name}.war" />
+		<property name="dir.war" value="${dir.dist}/${webapp.name}" />
+		<property name="file.name.jar" value="${webapp.name}.jar" />
+		
+		<property file="${basedir}/webapp/WEB-INF/classes/module.properties"/>
+				
+		<echo level="info">webapp = ${webapp.name}</echo>
+		<echo level="info">project = ${ant.project.name}</echo>
+		
+		<!-- set the classpath to include all the jars from SDK -->
+		<path id="classpath">
+			<fileset dir="${dir.sdk}/lib">
+				<include name="**/*.jar" />
+			</fileset>
+			<fileset dir="${dir.sdk}/webapp/WEB-INF/lib">
+				<include name="**/*.jar" />
+			</fileset>			
+			<fileset dir="${basedir}/webapp/WEB-INF/lib">
+				<include name="**/*.jar" />
+			</fileset>
+			<fileset dir="${basedir}/webapp/WEB-INF/lib">
+				<include name="**/*.jar" />
+			</fileset>
+			<pathelement location="${dir.classes}"/>		
+		</path>
+
+		<!-- define the task for converting java to wsdl -->
+		<taskdef name="java2wsdl" classname="org.apache.axis2.tool.ant.Java2WSDLTask">
+			<classpath refid="classpath" />
+		</taskdef>
+
+	</target>
+
+	<target name="clean" depends="init" description="clean the compiled classes and libraries">
+		<delete dir="${dir.classes}"/>
+	</target>
+
+	<target name="compile-java" depends="init" description="Compiles the Java source code">
+		<mkdir dir="${dir.classes}" />
+		<javac destdir="${dir.classes}" deprecation="on" debug="on" target="1.6" source="1.6">
+			<src path="${dir.src}" />
+			<src path="${dir.sdk.src}" />			
+			<classpath refid="classpath" />
+			<compilerarg value="-Xlint:-path"/>
+		</javac>
+
+		<!-- make sure non-java files get included in the jar since they are not included by javac ant target -->
+		<copy todir="${dir.classes}">
+			<fileset dir="${dir.src}">
+				<patternset>
+					<exclude name="**/*.java" />
+				</patternset>
+			</fileset>
+		</copy>
+		
+		<copy todir="${dir.classes}">
+			<fileset dir="${dir.sdk.src}">
+				<patternset>
+					<exclude name="**/*.java" />
+				</patternset>
+			</fileset>
+		</copy>		
+	</target>
+
+	<!--- Create the jar file for the package -->
+	<target name="package-jar" depends="compile-java" description="Packages the JAR file">
+		<delete dir="${dir.dist}"/>
+		<mkdir dir="${dir.dist}" />
+		<jar jarfile="${dir.dist}/${file.name.jar}" basedir="${dir.classes}" />
+		<jar jarfile="${dir.dist}/${file.name.jar}" update="true">
+		</jar>
+	</target>
+	
+	<!-- create clean war file -->
+	<target name="war">
+		<property file="${basedir}/webapp/WEB-INF/classes/module.properties"/>
+		<echo>build.war = ${build.war}</echo>
+		<antcall target="war-not-supported"/>
+		<antcall target="war-check"/>
+	</target>
+	
+	<target name="load-cms-props" unless="${content.management.server.url}">
+		<echo>Loading global cms properties.</echo> 
+		<property environment="env" />
+		<property name="env.COMPUTERNAME" value="${env.HOST}" />
+		<property name="env.COMPUTERNAME" value="${env.HOSTNAME}" />
+
+		<property file="${basedir}/../visko-build/registry.${user.name}.properties" />
+		<property file="${basedir}/../visko-build/registry.${env.COMPUTERNAME}.properties" />
+		<property file="${basedir}/../visko-build/registry.properties"/>
+		<property file="${basedir}/../visko-build/server.${user.name}.properties" />
+		<property file="${basedir}/../visko-build/server.${env.COMPUTERNAME}.properties" />
+		<property file="${basedir}/../visko-build/server.properties"/>
+	</target>
+
+	<target name="war-not-supported" unless="${build.war}">
+		 <echo>A war component is not included in this module.</echo> 
+	</target>
+
+	<target name="war-check" if="${build.war}">
+		<antcall target="war-impl"/>
+	</target>
+	
+	<target name="war-impl" if="${build.war}" depends="clean, package-jar">
+		<mkdir dir="${dir.war}"/>
+		
+		<!-- copy axis2 web files but not the jars, as they will be deployed to tomcat shared -->
+		<copy todir="${dir.war}" overwrite="true">
+			<fileset dir="${dir.sdk.webapp}">
+				<include name="axis2-web/**/*" />
+				<include name="WEB-INF/services/**/*" />
+				<include name="WEB-INF/web.xml" />
+			</fileset>
+		</copy>
+		
+		<!-- give your package ability to overwrite any default files provided by package SDK -->
+		<copy todir="${dir.war}" overwrite="true">
+			<fileset dir="${dir.webapp}">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+
+		<!-- Copy the jar file to the webapp -->
+		<copy todir="${dir.war}/WEB-INF/lib" overwrite="true">
+			<fileset dir="${dir.dist}">
+				<include name="${file.name.jar}" />
+			</fileset>
+		</copy>
+
+		<!-- Copy .html file to the webapp -->
+		<copy todir="${dir.war}" overwrite="true">
+			<fileset dir="${basedir}">
+				<include name="${webapp.name}.html" />
+			</fileset>
+		</copy>
+		
+		<!-- Copy .java files to the webapp -->
+		<copydir src="${dir.src}" dest="${dir.war}"/>
+		
+		<!-- copy server.properties to WEB-INF/Classes -->
+		<copy todir="${dir.war}/WEB-INF/classes" overwrite="true" flatten="true">
+			<fileset dir="${basedir}/../visko-build">
+				<include name="server.properties" />
+				<include name="server.${user.name}.properties" />
+				<include name="server.${env.COMPUTERNAME}.properties" />
+			</fileset>
+		</copy>
+		
+		<!-- create war file -->
+		<war warfile="${dir.dist}/${file.name.war}" basedir="${dir.war}" />
+		
+		<!-- deploy war file to server -->		
+		<condition property="tomcat.dir" value="${module.server.tomcat.home}"> 
+		      <isset property="module.server.tomcat.home"/>
+		</condition>
+		<property name="tomcat.dir" value="${server-base-path}" />
+
+		<antcall target="deploy-module">
+			<param name="tomcat.dir" value="${tomcat.dir}"/>
+		</antcall>
+
+	</target>
+	
+	<!-- deploys module to the specified tomcat -->
+	<target name="deploy-module">
+		<echo> deploying module to: ${tomcat.dir} </echo>
+		
+		<!-- delete old webapp folder -->
+		<delete dir="${tomcat.dir}/webapps/${webapp.name}"/>
+		
+		<!-- copy war file to tomcat/webapps -->
+		<copy file="${dir.dist}/${file.name.war}" todir="${tomcat.dir}/webapps"/>		
+		
+		<!-- make sure tomcat/shared exists -->
+		<mkdir dir="${tomcat.dir}/shared" />
+		<mkdir dir="${tomcat.dir}/shared/classes" />
+		<mkdir dir="${tomcat.dir}/shared/lib" />
+		
+		<!-- make sure catalina.properties includes tomcat/shared for shared classloader -->		
+		<replaceregexp file="${tomcat.dir}/conf/catalina.properties"
+		               match="shared.loader=(.*)"
+		               replace="shared.loader=${catalina.base}/shared/classes,${catalina.base}/shared/lib/*.jar"
+		               byline="true"
+		/>
+		<!-- copy axis2 jars to tomcat/shared/lib -->
+		<copy todir="${tomcat.dir}/shared/lib" overwrite="false">
+			<fileset dir="${dir.sdk.webapp}/WEB-INF/lib">
+				<include name="**/*" />
+			</fileset>
+		</copy>		
+		
+		<!-- copy axis2 classes to tomcat/shared/classes -->
+		<copy todir="${tomcat.dir}/shared/classes" overwrite="false">
+			<fileset dir="${dir.sdk.webapp}/WEB-INF/classes">
+				<include name="**/*" />
+			</fileset>
+		</copy>	
+	</target>
+	
+	<target name="register-module" depends="generate-wsdl" description="Generate RDF and register package to Visko">
+		<echo level="info">registering module to ${basedir}/../visko-web/WebContent/registry</echo>
+		<mkdir dir="${dir.dist}" />
+		<mkdir dir="${basedir}/../visko-web/WebContent/registry" />
+		
+		<!-- first copy custom data types owl files to visko-web -->
+		<mkdir dir="${basedir}/webapp/dataTypes"/>
+		<copy todir="${basedir}/../visko-web/WebContent/registry" overwrite="true">
+			<fileset dir="${basedir}/webapp/dataTypes">
+				<include name="**/*" />
+			</fileset>
+		</copy>			
+		
+		<!-- then create and deploy the module's service owl file to visko-web -->
+		<java classname="org.openvisko.module.installation.Installer_LocalFileSystem" fork="true">
+		
+			<jvmarg value="-Djava.security.policy=${policy}"/>
+
+			<arg value="${server-url}/visko-web/registry"/>
+			<arg value="${basedir}/../visko-web/WebContent/registry"/>
+			<arg value="${basedir}"/>
+			<arg value="${dir.sdk}/dataTypes"/>
+			<arg value="${dir.dist}/ModuleService.wsdl"/>
+
+            <classpath>
+            	<!-- this needs to go first in the classpath since I fixed a bug in mindswap lib -->
+    			<pathelement location="${dir.classes}"/>
+            	<pathelement location="${basedir}/../visko-build"/>
+            	<pathelement location="${basedir}/webapp/WEB-INF/classes"/>
+            	<fileset dir="${dir.sdk}/lib">
+    				<include name="**/*.jar" />
+    			</fileset>
+    			<fileset dir="${dir.sdk}/webapp/WEB-INF/lib">
+    				<include name="**/*.jar" />
+    			</fileset>			
+    			<fileset dir="${basedir}/webapp/WEB-INF/lib">
+    				<include name="**/*.jar" />
+    			</fileset>
+    			<fileset dir="${basedir}/lib">
+    				<include name="**/*.jar" />
+    			</fileset>
+            </classpath>
+		</java>
+	</target>
+
+	<!-- build war and generate RDF file for registering service to Visko -->
+	<!-- This doesn't work correctly yet -->
+	<target name="generate-wsdl" depends="compile-java">
+		<mkdir dir="${dir.dist}" />
+		
+		<!-- use Java2WSDLTask to generate wsdl -->			
+		<java2wsdl className="org.openvisko.module.ModuleService"
+			outputLocation="${dir.dist}"
+			locationUri="${module.server.url}/${module.server.webapp.name}/services/ModuleService">
+            <classpath>
+                <pathelement path="${classpath}"/>
+                <pathelement location="${dir.classes}"/>
+            </classpath>
+		</java2wsdl>
+		
+				
+		<!-- create OWL RDF file to register package web service in Visko -->
+		
+	</target>
+	
+</project>

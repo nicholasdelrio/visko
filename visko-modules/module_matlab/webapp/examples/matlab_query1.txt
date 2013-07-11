@@ -1,0 +1,6 @@
+VISUALIZE http://localhost:8080/module_matlab/examples/flucccf1.mat 
+AS http://openvisko.org/rdf/ontology/visko-view.owl#2D_RasterMap 
+IN http://localhost:8080/visko-web/registry/module_webbrowser.owl#web-browser 
+WHERE
+	FORMAT = http://openvisko.org/rdf/pml2/formats/MAT-FILE.owl#MAT-FILE
+	AND TYPE = http://www.w3.org/2002/07/owl#Thing

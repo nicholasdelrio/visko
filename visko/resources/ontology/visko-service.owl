@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Service "http://www.daml.org/services/owl-s/1.2/Service.owl#" >
+    <!ENTITY Process "http://www.daml.org/services/owl-s/1.2/Process.owl#" >
+    <!ENTITY visko-service "http://openvisko.org/rdf/ontology/visko-service.owl#" >
+    <!ENTITY visko-operator "http://openvisko.org/rdf/ontology/visko-operator.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://openvisko.org/rdf/ontology/visko-service.owl#"
+     xml:base="http://openvisko.org/rdf/ontology/visko-service.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:Service="http://www.daml.org/services/owl-s/1.2/Service.owl#"
+     xmlns:visko-service="http://openvisko.org/rdf/ontology/visko-service.owl#"
+     xmlns:Process="http://www.daml.org/services/owl-s/1.2/Process.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:visko-operator="http://openvisko.org/rdf/ontology/visko-operator.owl#">
+    <owl:Ontology rdf:about="http://openvisko.org/rdf/ontology/visko-service.owl">
+        <owl:imports rdf:resource="http://openvisko.org/rdf/ontology/visko-operator.owl"/>
+        <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Process.owl"/>
+        <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Service.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-service.owl#declaresBindings -->
+
+    <owl:ObjectProperty rdf:about="&visko-service;declaresBindings">
+        <rdfs:domain rdf:resource="&visko-service;InputParameterBindings"/>
+        <rdfs:range rdf:resource="&Process;InputBinding"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-service.owl#implementsOperator -->
+
+    <owl:ObjectProperty rdf:about="&visko-service;implementsOperator">
+        <rdfs:domain rdf:resource="&visko-service;Service"/>
+        <rdfs:range rdf:resource="http://trust.utep.edu/visko/ontology/visko-operator.owl#Operator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-service.owl#profiles -->
+
+    <owl:ObjectProperty rdf:about="&visko-service;profiles">
+        <rdfs:domain rdf:resource="&visko-service;InputParameterBindings"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-service.owl#supportedByOWLSService -->
+
+    <owl:ObjectProperty rdf:about="&visko-service;supportedByOWLSService">
+        <rdfs:domain rdf:resource="&visko-service;Service"/>
+        <rdfs:range rdf:resource="&Service;Service"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-service.owl#supportedByToolkit -->
+
+    <owl:ObjectProperty rdf:about="&visko-service;supportedByToolkit">
+        <rdfs:domain rdf:resource="&visko-service;Service"/>
+        <rdfs:range rdf:resource="&visko-service;Toolkit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-service.owl#wrapsToolkit -->
+
+    <owl:ObjectProperty rdf:about="&visko-service;wrapsToolkit">
+        <rdfs:domain rdf:resource="&visko-service;Module"/>
+        <rdfs:range rdf:resource="&visko-service;Toolkit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-service.owl#hasDocumentation -->
+
+    <owl:DatatypeProperty rdf:about="&visko-service;hasDocumentation">
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-service.owl#hasSourceCode -->
+
+    <owl:DatatypeProperty rdf:about="&visko-service;hasSourceCode">
+        <rdfs:domain rdf:resource="&visko-service;Module"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-service.owl#InputParameterBindings -->
+
+    <owl:Class rdf:about="&visko-service;InputParameterBindings"/>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-service.owl#Module -->
+
+    <owl:Class rdf:about="&visko-service;Module"/>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-service.owl#Service -->
+
+    <owl:Class rdf:about="&visko-service;Service"/>
+    
+
+
+    <!-- http://openvisko.org/rdf/ontology/visko-service.owl#Toolkit -->
+
+    <owl:Class rdf:about="&visko-service;Toolkit"/>
+    
+
+
+    <!-- http://trust.utep.edu/visko/ontology/visko-operator.owl#Operator -->
+
+    <owl:Class rdf:about="http://trust.utep.edu/visko/ontology/visko-operator.owl#Operator"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.2/generic/Expression.owl#AlwaysTrue -->
+
+    <rdf:Description rdf:about="http://www.daml.org/services/owl-s/1.2/generic/Expression.owl#AlwaysTrue">
+        <rdf:type rdf:resource="http://org.semanticweb.owlapi/error#Error1"/>
+        <rdf:type rdf:resource="http://org.semanticweb.owlapi/error#Error2"/>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.5.1928) http://owlapi.sourceforge.net -->
+

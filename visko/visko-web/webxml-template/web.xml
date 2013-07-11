@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>visko-web</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- Content Listener Loads the Context Params into the Visko Web App -->
+  <listener>
+        <listener-class>edu.utep.trustlab.visko.web.context.ContextListener</listener-class>
+  </listener>
+
+  <!--  CORS Filter -->
+  <filter>
+	<filter-name>CORS</filter-name>
+	<filter-class>com.thetransactioncompany.cors.CORSFilter</filter-class>
+ </filter>
+
+ <filter-mapping>
+    <filter-name>CORS</filter-name>
+    <url-pattern>/*</url-pattern>
+ </filter-mapping>
+
+ <!-- SERVER BASE URL AND PATH -->
+  <context-param>
+    <param-name>server-url</param-name>
+    <param-value>REPLACE-SERVER-URL</param-value>
+  </context-param>
+  <context-param>
+    <param-name>server-base-path</param-name>
+    <param-value>REPLACE-SERVER-BASE-PATH</param-value>
+  </context-param>
+
+  <!-- Customize HTML Header Template with Organization and Logo -->
+  <context-param>
+    <param-name>hosting-organization</param-name>
+    <param-value>REPLACE-ORGANIZATION</param-value>
+  </context-param>  
+  <context-param>
+    <param-name>logo-path</param-name>
+    <param-value>REPLACE-LOGO-PATH</param-value>
+  </context-param>
+  
+  <!-- TDB store containing the VisKo knoweldge base -->  
+  <context-param>
+    <param-name>visko-tdb-path</param-name>
+    <param-value>REPLACE-TDB-PATH</param-value>
+  </context-param>
+
+  <!-- Move Data -->
+  <context-param>
+    <param-name>move-data</param-name>
+    <param-value>REPLACE-MOVE-DATA</param-value>
+  </context-param>
+
+  <!-- Content Manager Information, content-manager-type=(local | ciserver | velo) -->
+  <context-param>
+    <param-name>content-manager-type</param-name>
+    <param-value>REPLACE-CONTENT-MANAGER-TYPE</param-value>
+  </context-param>
+  <context-param>
+    <param-name>content-manager-url</param-name>
+    <param-value>REPLACE-CONTENT-MANAGER-URL</param-value>
+  </context-param>
+  <context-param>
+    <param-name>content-manager-username</param-name>
+    <param-value>REPLACE-CONTENT-MANAGER-USERNAME</param-value>
+  </context-param>
+ <context-param>
+    <param-name>content-manager-password</param-name>
+    <param-value>REPLACE-CONTENT-MANAGER-PASSWORD</param-value>
+  </context-param>
+  <context-param>
+    <param-name>content-manager-project</param-name>
+    <param-value>REPLACE-CONTENT-MANAGER-PROJECT</param-value>
+  </context-param>
+  
+  <!-- Servlet Class ViskoServletManager and Mapping -->
+  <servlet>
+    <description>Processes VisKo Requests</description>
+    <display-name>ViskoServletManager</display-name>
+    <servlet-name>ViskoServletManager</servlet-name>
+    <servlet-class>edu.utep.trustlab.visko.web.ViskoServletManager</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViskoServletManager</servlet-name>
+    <url-pattern>/ViskoServletManager</url-pattern>
+  </servlet-mapping>
+</web-app>

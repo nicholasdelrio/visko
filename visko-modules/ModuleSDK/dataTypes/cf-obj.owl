@@ -1,0 +1,1502 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:cfsn="http://marinemetadata.org/cf#"
+    xmlns:temporal="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#"
+    xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+    xmlns="http://iridl.ldeo.columbia.edu/ontologies/cf-obj.owl#"
+    xmlns:swrlx="http://swrl.stanford.edu/ontologies/built-ins/3.3/swrlx.owl#"
+    xmlns:swrlm="http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlm.owl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:abox="http://swrl.stanford.edu/ontologies/built-ins/3.3/abox.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:cfatt="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:nc3="http://iridl.ldeo.columbia.edu/ontologies/netcdf-3.owl#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:ncobj="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:p1="http://purl.org/dc/elements/1.1/#"
+    xmlns:p2="http://iridl.ldeo.columbia.edu/ontologies/ismemberof.owl#"
+    xmlns:sqwrl="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:crosswalk="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl#"
+    xmlns:p3="http://iridl.ldeo.columbia.edu/ontologies/datatypesasclasses.owl#"
+    xmlns:tbox="http://swrl.stanford.edu/ontologies/built-ins/3.3/tbox.owl#"
+  xml:base="http://iridl.ldeo.columbia.edu/ontologies/cf-obj.owl">
+  <owl:Ontology rdf:about="">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ontology of CF objects
+    
+      Uses mostly OWL classes and some SWRL rules to define subclasses
+of cfatt:Variables that have properties likely to be
+useful in crosswalking to other standards, e.g. having time dependence
+or geo-location.
+    </rdfs:comment>
+    <dc:subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >cf, standard, name , attributes</dc:subject>
+    <owl:imports rdf:resource="http://www.w3.org/2003/11/swrlb"/>
+    <owl:imports rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-3.owl"/>
+    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/tbox.owl"/>
+    <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CF Data objects ontology</dc:title>
+    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/swrlx.owl"/>
+    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/3.3/swrla.owl"/>
+    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl"/>
+    <owl:imports rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iricrosswalk.owl"/>
+    <owl:imports rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl"/>
+    <owl:imports rdf:resource="http://www.w3.org/2003/11/swrl"/>
+    <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M. Benno Blumenthal</dc:contributor>
+    <owl:imports rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl"/>
+    <owl:imports rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl"/>
+    <owl:imports rdf:resource="http://marinemetadata.org/cf"/>
+    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/abox.owl"/>
+    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlm.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Variable_with_Location">
+    <rdfs:subClassOf rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Non-Coordinate_Variable"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Variable_with_Albers_mapping">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Variable_with_Projection_Coordinate"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="grid_mapping"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Albers_conical_equal_area"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Variable_with_Lambert_azimuthal_mapping">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Lambert_azimuthal_equal_area"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#grid_mapping"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Variable_with_Projection_Coordinate"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="A_longitude">
+    <rdfs:subClassOf>
+      <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Variable">
+        <rdfs:subClassOf rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-3.owl#Variable"/>
+      </rdf:Description>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_name"/>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >longitude</owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#Variable_with_Projection_Coordinate">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Variable_with_Gridlatlon"/>
+    </owl:disjointWith>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:ID="A_projection_x_coordinate"/>
+            </owl:someValuesFrom>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#hasCoordinate"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#hasCoordinate"/>
+            <owl:someValuesFrom>
+              <owl:Class rdf:ID="A_projection_y_coordinate"/>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Variable_with_Location"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Variable_with_LatLon">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#hasCoordinate"/>
+            <owl:someValuesFrom rdf:resource="#A_longitude"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#hasCoordinate"/>
+            <owl:someValuesFrom>
+              <owl:Class rdf:ID="A_latitude"/>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Variable_with_Location"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Variable_with_Transverse_mercator">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#grid_mapping"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Transverse_mercator"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Variable_with_Projection_Coordinate"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Variable_with_Stereographic">
+    <rdfs:subClassOf rdf:resource="#Variable_with_Projection_Coordinate"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Stereographic"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#grid_mapping"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="implicitTime">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#long_name"/>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >time</owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="A_time"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#A_time">
+    <rdfs:subClassOf rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Variable"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >time</owl:hasValue>
+        <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_name"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Azimuthal_equidistant">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Grid_Mapping"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >azimuthal_equidistant</owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#grid_mapping_name"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#false_easting"/>
+            </owl:onProperty>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:cardinality>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:cardinality>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#false_northing"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:cardinality>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#latitude_of_projection_origin"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#longitude_of_central_meridian"/>
+            </owl:onProperty>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:cardinality>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_parallel"/>
+            </owl:onProperty>
+            <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >2</owl:maxCardinality>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:minCardinality>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_parallel"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Polar_stereographic_with_standard_parallel">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Polar_stereographic"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Polar_stereographic_with_scale_factor_at_projection_origin"/>
+    </owl:disjointWith>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_parallel"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#Polar_stereographic">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#straight_vertical_longitude_from_pole"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#false_northing"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#latitude_of_projection_origin"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Grid_Mapping"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#false_easting"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >polar_stereographic</owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#grid_mapping_name"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#Polar_stereographic_with_scale_factor_at_projection_origin"/>
+              <owl:Class rdf:about="#Polar_stereographic_with_standard_parallel"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="location_list_longitude">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#isCovariantWith"/>
+            <owl:someValuesFrom>
+              <owl:Class rdf:ID="A_1D_latitude"/>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+          <owl:Class rdf:ID="A_1D_longitude"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Class_2">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#A_latitude"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >latitude</owl:hasValue>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#long_name"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#units"/>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >degrees_north</owl:hasValue>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#Stereographic">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#grid_mapping_name"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >stereographic</owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#false_northing"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#false_easting"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Grid_Mapping"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#scale_factor_at_projection_origin"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#longitude_of_projection_origin"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#latitude_of_projection_origin"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Variable_with_Time">
+    <rdfs:subClassOf rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Non-Coordinate_Variable"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#hasCoordinate"/>
+        <owl:someValuesFrom rdf:resource="#A_time"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="A_longitude_coordinate">
+    <rdfs:subClassOf>
+      <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Coordinate_Variable">
+        <owl:equivalentClass>
+          <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#Coordinate_Variable">
+            <owl:equivalentClass rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Coordinate_Variable"/>
+          </rdf:Description>
+        </owl:equivalentClass>
+      </rdf:Description>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#A_longitude"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Variable_with_rotatedlatlon">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Variable_with_Gridlatlon"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#grid_mapping"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Rotated_latitude_longitude"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#A_1D_latitude">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#A_latitude"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-3.owl#hasDimension"/>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:cardinality>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_name"/>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >latitude</owl:hasValue>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-3.owl#hasNumberOfDimensions"/>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:hasValue>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_name"/>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >latitude</owl:hasValue>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Variable_raster_with_latlon">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Variable_with_1D_latlon"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Variable_with_location_list"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Variable_with_1D_latlon">
+    <rdfs:subClassOf rdf:resource="#Variable_with_LatLon"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Variable_raster_with_latlon"/>
+          <owl:Class rdf:about="#Variable_with_location_list"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="#A_1D_latitude"/>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#hasCoordinate"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#hasCoordinate"/>
+            <owl:someValuesFrom>
+              <owl:Class rdf:about="#A_1D_longitude"/>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="A_grid_latitude">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_name"/>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >grid_latitude</owl:hasValue>
+          </owl:Restriction>
+          <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Coordinate_Variable"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Variable_with_Azimuthal_mapping">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#grid_mapping"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Azimuthal_equidistant"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Variable_with_Projection_Coordinate"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Rotated_latitude_longitude">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#grid_mapping_name"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >rotated_latitude_longitude</owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#north_pole_grid_longitude"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >0</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#grid_north_pole_longitude"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#grid_north_pole_latitude"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Grid_Mapping"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#north_pole_grid_longitude"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Lambert_conformal_conic">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Grid_Mapping"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_parallel"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >2</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#false_northing"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#false_easting"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#longitude_of_central_meridian"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_parallel"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#latitude_of_projection_origin"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#grid_mapping_name"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >lambert_conformal_conic</owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="A_grid_longitude">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >grid_longitude</owl:hasValue>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_name"/>
+          </owl:Restriction>
+          <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Coordinate_Variable"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#A_projection_y_coordinate">
+    <rdfs:subClassOf rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Coordinate_Variable"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >projection_y_coordinate</owl:hasValue>
+        <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_name"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#A_1D_longitude">
+    <rdfs:subClassOf rdf:resource="#A_longitude"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:cardinality>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-3.owl#hasDimension"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_name"/>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >longitude</owl:hasValue>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-3.owl#hasNumberOfDimensions"/>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:hasValue>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_name"/>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >longitude</owl:hasValue>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#Variable_with_Gridlatlon">
+    <rdfs:subClassOf rdf:resource="#Variable_with_Location"/>
+    <owl:disjointWith rdf:resource="#Variable_with_Projection_Coordinate"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Albers_conical_equal_area">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#grid_mapping_name"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >albers_conical_equal_area</owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#false_northing"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Grid_Mapping"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#false_easting"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_parallel"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_parallel"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >2</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#longitude_of_central_meridian"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#latitude_of_projection_origin"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Variable_with_Polar_Mapping">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Polar_stereographic"/>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#grid_mapping"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Variable_with_Projection_Coordinate"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Lambert_azimuthal_equal_area">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#false_easting"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#false_northing"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#longitude_of_projection_origin"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#latitude_of_projection_origin"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Grid_Mapping"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#grid_mapping_name"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >lambert_azimuthal_equal_area</owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="A_latitude_coordinate">
+    <rdfs:subClassOf rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Coordinate_Variable"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#A_latitude"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#A_latitude">
+    <rdfs:subClassOf rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Variable"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >latitude</owl:hasValue>
+        <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_name"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Standard_Name">
+    <owl:equivalentClass>
+      <rdf:Description rdf:about="http://marinemetadata.org/cf#Standard_Name">
+        <owl:equivalentClass rdf:resource="#Standard_Name"/>
+      </rdf:Description>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#CF_Convention"/>
+  </owl:Class>
+  <owl:Class rdf:about="#A_projection_x_coordinate">
+    <rdfs:subClassOf rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Coordinate_Variable"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >projection_x_coordinate</owl:hasValue>
+        <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_name"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Variable_with_Lambert_conformal_mapping">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Lambert_conformal_conic"/>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#grid_mapping"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Variable_with_Projection_Coordinate"/>
+  </owl:Class>
+  <owl:Class rdf:ID="location_list_latitude">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="#A_1D_longitude"/>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#isCovariantWith"/>
+          </owl:Restriction>
+          <owl:Class rdf:about="#A_1D_latitude"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="implicitLongitude">
+    <rdfs:subClassOf rdf:resource="#A_longitude"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#long_name"/>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >longitude</owl:hasValue>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#units"/>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >degrees_east</owl:hasValue>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#Polar_stereographic_with_scale_factor_at_projection_origin">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#scale_factor_at_projection_origin"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Polar_stereographic"/>
+    <owl:disjointWith rdf:resource="#Polar_stereographic_with_standard_parallel"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Grid_Mapping">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#grid_mapping_name"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Variable"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Transverse_mercator">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#grid_mapping_name"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >transverse_mercator</owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#longitude_of_central_meridian"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#false_easting"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#latitude_of_projection_origin"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Grid_Mapping"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#scale_factor_at_central_meridian"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#false_northing"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Variable_with_location_list">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="#location_list_latitude"/>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#hasCoordinate"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#hasCoordinate"/>
+            <owl:someValuesFrom rdf:resource="#location_list_longitude"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:disjointWith rdf:resource="#Variable_raster_with_latlon"/>
+    <rdfs:subClassOf rdf:resource="#Variable_with_1D_latlon"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="ancillary_variables">
+    <rdfs:range rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Non-Coordinate_Variable"/>
+    <cfatt:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ancillary_variables</cfatt:id>
+    <rdfs:domain rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Non-Coordinate_Variable"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Identifies a variable that contains closely associated data, e.g., the measurement uncertainties of instrument data.</dc:description>
+    <cfatt:links rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >3.4</cfatt:links>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ancillary_variables</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="abscissa">
+    <rdfs:domain rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Non-Coordinate_Variable"/>
+    <rdfs:range rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Coordinate_Variable"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="bounds">
+    <rdfs:range rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Coordinate_Variable"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Identifies a boundary variable.</dc:description>
+    <rdfs:domain rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Coordinate_Variable"/>
+    <cfatt:links rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >7.1</cfatt:links>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >bounds</rdfs:label>
+    <cfatt:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >bounds</cfatt:id>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="standard_name">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This is an object version of cfatt:standard_name.  The main reason for having it is that it is multivalued, i.e. standard_name objects can imply one another, while cfatt:standard_name is implicitly single valued (you must pick the most-specific version).   While single-valued is OK for a data format, it is not OK for an inference network (you cannot pick the most specific one until you have all of them, and there is no way to write a rule within the scheme that fires after everyone else.)   In doing an extraction from the RDF, however, there is no problem with pulling the most specific one, and letting the implications suffice for the rest.</rdfs:comment>
+    <rdfs:range rdf:resource="#Standard_Name"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Coordinate_Variable"/>
+          <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Non-Coordinate_Variable"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="coordinates">
+    <rdfs:domain rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Non-Coordinate_Variable"/>
+    <cfatt:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >coordinates</cfatt:id>
+    <rdfs:range rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Coordinate_Variable"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >coordinates</rdfs:label>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Identifies auxiliary coordinate variables, label variables, and alternate coordinate variables.</dc:description>
+    <cfatt:links rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >5, 6.1, 6.2</cfatt:links>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="ordinate">
+    <rdfs:domain rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Non-Coordinate_Variable"/>
+    <rdfs:range rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Coordinate_Variable"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="compress">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Records dimensions which have been compressed by gathering.</dc:description>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >compress</rdfs:label>
+    <rdfs:domain rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Coordinate_Variable"/>
+    <cfatt:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >compress</cfatt:id>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <cfatt:links rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >8.2, 5.3</cfatt:links>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#grid_north_pole_longitude">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Rotated_latitude_longitude"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#scale_factor_at_projection_origin">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Polar_stereographic"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#grid_north_pole_latitude">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Rotated_latitude_longitude"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_parallel">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Albers_conical_equal_area"/>
+          <owl:Class rdf:about="#Lambert_conformal_conic"/>
+          <owl:Class rdf:about="#Polar_stereographic"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#north_pole_grid_longitude">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Rotated_latitude_longitude"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#longitude_of_projection_origin">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Azimuthal_equidistant"/>
+          <owl:Class rdf:about="#Lambert_azimuthal_equal_area"/>
+          <owl:Class rdf:about="#Polar_stereographic"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#false_northing">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Albers_conical_equal_area"/>
+          <owl:Class rdf:about="#Azimuthal_equidistant"/>
+          <owl:Class rdf:about="#Lambert_azimuthal_equal_area"/>
+          <owl:Class rdf:about="#Lambert_conformal_conic"/>
+          <owl:Class rdf:about="#Polar_stereographic"/>
+          <owl:Class rdf:about="#Transverse_mercator"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#grid_mapping_name">
+    <rdfs:domain rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Grid_Mapping"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >polar_stereographic</rdf:first>
+                  <rdf:rest rdf:parseType="Resource">
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >rotated_latitude_longitude</rdf:first>
+                    <rdf:rest rdf:parseType="Resource">
+                      <rdf:rest rdf:parseType="Resource">
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >transverse_mercator</rdf:first>
+                      </rdf:rest>
+                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >stereographic</rdf:first>
+                    </rdf:rest>
+                  </rdf:rest>
+                </rdf:rest>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >lambert_conformal_conic</rdf:first>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >lambert_azimuthal_equal_area</rdf:first>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >azimuthal_equidistant</rdf:first>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >albers_conical_equal_area</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#false_easting">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Albers_conical_equal_area"/>
+          <owl:Class rdf:about="#Azimuthal_equidistant"/>
+          <owl:Class rdf:about="#Lambert_azimuthal_equal_area"/>
+          <owl:Class rdf:about="#Lambert_conformal_conic"/>
+          <owl:Class rdf:about="#Polar_stereographic"/>
+          <owl:Class rdf:about="#Transverse_mercator"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#straight_vertical_longitude_from_pole">
+    <rdfs:domain rdf:resource="#Polar_stereographic"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#grid_mapping">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Identifies a variable that defines a grid mapping.</dc:description>
+    <cfatt:links rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >5.6</cfatt:links>
+    <rdfs:domain rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Non-Coordinate_Variable"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >grid_mapping</rdfs:label>
+    <rdfs:range rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Grid_Mapping"/>
+    <cfatt:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >grid_mapping</cfatt:id>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#longitude_of_central_meridian">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Albers_conical_equal_area"/>
+          <owl:Class rdf:about="#Lambert_conformal_conic"/>
+          <owl:Class rdf:about="#Transverse_mercator"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#latitude_of_projection_origin">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Albers_conical_equal_area"/>
+          <owl:Class rdf:about="#Azimuthal_equidistant"/>
+          <owl:Class rdf:about="#Lambert_azimuthal_equal_area"/>
+          <owl:Class rdf:about="#Lambert_conformal_conic"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#scale_factor_at_central_meridian">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Transverse_mercator"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <crosswalk:ObjectDatatypeMapping rdf:ID="CFstandardnameCW">
+    <crosswalk:objectProperty rdf:resource="#standard_name"/>
+    <crosswalk:referenceClass rdf:resource="http://marinemetadata.org/cf#Standard_Name"/>
+    <crosswalk:referenceDatatypeProperty rdf:resource="http://marinemetadata.org/cf#standard_name"/>
+    <crosswalk:datatypeProperty rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#standard_name"/>
+  </crosswalk:ObjectDatatypeMapping>
+  <swrl:Imp rdf:ID="Projection_ordinate">
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first>
+          <swrl:IndividualPropertyAtom>
+            <swrl:argument2 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x2"/>
+            <swrl:propertyPredicate rdf:resource="#ordinate"/>
+            <swrl:argument1 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x1"/>
+          </swrl:IndividualPropertyAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:head>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Rule to find ordinate of a Projection Variable</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource=""/>
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:classPredicate rdf:resource="#Variable_with_Projection_Coordinate"/>
+            <swrl:argument1 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x1"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:propertyPredicate rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#isCovariantWith"/>
+                <swrl:argument2 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x2"/>
+                <swrl:argument1 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x1"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:first>
+                  <swrl:ClassAtom>
+                    <swrl:classPredicate rdf:resource="#A_projection_y_coordinate"/>
+                    <swrl:argument1 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x2"/>
+                  </swrl:ClassAtom>
+                </rdf:first>
+              </swrl:AtomList>
+            </rdf:rest>
+          </swrl:AtomList>
+        </rdf:rest>
+      </swrl:AtomList>
+    </swrl:body>
+  </swrl:Imp>
+  <swrl:Imp rdf:ID="Gridlatlon_abscissa">
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:IndividualPropertyAtom>
+            <swrl:propertyPredicate rdf:resource="#abscissa"/>
+            <swrl:argument2 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x2"/>
+            <swrl:argument1 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x1"/>
+          </swrl:IndividualPropertyAtom>
+        </rdf:first>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+      </swrl:AtomList>
+    </swrl:head>
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:argument1 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x1"/>
+            <swrl:classPredicate rdf:resource="#Variable_with_Gridlatlon"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:first>
+                  <swrl:ClassAtom>
+                    <swrl:classPredicate rdf:resource="#A_grid_longitude"/>
+                    <swrl:argument1 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x2"/>
+                  </swrl:ClassAtom>
+                </rdf:first>
+              </swrl:AtomList>
+            </rdf:rest>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:propertyPredicate rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#isCovariantWith"/>
+                <swrl:argument1 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x1"/>
+                <swrl:argument2 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x2"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+          </swrl:AtomList>
+        </rdf:rest>
+      </swrl:AtomList>
+    </swrl:body>
+    <rdfs:isDefinedBy rdf:resource=""/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Rule to find abscissa for a Gridlatlon coordinate
+</rdfs:comment>
+  </swrl:Imp>
+  <swrl:Imp rdf:ID="Projection_abscissa">
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:IndividualPropertyAtom>
+            <swrl:propertyPredicate rdf:resource="#abscissa"/>
+            <swrl:argument2 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x2"/>
+            <swrl:argument1 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x1"/>
+          </swrl:IndividualPropertyAtom>
+        </rdf:first>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+      </swrl:AtomList>
+    </swrl:head>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Rule to find abscissa of a Projection Variable
+</rdfs:comment>
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:classPredicate rdf:resource="#Variable_with_Projection_Coordinate"/>
+            <swrl:argument1 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x1"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:first>
+                  <swrl:ClassAtom>
+                    <swrl:classPredicate rdf:resource="#A_projection_x_coordinate"/>
+                    <swrl:argument1 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x2"/>
+                  </swrl:ClassAtom>
+                </rdf:first>
+              </swrl:AtomList>
+            </rdf:rest>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:propertyPredicate rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#isCovariantWith"/>
+                <swrl:argument1 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x1"/>
+                <swrl:argument2 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x2"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+          </swrl:AtomList>
+        </rdf:rest>
+      </swrl:AtomList>
+    </swrl:body>
+    <rdfs:isDefinedBy rdf:resource=""/>
+  </swrl:Imp>
+  <swrl:Imp rdf:ID="Gridlatlon_ordinate">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Rule to find ordinate of a Gridlatlon variable</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource=""/>
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first>
+          <swrl:IndividualPropertyAtom>
+            <swrl:argument1 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x1"/>
+            <swrl:propertyPredicate rdf:resource="#ordinate"/>
+            <swrl:argument2 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x2"/>
+          </swrl:IndividualPropertyAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:head>
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:argument1 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x1"/>
+            <swrl:classPredicate rdf:resource="#Variable_with_Gridlatlon"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:argument1 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x1"/>
+                <swrl:propertyPredicate rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#isCovariantWith"/>
+                <swrl:argument2 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x2"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:first>
+                  <swrl:ClassAtom>
+                    <swrl:classPredicate rdf:resource="#A_grid_latitude"/>
+                    <swrl:argument1 rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-obj.owl#x2"/>
+                  </swrl:ClassAtom>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </swrl:AtomList>
+            </rdf:rest>
+          </swrl:AtomList>
+        </rdf:rest>
+      </swrl:AtomList>
+    </swrl:body>
+  </swrl:Imp>
+  <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Attribute">
+    <owl:equivalentClass>
+      <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/netcdf-3.owl#Attribute">
+        <owl:equivalentClass rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Attribute"/>
+      </rdf:Description>
+    </owl:equivalentClass>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/netcdf-3.owl#Dataset">
+    <owl:equivalentClass>
+      <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#Dataset">
+        <owl:equivalentClass rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/netcdf-3.owl#Dataset"/>
+      </rdf:Description>
+    </owl:equivalentClass>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.2, Build 562)  http://protege.stanford.edu -->

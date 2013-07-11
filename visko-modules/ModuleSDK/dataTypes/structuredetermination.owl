@@ -1,0 +1,115 @@
+<rdf:RDF
+    xmlns:wdo="http://trust.utep.edu/2.0/wdo.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:pmlp="http://inference-web.org/2.0/pml-provenance.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" > 
+  <rdf:Description rdf:about="http://structuredetermination#High_Throughput_Regression">
+    <rdfs:comment xml:lang="EN">m5</rdfs:comment>
+    <rdfs:label xml:lang="EN">High Throughput Regression</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#MethodRule"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://structuredetermination">
+    <rdf:type rdf:resource="http://trust.utep.edu/2.0/wdo.owl#WorkflowDrivenOntology"/>
+    <owl:imports rdf:resource="http://trust.utep.edu/2.0/wdo.owl"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://structuredetermination#Diffraction_Pattern_Calculation">
+    <rdfs:comment xml:lang="EN">m2</rdfs:comment>
+    <rdfs:label xml:lang="EN">Diffraction Pattern Calculation</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#MethodRule"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://structuredetermination#Particle_Image">
+    <rdfs:comment xml:lang="EN">d1</rdfs:comment>
+    <rdfs:label xml:lang="EN">Particle Image</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#Information"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://structuredetermination#Signature_Extraction">
+    <rdfs:comment xml:lang="EN">m3</rdfs:comment>
+    <rdfs:label xml:lang="EN">Signature Extraction</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#MethodRule"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://structuredetermination#Angular_Correlation_Function_Collection">
+    <rdfs:comment xml:lang="EN">d11</rdfs:comment>
+    <rdfs:label xml:lang="EN">Angular Correlation Function Collection</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#Information"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://structuredetermination#Number_of_Nanorods">
+    <rdfs:comment xml:lang="EN">d10</rdfs:comment>
+    <rdfs:label xml:lang="EN">Number of Nanorods</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://structuredetermination#User_Parameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://structuredetermination#Reconstruction">
+    <rdfs:comment xml:lang="EN">m7</rdfs:comment>
+    <rdfs:label xml:lang="EN">Reconstruction</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#MethodRule"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://structuredetermination#Number_of_Nanorices">
+    <rdfs:label xml:lang="EN">Number of Nanorices</rdfs:label>
+    <rdfs:comment xml:lang="EN">d8</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://structuredetermination#User_Parameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://structuredetermination#Component_Signature_Extraction">
+    <rdfs:comment xml:lang="EN">m6</rdfs:comment>
+    <rdfs:label xml:lang="EN">Component Signature Extraction</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#MethodRule"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://structuredetermination#Diffraction_Pattern">
+    <rdfs:comment xml:lang="EN">d2</rdfs:comment>
+    <rdfs:label xml:lang="EN">Diffraction Pattern</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#Information"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://structuredetermination#Angular_Correlation_Function">
+    <rdfs:comment xml:lang="EN">d3</rdfs:comment>
+    <rdfs:label xml:lang="EN">Angular Correlation Function</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#Information"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://structuredetermination#Number_of_Nanoprisms">
+    <rdfs:label xml:lang="EN">Number of Nanoprisms</rdfs:label>
+    <rdfs:comment xml:lang="EN">d9</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://structuredetermination#User_Parameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://structuredetermination#Particle_Image_Generation">
+    <rdfs:comment xml:lang="EN">m1</rdfs:comment>
+    <rdfs:label xml:lang="EN">Particle Image Generation</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#MethodRule"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://structuredetermination#Component_Particle_Structure">
+    <rdfs:comment xml:lang="EN">d6</rdfs:comment>
+    <rdfs:label xml:lang="EN">Component Particle Structure</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#Information"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://structuredetermination#User_Parameter">
+    <rdfs:comment xml:lang="EN">d7</rdfs:comment>
+    <rdfs:label xml:lang="EN">User Parameter</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#Information"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://structuredetermination#Component_Particle_Signature">
+    <rdfs:comment xml:lang="EN">d5</rdfs:comment>
+    <rdfs:label xml:lang="EN">Component Particle Signature</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#Information"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://structuredetermination#Heterougeneous_Ensemble_Signature">
+    <rdfs:comment xml:lang="EN">d4</rdfs:comment>
+    <rdfs:label xml:lang="EN">Heterougeneous Ensemble Signature</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://inference-web.org/2.0/pml-provenance.owl#Information"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+</rdf:RDF>
