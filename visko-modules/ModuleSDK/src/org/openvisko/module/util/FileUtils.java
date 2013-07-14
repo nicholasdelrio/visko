@@ -61,6 +61,9 @@ public class FileUtils{
 					}
 				}
 			}
+			
+			System.out.println("tomcat home Path: " + tomcatHomePath);
+			
 			File tomcatHome = new File(tomcatHomePath);
 			File webappsDir = new File(tomcatHome, "webapps");
 			WEBAPP_DIR = new File(webappsDir, WEBAPP_NAME);
