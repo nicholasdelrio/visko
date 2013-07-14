@@ -155,7 +155,7 @@
 		
 		<!-- copy server.properties to WEB-INF/Classes -->
 		<copy todir="${dir.war}/WEB-INF/classes" overwrite="true" flatten="true">
-			<fileset dir="${basedir}/../visko-build">
+			<fileset dir="${basedir}/../../visko-build">
 				<include name="server.properties" />
 				<include name="server.${user.name}.properties" />
 				<include name="server.${env.COMPUTERNAME}.properties" />

@@ -20,6 +20,9 @@
 	<property file="registry.${env.COMPUTERNAME}.properties" />
 	<property file="registry.properties"/>
 	
+	<!-- Visko Modules Location -->
+	<property name="visko.modules" value="${basedir}/../visko-modules" />
+	
 	<path id="build.classpath">
 		<fileset dir="${basedir}/lib" includes="*.jar" />
 	</path>
@@ -50,7 +53,7 @@
 			<sequential>
 				<echo>warring module_@{module.name}</echo>
 				<antcall target="war-module">
-					<param name="module.dir" value="../module_@{module.name}"/>
+					<param name="module.dir" value="${visko.modules}/module_@{module.name}"/>
 				</antcall>
 			</sequential>
 		</for>
@@ -96,7 +99,7 @@
 			<sequential>
 				<echo>registering module module_@{module.name}</echo>
 				<antcall target="register-module">
-					<param name="module.dir" value="../module_@{module.name}"/>
+					<param name="module.dir" value="${visko.modules}/module_@{module.name}"/>
 				</antcall>
 			</sequential>
 		</for>
