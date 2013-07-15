@@ -1,0 +1,11 @@
+Contained within the packages ncl, gmt, and vtk are Java code exposing functionality of some visualization toolkit.
+To expose your own toolkit functionality, you need to complete the following steps:
+
+1.	If your toolkit operator is an exectuable, you can wrap it in Java using the template found here (edu.utep.trustlab.toolkitOperators.example.WrappedExectuable.java)
+	You will customize a new template for every operator you want to expose. Thus if you have 3 toolkit operators you want to expose,
+	you will have three Java classes based on the template.
+
+2. 	Annotate the Java code using JAX-WS annotations. You can find an example of the required annotations at
+	(edu.utep.trustlab.toolkitOperators.example.ExposedServices.java).
+
+3. 	Use your favorite Wizard (e.g, Eclipse AXIS2) to build and deploy the resulting web service.

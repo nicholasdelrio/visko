@@ -1,0 +1,34 @@
+package org.openvisko.module;
+
+import org.openvisko.module.operators.ToolkitOperator;
+import org.openvisko.module.util.CommandRunner;
+import org.openvisko.module.util.FileUtils;
+
+
+public class Grd2xyz extends ToolkitOperator{
+	
+	/*
+	 * ASUMPTION: the input netCDF Dataset is 2D grid with the following variable set:
+	 * - variable 'x' represents longitude
+	 * - variable 'y' represents latitude
+	 * - variable 'z' represents data value
+	 */
+	private static final String SCRIPT_CONTOUR = FileUtils.getScriptsDir().getAbsolutePath() + "/" + "wrapper-grd2xyz.sh";
+
+	public Grd2xyz(String netCDFDataURL){	
+		super(netCDFDataURL, "griddedData.nc", false, false, "xyz.txt");
+	}
+	
+	public String transform(
+			String nanReplacement)
+	{
+		String cmd = SCRIPT_CONTOUR + " "
+		+ inputPath + " "
+		+ outputPath + " "
+		+ nanReplacement;
+		
+	    CommandRunner.run(cmd);
+	    
+		return outputURL;
+	}
+}//end class 
