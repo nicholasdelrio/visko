@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+
+<!--
+  This document uses XML entities as abbreviations for URIs.
+  -->
+
+<!DOCTYPE uridef[
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns">
+  <!--Added for shadow list vocab-->
+  <!ENTITY shadow-rdf "http://www.daml.org/services/owl-s/1.2/generic/ObjectList.owl">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema">
+  <!ENTITY service "http://www.daml.org/services/owl-s/1.2/Service.owl">
+  <!ENTITY process "http://www.daml.org/services/owl-s/1.2/Process.owl">
+  <!ENTITY grounding "http://www.daml.org/services/owl-s/1.2/Grounding.owl">
+  <!ENTITY DEFAULT "http://www.daml.org/services/owl-s/1.2/GroundingDeprecatedElements.owl">
+]>
+
+
+<rdf:RDF
+  xmlns:rdf=	 "&rdf;#"
+  xmlns:shadow-rdf = "&shadow-rdf;#"
+  xmlns:rdfs=	 "&rdfs;#"
+  xmlns:owl =    "&owl;#"
+  xmlns:service= "&service;#"
+  xmlns:process= "&process;#"
+  xmlns=	 "&DEFAULT;#"
+  xml:base=      "&DEFAULT;">
+
+<owl:Ontology rdf:about="">
+  <owl:versionInfo>
+    $Id: GroundingDeprecatedElements.owl,v 1.1 2011/01/24 06:37:52 nick Exp $
+  </owl:versionInfo>
+  <rdfs:comment>
+    Upper-level OWL ontology for Groundings that employ WSDL.
+    Part of the OWL-S ontology; see http://www.daml.org/services/.
+
+    This version is intended for use with WSDL 1.1.  The OWL-S
+    Coalition plans to produce a future version for use with WSDL 2.0,
+    when it has been finalized (or nearly so).
+
+    Note that other approaches to grounding may be accommodated
+    within the OWL-S framework.  This is the only approach produced
+    to date by the OWL-S Coalition.
+
+    For notes on version history, see 
+        http://www.daml.org/services/owl-s/1.2/status.html.    
+  </rdfs:comment>
+  <owl:imports>
+	<owl:Ontology rdf:about="&process;"/>
+  </owl:imports>
+  <owl:imports>
+	<owl:Ontology rdf:about="&grounding;"/>
+  </owl:imports>
+</owl:Ontology>
+
+<owl:ObjectProperty rdf:ID="wsdlInputMessageParts">
+  <rdfs:comment>
+    Deprecated as of DAML-S 0.9.
+  </rdfs:comment>
+  <owl:equivalentProperty rdf:resource="#wsdlInputs"/>
+</owl:ObjectProperty>
+<owl:FunctionalProperty rdf:about="#wsdlInputMessageParts"/>
+
+<owl:ObjectProperty rdf:ID="wsdlOutputMessageParts">
+  <rdfs:comment>
+    Deprecated as of DAML-S 0.9; wsdlOutputs should now be used.
+  </rdfs:comment>
+  <owl:equivalentProperty rdf:resource="#wsdlOutputs"/>
+</owl:ObjectProperty>
+<owl:FunctionalProperty rdf:about="#wsdlOutputMessageParts"/>
+
+<owl:DatatypeProperty rdf:ID="wsdlReference">
+  <rdfs:comment>
+    Deprecated as of DAML-S 0.9; wsdlVersion should now be used.
+  </rdfs:comment>
+  <rdfs:domain rdf:resource="&grounding;#WsdlAtomicProcessGrounding"/>
+  <rdfs:range rdf:resource="&xsd;#anyURI"/>
+  <rdf:type rdf:resource="&owl;#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<!-- otherReference -->
+
+<owl:DatatypeProperty rdf:ID="otherReference">
+  <rdfs:comment>
+    A URI indicating a relevant standards document (other than that
+    for WSDL).
+    Deprecated as of DAML-S 0.9; no longer recommended or supported.
+  </rdfs:comment>
+  <rdfs:domain rdf:resource="&grounding;#WsdlAtomicProcessGrounding"/>
+  <rdfs:range rdf:resource="&xsd;#anyURI"/>
+</owl:DatatypeProperty>
+
+<!-- damlsParameter -->
+
+<owl:ObjectProperty rdf:ID="damlsParameter">
+  <rdfs:comment>
+    Deprecated as of OWL-S 1.0.  owlsParameter should be used.
+  </rdfs:comment>
+  <owl:equivalentProperty rdf:resource="&grounding;#owlsParameter"/>
+</owl:ObjectProperty>
+
+<!-- wsdlInputs -->
+
+<owl:ObjectProperty rdf:ID="wsdlInputs">
+  <rdfs:comment>
+    Deprecated as of OWL-S 1.0.  wsdlInput should be used.
+  </rdfs:comment>
+  <rdfs:comment>
+    A list of WsdlMessageMap instances, one for each
+    message part of the WSDL input message.
+  </rdfs:comment>
+  <rdfs:domain rdf:resource="&grounding;#WsdlAtomicProcessGrounding"/>
+  <rdfs:range rdf:resource="#WsdlInputMessageMapList"/>
+</owl:ObjectProperty>
+<owl:FunctionalProperty rdf:about="#wsdlInputs"/>
+
+<!-- wsdlOutputs -->
+
+<owl:ObjectProperty rdf:ID="wsdlOutputs">
+  <rdfs:comment>
+    Deprecated as of OWL-S 1.0.  wsdlOutput should be used.
+  </rdfs:comment>
+  <rdfs:comment>
+    A list of WsdlMessageMap instances, one for each
+    output of the atomic process.
+  </rdfs:comment>
+  <rdfs:domain rdf:resource="&grounding;#WsdlAtomicProcessGrounding"/>
+  <rdfs:range rdf:resource="#WsdlOutputMessageMapList"/>
+</owl:ObjectProperty>
+<owl:FunctionalProperty rdf:about="#wsdlOutputs"/>
+
+<owl:Class rdf:ID="WsdlOutputMessageMapList">
+<rdfs:comment> Deprecated as of version 1.1; no longer needed </rdfs:comment>
+<rdfs:comment> A list of WsdlOutputMessageMap instances </rdfs:comment>
+  <rdfs:subClassOf rdf:resource="&shadow-rdf;#List"/>
+  <rdfs:subClassOf>
+   <owl:Restriction>
+     <owl:onProperty rdf:resource="&shadow-rdf;#first"/>
+     <owl:allValuesFrom rdf:resource="#WsdlOutputMessageMap"/>
+   </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+   <owl:Restriction>
+     <owl:onProperty rdf:resource="&shadow-rdf;#rest"/>
+     <owl:allValuesFrom rdf:resource="#WsdlOutputMessageMapList"/>
+   </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:ID="WsdlInputMessageMapList">
+<rdfs:comment> Deprecated as of version 1.1; no longer needed </rdfs:comment>
+<rdfs:comment> A list of WsdlInputMessageMap instances </rdfs:comment>
+  <rdfs:subClassOf rdf:resource="&shadow-rdf;#List"/>
+  <rdfs:subClassOf>
+   <owl:Restriction>
+     <owl:onProperty rdf:resource="&shadow-rdf;#first"/>
+     <owl:allValuesFrom rdf:resource="#WsdlInputMessageMap"/>
+   </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+   <owl:Restriction>
+     <owl:onProperty rdf:resource="&shadow-rdf;#rest"/>
+     <owl:allValuesFrom rdf:resource="#WsdlInputMessageMapList"/>
+   </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+</rdf:RDF>
+
+

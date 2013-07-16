@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+
+<!DOCTYPE uridef[
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns">
+  <!ENTITY shadow-rdf "http://www.daml.org/services/owl-s/1.2/generic/ObjectList.owl">
+  <!ENTITY expr "http://www.daml.org/services/owl-s/1.2/generic/Expression.owl">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema">
+  <!ENTITY time "http://www.isi.edu/~hobbs/damltime/time-entry.owl">
+  <!ENTITY swrl "http://www.w3.org/2003/11/swrl">
+  <!ENTITY service "http://www.daml.org/services/owl-s/1.2/Service.owl">
+  <!ENTITY process "http://www.daml.org/services/owl-s/1.2/Process.owl">
+  <!ENTITY grounding "http://www.daml.org/services/owl-s/1.2/Grounding.owl">
+  <!ENTITY DEFAULT "http://www.daml.org/services/owl-s/1.2/ProcessDeprecatedElements.owl">
+]>
+
+
+<rdf:RDF
+  xmlns:rdf=	"&rdf;#"
+  xmlns:shadow-rdf= "&shadow-rdf;#"
+  xmlns:expr= "&expr;#"
+  xmlns:rdfs=	"&rdfs;#"
+  xmlns:owl= "&owl;#"
+  xmlns:swrl= "&swrl;#"
+  xmlns:xsd= "&xsd;#"
+  xmlns:service= "&service;#"
+  xmlns:process= "&process;#"
+  xmlns:grounding= "&grounding;#"
+  xmlns=	"&DEFAULT;#"
+  xml:base="&process;">
+
+<owl:Ontology rdf:about="">
+  <owl:versionInfo>
+    $Id: ProcessDeprecatedElements.owl,v 1.1 2011/01/24 06:37:52 nick Exp $
+  </owl:versionInfo>
+  <rdfs:comment>
+    Upper-level OWL ontology for Processes.
+    Part of the DAML-S/OWL-S effort; see http://www.daml.org/services/owl-s/.
+  </rdfs:comment>
+  <owl:imports>
+	<owl:Ontology rdf:about="&process;"/>
+  </owl:imports>
+  <owl:imports>
+	<owl:Ontology rdf:about="&expr;"/>
+  </owl:imports>
+  <owl:imports>
+	<owl:Ontology rdf:about="&service;"/>
+  </owl:imports>
+  <owl:imports>
+        <owl:Ontology rdf:about="&shadow-rdf;"/>
+  </owl:imports>
+
+</owl:Ontology>
+
+<owl:Class rdf:ID="ConditionalEffect">
+  <rdfs:comment> Deprecated as of version 1.1 </rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:ID="ConditionalOutput">
+  <rdfs:comment> Deprecated as of version 1.1 </rdfs:comment>
+</owl:Class>
+
+<owl:ObjectProperty rdf:ID="expand">
+  <rdfs:comment>This is a deprecated usage; expandsTo is preferred.</rdfs:comment>
+  <owl:equivalentProperty rdf:resource="&process;#expandsTo"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:ID="collapse">
+  <rdfs:comment>This is a deprecated usage; collapsesTo is preferred.</rdfs:comment>
+  <owl:equivalentProperty rdf:resource="&process;#collapsesTo"/>
+</owl:ObjectProperty>
+
+<owl:Class rdf:ID="ProcessComponent">
+  <owl:equivalentClass rdf:resource="&process;#ControlConstruct"/>
+  <rdfs:comment> 
+    Deprecated as of v. 1.1.
+    Note: the old concept ProcessComponent is no longer needed. ControlConstruct
+    which includes Perform as a subclass should be used anywhere that 
+    ProcessComponent might have been used (which in the OWL-S 1.0 ontology 
+    was only in describing the relationship to temporal aspects)
+  </rdfs:comment> 
+</owl:Class>
+
+<owl:Class rdf:ID="Unordered">
+  <rdfs:comment>
+     Deprecated.  As of version 1.1, renamed to Any-Order.
+  </rdfs:comment>
+  <owl:equivalentClass rdf:resource="&process;#Any-Order"/>
+</owl:Class>
+
+</rdf:RDF>
+
+

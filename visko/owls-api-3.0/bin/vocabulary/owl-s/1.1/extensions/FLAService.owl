@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Id: FLAService.owl,v 1.1 2011/01/24 06:37:51 nick Exp $ -->
+<!DOCTYPE uridef [
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema">
+  <!ENTITY service "http://www.daml.org/services/owl-s/1.1/Service.owl">
+  <!ENTITY profile "http://www.daml.org/services/owl-s/1.1/Profile.owl">
+  <!ENTITY process "http://www.daml.org/services/owl-s/1.1/Process.owl">
+  <!ENTITY grounding "http://www.daml.org/services/owl-s/1.1/Grounding.owl">
+  <!ENTITY dc			"http://purl.org/dc/elements/1.1/">
+]>
+<rdf:RDF
+  xmlns:rdf ="&rdf;#"
+  xmlns:rdfs = "&rdfs;#"
+  xmlns:owl = "&owl;#"
+  xmlns:xsd = "&xsd;#"
+  xmlns:dc  = "&dc;"
+  xml:base  = "http://www.flacp.fujitsulabs.com/tce/ontologies/2005/01/service.owl#">
+
+<!-- A version generated based on OWL-S 1.1 -->
+<owl:Ontology rdf:about="">
+	<rdfs:label>Task Computing Environment (TCE) Service Ontology</rdfs:label>
+	<owl:versionInfo>2.1</owl:versionInfo>
+	<dc:date>2009-03-24</dc:date>
+	<owl:imports rdf:resource="&service;" />
+	<owl:imports rdf:resource="&profile;" />
+	<owl:imports rdf:resource="&process;" />
+	<owl:imports rdf:resource="&grounding;" />
+</owl:Ontology>
+
+<!-- Service type hierarchical structure, using profile hierarchy tree -->
+<owl:Class rdf:ID="TranslatorProfile">
+	<rdfs:label xml:lang="en">Translator</rdfs:label>
+	<rdfs:subClassOf rdf:resource="&profile;#Profile" />
+</owl:Class>
+<owl:Class rdf:ID="InternalServiceProfile">
+	<rdfs:label xml:lang="en">Internal Service</rdfs:label>
+	<rdfs:subClassOf rdf:resource="&profile;#Profile" />
+</owl:Class>
+<owl:Class rdf:ID="ProducerProfile">
+	<rdfs:label xml:lang="en">Producer</rdfs:label>
+	<rdfs:subClassOf rdf:resource="&profile;#Profile" />
+</owl:Class>
+<owl:Class rdf:ID="ConsumerProfile">
+	<rdfs:label xml:lang="en">Consumer</rdfs:label>
+	<rdfs:subClassOf rdf:resource="&profile;#Profile" />
+</owl:Class>
+<owl:Class rdf:ID="DeviceProfile">
+	<rdfs:label xml:lang="en">Device</rdfs:label>
+	<rdfs:subClassOf rdf:resource="&profile;#Profile" />
+</owl:Class>
+<owl:Class rdf:ID="InstanceProvidingServiceProfile">
+	<rdfs:label xml:lang="en">Instance Providing Service
+	</rdfs:label>
+	<rdfs:subClassOf rdf:resource="#ProducerProfile" />
+</owl:Class>
+<owl:Class rdf:ID="ViewerProfile">
+	<rdfs:label xml:lang="en">Viewer</rdfs:label>
+	<rdfs:subClassOf rdf:resource="#DeviceProfile" />
+	<rdfs:subClassOf rdf:resource="#ConsumerProfile" />
+	<owl:disjointWith rdf:resource="#PrinterProfile" />
+	<owl:disjointWith rdf:resource="#DigitalCameraProfile" />
+</owl:Class>
+<owl:Class rdf:ID="PrinterProfile">
+	<rdfs:label xml:lang="en">Printer</rdfs:label>
+	<rdfs:subClassOf rdf:resource="#DeviceProfile" />
+	<rdfs:subClassOf rdf:resource="#ConsumerProfile" />
+	<owl:disjointWith rdf:resource="#ViewerProfile" />
+	<owl:disjointWith rdf:resource="#DigitalCameraProfile" />
+</owl:Class>
+<owl:Class rdf:ID="DigitalCameraProfile">
+	<rdfs:label xml:lang="en">Digital Camera</rdfs:label>
+	<rdfs:subClassOf rdf:resource="#DeviceProfile" />
+	<rdfs:subClassOf rdf:resource="#ProducerProfile" />
+	<owl:disjointWith rdf:resource="#PrinterProfile" />
+	<owl:disjointWith rdf:resource="#ViewerProfile" />
+</owl:Class>
+
+<!-- Multimedia Descriptions -->
+<!-- e.g.
+<fla:videoDescription>http://www.flacp.fujitsulabs.com/videoFile.wmv</fla:videoDescription>
+-->
+<owl:DatatypeProperty rdf:ID="videoDescription">
+	<rdfs:domain rdf:resource="&profile;#Profile" />
+	<rdfs:range rdf:resource="&xsd;#anyURI" />
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:ID="imageDescription">
+	<rdfs:domain rdf:resource="&profile;#Profile" />
+	<rdfs:range rdf:resource="&xsd;#anyURI" />
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:ID="iconDescription">
+	<rdfs:domain rdf:resource="&profile;#Profile" />
+	<rdfs:range rdf:resource="&xsd;#anyURI" />
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:ID="voiceDescription">
+	<rdfs:domain rdf:resource="&profile;#Profile" />
+	<rdfs:range rdf:resource="&xsd;#anyURI" />
+</owl:DatatypeProperty>
+<!-- Location -->
+<!-- e.g.
+<fla:locatedAt>
+  <fla:Location>
+    <profile:sParameter>
+      <geoF:Point rdf:ID="ViewServicePosition">
+        <rdfs:label>On the table in the FLA, CP Conference Room</rdfs:label>
+        <geoF:xyzCoordinates>2,3,0.8</geoF:xyzCoordinates>
+        <geoC:hasCoordinateSystem rdf:resource="http://www.flacp.fujitsulabs.com/tce/ontologies/2004/03/geo.owl#MyCoordinateSystem"/>
+      </geoF:Point>
+    </profile:sParameter>
+  </fla:Location>
+</fla:locatedAt>
+-->
+<owl:Class rdf:ID="Location">
+	<rdfs:subClassOf rdf:resource="&profile;#ServiceParameter" />
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<owl:onProperty rdf:resource="&profile;#sParameter" />
+			<owl:allValuesFrom>
+				<owl:Class rdf:about="http://www.mindswap.org/2003/owl/geo/geoFeatures.owl#Point" />
+			</owl:allValuesFrom>
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+<owl:ObjectProperty rdf:ID="locatedAt">
+	<rdfs:subPropertyOf rdf:resource="&profile;#serviceParameter" />
+	<rdfs:range rdf:resource="#Location" />
+</owl:ObjectProperty>
+<!-- Service Control UI -->
+<!-- e.g.
+<fla:hasServiceControlUI>
+  <fla:ServiceControlUI>
+    <profile:sParameter rdf:resource="http://128.8.244.15/DisplayURL2/controller.aspx" />
+  </fla:ServiceControlUI>
+</fla:hasServiceControlUI>
+-->
+<owl:Class rdf:ID="ServiceControlUI">
+	<rdfs:subClassOf rdf:resource="&profile;#ServiceParameter" />
+</owl:Class>
+<owl:ObjectProperty rdf:ID="hasServiceControlUI">
+	<rdfs:subPropertyOf rdf:resource="&profile;#serviceParameter" />
+	<rdfs:range rdf:resource="#ServiceControlUI" />
+</owl:ObjectProperty>
+<!-- Owner -->
+<!-- e.g.
+<fla:ownedBy xmlns:fla="http://www.flacp.fujitsulabs.com/tce/ontologies/2005/01/service.owl">
+  <fla:Owner>
+	<profile:sParameter>
+	  <fla:OwnerEntity rdf:ID="Owner">
+		<rdfs:label>Jon Doe</rdfs:label>
+		<fla:ownerEntityID>jdoe</fla:ownerEntityID>
+	  </fla:OwnerEntity>
+	</profile:sParameter>
+  </fla:Owner>
+</fla:ownedBy>
+-->
+<owl:Class rdf:ID="Owner">
+	<rdfs:subClassOf rdf:resource="&profile;#ServiceParameter" />
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<owl:onProperty rdf:resource="&profile;#sParameter" />
+			<owl:allValuesFrom rdf:resource="#OwnerEntity" />
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+<owl:ObjectProperty rdf:ID="ownedBy">
+	<rdfs:subPropertyOf rdf:resource="&profile;#serviceParameter" />
+	<rdfs:range rdf:resource="#Owner" />
+</owl:ObjectProperty>
+<owl:Class rdf:ID="OwnerEntity">
+	<rdfs:label>Owner Entity</rdfs:label>
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<owl:onProperty rdf:resource="#ownerEntityID" />
+			<owl:cardinality rdf:datatype="&xsd;#nonNegativeInteger">1</owl:cardinality>
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+<owl:DatatypeProperty rdf:ID="ownerEntityID">
+	<rdfs:label>Owner Entity ID</rdfs:label>
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+<!-- Security Setting -->
+<!-- e.g. 
+<fla:hasSecuritySetting xmlns:fla="http://www.flacp.fujitsulabs.com/tce/ontologies/2005/01/service.owl">
+  <fla:SecurityParameter>
+    <profile:sParameter>
+      <fla:SecuritySetting rdf:ID="securitySetting">
+        <rdfs:label>Fujitsu Lab of America</rdfs:label>
+        <fla:certificateAuthorityName>FLA</fla:certificateAuthorityName>
+      </fla:SecuritySetting>
+    </profile:sParameter>
+  </fla:SecurityParameter>
+</fla:hasSecuritySetting>
+-->
+<owl:Class rdf:ID="SecurityParameter">
+	<rdfs:subClassOf rdf:resource="&profile;#ServiceParameter" />
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<owl:onProperty rdf:resource="&profile;#sParameter" />
+			<owl:allValuesFrom rdf:resource="#SecuritySetting" />
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+<owl:ObjectProperty rdf:ID="hasSecuritySetting">
+	<rdfs:subPropertyOf rdf:resource="&profile;#serviceParameter" />
+	<rdfs:range rdf:resource="#SecurityParameter" />
+</owl:ObjectProperty>
+<owl:Class rdf:ID="SecuritySetting">
+	<rdfs:label>Security Setting</rdfs:label>
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<owl:onProperty rdf:resource="#certificateAuthorityName" />
+			<owl:cardinality rdf:datatype="&xsd;#nonNegativeInteger">1</owl:cardinality>
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+<owl:DatatypeProperty rdf:ID="certificateAuthorityName">
+	<rdfs:label>CA Name</rdfs:label>
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+<!-- self descriptin function description -->
+<!-- e.g. 
+<fla:hasSelfDestructionService>
+  <fla:SelfDestructionService>
+    <profile:sParameter rdf:resource="#DestroyObject"/>
+  </fla:SelfDestructionService>
+</fla:hasSelfDestructionService>
+-->
+<owl:Class rdf:ID="SelfDestructionService">
+	<rdfs:subClassOf rdf:resource="&profile;#ServiceParameter" />
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<owl:onProperty rdf:resource="&profile;#sParameter" />
+			<owl:allValuesFrom rdf:resource="&process;#Process" />
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+<owl:ObjectProperty rdf:ID="hasSelfDestructionService">
+	<rdfs:subPropertyOf rdf:resource="&profile;#serviceParameter" />
+	<rdfs:range rdf:resource="#SelfDestructionService" />
+</owl:ObjectProperty>
+<!-- strict type -->
+<!--
+	e.g. <process:Input rdf:ID="URLInput">
+	<fla:strictType>http://www.flacp.fujitsulabs.com/tce/ontologies/2004/03/object.owl#ViewableFile</fla:strictType>
+	</process:Input>
+-->
+<owl:DatatypeProperty rdf:ID="strictType">
+	<rdfs:domain rdf:resource="&process;#Parameter" />
+	<rdfs:range rdf:resource="&xsd;#anyURI" />
+</owl:DatatypeProperty>
+<!-- transform input type -->
+<!--
+	e.g. <fla:transformInputType>false</fla:transformInputType>
+-->
+<owl:DatatypeProperty rdf:ID="transformInputType">
+	<rdfs:domain rdf:resource="&process;#Input" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+<!-- send into random number during execution -->
+<!--
+	e.g. <fla:useRandomInput>true</fla:useRandomInput>
+-->
+<owl:DatatypeProperty rdf:ID="useRandomInput">
+	<rdfs:domain rdf:resource="&process;#Input" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+<!-- UPnP Grounding -->
+<!--
+<fla:UPnPGrounding rdf:ID="SemanticStreamProviderGrounding">
+     <service:supportedBy rdf:resource="#SemanticStreamProviderService" />
+     <fla:hasUPnPAtomicProcessGrounding rdf:resource="#SemanticStreamProviderProcessGrounding" />
+</fla:UPnPGrounding>
+<fla:UPnPAtomicProcessGrounding rdf:ID="SemanticStreamProviderProcessGrounding">
+     <grounding:damlsProcess rdf:resource="#SemanticStreamProvider"/>
+     <fla:upnpCommand>getStreamURL</fla:upnpCommand>
+     <fla:upnpOutputMapping>
+       <fla:UPnPMap>
+         <grounding:damlsParameter rdf:resource="#SemanticStreamOutput" />
+         <fla:upnpParameter>_ReturnValue</fla:upnpParameter>
+       </fla:UPnPMap>
+     </fla:upnpOutputMapping>
+     <fla:upnpServiceID>upnp:id:stream-service-1.0:128.8.244.170:2</fla:upnpServiceID>
+     <fla:upnpDeviceURL>http://streaming.flacp.fujitsulabs.com:35002/</fla:upnpDeviceURL>
+</fla:UPnPAtomicProcessGrounding>
+-->
+<owl:Class rdf:ID="UPnPGrounding">
+	<rdfs:subClassOf rdf:resource="&service;#ServiceGrounding" />
+</owl:Class>
+<owl:ObjectProperty rdf:ID="hasUPnPAtomicProcessGrounding">
+	<rdfs:domain rdf:resource="#UPnPGrounding" />
+	<rdfs:range rdf:resource="#UPnPAtomicProcessGrounding" />
+</owl:ObjectProperty>
+<owl:Class rdf:ID="UPnPAtomicProcessGrounding">
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<owl:onProperty rdf:resource="#upnpCommand" />
+			<owl:cardinality rdf:datatype="&xsd;#nonNegativeInteger">1</owl:cardinality>
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+<owl:ObjectProperty rdf:ID="owlsProcess">
+  <rdfs:comment>
+    The atomic process to which this grounding applies.
+  </rdfs:comment>
+  <rdfs:domain rdf:resource="#UPnPAtomicProcessGrounding"/>
+  <rdfs:range rdf:resource="&process;#AtomicProcess"/>
+</owl:ObjectProperty>
+<owl:FunctionalProperty rdf:about="#owlsProcess"/>
+
+<owl:ObjectProperty rdf:ID="owlsParameter">
+  <rdfs:comment>
+    An input or output property of an atomic process.
+  </rdfs:comment>
+  <rdfs:domain rdf:resource="#UPnPMap"/>
+  <rdfs:range rdf:resource="&process;#Parameter"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:ID="upnpCommand">
+	<rdfs:domain rdf:resource="#UPnPAtomicProcessGrounding" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+
+<owl:ObjectProperty rdf:ID="upnpInputMapping">
+	<rdfs:domain rdf:resource="#UPnPAtomicProcessGrounding" />
+	<rdfs:range rdf:resource="#UPnPMap" />
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:ID="upnpOutputMapping">
+	<rdfs:domain rdf:resource="#UPnPAtomicProcessGrounding" />
+	<rdfs:range rdf:resource="#UPnPMap" />
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:ID="upnpParameter">
+	<rdfs:domain rdf:resource="#UPnPMap" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="upnpServiceID">
+	<rdfs:domain rdf:resource="#UPnPAtomicProcessGrounding" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="upnpDeviceURL">
+	<rdfs:domain rdf:resource="#UPnPAtomicProcessGrounding" />
+	<rdfs:range rdf:resource="&xsd;#anyURI" />
+</owl:DatatypeProperty>
+
+<owl:Class rdf:ID="UPnPMap">
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<owl:onProperty rdf:resource="#upnpParameter" />
+			<owl:cardinality rdf:datatype="&xsd;#nonNegativeInteger">1</owl:cardinality>
+		</owl:Restriction>
+	</rdfs:subClassOf>
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<owl:onProperty rdf:resource="#owlsParameter" />
+			<owl:cardinality rdf:datatype="&xsd;#nonNegativeInteger">1</owl:cardinality>
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+
+<!-- BlueTooth Grounding -->
+<!--
+<fla:BlueToothGrounding rdf:ID="PrintGrounding">
+  <service:supportedBy rdf:resource="#PrintService" /> 
+  <fla:hasBlueToothAtomicProcessGrounding rdf:resource="#PrintProcessGrounding" /> 
+</fla:BlueToothGrounding>
+
+<fla:BlueToothAtomicProcessGrounding rdf:ID="PrintProcessGrounding">
+  <grounding:owlsProcess rdf:resource="#Print"/>
+  <fla:blueToothDeviceId>[ID]</fla:blueToothDeviceId>
+  <fla:blueToothDeviceUrl>[URL]</fla:blueToothDeviceUrl>
+</fla:BlueToothAtomicProcessGrounding>
+-->
+<owl:Class rdf:ID="BlueToothGrounding">
+	<rdfs:subClassOf rdf:resource="&service;#ServiceGrounding" />
+</owl:Class>
+
+<owl:ObjectProperty rdf:ID="hasBlueToothAtomicProcessGrounding">
+	<rdfs:domain rdf:resource="#BlueToothGrounding" />
+	<rdfs:range rdf:resource="#BlueToothAtomicProcessGrounding" />
+</owl:ObjectProperty>
+
+<owl:Class rdf:ID="BlueToothAtomicProcessGrounding">
+</owl:Class>
+
+<owl:DatatypeProperty rdf:ID="blueToothDeviceId">
+	<rdfs:domain rdf:resource="#BlueToothAtomicProcessGrounding" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="blueToothDeviceUrl">
+	<rdfs:domain rdf:resource="#BlueToothAtomicProcessGrounding" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+
+<!-- special property tag for REST Web service -->
+<owl:DatatypeProperty rdf:ID="restInvocation">
+	<rdfs:domain rdf:resource="&grounding;#WsdlAtomicProcessGrounding" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+
+<!-- special property tag for asynchronous web service calls -->
+<owl:DatatypeProperty rdf:ID="pollingMaxCount">
+	<rdfs:domain rdf:resource="&grounding;#WsdlOperationRef" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="pollingInterval">
+	<rdfs:domain rdf:resource="&grounding;#WsdlOperationRef" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+
+<!-- tag to indicate which service is the main service -->
+<owl:DatatypeProperty rdf:ID="mainService">
+	<rdfs:domain rdf:resource="&service;#Service" />
+</owl:DatatypeProperty>
+
+<!-- meta data information -->
+<!-- 
+     *************     Added by Thorsten Möller - 2009.03.24     **************
+     Several properties were commented in the following because they exist in a
+     similar way in OWL-S already, albeit some of them have Profile as their
+     domain instead of Service.
+     **************************************************************************
+  -->
+<!--<owl:ObjectProperty rdf:ID="presents">-->
+<!--	<rdfs:domain rdf:resource="&service;#Service" />-->
+<!--	<rdfs:range rdf:resource="&profile;#Profile" />-->
+<!--</owl:ObjectProperty>-->
+<!--<owl:ObjectProperty rdf:ID="describedBy">-->
+<!--	<rdfs:domain rdf:resource="&service;#Service" />-->
+<!--	<rdfs:range rdf:resource="&service;#ServiceModel" />-->
+<!--</owl:ObjectProperty>-->
+<!--<owl:DatatypeProperty rdf:ID="serviceName">-->
+<!--	<rdfs:domain rdf:resource="&service;#Service" />-->
+<!--	<rdfs:range rdf:resource="&xsd;#string" />-->
+<!--</owl:DatatypeProperty>-->
+<!--<owl:DatatypeProperty rdf:ID="textDescription">-->
+<!--	<rdfs:domain rdf:resource="&service;#Service" />-->
+<!--	<rdfs:range rdf:resource="&xsd;#string" />-->
+<!--</owl:DatatypeProperty>-->
+<owl:DatatypeProperty rdf:ID="serviceDescriptionURL">
+	<rdfs:domain rdf:resource="&service;#Service" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:ID="serviceDescriptionText">
+	<rdfs:domain rdf:resource="&service;#Service" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+<!--<owl:ObjectProperty rdf:ID="input">-->
+<!--	<rdfs:domain rdf:resource="&service;#Service" />-->
+<!--	<rdfs:range rdf:resource="&process;#Input" />-->
+<!--</owl:ObjectProperty>-->
+<!--<owl:DatatypeProperty rdf:ID="inputCount">-->
+<!--	<rdfs:domain rdf:resource="&service;#Service" />-->
+<!--	<rdfs:range rdf:resource="&xsd;#string" />-->
+<!--</owl:DatatypeProperty>-->
+<!--<owl:ObjectProperty rdf:ID="output">-->
+<!--	<rdfs:domain rdf:resource="&service;#Service" />-->
+<!--	<rdfs:range rdf:resource="&process;#Output" />-->
+<!--</owl:ObjectProperty>-->
+<!--<owl:DatatypeProperty rdf:ID="outputCount">-->
+<!--	<rdfs:domain rdf:resource="&service;#Service" />-->
+<!--	<rdfs:range rdf:resource="&xsd;#string" />-->
+<!--</owl:DatatypeProperty>-->
+<owl:DatatypeProperty rdf:ID="location">
+	<rdfs:domain rdf:resource="&service;#Service" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="coordinates">
+	<rdfs:domain rdf:resource="&service;#Service" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="controlUI">
+	<rdfs:domain rdf:resource="&service;#Service" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="owner">
+	<rdfs:domain rdf:resource="&service;#Service" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="discoveryTime">
+	<rdfs:domain rdf:resource="&service;#Service" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="serviceType">
+	<rdfs:domain rdf:resource="&service;#Service" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+<!-- UPnP or WSDL -->
+<!--<owl:DatatypeProperty rdf:ID="groundingType">-->
+<!--	<rdfs:domain rdf:resource="&service;#Service" />-->
+<!--	<rdfs:range rdf:resource="&xsd;#string" />-->
+<!--</owl:DatatypeProperty>-->
+<!-- grounding URL points to WSDL URL or UPnP description URL -->
+<!--<owl:DatatypeProperty rdf:ID="groundingURL">-->
+<!--	<rdfs:domain rdf:resource="&service;#Service" />-->
+<!--	<rdfs:range rdf:resource="&xsd;#string" />-->
+<!--</owl:DatatypeProperty>-->
+<owl:DatatypeProperty rdf:ID="deletable">
+	<rdfs:domain rdf:resource="&service;#Service" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:ID="caName">
+	<rdfs:domain rdf:resource="&service;#Service" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+<!-- root for current sphere -->
+<owl:DatatypeProperty rdf:ID="sphereID">
+	<rdfs:domain rdf:resource="&service;#Service" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:ID="descriptionVersion">
+	<rdfs:domain rdf:resource="&service;#Service" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:ID="workflowMetaInfo">
+	<rdfs:domain rdf:resource="&service;#Service" />
+	<rdfs:range rdf:resource="&xsd;#string" />
+</owl:DatatypeProperty>
+</rdf:RDF>

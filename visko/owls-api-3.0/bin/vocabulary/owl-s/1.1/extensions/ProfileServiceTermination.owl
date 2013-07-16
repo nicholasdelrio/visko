@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	====================================================================== 
+	Created:     23.11.2008                       
+	Version:     $Id: ProfileServiceTermination.owl,v 1.1 2011/01/24 06:37:51 nick Exp $
+	
+   (c) 2009 Thorsten Möller - University of Basel Switzerland
+   
+   The MIT License
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software and associated documentation files (the "Software"), to
+   deal in the Software without restriction, including without limitation the
+   rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+   sell copies of the Software, and to permit persons to whom the Software is
+   furnished to do so, subject to the following conditions:
+  
+   The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
+  
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+   IN THE SOFTWARE.
+	
+	====================================================================== 
+-->
+<!DOCTYPE uridef[
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns">
+  <!ENTITY shadow-rdf "http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl">
+  <!ENTITY profile "http://www.daml.org/services/owl-s/1.1/Profile.owl">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema">
+  <!ENTITY dc  "http://purl.org/dc/elements/1.1/">
+  <!ENTITY THIS "http://on.cs.unibas.ch/owl-s/1.1/ProfileServiceTermination.owl">
+]>
+
+<rdf:RDF
+  xmlns:rdf=	  "&rdf;#"
+  xmlns:shadow-rdf= "&shadow-rdf;#"
+  xmlns:rdfs=	  "&rdfs;#"
+  xmlns:owl =    "&owl;#"
+  xmlns:profile= "&profile;#"
+  xmlns:dc=      "&dc;"
+  xmlns=	        "&THIS;#"
+  xml:base=      "&THIS;">
+
+<owl:Ontology rdf:about="">
+	<rdfs:comment xml:lang="en">
+		Extension to the OWL-S profile ontology that can be used to express
+		termination properties about a service. This is achieved by extending
+		the service Profile concept. Services annotated by such information
+		enable transactional processes that offer rollback respectively
+		compensation means.
+
+		TODO: add link to corresponding publication.
+	</rdfs:comment>
+	<owl:versionInfo>$Id: ProfileServiceTermination.owl,v 1.1 2011/01/24 06:37:51 nick Exp $</owl:versionInfo>
+	<dc:creator>Thorsten Möller</dc:creator>
+	<dc:date>2009-01-20</dc:date>
+	<dc:rights>
+		Copyright 2009 Thorsten Möller - University of Basel Switzerland
+	</dc:rights>
+	<owl:imports>
+		<owl:Ontology rdf:about="&profile;" />
+	</owl:imports>
+</owl:Ontology>
+
+
+<!--######################################################
+    Compensation related properties and concepts
+    ######################################################-->
+    
+<owl:ObjectProperty rdf:ID="compensator">
+	<rdfs:comment xml:lang="en">
+		Used to model if and by whom some service can be compensated, that is,
+		whether another service exists that either semantically undoes the
+		effects created by the subject service, or by any other kind of
+		compensation operation. The latter would not necessarily have to undo
+		the effects but may create new effects that are defined to represent a
+		compensation. In other words, compensation subsumes rollback (i.e. the
+		inverse operation).
+	</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="&profile;#serviceParameter" />
+	<rdfs:range rdf:resource="#CompensationServiceParameter" />
+</owl:ObjectProperty>
+
+<owl:Class rdf:ID="CompensationServiceParameter">
+	<rdfs:comment xml:lang="en">
+		Specialized service parameter used to specify the compensation profile(s)
+		of some profile.
+
+		Since profiles always correspond to some service one can also say that this
+		parameter relates some service to its compensation service(s).
+	</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&profile;#ServiceParameter" />
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<rdfs:comment xml:lang="en">
+				Limit range of sParameter to compensator service Profiles.
+			</rdfs:comment>
+			<owl:onProperty rdf:resource="&profile;#sParameter" />
+			<owl:allValuesFrom rdf:resource="#Compensator" />
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:ID="Compensatable">
+	<rdfs:comment xml:lang="en">
+		A service profile for which at least one compensation service does exist.
+	</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&profile;#Profile" />
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<rdfs:comment xml:lang="en">
+				Make compensator property mandatory, i.e., one or more.
+			</rdfs:comment>
+			<owl:onProperty rdf:resource="#compensator" />
+			<owl:minCardinality rdf:datatype="&xsd;#nonNegativeInteger">1</owl:minCardinality>
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:ID="Pivot">
+	<rdfs:comment xml:lang="en">
+		A service profile for which a compensation service does not exist.
+	</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&profile;#Profile" />
+	<owl:complementOf rdf:resource="#Compensatable" />
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<rdfs:comment xml:lang="en">
+				Pivot services are characterized by the fact that they can not be
+				compensated (by definition), thus, restrict cardinality of compensator
+				property to zero.
+			</rdfs:comment>
+			<owl:onProperty rdf:resource="#compensator" />
+			<owl:cardinality rdf:datatype="&xsd;#nonNegativeInteger">0</owl:cardinality>
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+
+
+<!--######################################################
+    Retriability related properties and concepts
+    ######################################################-->
+    
+<owl:ObjectProperty rdf:ID="retriable">
+	<rdfs:comment xml:lang="en">
+		Used to model that some service is guaranteed to successfully terminate
+		after a finite number of invocations, that is, its failure probability
+		equals zero. For instance, services that realize some idempotent
+		operation are intrinsically retriable.
+	</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="&profile;#serviceParameter" />
+	<rdfs:range rdf:resource="#RetriabilityServiceParameter" />
+</owl:ObjectProperty>
+
+<owl:Class rdf:ID="RetriabilityServiceParameter">
+	<rdfs:comment xml:lang="en">
+		Specialized service parameter used to specify if some service may be
+		re-invoked in case its termination failed.
+
+		Since services always specify to at least one profile it is o.k. to speak
+		about the service here even though this class is used with the service
+		Profile. 
+	</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&profile;#ServiceParameter" />
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<rdfs:comment xml:lang="en">
+				Limit range of sParameter to service booleans.
+			</rdfs:comment>
+			<owl:onProperty rdf:resource="&profile;#sParameter" />
+			<owl:allValuesFrom rdf:resource="#Boolean" />
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:ID="Retriable">
+	<rdfs:comment xml:lang="en">
+		A service profile which can be re-invoked in case of unsuccessful
+		termination.
+	</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&profile;#Profile" />
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<rdfs:comment xml:lang="en">
+				Make retriable property mandatory; it must occur exactly once.
+			</rdfs:comment>
+			<owl:onProperty rdf:resource="#retriable" />
+			<owl:cardinality rdf:datatype="&xsd;#nonNegativeInteger">1</owl:cardinality>
+		</owl:Restriction>
+	</rdfs:subClassOf>
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<rdfs:comment xml:lang="en">
+				Limit retriable property to True.
+			</rdfs:comment>
+			<owl:onProperty rdf:resource="#retriable" />
+			<owl:hasValue rdf:resource="#True" />
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:ID="NonRetriable">
+	<rdfs:comment xml:lang="en">
+		A service profile which can not be re-invoked in case of unsuccessful
+		termination.
+	</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&profile;#Profile" />
+	<owl:complementOf rdf:resource="#Retriable" />
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<rdfs:comment xml:lang="en">
+				Make retriable property mandatory; it must occur exactly once.
+			</rdfs:comment>
+			<owl:onProperty rdf:resource="#retriable" />
+			<owl:cardinality rdf:datatype="&xsd;#nonNegativeInteger">1</owl:cardinality>
+		</owl:Restriction>
+	</rdfs:subClassOf>
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<rdfs:comment xml:lang="en">
+				Limit retriable property to False.
+			</rdfs:comment>
+			<owl:onProperty rdf:resource="#retriable" />
+			<owl:hasValue rdf:resource="#False" />
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+
+
+<!--######################################################
+    Derived class Compensator
+    ######################################################-->
+
+<owl:Class rdf:ID="Compensator">
+	<rdfs:comment xml:lang="en">
+		A service profile which represents the compensation operation for some
+		service.
+	</rdfs:comment>
+	<owl:intersectionOf rdf:parseType="Collection">
+		<owl:Class rdf:about="#Retriable" />
+		<owl:Class rdf:about="#Pivot" />
+	</owl:intersectionOf>
+</owl:Class>
+
+<profile:Profile rdf:ID="TestCompensatable">
+<!--	<compensator>-->
+<!--		<CompensationServiceParameter>-->
+<!--			<profile:sParameter rdf:resource="#TestCompensator" />-->
+<!--		</CompensationServiceParameter>-->
+<!--	</compensator>-->
+	<retriable>
+		<RetriabilityServiceParameter>
+			<profile:sParameter rdf:resource="#True" />
+		</RetriabilityServiceParameter>
+	</retriable>
+</profile:Profile>
+
+<Compensator rdf:ID="TestCompensator" />
+
+<Pivot rdf:ID="Test1" />
+<Pivot rdf:ID="Test" />
+<Retriable rdf:about="#Test" />
+
+
+<!--######################################################
+    Helper classes and individuals
+    ######################################################-->
+    
+<owl:Class rdf:ID="Boolean">
+	<rdfs:comment xml:lang="en">
+		We need this class because the "serviceParameter" property is an object
+		property, hence, its sub property "retriable" also needs to refer to
+		individuals and not data values.
+
+		REFACTOR: If there is a well established public ontology that specifies the
+		same concept we may either remove it here, or (which seems to be the more
+		elegant way) add additional axioms that express that the concepts are
+		equivalent. In the same way it might be possible then to specify that the
+		the two individuals True and False are the same as individuals declared
+		in the external ontology.
+	</rdfs:comment>
+	<owl:oneOf rdf:parseType="Collection">
+		<owl:Thing rdf:about="#True" />
+		<owl:Thing rdf:about="#False" />
+	</owl:oneOf>
+</owl:Class>
+
+<owl:AllDifferent>
+	<owl:distinctMembers rdf:parseType="Collection">
+		<owl:Thing rdf:about="#True" />
+		<owl:Thing rdf:about="#False" />
+	</owl:distinctMembers>
+</owl:AllDifferent>
+
+<owl:Thing rdf:about="#True">
+	<rdf:type rdf:resource="#Boolean" />
+</owl:Thing>
+<owl:Thing rdf:about="#False">
+	<rdf:type rdf:resource="#Boolean" /> 
+</owl:Thing>
+
+</rdf:RDF>
+
+
