@@ -114,12 +114,6 @@
   </grounding:WsdlGrounding>
   <grounding:WsdlAtomicProcessGrounding rdf:about="#psxyAtomicProcessGrounding">
     <grounding:owlsProcess rdf:resource="#psxyProcess"/>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#url</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#url"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
     <grounding:wsdlOutput>
       <grounding:WsdlOutputMessageMap>
         <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#return</grounding:wsdlMessagePart>
@@ -128,18 +122,44 @@
     </grounding:wsdlOutput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#B</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#B"/>
+        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#G</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#G"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#R</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#R"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl</grounding:wsdlDocument>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#url</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#url"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#indexOfY</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#indexOfY"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
         <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#J</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#J"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#B</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#B"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://module.openvisko.org#psxyResponse</grounding:wsdlOutputMessage>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
         <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#indexOfX</grounding:wsdlMessagePart>
@@ -152,33 +172,13 @@
         >file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#psxy</grounding:operation>
       </grounding:WsdlOperationRef>
     </grounding:wsdlOperation>
+    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://module.openvisko.org#psxyRequest</grounding:wsdlInputMessage>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
         <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#S</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#S"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
-    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://module.openvisko.org#psxyResponse</grounding:wsdlOutputMessage>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#R</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#R"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#indexOfY</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#indexOfY"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#G</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#G"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://module.openvisko.org#psxyRequest</grounding:wsdlInputMessage>
   </grounding:WsdlAtomicProcessGrounding>
 </rdf:RDF>
