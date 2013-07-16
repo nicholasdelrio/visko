@@ -1,18 +1,20 @@
 <project name="module-build" default="war">
-
+	
+	<!-- static SDK properties not dependent upon dynamic basedir -->
+	<property name="dir.sdk" value="${basedir}/../visko-modules/ModuleSDK" />	
+	<property name="dir.sdk.src" value="${dir.sdk}/src" />
+	<property name="dir.sdk.webapp" value="${dir.sdk}/webapp" />
+	
+	<!-- common build properties relative to a module directory (e.g., dynamic basedir) -->
 	<target name="init" depends="load-cms-props">
-		<echo level="info">basedir = ${basedir}</echo>
+		<echo>Basedir = ${basedir}</echo>
 				
-		<!-- common build properties -->
 		<property name="dir.src" value="${basedir}/src" />
 		<property name="dir.webapp" value="${basedir}/webapp" />
 		<property name="dir.build" value="${basedir}/build" />
 		<property name="dir.classes" value="${dir.build}/classes" />
 		<property name="dir.dist" value="${dir.build}/dist" />
 		<property name="dir.lib" value="${basedir}/webapp/WEB-INF/lib" />
-		<property name="dir.sdk" value="${basedir}/../ModuleSDK"/>	
-		<property name="dir.sdk.src" value="${dir.sdk}/src" />
-		<property name="dir.sdk.webapp" value="${dir.sdk}/webapp" />
 		<basename property="webapp.name" file="${basedir}"/>
 		<property name="file.name.war" value="${webapp.name}.war" />
 		<property name="dir.war" value="${dir.dist}/${webapp.name}" />
@@ -30,9 +32,6 @@
 			</fileset>
 			<fileset dir="${dir.sdk}/webapp/WEB-INF/lib">
 				<include name="**/*.jar" />
-			</fileset>			
-			<fileset dir="${basedir}/webapp/WEB-INF/lib">
-				<include name="**/*.jar" />
 			</fileset>
 			<fileset dir="${basedir}/webapp/WEB-INF/lib">
 				<include name="**/*.jar" />
@@ -44,7 +43,7 @@
 		<taskdef name="java2wsdl" classname="org.apache.axis2.tool.ant.Java2WSDLTask">
 			<classpath refid="classpath" />
 		</taskdef>
-
+		
 	</target>
 
 	<target name="clean" depends="init" description="clean the compiled classes and libraries">
@@ -214,13 +213,14 @@
 	</target>
 	
 	<target name="register-module" depends="generate-wsdl" description="Generate RDF and register package to Visko">
-		<echo level="info">registering module to ${basedir}/../visko-web/WebContent/registry</echo>
+		<echo level="info">registering module to ${basedir}/../../visko/visko-web/WebContent/registry</echo>
 		<mkdir dir="${dir.dist}" />
-		<mkdir dir="${basedir}/../visko-web/WebContent/registry" />
+		<mkdir dir="${basedir}/../../visko/visko-web/WebContent/registry" />
 		
 		<!-- first copy custom data types owl files to visko-web -->
+		<echo>We are in directory: ${basedir}</echo>
 		<mkdir dir="${basedir}/webapp/dataTypes"/>
-		<copy todir="${basedir}/../visko-web/WebContent/registry" overwrite="true">
+		<copy todir="${basedir}/../../visko/visko-web/WebContent/registry" overwrite="true">
 			<fileset dir="${basedir}/webapp/dataTypes">
 				<include name="**/*" />
 			</fileset>
@@ -232,7 +232,7 @@
 			<jvmarg value="-Djava.security.policy=${policy}"/>
 
 			<arg value="${server-url}/visko-web/registry"/>
-			<arg value="${basedir}/../visko-web/WebContent/registry"/>
+			<arg value="${basedir}/../../visko/visko-web/WebContent/registry"/>
 			<arg value="${basedir}"/>
 			<arg value="${dir.sdk}/dataTypes"/>
 			<arg value="${dir.dist}/ModuleService.wsdl"/>

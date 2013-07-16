@@ -1,57 +1,47 @@
 <project name="visko-master-build" default="deploy-visko-web">
     
-	<!-- Load the global content management server properties -->
-	<!-- Note that users can create a file for their host machine or user id
-	and that will take precedence over the default server.properties -->
 	<property environment="env" />
 	<property name="env.COMPUTERNAME" value="${env.HOST}" />
 	<property name="env.COMPUTERNAME" value="${env.HOSTNAME}" />
 	
-	<echo>looking for server.${user.name}.properties </echo>
+	<!-- Start Load the server properties -->
+	<echo>Looking for server.${user.name}.properties</echo>
 	<property file="server.${user.name}.properties" />
-	<echo>looking for server.${env.COMPUTERNAME}.properties </echo>
+	<echo>Looking for server.${env.COMPUTERNAME}.properties</echo>
 	<property file="server.${env.COMPUTERNAME}.properties" />
 	<property file="server.properties"/>
+	<!-- End Load the server properties -->
 	
 	<!-- Load the global content management server properties -->
-	<echo>looking for registry.${user.name}.properties </echo>
+	<echo>Looking for registry.${user.name}.properties </echo>
 	<property file="registry.${user.name}.properties" />
-	<echo>looking for registry.${env.COMPUTERNAME}.properties </echo>
+	<echo>Looking for registry.${env.COMPUTERNAME}.properties </echo>
 	<property file="registry.${env.COMPUTERNAME}.properties" />
 	<property file="registry.properties"/>
 	
 	<!-- Visko Modules Location -->
 	<property name="visko.modules" value="${basedir}/../visko-modules" />
 	
+	<!-- Reference ant-contrib.jar in classpath -->
 	<path id="build.classpath">
 		<fileset dir="${basedir}/lib" includes="*.jar" />
 	</path>
-
-	<taskdef classpathref="build.classpath" resource="net/sf/antcontrib/antlib.xml" /> 
 	
-	<target name="deploy-all-modules">
-		<!-- iterate over all projects in the parent directory, and build any project
-		that starts with module_ -->
-		<for param="module.name">
-			<path>
-				<dirset dir="${basedir}/../" excludes="module_template" includes="module_*" />
-			</path>
-			<sequential>
-				<echo>warring module @{module.name}</echo>
-				<antcall target="war-module">
-					<param name="module.dir" value="@{module.name}"/>
-				</antcall>
-			</sequential>
-		</for>
+	<!-- Import ant-contrib tasks -->	
+	<taskdef classpathref="build.classpath" resource="net/sf/antcontrib/antlib.xml" />
 
+	<!-- WAR all modules, register (i.e., generate RDF) modules, and move module WARs to Tomcat server -->
+	<target name="deploy-visko-web" depends="deploy-active-modules,register-active-modules">
+		<ant antfile="${basedir}/../visko-web/build.xml" dir="${basedir}/../visko-web" target="deploy" inheritall="true" inheritrefs="false"/>		
 	</target>
-
+	
+	<!-- WAR up modules -->
 	<target name="deploy-active-modules">
-		<echo> deploying modules: ${active-modules} </echo>		
-		<echo> deploying to server: ${server-base-path} </echo>
+		<echo>Deploying modules: ${active-modules}</echo>		
+		<echo>Deploying to server: ${server-base-path}</echo>
 		<for list="${active-modules}" param="module.name">
 			<sequential>
-				<echo>warring module_@{module.name}</echo>
+				<echo>Warring module_@{module.name}</echo>
 				<antcall target="war-module">
 					<param name="module.dir" value="${visko.modules}/module_@{module.name}"/>
 				</antcall>
@@ -64,35 +54,10 @@
 		<ant antfile="${basedir}/module-build.xml" dir="${module.dir}" target="war" inheritall="true" inheritrefs="false"/>		
 	</target>
 	
-	<target name="deploy-visko-web" depends="deploy-active-modules,register-active-modules">
-		<!-- assumes that visko-web is ${basedir}'s sibling directory -->
-		<ant antfile="${basedir}/../visko-web/build.xml" dir="${basedir}/../visko-web" target="deploy" inheritall="true" inheritrefs="false"/>		
-	</target>
-	
-	<target name="register-all-modules">
-		<!-- first clear out all the old registry files -->
-		<delete dir="${basedir}/../visko-web/WebContent/registry"/>
-		<mkdir dir="${basedir}/../visko-web/WebContent/registry" />
-				
-		<!-- iterate over all projects in the parent directory, and build any project
-		that starts with module_ -->
-		<for param="module.name">
-			<path>
-				<dirset dir="${basedir}/../" excludes="module_template" includes="module_*" />
-			</path>
-			<sequential>
-				<echo>registering module @{module.name}</echo>
-				<antcall target="register-module">
-					<param name="module.dir" value="@{module.name}"/>
-				</antcall>
-			</sequential>
-		</for>
-	</target>
-
 	<target name="register-active-modules">
 		<!-- first clear out all the old registry files -->
-		<delete dir="${basedir}/../visko-web/WebContent/registry"/>
-		<mkdir dir="${basedir}/../visko-web/WebContent/registry" />
+		<delete dir="${basedir}/../visko/visko-web/WebContent/registry"/>
+		<mkdir dir="${basedir}/../visko/visko-web/WebContent/registry" />
 		
 		<!-- iterate over the list of projects in property active-modules and build them  -->
 		<for list="${active-modules}" param="module.name">
@@ -104,7 +69,6 @@
 			</sequential>
 		</for>
 	</target>
-	
 	
 	<target name="register-module">
 		<ant antfile="${basedir}/module-build.xml" dir="${module.dir}" target="register-module" inheritall="true" inheritrefs="false"/>		
