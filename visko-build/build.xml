@@ -1,5 +1,6 @@
 <project name="visko-master-build" default="deploy-visko-web">
     
+	<!-- Get HOST or HOST Name depending upon OS -->
 	<property environment="env" />
 	<property name="env.COMPUTERNAME" value="${env.HOST}" />
 	<property name="env.COMPUTERNAME" value="${env.HOSTNAME}" />
@@ -21,6 +22,24 @@
 	
 	<!-- Visko Modules Location -->
 	<property name="visko.modules" value="${basedir}/../visko-modules" />
+	
+	<!-- static SDK properties not dependent upon dynamic basedir -->
+	<echo>Static basedir = ${basedir}</echo>
+	<property name="dir.sdk" value="${visko.modules}/visko-modules/ModuleSDK" />	
+	<property name="dir.sdk.src" value="${dir.sdk}/src" />
+	<property name="dir.sdk.webapp" value="${dir.sdk}/webapp" />
+	
+	<!-- set the classpath to include jars from the axis2 suite -->
+	<path id="classpath-axis2">
+		<fileset dir="${dir.sdk}/webapp/WEB-INF/lib">
+			<include name="**/*.jar" />
+		</fileset>	
+	</path>
+
+	<!-- define the task for converting java to wsdl -->
+	<taskdef name="java2wsdl" classname="org.apache.axis2.tool.ant.Java2WSDLTask">
+		<classpath refid="classpath-axis2" />
+	</taskdef>
 	
 	<!-- Reference ant-contrib.jar in classpath -->
 	<path id="build.classpath">

@@ -1,10 +1,5 @@
 <project name="module-build" default="war">
 	
-	<!-- static SDK properties not dependent upon dynamic basedir -->
-	<property name="dir.sdk" value="${basedir}/../visko-modules/ModuleSDK" />	
-	<property name="dir.sdk.src" value="${dir.sdk}/src" />
-	<property name="dir.sdk.webapp" value="${dir.sdk}/webapp" />
-	
 	<!-- common build properties relative to a module directory (e.g., dynamic basedir) -->
 	<target name="init" depends="load-cms-props">
 		<echo>Basedir = ${basedir}</echo>
@@ -38,14 +33,8 @@
 			</fileset>
 			<pathelement location="${dir.classes}"/>		
 		</path>
-
-		<!-- define the task for converting java to wsdl -->
-		<taskdef name="java2wsdl" classname="org.apache.axis2.tool.ant.Java2WSDLTask">
-			<classpath refid="classpath" />
-		</taskdef>
-		
 	</target>
-
+	
 	<target name="clean" depends="init" description="clean the compiled classes and libraries">
 		<delete dir="${dir.classes}"/>
 	</target>
