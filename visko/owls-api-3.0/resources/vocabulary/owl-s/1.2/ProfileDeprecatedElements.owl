@@ -1,0 +1,556 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE uridef[
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl">
+  <!ENTITY xsd "http://www.w3.org/2000/10/XMLschema.xsd">
+  <!ENTITY service "http://www.daml.org/services/owl-s/1.2/Service.owl">
+  <!ENTITY process "http://www.daml.org/services/owl-s/1.2/Process.owl">
+  <!ENTITY country "http://www.daml.org/services/owl-s/1.2/Country.owl">
+  <!ENTITY DEFAULT "http://www.daml.org/services/owl-s/1.2/ProfileDeprecatedElements.owl">
+]>
+
+<!--
+This document uses entity types as a shorthand for URIs.
+For a version with unexpanded entities, try loading this source
+into Internet Explorer.
+  -->
+
+<rdf:RDF
+  xmlns:rdf=	  "&rdf;#"
+  xmlns:rdfs=	  "&rdfs;#"
+  xmlns:owl =     "&owl;#"
+  xmlns:xsd=	  "&xsd;#"
+  xmlns:service=  "&service;#"
+  xmlns:process=  "&process;#"
+  xmlns=	  "&DEFAULT;#"
+  xml:base=       "&DEFAULT;">
+
+  <owl:Ontology rdf:about="">
+    <owl:versionInfo>
+      $Id: ProfileDeprecatedElements.owl,v 1.1 2011/01/24 06:37:52 nick Exp $
+    </owl:versionInfo> 
+    <rdfs:comment>
+      Deprecated elements from OWL-S Profile 0.9
+
+      Created by Terry Payne (terryp@cs.cmu.edu).
+      Modified by Massimo Paolucci (paolucci@cs.cmu.edu)
+
+    </rdfs:comment> 
+<!--  
+  -->
+    <owl:imports rdf:resource="&service;" /> 
+    <owl:imports rdf:resource="&process;" /> 
+  </owl:Ontology>
+  
+<!--   ############ ########### ############ ############ ########### --> 
+<!--   ############                                       ########### --> 
+<!--   ############              DEPRECATED               ########### --> 
+<!--   ############                                       ########### --> 
+<!--   ############ ########### ############ ############ ########### --> 
+
+
+  <!-- OWL-S is still under construction.  Some classes, or
+  properties that we expected to need when the construction of the
+  ontology started, are no longer of use.
+    
+    For back-compatibility reasons we maintain them classes, but we
+  warn that they are deprecated, so that developers will have time
+  to update their code and adheer with new versions of the ontology.
+  Still, We cannot guarantee that the deprecated classes will be
+  present in future versions of the ontology.  Furthermore, we cannot
+  guarantee that the meaning of these classes and properties will be
+  preserved after the deprecation.
+    --> 
+  
+  <!-- DEPRECATED
+    
+    The determination of whether a service is offered or requested
+    should come from the use of the profile, not be specified in the
+    profile itself
+    
+    NOTE: OfferedService is now a bogus class because it depends on
+    ServiceProfile rather than on Profile
+    --> 
+
+  <owl:Class rdf:ID="OfferedService">
+    <rdfs:label>OfferedService</rdfs:label> 
+    <rdfs:subClassOf rdf:resource="&service;#ServiceProfile"/>
+  </owl:Class>
+
+  
+  
+  <!-- DEPRECATED
+    
+    The determination of whether a service is offered or requested
+    should come from the use of the profile, not be specified in the
+    profile itself --> 
+
+  <owl:Class rdf:ID="NeededService">
+    <rdfs:label>NeededService</rdfs:label> 
+    <rdfs:subClassOf rdf:resource="&service;#ServiceProfile"/>
+  </owl:Class>
+  
+
+  
+  <!-- We do not make any distinction between Provider and Requester,
+  rather there is an actor that is responsible for the Profile, and we
+  leave the interpretation of whether the Profile represents a service
+  request or a service provided to the use of the Profile. -->
+    
+  <owl:Class rdf:ID="ServiceRequester">
+    <rdfs:label>ServiceRequester</rdfs:label> 
+    <rdfs:subClassOf rdf:resource="#Actor" /> 
+    <rdfs:comment>
+      ServiceRequester provides general contract details such as address, fax etc.
+    </rdfs:comment>
+  </owl:Class>
+
+  <!-- deprecated for the same reason of ServiceRequester -->
+   <owl:Class rdf:ID="ServiceProvider">
+    <rdfs:label>ServiceProvider</rdfs:label> 
+    <rdfs:subClassOf rdf:resource="#Actor" /> 
+    <rdfs:comment>
+      ServiceProvider provides general contract details such as address, fax etc.
+    </rdfs:comment>
+  </owl:Class>
+  
+
+  <!--
+  	serviceType refers to a high level classification
+  	of the service, for example B2B, B2C etc
+
+	No range restrictions are placed on this property at present.
+	Specific service descriptions will specialise this by
+	restricting the range appropriately using subPropertyOf.
+  -->
+  <!-- Deprecated:  it is too close and redundant to
+    the property serviceCategory -->
+  
+  <rdf:Property rdf:ID="serviceType">
+    <rdfs:domain rdf:resource="#Profile"/>
+    <rdfs:range rdf:resource="&owl;#Thing"/>
+  </rdf:Property>
+
+  <!-- 
+	The IntendedPurpose provides information on what
+	constitutes successful accomplishment of a service execution.
+
+    -->
+  <rdf:Property rdf:ID="intendedPurpose">
+    <rdfs:domain rdf:resource="#Profile"/>
+    <rdfs:range rdf:resource="&owl;#Thing"/>
+  </rdf:Property>
+
+  <!--
+  	role links the service profile to an Actor.
+  	The Actor is the entity that provides the service or makes
+  	the request.  See the description of #Actor below.
+
+  	Different roles can be supropertied from the property role
+  	to portray specific roles.
+    -->
+  <owl:ObjectProperty rdf:ID="role">
+    <rdfs:domain rdf:resource="#Profile"/>
+    <rdfs:range rdf:resource="#Actor"/>
+  </owl:ObjectProperty>
+
+  <!--
+  	requestedBy is similar to, but distinct from the property
+  	role.  It links the service profile to an Actor who requests
+  	the service.
+    -->
+  <!-- Deprecated to remove the distinction between
+    provided services and requested services -->
+  <owl:ObjectProperty rdf:ID="requestedBy">
+    <rdfs:subPropertyOf rdf:resource="#role" />
+    <rdfs:range rdf:resource="#ServiceRequester"/>
+  </owl:ObjectProperty>
+
+  <!--
+  	providedBy is similar to, but distinct from the property
+  	role.  It links the service profile to an Actor who provides
+  	the service.
+    -->
+  <!-- Deprecated to remove the distinction between
+    provided services and requested services -->
+  <owl:ObjectProperty rdf:ID="providedBy">
+    <rdfs:subPropertyOf rdf:resource="#role" />
+    <rdfs:range rdf:resource="#ServiceProvider"/>
+  </owl:ObjectProperty>
+
+
+  <!-- 
+	DomainResource(s) - not to be confused with RDF resources, or
+	domain restrictions - are resources that are necessary for the
+	task to be executed.
+    -->
+  <!-- Deprecated unless a clear distinction is made
+    between this property and the input/preconditions -->
+
+  <rdf:Property rdf:ID="domainResource">
+    <rdfs:domain rdf:resource="#Profile"/>
+    <rdfs:range rdf:resource="&owl;#Thing"/>
+  </rdf:Property>
+  
+  <!--
+  	geographicRadius refers to the geographic scope of the
+  	service.  This may be at the global or national scale (e.g. for
+  	ecommerce) or at a local scale (eg pizza delivery).
+    -->
+  <!-- Deprecation: we had discussions and feedbacks
+    from OWL-S users that the property is not general enough to be
+    here.  Furthermore, there may be more then one type of geographic
+    radious for the same service, for example what is the geographic
+    radius of a European company that specializes on US domestic
+    flights, but delivers tickets only in Europe?.  If you look at the
+    flight it deals with the geographic radius is US, if you look at
+    the ticket distribution is Europe.  On the other side, why can't
+    this property be defined as a constraint on the outputs?
+    Geographic constraints may be added to the Profile either as
+    domain specific information added to the profile description, or as
+    service parameters as done in the example below. 
+    -->
+  <owl:ObjectProperty rdf:ID="geographicRadius">
+    <rdfs:domain rdf:resource="#Profile"/>
+    <rdfs:range rdf:resource="#Location"/>
+  </owl:ObjectProperty>
+  
+  
+  <!--
+    Location provides semantic to the property
+    GeographicRadius, which limits the scope or availability
+    of a service to some area.  The use of this class has been
+deprecated because it should be specified in other ontologies
+    -->
+
+  <owl:Class rdf:ID="Location">
+    <rdfs:label>Location</rdfs:label> 
+    <rdfs:subClassOf rdf:resource="&owl;#Thing" /> 
+    <rdfs:comment>
+	This class represents the scope or availability
+	of a service to some area.
+    </rdfs:comment>
+  </owl:Class>
+
+  <!-- 
+	degreeOfQuality properties provide qualifications about the service.
+
+	No range restrictions are placed on them at present (as with those
+	used by the process model).  Specific service descriptions will
+	specialise this property by restricting the range appropriately
+	using subPropertyOf.
+    -->
+  <!-- Deprecated, unless a clear distinction is made
+    between this class and qualityRating which is also defined here
+  -->
+    
+  <rdf:Property rdf:ID="degreeOfQuality">
+    <rdfs:domain rdf:resource="#Profile"/>
+    <rdfs:range rdf:resource="&owl;#Thing"/>
+  </rdf:Property>
+
+  
+  <!--
+	qualityGuarantee is a guarantee that the service promises to
+	deliver, such as guaranteeing to provide the lowest possible
+	interest rate, or a response within 3 minutes, etc.
+
+	No range restrictions are placed on this property at present.
+	Specific service descriptions will specialise this by
+	restricting the range appropriately using subPropertyOf.
+  -->
+  <!-- Deprecated, unless a clear distinction is made
+    between this class and qualityRating which is also defined here
+  -->
+
+  <rdf:Property rdf:ID="qualityGuarantee">
+    <rdfs:domain rdf:resource="#Profile"/>
+    <rdfs:range rdf:resource="&owl;#Thing"/>
+  </rdf:Property>
+  
+
+  <!-- 
+	CommunicationThru is a property of a Service Profile.
+	This property provides high level information on how
+	a service may communicate, such as the ACL (eg FIPA,
+	KQML, SOAP etc).  This summarises the descriptions
+	provided by the Service Grounding and are used when
+	matching services; it is not intended to replace the
+	detail provided by the Service Grounding.
+
+	No range restrictions are placed on this property at present.
+	Specific service descriptions will specialise this by
+	restricting the range appropriately using subPropertyOf.
+    -->
+
+  <rdf:Property rdf:ID="communicationThru">
+    <rdfs:domain rdf:resource="#Profile"/>
+    <rdfs:range rdf:resource="&owl;#Thing"/>
+  </rdf:Property>
+
+  <owl:ObjectProperty rdf:ID="hasEffect">
+    <rdfs:comment> Deprecated as of version 1.1.  Now hasResult is used.
+    </rdfs:comment>
+    <rdfs:domain rdf:resource="#Profile"/>
+    <rdfs:range rdf:resource="&process;#ConditionalEffect"/>
+  </owl:ObjectProperty>
+
+<!--------------------------------------------------------------------->
+<!-- Service Category
+<!--------------------------------------------------------------------->
+
+  <!--
+	serviceCategory refers to an ontology of services that
+	may be on offer.  High level services could include
+	classification on the bases of industry taxonomies such as
+	NAICS or UNSPCP or DandB or others that may be used.
+    
+        Additionally, it can be used to specify other classification
+        systems such as
+		* Products
+		* Problem Solving Capabilities
+		* Commercial Services
+		* Information
+		etc
+	No range restrictions are placed on this property at present.
+	Specific service descriptions will specialise this by
+	restricting the range appropriately using subPropertyOf.
+    
+        Examples of usage of serviceCategory are given in
+        ProfileAdditionalParameters.owl.
+
+	QualityRating has been deprecated, as it can be constructed
+	from the ServiceParameter class.
+    -->
+
+  <owl:ObjectProperty rdf:ID="serviceCategory">
+    <rdfs:domain rdf:resource="#Profile"/>
+    <rdfs:range rdf:resource="#ServiceCategory"/>
+  </owl:ObjectProperty>
+  
+  
+  
+  <!-- 
+	serviceParameters - An expandable list of properties that
+	may accompany a profile description.
+
+	The range of each property is unconstrained, i.e. no range restrictions
+	are placed on the service parameters at present. Specific service
+	parameters will specialise this property by restricting the range
+	appropriately and using subPropertyOf.
+    -->
+
+  <owl:ObjectProperty rdf:ID="serviceParameter">
+    <rdfs:domain rdf:resource="#Profile"/>
+    <rdfs:range rdf:resource="#ServiceParameter"/>
+  </owl:ObjectProperty>
+
+  <!-- 
+    ServiceCategory describes categories of services on the bases of
+    some classification that may be outside OWL-S and possibly
+    outside OWL. In the latter case, they may require some
+    specialized reasoner if any inference has to be done with it
+    -->
+
+  <owl:Class rdf:ID="ServiceCategory"/>  
+
+
+  <!-- categoryName is the name of the actual category, which could be just a literal,
+       or perhaps the uri of the process parameter (a property)
+    -->
+  <owl:DatatypeProperty rdf:ID="categoryName">
+    <rdfs:domain rdf:resource="#ServiceCategory"/>
+  </owl:DatatypeProperty>
+  
+  
+  
+  <!-- each serviceCategory can refer to only one categoryName -->
+
+  <owl:Class rdf:about="#ServiceCategory">
+    <rdfs:comment>
+    a ServiceCategory is restricted to refer to only onename
+    </rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#categoryName"/>
+        <owl:cardinality rdf:datatype="&xsd;#nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+
+  
+  <!-- taxonomy stores a reference to the taxonomy scheme.  It can be
+  either the URL of the taxonomy, or the name of the taxonomy or
+  anything else.  -->
+
+  <owl:DatatypeProperty rdf:ID="taxonomy">
+    <rdfs:domain rdf:resource="#ServiceCategory"/>
+  </owl:DatatypeProperty>
+    
+  <!-- each serviceCategory can refer to only one taxonomy, to limit
+  the possibility of confusion. -->
+
+  <owl:Class rdf:about="#ServiceCategory">
+    <rdfs:comment>
+    a ServiceCategory is restricted to refer to only one taxonomy
+    </rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#taxonomy"/>
+        <owl:cardinality rdf:datatype="&xsd;#nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <!-- value points to the value in a specific taxonomy
+    There may be more than one value for each taxonomy, so no
+    restriction is added here.
+    -->
+
+  <owl:DatatypeProperty rdf:ID="value">
+    <rdfs:domain rdf:resource="#ServiceCategory"/>
+  </owl:DatatypeProperty>
+  
+  
+  <!-- each serviceCategory can refer to only one value, 
+    if more then one value applies, then they have to be added as a
+    string with space separators -->
+
+  <owl:Class rdf:about="#ServiceCategory">
+    <rdfs:comment>
+    a ServiceCategory is restricted to refer to only one taxonomy
+    </rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#value"/>
+        <owl:cardinality rdf:datatype="&xsd;#nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  
+  
+  <!-- Often taxonomies associate a code to each type of service.
+    The following property stores the code -->
+  <owl:DatatypeProperty rdf:ID="code">
+    <rdfs:domain rdf:resource="#ServiceCategory"/>    
+  </owl:DatatypeProperty>
+  
+  
+  <!-- each serviceCategory can refer to only one code, 
+    if more then one value applies, then they have to be added as a
+    string with space separators 
+    There may be of course a problem of synchronization with the value -->
+
+  <owl:Class rdf:about="#ServiceCategory">
+    <rdfs:comment>
+    a ServiceCategory is restricted to refer to only one taxonomy
+    </rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#code"/>
+        <owl:cardinality rdf:datatype="&xsd;#nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  
+
+
+<!--------------------------------------------------------------------->
+<!-- Service Parameter
+<!--------------------------------------------------------------------->
+
+  <!-- 
+	serviceParameter - An expandable list of properties that
+	may accompany a profile description.
+
+	The range of each property is unconstrained, i.e. no range restrictions
+	are placed on the service parameters at present. Specific service
+	parameters will specialise this property by restricting the range
+	appropriately and using subPropertyOf.
+    -->
+
+  <owl:ObjectProperty rdf:ID="serviceParameter">
+    <rdfs:domain rdf:resource="#Profile"/>
+    <rdfs:range rdf:resource="#ServiceParameter"/>
+  </owl:ObjectProperty>
+  
+  <!-- 
+    ServiceParameter describes service parameters.
+    In general we can think this class as the root of an ontology of
+    Service Parameters of different types.  Other types of
+    ServiceParameters may expand this definition by adding other
+    properties.
+    -->
+
+  <owl:Class rdf:ID="ServiceParameter"/> 
+
+
+  <!-- serviceParameterName is the name of the actual parameter, which could be just a literal,
+       or perhaps the uri of the process parameter (a property)
+    -->
+  <owl:DatatypeProperty rdf:ID="serviceParameterName">
+    <rdfs:domain rdf:resource="#ServiceParameter"/>
+  </owl:DatatypeProperty>
+
+  <owl:Class rdf:about="#ServiceParameter">
+    <rdfs:comment>
+    A ServiceParameter should have at most 1 name (more precisely only
+      one serviceParameterName)
+    </rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#serviceParameterName"/>
+        <owl:cardinality rdf:datatype="&xsd;#nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+
+  <!-- sParameter points to the value of the parameter within some
+    OWL ontology -->
+
+  <owl:ObjectProperty rdf:ID="sParameter">
+    <rdfs:domain rdf:resource="#ServiceParameter"/>
+    <rdfs:range  rdf:resource="&owl;#Thing"/> 
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:about="#ServiceParameter">
+    <rdfs:comment>
+    a Parameter is restricted to refer to only one concept in some
+    ontology
+    </rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+	<owl:onProperty rdf:resource="#sParameter"/>
+        <owl:cardinality rdf:datatype="&xsd;#nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  
+   <!-- Taxononomies of businesses and products (such as NAICS and
+  UNSPSC) are already available and they may be translated in OWL in
+  the near future.  Here we offer the possibility to specify the type
+  of service that is provided as well as the type of product.  In
+  addition, we provide the bases for a retrieval of services on the
+  bases of these two features.
+    -->
+  
+  <!-- Map the Profile to a Service Type -->
+
+  <owl:DatatypeProperty rdf:ID="serviceClassification">
+    <rdfs:domain rdf:resource="#Profile"/> 
+    <rdfs:range rdf:resource="&xsd;#anyURI"/>
+  </owl:DatatypeProperty>
+
+  <!-- Map the Profile to a product Type -->
+  
+  <owl:DatatypeProperty rdf:ID="serviceProduct">
+    <rdfs:domain rdf:resource="#Profile"/>
+    <rdfs:range rdf:resource="&xsd;#anyURI"/>
+  </owl:DatatypeProperty>
+
+  
+</rdf:RDF>
+
