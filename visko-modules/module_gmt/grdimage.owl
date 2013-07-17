@@ -99,51 +99,25 @@
   <grounding:WsdlAtomicProcessGrounding rdf:about="#grdimageAtomicProcessGrounding">
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#url</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#url"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:owlsProcess rdf:resource="#grdimageProcess"/>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#R</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#R"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl</grounding:wsdlDocument>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#J</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#J"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlOutput>
-      <grounding:WsdlOutputMessageMap>
-        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#return</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#return"/>
-      </grounding:WsdlOutputMessageMap>
-    </grounding:wsdlOutput>
-    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://module.openvisko.org#grdimageResponse</grounding:wsdlOutputMessage>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
         <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#C</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#C"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
-    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://module.openvisko.org#grdimageRequest</grounding:wsdlInputMessage>
+    <grounding:owlsProcess rdf:resource="#grdimageProcess"/>
+    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl</grounding:wsdlDocument>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#B</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#B"/>
+        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#url</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#url"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
+    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://module.openvisko.org#grdimageResponse</grounding:wsdlOutputMessage>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#T</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#T"/>
+        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#J</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#J"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
     <grounding:wsdlOperation>
@@ -152,5 +126,31 @@
         >file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#grdimage</grounding:operation>
       </grounding:WsdlOperationRef>
     </grounding:wsdlOperation>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#B</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#B"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#return</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#return"/>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
+    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://module.openvisko.org#grdimageRequest</grounding:wsdlInputMessage>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#R</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#R"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#T</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#T"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
   </grounding:WsdlAtomicProcessGrounding>
 </rdf:RDF>
