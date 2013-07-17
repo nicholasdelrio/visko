@@ -8,6 +8,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.openvisko.module.util.FileUtils;
+import org.openvisko.module.util.PropertyDependentPaths;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -36,8 +37,8 @@ public abstract class SimulationOperator {
 		String inputPath;
 		System.out.println(inputFileName);
 		
-		if(FileUtils.getInstance().existsOnLocalFileSystem(contextURL)){
-			inputPath = FileUtils.getInstance().getOutputDir().getAbsolutePath() + inputFileName;			
+		if(PropertyDependentPaths.getInstance().existsOnLocalFileSystem(contextURL)){
+			inputPath = PropertyDependentPaths.getInstance().getOutputDir().getAbsolutePath() + inputFileName;			
 			setInputDatasets(inputPath);	
 		}
 		else{
@@ -82,9 +83,9 @@ public abstract class SimulationOperator {
 	}
 	
 	protected void setUpOutputs(String outputFileName){
-		this.outputFileName = "outputFile_" + FileUtils.getInstance().getRandomString() + "_" + outputFileName;
-		outputPath = FileUtils.getInstance().makeFullPath(FileUtils.getInstance().getOutputDir().getAbsolutePath(), outputFileName);
-		outputURL = FileUtils.getInstance().getOutputURLPrefix().toString() + this.outputFileName;
+		this.outputFileName = "outputFile_" + FileUtils.getRandomString() + "_" + outputFileName;
+		outputPath = FileUtils.makeFullPath(PropertyDependentPaths.getInstance().getOutputDir().getAbsolutePath(), outputFileName);
+		outputURL = PropertyDependentPaths.getInstance().getOutputURLPrefix().toString() + this.outputFileName;
 	}
 	
 	protected String writeOutputContextXML(){
@@ -105,7 +106,7 @@ public abstract class SimulationOperator {
 		
 		xmlOutput += "</Files>";
 		
-		FileUtils.getInstance().writeTextFile(xmlOutput, FileUtils.getInstance().getOutputDir().toString(), outputFileName);
+		FileUtils.writeTextFile(xmlOutput, PropertyDependentPaths.getInstance().getOutputDir().toString(), outputFileName);
 		return outputURL;
 	}
 }
