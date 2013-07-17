@@ -1,10 +1,10 @@
 package org.openvisko.module;
 
 import org.openvisko.module.util.CommandRunner;
-import org.openvisko.module.util.FileUtils;
+import org.openvisko.module.util.PropertyDependentPaths;
 
 public class Gsn_csm_contour_map extends NCLOperator{
-	private static final String SCRIPT_CONTOUR = FileUtils.getScriptsDir().getAbsolutePath() + "/" + "gsn_csm_contour_map.sh ";
+	private static final String SCRIPT_CONTOUR = PropertyDependentPaths.getInstance().getScriptsDir().getAbsolutePath() + "/" + "gsn_csm_contour_map.sh ";
 	
 	public Gsn_csm_contour_map(String netCDFURL){	
 		super(netCDFURL, "griddedData.nc", false, false, "contourMap.ps");
@@ -40,7 +40,7 @@ public class Gsn_csm_contour_map extends NCLOperator{
 		" " + indexOfX +
 		" " + indexOfY +
 		" " + indexOfZ +
-		" " + FileUtils.getScriptsDir().getAbsolutePath() + "/ncl/" ;
+		" " + PropertyDependentPaths.getInstance().getScriptsDir().getAbsolutePath() + "/ncl/" ;
 		
 	    CommandRunner.run(cmd);   
 		return outputURL;

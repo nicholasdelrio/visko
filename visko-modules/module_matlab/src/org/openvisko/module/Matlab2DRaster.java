@@ -2,11 +2,11 @@ package org.openvisko.module;
 
 import org.openvisko.module.operators.ToolkitOperator;
 import org.openvisko.module.util.CommandRunner;
-import org.openvisko.module.util.FileUtils;
+import org.openvisko.module.util.PropertyDependentPaths;
 
 public class Matlab2DRaster extends ToolkitOperator{
 
-	private static final String SCRIPT_2D_RASTER = FileUtils.getScriptsDir().getAbsolutePath() + "/" + "matlab2DRaster.sh";
+	private static final String SCRIPT_2D_RASTER = PropertyDependentPaths.getInstance().getScriptsDir().getAbsolutePath() + "/" + "matlab2DRaster.sh";
 	
 	public Matlab2DRaster(String inputFileURL){	
 			super(inputFileURL, "originalImage.mat", false, false, "2DRaster.tif");
@@ -20,7 +20,7 @@ public class Matlab2DRaster extends ToolkitOperator{
 			String command;
 			
 			command = SCRIPT_2D_RASTER + " " + inputPath + " " + outputPath + " " +
-							FileUtils.getWebappDir().getAbsolutePath() + " " + selectedColor;
+					PropertyDependentPaths.getInstance().getWebappDir().getAbsolutePath() + " " + selectedColor;
 			CommandRunner.run(command);
 			
 			System.out.println("Output URL: " + outputURL);

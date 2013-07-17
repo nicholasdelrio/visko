@@ -2,6 +2,8 @@ package org.openvisko.module;
 
 import org.openvisko.module.operators.ToolkitOperator;
 import org.openvisko.module.util.FileUtils;
+import org.openvisko.module.util.PropertyDependentPaths;
+
 import gravityMapScenario.gravityDataset.Dataset;
 
 public class XYZDataFieldFilter extends ToolkitOperator
@@ -30,7 +32,7 @@ public class XYZDataFieldFilter extends ToolkitOperator
 		
 		ds.disableHeader();
 		String asciiTrimmed = ds.backToAscii(fieldsOfInterest);
-		FileUtils.writeTextFile(asciiTrimmed, FileUtils.getOutputDir().getAbsolutePath(), outputFileName);
+		FileUtils.writeTextFile(asciiTrimmed, PropertyDependentPaths.getInstance().getOutputDir().getAbsolutePath(), outputFileName);
 		
 		return outputURL;
 	}

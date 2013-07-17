@@ -2,11 +2,11 @@ package org.openvisko.module;
 
 import org.openvisko.module.operators.ToolkitOperator;
 import org.openvisko.module.util.CommandRunner;
-import org.openvisko.module.util.FileUtils;
+import org.openvisko.module.util.PropertyDependentPaths;
 
 public class Spherize extends ToolkitOperator{
 
-	private static final String SCRIPT_SPHERIZE = FileUtils.getScriptsDir().getAbsolutePath() + "/" + "spherize.sh";
+	private static final String SCRIPT_SPHERIZE = PropertyDependentPaths.getInstance().getScriptsDir().getAbsolutePath() + "/" + "spherize.sh";
 
 	public Spherize(String fitsFileURL){	
 		super(fitsFileURL, "image.png", false, false, "spherizedImage.png");
