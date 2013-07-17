@@ -30,28 +30,31 @@ public class ServerProperties {
 	}
 	
 	private ServerProperties(){
-		try {
-			// module specific tomcat server
-			String tomcatHomePath = ModuleProperties.getInstance().getServer_URL().toString();
-			
-			if(tomcatHomePath == null) {
-				// If no specific module tomcat provided, then we are deploying to same
-				// server as visko-web, so use that location instead
-				Properties serverProps = getServerProperties();
-				tomcatHomePath = serverProps.getProperty("server-base-path");
-				
-				String override = serverProps.getProperty("override-module-url");
-				
-				if(override != null){
-					SERVER_URL = serverProps.getProperty("server-url");
+		try{
 
-					if(!SERVER_URL.endsWith("/"))
-						SERVER_URL += "/";
-				}
+			Properties serverProps = getServerProperties();
+			File tomcatHomePath = ModuleProperties.getInstance().getTomcatHomePath();
+			
+			//if module didnt' set tomcat home path, then set to visko-web's tomcat path
+			if(tomcatHomePath == null){
+				String stringPath = serverProps.getProperty("server-base-path");
+				tomcatHomePath = new File(stringPath);
 			}
 			
-			File tomcatHome = new File(tomcatHomePath);
-			File webappsDir = new File(tomcatHome, "webapps");		
+			// set serverURL
+			String override = serverProps.getProperty("override-module-url");
+			if(override == null)
+				SERVER_URL = ModuleProperties.getInstance().getHostingServerURL().toString();
+			else{
+				String urlString = serverProps.getProperty("server-url");
+				
+				if(!urlString.endsWith("/"))
+					urlString += "/";
+				
+				SERVER_URL = urlString;
+			}
+
+			File webappsDir = new File(tomcatHomePath, "webapps");		
 			WEBAPP_DIR = new File(webappsDir, ModuleProperties.getInstance().getWebappName());
 			OUTPUT_DIR = new File(WEBAPP_DIR, OUTPUT_DIR_NAME);
 			SCRIPTS_DIR = new File(WEBAPP_DIR, SCRIPTS_DIR_NAME);
@@ -135,8 +138,10 @@ public class ServerProperties {
 			System.out.println("hostname is: " + host);
 			if(host != null) {
 				serverPropsFile = FileUtils.class.getResourceAsStream("/server." + host + ".properties");
-				if(serverPropsFile == null)
+				if(serverPropsFile == null){
+					System.out.println("still null");
 					serverPropsFile = FileUtils.class.getResourceAsStream("/server." + host.toUpperCase() + ".properties");
+				}
 			}
 		}
 		if(serverPropsFile == null) {

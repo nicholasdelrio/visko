@@ -227,9 +227,9 @@
 			<arg value="${dir.dist}/ModuleService.wsdl"/>
 
             <classpath>
-            	<!-- this needs to go first in the classpath since I fixed a bug in mindswap lib -->
+            	<!-- this needs to go first in the classpath since I fixed a bug in mindswap lib. update: not necessary now since bug fix is now integrated into the owls jar -->
     			<pathelement location="${dir.classes}"/>
-            	<pathelement location="${basedir}/../visko-build"/>
+            	<pathelement location="${basedir}/../../visko-build"/>
             	<pathelement location="${basedir}/webapp/WEB-INF/classes"/>
             	<fileset dir="${dir.sdk}/lib">
     				<include name="**/*.jar" />

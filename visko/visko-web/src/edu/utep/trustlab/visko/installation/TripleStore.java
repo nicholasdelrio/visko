@@ -29,6 +29,7 @@ import java.util.Properties;
 import org.velo.java.client.Path;
 import org.velo.java.client.VeloJavaClient;
 
+import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.tdb.TDBFactory;
 
@@ -102,7 +103,8 @@ import com.hp.hpl.jena.tdb.TDBFactory;
 		File storesDirectory = new File(tripleStoreDir);
 
 		TripleStore.clean(storesDirectory);
-		model = TDBFactory.createModel(tripleStoreDir);
+		Dataset ds = TDBFactory.createDataset(tripleStoreDir);
+		model = ds.getDefaultModel();
 		
 		File packageDirectory = new File(packageDir);
 		aggregate(packageDirectory);

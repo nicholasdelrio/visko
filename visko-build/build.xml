@@ -51,7 +51,7 @@
 
 	<!-- WAR all modules, register (i.e., generate RDF) modules, and move module WARs to Tomcat server -->
 	<target name="deploy-visko-web" depends="deploy-active-modules,register-active-modules">
-		<ant antfile="${basedir}/../visko-web/build.xml" dir="${basedir}/../visko-web" target="deploy" inheritall="true" inheritrefs="false"/>		
+		<ant antfile="${basedir}/../visko/visko-web/build.xml" dir="${basedir}/../visko/visko-web" target="deploy" inheritall="true" inheritrefs="false"/>		
 	</target>
 	
 	<!-- WAR up modules -->

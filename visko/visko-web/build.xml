@@ -21,7 +21,7 @@
 		<property name="triple.store.resources" value="${basedir}/../resources/"/>
 
 		<!-- dataTypes directory -->
-		<property name="triple.store.dataTypes" value="${basedir}/../ModuleSDK/dataTypes/"/>
+		<property name="triple.store.dataTypes" value="${basedir}/../../visko-modules/ModuleSDK/dataTypes/"/>
 		
 		<!-- build properties -->	
 		<property name="tomcat-servlet-lib" value="${basedir}/lib/servlet-api.jar"/>
@@ -123,7 +123,7 @@
 			<arg value="${triple.store.tdb}"/>
 			
 			<classpath>
-            	<pathelement location="${basedir}/../visko-build"/>
+            	<pathelement location="${basedir}/../../visko-build"/>
 				<pathelement location="${jar.installation}"/>
 				<pathelement location="${jar.api}"/>
 				<fileset dir="${lib}/axis-1.4/">
@@ -163,7 +163,7 @@
 		<mkdir dir="${basedir}/WebContent/WEB-INF/classes" />
 
 		<copy todir="${basedir}/WebContent/WEB-INF/classes" overwrite="true" flatten="true">
-			<fileset dir="${basedir}/../visko-build">
+			<fileset dir="${basedir}/../../visko-build">
 				<include name="registry.properties" />
 				<include name="server.properties" />
 			</fileset>
@@ -194,7 +194,7 @@
 		<delete dir="${server-base-path}/webapps/visko-web"/>
 		
 		<!-- deploy the war -->
-		<move file="${war.visko-web}" todir="${server-base-path}/webapps"/>
+		<copy file="${war.visko-web}" todir="${server-base-path}/webapps"/>
 	</target>	
 	
 	<target name="update-api" description="Update VisKo API in build Directory">	
