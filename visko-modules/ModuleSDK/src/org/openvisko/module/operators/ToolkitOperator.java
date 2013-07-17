@@ -2,7 +2,7 @@ package org.openvisko.module.operators;
 
 import org.openvisko.module.util.FileUtils;
 import org.openvisko.module.util.GetURLContents;
-import org.openvisko.module.util.PropertyDependentPaths;
+import org.openvisko.module.util.ServerProperties;
 
 public abstract class ToolkitOperator {
 	
@@ -33,13 +33,13 @@ public abstract class ToolkitOperator {
 				stringData = GetURLContents.downloadText(datasetURL);
 				
 				if(!persistInputDataInMemory)
-					inputPath = FileUtils.writeTextFile(stringData, PropertyDependentPaths.getInstance().getOutputDir().getAbsolutePath(), inputFileName);
+					inputPath = FileUtils.writeTextFile(stringData, ServerProperties.getInstance().getOutputDir().getAbsolutePath(), inputFileName);
 			}
 			else {
 				binaryData = GetURLContents.downloadFile(datasetURL);
 				
 				if(!persistInputDataInMemory)
-					inputPath = FileUtils.writeBinaryFile(binaryData, PropertyDependentPaths.getInstance().getOutputDir().getAbsolutePath(), inputFileName);
+					inputPath = FileUtils.writeBinaryFile(binaryData, ServerProperties.getInstance().getOutputDir().getAbsolutePath(), inputFileName);
 			}
 			
 			System.out.println("saved data locally at: " + inputPath);
@@ -48,8 +48,8 @@ public abstract class ToolkitOperator {
 	
 	protected void setUpOutputs(String baseOutputFileName){		
 		outputFileName = FileUtils.getRandomFileNameFromFileName(baseOutputFileName);
-		outputPath = FileUtils.makeFullPath(PropertyDependentPaths.getInstance().getOutputDir().getAbsolutePath(), outputFileName);
-		outputURL = PropertyDependentPaths.getInstance().getOutputURLPrefix().toString() + outputFileName;
+		outputPath = FileUtils.makeFullPath(ServerProperties.getInstance().getOutputDir().getAbsolutePath(), outputFileName);
+		outputURL = ServerProperties.getInstance().getOutputURLPrefix().toString() + outputFileName;
 		
 		System.out.println("output url will be: " + outputURL);
 	}

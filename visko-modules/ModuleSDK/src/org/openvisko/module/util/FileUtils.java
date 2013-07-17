@@ -80,7 +80,7 @@ public class FileUtils{
 
 	public static FileOutputStream getLoggingStream(){
 		try{
-			return new FileOutputStream(PropertyDependentPaths.getInstance().getLoggingDir() + "/log.txt");
+			return new FileOutputStream(ServerProperties.getInstance().getLoggingDir() + "/log.txt");
 		}
 		catch (Exception e){
 			e.printStackTrace();

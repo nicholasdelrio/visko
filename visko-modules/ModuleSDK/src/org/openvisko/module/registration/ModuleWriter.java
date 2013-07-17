@@ -5,7 +5,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import org.mindswap.owl.OWLIndividual;
-import org.openvisko.module.util.PropertyDependentPaths;
+import org.openvisko.module.util.ModuleProperties;
+import org.openvisko.module.util.ServerProperties;
 
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntResource;
@@ -114,11 +115,11 @@ public class ModuleWriter {
 	}
 	
 	private void createNewModule(){
-		module = new Module(baseFileURL, PropertyDependentPaths.getInstance().getWebappName(), viskoModel);
+		module = new Module(baseFileURL, ModuleProperties.getInstance().getWebappName(), viskoModel);
 		module.setToolkit(toolkit);
-		module.setLabel(PropertyDependentPaths.getInstance().getWebappName());
-		module.setDocumentationURL(PropertyDependentPaths.getInstance().getModuleHTMLDescription());
-		module.setSourceCodeURL(PropertyDependentPaths.getInstance().getModuleSourceCode());
+		module.setLabel(ModuleProperties.getInstance().getWebappName());
+		module.setDocumentationURL(ServerProperties.getInstance().getModuleHTMLDescription());
+		module.setSourceCodeURL(ServerProperties.getInstance().getModuleSourceCode());
 	}
 	
 	public static OntResource getDataType(String dataTypeURI){

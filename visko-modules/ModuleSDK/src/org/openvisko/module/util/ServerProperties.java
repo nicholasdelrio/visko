@@ -9,12 +9,12 @@ import java.net.UnknownHostException;
 import java.util.Properties;
 import java.util.UUID;
 
-public class PropertyDependentPaths {
+public class ServerProperties {
 	
-	private static PropertyDependentPaths instance;
+	private static ServerProperties instance;
 	
 	private String SERVER_URL;
-	private String WEBAPP_NAME;
+
 	private File WEBAPP_DIR;
 	private File OUTPUT_DIR;
 	private File SCRIPTS_DIR;
@@ -22,26 +22,18 @@ public class PropertyDependentPaths {
 	private final String OUTPUT_DIR_NAME = "output";
 	private final String SCRIPTS_DIR_NAME = "scripts";
 	
-	public static PropertyDependentPaths getInstance(){
+	public static ServerProperties getInstance(){
 		if(instance == null)
-			instance = new PropertyDependentPaths();
+			instance = new ServerProperties();
 		
 		return instance;
 	}
 	
-	private PropertyDependentPaths(){
+	private ServerProperties(){
 		try {
-			// Initialize properties
-			Properties moduleProps = getModuleProperties();
-			SERVER_URL = moduleProps.getProperty("module.server.url");
-
-			if(!SERVER_URL.endsWith("/")) {
-				SERVER_URL += "/";
-			}
-			WEBAPP_NAME = moduleProps.getProperty("module.server.webapp.name");
-
 			// module specific tomcat server
-			String tomcatHomePath = moduleProps.getProperty("module.server.tomcat.home");
+			String tomcatHomePath = ModuleProperties.getInstance().getServer_URL().toString();
+			
 			if(tomcatHomePath == null) {
 				// If no specific module tomcat provided, then we are deploying to same
 				// server as visko-web, so use that location instead
@@ -58,11 +50,9 @@ public class PropertyDependentPaths {
 				}
 			}
 			
-			System.out.println("tomcat home Path: " + tomcatHomePath);
-			
 			File tomcatHome = new File(tomcatHomePath);
-			File webappsDir = new File(tomcatHome, "webapps");
-			WEBAPP_DIR = new File(webappsDir, WEBAPP_NAME);
+			File webappsDir = new File(tomcatHome, "webapps");		
+			WEBAPP_DIR = new File(webappsDir, ModuleProperties.getInstance().getWebappName());
 			OUTPUT_DIR = new File(WEBAPP_DIR, OUTPUT_DIR_NAME);
 			SCRIPTS_DIR = new File(WEBAPP_DIR, SCRIPTS_DIR_NAME);
 
@@ -101,7 +91,7 @@ public class PropertyDependentPaths {
 	}
 	
 	public URL getModuleHTMLDescription(){
-		String stringURL = getServerBaseURL().toString() + getWebappName() + "/" + getWebappName() + ".html";
+		String stringURL = getServerBaseURL().toString() + ModuleProperties.getInstance().getWebappName() + "/" + ModuleProperties.getInstance().getWebappName() + ".html";
 		try
 		{return new URL(stringURL);}
 		catch(Exception e){
@@ -111,7 +101,7 @@ public class PropertyDependentPaths {
 	}
 
 	public URL getModuleSourceCode(){
-		String stringURL = getServerBaseURL().toString() + getWebappName() + "/org/openvisko/module/ModuleRDFRegistration.java";
+		String stringURL = getServerBaseURL().toString() + ModuleProperties.getInstance().getWebappName() + "/org/openvisko/module/ModuleRDFRegistration.java";
 		try
 		{return new URL(stringURL);}
 		catch(Exception e){
@@ -122,23 +112,13 @@ public class PropertyDependentPaths {
 	
 	public URL getOutputURLPrefix(){
 		try
-		{return new URL(SERVER_URL + WEBAPP_NAME + "/" + OUTPUT_DIR_NAME + "/");}
+		{return new URL(SERVER_URL + ModuleProperties.getInstance().getWebappName() + "/" + OUTPUT_DIR_NAME + "/");}
 		catch(Exception e){
 			e.printStackTrace();
 			return null;
 		}
 	}
-	
-	public String getWebappName(){
-		return WEBAPP_NAME;
-	}
-	
-	public Properties getModuleProperties() throws Exception {
-		Properties moduleProps = new Properties();
-		InputStream propsFile = FileUtils.class.getResourceAsStream("/module.properties");
-		moduleProps.load(propsFile);
-		return moduleProps;
-	}
+
 
 	public Properties getServerProperties() throws Exception {
 		Properties serverProps = new Properties();    
@@ -198,7 +178,7 @@ public class PropertyDependentPaths {
 	}
 	
 	public String getOutputURLPrefix(File temporaryOutputDir){
-		return SERVER_URL + WEBAPP_NAME + "/" + OUTPUT_DIR_NAME + "/" + temporaryOutputDir.getName();
+		return SERVER_URL + ModuleProperties.getInstance().getWebappName() + "/" + OUTPUT_DIR_NAME + "/" + temporaryOutputDir.getName();
 	}
 	
 	/**
