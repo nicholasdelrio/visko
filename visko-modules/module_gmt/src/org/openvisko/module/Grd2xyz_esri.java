@@ -2,7 +2,7 @@ package org.openvisko.module;
 
 import org.openvisko.module.operators.ToolkitOperator;
 import org.openvisko.module.util.CommandRunner;
-import org.openvisko.module.util.PropertyDependentPaths;
+import org.openvisko.module.util.ServerProperties;
 
 public class Grd2xyz_esri extends ToolkitOperator{
 	
@@ -12,7 +12,7 @@ public class Grd2xyz_esri extends ToolkitOperator{
 	 * - variable 'y' represents latitude
 	 * - variable 'z' represents data value
 	 */
-	private static final String SCRIPT_CONTOUR = PropertyDependentPaths.getInstance().getScriptsDir().getAbsolutePath() + "/" + "wrapper-grd2xyz-esri.sh";
+	private static final String SCRIPT_CONTOUR = ServerProperties.getInstance().getScriptsDir().getAbsolutePath() + "/" + "wrapper-grd2xyz-esri.sh";
 
 	public Grd2xyz_esri(String netCDFDataURL){	
 		super(netCDFDataURL, "griddedData.nc", false, false, "xyz.txt");

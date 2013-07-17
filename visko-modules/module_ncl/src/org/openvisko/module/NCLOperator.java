@@ -2,7 +2,7 @@ package org.openvisko.module;
 
 import org.openvisko.module.operators.ToolkitOperator;
 import org.openvisko.module.util.FileUtils;
-import org.openvisko.module.util.PropertyDependentPaths;
+import org.openvisko.module.util.ServerProperties;
 
 
 public abstract class NCLOperator extends ToolkitOperator
@@ -17,7 +17,7 @@ public abstract class NCLOperator extends ToolkitOperator
 		String extension = fileNameParts[1];
 		
 		outputFileName = name + "_" + FileUtils.getRandomString();
-		outputPath = FileUtils.makeFullPath(PropertyDependentPaths.getInstance().getOutputDir().getAbsolutePath(), outputFileName);
-		outputURL = PropertyDependentPaths.getInstance().getOutputURLPrefix() + outputFileName + "." + extension;
+		outputPath = FileUtils.makeFullPath(ServerProperties.getInstance().getOutputDir().getAbsolutePath(), outputFileName);
+		outputURL = ServerProperties.getInstance().getOutputURLPrefix() + outputFileName + "." + extension;
 	}
 }

@@ -2,7 +2,7 @@ package org.openvisko.module;
 
 import org.openvisko.module.operators.ToolkitOperator;
 import org.openvisko.module.util.CommandRunner;
-import org.openvisko.module.util.PropertyDependentPaths;
+import org.openvisko.module.util.ServerProperties;
 
 
 
@@ -14,7 +14,7 @@ public class Grdcontour extends ToolkitOperator{
 	 * - variable 'y' represents latitude
 	 * - variable 'z' represents data value
 	 */
-	private static final String SCRIPT_CONTOUR = PropertyDependentPaths.getInstance().getScriptsDir().getAbsolutePath() + "/" + "wrapper-grdcontour.sh";
+	private static final String SCRIPT_CONTOUR = ServerProperties.getInstance().getScriptsDir().getAbsolutePath() + "/" + "wrapper-grdcontour.sh";
 
 	public Grdcontour(String netCDFDataURL){	
 		super(netCDFDataURL, "griddedData.nc", false, false, "contour-map.ps");

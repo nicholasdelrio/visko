@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 import org.json.JSONObject;
 import org.openvisko.module.util.FileUtils;
-import org.openvisko.module.util.PropertyDependentPaths;
+import org.openvisko.module.util.ServerProperties;
 
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
@@ -73,7 +73,7 @@ public class SPARQLResultsToJSONGraph extends org.openvisko.module.operators.Too
 			pathsGraph.put("links", linksList);
 
 			jsonGraph = pathsGraph.toString();
-			FileUtils.writeTextFile(jsonGraph, PropertyDependentPaths.getInstance().getOutputDir().getAbsolutePath(), outputFileName);
+			FileUtils.writeTextFile(jsonGraph, ServerProperties.getInstance().getOutputDir().getAbsolutePath(), outputFileName);
 			return this.outputURL;
 			
 		} catch (Exception e) {

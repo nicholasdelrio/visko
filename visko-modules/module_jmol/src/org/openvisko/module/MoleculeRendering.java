@@ -2,7 +2,7 @@ package org.openvisko.module;
 
 import org.openvisko.module.operators.ToolkitOperator;
 import org.openvisko.module.util.CommandRunner;
-import org.openvisko.module.util.PropertyDependentPaths;
+import org.openvisko.module.util.ServerProperties;
 
 public class MoleculeRendering extends ToolkitOperator{
 
@@ -10,9 +10,9 @@ public class MoleculeRendering extends ToolkitOperator{
 	public final static int RENDERING_CARTOON = 1; 
 	public final static int RENDERING_RIBBON = 2; 
 	
-	private static final String SCRIPT_MOLECULE_DEFAULT = PropertyDependentPaths.getInstance().getScriptsDir().getAbsolutePath() + "/" + "jmol-default.sh";
-	private static final String SCRIPT_MOLECULE_CARTOON = PropertyDependentPaths.getInstance().getScriptsDir().getAbsolutePath() + "/" + "jmol-cartoon.sh";
-	private static final String SCRIPT_MOLECULE_RIBBON = PropertyDependentPaths.getInstance().getScriptsDir().getAbsolutePath() + "/" + "jmol-ribbon.sh";
+	private static final String SCRIPT_MOLECULE_DEFAULT = ServerProperties.getInstance().getScriptsDir().getAbsolutePath() + "/" + "jmol-default.sh";
+	private static final String SCRIPT_MOLECULE_CARTOON = ServerProperties.getInstance().getScriptsDir().getAbsolutePath() + "/" + "jmol-cartoon.sh";
+	private static final String SCRIPT_MOLECULE_RIBBON = ServerProperties.getInstance().getScriptsDir().getAbsolutePath() + "/" + "jmol-ribbon.sh";
 
 	private String selected_script;
 	
@@ -34,7 +34,7 @@ public class MoleculeRendering extends ToolkitOperator{
 			CommandRunner.run(command);
 			
 			command = selected_script + " " + inputPath + " " + outputPath + " " + 
-					PropertyDependentPaths.getInstance().getWebappDir().getAbsolutePath();
+					ServerProperties.getInstance().getWebappDir().getAbsolutePath();
 			CommandRunner.run(command);
 			
 			return outputURL;

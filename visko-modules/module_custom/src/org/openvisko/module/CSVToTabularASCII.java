@@ -3,7 +3,7 @@ import java.io.StringWriter;
 
 import org.openvisko.module.operators.ToolkitOperator;
 import org.openvisko.module.util.FileUtils;
-import org.openvisko.module.util.PropertyDependentPaths;
+import org.openvisko.module.util.ServerProperties;
 
 public class CSVToTabularASCII extends ToolkitOperator
 {
@@ -32,7 +32,7 @@ public class CSVToTabularASCII extends ToolkitOperator
 			tabularASCII.append(cleanedRow + "\n");
 		}
 		
-		FileUtils.writeTextFile(tabularASCII.toString(), PropertyDependentPaths.getInstance().getOutputDir().getAbsolutePath(), outputFileName);
+		FileUtils.writeTextFile(tabularASCII.toString(), ServerProperties.getInstance().getOutputDir().getAbsolutePath(), outputFileName);
 		return outputURL;
 	}
 }//end class 

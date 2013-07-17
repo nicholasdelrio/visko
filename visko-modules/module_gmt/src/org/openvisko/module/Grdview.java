@@ -2,7 +2,7 @@ package org.openvisko.module;
 
 import org.openvisko.module.operators.ToolkitOperator;
 import org.openvisko.module.util.CommandRunner;
-import org.openvisko.module.util.PropertyDependentPaths;
+import org.openvisko.module.util.ServerProperties;
 
 public class Grdview extends ToolkitOperator{
 	
@@ -12,7 +12,7 @@ public class Grdview extends ToolkitOperator{
 	 * - variable 'y' represents latitude
 	 * - variable 'z' represents data value
 	 */
-	private static final String SCRIPT_CONTOUR = PropertyDependentPaths.getInstance().getScriptsDir().getAbsolutePath() + "/" + "wrapper-grdview.sh";
+	private static final String SCRIPT_CONTOUR = ServerProperties.getInstance().getScriptsDir().getAbsolutePath() + "/" + "wrapper-grdview.sh";
 
 	public Grdview(String netCDFDataURL){	
 		super(netCDFDataURL, "griddedData.nc", false, false, "3D-mesh.ps");
