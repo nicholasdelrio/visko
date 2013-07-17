@@ -20,19 +20,29 @@ import java.util.StringTokenizer;
 import java.util.UUID;
 
 public class FileUtils{
-	public static final int BUFFER_SIZE = 4096;
+	
+	private static FileUtils instance;
+	
+	public final int BUFFER_SIZE = 4096;
+	
+	private String SERVER_URL;
+	private String WEBAPP_NAME;
+	private File WEBAPP_DIR;
+	private File OUTPUT_DIR;
+	private File SCRIPTS_DIR;
 
-	private static String SERVER_URL;
-	private static String WEBAPP_NAME;
-	private static File WEBAPP_DIR;
-	private static File OUTPUT_DIR;
-	private static File SCRIPTS_DIR;
+	private final String OUTPUT_DIR_NAME = "output";
+	private final String SCRIPTS_DIR_NAME = "scripts";
 
-	private static final String OUTPUT_DIR_NAME = "output";
-	private static final String SCRIPTS_DIR_NAME = "scripts";
-
-	static {
-
+	public static FileUtils getInstance(){
+		if(instance == null)
+			instance = new FileUtils();
+		
+		return instance;
+	}
+	
+	private FileUtils(){
+		
 		try {
 			// Initialize properties
 			Properties moduleProps = getModuleProperties();
@@ -56,9 +66,8 @@ public class FileUtils{
 				if(override != null){
 					SERVER_URL = serverProps.getProperty("server-url");
 
-					if(!SERVER_URL.endsWith("/")) {
+					if(!SERVER_URL.endsWith("/"))
 						SERVER_URL += "/";
-					}
 				}
 			}
 			
@@ -72,13 +81,11 @@ public class FileUtils{
 
 			setScriptsToExecutable();
 			
-		} catch (Throwable e) {
-			e.printStackTrace();
 		}
-
+		catch (Throwable e) {e.printStackTrace();}
 	}
-	
-	private static void setScriptsToExecutable(){
+
+	private void setScriptsToExecutable(){
 		if(SCRIPTS_DIR != null){
 		
 			File[] scripts = SCRIPTS_DIR.listFiles();
@@ -88,8 +95,8 @@ public class FileUtils{
 
 					if(script.isFile()){
 						//covert from dos2unix
-						String contents = FileUtils.readTextFile(script.getAbsolutePath()).replaceAll("\r\n", "\n");
-						FileUtils.writeTextFile(contents, SCRIPTS_DIR.getAbsolutePath(), script.getName());
+						String contents = readTextFile(script.getAbsolutePath()).replaceAll("\r\n", "\n");
+						writeTextFile(contents, SCRIPTS_DIR.getAbsolutePath(), script.getName());
 						script.setExecutable(true, false);
 					}
 				}
@@ -97,7 +104,7 @@ public class FileUtils{
 		}
 	}
 
-	public static URL getServerBaseURL(){
+	public URL getServerBaseURL(){
 		try
 		{return new URL(SERVER_URL);}
 		catch(Exception e){
@@ -106,7 +113,7 @@ public class FileUtils{
 		}	  
 	}
 	
-	public static URL getModuleHTMLDescription(){
+	public URL getModuleHTMLDescription(){
 		String stringURL = getServerBaseURL().toString() + getWebappName() + "/" + getWebappName() + ".html";
 		try
 		{return new URL(stringURL);}
@@ -116,7 +123,7 @@ public class FileUtils{
 		}
 	}
 
-	public static URL getModuleSourceCode(){
+	public URL getModuleSourceCode(){
 		String stringURL = getServerBaseURL().toString() + getWebappName() + "/org/openvisko/module/ModuleRDFRegistration.java";
 		try
 		{return new URL(stringURL);}
@@ -126,7 +133,7 @@ public class FileUtils{
 		}
 	}
 	
-	public static URL getOutputURLPrefix(){
+	public URL getOutputURLPrefix(){
 		try
 		{return new URL(SERVER_URL + WEBAPP_NAME + "/" + OUTPUT_DIR_NAME + "/");}
 		catch(Exception e){
@@ -135,18 +142,18 @@ public class FileUtils{
 		}
 	}
 	
-	public static String getWebappName(){
+	public String getWebappName(){
 		return WEBAPP_NAME;
 	}
 
-	public static Properties getModuleProperties() throws Exception {
+	public Properties getModuleProperties() throws Exception {
 		Properties moduleProps = new Properties();
 		InputStream propsFile = FileUtils.class.getResourceAsStream("/module.properties");
 		moduleProps.load(propsFile);
 		return moduleProps;
 	}
 
-	public static Properties getServerProperties() throws Exception {
+	public Properties getServerProperties() throws Exception {
 		Properties serverProps = new Properties();    
 		InputStream serverPropsFile = null;
 
@@ -175,7 +182,7 @@ public class FileUtils{
 		return serverProps;
 	}
 
-	public static String getHostName() {
+	public String getHostName() {
 		String host = null;
 		try {
 			InetAddress addr = InetAddress.getLocalHost();
@@ -187,31 +194,31 @@ public class FileUtils{
 		return host;
 	}
 
-	public static File getLoggingDir(){
+	public File getLoggingDir(){
 		return new File(WEBAPP_DIR, "log");
 	}
 
 
 
-	public static File getOutputDir() {
+	public File getOutputDir() {
 		return OUTPUT_DIR;
 	}
 
-	public static File getWebappDir() {
+	public File getWebappDir() {
 		return WEBAPP_DIR;
 	}
 
-	public static File getScriptsDir() {
+	public File getScriptsDir() {
 		return SCRIPTS_DIR;
 	}
 
 
 
-	public static String getGravityTrustTableFilePath(){
+	public String getGravityTrustTableFilePath(){
 		return "trust-data/gravity_trust.txt";
 	}
 
-	public static String getOutputURLPrefix(File temporaryOutputDir){
+	public String getOutputURLPrefix(File temporaryOutputDir){
 		return SERVER_URL + WEBAPP_NAME + "/" + OUTPUT_DIR_NAME + "/" + temporaryOutputDir.getName();
 	}
 
@@ -223,7 +230,7 @@ public class FileUtils{
 	 * @return the number of bytes copied
 	 * @throws IOException in case of I/O errors
 	 */
-	public static int copy(InputStream in, OutputStream out) throws IOException {
+	public int copy(InputStream in, OutputStream out) throws IOException {
 
 		try {
 			int byteCount = 0;
@@ -250,7 +257,7 @@ public class FileUtils{
 		}
 	}
 
-	public static String writeTextFile(String fileContents, String dirName, String fileName){
+	public String writeTextFile(String fileContents, String dirName, String fileName){
 		File dirFile = new File(dirName);
 		dirFile.mkdirs();
 
@@ -268,14 +275,14 @@ public class FileUtils{
 		}
 	}
 
-	public static boolean exists(String filePath){
+	public boolean exists(String filePath){
 		File file = new File(filePath);
 		if (file.exists())
 			return true;
 		return false;
 	}
 
-	public static FileOutputStream getLoggingStream(){
+	public FileOutputStream getLoggingStream(){
 		try{
 			return new FileOutputStream(getLoggingDir() + "/log.txt");
 		}
@@ -285,7 +292,7 @@ public class FileUtils{
 		}
 	}
 
-	public static String writeBinaryFile(byte[] fileContents, String dirName, String fileName){
+	public String writeBinaryFile(byte[] fileContents, String dirName, String fileName){
 		File dirFile = new File(dirName);
 		dirFile.mkdirs();
 
@@ -303,7 +310,7 @@ public class FileUtils{
 		}
 	}
 
-	public static byte[] readBinaryFile(String fileName){
+	public byte[] readBinaryFile(String fileName){
 		try{
 			FileInputStream in = new FileInputStream(fileName);
 			byte[] fileContents = new byte[fileSize(fileName)];
@@ -317,7 +324,7 @@ public class FileUtils{
 		}
 	}
 
-	public static String readTextFile(String fileName){
+	public String readTextFile(String fileName){
 		try{
 			BufferedReader in = new BufferedReader(new FileReader(fileName));
 			String line, fileContents;
@@ -340,7 +347,7 @@ public class FileUtils{
 		}
 	}
 
-	public static String getRandomString(){
+	public String getRandomString(){
 		// get the current time in milliseconds to use as data source temp file
 		// name
 		long miliseconds = (new Date()).getTime();
@@ -348,35 +355,35 @@ public class FileUtils{
 		return localFileName;
 	}
 
-	public static void deleteFile(String fileName){
+	public void deleteFile(String fileName){
 		File file = new File(fileName);
 		file.delete();
 	}
 
-	public static void cleanWorkspace(String workspace){
+	public void cleanWorkspace(String workspace){
 		File file = new File(workspace);
 		String[] wsFiles = file.list();
 		if (wsFiles != null){
 			for (String aFile : wsFiles){
-				deleteFile(FileUtils.makeFullPath(workspace, aFile));
+				deleteFile(makeFullPath(workspace, aFile));
 			}
 		}
 	}
 
-	public static String getRandomFileNameFromFileName(String fileName){
+	public String getRandomFileNameFromFileName(String fileName){
 		if(fileName.contains(".")){
 			String[] fileNameParts = fileName.split("\\.");
 			String name = fileNameParts[0];
 			String extension = fileNameParts[1];
 
-			return name + "_" + FileUtils.getRandomString() + "." + extension;
+			return name + "_" + getRandomString() + "." + extension;
 		}
 
 		System.out.println("fileName: " + fileName + " doesn't have a file extension...bad move man.");
-		return fileName + "_" + FileUtils.getRandomString();
+		return fileName + "_" + getRandomString();
 	}
 
-	public static String makePathWellFormedURI(String path){
+	public String makePathWellFormedURI(String path){
 		try{
 			String uri = path.replaceAll("\"", "");
 			return uri.replaceAll(" ", "%20");
@@ -388,31 +395,31 @@ public class FileUtils{
 		}
 	}
 
-	public static String makeFullPath(String dir, String fileName){
+	public String makeFullPath(String dir, String fileName){
 		File directory = new File(dir);
 		File file = new File(fileName);
 
 		return directory.getAbsolutePath() + File.separator + file.getName();
 	}
 
-	public static int fileSize(String fileName){
+	public int fileSize(String fileName){
 		File file = new File(fileName);
 		return (int) file.length();
 	}
 
 
-	public static String getNameFromFilename(String fileName) {
+	public String getNameFromFilename(String fileName) {
 		StringTokenizer tokens = new StringTokenizer(fileName, ".");
 		String output = tokens.nextToken();
 		return output;
 	}
 
-	public static String getNameFromPath(String fileName) {
+	public String getNameFromPath(String fileName) {
 		String name = new File(fileName).getName();
 		return name;
 	}
 
-	public static String getDirFromPath(String fileName) {
+	public String getDirFromPath(String fileName) {
 		String path = new File(fileName).getParent();
 		return path;
 	}
@@ -422,18 +429,12 @@ public class FileUtils{
 	 * for an invocation of their service
 	 * @return
 	 */
-	public static File getTemporaryOutputDirectory() {
+	public File getTemporaryOutputDirectory() {
 		// TODO: use date and time instead of uuid
 		String uuid = UUID.randomUUID().toString();
 		File tempDir = new File(OUTPUT_DIR, uuid);
 		tempDir.mkdir();
 		return tempDir;
-	}
-
-	private static boolean isStaticFileURL(String url){
-		if(url.contains("?"))
-			return false;
-		return true;
 	}
 
 	/**
@@ -442,7 +443,7 @@ public class FileUtils{
 	 * @param fileUrl
 	 * @param destFolder
 	 */
-	public static File getInputFile(String fileUrl, File destFolder) throws Exception { 
+	public File getInputFile(String fileUrl, File destFolder) throws Exception { 
 		File inputFile = null;
 
 		if(fileUrl.startsWith("file:")) {
@@ -469,12 +470,12 @@ public class FileUtils{
 		return inputFile;
 	}
 
-	public static File getOutputFile(String outputFileName){
+	public File getOutputFile(String outputFileName){
 		File outputFile = new File (OUTPUT_DIR, outputFileName);
 		return outputFile;
 	}
 
-	public static String getFileName(String fileUrl) {
+	public String getFileName(String fileUrl) {
 		// Get the file name
 		if(fileUrl.endsWith("/")) {
 			fileUrl = fileUrl.substring(0, fileUrl.length() - 1);
@@ -486,7 +487,7 @@ public class FileUtils{
 
 	}
 
-	public static boolean existsOnLocalFileSystem(String datasetURL){
+	public boolean existsOnLocalFileSystem(String datasetURL){
 		return datasetURL.startsWith(SERVER_URL);
 	}
 }

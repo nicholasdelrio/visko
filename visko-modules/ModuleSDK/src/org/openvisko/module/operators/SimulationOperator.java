@@ -36,8 +36,8 @@ public abstract class SimulationOperator {
 		String inputPath;
 		System.out.println(inputFileName);
 		
-		if(FileUtils.existsOnLocalFileSystem(contextURL)){
-			inputPath = FileUtils.getOutputDir().getAbsolutePath() + inputFileName;			
+		if(FileUtils.getInstance().existsOnLocalFileSystem(contextURL)){
+			inputPath = FileUtils.getInstance().getOutputDir().getAbsolutePath() + inputFileName;			
 			setInputDatasets(inputPath);	
 		}
 		else{
@@ -82,9 +82,9 @@ public abstract class SimulationOperator {
 	}
 	
 	protected void setUpOutputs(String outputFileName){
-		this.outputFileName = "outputFile_" + FileUtils.getRandomString() + "_" + outputFileName;
-		outputPath = FileUtils.makeFullPath(FileUtils.getOutputDir().getAbsolutePath(), outputFileName);
-		outputURL = FileUtils.getOutputURLPrefix().toString() + this.outputFileName;
+		this.outputFileName = "outputFile_" + FileUtils.getInstance().getRandomString() + "_" + outputFileName;
+		outputPath = FileUtils.getInstance().makeFullPath(FileUtils.getInstance().getOutputDir().getAbsolutePath(), outputFileName);
+		outputURL = FileUtils.getInstance().getOutputURLPrefix().toString() + this.outputFileName;
 	}
 	
 	protected String writeOutputContextXML(){
@@ -105,7 +105,7 @@ public abstract class SimulationOperator {
 		
 		xmlOutput += "</Files>";
 		
-		FileUtils.writeTextFile(xmlOutput, FileUtils.getOutputDir().toString(), outputFileName);
+		FileUtils.getInstance().writeTextFile(xmlOutput, FileUtils.getInstance().getOutputDir().toString(), outputFileName);
 		return outputURL;
 	}
 }

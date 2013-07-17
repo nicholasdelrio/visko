@@ -14,7 +14,7 @@ public class CommandRunner
 			Process proc = Runtime.getRuntime().exec(cmd, null, new File(workingDirectory));
 			// any error message?
 			StreamGobbler errorGobbler = new StreamGobbler(proc.getErrorStream(), "ERROR");
-			FileOutputStream fos = FileUtils.getLoggingStream();
+			FileOutputStream fos = FileUtils.getInstance().getLoggingStream();
 			// any output?
 			StreamGobbler outputGobbler = new StreamGobbler(proc.getInputStream(), "OUTPUT", fos);
 
@@ -44,7 +44,7 @@ public class CommandRunner
 			Process proc = Runtime.getRuntime().exec(cmd);
 			// any error message?
 			StreamGobbler errorGobbler = new StreamGobbler(proc.getErrorStream(), "ERROR");
-			FileOutputStream fos = FileUtils.getLoggingStream();
+			FileOutputStream fos = FileUtils.getInstance().getLoggingStream();
 			// any output?
 			StreamGobbler outputGobbler = new StreamGobbler(proc.getInputStream(), "OUTPUT", fos);
 

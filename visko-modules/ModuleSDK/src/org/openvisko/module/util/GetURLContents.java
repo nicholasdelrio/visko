@@ -26,7 +26,7 @@ public class GetURLContents
 {
   public static String getUniqueFileNameFromURL(String url){
     String fileName = url.substring(0, url.lastIndexOf("/"));
-    return fileName + "-" + FileUtils.getRandomString() + ".nc";
+    return fileName + "-" + FileUtils.getInstance().getRandomString() + ".nc";
   }
   
   /**
@@ -58,11 +58,11 @@ public class GetURLContents
       InputStream response = getMethod.getResponseBodyAsStream();
 
       // Get the file name
-      String fileName = FileUtils.getFileName(url);
+      String fileName = FileUtils.getInstance().getFileName(url);
 
       // Then copy it to local file
       file = new File(destinationFolder, fileName);      
-      FileUtils.copy(new BufferedInputStream(response), new BufferedOutputStream(new FileOutputStream(file)));
+      FileUtils.getInstance().copy(new BufferedInputStream(response), new BufferedOutputStream(new FileOutputStream(file)));
 
     } catch (IOException e) {
       throw new RuntimeException(e);
@@ -173,12 +173,10 @@ public class GetURLContents
     LineNumberReader lr = new LineNumberReader(isr);
     StringBuffer ret = new StringBuffer();
 
-    while (true)
-    {
+    while (true){
       String line = lr.readLine();
       // System.out.println("Line:" + line);
-      if (line == null)
-      {
+      if (line == null){
         break;
       }
       // ret.append(line).append(System.getProperty("line.separator"));

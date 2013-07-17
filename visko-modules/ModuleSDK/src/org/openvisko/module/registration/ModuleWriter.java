@@ -1,6 +1,5 @@
 package org.openvisko.module.registration;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -115,11 +114,11 @@ public class ModuleWriter {
 	}
 	
 	private void createNewModule(){		
-		module = new Module(baseFileURL, FileUtils.getWebappName(), viskoModel);
+		module = new Module(baseFileURL, FileUtils.getInstance().getWebappName(), viskoModel);
 		module.setToolkit(toolkit);
-		module.setLabel(FileUtils.getWebappName());
-		module.setDocumentationURL(FileUtils.getModuleHTMLDescription());
-		module.setSourceCodeURL(FileUtils.getModuleSourceCode());
+		module.setLabel(FileUtils.getInstance().getWebappName());
+		module.setDocumentationURL(FileUtils.getInstance().getModuleHTMLDescription());
+		module.setSourceCodeURL(FileUtils.getInstance().getModuleSourceCode());
 	}
 	
 	public static OntResource getDataType(String dataTypeURI){

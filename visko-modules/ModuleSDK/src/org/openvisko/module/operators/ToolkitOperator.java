@@ -25,20 +25,20 @@ public abstract class ToolkitOperator {
 		
 	protected void setUpInputs(String datasetURL, String baseInputFileName, boolean textualData, boolean persistInputDataInMemory){
 		if(datasetURL != null){
-			inputFileName = FileUtils.getRandomFileNameFromFileName(baseInputFileName);
-			//inputPath = FileUtils.getOutputDir().getAbsolutePath() + File.separator + inputFileName;
+			inputFileName = FileUtils.getInstance().getRandomFileNameFromFileName(baseInputFileName);
+			//inputPath = FileUtils.getInstance().getOutputDir().getAbsolutePath() + File.separator + inputFileName;
 			
 			if(textualData){
 				stringData = GetURLContents.downloadText(datasetURL);
 				
 				if(!persistInputDataInMemory)
-					inputPath = FileUtils.writeTextFile(stringData, FileUtils.getOutputDir().getAbsolutePath(), inputFileName);
+					inputPath = FileUtils.getInstance().writeTextFile(stringData, FileUtils.getInstance().getOutputDir().getAbsolutePath(), inputFileName);
 			}
 			else {
 				binaryData = GetURLContents.downloadFile(datasetURL);
 				
 				if(!persistInputDataInMemory)
-					inputPath = FileUtils.writeBinaryFile(binaryData, FileUtils.getOutputDir().getAbsolutePath(), inputFileName);
+					inputPath = FileUtils.getInstance().writeBinaryFile(binaryData, FileUtils.getInstance().getOutputDir().getAbsolutePath(), inputFileName);
 			}
 			
 			System.out.println("saved data locally at: " + inputPath);
@@ -46,9 +46,9 @@ public abstract class ToolkitOperator {
 	}
 	
 	protected void setUpOutputs(String baseOutputFileName){		
-		outputFileName = FileUtils.getRandomFileNameFromFileName(baseOutputFileName);
-		outputPath = FileUtils.makeFullPath(FileUtils.getOutputDir().getAbsolutePath(), outputFileName);
-		outputURL = FileUtils.getOutputURLPrefix().toString() + outputFileName;
+		outputFileName = FileUtils.getInstance().getRandomFileNameFromFileName(baseOutputFileName);
+		outputPath = FileUtils.getInstance().makeFullPath(FileUtils.getInstance().getOutputDir().getAbsolutePath(), outputFileName);
+		outputURL = FileUtils.getInstance().getOutputURLPrefix().toString() + outputFileName;
 		
 		System.out.println("output url will be: " + outputURL);
 	}
