@@ -36,7 +36,7 @@
 		</fileset>	
 	</path>
 
-	<!-- define the task for converting java to wsdl -->
+	<!-- define the task for converting java to wsdl which is used by module-build.xml -->
 	<taskdef name="java2wsdl" classname="org.apache.axis2.tool.ant.Java2WSDLTask">
 		<classpath refid="classpath-axis2" />
 	</taskdef>
