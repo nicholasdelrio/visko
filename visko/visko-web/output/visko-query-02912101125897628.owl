@@ -1,0 +1,79 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:pmlj="http://inference-web.org/2.0/pml-justification.owl#"
+    xmlns:pmlp="http://inference-web.org/2.0/pml-provenance.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:ds="http://inference-web.org/2.0/ds.owl#">
+  <pmlj:Query rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/f80fe1ef-0a1d-4da7-a791-10d6617adf71/visko-query-02912101125897628.owl#query">
+    <pmlp:hasContent>
+      <pmlp:Information>
+        <pmlp:hasRawString rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >
+PREFIX formats http://openvisko.org/rdf/pml2/formats/ 
+PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
+PREFIX visko https://raw.github.com/nicholasdelrio/visko/master/rdf/ 
+PREFIX params https://raw.github.com/nicholasdelrio/visko/master/rdf/grdcontour.owl# SELECT visko:contour-lines.owl#contour-lines IN-VIEWER visko:mozilla-firefox.owl#mozilla-firefox FROM http://rio.cs.utep.edu/ciserver/ciprojects/GravityMapProvenance/gravityDataset.txt FORMAT formats:SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII TYPE types:d19 
+WHERE
+	FORMAT = http://openvisko.org/rdf/pml2/formats/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII
+	AND TYPE = http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d19
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#lbOrientation = vertical
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#latVariable = y
+	AND params:J = x4c
+	AND params:A = 10
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/surface.owl#indexOfY = 1
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/surface.owl#indexOfZ = 2
+	AND params:C = 10
+	AND params:B = 0.5
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/surface.owl#indexOfX = 0
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map_raster.owl#font = helvetica
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/surface.owl#T = 0.25
+	AND params:S = 5
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/surface.owl#R = -109/-107/33/34
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/grdimage.owl#B = 1
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map_raster.owl#lbOrientation = vertical
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#cnLevelSpacingF = 10
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/grdimage.owl#C = hot
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/grdimage.owl#J = x4c
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/grdimage.owl#R = -109/-107/33/34
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/grdimage.owl#T = -200/200/10
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/nearneighbor.owl#I = 0.02
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/nearneighbor.owl#R = -109/-107/33/34
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/nearneighbor.owl#S = 0.2
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/psxy.owl#R = -109/-107/33/34
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map_raster.owl#latVariable = y
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#colorTable = WhiteBlueGreenYellowRed
+	AND params:Wc = thinnest,black
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/psxy.owl#S = c0.04c
+	AND params:Wa = thinnest,black
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/psxy.owl#B = 1
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/psxy.owl#J = x4c
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map_raster.owl#colorTable = WhiteBlueGreenYellowRed
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/psxy.owl#G = blue
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#cnFillOn = True
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/nearneighbor.owl#indexOfZ = 2
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/nearneighbor.owl#indexOfX = 0
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/nearneighbor.owl#indexOfY = 1
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/surface.owl#I = 0.02
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#font = helvetica
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/surface.owl#C = 0.1
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#lonVariable = x
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map_raster.owl#indexOfX = 1
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map_raster.owl#indexOfY = 0
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map_raster.owl#indexOfZ = -1
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map_raster.owl#plotVariable = z
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/psxy.owl#indexOfX = 0
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/psxy.owl#indexOfY = 1
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#indexOfY = 0
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#indexOfX = 1
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#plotVariable = z
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map_raster.owl#lonVariable = x
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#cnLinesOn = False
+	AND https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#indexOfZ = -1
+</pmlp:hasRawString>
+      </pmlp:Information>
+    </pmlp:hasContent>
+    <pmlj:hasAnswer rdf:resource="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/8768f05a-4532-4803-877d-237f5d92b833/visko-pipeline-provenance-07000301302580109.owl#pipeline-step-002911919773914895"/>
+  </pmlj:Query>
+</rdf:RDF>

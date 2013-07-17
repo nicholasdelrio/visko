@@ -1,0 +1,549 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:pmlj="http://inference-web.org/2.0/pml-justification.owl#"
+    xmlns:pmlp="http://inference-web.org/2.0/pml-provenance.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:ds="http://inference-web.org/2.0/ds.owl#">
+  <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#pipeline-step-018162720007851485">
+    <pmlj:hasConclusion>
+      <pmlp:Information>
+        <pmlp:hasURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://iw.cs.utep.edu:8080/toolkits/output/image_1342501472688.png</pmlp:hasURL>
+        <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
+      </pmlp:Information>
+    </pmlj:hasConclusion>
+    <pmlj:isConsequentOf>
+      <pmlj:InferenceStep>
+        <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-web-service.owl#visko-web-service"/>
+        <pmlj:hasIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >0</pmlj:hasIndex>
+        <pmlj:hasInferenceRule rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/ps-to-png.owl#ps-to-png"/>
+        <pmlj:hasAntecedentList>
+          <pmlj:NodeSetList>
+            <ds:first>
+              <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#pipeline-step-027784935926569565">
+                <pmlj:hasConclusion>
+                  <pmlp:Information>
+                    <pmlp:hasURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+                    >http://iw.cs.utep.edu:8080/toolkits/output/contourMap_1342501470183.ps</pmlp:hasURL>
+                    <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/NETCDF.owl#NETCDF"/>
+                  </pmlp:Information>
+                </pmlj:hasConclusion>
+                <pmlj:isConsequentOf>
+                  <pmlj:InferenceStep>
+                    <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-web-service.owl#visko-web-service"/>
+                    <pmlj:hasIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    >0</pmlj:hasIndex>
+                    <pmlj:hasInferenceRule rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/netCDFContourer.owl#netCDFContourer"/>
+                    <pmlj:hasAntecedentList>
+                      <pmlj:NodeSetList>
+                        <ds:rest>
+                          <pmlj:NodeSetList>
+                            <ds:rest>
+                              <pmlj:NodeSetList>
+                                <ds:rest>
+                                  <pmlj:NodeSetList>
+                                    <ds:rest>
+                                      <pmlj:NodeSetList>
+                                        <ds:rest>
+                                          <pmlj:NodeSetList>
+                                            <ds:rest>
+                                              <pmlj:NodeSetList>
+                                                <ds:rest>
+                                                  <pmlj:NodeSetList>
+                                                    <ds:rest>
+                                                      <pmlj:NodeSetList>
+                                                        <ds:rest>
+                                                          <pmlj:NodeSetList>
+                                                            <ds:rest>
+                                                              <pmlj:NodeSetList>
+    <ds:rest>
+      <pmlj:NodeSetList>
+        <ds:rest>
+          <pmlj:NodeSetList>
+            <ds:first>
+              <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#pipeline-step-005944415417713378">
+                <pmlj:hasConclusion>
+                  <pmlp:Information>
+                    <pmlp:hasURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+                    >http://iw.cs.utep.edu:8080/toolkits/output/gridded-netcdf-surface_1342501467822.nc</pmlp:hasURL>
+                    <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/SPACEDELIMITEDTABULARASCII.owl#SPACEDELIMITEDTABULARASCII"/>
+                  </pmlp:Information>
+                </pmlj:hasConclusion>
+                <pmlj:isConsequentOf>
+                  <pmlj:InferenceStep>
+                    <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-web-service.owl#visko-web-service"/>
+                    <pmlj:hasIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    >0</pmlj:hasIndex>
+                    <pmlj:hasInferenceRule rdf:resource="https://raw.github.com/nicholasdelrio/visko/master/rdf/gridder.owl#gridder"/>
+                    <pmlj:hasAntecedentList>
+                      <pmlj:NodeSetList>
+                        <ds:rest>
+                          <pmlj:NodeSetList>
+                            <ds:rest>
+                              <pmlj:NodeSetList>
+                                <ds:rest>
+                                  <pmlj:NodeSetList>
+                                    <ds:rest>
+                                      <pmlj:NodeSetList>
+                                        <ds:rest>
+                                          <pmlj:NodeSetList>
+                                            <ds:rest>
+                                              <pmlj:NodeSetList>
+                                                <ds:first>
+                                                  <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#parameter-assertion-025265307134972737">
+                                                    <pmlj:hasConclusion>
+                                                      <pmlp:Information>
+                                                        <pmlp:hasRawString
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >https://raw.github.com/nicholasdelrio/visko/master/rdf/surface.owl#C = 0.1</pmlp:hasRawString>
+                                                        <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PLAIN.owl#PLAIN"/>
+                                                      </pmlp:Information>
+                                                    </pmlj:hasConclusion>
+                                                    <pmlj:isConsequentOf>
+                                                      <pmlj:InferenceStep>
+                                                        <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                                        <pmlj:hasIndex
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#int"
+                                                        >0</pmlj:hasIndex>
+                                                        <pmlj:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                                      </pmlj:InferenceStep>
+                                                    </pmlj:isConsequentOf>
+                                                  </pmlj:NodeSet>
+                                                </ds:first>
+                                              </pmlj:NodeSetList>
+                                            </ds:rest>
+                                            <ds:first>
+                                              <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#parameter-assertion-02675811457531537">
+                                                <pmlj:hasConclusion>
+                                                  <pmlp:Information>
+                                                    <pmlp:hasRawString
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >https://raw.github.com/nicholasdelrio/visko/master/rdf/surface.owl#indexOfX = 0</pmlp:hasRawString>
+                                                    <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PLAIN.owl#PLAIN"/>
+                                                  </pmlp:Information>
+                                                </pmlj:hasConclusion>
+                                                <pmlj:isConsequentOf>
+                                                  <pmlj:InferenceStep>
+                                                    <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                                    <pmlj:hasIndex
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    >0</pmlj:hasIndex>
+                                                    <pmlj:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                                  </pmlj:InferenceStep>
+                                                </pmlj:isConsequentOf>
+                                              </pmlj:NodeSet>
+                                            </ds:first>
+                                          </pmlj:NodeSetList>
+                                        </ds:rest>
+                                        <ds:first>
+                                          <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#parameter-assertion-05199899056307689">
+                                            <pmlj:hasConclusion>
+                                              <pmlp:Information>
+                                                <pmlp:hasRawString
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >https://raw.github.com/nicholasdelrio/visko/master/rdf/surface.owl#indexOfZ = 2</pmlp:hasRawString>
+                                                <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PLAIN.owl#PLAIN"/>
+                                              </pmlp:Information>
+                                            </pmlj:hasConclusion>
+                                            <pmlj:isConsequentOf>
+                                              <pmlj:InferenceStep>
+                                                <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                                <pmlj:hasIndex
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                >0</pmlj:hasIndex>
+                                                <pmlj:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                              </pmlj:InferenceStep>
+                                            </pmlj:isConsequentOf>
+                                          </pmlj:NodeSet>
+                                        </ds:first>
+                                      </pmlj:NodeSetList>
+                                    </ds:rest>
+                                    <ds:first>
+                                      <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#parameter-assertion-005385497059677158">
+                                        <pmlj:hasConclusion>
+                                          <pmlp:Information>
+                                            <pmlp:hasRawString
+                                             rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                            >https://raw.github.com/nicholasdelrio/visko/master/rdf/surface.owl#indexOfY = 1</pmlp:hasRawString>
+                                            <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PLAIN.owl#PLAIN"/>
+                                          </pmlp:Information>
+                                        </pmlj:hasConclusion>
+                                        <pmlj:isConsequentOf>
+                                          <pmlj:InferenceStep>
+                                            <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                            <pmlj:hasIndex rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#int"
+                                            >0</pmlj:hasIndex>
+                                            <pmlj:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                          </pmlj:InferenceStep>
+                                        </pmlj:isConsequentOf>
+                                      </pmlj:NodeSet>
+                                    </ds:first>
+                                  </pmlj:NodeSetList>
+                                </ds:rest>
+                                <ds:first>
+                                  <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#parameter-assertion-0570595138170366">
+                                    <pmlj:hasConclusion>
+                                      <pmlp:Information>
+                                        <pmlp:hasRawString rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >https://raw.github.com/nicholasdelrio/visko/master/rdf/surface.owl#I = 0.02</pmlp:hasRawString>
+                                        <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PLAIN.owl#PLAIN"/>
+                                      </pmlp:Information>
+                                    </pmlj:hasConclusion>
+                                    <pmlj:isConsequentOf>
+                                      <pmlj:InferenceStep>
+                                        <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                        <pmlj:hasIndex rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#int"
+                                        >0</pmlj:hasIndex>
+                                        <pmlj:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                      </pmlj:InferenceStep>
+                                    </pmlj:isConsequentOf>
+                                  </pmlj:NodeSet>
+                                </ds:first>
+                              </pmlj:NodeSetList>
+                            </ds:rest>
+                            <ds:first>
+                              <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#parameter-assertion-037848319075406045">
+                                <pmlj:hasConclusion>
+                                  <pmlp:Information>
+                                    <pmlp:hasRawString rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >https://raw.github.com/nicholasdelrio/visko/master/rdf/surface.owl#R = -109/-107/33/34</pmlp:hasRawString>
+                                    <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PLAIN.owl#PLAIN"/>
+                                  </pmlp:Information>
+                                </pmlj:hasConclusion>
+                                <pmlj:isConsequentOf>
+                                  <pmlj:InferenceStep>
+                                    <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                    <pmlj:hasIndex rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#int"
+                                    >0</pmlj:hasIndex>
+                                    <pmlj:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                  </pmlj:InferenceStep>
+                                </pmlj:isConsequentOf>
+                              </pmlj:NodeSet>
+                            </ds:first>
+                          </pmlj:NodeSetList>
+                        </ds:rest>
+                        <ds:first>
+                          <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#parameter-assertion-03249520336780811">
+                            <pmlj:hasConclusion>
+                              <pmlp:Information>
+                                <pmlp:hasRawString rdf:datatype=
+                                "http://www.w3.org/2001/XMLSchema#string"
+                                >https://raw.github.com/nicholasdelrio/visko/master/rdf/surface.owl#T = 0.25</pmlp:hasRawString>
+                                <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PLAIN.owl#PLAIN"/>
+                              </pmlp:Information>
+                            </pmlj:hasConclusion>
+                            <pmlj:isConsequentOf>
+                              <pmlj:InferenceStep>
+                                <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                <pmlj:hasIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                                >0</pmlj:hasIndex>
+                                <pmlj:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                              </pmlj:InferenceStep>
+                            </pmlj:isConsequentOf>
+                          </pmlj:NodeSet>
+                        </ds:first>
+                      </pmlj:NodeSetList>
+                    </pmlj:hasAntecedentList>
+                  </pmlj:InferenceStep>
+                </pmlj:isConsequentOf>
+              </pmlj:NodeSet>
+            </ds:first>
+          </pmlj:NodeSetList>
+        </ds:rest>
+        <ds:first>
+          <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#parameter-assertion-036475552414511403">
+            <pmlj:hasConclusion>
+              <pmlp:Information>
+                <pmlp:hasRawString rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#indexOfX = 1</pmlp:hasRawString>
+                <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PLAIN.owl#PLAIN"/>
+              </pmlp:Information>
+            </pmlj:hasConclusion>
+            <pmlj:isConsequentOf>
+              <pmlj:InferenceStep>
+                <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                <pmlj:hasIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >0</pmlj:hasIndex>
+                <pmlj:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+              </pmlj:InferenceStep>
+            </pmlj:isConsequentOf>
+          </pmlj:NodeSet>
+        </ds:first>
+      </pmlj:NodeSetList>
+    </ds:rest>
+    <ds:first>
+      <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#parameter-assertion-09811834980050388">
+        <pmlj:hasConclusion>
+          <pmlp:Information>
+            <pmlp:hasRawString rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#cnFillOn = True</pmlp:hasRawString>
+            <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PLAIN.owl#PLAIN"/>
+          </pmlp:Information>
+        </pmlj:hasConclusion>
+        <pmlj:isConsequentOf>
+          <pmlj:InferenceStep>
+            <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+            <pmlj:hasIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >0</pmlj:hasIndex>
+            <pmlj:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+          </pmlj:InferenceStep>
+        </pmlj:isConsequentOf>
+      </pmlj:NodeSet>
+    </ds:first>                                               </pmlj:NodeSetList>
+                                                            </ds:rest>
+                                                            <ds:first>
+                                                              <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#parameter-assertion-06632958493984022">
+    <pmlj:hasConclusion>
+      <pmlp:Information>
+        <pmlp:hasRawString rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#cnLevelSpacingF = 10</pmlp:hasRawString>
+        <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PLAIN.owl#PLAIN"/>
+      </pmlp:Information>
+    </pmlj:hasConclusion>
+    <pmlj:isConsequentOf>
+      <pmlj:InferenceStep>
+        <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+        <pmlj:hasIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >0</pmlj:hasIndex>
+        <pmlj:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+      </pmlj:InferenceStep>
+    </pmlj:isConsequentOf>                                    </pmlj:NodeSet>
+                                                            </ds:first>
+                                                          </pmlj:NodeSetList>
+                                                        </ds:rest>
+                                                        <ds:first>
+                                                          <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#parameter-assertion-01158280147030809">
+                                                            <pmlj:hasConclusion>
+                                                              <pmlp:Information>
+    <pmlp:hasRawString rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#indexOfY = 0</pmlp:hasRawString>
+    <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PLAIN.owl#PLAIN"/>
+                                                              </pmlp:Information>
+                                                            </pmlj:hasConclusion>
+                                                            <pmlj:isConsequentOf>
+                                                              <pmlj:InferenceStep>
+    <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+    <pmlj:hasIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >0</pmlj:hasIndex>
+    <pmlj:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                                              </pmlj:InferenceStep>
+                                                            </pmlj:isConsequentOf>
+                                                          </pmlj:NodeSet>
+                                                        </ds:first>
+                                                      </pmlj:NodeSetList>
+                                                    </ds:rest>
+                                                    <ds:first>
+                                                      <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#parameter-assertion-09009141974127923">
+                                                        <pmlj:hasConclusion>
+                                                          <pmlp:Information>
+                                                            <pmlp:hasRawString
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#lbOrientation = vertical</pmlp:hasRawString>
+                                                            <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PLAIN.owl#PLAIN"/>
+                                                          </pmlp:Information>
+                                                        </pmlj:hasConclusion>
+                                                        <pmlj:isConsequentOf>
+                                                          <pmlj:InferenceStep>
+                                                            <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                                            <pmlj:hasIndex
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#int"
+                                                            >0</pmlj:hasIndex>
+                                                            <pmlj:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                                          </pmlj:InferenceStep>
+                                                        </pmlj:isConsequentOf>
+                                                      </pmlj:NodeSet>
+                                                    </ds:first>
+                                                  </pmlj:NodeSetList>
+                                                </ds:rest>
+                                                <ds:first>
+                                                  <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#parameter-assertion-0818111671588">
+                                                    <pmlj:hasConclusion>
+                                                      <pmlp:Information>
+                                                        <pmlp:hasRawString
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#indexOfZ = -1</pmlp:hasRawString>
+                                                        <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PLAIN.owl#PLAIN"/>
+                                                      </pmlp:Information>
+                                                    </pmlj:hasConclusion>
+                                                    <pmlj:isConsequentOf>
+                                                      <pmlj:InferenceStep>
+                                                        <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                                        <pmlj:hasIndex
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#int"
+                                                        >0</pmlj:hasIndex>
+                                                        <pmlj:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                                      </pmlj:InferenceStep>
+                                                    </pmlj:isConsequentOf>
+                                                  </pmlj:NodeSet>
+                                                </ds:first>
+                                              </pmlj:NodeSetList>
+                                            </ds:rest>
+                                            <ds:first>
+                                              <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#parameter-assertion-0019392789063072624">
+                                                <pmlj:hasConclusion>
+                                                  <pmlp:Information>
+                                                    <pmlp:hasRawString
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#lonVariable = x</pmlp:hasRawString>
+                                                    <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PLAIN.owl#PLAIN"/>
+                                                  </pmlp:Information>
+                                                </pmlj:hasConclusion>
+                                                <pmlj:isConsequentOf>
+                                                  <pmlj:InferenceStep>
+                                                    <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                                    <pmlj:hasIndex
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    >0</pmlj:hasIndex>
+                                                    <pmlj:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                                  </pmlj:InferenceStep>
+                                                </pmlj:isConsequentOf>
+                                              </pmlj:NodeSet>
+                                            </ds:first>
+                                          </pmlj:NodeSetList>
+                                        </ds:rest>
+                                        <ds:first>
+                                          <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#parameter-assertion-09161858595101571">
+                                            <pmlj:hasConclusion>
+                                              <pmlp:Information>
+                                                <pmlp:hasRawString
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#font = helvetica</pmlp:hasRawString>
+                                                <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PLAIN.owl#PLAIN"/>
+                                              </pmlp:Information>
+                                            </pmlj:hasConclusion>
+                                            <pmlj:isConsequentOf>
+                                              <pmlj:InferenceStep>
+                                                <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                                <pmlj:hasIndex
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                >0</pmlj:hasIndex>
+                                                <pmlj:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                              </pmlj:InferenceStep>
+                                            </pmlj:isConsequentOf>
+                                          </pmlj:NodeSet>
+                                        </ds:first>
+                                      </pmlj:NodeSetList>
+                                    </ds:rest>
+                                    <ds:first>
+                                      <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#parameter-assertion-033055405594661413">
+                                        <pmlj:hasConclusion>
+                                          <pmlp:Information>
+                                            <pmlp:hasRawString
+                                             rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                            >https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#cnLinesOn = False</pmlp:hasRawString>
+                                            <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PLAIN.owl#PLAIN"/>
+                                          </pmlp:Information>
+                                        </pmlj:hasConclusion>
+                                        <pmlj:isConsequentOf>
+                                          <pmlj:InferenceStep>
+                                            <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                            <pmlj:hasIndex rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#int"
+                                            >0</pmlj:hasIndex>
+                                            <pmlj:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                          </pmlj:InferenceStep>
+                                        </pmlj:isConsequentOf>
+                                      </pmlj:NodeSet>
+                                    </ds:first>
+                                  </pmlj:NodeSetList>
+                                </ds:rest>
+                                <ds:first>
+                                  <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#parameter-assertion-0627377718585288">
+                                    <pmlj:hasConclusion>
+                                      <pmlp:Information>
+                                        <pmlp:hasRawString rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#colorTable = WhiteBlueGreenYellowRed</pmlp:hasRawString>
+                                        <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PLAIN.owl#PLAIN"/>
+                                      </pmlp:Information>
+                                    </pmlj:hasConclusion>
+                                    <pmlj:isConsequentOf>
+                                      <pmlj:InferenceStep>
+                                        <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                        <pmlj:hasIndex rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#int"
+                                        >0</pmlj:hasIndex>
+                                        <pmlj:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                      </pmlj:InferenceStep>
+                                    </pmlj:isConsequentOf>
+                                  </pmlj:NodeSet>
+                                </ds:first>
+                              </pmlj:NodeSetList>
+                            </ds:rest>
+                            <ds:first>
+                              <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#parameter-assertion-6395613000863554E-4">
+                                <pmlj:hasConclusion>
+                                  <pmlp:Information>
+                                    <pmlp:hasRawString rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#latVariable = y</pmlp:hasRawString>
+                                    <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PLAIN.owl#PLAIN"/>
+                                  </pmlp:Information>
+                                </pmlj:hasConclusion>
+                                <pmlj:isConsequentOf>
+                                  <pmlj:InferenceStep>
+                                    <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                    <pmlj:hasIndex rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#int"
+                                    >0</pmlj:hasIndex>
+                                    <pmlj:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                  </pmlj:InferenceStep>
+                                </pmlj:isConsequentOf>
+                              </pmlj:NodeSet>
+                            </ds:first>
+                          </pmlj:NodeSetList>
+                        </ds:rest>
+                        <ds:first>
+                          <pmlj:NodeSet rdf:about="http://localhost:8080/alfresco/d/a/workspace/SpacesStore/544ed35f-5eac-43fa-acc8-87e22f409ad1/visko-pipeline-provenance-005851720774228808.owl#parameter-assertion-009309206613065757">
+                            <pmlj:hasConclusion>
+                              <pmlp:Information>
+                                <pmlp:hasRawString rdf:datatype=
+                                "http://www.w3.org/2001/XMLSchema#string"
+                                >https://raw.github.com/nicholasdelrio/visko/master/rdf/gsn_csm_contour_map.owl#plotVariable = z</pmlp:hasRawString>
+                                <pmlp:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PLAIN.owl#PLAIN"/>
+                              </pmlp:Information>
+                            </pmlj:hasConclusion>
+                            <pmlj:isConsequentOf>
+                              <pmlj:InferenceStep>
+                                <pmlj:hasInferenceEngine rdf:resource="http://openvisko.org/rdf/pml2/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                <pmlj:hasIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                                >0</pmlj:hasIndex>
+                                <pmlj:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                              </pmlj:InferenceStep>
+                            </pmlj:isConsequentOf>
+                          </pmlj:NodeSet>
+                        </ds:first>
+                      </pmlj:NodeSetList>
+                    </pmlj:hasAntecedentList>
+                  </pmlj:InferenceStep>
+                </pmlj:isConsequentOf>
+              </pmlj:NodeSet>
+            </ds:first>
+          </pmlj:NodeSetList>
+        </pmlj:hasAntecedentList>
+      </pmlj:InferenceStep>
+    </pmlj:isConsequentOf>
+  </pmlj:NodeSet>
+</rdf:RDF>

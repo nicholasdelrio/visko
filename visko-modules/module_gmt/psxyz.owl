@@ -123,53 +123,17 @@
   <grounding:WsdlAtomicProcessGrounding rdf:about="#psxyzAtomicProcessGrounding">
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#R</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#R"/>
+        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#G</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#G"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#S</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#S"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlOperation>
-      <grounding:WsdlOperationRef>
-        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-        >file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#psxyz</grounding:operation>
-      </grounding:WsdlOperationRef>
-    </grounding:wsdlOperation>
-    <grounding:wsdlOutput>
-      <grounding:WsdlOutputMessageMap>
-        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#return</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#return"/>
-      </grounding:WsdlOutputMessageMap>
-    </grounding:wsdlOutput>
     <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >http://module.openvisko.org#psxyzResponse</grounding:wsdlOutputMessage>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#E</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#E"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#W</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#W"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
     <grounding:owlsProcess rdf:resource="#psxyzProcess"/>
     <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >http://module.openvisko.org#psxyzRequest</grounding:wsdlInputMessage>
     <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl</grounding:wsdlDocument>
-    <grounding:wsdlInput>
-      <grounding:WsdlInputMessageMap>
-        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#G</grounding:wsdlMessagePart>
-        <grounding:owlsParameter rdf:resource="#G"/>
-      </grounding:WsdlInputMessageMap>
-    </grounding:wsdlInput>
     <grounding:wsdlInput>
       <grounding:WsdlInputMessageMap>
         <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#url</grounding:wsdlMessagePart>
@@ -192,6 +156,42 @@
       <grounding:WsdlInputMessageMap>
         <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#JZ</grounding:wsdlMessagePart>
         <grounding:owlsParameter rdf:resource="#JZ"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#return</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#return"/>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#R</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#R"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#E</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#E"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlOperation>
+      <grounding:WsdlOperationRef>
+        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#psxyz</grounding:operation>
+      </grounding:WsdlOperationRef>
+    </grounding:wsdlOperation>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#S</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#S"/>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:wsdlMessagePart>file:/C:/Users/Administrator/git-repos/visko/visko-modules/module_gmt/build/dist/ModuleService.wsdl#W</grounding:wsdlMessagePart>
+        <grounding:owlsParameter rdf:resource="#W"/>
       </grounding:WsdlInputMessageMap>
     </grounding:wsdlInput>
   </grounding:WsdlAtomicProcessGrounding>
