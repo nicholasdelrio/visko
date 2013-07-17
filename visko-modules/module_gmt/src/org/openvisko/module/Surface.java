@@ -2,13 +2,13 @@ package org.openvisko.module;
 
 import org.openvisko.module.operators.ToolkitOperator;
 import org.openvisko.module.util.CommandRunner;
-import org.openvisko.module.util.FileUtils;
+import org.openvisko.module.util.PropertyDependentPaths;
 
 public class Surface extends ToolkitOperator
 {
 	/* ASUMPTION: the input dataset is in tabular space delimited ASCII file */
 	
-	private static final String SCRIPT_GRAVITY = FileUtils.getScriptsDir().getAbsolutePath() + "/" + "wrapper-surface.sh";
+	private static final String SCRIPT_GRAVITY = PropertyDependentPaths.getInstance().getScriptsDir().getAbsolutePath() + "/" + "wrapper-surface.sh";
 
 	public Surface(String asciiDataURL){	
 		super(asciiDataURL, "xyzData.txt", true, false, "gridded-netcdf-surface.nc");

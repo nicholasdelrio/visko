@@ -2,7 +2,7 @@ package org.openvisko.module;
 
 import org.openvisko.module.operators.ToolkitOperator;
 import org.openvisko.module.util.CommandRunner;
-import org.openvisko.module.util.FileUtils;
+import org.openvisko.module.util.PropertyDependentPaths;
 
 
 public class Grd2xyz extends ToolkitOperator{
@@ -13,7 +13,7 @@ public class Grd2xyz extends ToolkitOperator{
 	 * - variable 'y' represents latitude
 	 * - variable 'z' represents data value
 	 */
-	private static final String SCRIPT_CONTOUR = FileUtils.getScriptsDir().getAbsolutePath() + "/" + "wrapper-grd2xyz.sh";
+	private static final String SCRIPT_CONTOUR = PropertyDependentPaths.getInstance().getScriptsDir().getAbsolutePath() + "/" + "wrapper-grd2xyz.sh";
 
 	public Grd2xyz(String netCDFDataURL){	
 		super(netCDFDataURL, "griddedData.nc", false, false, "xyz.txt");

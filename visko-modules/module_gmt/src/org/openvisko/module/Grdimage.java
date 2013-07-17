@@ -1,8 +1,8 @@
 package org.openvisko.module;
 
 import org.openvisko.module.operators.ToolkitOperator;
-import org.openvisko.module.util.FileUtils;
 import org.openvisko.module.util.CommandRunner;
+import org.openvisko.module.util.PropertyDependentPaths;
 
 public class Grdimage extends ToolkitOperator{
 	
@@ -13,7 +13,7 @@ public class Grdimage extends ToolkitOperator{
 	 * - variable 'z' represents data value
 	 */
 
-	private static final String SCRIPT_XYZ2IMAGE = FileUtils.getScriptsDir().getAbsolutePath() + "/" + "wrapper-grdimage.sh";
+	private static final String SCRIPT_XYZ2IMAGE = PropertyDependentPaths.getInstance().getScriptsDir().getAbsolutePath() + "/" + "wrapper-grdimage.sh";
 
 	public Grdimage(String netCDFDataURL){	
 		super(netCDFDataURL, "griddedData.nc", false, false, "raster-map.ps");
@@ -32,7 +32,7 @@ public class Grdimage extends ToolkitOperator{
 			+ outputPath + " "
 			+ T + " "
 			+ R + " "
-			+ FileUtils.getOutputDir().getAbsolutePath() + " "
+			+ PropertyDependentPaths.getInstance().getOutputDir().getAbsolutePath() + " "
 			+ C + " "
 			+ J + " "
 			+ B;

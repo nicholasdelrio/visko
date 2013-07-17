@@ -2,13 +2,13 @@ package org.openvisko.module;
 
 import org.openvisko.module.operators.ToolkitOperator;
 import org.openvisko.module.util.CommandRunner;
-import org.openvisko.module.util.FileUtils;
+import org.openvisko.module.util.PropertyDependentPaths;
 
 public class Psxyz extends ToolkitOperator{
 	
 	/* ASUMPTION: the input dataset is in tabular space delimited ASCII file */
 	
-	private static final String PLOTTER_2D = FileUtils.getScriptsDir().getAbsolutePath() + "/" + "wrapper-psxyz.sh";
+	private static final String PLOTTER_2D = PropertyDependentPaths.getInstance().getScriptsDir().getAbsolutePath() + "/" + "wrapper-psxyz.sh";
 
 	public Psxyz(String asciiDataURL){	
 		super(asciiDataURL, "xyzData.txt", true, false, "3Dbarchart.ps");
