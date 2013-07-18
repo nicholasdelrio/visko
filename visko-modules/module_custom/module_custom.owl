@@ -125,9 +125,9 @@
     <rdfs:comment>Converts sparql query result triple (s p o) to a simple graph in JSON</rdfs:comment>
   </viskoS:Service>
   <viskoS:Module rdf:about="http://someserver:8080/visko-web/registry/module_custom.owl#module_custom">
-    <viskoS:hasSourceCode>http://localhost:8080/module_custom/org/openvisko/module/ModuleRDFRegistration.java</viskoS:hasSourceCode>
+    <viskoS:hasSourceCode>http://someserver:8080/module_custom/org/openvisko/module/ModuleRDFRegistration.java</viskoS:hasSourceCode>
     <viskoS:wrapsToolkit rdf:resource="http://someserver:8080/visko-web/registry/module_custom.owl#custom"/>
-    <viskoS:hasDocumentation>http://localhost:8080/module_custom/module_custom.html</viskoS:hasDocumentation>
+    <viskoS:hasDocumentation>http://someserver:8080/module_custom/module_custom.html</viskoS:hasDocumentation>
     <rdfs:label>module_custom</rdfs:label>
   </viskoS:Module>
   <viskoS:Service rdf:about="http://someserver:8080/visko-web/registry/module_custom.owl#int2Short">

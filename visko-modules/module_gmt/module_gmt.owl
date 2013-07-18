@@ -310,9 +310,9 @@
     <rdfs:comment>Generates contour map from netCDF 2D gridded dataset</rdfs:comment>
   </viskoS:Service>
   <viskoS:Module rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#module_gmt">
-    <viskoS:hasSourceCode>http://localhost:8080/module_gmt/org/openvisko/module/ModuleRDFRegistration.java</viskoS:hasSourceCode>
+    <viskoS:hasSourceCode>http://someserver:8080/module_gmt/org/openvisko/module/ModuleRDFRegistration.java</viskoS:hasSourceCode>
     <viskoS:wrapsToolkit rdf:resource="http://someserver:8080/visko-web/registry/module_gmt.owl#gmt"/>
-    <viskoS:hasDocumentation>http://localhost:8080/module_gmt/module_gmt.html</viskoS:hasDocumentation>
+    <viskoS:hasDocumentation>http://someserver:8080/module_gmt/module_gmt.html</viskoS:hasDocumentation>
     <rdfs:label>module_gmt</rdfs:label>
   </viskoS:Module>
   <viskoS:Service rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#nearneighbor">

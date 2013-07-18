@@ -10,7 +10,7 @@
     xmlns:pmlp="http://inference-web.org/2.0/pml-provenance.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
   <viskoO:Viewer rdf:about="http://someserver:8080/visko-web/registry/module_d3.owl#visko-operator-paths-viewer">
-    <viskoO:hasEndpoint>http://localhost:8080/module_d3/ForceGraph_OperatorPaths.html</viskoO:hasEndpoint>
+    <viskoO:hasEndpoint>null/module_d3/ForceGraph_OperatorPaths.html</viskoO:hasEndpoint>
     <viskoO:partOfViewerSet>
       <viskoO:ViewerSet rdf:about="http://someserver:8080/visko-web/registry/module_d3.owl#d3-viewer-set">
         <rdfs:label>D3 Viewer Set</rdfs:label>
@@ -26,7 +26,7 @@
     <rdfs:comment>Force Graph Viewer for Visko Operator Paths</rdfs:comment>
   </viskoO:Viewer>
   <viskoO:Viewer rdf:about="http://someserver:8080/visko-web/registry/module_d3.owl#visko-data-transformations-viewer">
-    <viskoO:hasEndpoint>http://localhost:8080/module_d3/ForceGraph_DataTransformations.html</viskoO:hasEndpoint>
+    <viskoO:hasEndpoint>null/module_d3/ForceGraph_DataTransformations.html</viskoO:hasEndpoint>
     <viskoO:partOfViewerSet rdf:resource="http://someserver:8080/visko-web/registry/module_d3.owl#d3-viewer-set"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >visko-data-transformations-viewer</pmlp:hasName>
@@ -37,7 +37,7 @@
     <rdfs:comment>Force Graph Viewer for Visko Data Transformation Paths</rdfs:comment>
   </viskoO:Viewer>
   <viskoO:Viewer rdf:about="http://someserver:8080/visko-web/registry/module_d3.owl#general-graph-viewer">
-    <viskoO:hasEndpoint>http://localhost:8080/module_d3/ForceGraph_Generic.html</viskoO:hasEndpoint>
+    <viskoO:hasEndpoint>null/module_d3/ForceGraph_Generic.html</viskoO:hasEndpoint>
     <viskoO:partOfViewerSet rdf:resource="http://someserver:8080/visko-web/registry/module_d3.owl#d3-viewer-set"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >general-graph-viewer</pmlp:hasName>
@@ -48,7 +48,7 @@
     <rdfs:comment>Force Graph Viewer for Graphs</rdfs:comment>
   </viskoO:Viewer>
   <viskoS:Module rdf:about="http://someserver:8080/visko-web/registry/module_d3.owl#module_d3">
-    <viskoS:hasSourceCode>http://localhost:8080/module_d3/org/openvisko/module/ModuleRDFRegistration.java</viskoS:hasSourceCode>
+    <viskoS:hasSourceCode>http://someserver:8080/module_d3/org/openvisko/module/ModuleRDFRegistration.java</viskoS:hasSourceCode>
     <viskoS:wrapsToolkit>
       <viskoS:Toolkit rdf:about="http://someserver:8080/visko-web/registry/module_d3.owl#data-driven-documents">
         <viskoS:hasDocumentation>http://d3js.org/</viskoS:hasDocumentation>
@@ -56,11 +56,11 @@
         <rdfs:comment>Data Driven Documents</rdfs:comment>
       </viskoS:Toolkit>
     </viskoS:wrapsToolkit>
-    <viskoS:hasDocumentation>http://localhost:8080/module_d3/module_d3.html</viskoS:hasDocumentation>
+    <viskoS:hasDocumentation>http://someserver:8080/module_d3/module_d3.html</viskoS:hasDocumentation>
     <rdfs:label>module_d3</rdfs:label>
   </viskoS:Module>
   <viskoO:Viewer rdf:about="http://someserver:8080/visko-web/registry/module_d3.owl#visko-instances-viewer">
-    <viskoO:hasEndpoint>http://localhost:8080/module_d3/Bars_Instances.html</viskoO:hasEndpoint>
+    <viskoO:hasEndpoint>null/module_d3/Bars_Instances.html</viskoO:hasEndpoint>
     <viskoO:partOfViewerSet rdf:resource="http://someserver:8080/visko-web/registry/module_d3.owl#d3-viewer-set"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >visko-instances-viewer</pmlp:hasName>
