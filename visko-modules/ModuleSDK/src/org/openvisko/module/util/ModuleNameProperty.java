@@ -21,9 +21,10 @@ public class ModuleNameProperty {
 			Properties moduleProps = getModuleProperties();
 	
 			moduleName = moduleProps.getProperty("module.server.webapp.name");
-			System.out.println("Module name is not set!!!");
-			if(moduleName == null)
+			if(moduleName == null){
+				System.out.println("Module name is not set!!! Please set this property in module.properties.");
 				System.exit(0);
+			}
 					
 		} catch (Throwable e) {e.printStackTrace();}
 
