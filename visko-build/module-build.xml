@@ -252,10 +252,16 @@
 	<target name="generate-wsdl" depends="compile-java">
 		<mkdir dir="${dir.dist}" />
 		
+		<!-- check if module set a server url. if not, use the visko server url -->
+		<condition property="active.module.server.url" value="${module.server.url}">
+			<isset property="module.server.url"/>
+		</condition>
+		<property name="active.module.server.url" value="${server-url}" />
+		
 		<!-- use Java2WSDLTask to generate wsdl -->			
 		<java2wsdl className="org.openvisko.module.ModuleService"
 			outputLocation="${dir.dist}"
-			locationUri="${module.server.url}/${module.server.webapp.name}/services/ModuleService">
+			locationUri="${active.module.server.url}/${module.server.webapp.name}/services/ModuleService">
             <classpath>
                 <pathelement path="${classpath}"/>
                 <pathelement location="${dir.classes}"/>

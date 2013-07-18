@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <rdf:RDF
+    xmlns="http://someserver:8080/visko-web/registry/int2Short.owl"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:expr="http://www.daml.org/services/owl-s/1.2/generic/Expression.owl#"
     xmlns:service="http://www.daml.org/services/owl-s/1.2/Service.owl#"
     xmlns:process="http://www.daml.org/services/owl-s/1.2/Process.owl#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns="http://localhost:8080/visko-web/registry/int2Short.owl"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
     xmlns:grounding="http://www.daml.org/services/owl-s/1.2/Grounding.owl#"
     xmlns:profile="http://www.daml.org/services/owl-s/1.2/Profile.owl#"
     xmlns:list="http://www.daml.org/services/owl-s/1.2/generic/ObjectList.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xml:base="http://localhost:8080/visko-web/registry/int2Short.owl">
+  xml:base="http://someserver:8080/visko-web/registry/int2Short.owl">
   <service:Service rdf:ID="int2ShortService">
     <rdfs:label>int2Short</rdfs:label>
     <service:supports>

@@ -8,11 +8,11 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
     xmlns:grounding="http://www.daml.org/services/owl-s/1.2/Grounding.owl#"
-    xmlns="http://localhost:8080/visko-web/registry/jsonGraph_OperatorPaths.owl"
+    xmlns="http://someserver:8080/visko-web/registry/jsonGraph_OperatorPaths.owl"
     xmlns:profile="http://www.daml.org/services/owl-s/1.2/Profile.owl#"
     xmlns:list="http://www.daml.org/services/owl-s/1.2/generic/ObjectList.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xml:base="http://localhost:8080/visko-web/registry/jsonGraph_OperatorPaths.owl">
+  xml:base="http://someserver:8080/visko-web/registry/jsonGraph_OperatorPaths.owl">
   <service:Service rdf:ID="jsonGraph_OperatorPathsService">
     <rdfs:label>jsonGraph_OperatorPaths</rdfs:label>
     <service:supports>

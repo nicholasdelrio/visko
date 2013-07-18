@@ -33,21 +33,17 @@ public class ServerProperties {
 		try{
 
 			Properties serverProps = getServerProperties();
-			File tomcatHomePath = ModuleProperties.getInstance().getTomcatHomePath();
 			
-			//if module didnt' set tomcat home path, then set to visko-web's tomcat path
+			File tomcatHomePath = ModuleProperties.getInstance().getTomcatHomePath();
 			if(tomcatHomePath == null){
 				String stringPath = serverProps.getProperty("server-base-path");
 				tomcatHomePath = new File(stringPath);
 			}
 			
-			// set serverURL
-			String override = serverProps.getProperty("override-module-url");
-			if(override == null)
-				SERVER_URL = ModuleProperties.getInstance().getHostingServerURL().toString();
-			else{
+			
+			SERVER_URL = ModuleProperties.getInstance().getHostingServerURL().toString();
+			if(SERVER_URL == null){
 				String urlString = serverProps.getProperty("server-url");
-				
 				if(!urlString.endsWith("/"))
 					urlString += "/";
 				
@@ -55,7 +51,7 @@ public class ServerProperties {
 			}
 
 			File webappsDir = new File(tomcatHomePath, "webapps");		
-			WEBAPP_DIR = new File(webappsDir, ModuleProperties.getInstance().getWebappName());
+			WEBAPP_DIR = new File(webappsDir, ModuleNameProperty.getInstance().getName());
 			OUTPUT_DIR = new File(WEBAPP_DIR, OUTPUT_DIR_NAME);
 			SCRIPTS_DIR = new File(WEBAPP_DIR, SCRIPTS_DIR_NAME);
 
@@ -94,7 +90,7 @@ public class ServerProperties {
 	}
 	
 	public URL getModuleHTMLDescription(){
-		String stringURL = getServerBaseURL().toString() + ModuleProperties.getInstance().getWebappName() + "/" + ModuleProperties.getInstance().getWebappName() + ".html";
+		String stringURL = getServerBaseURL().toString() + ModuleNameProperty.getInstance().getName() + "/" + ModuleNameProperty.getInstance().getName() + ".html";
 		try
 		{return new URL(stringURL);}
 		catch(Exception e){
@@ -104,7 +100,7 @@ public class ServerProperties {
 	}
 
 	public URL getModuleSourceCode(){
-		String stringURL = getServerBaseURL().toString() + ModuleProperties.getInstance().getWebappName() + "/org/openvisko/module/ModuleRDFRegistration.java";
+		String stringURL = getServerBaseURL().toString() + ModuleNameProperty.getInstance().getName() + "/org/openvisko/module/ModuleRDFRegistration.java";
 		try
 		{return new URL(stringURL);}
 		catch(Exception e){
@@ -115,7 +111,7 @@ public class ServerProperties {
 	
 	public URL getOutputURLPrefix(){
 		try
-		{return new URL(SERVER_URL + ModuleProperties.getInstance().getWebappName() + "/" + OUTPUT_DIR_NAME + "/");}
+		{return new URL(SERVER_URL + ModuleNameProperty.getInstance().getName() + "/" + OUTPUT_DIR_NAME + "/");}
 		catch(Exception e){
 			e.printStackTrace();
 			return null;
@@ -183,7 +179,7 @@ public class ServerProperties {
 	}
 	
 	public String getOutputURLPrefix(File temporaryOutputDir){
-		return SERVER_URL + ModuleProperties.getInstance().getWebappName() + "/" + OUTPUT_DIR_NAME + "/" + temporaryOutputDir.getName();
+		return SERVER_URL + ModuleNameProperty.getInstance().getName() + "/" + OUTPUT_DIR_NAME + "/" + temporaryOutputDir.getName();
 	}
 	
 	/**

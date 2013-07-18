@@ -9,409 +9,236 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:pmlp="http://inference-web.org/2.0/pml-provenance.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-  <viskoS:Service rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#psxy">
-    <viskoS:supportedByOWLSService rdf:resource="http://localhost:8080/visko-web/registry/psxy.owl#psxyService"/>
+  <viskoS:InputParameterBindings rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0">
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-11">
+        <owlsProcess:valueData>5c</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxyz.owl#JZ</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-34">
+        <owlsProcess:valueData>thinnest,black</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdcontour.owl#Wc</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-31">
+        <owlsProcess:valueData>0.5</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdcontour.owl#B</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-20">
+        <owlsProcess:valueData>0.02</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/surface.owl#I</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-25">
+        <owlsProcess:valueData>x4c</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdimage.owl#J</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-26">
+        <owlsProcess:valueData>hot</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdimage.owl#C</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-24">
+        <owlsProcess:valueData>1</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdimage.owl#B</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-3">
+        <owlsProcess:valueData>-109/-107/33/34</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxy.owl#R</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-35">
+        <owlsProcess:valueData>thinnest,black</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdcontour.owl#Wa</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-4">
+        <owlsProcess:valueData>x4c</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxy.owl#J</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-14">
+        <owlsProcess:valueData>o0.1</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxyz.owl#S</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-12">
+        <owlsProcess:valueData>-109/-107/33/34/-300/-100</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxyz.owl#R</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-18">
+        <owlsProcess:valueData>0.2</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/nearneighbor.owl#S</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-27">
+        <owlsProcess:valueData>-200/200/10</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdimage.owl#T</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-15">
+        <owlsProcess:valueData>thinnest</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxyz.owl#W</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-13">
+        <owlsProcess:valueData>200/30</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxyz.owl#E</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-19">
+        <owlsProcess:valueData>-109/-107/33/34</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/nearneighbor.owl#R</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-28">
+        <owlsProcess:valueData>-109/-107/33/34</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdimage.owl#R</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-7">
+        <owlsProcess:valueData>0</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxy.owl#indexOfX</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-5">
+        <owlsProcess:valueData>blue</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxy.owl#G</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-0">
+        <owlsProcess:valueData>0</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grd2xyz.owl#N</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:profiles rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d19"/>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-8">
+        <owlsProcess:valueData>1</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxy.owl#indexOfY</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-32">
+        <owlsProcess:valueData>5</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdcontour.owl#S</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-6">
+        <owlsProcess:valueData>1</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxy.owl#B</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-16">
+        <owlsProcess:valueData>lightgray</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxyz.owl#G</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-21">
+        <owlsProcess:valueData>0.25</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/surface.owl#T</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-2">
+        <owlsProcess:valueData>c0.04c</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxy.owl#S</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-17">
+        <owlsProcess:valueData>0.02</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/nearneighbor.owl#I</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-33">
+        <owlsProcess:valueData>x4c</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdcontour.owl#J</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-1">
+        <owlsProcess:valueData>0</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grd2xyz_esri.owl#N</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-22">
+        <owlsProcess:valueData>0.1</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/surface.owl#C</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-9">
+        <owlsProcess:valueData>1/1/50</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxyz.owl#B</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-10">
+        <owlsProcess:valueData>x6c</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxyz.owl#J</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-29">
+        <owlsProcess:valueData>10</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdcontour.owl#C</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-30">
+        <owlsProcess:valueData>20</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdcontour.owl#A</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-23">
+        <owlsProcess:valueData>-109/-107/33/34</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/surface.owl#R</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+  </viskoS:InputParameterBindings>
+  <viskoS:Service rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#grdimage">
+    <viskoS:supportedByOWLSService rdf:resource="http://someserver:8080/visko-web/registry/grdimage.owl#grdimageService"/>
     <viskoS:supportedByToolkit>
-      <viskoS:Toolkit rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#gmt">
+      <viskoS:Toolkit rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#gmt">
         <viskoS:hasDocumentation>http://gmt.soest.hawaii.edu/</viskoS:hasDocumentation>
         <rdfs:label>Generic Mapping Tools</rdfs:label>
         <rdfs:comment>Generic Mapping Tools</rdfs:comment>
       </viskoS:Toolkit>
     </viskoS:supportedByToolkit>
     <viskoS:implementsOperator>
-      <viskoO:Transformer rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#psxy-operator">
-        <viskoO:hasOutputDataType rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <viskoO:hasOutputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
-        <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >psxy-operator</pmlp:hasName>
-        <viskoO:mapsTo rdf:resource="http://openvisko.org/rdf/ontology/visko-view.owl#2D_PointMap"/>
-        <viskoO:hasInputDataType rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <viskoO:hasInputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES"/>
-        <rdfs:label>GMT psxy</rdfs:label>
-        <rdfs:comment>Generate 2D Plot of point data</rdfs:comment>
-      </viskoO:Transformer>
-    </viskoS:implementsOperator>
-    <rdfs:label>GMT psxy</rdfs:label>
-    <rdfs:comment>Generate 2D Plot of point data</rdfs:comment>
-  </viskoS:Service>
-  <viskoS:InputParameterBindings rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0">
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-35">
-        <owlsProcess:valueData>thinnest,black</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdcontour.owl#Wa</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-31">
-        <owlsProcess:valueData>0.5</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdcontour.owl#B</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-24">
-        <owlsProcess:valueData>1</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdimage.owl#B</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-26">
-        <owlsProcess:valueData>hot</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdimage.owl#C</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-32">
-        <owlsProcess:valueData>5</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdcontour.owl#S</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-20">
-        <owlsProcess:valueData>0.02</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/surface.owl#I</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-2">
-        <owlsProcess:valueData>c0.04c</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxy.owl#S</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-21">
-        <owlsProcess:valueData>0.25</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/surface.owl#T</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-3">
-        <owlsProcess:valueData>-109/-107/33/34</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxy.owl#R</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-8">
-        <owlsProcess:valueData>1</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxy.owl#indexOfY</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-12">
-        <owlsProcess:valueData>-109/-107/33/34/-300/-100</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxyz.owl#R</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-17">
-        <owlsProcess:valueData>0.02</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/nearneighbor.owl#I</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-14">
-        <owlsProcess:valueData>o0.1</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxyz.owl#S</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-6">
-        <owlsProcess:valueData>1</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxy.owl#B</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-18">
-        <owlsProcess:valueData>0.2</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/nearneighbor.owl#S</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-22">
-        <owlsProcess:valueData>0.1</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/surface.owl#C</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-27">
-        <owlsProcess:valueData>-200/200/10</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdimage.owl#T</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-33">
-        <owlsProcess:valueData>x4c</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdcontour.owl#J</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-19">
-        <owlsProcess:valueData>-109/-107/33/34</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/nearneighbor.owl#R</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-15">
-        <owlsProcess:valueData>thinnest</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxyz.owl#W</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-4">
-        <owlsProcess:valueData>x4c</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxy.owl#J</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-9">
-        <owlsProcess:valueData>1/1/50</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxyz.owl#B</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-13">
-        <owlsProcess:valueData>200/30</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxyz.owl#E</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-10">
-        <owlsProcess:valueData>x6c</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxyz.owl#J</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-0">
-        <owlsProcess:valueData>0</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grd2xyz.owl#N</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:profiles rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d19"/>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-25">
-        <owlsProcess:valueData>x4c</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdimage.owl#J</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-34">
-        <owlsProcess:valueData>thinnest,black</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdcontour.owl#Wc</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-30">
-        <owlsProcess:valueData>20</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdcontour.owl#A</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-23">
-        <owlsProcess:valueData>-109/-107/33/34</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/surface.owl#R</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-28">
-        <owlsProcess:valueData>-109/-107/33/34</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdimage.owl#R</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-29">
-        <owlsProcess:valueData>10</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdcontour.owl#C</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-5">
-        <owlsProcess:valueData>blue</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxy.owl#G</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-16">
-        <owlsProcess:valueData>lightgray</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxyz.owl#G</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-7">
-        <owlsProcess:valueData>0</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxy.owl#indexOfX</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-11">
-        <owlsProcess:valueData>5c</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxyz.owl#JZ</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-0-binding-1">
-        <owlsProcess:valueData>0</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grd2xyz_esri.owl#N</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-  </viskoS:InputParameterBindings>
-  <viskoS:Service rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#psxyz">
-    <viskoS:supportedByOWLSService rdf:resource="http://localhost:8080/visko-web/registry/psxyz.owl#psxyzService"/>
-    <viskoS:supportedByToolkit rdf:resource="http://localhost:8080/visko-web/registry/module_gmt.owl#gmt"/>
-    <viskoS:implementsOperator>
-      <viskoO:Transformer rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#psxyz-operator">
-        <viskoO:hasOutputDataType rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <viskoO:hasOutputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
-        <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >psxyz-operator</pmlp:hasName>
-        <viskoO:mapsTo rdf:resource="http://openvisko.org/rdf/ontology/visko-view.owl#3D_BarChart"/>
-        <viskoO:hasInputDataType rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d18"/>
-        <viskoO:hasInputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES"/>
-        <rdfs:label>GMT psxyz</rdfs:label>
-        <rdfs:comment>Generate 3D bar chart of XYZ data</rdfs:comment>
-      </viskoO:Transformer>
-    </viskoS:implementsOperator>
-    <rdfs:label>GMT psxyz</rdfs:label>
-    <rdfs:comment>Generate 3D bar chart of XYZ data</rdfs:comment>
-  </viskoS:Service>
-  <viskoS:InputParameterBindings rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1">
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-20">
-        <owlsProcess:valueData>-200/200/10</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdimage.owl#T</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-8">
-        <owlsProcess:valueData>thinnest</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxyz.owl#W</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-6">
-        <owlsProcess:valueData>200/30</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxyz.owl#E</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-15">
-        <owlsProcess:valueData>thinnest,black</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdcontour.owl#Wc</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-4">
-        <owlsProcess:valueData>5c</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxyz.owl#JZ</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-18">
-        <owlsProcess:valueData>x4c</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdimage.owl#J</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-11">
-        <owlsProcess:valueData>20</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdcontour.owl#A</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-9">
-        <owlsProcess:valueData>lightgray</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxyz.owl#G</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-2">
-        <owlsProcess:valueData>1/1/50</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxyz.owl#B</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-21">
-        <owlsProcess:valueData>-109/-107/33/34</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdimage.owl#R</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-16">
-        <owlsProcess:valueData>thinnest,black</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdcontour.owl#Wa</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-0">
-        <owlsProcess:valueData>0</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grd2xyz.owl#N</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-5">
-        <owlsProcess:valueData>-109/-107/33/34/-300/-100</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxyz.owl#R</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-14">
-        <owlsProcess:valueData>x4c</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdcontour.owl#J</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-12">
-        <owlsProcess:valueData>0.5</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdcontour.owl#B</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-10">
-        <owlsProcess:valueData>10</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdcontour.owl#C</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:profiles rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d12"/>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-19">
-        <owlsProcess:valueData>hot</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdimage.owl#C</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-7">
-        <owlsProcess:valueData>o0.1</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxyz.owl#S</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-17">
-        <owlsProcess:valueData>1</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdimage.owl#B</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-1">
-        <owlsProcess:valueData>0</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grd2xyz_esri.owl#N</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-3">
-        <owlsProcess:valueData>x6c</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxyz.owl#J</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-13">
-        <owlsProcess:valueData>5</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/grdcontour.owl#S</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-  </viskoS:InputParameterBindings>
-  <viskoS:Service rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#grdimage">
-    <viskoS:supportedByOWLSService rdf:resource="http://localhost:8080/visko-web/registry/grdimage.owl#grdimageService"/>
-    <viskoS:supportedByToolkit rdf:resource="http://localhost:8080/visko-web/registry/module_gmt.owl#gmt"/>
-    <viskoS:implementsOperator>
-      <viskoO:Transformer rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#grdimage-operator">
+      <viskoO:Transformer rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#grdimage-operator">
         <viskoO:hasOutputDataType rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <viskoO:hasOutputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
         <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -426,11 +253,30 @@
     <rdfs:label>GMT grdimage</rdfs:label>
     <rdfs:comment>Generate raster map of gridded data encoded in netCDF</rdfs:comment>
   </viskoS:Service>
-  <viskoS:Service rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#surface">
-    <viskoS:supportedByOWLSService rdf:resource="http://localhost:8080/visko-web/registry/surface.owl#surfaceService"/>
-    <viskoS:supportedByToolkit rdf:resource="http://localhost:8080/visko-web/registry/module_gmt.owl#gmt"/>
+  <viskoS:Service rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#psxyz">
+    <viskoS:supportedByOWLSService rdf:resource="http://someserver:8080/visko-web/registry/psxyz.owl#psxyzService"/>
+    <viskoS:supportedByToolkit rdf:resource="http://someserver:8080/visko-web/registry/module_gmt.owl#gmt"/>
     <viskoS:implementsOperator>
-      <viskoO:Interpolator rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#surface-operator">
+      <viskoO:Transformer rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#psxyz-operator">
+        <viskoO:hasOutputDataType rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <viskoO:hasOutputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
+        <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >psxyz-operator</pmlp:hasName>
+        <viskoO:mapsTo rdf:resource="http://openvisko.org/rdf/ontology/visko-view.owl#3D_BarChart"/>
+        <viskoO:hasInputDataType rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d18"/>
+        <viskoO:hasInputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES"/>
+        <rdfs:label>GMT psxyz</rdfs:label>
+        <rdfs:comment>Generate 3D bar chart of XYZ data</rdfs:comment>
+      </viskoO:Transformer>
+    </viskoS:implementsOperator>
+    <rdfs:label>GMT psxyz</rdfs:label>
+    <rdfs:comment>Generate 3D bar chart of XYZ data</rdfs:comment>
+  </viskoS:Service>
+  <viskoS:Service rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#surface">
+    <viskoS:supportedByOWLSService rdf:resource="http://someserver:8080/visko-web/registry/surface.owl#surfaceService"/>
+    <viskoS:supportedByToolkit rdf:resource="http://someserver:8080/visko-web/registry/module_gmt.owl#gmt"/>
+    <viskoS:implementsOperator>
+      <viskoO:Interpolator rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#surface-operator">
         <viskoO:hasOutputDataType rdf:resource="http://gmt.soest.hawaii.edu/gmt-data.owl#2D_Grid_COARDS"/>
         <viskoO:hasOutputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/NETCDF.owl#NETCDF"/>
         <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -444,80 +290,11 @@
     <rdfs:label>GMT surface</rdfs:label>
     <rdfs:comment>Employ tensioned splines to generate gridded data in netCDF from ascii tabular point data</rdfs:comment>
   </viskoS:Service>
-  <viskoS:Module rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#module_gmt">
-    <viskoS:hasSourceCode>http://localhost:8080/module_gmt/org/openvisko/module/ModuleRDFRegistration.java</viskoS:hasSourceCode>
-    <viskoS:wrapsToolkit rdf:resource="http://localhost:8080/visko-web/registry/module_gmt.owl#gmt"/>
-    <viskoS:hasDocumentation>http://localhost:8080/module_gmt/module_gmt.html</viskoS:hasDocumentation>
-    <rdfs:label>module_gmt</rdfs:label>
-  </viskoS:Module>
-  <viskoS:InputParameterBindings rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-2">
-    <viskoS:profiles rdf:resource="http://data.oceandrilling.org#mbsf"/>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-2-binding-6">
-        <owlsProcess:valueData>1</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxy.owl#indexOfY</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-2-binding-5">
-        <owlsProcess:valueData>0</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxy.owl#indexOfX</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-2-binding-4">
-        <owlsProcess:valueData>1</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxy.owl#B</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-2-binding-3">
-        <owlsProcess:valueData>blue</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxy.owl#G</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-2-binding-2">
-        <owlsProcess:valueData>x4c</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxy.owl#J</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-2-binding-1">
-        <owlsProcess:valueData>50/300/10/100</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxy.owl#R</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-    <viskoS:declaresBindings>
-      <owlsProcess:InputBinding rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#bindings-2-binding-0">
-        <owlsProcess:valueData>c0.04c</owlsProcess:valueData>
-        <owlsProcess:toParam>http://localhost:8080/visko-web/registry/psxy.owl#S</owlsProcess:toParam>
-      </owlsProcess:InputBinding>
-    </viskoS:declaresBindings>
-  </viskoS:InputParameterBindings>
-  <viskoS:Service rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#grd2xyz">
-    <viskoS:supportedByOWLSService rdf:resource="http://localhost:8080/visko-web/registry/grd2xyz.owl#grd2xyzService"/>
-    <viskoS:supportedByToolkit rdf:resource="http://localhost:8080/visko-web/registry/module_gmt.owl#gmt"/>
+  <viskoS:Service rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#grdcontour">
+    <viskoS:supportedByOWLSService rdf:resource="http://someserver:8080/visko-web/registry/grdcontour.owl#grdcontourService"/>
+    <viskoS:supportedByToolkit rdf:resource="http://someserver:8080/visko-web/registry/module_gmt.owl#gmt"/>
     <viskoS:implementsOperator>
-      <viskoO:Transformer rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#grd2xyz-operator">
-        <viskoO:hasOutputDataType rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d18"/>
-        <viskoO:hasOutputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES"/>
-        <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >grd2xyz-operator</pmlp:hasName>
-        <viskoO:hasInputDataType rdf:resource="http://gmt.soest.hawaii.edu/gmt-data.owl#2D_Grid_COARDS"/>
-        <viskoO:hasInputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/NETCDF.owl#NETCDF"/>
-        <rdfs:label>GMT grd2xyz</rdfs:label>
-        <rdfs:comment>Convert NetCDF COARDS compliant dataset to listing of XYZ values</rdfs:comment>
-      </viskoO:Transformer>
-    </viskoS:implementsOperator>
-    <rdfs:label>GMT grd2xyz</rdfs:label>
-    <rdfs:comment>Convert NetCDF COARDS compliant dataset to listing of XYZ values</rdfs:comment>
-  </viskoS:Service>
-  <viskoS:Service rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#grdcontour">
-    <viskoS:supportedByOWLSService rdf:resource="http://localhost:8080/visko-web/registry/grdcontour.owl#grdcontourService"/>
-    <viskoS:supportedByToolkit rdf:resource="http://localhost:8080/visko-web/registry/module_gmt.owl#gmt"/>
-    <viskoS:implementsOperator>
-      <viskoO:Transformer rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#grdcontour-operator">
+      <viskoO:Transformer rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#grdcontour-operator">
         <viskoO:hasOutputDataType rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <viskoO:hasOutputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
         <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -532,11 +309,17 @@
     <rdfs:label>GMT grdcontour</rdfs:label>
     <rdfs:comment>Generates contour map from netCDF 2D gridded dataset</rdfs:comment>
   </viskoS:Service>
-  <viskoS:Service rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#nearneighbor">
-    <viskoS:supportedByOWLSService rdf:resource="http://localhost:8080/visko-web/registry/nearneighbor.owl#nearneighborService"/>
-    <viskoS:supportedByToolkit rdf:resource="http://localhost:8080/visko-web/registry/module_gmt.owl#gmt"/>
+  <viskoS:Module rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#module_gmt">
+    <viskoS:hasSourceCode>http://localhost:8080/module_gmt/org/openvisko/module/ModuleRDFRegistration.java</viskoS:hasSourceCode>
+    <viskoS:wrapsToolkit rdf:resource="http://someserver:8080/visko-web/registry/module_gmt.owl#gmt"/>
+    <viskoS:hasDocumentation>http://localhost:8080/module_gmt/module_gmt.html</viskoS:hasDocumentation>
+    <rdfs:label>module_gmt</rdfs:label>
+  </viskoS:Module>
+  <viskoS:Service rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#nearneighbor">
+    <viskoS:supportedByOWLSService rdf:resource="http://someserver:8080/visko-web/registry/nearneighbor.owl#nearneighborService"/>
+    <viskoS:supportedByToolkit rdf:resource="http://someserver:8080/visko-web/registry/module_gmt.owl#gmt"/>
     <viskoS:implementsOperator>
-      <viskoO:Interpolator rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#nearneighbor-operator">
+      <viskoO:Interpolator rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#nearneighbor-operator">
         <viskoO:hasOutputDataType rdf:resource="http://gmt.soest.hawaii.edu/gmt-data.owl#2D_Grid_COARDS"/>
         <viskoO:hasOutputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/NETCDF.owl#NETCDF"/>
         <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -550,11 +333,11 @@
     <rdfs:label>GMT nearneighbor</rdfs:label>
     <rdfs:comment>Employ nearest neighbor to generate gridded data in netCDF from ascii tabular point data</rdfs:comment>
   </viskoS:Service>
-  <viskoS:Service rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#grd2xyz_esri">
-    <viskoS:supportedByOWLSService rdf:resource="http://localhost:8080/visko-web/registry/grd2xyz_esri.owl#grd2xyz_esriService"/>
-    <viskoS:supportedByToolkit rdf:resource="http://localhost:8080/visko-web/registry/module_gmt.owl#gmt"/>
+  <viskoS:Service rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#grd2xyz_esri">
+    <viskoS:supportedByOWLSService rdf:resource="http://someserver:8080/visko-web/registry/grd2xyz_esri.owl#grd2xyz_esriService"/>
+    <viskoS:supportedByToolkit rdf:resource="http://someserver:8080/visko-web/registry/module_gmt.owl#gmt"/>
     <viskoS:implementsOperator>
-      <viskoO:Transformer rdf:about="http://localhost:8080/visko-web/registry/module_gmt.owl#grd2xyz_esri-operator">
+      <viskoO:Transformer rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#grd2xyz_esri-operator">
         <viskoO:hasOutputDataType rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <viskoO:hasOutputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/ESRIGRID.owl#ESRIGRID"/>
         <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -568,4 +351,221 @@
     <rdfs:label>GMT grd2xyz_esri</rdfs:label>
     <rdfs:comment>Convert NetCDF COARDS compliant dataset to an ESRI ArcInfo ASCII Grid</rdfs:comment>
   </viskoS:Service>
+  <viskoS:InputParameterBindings rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1">
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-9">
+        <owlsProcess:valueData>lightgray</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxyz.owl#G</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-17">
+        <owlsProcess:valueData>1</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdimage.owl#B</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-14">
+        <owlsProcess:valueData>x4c</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdcontour.owl#J</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-21">
+        <owlsProcess:valueData>-109/-107/33/34</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdimage.owl#R</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-7">
+        <owlsProcess:valueData>o0.1</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxyz.owl#S</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-12">
+        <owlsProcess:valueData>0.5</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdcontour.owl#B</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-1">
+        <owlsProcess:valueData>0</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grd2xyz_esri.owl#N</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-15">
+        <owlsProcess:valueData>thinnest,black</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdcontour.owl#Wc</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-4">
+        <owlsProcess:valueData>5c</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxyz.owl#JZ</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-2">
+        <owlsProcess:valueData>1/1/50</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxyz.owl#B</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-18">
+        <owlsProcess:valueData>x4c</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdimage.owl#J</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-16">
+        <owlsProcess:valueData>thinnest,black</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdcontour.owl#Wa</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-5">
+        <owlsProcess:valueData>-109/-107/33/34/-300/-100</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxyz.owl#R</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-19">
+        <owlsProcess:valueData>hot</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdimage.owl#C</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-13">
+        <owlsProcess:valueData>5</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdcontour.owl#S</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-10">
+        <owlsProcess:valueData>10</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdcontour.owl#C</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-8">
+        <owlsProcess:valueData>thinnest</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxyz.owl#W</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:profiles rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d12"/>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-3">
+        <owlsProcess:valueData>x6c</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxyz.owl#J</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-20">
+        <owlsProcess:valueData>-200/200/10</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdimage.owl#T</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-6">
+        <owlsProcess:valueData>200/30</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxyz.owl#E</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-11">
+        <owlsProcess:valueData>20</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grdcontour.owl#A</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-1-binding-0">
+        <owlsProcess:valueData>0</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/grd2xyz.owl#N</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+  </viskoS:InputParameterBindings>
+  <viskoS:Service rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#psxy">
+    <viskoS:supportedByOWLSService rdf:resource="http://someserver:8080/visko-web/registry/psxy.owl#psxyService"/>
+    <viskoS:supportedByToolkit rdf:resource="http://someserver:8080/visko-web/registry/module_gmt.owl#gmt"/>
+    <viskoS:implementsOperator>
+      <viskoO:Transformer rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#psxy-operator">
+        <viskoO:hasOutputDataType rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <viskoO:hasOutputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
+        <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >psxy-operator</pmlp:hasName>
+        <viskoO:mapsTo rdf:resource="http://openvisko.org/rdf/ontology/visko-view.owl#2D_PointMap"/>
+        <viskoO:hasInputDataType rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <viskoO:hasInputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES"/>
+        <rdfs:label>GMT psxy</rdfs:label>
+        <rdfs:comment>Generate 2D Plot of point data</rdfs:comment>
+      </viskoO:Transformer>
+    </viskoS:implementsOperator>
+    <rdfs:label>GMT psxy</rdfs:label>
+    <rdfs:comment>Generate 2D Plot of point data</rdfs:comment>
+  </viskoS:Service>
+  <viskoS:Service rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#grd2xyz">
+    <viskoS:supportedByOWLSService rdf:resource="http://someserver:8080/visko-web/registry/grd2xyz.owl#grd2xyzService"/>
+    <viskoS:supportedByToolkit rdf:resource="http://someserver:8080/visko-web/registry/module_gmt.owl#gmt"/>
+    <viskoS:implementsOperator>
+      <viskoO:Transformer rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#grd2xyz-operator">
+        <viskoO:hasOutputDataType rdf:resource="http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d18"/>
+        <viskoO:hasOutputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES"/>
+        <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >grd2xyz-operator</pmlp:hasName>
+        <viskoO:hasInputDataType rdf:resource="http://gmt.soest.hawaii.edu/gmt-data.owl#2D_Grid_COARDS"/>
+        <viskoO:hasInputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/NETCDF.owl#NETCDF"/>
+        <rdfs:label>GMT grd2xyz</rdfs:label>
+        <rdfs:comment>Convert NetCDF COARDS compliant dataset to listing of XYZ values</rdfs:comment>
+      </viskoO:Transformer>
+    </viskoS:implementsOperator>
+    <rdfs:label>GMT grd2xyz</rdfs:label>
+    <rdfs:comment>Convert NetCDF COARDS compliant dataset to listing of XYZ values</rdfs:comment>
+  </viskoS:Service>
+  <viskoS:InputParameterBindings rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-2">
+    <viskoS:profiles rdf:resource="http://data.oceandrilling.org#mbsf"/>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-2-binding-6">
+        <owlsProcess:valueData>1</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxy.owl#indexOfY</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-2-binding-5">
+        <owlsProcess:valueData>0</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxy.owl#indexOfX</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-2-binding-4">
+        <owlsProcess:valueData>1</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxy.owl#B</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-2-binding-3">
+        <owlsProcess:valueData>blue</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxy.owl#G</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-2-binding-2">
+        <owlsProcess:valueData>x4c</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxy.owl#J</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-2-binding-1">
+        <owlsProcess:valueData>50/300/10/100</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxy.owl#R</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+    <viskoS:declaresBindings>
+      <owlsProcess:InputBinding rdf:about="http://someserver:8080/visko-web/registry/module_gmt.owl#bindings-2-binding-0">
+        <owlsProcess:valueData>c0.04c</owlsProcess:valueData>
+        <owlsProcess:toParam>http://someserver:8080/visko-web/registry/psxy.owl#S</owlsProcess:toParam>
+      </owlsProcess:InputBinding>
+    </viskoS:declaresBindings>
+  </viskoS:InputParameterBindings>
 </rdf:RDF>

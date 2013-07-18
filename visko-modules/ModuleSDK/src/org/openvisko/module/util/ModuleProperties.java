@@ -8,12 +8,12 @@ import java.util.Properties;
 public class ModuleProperties {
 	
 	private static ModuleProperties instance;
-	
+
+	// optional properties - if null that is fine
 	private URL hostingServerURL;
-	private String webappName;
 	private File tomcatHomePath;
 
-	public static ModuleProperties getInstance(){
+	static ModuleProperties getInstance(){
 		if(instance == null)
 			instance = new ModuleProperties();
 		
@@ -23,17 +23,16 @@ public class ModuleProperties {
 	private ModuleProperties(){
 		try {
 			Properties moduleProps = getModuleProperties();
-			
+						
 			// set server url
 			String urlString = moduleProps.getProperty("module.server.url");
-			if(!urlString.endsWith("/"))
-				urlString += "/";
-			hostingServerURL = new URL(urlString);
-			
-			// set webapp name
-			webappName = moduleProps.getProperty("module.server.webapp.name");
-			
-			// set tomcat home path, if set.  it can be null. it is only set when user wants to deploy module in server different than where visko-web is being hosted
+			if(urlString != null){
+				if(!urlString.endsWith("/"))
+					urlString += "/";
+				hostingServerURL = new URL(urlString);
+			}
+						
+			// set tomcat home path
 			String pathString = moduleProps.getProperty("module.server.tomcat.home");
 			if(pathString != null)
 				tomcatHomePath = new File(pathString);
@@ -41,10 +40,6 @@ public class ModuleProperties {
 		} catch (Throwable e) {e.printStackTrace();}
 	}
 	
-	
-	public String getWebappName(){
-		return webappName;
-	}
 	
 	URL getHostingServerURL(){
 		return hostingServerURL;

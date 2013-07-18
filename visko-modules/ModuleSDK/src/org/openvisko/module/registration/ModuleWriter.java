@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import org.mindswap.owl.OWLIndividual;
-import org.openvisko.module.util.ModuleProperties;
+import org.openvisko.module.util.ModuleNameProperty;
 import org.openvisko.module.util.ServerProperties;
 
 import com.hp.hpl.jena.ontology.OntModel;
@@ -115,9 +115,9 @@ public class ModuleWriter {
 	}
 	
 	private void createNewModule(){
-		module = new Module(baseFileURL, ModuleProperties.getInstance().getWebappName(), viskoModel);
+		module = new Module(baseFileURL, ModuleNameProperty.getInstance().getName(), viskoModel);
 		module.setToolkit(toolkit);
-		module.setLabel(ModuleProperties.getInstance().getWebappName());
+		module.setLabel(ModuleNameProperty.getInstance().getName());
 		module.setDocumentationURL(ServerProperties.getInstance().getModuleHTMLDescription());
 		module.setSourceCodeURL(ServerProperties.getInstance().getModuleSourceCode());
 	}

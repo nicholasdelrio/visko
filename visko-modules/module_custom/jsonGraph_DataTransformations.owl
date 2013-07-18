@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <rdf:RDF
-    xmlns="http://localhost:8080/visko-web/registry/jsonGraph_DataTransformations.owl"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://someserver:8080/visko-web/registry/jsonGraph_DataTransformations.owl"
     xmlns:expr="http://www.daml.org/services/owl-s/1.2/generic/Expression.owl#"
     xmlns:service="http://www.daml.org/services/owl-s/1.2/Service.owl#"
     xmlns:process="http://www.daml.org/services/owl-s/1.2/Process.owl#"
@@ -12,7 +12,7 @@
     xmlns:profile="http://www.daml.org/services/owl-s/1.2/Profile.owl#"
     xmlns:list="http://www.daml.org/services/owl-s/1.2/generic/ObjectList.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xml:base="http://localhost:8080/visko-web/registry/jsonGraph_DataTransformations.owl">
+  xml:base="http://someserver:8080/visko-web/registry/jsonGraph_DataTransformations.owl">
   <service:Service rdf:ID="jsonGraph_DataTransformationsService">
     <rdfs:label>jsonGraph_DataTransformations</rdfs:label>
     <service:supports>

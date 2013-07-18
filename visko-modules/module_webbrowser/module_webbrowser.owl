@@ -9,33 +9,15 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:pmlp="http://inference-web.org/2.0/pml-provenance.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-  <viskoO:Viewer rdf:about="http://localhost:8080/visko-web/registry/module_webbrowser.owl#web-browser-quicktime-viewer">
+  <viskoO:Viewer rdf:about="http://someserver:8080/visko-web/registry/module_webbrowser.owl#web-browser-image-viewer">
     <viskoO:partOfViewerSet>
-      <viskoO:ViewerSet rdf:about="http://localhost:8080/visko-web/registry/module_webbrowser.owl#web-browser">
+      <viskoO:ViewerSet rdf:about="http://someserver:8080/visko-web/registry/module_webbrowser.owl#web-browser">
         <viskoS:hasDocumentation>http://en.wikipedia.org/wiki/Web_browser</viskoS:hasDocumentation>
         <rdfs:label>Web browser</rdfs:label>
         <rdfs:comment>Web browser</rdfs:comment>
         <rdf:type rdf:resource="http://openvisko.org/rdf/ontology/visko-service.owl#Toolkit"/>
       </viskoO:ViewerSet>
     </viskoO:partOfViewerSet>
-    <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >web-browser-quicktime-viewer</pmlp:hasName>
-    <viskoO:hasInputDataType rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <viskoO:hasInputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/TIFF.owl#TIFF"/>
-    <rdfs:label>Apple QuickTime Viewer</rdfs:label>
-    <rdfs:comment>Renders Movies and Images</rdfs:comment>
-  </viskoO:Viewer>
-  <viskoO:Viewer rdf:about="http://localhost:8080/visko-web/registry/module_webbrowser.owl#web-browser-pdf-viewer">
-    <viskoO:partOfViewerSet rdf:resource="http://localhost:8080/visko-web/registry/module_webbrowser.owl#web-browser"/>
-    <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >web-browser-pdf-viewer</pmlp:hasName>
-    <viskoO:hasInputDataType rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <viskoO:hasInputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PDF.owl#PDF"/>
-    <rdfs:label>Adobe Portable Document Format (PDF) Viewer</rdfs:label>
-    <rdfs:comment>Renders PDF document and allows for zooming.</rdfs:comment>
-  </viskoO:Viewer>
-  <viskoO:Viewer rdf:about="http://localhost:8080/visko-web/registry/module_webbrowser.owl#web-browser-image-viewer">
-    <viskoO:partOfViewerSet rdf:resource="http://localhost:8080/visko-web/registry/module_webbrowser.owl#web-browser"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >web-browser-image-viewer</pmlp:hasName>
     <viskoO:hasInputDataType rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
@@ -45,8 +27,41 @@
     <rdfs:label>Web Browser Image Viewer</rdfs:label>
     <rdfs:comment>Views a few standard image formats</rdfs:comment>
   </viskoO:Viewer>
-  <viskoO:Viewer rdf:about="http://localhost:8080/visko-web/registry/module_webbrowser.owl#web-browser-text-viewer">
-    <viskoO:partOfViewerSet rdf:resource="http://localhost:8080/visko-web/registry/module_webbrowser.owl#web-browser"/>
+  <viskoS:Module rdf:about="http://someserver:8080/visko-web/registry/module_webbrowser.owl#module_webbrowser">
+    <viskoS:hasSourceCode>http://localhost:8080/module_webbrowser/org/openvisko/module/ModuleRDFRegistration.java</viskoS:hasSourceCode>
+    <viskoS:wrapsToolkit rdf:resource="http://someserver:8080/visko-web/registry/module_webbrowser.owl#web-browser"/>
+    <viskoS:hasDocumentation>http://localhost:8080/module_webbrowser/module_webbrowser.html</viskoS:hasDocumentation>
+    <rdfs:label>module_webbrowser</rdfs:label>
+  </viskoS:Module>
+  <viskoO:Viewer rdf:about="http://someserver:8080/visko-web/registry/module_webbrowser.owl#web-browser-html-viewer">
+    <viskoO:partOfViewerSet rdf:resource="http://someserver:8080/visko-web/registry/module_webbrowser.owl#web-browser"/>
+    <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >web-browser-html-viewer</pmlp:hasName>
+    <viskoO:hasInputDataType rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <viskoO:hasInputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/HTML.owl#HTML"/>
+    <rdfs:label>HyperText Markup Language (HTML) Viewer</rdfs:label>
+    <rdfs:comment>Renders HTML documents.</rdfs:comment>
+  </viskoO:Viewer>
+  <viskoO:Viewer rdf:about="http://someserver:8080/visko-web/registry/module_webbrowser.owl#web-browser-quicktime-viewer">
+    <viskoO:partOfViewerSet rdf:resource="http://someserver:8080/visko-web/registry/module_webbrowser.owl#web-browser"/>
+    <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >web-browser-quicktime-viewer</pmlp:hasName>
+    <viskoO:hasInputDataType rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <viskoO:hasInputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/TIFF.owl#TIFF"/>
+    <rdfs:label>Apple QuickTime Viewer</rdfs:label>
+    <rdfs:comment>Renders Movies and Images</rdfs:comment>
+  </viskoO:Viewer>
+  <viskoO:Viewer rdf:about="http://someserver:8080/visko-web/registry/module_webbrowser.owl#web-browser-pdf-viewer">
+    <viskoO:partOfViewerSet rdf:resource="http://someserver:8080/visko-web/registry/module_webbrowser.owl#web-browser"/>
+    <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >web-browser-pdf-viewer</pmlp:hasName>
+    <viskoO:hasInputDataType rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <viskoO:hasInputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PDF.owl#PDF"/>
+    <rdfs:label>Adobe Portable Document Format (PDF) Viewer</rdfs:label>
+    <rdfs:comment>Renders PDF document and allows for zooming.</rdfs:comment>
+  </viskoO:Viewer>
+  <viskoO:Viewer rdf:about="http://someserver:8080/visko-web/registry/module_webbrowser.owl#web-browser-text-viewer">
+    <viskoO:partOfViewerSet rdf:resource="http://someserver:8080/visko-web/registry/module_webbrowser.owl#web-browser"/>
     <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >web-browser-text-viewer</pmlp:hasName>
     <viskoO:hasInputDataType rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
@@ -55,19 +70,4 @@
     <rdfs:label>Plain Text Viewer</rdfs:label>
     <rdfs:comment>Just a plain old text viewer</rdfs:comment>
   </viskoO:Viewer>
-  <viskoO:Viewer rdf:about="http://localhost:8080/visko-web/registry/module_webbrowser.owl#web-browser-html-viewer">
-    <viskoO:partOfViewerSet rdf:resource="http://localhost:8080/visko-web/registry/module_webbrowser.owl#web-browser"/>
-    <pmlp:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >web-browser-html-viewer</pmlp:hasName>
-    <viskoO:hasInputDataType rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <viskoO:hasInputFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/HTML.owl#HTML"/>
-    <rdfs:label>HyperText Markup Language (HTML) Viewer</rdfs:label>
-    <rdfs:comment>Renders HTML documents.</rdfs:comment>
-  </viskoO:Viewer>
-  <viskoS:Module rdf:about="http://localhost:8080/visko-web/registry/module_webbrowser.owl#module_webbrowser">
-    <viskoS:hasSourceCode>http://localhost:8080/module_webbrowser/org/openvisko/module/ModuleRDFRegistration.java</viskoS:hasSourceCode>
-    <viskoS:wrapsToolkit rdf:resource="http://localhost:8080/visko-web/registry/module_webbrowser.owl#web-browser"/>
-    <viskoS:hasDocumentation>http://localhost:8080/module_webbrowser/module_webbrowser.html</viskoS:hasDocumentation>
-    <rdfs:label>module_webbrowser</rdfs:label>
-  </viskoS:Module>
 </rdf:RDF>
