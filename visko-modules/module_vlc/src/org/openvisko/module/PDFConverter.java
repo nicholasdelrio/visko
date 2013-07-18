@@ -18,7 +18,7 @@ import org.openvisko.module.util.ServerProperties;
 public class PDFConverter extends ToolkitOperator
 {
 	
-	public static final String convertexe=ServerProperties.getInstance().getScriptsDir().getAbsolutePath()+"/"+"wkhtmltopdf";
+	public static final String convertexe=ServerProperties.getInstance().getScriptsDir().getAbsolutePath()+"/bin/"+"wkhtmltopdf";
 
 	private String htmlURL;
 	public PDFConverter(String url)
