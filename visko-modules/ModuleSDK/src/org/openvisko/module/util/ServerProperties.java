@@ -41,14 +41,15 @@ public class ServerProperties {
 			}
 			
 			
-			SERVER_URL = ModuleProperties.getInstance().getHostingServerURL().toString();
-			if(SERVER_URL == null){
+			URL moduleServerURL = ModuleProperties.getInstance().getHostingServerURL();
+			if(moduleServerURL == null){
 				String urlString = serverProps.getProperty("server-url");
 				if(!urlString.endsWith("/"))
 					urlString += "/";
-				
 				SERVER_URL = urlString;
 			}
+			else
+				SERVER_URL = moduleServerURL.toString();
 
 			File webappsDir = new File(tomcatHomePath, "webapps");		
 			WEBAPP_DIR = new File(webappsDir, ModuleNameProperty.getInstance().getName());
