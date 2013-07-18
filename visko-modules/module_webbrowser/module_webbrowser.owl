@@ -28,9 +28,9 @@
     <rdfs:comment>Views a few standard image formats</rdfs:comment>
   </viskoO:Viewer>
   <viskoS:Module rdf:about="http://someserver:8080/visko-web/registry/module_webbrowser.owl#module_webbrowser">
-    <viskoS:hasSourceCode>http://localhost:8080/module_webbrowser/org/openvisko/module/ModuleRDFRegistration.java</viskoS:hasSourceCode>
+    <viskoS:hasSourceCode>http://someserver:8080/module_webbrowser/org/openvisko/module/ModuleRDFRegistration.java</viskoS:hasSourceCode>
     <viskoS:wrapsToolkit rdf:resource="http://someserver:8080/visko-web/registry/module_webbrowser.owl#web-browser"/>
-    <viskoS:hasDocumentation>http://localhost:8080/module_webbrowser/module_webbrowser.html</viskoS:hasDocumentation>
+    <viskoS:hasDocumentation>http://someserver:8080/module_webbrowser/module_webbrowser.html</viskoS:hasDocumentation>
     <rdfs:label>module_webbrowser</rdfs:label>
   </viskoS:Module>
   <viskoO:Viewer rdf:about="http://someserver:8080/visko-web/registry/module_webbrowser.owl#web-browser-html-viewer">

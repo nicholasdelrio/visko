@@ -12,13 +12,13 @@
     </wsdl:binding>
     <wsdl:service name="ModuleService">
         <wsdl:port name="ModuleServiceHttpSoap11Endpoint" binding="tns:ModuleServiceSoap11Binding">
-            <soap:address location="http://localhost:8080/module_webbrowser/services/ModuleService"/>
+            <soap:address location="http://someserver:8080/module_webbrowser/services/ModuleService"/>
         </wsdl:port>
         <wsdl:port name="ModuleServiceHttpSoap12Endpoint" binding="tns:ModuleServiceSoap12Binding">
-            <soap12:address location="http://localhost:8080/module_webbrowser/services/ModuleService"/>
+            <soap12:address location="http://someserver:8080/module_webbrowser/services/ModuleService"/>
         </wsdl:port>
         <wsdl:port name="ModuleServiceHttpEndpoint" binding="tns:ModuleServiceHttpBinding">
-            <http:address location="http://localhost:8080/module_webbrowser/services/ModuleService"/>
+            <http:address location="http://someserver:8080/module_webbrowser/services/ModuleService"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>
