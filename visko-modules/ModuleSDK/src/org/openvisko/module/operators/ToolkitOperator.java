@@ -17,10 +17,17 @@ public abstract class ToolkitOperator {
 	protected String outputURL;
 	
 	protected String inputDatasetURL;
-	
+
+	//constructor used when you do want the module to download the input data specified by the url
 	public ToolkitOperator(String datasetURL, String baseInputFileName, boolean textualData, boolean persistInputDataInMemory, String baseOutputFileName){
 		inputDatasetURL = datasetURL;
 		setUpInputs(datasetURL, baseInputFileName, textualData, persistInputDataInMemory);
+		setUpOutputs(baseOutputFileName);
+	}
+	
+	//constructor used when you don't want the module to download the input data specified by the url
+	public ToolkitOperator(String datasetURL, String baseOutputFileName){
+		inputDatasetURL = datasetURL;
 		setUpOutputs(baseOutputFileName);
 	}
 		
