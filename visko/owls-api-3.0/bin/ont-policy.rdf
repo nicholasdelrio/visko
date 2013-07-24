@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<!--
+	====================================================================== 
+   An augmented set of mappings for locally cached OWL-S ontologies. This
+   file is used by Jena's OntDocumentManager.
+
+	Created:     03.03.2009                       
+	Version:     $Id: ont-policy.rdf,v 1.1 2011/01/24 06:37:55 nick Exp $
+	
+   (c) 2009 Thorsten Möller - University of Basel Switzerland
+   
+   The MIT License
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software and associated documentation files (the "Software"), to
+   deal in the Software without restriction, including without limitation the
+   rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+   sell copies of the Software, and to permit persons to whom the Software is
+   furnished to do so, subject to the following conditions:
+  
+   The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
+  
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+   IN THE SOFTWARE.
+	
+	====================================================================== 
+-->
+<!DOCTYPE rdf:RDF [
+  <!ENTITY jena 'http://jena.hpl.hp.com/schemas/'>
+  <!ENTITY rdf  'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+  <!ENTITY xsd  'http://www.w3.org/2001/XMLSchema#'>
+  <!ENTITY base '&jena;2003/03/ont-manager'>
+  <!ENTITY ont  '&base;#'>
+]>
+
+<rdf:RDF
+  xmlns:rdf ="&rdf;"
+  xmlns     ="&ont;"
+  xml:base  ="&base;">
+
+<DocumentManagerPolicy>
+  <!-- policy for controlling the document manager's behavior -->
+  <processImports rdf:datatype="&xsd;boolean">true</processImports>
+  <cacheModels    rdf:datatype="&xsd;boolean">true</cacheModels>
+</DocumentManagerPolicy>
+
+<!-- ==========================  OWL-S 1.1  ============================== -->
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.1/generic/Expression.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.1/generic/ObjectList.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.1/ActorDefault.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.1/ActorDefault.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.1/Grounding.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.1/Process.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.1/Profile.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileAdditionalParameters.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.1/ProfileAdditionalParameters.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.1/ProfileDeprecatedElements.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.1/Resource.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.1/Resource.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.1/Service.owl" />
+</OntologySpec>
+
+<!-- =====================  OWL-S 1.1 extensions ========================= -->
+<OntologySpec>
+  <publicURI rdf:resource="http://www.ifi.unizh.ch/ddis/ont/owl-s/MoreGroundings.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.1/extensions/MoreGroundings.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://on.cs.unibas.ch/owl-s/1.1/ProfileServiceTermination.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.1/extensions/ProfileServiceTermination.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://on.cs.unibas.ch/owl-s/1.1/OWLSExtensions.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.1/extensions/OWLSExtensions.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.flacp.fujitsulabs.com/tce/ontologies/2005/01/service.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.1/extensions/FLAService.owl" />
+</OntologySpec>
+
+
+<!-- ==========================  OWL-S 1.2  ============================== -->
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.2/generic/Expression.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.2/generic/Expression.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.2/generic/ObjectList.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.2/generic/ObjectList.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.2/Country.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.2/Country.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.2/ActorDefault.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.2/ActorDefault.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.2/Grounding.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.2/Grounding.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.2/GroundingDeprecatedElements.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.2/GroundingDeprecatedElements.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.2/Process.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.2/Process.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.2/ProcessDeprecatedElements.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.2/ProcessDeprecatedElements.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.2/Profile.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.2/Profile.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.2/ProfileAdditionalParameters.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.2/ProfileAdditionalParameters.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.2/ProfileDeprecatedElements.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.2/ProfileDeprecatedElements.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.2/Service.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.2/Service.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.2/ServiceCategory.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.2/ServiceCategory.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/services/owl-s/1.2/ServiceParameter.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.2/ServiceParameter.owl" />
+</OntologySpec>
+
+<!-- =====================  OWL-S 1.2 extensions ========================= -->
+<OntologySpec>
+  <publicURI rdf:resource="http://on.cs.unibas.ch/owl-s/1.2/ProfileServiceTermination.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.2/extensions/ProfileServiceTermination.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://on.cs.unibas.ch/owl-s/1.2/OWLSExtensions.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.2/extensions/OWLSExtensions.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://on.cs.unibas.ch/owl-s/1.2/MoreGroundings.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.2/extensions/MoreGroundings.owl" />
+</OntologySpec>
+<OntologySpec>
+  <publicURI rdf:resource="http://on.cs.unibas.ch/owl-s/1.2/FLAService.owl" />
+  <altURL    rdf:resource="file:vocabulary/owl-s/1.2/extensions/FLAService.owl" />
+</OntologySpec>
+
+
+<!--<OntologySpec>
+   local version of the OWL language ontology (in OWL) 
+  <publicURI rdf:resource="http://www.w3.org/2002/07/owl" />
+  <altURL    rdf:resource="file:vocabularies/owl.owl" />
+</OntologySpec-->
+<!--<OntologySpec>
+   local version of the RDFS vocabulary 
+  <publicURI rdf:resource="http://www.w3.org/2000/01/rdf-schema" />
+  <altURL    rdf:resource="file:vocabularies/rdf-schema.rdf" />
+</OntologySpec-->
+<!--<OntologySpec>
+  <publicURI rdf:resource="http://www.daml.org/2001/03/daml+oil" />
+  <altURL    rdf:resource="file:vocabularies/daml+oil.daml" />
+</OntologySpec-->
+
+</rdf:RDF>
