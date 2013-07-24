@@ -67,7 +67,7 @@ public class ViskoServletManager extends HttpServlet {
 		else if(requestType.equalsIgnoreCase("execute-pipeline"))
 			new ExecutePipelineServlet().setRedirection(request, response, this);
 		else if(requestType.equalsIgnoreCase("execute-query-service"))
-			new ExecuteQueryServiceServlet().setXMLResults(request, response);
+			new ExecuteQueryServiceServlet().setJSON(request, response);
 		else if(requestType.equalsIgnoreCase("i-feel-lucky"))
 			new IFeelLuckyServlet().setURL(request, response);
 		else if(requestType.equalsIgnoreCase("execute-query"))

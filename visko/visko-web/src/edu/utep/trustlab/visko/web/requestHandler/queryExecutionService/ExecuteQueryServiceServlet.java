@@ -22,53 +22,47 @@ package edu.utep.trustlab.visko.web.requestHandler.queryExecutionService;
 
 import javax.servlet.http.HttpServletRequest;
 
-import edu.utep.trustlab.visko.web.html.QueryMessages;
-import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerXML;
-import edu.utep.trustlab.visko.execution.PipelineToXMLVisualizationSet;
+import edu.utep.trustlab.visko.web.json.PipelineSetResults;
+import edu.utep.trustlab.visko.web.requestHandler.RequestHandlerJSON;
 import edu.utep.trustlab.visko.planning.Query;
 import edu.utep.trustlab.visko.planning.QueryEngine;
 import edu.utep.trustlab.visko.planning.pipelines.PipelineSet;
 
-public class ExecuteQueryServiceServlet  extends RequestHandlerXML {
+public class ExecuteQueryServiceServlet  extends RequestHandlerJSON {
 	private Query query;
 
 	public String doGet(HttpServletRequest request){
 		// TODO Auto-generated method stub
 
 		String stringQuery = request.getParameter("query");
-		String num = request.getParameter("maxResults");
+		String stringMaxResults = request.getParameter("maxResults");
+		String viewURI = request.getParameter("requiredView");
+		
+		int maxResults = 5;
 
-		int maxResults = 100;
+		if (stringMaxResults != null)
+			maxResults = Integer.parseInt(stringMaxResults);
 
-		if (num != null)
-			maxResults = Integer.parseInt(num);
-
-		String returnMessage;
-
+		String jsonResults;
+		PipelineSetResults results = new PipelineSetResults();
+		
 		if (stringQuery != null) {
 			query = new Query(stringQuery);
-
-			System.out.println(query.getArtifactURL());
-			System.out.println(query.getFormatURI());
-			System.out.println(query.getTypeURI());
-			System.out.println(query.getViewerSetURI());
-			System.out.println(query.getViewURI());
-			System.out.println(query.getNodesetURI());
-
-			QueryEngine engine = new QueryEngine(query);
-
+		
 			if (query.isValidQuery()) {
+				QueryEngine engine = new QueryEngine(query);
 				PipelineSet pipelines = engine.getPipelines();
-				returnMessage = PipelineToXMLVisualizationSet.toXMLFromPipelineSet(pipelines, query.getNodesetURI(), maxResults);
-			} else {
-				String errors = QueryMessages.getQueryMessagesHTML(query);
-				returnMessage = "<html><body>" + errors + "</body></html>";
-				// String warns = QueryMessages.getQueryWarningsHTML(query);
+				results.setPipelineSet(pipelines);
+				results.setMaxResults(maxResults);
+				results.setViewCriteria(viewURI);
+				jsonResults = results.toString();
 			}
-		} else
-			returnMessage = "<html><body><p>Failed to Specify Query via the query parameter</p></body></html>";
-
-		return returnMessage;
+			else
+				jsonResults = results.getEmptyResults();
+		}
+		else
+			jsonResults = results.getEmptyResults();
+		
+		return jsonResults;
 	}
-
 }
