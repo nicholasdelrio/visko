@@ -165,6 +165,10 @@ public class Query {
 	public void setViewURI(String uri) {
 		viewURI = uri;
 	}
+	
+	public boolean isExecutableQuery(){
+		return this.isValidQuery() && this.hasValidDataPointer();
+	}
 
 	public boolean isValidQuery() {
 		boolean hasNodeSet = this.getNodesetURI() != null;

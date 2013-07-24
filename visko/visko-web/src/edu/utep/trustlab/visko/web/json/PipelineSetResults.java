@@ -58,8 +58,8 @@ public class PipelineSetResults {
 		JSONObject resultSet = new JSONObject();
 		try{
 			resultSet
-			.put("query", pipelines.getQuery().toString())
-			.put("inputURL", pipelines.getQuery().getArtifactURL());
+			.put("query", pipelines.getQuery().toString());
+			//.put("inputURL", pipelines.getQuery().getArtifactURL());
 		}catch(Exception e){e.printStackTrace();}
 		
 		return resultSet;
@@ -145,6 +145,9 @@ public class PipelineSetResults {
 		executor.run();
 		
 		String viewerURI = aPipeline.getViewerURI();
+		if(viewerURI == null)
+			viewerURI = "no viewer";
+		
 		String outputURL = job.getFinalResultURL();
 		
 		JSONObject aRecord = new JSONObject();

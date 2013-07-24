@@ -49,7 +49,7 @@ public class ExecuteQueryServiceServlet  extends RequestHandlerJSON {
 		if (stringQuery != null) {
 			query = new Query(stringQuery);
 		
-			if (query.isValidQuery()) {
+			if (query.isExecutableQuery()) {
 				QueryEngine engine = new QueryEngine(query);
 				PipelineSet pipelines = engine.getPipelines();
 				results.setPipelineSet(pipelines);
