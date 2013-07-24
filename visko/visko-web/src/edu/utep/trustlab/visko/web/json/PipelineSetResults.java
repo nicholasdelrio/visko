@@ -58,8 +58,8 @@ public class PipelineSetResults {
 		JSONObject resultSet = new JSONObject();
 		try{
 			resultSet
-			.put("query", pipelines.getQuery().toString());
-			//.put("inputURL", pipelines.getQuery().getArtifactURL());
+			//.put("query", pipelines.getQuery().toString())
+			.put("inputURL", pipelines.getQuery().getArtifactURL());
 		}catch(Exception e){e.printStackTrace();}
 		
 		return resultSet;
