@@ -1,15 +1,24 @@
 <project name="Module_Template" default="war">
 
+	<!-- Visko Modules Location -->
+	<property name="visko.modules" value="${basedir}/../" />
+	
+	<!-- static SDK properties not dependent upon dynamic basedir -->
+	<echo>Static basedir = ${basedir}</echo>
+	<property name="dir.sdk" value="${visko.modules}/ModuleSDK" />	
+	<property name="dir.sdk.src" value="${dir.sdk}/src" />
+	<property name="dir.sdk.webapp" value="${dir.sdk}/webapp" />
+	
 	<target name="war">
-		<ant antfile="${basedir}/../visko-build/module-build.xml" dir="${basedir}" target="war" inheritall="false" inheritrefs="false"/>		
+		<ant antfile="${basedir}/../../visko-build/module-build.xml" dir="${basedir}" target="war" inheritall="true" inheritrefs="false"/>		
 	</target>
 	
 	<target name="register-module" description="Generate RDF and register package to Visko">
-		<ant antfile="${basedir}/../visko-build/module-build.xml" dir="${basedir}" target="register-module" inheritall="false" inheritrefs="false"/>
+		<ant antfile="${basedir}/../../visko-build/module-build.xml" dir="${basedir}" target="register-module" inheritall="true" inheritrefs="false"/>
 	</target>
 	
 	<target name="generate-wsdl" description="Generate WSDL">
-		<ant antfile="${basedir}/../visko-build/module-build.xml" dir="${basedir}" target="generate-wsdl" inheritall="false" inheritrefs="false"/>
+		<ant antfile="${basedir}/../../visko-build/module-build.xml" dir="${basedir}" target="generate-wsdl" inheritall="true" inheritrefs="false"/>
 	</target>
 
 	
