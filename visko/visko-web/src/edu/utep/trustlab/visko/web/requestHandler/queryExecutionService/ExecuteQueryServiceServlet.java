@@ -37,6 +37,11 @@ public class ExecuteQueryServiceServlet  extends RequestHandlerJSON {
 		String stringQuery = request.getParameter("query");
 		String stringMaxResults = request.getParameter("maxResults");
 		String viewURI = request.getParameter("requiredView");
+		String toolkitURI = request.getParameter("requestedToolkit");
+		
+		boolean provenance = false;
+		if(request.getParameter("provenance") != null)
+			provenance = true;
 		
 		int maxResults = 5;
 
@@ -55,6 +60,8 @@ public class ExecuteQueryServiceServlet  extends RequestHandlerJSON {
 				results.setPipelineSet(pipelines);
 				results.setMaxResults(maxResults);
 				results.setViewCriteria(viewURI);
+				results.setProvenanceRecording(provenance);
+				results.setToolkitCriteria(toolkitURI);
 				jsonResults = results.toString();
 			}
 			else

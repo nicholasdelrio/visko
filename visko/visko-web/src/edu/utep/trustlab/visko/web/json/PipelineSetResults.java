@@ -13,7 +13,8 @@ import edu.utep.trustlab.visko.planning.pipelines.PipelineSet;
 public class PipelineSetResults {
 	
 	public static final String NULL_VIEW = "NULL-VIEW";
-	
+
+	private boolean provenance;
 	private PipelineSet pipelines;
 	private String viewCriteria;
 	private String toolkitCriteria;
@@ -22,16 +23,21 @@ public class PipelineSetResults {
 	
 	public PipelineSetResults(PipelineSet pipelines){
 		this.pipelines = pipelines;
-		setMaxResults();
+		provenance = false;
+		setMaxResults();	
 	}
 	
 	public PipelineSetResults() {
 		// TODO Auto-generated constructor stub
 		setMaxResults();
 	}
-	
+		
 	private void setMaxResults(){
 		this.maxResults = -1;
+	}
+	
+	public void setProvenanceRecording(boolean provenanceRecording){
+		provenance = provenanceRecording;
 	}
 	
 	public void setMaxResults(int maxResults){
@@ -71,6 +77,7 @@ public class PipelineSetResults {
 
 	private ArrayList<JSONObject> getResults(){
 		PipelineExecutor executor = new PipelineExecutor();
+		
 		ArrayList<JSONObject> results = new ArrayList<JSONObject>();
 		Pipeline aPipeline;
 		for(int i = 0; i < pipelines.size() && i < maxResults; i ++){
@@ -140,7 +147,7 @@ public class PipelineSetResults {
 	
 	private JSONObject getResult(PipelineExecutor executor, Pipeline aPipeline){
 		PipelineExecutorJob job = new PipelineExecutorJob(aPipeline);
-		job.setProvenanceLogging(false);
+		job.setProvenanceLogging(provenance);
 		executor.setJob(job);
 		executor.run();
 		
@@ -154,8 +161,11 @@ public class PipelineSetResults {
 		try{
 			aRecord
 			.put("outputURL", outputURL)
-			.put("viewerURI", viewerURI);}
-		catch(Exception e){e.printStackTrace();}
+			.put("viewerURI", viewerURI);
+			
+			if(job.getProvenanceLogging())
+				aRecord.put("provenance", job.getProvQueryURI());
+		}catch(Exception e){e.printStackTrace();}
 		
 		return aRecord;
 	}
