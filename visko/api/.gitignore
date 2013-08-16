@@ -1,4 +1,4 @@
-/bin/*
 /visko-api.jar
 /build
 /output
+/bin
