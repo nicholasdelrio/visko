@@ -11,9 +11,10 @@ package org.openvisko.module;
  will be used to by the Cyber-ShARE group to develop a page to show thumbnails
  of webpages.
  */
-import java.io.*;
+//import java.io.*;
 
 import org.openvisko.module.operators.ToolkitOperator;
+import org.openvisko.module.util.CommandRunner;
 import org.openvisko.module.util.ServerProperties;
 
 public class PDFConverter extends ToolkitOperator {
@@ -26,6 +27,12 @@ public class PDFConverter extends ToolkitOperator {
 
 	public String transform() {
 		try {
+
+			String commandString = "\"" + convertexe + "\" " + inputDatasetURL + " \"" + outputPath + "\"";
+
+			int exitVal = CommandRunner.run(commandString);
+			
+			/*
 			String array[] = { convertexe, inputDatasetURL, outputPath };
 			Runtime rt = Runtime.getRuntime();
 			Process pr = rt.exec(array);
@@ -35,7 +42,7 @@ public class PDFConverter extends ToolkitOperator {
 			while ((line = input.readLine()) != null)
 				System.out.println(line);
 			
-			int exitVal = pr.waitFor();
+			int exitVal = pr.waitFor();*/
 			if (exitVal == 0) {
 				System.out.println("Done.");
 			}

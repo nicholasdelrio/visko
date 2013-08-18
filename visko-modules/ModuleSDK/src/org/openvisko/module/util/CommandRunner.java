@@ -7,9 +7,10 @@ import java.io.FileOutputStream;
 public class CommandRunner
 {
 	
-	public static void run(String cmd, String workingDirectory){
+	public static int run(String cmd, String workingDirectory){
 		System.out.println("running commmand...");
 		System.out.println(cmd);
+		int exitValue = -1;
 		try{
 			Process proc = Runtime.getRuntime().exec(cmd, null, new File(workingDirectory));
 			// any error message?
@@ -22,24 +23,21 @@ public class CommandRunner
 			errorGobbler.start();
 			outputGobbler.start();
 
-			proc.waitFor();
+			exitValue = proc.waitFor();
 
 			fos.flush();
 			fos.close();
     
-		} catch (Throwable e){
-      if(e instanceof RuntimeException) {
-        throw (RuntimeException)e;
-      } else {
-        throw new RuntimeException(e);
-      }
-    }
+		} catch(Exception e){e.printStackTrace();}
+		
+		return exitValue;
 	}	
 
-	public static void run(String cmd){
+	public static int run(String cmd){
 		
 		System.out.println("running commmand...");
 		System.out.println(cmd);
+		int exitValue = -1;
 		try{
 			Process proc = Runtime.getRuntime().exec(cmd);
 			// any error message?
@@ -52,16 +50,12 @@ public class CommandRunner
 			errorGobbler.start();
 			outputGobbler.start();
 
-			proc.waitFor();
+			exitValue = proc.waitFor();
 
 			fos.flush();
 			fos.close();
-		} catch (Throwable e){
-		  if(e instanceof RuntimeException) {
-		    throw (RuntimeException)e;
-		  } else {
-		    throw new RuntimeException(e);
-		  }
-		}
+		} catch (Exception e){e.printStackTrace();}
+		
+		return exitValue;
 	}
 }
