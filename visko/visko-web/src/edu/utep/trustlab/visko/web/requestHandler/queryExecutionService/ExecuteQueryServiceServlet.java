@@ -82,7 +82,10 @@ public class ExecuteQueryServiceServlet  extends RequestHandlerJSON {
 		PipelineSet pipelines = engine.getPipelines();
 
 		String jsonResults;
-		if(pipelines.size() > 0){
+		if(engine.isAlreadyVisualizableWithViewerSet())
+			jsonResults = results.getTrivialResultsString(pipelines.getArtifactURL());
+		
+		else if(pipelines.size() > 0){
 			results.setPipelineSet(pipelines);
 			results.setMaxResults(maxResults);
 			results.setViewCriteria(requestedViewURI);
@@ -91,8 +94,8 @@ public class ExecuteQueryServiceServlet  extends RequestHandlerJSON {
 			jsonResults = results.toString();
 		}
 		else
-			jsonResults = results.getTrivialResultsString(pipelines.getArtifactURL());
-		
+			jsonResults = results.getEmptyResults();
+			
 		return jsonResults;
 	}	
 }
