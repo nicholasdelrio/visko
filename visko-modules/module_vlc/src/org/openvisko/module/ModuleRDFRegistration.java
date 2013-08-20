@@ -19,6 +19,8 @@ public class ModuleRDFRegistration extends AbstractModuleRDFRegistration {
 		private static final Format pdf = ModuleWriter.getFormat("http://openvisko.org/rdf/pml2/formats/PDF.owl#PDF");
 		private static final Format html = ModuleWriter.getFormat("http://openvisko.org/rdf/pml2/formats/HTML.owl#HTML");
 		private static final Format png = ModuleWriter.getFormat("http://openvisko.org/rdf/pml2/formats/PNG.owl#PNG");
+		private static final Format gif = ModuleWriter.getFormat("http://openvisko.org/rdf/pml2/formats/GIF.owl#GIF");
+		private static final Format jpeg = ModuleWriter.getFormat("http://openvisko.org/rdf/pml2/formats/JPEG.owl#JPEG");
 
 	}
 	
@@ -33,6 +35,8 @@ public class ModuleRDFRegistration extends AbstractModuleRDFRegistration {
 		viewer1.setLabel("VLC Web Browser Image Viewer");
 		viewer1.setComment("Views vlc resources");
 		viewer1.addInputFormat(Resources.png);
+		viewer1.addInputFormat(Resources.jpeg);
+		viewer1.addInputFormat(Resources.gif);
   }
 
   @Override
