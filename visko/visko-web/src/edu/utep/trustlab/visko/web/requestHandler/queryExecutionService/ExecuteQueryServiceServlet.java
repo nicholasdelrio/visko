@@ -80,13 +80,13 @@ public class ExecuteQueryServiceServlet  extends RequestHandlerJSON {
 	private String getJSONResults(PipelineSetResults results){
 		QueryEngine engine = new QueryEngine(query);
 		PipelineSet pipelines = engine.getPipelines();
-
+		results.setPipelineSet(pipelines);
+		
 		String jsonResults;
 		if(engine.isAlreadyVisualizableWithViewerSet())
-			jsonResults = results.getTrivialResultsString(pipelines.getArtifactURL());
+			jsonResults = results.getTrivialResultsString();
 		
 		else if(pipelines.size() > 0){
-			results.setPipelineSet(pipelines);
 			results.setMaxResults(maxResults);
 			results.setViewCriteria(requestedViewURI);
 			results.setProvenanceRecording(provenance);

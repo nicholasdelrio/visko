@@ -20,13 +20,7 @@ public class PipelineSetResults {
 	private String toolkitCriteria;
 	private String outputFormatCriteria;
 	private int maxResults;
-	
-	public PipelineSetResults(PipelineSet pipelines){
-		this.pipelines = pipelines;
-		provenance = false;
-		setMaxResults();	
-	}
-	
+		
 	public PipelineSetResults() {
 		// TODO Auto-generated constructor stub
 		setMaxResults();
@@ -65,7 +59,7 @@ public class PipelineSetResults {
 		try{
 			resultSet
 			//.put("query", pipelines.getQuery().toString())
-			.put("inputURL", pipelines.getQuery().getArtifactURL());
+			.put("inputURL", pipelines.getArtifactURL());
 		}catch(Exception e){e.printStackTrace();}
 		
 		return resultSet;
@@ -77,9 +71,9 @@ public class PipelineSetResults {
 
 	//trivial result occurs when the input data is already in a form that can be viewed
 	// or matches the required input type/format requirements
-	private ArrayList<JSONObject> getTrivialResult(String inputDataURL){
+	private ArrayList<JSONObject> getTrivialResult(){
 		ArrayList<JSONObject> results = new ArrayList<JSONObject>();
-		results.add(getResult(inputDataURL, null));
+		results.add(getResult(pipelines.getArtifactURL(), null));
 		return results;
 	}
 	
@@ -109,8 +103,8 @@ public class PipelineSetResults {
 		return resultSet.toString();
 	}
 	
-	public String getTrivialResultsString(String inputDataURL){
-		ArrayList<JSONObject> results = getTrivialResult(inputDataURL);
+	public String getTrivialResultsString(){
+		ArrayList<JSONObject> results = getTrivialResult();
 		JSONObject resultSet = getResultSetTemplate();
 		try{
 			resultSet.put("results", results);
