@@ -115,6 +115,10 @@ public class QueryEngine {
 	public boolean isAlreadyVisualizableWithViewerSet() {
 		return ts.isAlreadyVisualizableWithViewerSet(query.getFormatURI(), query.getTypeURI(), query.getViewerSetURI());
 	}
+	
+	public boolean isAlreadyInGivenTypeAndFormat(String typeURI, String formatURI){
+		return ts.isSourceTypeAndFormatCompatibleWithTargetTypeAndFormat(query.getTypeURI(), query.getFormatURI(), typeURI, formatURI);
+	}
 
 
 	public void updatePipelinesWithNewParameterBindings(){

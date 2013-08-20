@@ -75,6 +75,14 @@ public class PipelineSetResults {
 		return getResultSetTemplate().toString();
 	}
 
+	//trivial result occurs when the input data is already in a form that can be viewed
+	// or matches the required input type/format requirements
+	private ArrayList<JSONObject> getTrivialResult(){
+		ArrayList<JSONObject> results = new ArrayList<JSONObject>();
+		results.add(getResult(pipelines.getArtifactURL(), null));
+		return results;
+	}
+	
 	private ArrayList<JSONObject> getResults(){
 		PipelineExecutor executor = new PipelineExecutor();
 		
@@ -87,9 +95,22 @@ public class PipelineSetResults {
 		}
 		return results;
 	}
+
 	
 	public String toString(){
 		ArrayList<JSONObject> results = getResults();
+		JSONObject resultSet = getResultSetTemplate();
+		try{
+			resultSet.put("results", results);
+			return resultSet.toString(4);
+		}
+		catch(Exception e){e.printStackTrace();}
+		
+		return resultSet.toString();
+	}
+	
+	public String getTrivialResultsString(){
+		ArrayList<JSONObject> results = getTrivialResult();
 		JSONObject resultSet = getResultSetTemplate();
 		try{
 			resultSet.put("results", results);
@@ -151,22 +172,27 @@ public class PipelineSetResults {
 		executor.setJob(job);
 		executor.run();
 		
-		String viewerURI = aPipeline.getViewerURI();
-		if(viewerURI == null)
-			viewerURI = "no viewer";
-		
+		String viewerURI = aPipeline.getViewerURI();		
 		String outputURL = job.getFinalResultURL();
 		
-		JSONObject aRecord = new JSONObject();
+		JSONObject aRecord = getResult(outputURL, viewerURI);
 		try{
-			aRecord
-			.put("outputURL", outputURL)
-			.put("viewerURI", viewerURI);
-			
 			if(job.getProvenanceLogging())
 				aRecord.put("provenance", job.getProvQueryURI());
 		}catch(Exception e){e.printStackTrace();}
 		
+		return aRecord;
+	}
+	
+	private JSONObject getResult(String outputURL, String viewerURI){
+		JSONObject aRecord = new JSONObject();
+		if(viewerURI == null)
+			viewerURI = "no viewer";
+		try{
+			aRecord
+			.put("outputURL", outputURL)
+			.put("viewerURI", viewerURI);			
+		}catch(Exception e){e.printStackTrace();}
 		return aRecord;
 	}
 }

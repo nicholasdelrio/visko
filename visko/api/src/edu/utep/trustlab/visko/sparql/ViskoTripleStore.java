@@ -220,6 +220,19 @@ public class ViskoTripleStore {
 		return submitQuery(stringQuery);
 	}
 
+	public boolean isSourceTypeAndFormatCompatibleWithTargetTypeAndFormat(String sDataTypeURI, String sFormatURI, String tDataTypeURI, String tFormatURI){
+		sDataTypeURI = "<" + sDataTypeURI + ">";
+		tDataTypeURI = "<" + tDataTypeURI + ">";
+		
+		String stringQuery = 
+				QUERY_PREFIX
+				+ "ASK WHERE {"
+				+ sDataTypeURI + " rdfs:subClassOf " + tDataTypeURI + " . "
+				+ "}";
+			
+		return (submitAskQuery(stringQuery) || sDataTypeURI.equals(tDataTypeURI)) && sFormatURI.equals(tFormatURI);
+	}
+	
 	public boolean isAlreadyVisualizableWithViewerSet(String formatURI, String dataTypeURI){
 		formatURI = "<" + formatURI + ">";
 		dataTypeURI = "<" + dataTypeURI + ">";

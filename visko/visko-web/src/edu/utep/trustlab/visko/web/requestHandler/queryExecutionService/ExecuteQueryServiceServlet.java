@@ -29,47 +29,70 @@ import edu.utep.trustlab.visko.planning.QueryEngine;
 import edu.utep.trustlab.visko.planning.pipelines.PipelineSet;
 
 public class ExecuteQueryServiceServlet  extends RequestHandlerJSON {
+
 	private Query query;
+	private int maxResults;
+	private boolean provenance;
+	private String requestedViewURI;
+	private String requestedToolkitURI;
 
-	public String doGet(HttpServletRequest request){
-		// TODO Auto-generated method stub
-
+	private void extractParameters(HttpServletRequest request){
+		// initialize visko query
 		String stringQuery = request.getParameter("query");
-		String stringMaxResults = request.getParameter("maxResults");
-		String viewURI = request.getParameter("requiredView");
-		String toolkitURI = request.getParameter("requestedToolkit");
+		if(stringQuery != null)
+			query = new Query(stringQuery);		
 		
-		boolean provenance = false;
+		// get max visualizations to return
+		String stringMaxResults = request.getParameter("maxResults");
+		if (stringMaxResults != null)
+			maxResults = Integer.parseInt(stringMaxResults);
+		else
+			maxResults = 1;
+		
+		// see if request desires provenance
+		provenance = false;
 		if(request.getParameter("provenance") != null)
 			provenance = true;
 		
-		int maxResults = 5;
-
-		if (stringMaxResults != null)
-			maxResults = Integer.parseInt(stringMaxResults);
-
+		requestedViewURI = request.getParameter("requiredView");
+		requestedToolkitURI = request.getParameter("requestedToolkit");
+	}
+	
+	public String doGet(HttpServletRequest request){
+		// TODO Auto-generated method stub
+		
+		extractParameters(request);
+		
 		String jsonResults;
 		PipelineSetResults results = new PipelineSetResults();
 		
-		if (stringQuery != null) {
-			query = new Query(stringQuery);
-		
-			if (query.isExecutableQuery()) {
-				QueryEngine engine = new QueryEngine(query);
-				PipelineSet pipelines = engine.getPipelines();
-				results.setPipelineSet(pipelines);
-				results.setMaxResults(maxResults);
-				results.setViewCriteria(viewURI);
-				results.setProvenanceRecording(provenance);
-				results.setToolkitCriteria(toolkitURI);
-				jsonResults = results.toString();
-			}
+		if (query != null)
+			if (query.isExecutableQuery())
+				jsonResults = getJSONResults(results);
 			else
 				jsonResults = results.getEmptyResults();
-		}
 		else
 			jsonResults = results.getEmptyResults();
 		
 		return jsonResults;
 	}
+	
+	private String getJSONResults(PipelineSetResults results){
+		QueryEngine engine = new QueryEngine(query);
+		PipelineSet pipelines = engine.getPipelines();
+
+		String jsonResults;
+		if(pipelines.size() > 0){
+			results.setPipelineSet(pipelines);
+			results.setMaxResults(maxResults);
+			results.setViewCriteria(requestedViewURI);
+			results.setProvenanceRecording(provenance);
+			results.setToolkitCriteria(requestedToolkitURI);
+			jsonResults = results.toString();
+		}
+		else
+			jsonResults = results.getTrivialResultsString();
+		
+		return jsonResults;
+	}	
 }
