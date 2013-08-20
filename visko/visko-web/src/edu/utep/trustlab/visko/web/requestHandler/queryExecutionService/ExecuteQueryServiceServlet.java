@@ -91,7 +91,7 @@ public class ExecuteQueryServiceServlet  extends RequestHandlerJSON {
 			jsonResults = results.toString();
 		}
 		else
-			jsonResults = results.getTrivialResultsString();
+			jsonResults = results.getTrivialResultsString(pipelines.getArtifactURL());
 		
 		return jsonResults;
 	}	

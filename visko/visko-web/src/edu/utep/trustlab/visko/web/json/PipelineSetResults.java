@@ -77,9 +77,9 @@ public class PipelineSetResults {
 
 	//trivial result occurs when the input data is already in a form that can be viewed
 	// or matches the required input type/format requirements
-	private ArrayList<JSONObject> getTrivialResult(){
+	private ArrayList<JSONObject> getTrivialResult(String inputDataURL){
 		ArrayList<JSONObject> results = new ArrayList<JSONObject>();
-		results.add(getResult(pipelines.getArtifactURL(), null));
+		results.add(getResult(inputDataURL, null));
 		return results;
 	}
 	
@@ -109,8 +109,8 @@ public class PipelineSetResults {
 		return resultSet.toString();
 	}
 	
-	public String getTrivialResultsString(){
-		ArrayList<JSONObject> results = getTrivialResult();
+	public String getTrivialResultsString(String inputDataURL){
+		ArrayList<JSONObject> results = getTrivialResult(inputDataURL);
 		JSONObject resultSet = getResultSetTemplate();
 		try{
 			resultSet.put("results", results);
