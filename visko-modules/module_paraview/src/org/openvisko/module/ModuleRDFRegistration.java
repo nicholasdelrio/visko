@@ -10,8 +10,7 @@ import com.hp.hpl.jena.ontology.OntResource;
 
 import edu.utep.trustlab.visko.ontology.pmlp.Format;
 import edu.utep.trustlab.visko.ontology.viskoService.Toolkit;
-import edu.utep.trustlab.visko.ontology.viskoView.VisualizationAbstraction;
-import edu.utep.trustlab.visko.ontology.vocabulary.ViskoV;
+
 
 import edu.utep.trustlab.visko.ontology.viskoOperator.Viewer;
 
@@ -21,6 +20,11 @@ public class ModuleRDFRegistration extends AbstractModuleRDFRegistration {
 	private static final class Resources{
 		//formats
 		private static final Format xdmf = ModuleWriter.getFormat("http://openvisko.org/rdf/pml2/formats/XDMF.owl#XDMF");
+		private static final Format xml = ModuleWriter.getFormat("http://openvisko.org/rdf/pml2/formats/XML.owl#XML");
+		
+		// types
+		private static final OntResource vtkImageData3D = ModuleWriter.getDataType("http://www.vtk.org/vtk-data.owl#vtkImageData3D");
+		private static final OntResource vtkPolyData = ModuleWriter.getDataType("http://www.vtk.org/vtk-data.owl#vtkPolyData");
 	}
 	
   @Override
@@ -33,6 +37,18 @@ public class ModuleRDFRegistration extends AbstractModuleRDFRegistration {
 		viewer1.setComment("XDMF Viewer of the ParaView Distribution");
 		viewer1.setLabel("XDMF Viewer");
 		viewer1.addInputFormat(Resources.xdmf);
+		
+		Viewer viewer2 = viewerSet.createNewViewer("polyData-viewer");
+		viewer2.setComment("Views VTK Poly Data Files (VTP)");
+		viewer2.setLabel("VTK Poly Data Viewer");
+		viewer2.addInputDataType(Resources.vtkPolyData);
+		viewer2.addInputFormat(Resources.xml);
+		
+		Viewer viewer3 = viewerSet.createNewViewer("imageData-viewer");
+		viewer3.setComment("Views VTK Image Data Files (VTP)");
+		viewer3.setLabel("VTK Image Data Viewer");
+		viewer3.addInputDataType(Resources.vtkImageData3D);
+		viewer3.addInputFormat(Resources.xml);
   }
 	
   @Override
