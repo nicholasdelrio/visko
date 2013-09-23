@@ -231,6 +231,34 @@ WHERE
 </tr>
 </table>
 
+
+<h5>Isosurfaces Rendering Query in ParaView</h5>
+<div class="code">
+<pre>
+PREFIX views http://openvisko.org/rdf/ontology/visko-view.owl#
+PREFIX formats http://openvisko.org/rdf/pml2/formats/ 
+PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
+PREFIX visko REPLACE-VISKOmodule_paraview.owl# 
+VISUALIZE SERVERBASEURLvisko-web/test-data/gravity/gravityDataset.txt
+AS views:3D_IsoSurfacesRendering IN visko:paraview 
+WHERE
+	FORMAT = formats:SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES
+	AND TYPE = types:d19
+</pre>
+</div>
+
+<table>
+<tr>
+<td align="center"><a href="http://www.vtk.org/">VTK</a></td>
+</tr>
+<tr>
+
+<tr>
+<td><img src="./visualization-examples/gravity-3d-isosurfacesrendering-paraview.png" width="350px"></td>
+</tr>
+</table>
+
+
 <h5>Surface Plot Query</h5>
 <div class="code">
 <pre>
