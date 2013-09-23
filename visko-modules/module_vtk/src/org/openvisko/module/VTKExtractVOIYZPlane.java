@@ -4,7 +4,7 @@ import vtk.*;
 
 public class VTKExtractVOIYZPlane extends VTKOperator{
 	public VTKExtractVOIYZPlane(String imageDataURL){
-		super(imageDataURL, "imageData.xml", false, false, "imageData.xml");
+		super(imageDataURL, "imageData.vti", false, false, "imageData.vti");
 	}
 
 	public String transform(String dataExtent){

@@ -12,7 +12,7 @@ public class  VTKDataObjectToDataSetFilter3DGravityData extends VTKOperator{
 	private String GRAVITY_FIELD_NAME = "gravity";
 
 	public  VTKDataObjectToDataSetFilter3DGravityData(String gravityPointsDataURL){
-		super(gravityPointsDataURL, "gravityData.txt", true, true, "polyData.xml");
+		super(gravityPointsDataURL, "gravityData.txt", true, true, "polyData.vtp");
 	}
 
 	public String transform (){  

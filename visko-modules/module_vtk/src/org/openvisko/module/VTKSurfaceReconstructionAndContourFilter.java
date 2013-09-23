@@ -4,7 +4,7 @@ import vtk.*;
 
 public class VTKSurfaceReconstructionAndContourFilter extends VTKOperator{
 	public VTKSurfaceReconstructionAndContourFilter(String polyDataURL){
-		super(polyDataURL, "polyData.xml", false, false, "polyData.xml");
+		super(polyDataURL, "polyData.vtp", false, false, "polyData.vtp");
 	}
 
 	public String transform(){

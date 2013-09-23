@@ -4,7 +4,7 @@ import vtk.*;
 
 public class VTKExtractVOI3D extends VTKOperator{
 	public VTKExtractVOI3D(String imageDataURL){
-		super(imageDataURL, "imageData.xml", false, false, "imageData.xml");
+		super(imageDataURL, "imageData.vti", false, false, "imageData.vtp");
 	}
 
 	public String transform(String dataExtent){

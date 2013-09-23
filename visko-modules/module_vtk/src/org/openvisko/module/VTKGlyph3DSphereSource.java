@@ -4,7 +4,7 @@ import vtk.*;
 
 public class VTKGlyph3DSphereSource extends VTKOperator{
 	public VTKGlyph3DSphereSource(String polyDataURL){
-		super(polyDataURL, "polyData.xml", false, false, "polyData.xml");
+		super(polyDataURL, "polyData.vtp", false, false, "polyData.vtp");
 	}
 
 	public String transform(String radius, String scaleFactor){

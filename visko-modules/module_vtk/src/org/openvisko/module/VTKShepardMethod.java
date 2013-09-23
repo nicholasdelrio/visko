@@ -5,7 +5,7 @@ import vtk.*;
 public class VTKShepardMethod extends VTKOperator{
 
 	public VTKShepardMethod(String polyDataURL){
-		super(polyDataURL, "polyData.xml", false, false, "imageData.xml");
+		super(polyDataURL, "polyData.vtp", false, false, "imageData.vti");
 	}
 
 	public String transform(String sampleDimensions, String maximumDistance){	

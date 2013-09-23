@@ -5,7 +5,7 @@ import vtk.*;
 public class VTKPolyDataMapper extends VTKOperator{
 
 	public VTKPolyDataMapper(String velocityContoursPolyDataURL) {
-		super(velocityContoursPolyDataURL, "vtkPolyData.xml", true, false, "image.jpg");
+		super(velocityContoursPolyDataURL, "polyData.vtp", true, false, "image.jpg");
 	}
 
 	public String transform(

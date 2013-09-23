@@ -5,7 +5,7 @@ import vtk.*;
 public class VTKImageDataReader3DUnsignedShortIntegers extends VTKOperator{
 
 	public VTKImageDataReader3DUnsignedShortIntegers(String coverageModelShortIntURL){
-		super(coverageModelShortIntURL, "arrayData.bin", false, false, "imageData.xml");
+		super(coverageModelShortIntURL, "arrayData.bin", false, false, "imageData.vti");
 	}
 	
 	public String transform(String littleEndian, String dataOrigin, String dataSpacing, String dataExtent, String numScalarComponents, String readLowerLeft){	

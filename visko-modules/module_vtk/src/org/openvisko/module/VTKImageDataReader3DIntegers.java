@@ -4,7 +4,7 @@ import vtk.*;
 
 public class VTKImageDataReader3DIntegers extends VTKOperator{
 	public VTKImageDataReader3DIntegers(String unsignedIntArrayURL){
-		super(unsignedIntArrayURL, "arrayData.bin", false, false, "imageData.xml");
+		super(unsignedIntArrayURL, "arrayData.bin", false, false, "imageData.vti");
 	}
 	
 	public String transform(String littleEndian, String dataOrigin, String dataSpacing, String dataExtent, String numScalarComponents, String readLowerLeft){	

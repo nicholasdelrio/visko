@@ -5,7 +5,7 @@ import vtk.*;
 public class VTKContourDataFilter extends VTKOperator{
 
 	public VTKContourDataFilter(String velocityImageData3DURL){
-		super(velocityImageData3DURL, "imageData.xml", false, false, "polyData.xml");
+		super(velocityImageData3DURL, "imageData.vti", false, false, "polyData.vtp");
 	}
 	
 	public String transform (String numContours, String scalarRange){  
