@@ -1,0 +1,18 @@
+#!/bin/bash
+
+PARAVIEW=/Applications/paraview.app/Contents/MacOS/paraview
+#PARAVIEW=/share/apps/ParaView-3.14.1-Linux-64bit/bin/paraview
+
+# Directory to download data specified at input URL
+DIR=/tmp/
+
+if [ $# -eq 0 ]; then
+	echo "Requires URL of dataset to be passed to Paraview"
+else
+	URL=$1
+	cd ${DIR} && curl -O ${URL}
+	DATAPATH=${DIR}${URL##*/}
+	echo "Downloaded ${URL} to ${DATAPATH}"
+	echo "Calling ParaView with ${DATAPATH}"
+	${PARAVIEW} --data=${DATAPATH}
+fi
