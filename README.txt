@@ -1,1 +1,2 @@
-Please refer to the VisKo wiki at https://github.com/nicholasdelrio/visko/wiki
+NOTE: The wiki installation instructions below are being updated. When they are completed, you will
+be able to access them at https://github.com/nicholasdelrio/visko/wiki
