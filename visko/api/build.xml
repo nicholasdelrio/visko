@@ -64,6 +64,12 @@
 	           windowtitle="VisKo Javadoc">
 
 			<classpath>
+				<fileset dir="${lib}/csv2rdf4lod/">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/sesame/">
+					<include name="*.jar"/>
+				</fileset>
 				<fileset dir="${lib}/axis-1.4/">
 					<include name="*.jar"/>
 				</fileset>
@@ -76,7 +82,13 @@
 				<fileset dir="${lib}/owls-3.0/">
 					<include name="*.jar"/>
 				</fileset>
-				<fileset dir="${lib}/content-manager/">
+				<fileset dir="${content-manager-libs}">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${content-manager-libs}/libs-ciserver">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${content-manager-libs}/libs-velo">
 					<include name="*.jar"/>
 				</fileset>
 				<fileset dir="${lib}/pml-2.0/">
@@ -84,16 +96,15 @@
 				</fileset>
 				<fileset dir="${lib}/pellet-2.3.0/">
 					<include name="*.jar"/>
-				</fileset>	
+				</fileset>
 			</classpath>	
-	    	
-	      <fileset dir="${basedir}/src/" defaultexcludes="yes">
-	        <include name="trustlab/*.java" />
-	        <include name="trustlab/**/*.java" />
-	      </fileset>
+	    
+	        <packageset dir="src" defaultexcludes="yes">
+	          <include name="edu/**"/>
+	        </packageset>
 
 	      <doctitle><![CDATA[<h1>VisKo API Javadoc</h1>]]></doctitle>
-	      <link href="http://trust.utep.edu/visko/download/doc"/>
+	      <link href="http://visko.cybershare.utep.edu/software/visko/api/javadoc/"/>
 	    </javadoc>
 	</target>	
 	
