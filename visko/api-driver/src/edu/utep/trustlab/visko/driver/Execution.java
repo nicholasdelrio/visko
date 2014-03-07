@@ -27,11 +27,17 @@ public class Execution {
 			PipelineExecutorJob job = new PipelineExecutorJob(pipes.firstElement());
 				
 			executor.setJob(job);
+			
+			//fork thread to run service
 			executor.process();
 		
 			while(executor.isAlive()){
+				System.out.println("executing serivce with index: " + job.getJobStatus().getCurrentServiceIndex());
+				System.out.println("executing: " + job.getJobStatus().getCurrentServiceURI());
+				System.out.println(job.getJobStatus().getPipelineState());
 			}
-				
+			
+			System.out.println("Did Job complete normally? " + job.getJobStatus().didJobCompletedNormally());
 			System.out.println("Final Result = " + job.getFinalResultURL());	
 		}		
 	}
