@@ -54,6 +54,11 @@
 		<ant antfile="${basedir}/../visko/visko-web/build.xml" dir="${basedir}/../visko/visko-web" target="deploy" inheritall="true" inheritrefs="false"/>		
 	</target>
 	
+	<!-- BUILD Triple Store -->
+	<target name="build-triple-store" depends="register-active-modules">
+		<ant antfile="${basedir}/../visko/visko-web/build.xml" dir="${basedir}/../visko/visko-web" target="build-triple-store" inheritall="true" inheritrefs="false"/>		
+	</target>
+	
 	<!-- WAR up modules -->
 	<target name="deploy-active-modules">
 		<echo>Deploying modules: ${active-modules}</echo>		

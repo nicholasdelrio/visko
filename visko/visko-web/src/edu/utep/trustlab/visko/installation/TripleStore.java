@@ -33,6 +33,8 @@ import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.tdb.TDBFactory;
 
+import edu.utep.trustlab.visko.util.FileUtils;
+
 	public class TripleStore {
 
 	private String packageDir;
@@ -175,6 +177,14 @@ import com.hp.hpl.jena.tdb.TDBFactory;
 			storesDirectory.mkdir();
 	}
 	
+	
+	private void cleanModuleRDF(File moduleFile){
+		String contents = FileUtils.readTextFile(moduleFile.getAbsolutePath());
+		contents = contents.replaceAll("file:/Users/nick/Documents/git-repos/visko/visko-modules", "http://visko.cybershare.utep.edu:5080");
+		contents = contents.replaceAll("build/dist/ModuleService.wsdl", "services/ModuleService?wsdl");
+		FileUtils.writeTextFile(contents, moduleFile.getAbsolutePath());
+	}
+	
 	private void aggregate(File directory){
 		// Iterate through all ontology files and load any pml data found
 		System.out.println("Adding OWL/RDF files in directory: " + directory.getAbsolutePath());
@@ -182,6 +192,7 @@ import com.hp.hpl.jena.tdb.TDBFactory;
 		for(File aFile : directory.listFiles()){
 			if((aFile.getName().endsWith(".owl") || aFile.getName().endsWith(".rdf")) && isAcceptedFile(aFile)){
 				System.out.println("aggregating file: " + aFile.getName());
+				cleanModuleRDF(aFile);
 				try{model.read(new FileInputStream(aFile), null);}
 				catch(Exception e){
 					System.out.println("error: " + e.getMessage());
