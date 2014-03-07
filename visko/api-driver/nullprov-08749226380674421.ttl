@@ -1,0 +1,185 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix hartigprov: <http://purl.org/net/provenance/ns#> .
+@prefix pml: <http://provenanceweb.org/ns/pml#> .
+@prefix : <http://iw.cs.utep.edu:8080/toolkits/output/> .
+
+<http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4> a pml:Query , prov:Entity ;
+	dcterms:identifier "a7c69cc0015d556f5f853d5c9c928ea4" ;
+	prov:value """
+PREFIX views http://openvisko.org/rdf/ontology/visko-view.owl# 
+PREFIX formats http://openvisko.org/rdf/pml2/formats/ 
+PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
+PREFIX visko http://visko.cybershare.utep.edu:5080/visko-web/registry/module_webbrowser.owl# 
+PREFIX params http://visko.cybershare.utep.edu:5080/visko-web/registry/grdcontour.owl# 
+VISUALIZE http://visko.cybershare.utep.edu:5080/visko-web/test-data/gravity/gravityDataset.txt 
+AS views:2D_ContourMap 
+IN visko:web-browser 
+WHERE
+	FORMAT = http://openvisko.org/rdf/pml2/formats/SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES
+	AND TYPE = http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d19
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxyz.owl#G = lightgray
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/nearneighbor.owl#R = -109/-107/33/34
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxyz.owl#E = 200/30
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/nearneighbor.owl#S = 0.2
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxyz.owl#J = x6c
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#plotVariable = z
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map_raster.owl#colorTable = WhiteBlueGreenYellowRed
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/nearneighbor.owl#I = 0.02
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxyz.owl#S = o0.1
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxyz.owl#R = -109/-107/33/34/-300/-100
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map_raster.owl#lbOrientation = vertical
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxyz.owl#W = thinnest
+	AND params:Wc = thinnest,black
+	AND params:Wa = thinnest,black
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#cnLevelSpacingF = 10
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/surface.owl#I = 0.02
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/surface.owl#C = 0.1
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#font = helvetica
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#cnLinesOn = False
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/surface.owl#R = -109/-107/33/34
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map_raster.owl#font = helvetica
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/surface.owl#T = 0.25
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map_raster.owl#lonVariable = x
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map_raster.owl#plotVariable = z
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#cnFillOn = True
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxyz.owl#B = 1/1/50
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#indexOfZ = -1
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxy.owl#indexOfY = 1
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#indexOfY = 0
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#indexOfX = 1
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxy.owl#indexOfX = 0
+	AND params:S = 5
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/XYZDataFieldFilter.owl#indexOfY = 1
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map_raster.owl#indexOfX = 1
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/XYZDataFieldFilter.owl#indexOfZ = 2
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map_raster.owl#indexOfY = 0
+	AND params:A = 20
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#lbOrientation = vertical
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map_raster.owl#indexOfZ = -1
+	AND params:B = 0.5
+	AND params:C = 10
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/grd2xyz.owl#N = 0
+	AND params:J = x4c
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxy.owl#B = 1
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/grdimage.owl#R = -109/-107/33/34
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map_raster.owl#latVariable = y
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#colorTable = WhiteBlueGreenYellowRed
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/grdimage.owl#T = -200/200/10
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/grd2xyz_esri.owl#N = 0
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxy.owl#J = x4c
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxy.owl#G = blue
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/XYZDataFieldFilter.owl#indexOfX = 0
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#lonVariable = x
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxyz.owl#JZ = 5c
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxy.owl#R = -109/-107/33/34
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/grdimage.owl#B = 1
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/grdimage.owl#C = hot
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#latVariable = y
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/grdimage.owl#J = x4c
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxy.owl#S = c0.04c
+""" .
+
+<http://visko.cybershare.utep.edu:5080/visko-web/test-data/gravity/gravityDataset.txt> a dcat:Dataset , prov:Entity .
+
+<http://visko.cybershare.utep.edu:5080/visko-web/registry/module_gmt.owl#surface> a prov:SoftwareAgent , prov:Agent .
+
+<http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/1> a prov:Activity , hartigprov:DataCreation ;
+	prov:wasAssociatedWith <http://visko.cybershare.utep.edu:5080/visko-web/registry/module_gmt.owl#surface> ;
+	prov:used <http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/1/url> , <http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/1/C> , <http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/1/R> , <http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/1/T> , <http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/1/I> .
+
+<http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/1/url> a prov:Entity ;
+	prov:specializationOf <http://visko.cybershare.utep.edu:5080/visko-web/registry/surface.owl#url> ;
+	prov:value <http://visko.cybershare.utep.edu:5080/visko-web/test-data/gravity/gravityDataset.txt> .
+
+<http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/1/C> a prov:Entity ;
+	prov:specializationOf <http://visko.cybershare.utep.edu:5080/visko-web/registry/surface.owl#C> ;
+	prov:value "0.1" .
+
+<http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/1/R> a prov:Entity ;
+	prov:specializationOf <http://visko.cybershare.utep.edu:5080/visko-web/registry/surface.owl#R> ;
+	prov:value "-109/-107/33/34" .
+
+<http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/1/T> a prov:Entity ;
+	prov:specializationOf <http://visko.cybershare.utep.edu:5080/visko-web/registry/surface.owl#T> ;
+	prov:value "0.25" .
+
+<http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/1/I> a prov:Entity ;
+	prov:specializationOf <http://visko.cybershare.utep.edu:5080/visko-web/registry/surface.owl#I> ;
+	prov:value "0.02" .
+
+<http://dummy-domain.edu/dummy-data-010368289793777918.data> a dcat:Dataset , prov:Entity ;
+	prov:wasGeneratedBy <http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/1> ;
+	prov:wasDerivedFrom <http://visko.cybershare.utep.edu:5080/visko-web/test-data/gravity/gravityDataset.txt> ;
+	prov:wasAttributedTo <http://visko.cybershare.utep.edu:5080/visko-web/registry/module_gmt.owl#surface> ;
+	dcterms:format <http://openvisko.org/rdf/pml2/formats/NETCDF.owl#NETCDF> .
+
+<http://inference-web.org/registry/DPR/Told.owl#Told> a prov:Plan .
+
+<https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/pml/engines/visko-parameter-binder.owl#visko-parameter-binder> a prov:SoftwareAgent .
+
+<http://visko.cybershare.utep.edu:5080/visko-web/registry/module_gmt.owl#grdcontour> a prov:SoftwareAgent , prov:Agent .
+
+<http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/2> a prov:Activity , hartigprov:DataCreation ;
+	prov:wasAssociatedWith <http://visko.cybershare.utep.edu:5080/visko-web/registry/module_gmt.owl#grdcontour> ;
+	prov:used <http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/2/S> , <http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/2/B> , <http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/2/Wa> , <http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/2/C> , <http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/2/A> , <http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/2/J> , <http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/2/url> , <http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/2/Wc> .
+
+<http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/2/S> a prov:Entity ;
+	prov:specializationOf <http://visko.cybershare.utep.edu:5080/visko-web/registry/grdcontour.owl#S> ;
+	prov:value "5" .
+
+<http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/2/B> a prov:Entity ;
+	prov:specializationOf <http://visko.cybershare.utep.edu:5080/visko-web/registry/grdcontour.owl#B> ;
+	prov:value "0.5" .
+
+<http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/2/Wa> a prov:Entity ;
+	prov:specializationOf <http://visko.cybershare.utep.edu:5080/visko-web/registry/grdcontour.owl#Wa> ;
+	prov:value "thinnest,black" .
+
+<http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/2/C> a prov:Entity ;
+	prov:specializationOf <http://visko.cybershare.utep.edu:5080/visko-web/registry/grdcontour.owl#C> ;
+	prov:value "10" .
+
+<http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/2/A> a prov:Entity ;
+	prov:specializationOf <http://visko.cybershare.utep.edu:5080/visko-web/registry/grdcontour.owl#A> ;
+	prov:value "20" .
+
+<http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/2/J> a prov:Entity ;
+	prov:specializationOf <http://visko.cybershare.utep.edu:5080/visko-web/registry/grdcontour.owl#J> ;
+	prov:value "x4c" .
+
+<http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/2/url> a prov:Entity ;
+	prov:specializationOf <http://visko.cybershare.utep.edu:5080/visko-web/registry/grdcontour.owl#url> ;
+	prov:value <http://dummy-domain.edu/dummy-data-010368289793777918.data> .
+
+<http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/2/Wc> a prov:Entity ;
+	prov:specializationOf <http://visko.cybershare.utep.edu:5080/visko-web/registry/grdcontour.owl#Wc> ;
+	prov:value "thinnest,black" .
+
+<http://dummy-domain.edu/dummy-data-05541200056679868.data> a dcat:Dataset , prov:Entity ;
+	prov:wasGeneratedBy <http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/2> ;
+	prov:wasDerivedFrom <http://dummy-domain.edu/dummy-data-010368289793777918.data> ;
+	prov:wasAttributedTo <http://visko.cybershare.utep.edu:5080/visko-web/registry/module_gmt.owl#grdcontour> ;
+	dcterms:format <http://openvisko.org/rdf/pml2/formats/POSTSCRIPT.owl#POSTSCRIPT> .
+
+<http://visko.cybershare.utep.edu:5080/visko-web/registry/module_gs.owl#ps2pdf> a prov:SoftwareAgent , prov:Agent .
+
+<http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/3> a prov:Activity , hartigprov:DataCreation ;
+	prov:wasAssociatedWith <http://visko.cybershare.utep.edu:5080/visko-web/registry/module_gs.owl#ps2pdf> ;
+	prov:used <http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/3/url> .
+
+<http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/3/url> a prov:Entity ;
+	prov:specializationOf <http://visko.cybershare.utep.edu:5080/visko-web/registry/ps2pdf.owl#url> ;
+	prov:value <http://dummy-domain.edu/dummy-data-05541200056679868.data> .
+
+<http://dummy-domain.edu/dummy-data-029754064609262676.data> a dcat:Dataset , prov:Entity ;
+	prov:wasGeneratedBy <http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/3> ;
+	prov:wasDerivedFrom <http://dummy-domain.edu/dummy-data-05541200056679868.data> ;
+	prov:wasAttributedTo <http://visko.cybershare.utep.edu:5080/visko-web/registry/module_gs.owl#ps2pdf> ;
+	dcterms:format <http://openvisko.org/rdf/pml2/formats/PDF.owl#PDF> .
+
+<http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4> pml:hasAnswer <http://dummy-domain.edu/dummy-data-029754064609262676.data> .
+
+<http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4/submission/4707766b-e3e9-4f32-a55a-3024495cffcc/pipeline/1/call/1> prov:used <http://visko.cybershare.utep.edu:5080/visko-web/test-data/gravity/gravityDataset.txt> ;
+	prov:wasInfluencedBy <http://iw.cs.utep.edu:8080/toolkits/output/query/a7c69cc0015d556f5f853d5c9c928ea4> .

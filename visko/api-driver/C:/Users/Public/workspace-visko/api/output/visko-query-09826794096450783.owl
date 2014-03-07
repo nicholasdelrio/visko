@@ -1,0 +1,452 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:j.0="http://inference-web.org/2.0/pml-justification.owl#"
+    xmlns:j.1="http://inference-web.org/2.0/pml-provenance.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:j.2="http://inference-web.org/2.0/ds.owl#">
+  <j.0:Query rdf:about="http://iw.cs.utep.edu:8080/toolkits/output/visko-query-09826794096450783.owl#query">
+    <j.0:hasAnswer>
+      <j.0:NodeSet rdf:about="http://iw.cs.utep.edu:8080/toolkits/output/visko-query-09826794096450783.owl#pipeline-step-0886808664087607">
+        <j.0:isConsequentOf>
+          <j.0:InferenceStep>
+            <j.0:hasAntecedentList>
+              <j.0:NodeSetList>
+                <j.2:first>
+                  <j.0:NodeSet rdf:about="http://iw.cs.utep.edu:8080/toolkits/output/visko-query-09826794096450783.owl#pipeline-step-03433487803920351">
+                    <j.0:isConsequentOf>
+                      <j.0:InferenceStep>
+                        <j.0:hasAntecedentList>
+                          <j.0:NodeSetList>
+                            <j.2:first>
+                              <j.0:NodeSet rdf:about="http://iw.cs.utep.edu:8080/toolkits/output/visko-query-09826794096450783.owl#parameter-assertion-05722163502677268">
+                                <j.0:isConsequentOf>
+                                  <j.0:InferenceStep>
+                                    <j.0:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                    <j.0:hasIndex rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#int"
+                                    >0</j.0:hasIndex>
+                                    <j.0:hasInferenceEngine rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/pml/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                  </j.0:InferenceStep>
+                                </j.0:isConsequentOf>
+                                <j.0:hasConclusion>
+                                  <j.1:Information>
+                                    <j.1:hasFormat rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/formats/PLAIN.owl#PLAIN"/>
+                                    <j.1:hasRawString rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >http://visko.cybershare.utep.edu:5080/visko-web/registry/grdcontour.owl#S = 5</j.1:hasRawString>
+                                  </j.1:Information>
+                                </j.0:hasConclusion>
+                              </j.0:NodeSet>
+                            </j.2:first>
+                            <j.2:rest>
+                              <j.0:NodeSetList>
+                                <j.2:first>
+                                  <j.0:NodeSet rdf:about="http://iw.cs.utep.edu:8080/toolkits/output/visko-query-09826794096450783.owl#parameter-assertion-011238064930639668">
+                                    <j.0:isConsequentOf>
+                                      <j.0:InferenceStep>
+                                        <j.0:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                        <j.0:hasIndex rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#int"
+                                        >0</j.0:hasIndex>
+                                        <j.0:hasInferenceEngine rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/pml/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                      </j.0:InferenceStep>
+                                    </j.0:isConsequentOf>
+                                    <j.0:hasConclusion>
+                                      <j.1:Information>
+                                        <j.1:hasFormat rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/formats/PLAIN.owl#PLAIN"/>
+                                        <j.1:hasRawString rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >http://visko.cybershare.utep.edu:5080/visko-web/registry/grdcontour.owl#B = 0.5</j.1:hasRawString>
+                                      </j.1:Information>
+                                    </j.0:hasConclusion>
+                                  </j.0:NodeSet>
+                                </j.2:first>
+                                <j.2:rest>
+                                  <j.0:NodeSetList>
+                                    <j.2:first>
+                                      <j.0:NodeSet rdf:about="http://iw.cs.utep.edu:8080/toolkits/output/visko-query-09826794096450783.owl#parameter-assertion-05191980510883839">
+                                        <j.0:isConsequentOf>
+                                          <j.0:InferenceStep>
+                                            <j.0:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                            <j.0:hasIndex rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#int"
+                                            >0</j.0:hasIndex>
+                                            <j.0:hasInferenceEngine rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/pml/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                          </j.0:InferenceStep>
+                                        </j.0:isConsequentOf>
+                                        <j.0:hasConclusion>
+                                          <j.1:Information>
+                                            <j.1:hasFormat rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/formats/PLAIN.owl#PLAIN"/>
+                                            <j.1:hasRawString
+                                             rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                            >http://visko.cybershare.utep.edu:5080/visko-web/registry/grdcontour.owl#Wa = thinnest,black</j.1:hasRawString>
+                                          </j.1:Information>
+                                        </j.0:hasConclusion>
+                                      </j.0:NodeSet>
+                                    </j.2:first>
+                                    <j.2:rest>
+                                      <j.0:NodeSetList>
+                                        <j.2:first>
+                                          <j.0:NodeSet rdf:about="http://iw.cs.utep.edu:8080/toolkits/output/visko-query-09826794096450783.owl#parameter-assertion-003239231610226356">
+                                            <j.0:isConsequentOf>
+                                              <j.0:InferenceStep>
+                                                <j.0:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                                <j.0:hasIndex
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                >0</j.0:hasIndex>
+                                                <j.0:hasInferenceEngine rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/pml/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                              </j.0:InferenceStep>
+                                            </j.0:isConsequentOf>
+                                            <j.0:hasConclusion>
+                                              <j.1:Information>
+                                                <j.1:hasFormat rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/formats/PLAIN.owl#PLAIN"/>
+                                                <j.1:hasRawString
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >http://visko.cybershare.utep.edu:5080/visko-web/registry/grdcontour.owl#C = 10</j.1:hasRawString>
+                                              </j.1:Information>
+                                            </j.0:hasConclusion>
+                                          </j.0:NodeSet>
+                                        </j.2:first>
+                                        <j.2:rest>
+                                          <j.0:NodeSetList>
+                                            <j.2:first>
+                                              <j.0:NodeSet rdf:about="http://iw.cs.utep.edu:8080/toolkits/output/visko-query-09826794096450783.owl#parameter-assertion-03055226113638799">
+                                                <j.0:isConsequentOf>
+                                                  <j.0:InferenceStep>
+                                                    <j.0:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                                    <j.0:hasIndex
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    >0</j.0:hasIndex>
+                                                    <j.0:hasInferenceEngine rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/pml/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                                  </j.0:InferenceStep>
+                                                </j.0:isConsequentOf>
+                                                <j.0:hasConclusion>
+                                                  <j.1:Information>
+                                                    <j.1:hasFormat rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/formats/PLAIN.owl#PLAIN"/>
+                                                    <j.1:hasRawString
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >http://visko.cybershare.utep.edu:5080/visko-web/registry/grdcontour.owl#A = 20</j.1:hasRawString>
+                                                  </j.1:Information>
+                                                </j.0:hasConclusion>
+                                              </j.0:NodeSet>
+                                            </j.2:first>
+                                            <j.2:rest>
+                                              <j.0:NodeSetList>
+                                                <j.2:first>
+                                                  <j.0:NodeSet rdf:about="http://iw.cs.utep.edu:8080/toolkits/output/visko-query-09826794096450783.owl#parameter-assertion-008831129432615581">
+                                                    <j.0:isConsequentOf>
+                                                      <j.0:InferenceStep>
+                                                        <j.0:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                                        <j.0:hasIndex
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#int"
+                                                        >0</j.0:hasIndex>
+                                                        <j.0:hasInferenceEngine rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/pml/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                                      </j.0:InferenceStep>
+                                                    </j.0:isConsequentOf>
+                                                    <j.0:hasConclusion>
+                                                      <j.1:Information>
+                                                        <j.1:hasFormat rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/formats/PLAIN.owl#PLAIN"/>
+                                                        <j.1:hasRawString
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >http://visko.cybershare.utep.edu:5080/visko-web/registry/grdcontour.owl#J = x4c</j.1:hasRawString>
+                                                      </j.1:Information>
+                                                    </j.0:hasConclusion>
+                                                  </j.0:NodeSet>
+                                                </j.2:first>
+                                                <j.2:rest>
+                                                  <j.0:NodeSetList>
+                                                    <j.2:first>
+                                                      <j.0:NodeSet rdf:about="http://iw.cs.utep.edu:8080/toolkits/output/visko-query-09826794096450783.owl#parameter-assertion-08061901440245591">
+                                                        <j.0:isConsequentOf>
+                                                          <j.0:InferenceStep>
+                                                            <j.0:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                                            <j.0:hasIndex
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#int"
+                                                            >0</j.0:hasIndex>
+                                                            <j.0:hasInferenceEngine rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/pml/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                                                          </j.0:InferenceStep>
+                                                        </j.0:isConsequentOf>
+                                                        <j.0:hasConclusion>
+                                                          <j.1:Information>
+                                                            <j.1:hasFormat rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/formats/PLAIN.owl#PLAIN"/>
+                                                            <j.1:hasRawString
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >http://visko.cybershare.utep.edu:5080/visko-web/registry/grdcontour.owl#Wc = thinnest,black</j.1:hasRawString>
+                                                          </j.1:Information>
+                                                        </j.0:hasConclusion>
+                                                      </j.0:NodeSet>
+                                                    </j.2:first>
+                                                    <j.2:rest>
+                                                      <j.0:NodeSetList>
+                                                        <j.2:first>
+                                                          <j.0:NodeSet rdf:about="http://iw.cs.utep.edu:8080/toolkits/output/visko-query-09826794096450783.owl#pipeline-step-04667852077758261">
+                                                            <j.0:isConsequentOf>
+                                                              <j.0:InferenceStep>
+    <j.0:hasAntecedentList>
+      <j.0:NodeSetList>
+        <j.2:first>
+          <j.0:NodeSet rdf:about="http://iw.cs.utep.edu:8080/toolkits/output/visko-query-09826794096450783.owl#parameter-assertion-022555543123592947">
+            <j.0:isConsequentOf>
+              <j.0:InferenceStep>
+                <j.0:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                <j.0:hasIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >0</j.0:hasIndex>
+                <j.0:hasInferenceEngine rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/pml/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+              </j.0:InferenceStep>
+            </j.0:isConsequentOf>
+            <j.0:hasConclusion>
+              <j.1:Information>
+                <j.1:hasFormat rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/formats/PLAIN.owl#PLAIN"/>
+                <j.1:hasRawString rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >http://visko.cybershare.utep.edu:5080/visko-web/registry/surface.owl#C = 0.1</j.1:hasRawString>
+              </j.1:Information>
+            </j.0:hasConclusion>
+          </j.0:NodeSet>
+        </j.2:first>
+        <j.2:rest>
+          <j.0:NodeSetList>
+            <j.2:first>
+              <j.0:NodeSet rdf:about="http://iw.cs.utep.edu:8080/toolkits/output/visko-query-09826794096450783.owl#parameter-assertion-0640948856537763">
+                <j.0:isConsequentOf>
+                  <j.0:InferenceStep>
+                    <j.0:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                    <j.0:hasIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    >0</j.0:hasIndex>
+                    <j.0:hasInferenceEngine rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/pml/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                  </j.0:InferenceStep>
+                </j.0:isConsequentOf>
+                <j.0:hasConclusion>
+                  <j.1:Information>
+                    <j.1:hasFormat rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/formats/PLAIN.owl#PLAIN"/>
+                    <j.1:hasRawString rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >http://visko.cybershare.utep.edu:5080/visko-web/registry/surface.owl#R = -109/-107/33/34</j.1:hasRawString>
+                  </j.1:Information>
+                </j.0:hasConclusion>
+              </j.0:NodeSet>
+            </j.2:first>
+            <j.2:rest>
+              <j.0:NodeSetList>
+                <j.2:first>
+                  <j.0:NodeSet rdf:about="http://iw.cs.utep.edu:8080/toolkits/output/visko-query-09826794096450783.owl#parameter-assertion-07430693981453314">
+                    <j.0:isConsequentOf>
+                      <j.0:InferenceStep>
+                        <j.0:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                        <j.0:hasIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >0</j.0:hasIndex>
+                        <j.0:hasInferenceEngine rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/pml/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                      </j.0:InferenceStep>
+                    </j.0:isConsequentOf>
+                    <j.0:hasConclusion>
+                      <j.1:Information>
+                        <j.1:hasFormat rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/formats/PLAIN.owl#PLAIN"/>
+                        <j.1:hasRawString rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >http://visko.cybershare.utep.edu:5080/visko-web/registry/surface.owl#T = 0.25</j.1:hasRawString>
+                      </j.1:Information>
+                    </j.0:hasConclusion>
+                  </j.0:NodeSet>
+                </j.2:first>
+                <j.2:rest>
+                  <j.0:NodeSetList>
+                    <j.2:first>
+                      <j.0:NodeSet rdf:about="http://iw.cs.utep.edu:8080/toolkits/output/visko-query-09826794096450783.owl#parameter-assertion-045075407416675606">
+                        <j.0:isConsequentOf>
+                          <j.0:InferenceStep>
+                            <j.0:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                            <j.0:hasIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                            >0</j.0:hasIndex>
+                            <j.0:hasInferenceEngine rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/pml/engines/visko-parameter-binder.owl#visko-parameter-binder"/>
+                          </j.0:InferenceStep>
+                        </j.0:isConsequentOf>
+                        <j.0:hasConclusion>
+                          <j.1:Information>
+                            <j.1:hasFormat rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/formats/PLAIN.owl#PLAIN"/>
+                            <j.1:hasRawString rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >http://visko.cybershare.utep.edu:5080/visko-web/registry/surface.owl#I = 0.02</j.1:hasRawString>
+                          </j.1:Information>
+                        </j.0:hasConclusion>
+                      </j.0:NodeSet>
+                    </j.2:first>
+                    <j.2:rest>
+                      <j.0:NodeSetList>
+                        <j.2:first>
+                          <j.0:NodeSet rdf:about="http://iw.cs.utep.edu:8080/toolkits/output/visko-query-09826794096450783.owl#pipeline-step-0212213550104564">
+                            <j.0:isConsequentOf>
+                              <j.0:InferenceStep>
+                                <j.0:hasInferenceRule rdf:resource="http://inference-web.org/registry/DPR/Told.owl#Told"/>
+                                <j.0:hasIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                                >0</j.0:hasIndex>
+                                <j.0:hasInferenceEngine rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/pml/engines/visko-web-service.owl#visko-web-service"/>
+                              </j.0:InferenceStep>
+                            </j.0:isConsequentOf>
+                            <j.0:hasConclusion>
+                              <j.1:Information>
+                                <j.1:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES"/>
+                                <j.1:hasURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+                                >http://visko.cybershare.utep.edu:5080/visko-web/test-data/gravity/gravityDataset.txt</j.1:hasURL>
+                              </j.1:Information>
+                            </j.0:hasConclusion>
+                          </j.0:NodeSet>
+                        </j.2:first>
+                      </j.0:NodeSetList>
+                    </j.2:rest>
+                  </j.0:NodeSetList>
+                </j.2:rest>
+              </j.0:NodeSetList>
+            </j.2:rest>
+          </j.0:NodeSetList>
+        </j.2:rest>
+      </j.0:NodeSetList>
+    </j.0:hasAntecedentList>
+    <j.0:hasInferenceRule rdf:resource="http://visko.cybershare.utep.edu:5080/visko-web/registry/module_gmt.owl#surface-operator"/>
+    <j.0:hasIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >0</j.0:hasIndex>
+    <j.0:hasInferenceEngine rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/pml/engines/visko-web-service.owl#visko-web-service"/>
+                                                              </j.0:InferenceStep>
+                                                            </j.0:isConsequentOf>
+                                                            <j.0:hasConclusion>
+                                                              <j.1:Information>
+    <j.1:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/NETCDF.owl#NETCDF"/>
+    <j.1:hasURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://dummy-domain.edu/dummy-data-010368289793777918.data</j.1:hasURL>
+                                                              </j.1:Information>
+                                                            </j.0:hasConclusion>
+                                                          </j.0:NodeSet>
+                                                        </j.2:first>
+                                                      </j.0:NodeSetList>
+                                                    </j.2:rest>
+                                                  </j.0:NodeSetList>
+                                                </j.2:rest>
+                                              </j.0:NodeSetList>
+                                            </j.2:rest>
+                                          </j.0:NodeSetList>
+                                        </j.2:rest>
+                                      </j.0:NodeSetList>
+                                    </j.2:rest>
+                                  </j.0:NodeSetList>
+                                </j.2:rest>
+                              </j.0:NodeSetList>
+                            </j.2:rest>
+                          </j.0:NodeSetList>
+                        </j.0:hasAntecedentList>
+                        <j.0:hasInferenceRule rdf:resource="http://visko.cybershare.utep.edu:5080/visko-web/registry/module_gmt.owl#grdcontour-operator"/>
+                        <j.0:hasIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >0</j.0:hasIndex>
+                        <j.0:hasInferenceEngine rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/pml/engines/visko-web-service.owl#visko-web-service"/>
+                      </j.0:InferenceStep>
+                    </j.0:isConsequentOf>
+                    <j.0:hasConclusion>
+                      <j.1:Information>
+                        <j.1:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/POSTSCRIPT.owl#POSTSCRIPT"/>
+                        <j.1:hasURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+                        >http://dummy-domain.edu/dummy-data-05541200056679868.data</j.1:hasURL>
+                      </j.1:Information>
+                    </j.0:hasConclusion>
+                  </j.0:NodeSet>
+                </j.2:first>
+              </j.0:NodeSetList>
+            </j.0:hasAntecedentList>
+            <j.0:hasInferenceRule rdf:resource="http://visko.cybershare.utep.edu:5080/visko-web/registry/module_gs.owl#ps2pdf-operator"/>
+            <j.0:hasIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >0</j.0:hasIndex>
+            <j.0:hasInferenceEngine rdf:resource="https://raw.github.com/nicholasdelrio/visko-rdf/master/rdf/pml/engines/visko-web-service.owl#visko-web-service"/>
+          </j.0:InferenceStep>
+        </j.0:isConsequentOf>
+        <j.0:hasConclusion>
+          <j.1:Information>
+            <j.1:hasFormat rdf:resource="http://openvisko.org/rdf/pml2/formats/PDF.owl#PDF"/>
+            <j.1:hasURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://dummy-domain.edu/dummy-data-029754064609262676.data</j.1:hasURL>
+          </j.1:Information>
+        </j.0:hasConclusion>
+      </j.0:NodeSet>
+    </j.0:hasAnswer>
+    <j.1:hasContent>
+      <j.1:Information>
+        <j.1:hasRawString rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >
+PREFIX views http://openvisko.org/rdf/ontology/visko-view.owl# 
+PREFIX formats http://openvisko.org/rdf/pml2/formats/ 
+PREFIX types http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl# 
+PREFIX visko http://visko.cybershare.utep.edu:5080/visko-web/registry/module_webbrowser.owl# 
+PREFIX params http://visko.cybershare.utep.edu:5080/visko-web/registry/grdcontour.owl# 
+VISUALIZE http://visko.cybershare.utep.edu:5080/visko-web/test-data/gravity/gravityDataset.txt 
+AS views:2D_ContourMap 
+IN visko:web-browser 
+WHERE
+	FORMAT = http://openvisko.org/rdf/pml2/formats/SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES
+	AND TYPE = http://rio.cs.utep.edu/ciserver/ciprojects/CrustalModeling/CrustalModeling.owl#d19
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxyz.owl#G = lightgray
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/nearneighbor.owl#R = -109/-107/33/34
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxyz.owl#E = 200/30
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/nearneighbor.owl#S = 0.2
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxyz.owl#J = x6c
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#plotVariable = z
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map_raster.owl#colorTable = WhiteBlueGreenYellowRed
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/nearneighbor.owl#I = 0.02
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxyz.owl#S = o0.1
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxyz.owl#R = -109/-107/33/34/-300/-100
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map_raster.owl#lbOrientation = vertical
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxyz.owl#W = thinnest
+	AND params:Wc = thinnest,black
+	AND params:Wa = thinnest,black
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#cnLevelSpacingF = 10
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/surface.owl#I = 0.02
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/surface.owl#C = 0.1
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#font = helvetica
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#cnLinesOn = False
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/surface.owl#R = -109/-107/33/34
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map_raster.owl#font = helvetica
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/surface.owl#T = 0.25
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map_raster.owl#lonVariable = x
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map_raster.owl#plotVariable = z
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#cnFillOn = True
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxyz.owl#B = 1/1/50
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#indexOfZ = -1
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxy.owl#indexOfY = 1
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#indexOfY = 0
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#indexOfX = 1
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxy.owl#indexOfX = 0
+	AND params:S = 5
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/XYZDataFieldFilter.owl#indexOfY = 1
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map_raster.owl#indexOfX = 1
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/XYZDataFieldFilter.owl#indexOfZ = 2
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map_raster.owl#indexOfY = 0
+	AND params:A = 20
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#lbOrientation = vertical
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map_raster.owl#indexOfZ = -1
+	AND params:B = 0.5
+	AND params:C = 10
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/grd2xyz.owl#N = 0
+	AND params:J = x4c
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxy.owl#B = 1
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/grdimage.owl#R = -109/-107/33/34
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map_raster.owl#latVariable = y
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#colorTable = WhiteBlueGreenYellowRed
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/grdimage.owl#T = -200/200/10
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/grd2xyz_esri.owl#N = 0
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxy.owl#J = x4c
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxy.owl#G = blue
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/XYZDataFieldFilter.owl#indexOfX = 0
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#lonVariable = x
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxyz.owl#JZ = 5c
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxy.owl#R = -109/-107/33/34
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/grdimage.owl#B = 1
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/grdimage.owl#C = hot
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/gsn_csm_contour_map.owl#latVariable = y
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/grdimage.owl#J = x4c
+	AND http://visko.cybershare.utep.edu:5080/visko-web/registry/psxy.owl#S = c0.04c
+</j.1:hasRawString>
+      </j.1:Information>
+    </j.1:hasContent>
+  </j.0:Query>
+</rdf:RDF>
