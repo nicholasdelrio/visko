@@ -1,38 +1,24 @@
 package edu.utep.trustlab.visko.driver;
 
-import com.hp.hpl.jena.query.ResultSet;
 
-import edu.utep.trustlab.contentManagement.ContentManager;
-import edu.utep.trustlab.contentManagement.LocalFileSystem;
 import edu.utep.trustlab.visko.execution.PipelineExecutor;
 import edu.utep.trustlab.visko.execution.PipelineExecutorJob;
 import edu.utep.trustlab.visko.planning.Query;
 import edu.utep.trustlab.visko.planning.QueryEngine;
 import edu.utep.trustlab.visko.planning.pipelines.PipelineSet;
-import edu.utep.trustlab.visko.sparql.SPARQL_Endpoint;
 import edu.utep.trustlab.visko.sparql.SPARQL_EndpointFactory;
-import edu.utep.trustlab.visko.sparql.ViskoTripleStore;
 
-public class Driver {
+public class Execution {
 	
 	public static void main(String[] args){
-		SPARQL_EndpointFactory.setUpEndpointConnection("../visko-web/WebContent/registry-tdb/");
-
-		LocalFileSystem fs = new LocalFileSystem("http://iw.cs.utep.edu:8080/toolkits/output/", "C:/Users/Public/workspace-visko/api/output/");
-		ContentManager.setWorkspacePath(null);
-		ContentManager.setProvenanceContentManager(fs);
 		
-		ViskoTripleStore ts = new ViskoTripleStore();
-		ResultSet results = ts.getInputFormats();
-		System.out.println(results.hasNext());
-
+		//Specify Location of Triple Store (created with visko/visko-build/build with target build-triple-store)
+		SPARQL_EndpointFactory.setUpEndpointConnection("../visko-web/WebContent/registry-tdb/");
 		
 		Query query = new Query(getSampleQuery());
 		QueryEngine engine = new QueryEngine(query);
 		
-		PipelineSet pipes = null;
-		
-		pipes = engine.getPipelines();
+		PipelineSet pipes = engine.getPipelines();
 		PipelineExecutor executor = new PipelineExecutor();
 
 		if(pipes.size() > 0){
@@ -65,7 +51,6 @@ public class Driver {
 				"FORMAT = formats:SPACESEPARATEDVALUES.owl#SPACESEPARATEDVALUES" + NEWLINE +
 				"AND TYPE = types:d19";
 
-		return queryString;
-	
+		return queryString;	
 	}
 }
