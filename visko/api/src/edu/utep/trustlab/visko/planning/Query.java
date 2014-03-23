@@ -137,6 +137,9 @@ public class Query {
 		return targetFormatURI != null;
 	}
 	
+	/**
+	 * Check if the datasetURL field is in fact a URL
+	 */
 	public boolean hasValidDataPointer(){
 		return QueryParserV4.isURL(datasetURL);
 	}	
@@ -184,10 +187,22 @@ public class Query {
 		viewURI = uri;
 	}
 	
+	/**
+	 * Checks isValidQuery() and hasValidDataPointer()
+	 * 
+	 * @return true if both are true
+	 */
 	public boolean isExecutableQuery(){
 		return this.isValidQuery() && this.hasValidDataPointer();
 	}
 
+	/**
+	 * Return if the Query has adequate fields set to attempt to generate pipelines.
+	 * 
+	 * You must call this before passing it to QueryEngine!
+	 * 
+	 * @return
+	 */
 	public boolean isValidQuery() {
 		boolean hasNodeSet = this.getNodesetURI() != null;
 		boolean hasFormat = this.getFormatURI() != null;
