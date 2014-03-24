@@ -103,6 +103,7 @@ public class PipelineExecutor implements Runnable {
         }    
     }
     
+    /* All errors are hidden, the messages are just streamed to the console */
     @Override
     public void run() {
         try {

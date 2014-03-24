@@ -124,10 +124,18 @@ public class Pipeline extends Vector<String> {
 		return viewerURI;
 	}
 	
+	/**
+	 * Get the parameter bindings from the parent PipelineSet
+	 * @return
+	 */
 	public HashMap<String, String> getParameterBindings() {
 		return parentContainer.getParameterBindings();
 	}
 
+	/**
+	 * Gets the artifactURL from the parent PipelineSet.
+	 * @return
+	 */
 	public String getArtifactURL() {
 		return parentContainer.getArtifactURL();
 	}
@@ -244,5 +252,5 @@ public class Pipeline extends Vector<String> {
 			}
 		}
 		return allParametersBound;
-	}	
+	}
 }
