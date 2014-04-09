@@ -180,7 +180,7 @@ import edu.utep.trustlab.visko.util.FileUtils;
 	
 	private void cleanModuleRDF(File moduleFile){
 		String contents = FileUtils.readTextFile(moduleFile.getAbsolutePath());
-		contents = contents.replaceAll("file:/Users/nick/Documents/git-repos/visko/visko-modules", "http://visko.cybershare.utep.edu:5080");
+		contents = contents.replaceAll("file.*visko/visko-modules", "http://visko.cybershare.utep.edu:5080");
 		contents = contents.replaceAll("build/dist/ModuleService.wsdl", "services/ModuleService?wsdl");
 		FileUtils.writeTextFile(contents, moduleFile.getAbsolutePath());
 	}
