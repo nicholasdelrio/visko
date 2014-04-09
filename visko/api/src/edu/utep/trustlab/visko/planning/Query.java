@@ -65,7 +65,13 @@ public class Query {
 	private String viewURI;
 	private String datasetURL;
 	private String targetFormatURI;
+	
+	/**
+	 * TODO this is a partial synonym with typeURI?!?!
+	 */
 	private String targetTypeURI;
+	
+	//TODO what is this?
 	private String nodesetURI;
 
 	//flag to see if a filter operator should be added to pipelines
@@ -91,9 +97,10 @@ public class Query {
 	public Query(String queryString) {	
 		parameterBindings = new HashMap<String, String>();
 		
-		stringBasedQuery = queryString;
+		//Parser doesnt like queries starting with whitespace
+		stringBasedQuery = queryString.trim();
 		
-		parser = new QueryParserV4(queryString);
+		parser = new QueryParserV4(stringBasedQuery);
 		parser.parse();		
 		
 		viewerSetURI = parser.getViewerSetURI();
@@ -134,20 +141,10 @@ public class Query {
 		return targetFormatURI != null;
 	}
 	
-	/**
-	 * Check if the data input URI is a valid URL.
-	 * @return true if it is a valid URL (may not be reachable)
-	 */
 	public boolean hasValidDataPointer(){
 		return QueryParserV4.isURL(datasetURL);
 	}	
 	
-	/**
-	 * TODO where is this used?
-	 * @param artifactURL
-	 * @param fmtURI
-	 * @param viewersetURI
-	 */
 	public Query(String artifactURL, String fmtURI, String viewersetURI) {
 		parameterBindings = new HashMap<String, String>();
 
@@ -184,6 +181,11 @@ public class Query {
 		viewURI = uri;
 	}
 	
+	/**
+	 * Checks isValidQuery() and hasValidDataPointer()
+	 * 
+	 * @return true if both are true
+	 */
 	public boolean isExecutableQuery(){
 		return this.isValidQuery() && this.hasValidDataPointer();
 	}
@@ -273,6 +275,10 @@ public class Query {
 		return this.targetTypeURI;
 	}
 	
+	/**
+	 * Creates a VSQL query from this object without a query parser
+	 * @return
+	 */
 	public String constructQueryFromVariables(){
 		String newViewURI = viewURI;
 		if(viewURI == null){
@@ -303,6 +309,9 @@ public class Query {
 		return reconstructedQuery;
 	}
 	
+	/**
+	 * Converts this to a VSQL query, using the previously parsed text if necessary.
+	 */
 	public String toString() {
 		if(parser == null)
 			return constructQueryFromVariables();
