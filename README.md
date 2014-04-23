@@ -8,6 +8,6 @@ It requires a working installation of Apache's ant tool, and git. I also recomme
 4. Click through *Next* until it shows you the list of projects (there should be a bunch). You only need to import **api** **api-driver** and **cms-clients**
 5. Do *Project->Clean* and then you should be able to run the files (Execution.java, etc.) in api-driver.
 
-To write new Java code that relies on the Visko API in eclipse, you can either just copy the api-driver class and hack it, or create a new project. If you create a new project, you need to go to *Project->Properties->Java Build Path->Libraries* and add every library (jar) in **api/lib/jena api/lib/pellet**  and also **api/lib/cms-clients/content-management.jar**.
+To write new Java code that relies on the Visko API in eclipse, you can either just copy the api-driver class and hack it, or create a new project. If you create a new project, you need to go to *Project->Properties->Java Build Path->Libraries* and add **every** library (jar) from the api to your project.
 
 Lastly in the Build path add a Project dependency on the API project.
