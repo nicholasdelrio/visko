@@ -15,7 +15,7 @@ public class VTKContourDataFilter extends VTKOperator{
 		reader.Update();
 		
 		vtkContourFilter contours = new vtkContourFilter();
-		contours.SetInput(reader.GetOutput());
+		contours.SetInputData(reader.GetOutput());
 		
 		int numberOfContours = Integer.valueOf(numContours);
 		String[] range = scalarRange.split("/");

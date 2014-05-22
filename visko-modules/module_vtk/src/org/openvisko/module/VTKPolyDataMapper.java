@@ -22,7 +22,7 @@ public class VTKPolyDataMapper extends VTKOperator{
 		dr.Update();
 
 		vtkPolyDataMapper contMapper = new vtkPolyDataMapper();
-		contMapper.SetInput(dr.GetOutput());
+		contMapper.SetInputData(dr.GetOutput());
 		
 		//set scalar range
 		String[] sRange = scalarRange.split("/");
@@ -35,10 +35,10 @@ public class VTKPolyDataMapper extends VTKOperator{
 
 		// We'll put a simple outline around the data.
 		vtkOutlineFilter outline = new vtkOutlineFilter();
-		outline.SetInput(dr.GetOutput());
+		outline.SetInputData(dr.GetOutput());
 
 		vtkPolyDataMapper outlineMapper = new vtkPolyDataMapper();
-		outlineMapper.SetInput(outline.GetOutput());
+		outlineMapper.SetInputData(outline.GetOutput());
 
 		vtkActor outlineActor = new vtkActor();
 		outlineActor.SetMapper(outlineMapper);

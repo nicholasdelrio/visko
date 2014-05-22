@@ -81,10 +81,10 @@ public class VTKVolume extends VTKOperator{
 
 		// We'll put a simple outline around the data.
 		vtkOutlineFilter outline = new vtkOutlineFilter();
-		outline.SetInput(reader.GetOutput());
+		outline.SetInputData(reader.GetOutput());
 
 		vtkPolyDataMapper outlineMapper = new vtkPolyDataMapper();
-		outlineMapper.SetInput(outline.GetOutput());
+		outlineMapper.SetInputData(outline.GetOutput());
 
 		// Create an outline to generate a bounding box.
 		vtkActor outlineActor = new vtkActor();
