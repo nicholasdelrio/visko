@@ -10,34 +10,40 @@ import vtk.vtkDataObjectToDataSetFilter;
 import vtk.vtkFloatArray;
 import vtk.vtkGlyph3D;
 import vtk.vtkJPEGWriter;
+import vtk.vtkNativeLibrary;
+import vtk.vtkOpenGLRenderWindow;
 import vtk.vtkOutlineFilter;
 import vtk.vtkPolyDataMapper;
 import vtk.vtkProgrammableDataObjectSource;
 import vtk.vtkRearrangeFields;
 import vtk.vtkRenderLargeImage;
 import vtk.vtkRenderWindow;
+import vtk.vtkRenderWindowInteractor;
 import vtk.vtkRenderer;
 import vtk.vtkSphereSource;
 
 public class GravityGlyphs {
+	
+	 static {
+	        if (!vtkNativeLibrary.LoadAllNativeLibraries()) {
+	            for (vtkNativeLibrary lib : vtkNativeLibrary.values()) {
+	                if (!lib.IsLoaded()) {
+	                    System.out.println(lib.GetLibraryName() + " not loaded");
+	                }
+	            }
+	        }
+	        vtkNativeLibrary.DisableOutputWindow(null);
+	    }
+	
 	private vtkProgrammableDataObjectSource dos;
 	private String LON_FIELD_NAME = "lon";
 	private String LAT_FIELD_NAME = "lat";
 	private String ELEVATION_FIELD_NAME = "ele";
 	private String GRAVITY_FIELD_NAME = "gravity";
 
-	public  GravityGlyphs(String gravityPointsDataURL){
-		System.out.println("loading vtk jni libs...");
-		System.loadLibrary("vtkFilteringJava");
-		System.loadLibrary("vtkCommonJava");
-		System.loadLibrary("vtkIOJava");
-		System.loadLibrary("vtkHybridJava");
-		System.loadLibrary("vtkImagingJava");
-		System.loadLibrary("vtkGraphicsJava");
-		System.loadLibrary("vtkRenderingJava");
-		System.loadLibrary("vtkVolumeRenderingJava");		
-	}
-	public void transform (){  
+	
+	private vtkAssignAttribute getFieldData(){
+		
 		// Create the reader for the data
 		dos = new vtkProgrammableDataObjectSource();
 		dos.DebugOn();
@@ -63,7 +69,11 @@ public class GravityGlyphs {
 		aa.SetInputConnection(rf.GetOutputPort());
 		aa.Assign(GRAVITY_FIELD_NAME, "SCALARS", "POINT_DATA");
 		aa.Update();
-
+		
+		return aa;
+	}
+	
+	private vtkGlyph3D getGlyphs(vtkAssignAttribute aa){
 		//add points/glyphs
 		vtkSphereSource sphereSource = new vtkSphereSource();
 	    double doubleRadius = Double.valueOf(0.06);
@@ -77,10 +87,14 @@ public class GravityGlyphs {
 	    double doubleScaleFactor = Double.valueOf(0.25);
 	    glyphs.SetScaleFactor(doubleScaleFactor);
 	    glyphs.Update();
-			    
+	    
+	    return glyphs;
+	}
+	
+	private vtkRenderer getRenderer(vtkGlyph3D glyphs){
 	    // Render Polydata glyphs
 	    vtkPolyDataMapper contMapper = new vtkPolyDataMapper();
-		contMapper.SetInput(glyphs.GetOutput());
+		contMapper.SetInputData(glyphs.GetOutput());
 		
 		//set scalar range
 		double min = -236;
@@ -92,10 +106,10 @@ public class GravityGlyphs {
 
 		// We'll put a simple outline around the data.
 		vtkOutlineFilter outline = new vtkOutlineFilter();
-		outline.SetInput(glyphs.GetOutput());
+		outline.SetInputData(glyphs.GetOutput());
 
 		vtkPolyDataMapper outlineMapper = new vtkPolyDataMapper();
-		outlineMapper.SetInput(outline.GetOutput());
+		outlineMapper.SetInputData(outline.GetOutput());
 
 		vtkActor outlineActor = new vtkActor();
 		outlineActor.SetMapper(outlineMapper);
@@ -125,61 +139,63 @@ public class GravityGlyphs {
 		double green = 0.5;
 		double blue = 0.5;;
 		ren1.SetBackground(red, green, blue);
-
-		// a render window to display the contents
-		vtkRenderWindow renWin = new vtkRenderWindow();
-		renWin.SetOffScreenRendering(1);
+		
+		return ren1;
+	}
+	
+	private vtkOpenGLRenderWindow getRenderWindow(vtkRenderer ren1){
+		// a render window to display the contents		
+		vtkOpenGLRenderWindow renWin = new vtkOpenGLRenderWindow();
 		renWin.AddRenderer(ren1);
+		renWin.OffScreenRenderingOn();
 		
 		//set size
-		int width = 400;
-		int height = 300;
+		int width = 1500;
+		int height = 1500;
 		renWin.SetSize(width, height);
-
+	
+		return renWin;
+		
+		/*
+		vtkRenderWindowInteractor iren = new vtkRenderWindowInteractor();
+		iren.SetRenderWindow(renWin);
+		renWin.Render();
+		iren.Start();*/
+	}
+	
+	private vtkRenderLargeImage getMagnification(vtkRenderer ren1){
 		//Maginfiy the image? How much? 
 		vtkRenderLargeImage renderLarge = new vtkRenderLargeImage();
 		renderLarge.SetInput(ren1); 
 		
 		//set magnification
-		int mag = Integer.valueOf(3);
+		int mag = Integer.valueOf(10);
 		renderLarge.SetMagnification(mag); 
-
-		renWin.Render();
-
+			
+		return renderLarge;
+	}
+	
+	private void dumpJPEG(vtkRenderLargeImage renderLarge){
 		vtkJPEGWriter image = new vtkJPEGWriter();
 		image.SetInputConnection(renderLarge.GetOutputPort());
 		image.SetFileName("./webapp/output/glyphs.jpg");
+		
+		System.out.println("about to write file");
 		image.SetQuality(100);
 		image.Write();
-
-		contMapper.Delete();
-		contActor.Delete();
-		outline.Delete();
-		outlineMapper.Delete();
-		outlineActor.Delete();
-		renWin.Delete();
-		ren1.Delete();
-		image.Delete();
-		renderLarge.Delete();
-
-		// Clean up resources
-		dos.Delete();
-		do2ds.Delete();
-		rf.Delete();
-		aa.Delete();
+		System.out.println("wrote file");
+	}
+	
+	private void transform (){
+		vtkAssignAttribute aa = this.getFieldData();
+		vtkGlyph3D glyphs = this.getGlyphs(aa);
+		vtkRenderer ren1 = this.getRenderer(glyphs);
+		vtkRenderLargeImage renderLarge = this.getMagnification(ren1);
+		vtkOpenGLRenderWindow renWin = this.getRenderWindow(ren1);
+		renWin.Render();
 		
-		sphereSource.Delete();
-		glyphs.Delete();
-				
-		contMapper.Delete();
-		contActor.Delete();
-		outline.Delete();
-		outlineMapper.Delete();
-		outlineActor.Delete();
-		renWin.Delete();
-		ren1.Delete();
-		image.Delete();
-		renderLarge.Delete();
+		this.dumpJPEG(renderLarge);
+		
 	}
 
 	public void loadFieldData()
@@ -230,5 +246,10 @@ public class GravityGlyphs {
 		dos.GetOutput().GetFieldData().AddArray(lat);
 		dos.GetOutput().GetFieldData().AddArray(ele);
 		dos.GetOutput().GetFieldData().AddArray(grav);
-	}	
+	}
+	
+	public static void main(String[] args){
+		GravityGlyphs glyphs = new GravityGlyphs();
+		glyphs.transform();
+	}
 }
