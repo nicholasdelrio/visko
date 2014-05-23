@@ -87,7 +87,9 @@ public class VTKPolyDataMapper extends VTKOperator{
 		
 		//set magnification
 		int mag = Integer.valueOf(magnification);
-		renderLarge.SetMagnification(mag); 
+		renderLarge.SetMagnification(mag);
+		
+		System.out.println("about to render..................................");
 
 		renWin.Render();
 
