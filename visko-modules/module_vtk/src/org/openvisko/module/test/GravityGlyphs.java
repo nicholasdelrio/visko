@@ -1,4 +1,4 @@
-package org.openvisko.model.test;
+package org.openvisko.module.test;
 
 import org.openvisko.module.util.FileUtils;
 

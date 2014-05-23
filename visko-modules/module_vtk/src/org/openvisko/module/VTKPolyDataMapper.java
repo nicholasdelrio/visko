@@ -93,6 +93,8 @@ public class VTKPolyDataMapper extends VTKOperator{
 
 		renWin.Render();
 
+		System.out.println("rendered...");
+		
 		vtkJPEGWriter image = new vtkJPEGWriter();
 		image.SetInputConnection(renderLarge.GetOutputPort());
 		image.SetFileName(outputPath);
