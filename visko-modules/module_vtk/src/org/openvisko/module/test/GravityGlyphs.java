@@ -192,7 +192,7 @@ public class GravityGlyphs {
 	private void dumpJPEG(vtkRenderLargeImage renderLarge){
 		vtkJPEGWriter image = new vtkJPEGWriter();
 		image.SetInputConnection(renderLarge.GetOutputPort());
-		image.SetFileName(output.getAbsoluteFile());
+		image.SetFileName(output.getAbsolutePath());
 		
 		System.out.println("about to write file");
 		image.SetQuality(100);
