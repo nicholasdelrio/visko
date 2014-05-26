@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
-import org.openvisko.module.util.FileUtils;
-
 import gravityMapScenario.gravityDataset.Dataset;
 import gravityMapScenario.gravityDataset.Row;
 import vtk.vtkActor;
