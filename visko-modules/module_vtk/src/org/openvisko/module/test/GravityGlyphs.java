@@ -1,5 +1,9 @@
 package org.openvisko.module.test;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+
 import org.openvisko.module.util.FileUtils;
 
 import gravityMapScenario.gravityDataset.Dataset;
@@ -40,7 +44,19 @@ public class GravityGlyphs {
 	private String LAT_FIELD_NAME = "lat";
 	private String ELEVATION_FIELD_NAME = "ele";
 	private String GRAVITY_FIELD_NAME = "gravity";
+	
+	private File input;
+	private File output;
 
+	public GravityGlyphs(){
+		input = new File("./webapp/test-data/gravityDataset.txt");
+		output = new File("./webapp/output/glyphs.jpg");
+	}
+	
+	public GravityGlyphs(File input, File output){
+		this.input = input;
+		this.output = output;
+	}
 	
 	private vtkAssignAttribute getFieldData(){
 		
@@ -178,7 +194,7 @@ public class GravityGlyphs {
 	private void dumpJPEG(vtkRenderLargeImage renderLarge){
 		vtkJPEGWriter image = new vtkJPEGWriter();
 		image.SetInputConnection(renderLarge.GetOutputPort());
-		image.SetFileName("./webapp/output/glyphs.jpg");
+		image.SetFileName(output.getAbsoluteFile());
 		
 		System.out.println("about to write file");
 		image.SetQuality(100);
@@ -197,10 +213,33 @@ public class GravityGlyphs {
 		this.dumpJPEG(renderLarge);
 		
 	}
+	
+	public static String readTextFile(File file){
+		try{
+			BufferedReader in = new BufferedReader(new FileReader(file));
+			String line, fileContents;
+
+			fileContents = null;
+
+			while ((line = in.readLine()) != null){
+				if (fileContents == null)
+					fileContents = line + "\n";
+				else
+					fileContents = fileContents + line + "\n";
+			}
+
+			in.close();
+			return fileContents;
+		}
+		catch (Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	public void loadFieldData()
 	{
-		String asciiDataset = FileUtils.readTextFile("./webapp/test-data/gravityDataset.txt").trim();
+		String asciiDataset = readTextFile(input).trim();
 				
 		Dataset ds = new Dataset(asciiDataset, true);
 		Row[] dataset = ds.getDataset();
@@ -249,7 +288,16 @@ public class GravityGlyphs {
 	}
 	
 	public static void main(String[] args){
-		GravityGlyphs glyphs = new GravityGlyphs();
+		GravityGlyphs glyphs;
+		
+		if(args.length != 2)
+			glyphs = new GravityGlyphs();
+		else{
+			File input,output;
+			input = new File(args[0]);
+			output = new File(args[1]);
+			glyphs = new GravityGlyphs(input, output);
+		}
 		glyphs.transform();
 	}
 }
