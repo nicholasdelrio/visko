@@ -65,7 +65,13 @@ public class Query {
 	private String viewURI;
 	private String datasetURL;
 	private String targetFormatURI;
+	
+	/**
+	 * TODO this is a partial synonym with typeURI?!?!
+	 */
 	private String targetTypeURI;
+	
+	//TODO what is this?
 	private String nodesetURI;
 
 	//flag to see if a filter operator should be added to pipelines
@@ -80,12 +86,21 @@ public class Query {
 	//string query if provided
 	private String stringBasedQuery;
 	
+	/**
+	 * Constructs a Query object from an input string.
+	 * 
+	 * Will not throw exceptions if the query is invalid. Check hasWarnings() to know
+	 * if the query string was not correct. Also binds parameters if available.
+	 * 
+	 * @param queryString VSQL query string.
+	 */
 	public Query(String queryString) {	
 		parameterBindings = new HashMap<String, String>();
 		
-		stringBasedQuery = queryString;
+		//Parser doesnt like queries starting with whitespace
+		stringBasedQuery = queryString.trim();
 		
-		parser = new QueryParserV4(queryString);
+		parser = new QueryParserV4(stringBasedQuery);
 		parser.parse();		
 		
 		viewerSetURI = parser.getViewerSetURI();
@@ -166,6 +181,11 @@ public class Query {
 		viewURI = uri;
 	}
 	
+	/**
+	 * Checks isValidQuery() and hasValidDataPointer()
+	 * 
+	 * @return true if both are true
+	 */
 	public boolean isExecutableQuery(){
 		return this.isValidQuery() && this.hasValidDataPointer();
 	}
@@ -183,6 +203,10 @@ public class Query {
 		return hasStandardQueryElements || hasNodesetQueryElements || hasTargetFormatQueryElements;
 	}
 	
+	/**
+	 * Wrapper to give an error message if the data source URI is empty.
+	 * @return 'Data Source was Detected' if source exists
+	 */
 	public String getSourceMessage(){
 		String message = "Data Source was Detected";
 		if(this.getFormatURI() == null && this.getNodesetURI() == null)
@@ -190,6 +214,10 @@ public class Query {
 		return message;
 	}
 	
+	/**
+	 * Wrapper to give an error message if the target format is empty (lacks viewerset)
+	 * @return 'Target was detected' if target exists
+	 */
 	public String getTargetMessage(){
 		String message = "Target was Detected";
 		if(this.getTargetFormatURI() == null && this.getViewerSetURI() == null)
@@ -197,6 +225,10 @@ public class Query {
 		return message;
 	}
 
+	/**
+	 * Perform a simple error check.
+	 * @return true if the URI to the dataset, the input type, or viewer is missing.
+	 */
 	public boolean hasWarnings() {
 		return typeURI == null || viewURI == null || datasetURL == null;
 	}
@@ -243,6 +275,10 @@ public class Query {
 		return this.targetTypeURI;
 	}
 	
+	/**
+	 * Creates a VSQL query from this object without a query parser
+	 * @return
+	 */
 	public String constructQueryFromVariables(){
 		String newViewURI = viewURI;
 		if(viewURI == null){
@@ -273,6 +309,9 @@ public class Query {
 		return reconstructedQuery;
 	}
 	
+	/**
+	 * Converts this to a VSQL query, using the previously parsed text if necessary.
+	 */
 	public String toString() {
 		if(parser == null)
 			return constructQueryFromVariables();

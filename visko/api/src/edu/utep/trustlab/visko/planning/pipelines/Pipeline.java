@@ -54,9 +54,9 @@ import edu.utep.trustlab.visko.util.ResultSetToVector;
 public class Pipeline extends Vector<String> {
 	private String viewerURI;
 	private Vector<String> viewerSets;
-	private String viewURI;
+	private String viewURI; //TODO what is this for?
 	private ViskoModel viskoLoadingModel;
-	private PipelineSet parentContainer;
+	private PipelineSet parentContainer; //This is used to get parameter bindings
 
 	private ArrayList<String> unboundParameters;
 	private ArrayList<String> allParameters;
@@ -74,6 +74,14 @@ public class Pipeline extends Vector<String> {
 		viewURI = aViewURI;
 		
 		setViewerSets(viewerURI);		
+	}
+	
+	/**
+	 * TODO added by awknaust
+	 * @param parentContainer
+	 */
+	public void setParentPipelineSet(PipelineSet parentContainer){
+		this.parentContainer = parentContainer;
 	}
 	
 	public boolean hasInputData(){
@@ -116,10 +124,18 @@ public class Pipeline extends Vector<String> {
 		return viewerURI;
 	}
 	
+	/**
+	 * Get the parameter bindings from the parent PipelineSet
+	 * @return
+	 */
 	public HashMap<String, String> getParameterBindings() {
 		return parentContainer.getParameterBindings();
 	}
 
+	/**
+	 * Gets the artifactURL from the parent PipelineSet.
+	 * @return
+	 */
 	public String getArtifactURL() {
 		return parentContainer.getArtifactURL();
 	}
@@ -128,6 +144,10 @@ public class Pipeline extends Vector<String> {
 		add(serviceURI);
 	}
 
+	/**
+	 * Add services as URIs to this pipeline (as Vector)
+	 * @param serviceURIs a vector of serviceURIs
+	 */
 	public void setServiceURIs(Vector<String> serviceURIs) {
 		for (String serviceImplURI : serviceURIs) {
 			addServiceURI(serviceImplURI);
@@ -138,6 +158,12 @@ public class Pipeline extends Vector<String> {
 		return new Service(get(i), viskoLoadingModel);
 	}
 
+	/**
+	 * Checks if the first service requires an input data set.
+	 * 
+	 * TODO : What service wouldn't?
+	 * @return
+	 */
 	public boolean requiresInputURL(){
 		String firstServiceURI = get(0);
 		Vector<String> params = ResultSetToVector.getVectorFromResultSet(ts.getInputParameters(firstServiceURI), "parameter");
@@ -179,10 +205,18 @@ public class Pipeline extends Vector<String> {
 		return stringRepresentation;
 	}
 	
+	/**
+	 * Return the parent pipeline set, which has information about parameter bindings.
+	 * @return a reference to the parent pipeline set
+	 */
 	public PipelineSet getParentPipelineSet(){
 		return parentContainer;
 	}
 	
+	/**
+	 * TODO what does this do?
+	 * @return
+	 */
 	public String getToolkitThatGeneratesView(){
 		String toolkitURI = null;
 		if(viewURI != null){
@@ -193,12 +227,20 @@ public class Pipeline extends Vector<String> {
 		}
 		return toolkitURI;
 	}
-	
+
+	/**
+	 * Get the output format as a URI from the last service in the pipeline
+	 * @return
+	 */
 	public String getOutputFormat(){
 		String finalServiceURI = this.lastElement();
 		return ResultSetToVector.getVectorFromResultSet(ts.getServiceOutputFormat(finalServiceURI), "format").firstElement();
 	}
 
+	/**
+	 * Checks if all parameters required for each service are bound.
+	 * @return
+	 */
 	public boolean hasAllInputParameters(){
 		unboundParameters = new ArrayList<String>();
 		allParameters = new ArrayList<String>();
@@ -210,5 +252,5 @@ public class Pipeline extends Vector<String> {
 			}
 		}
 		return allParametersBound;
-	}	
+	}
 }
