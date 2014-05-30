@@ -6,7 +6,7 @@ import edu.utep.trustlab.visko.web.html.PipelineResultHTML;
 
 public class ExecutePipelineStatusBean{
 
-	private static final int refreshRate = 2;
+	private static final int refreshRate = 1;
 	
     private PipelineExecutorJob job;
     
@@ -69,7 +69,7 @@ public class ExecutePipelineStatusBean{
             return "<meta http-equiv=\"refresh\""
                    + " content=\""
                    + getRefreshRate()
-                   + "\";URL=\"ViskoServletManager?requestType=execute-pipeline\">";
+                   + ";URL=ViskoServletManager?requestType=execute-pipeline\">";
     	return "";
     }
 }
