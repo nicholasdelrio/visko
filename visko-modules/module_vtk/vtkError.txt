@@ -1,0 +1,72 @@
+Debug: In /home/nick/Documents/git-repos/VTK/Common/Core/vtkObject.cxx, line 865
+vtkShepardMethod (0x7f094c915cd0): Registered by vtkCompositeDataPipeline (0x7f094c917500), ReferenceCount = 2
+
+
+Debug: In /home/nick/Documents/git-repos/VTK/Common/ExecutionModel/vtkAlgorithm.cxx, line 1035
+vtkShepardMethod (0x7f094c915cd0): Setting connection to input port index 0 from output port index 0 on algorithm vtkXMLPolyDataReader(0x7f094c70afd0).
+
+
+Debug: In /home/nick/Documents/git-repos/VTK/Imaging/Hybrid/vtkShepardMethod.cxx, line 337
+vtkShepardMethod (0x7f094c915cd0):  setting SampleDimensions to (30,30,10)
+
+
+Debug: In /home/nick/Documents/git-repos/VTK/Imaging/Hybrid/vtkShepardMethod.h, line 75
+vtkShepardMethod (0x7f094c915cd0): vtkShepardMethod (0x7f094c915cd0): setting MaximumDistance to 1
+
+
+Debug: In /home/nick/Documents/git-repos/VTK/Imaging/Hybrid/vtkShepardMethod.h, line 80
+vtkShepardMethod (0x7f094c915cd0): vtkShepardMethod (0x7f094c915cd0): setting ModelBounds to (-108.999,-107.002,33.0009,33.9967,1.29057,3.28785)
+
+
+Debug: In /home/nick/Documents/git-repos/VTK/Common/ExecutionModel/vtkAlgorithm.h, line 179
+vtkShepardMethod (0x7f094c915cd0): vtkShepardMethod (0x7f094c915cd0): setting AbortExecute to 0
+
+
+Debug: In /home/nick/Documents/git-repos/VTK/Imaging/Hybrid/vtkShepardMethod.cxx, line 170
+vtkShepardMethod (0x7f094c915cd0): Executing Shepard method
+
+
+Debug: In /home/nick/Documents/git-repos/VTK/Imaging/Hybrid/vtkShepardMethod.cxx, line 212
+vtkShepardMethod (0x7f094c915cd0): Inserting point #0
+
+
+Debug: In /home/nick/Documents/git-repos/VTK/Common/ExecutionModel/vtkAlgorithm.h, line 180
+vtkShepardMethod (0x7f094c915cd0): vtkShepardMethod (0x7f094c915cd0): returning AbortExecute of 0
+
+
+Debug: In /home/nick/Documents/git-repos/VTK/Imaging/Hybrid/vtkShepardMethod.cxx, line 212
+vtkShepardMethod (0x7f094c915cd0): Inserting point #1000
+
+
+Debug: In /home/nick/Documents/git-repos/VTK/Common/ExecutionModel/vtkAlgorithm.h, line 180
+vtkShepardMethod (0x7f094c915cd0): vtkShepardMethod (0x7f094c915cd0): returning AbortExecute of 0
+
+
+Debug: In /home/nick/Documents/git-repos/VTK/Common/ExecutionModel/vtkAlgorithm.h, line 180
+vtkShepardMethod (0x7f094c915cd0): vtkShepardMethod (0x7f094c915cd0): returning AbortExecute of 0
+
+
+Debug: In /home/nick/Documents/git-repos/VTK/Common/Core/vtkObject.cxx, line 890
+vtkShepardMethod (0x7f094c915cd0): UnRegistered by NULL, ReferenceCount = 1
+
+
+Debug: In /home/nick/Documents/git-repos/VTK/Common/Core/vtkObject.cxx, line 865
+vtkShepardMethod (0x7f094c915cd0): Registered by vtkGarbageCollectorImpl (0x7f09bfdfabe0), ReferenceCount = 3
+
+
+Debug: In /home/nick/Documents/git-repos/VTK/Common/Core/vtkObject.cxx, line 885
+vtkShepardMethod (0x7f094c915cd0): UnRegistered by vtkCompositeDataPipeline (0x7f094c917500), ReferenceCount = 2
+
+
+Debug: In /home/nick/Documents/git-repos/VTK/Common/Core/vtkObject.cxx, line 885
+vtkShepardMethod (0x7f094c915cd0): UnRegistered by vtkGarbageCollectorImpl (0x7f09bfdfabe0), ReferenceCount = 0
+
+
+Debug: In /home/nick/Documents/git-repos/VTK/Common/ExecutionModel/vtkAlgorithm.cxx, line 50
+vtkAlgorithm (0x7f094c915cd0): vtkAlgorithm (0x7f094c915cd0): setting Information to 0
+
+
+Debug: In /home/nick/Documents/git-repos/VTK/Common/Core/vtkObject.cxx, line 154
+vtkObject (0x7f094c915cd0): Destructing!
+
+

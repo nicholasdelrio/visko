@@ -1,0 +1,1909 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f5b5d69faa5, pid=64975, tid=140034258429696
+#
+# JRE version: Java(TM) SE Runtime Environment (7.0_40-b43) (build 1.7.0_40-b43)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (24.0-b56 mixed mode linux-amd64 compressed oops)
+# Problematic frame:
+# C  [libvtkRenderingVolume-6.2.so.1+0x424aa5]  vtkVolumeRayCastMapper::Render(vtkRenderer*, vtkVolume*)+0x23b
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f5ba4006800):  JavaThread "http-nio-5080-exec-10" daemon [_thread_in_native, id=65090, stack(0x00007f5c442ae000,0x00007f5c443af000)]
+
+siginfo:si_signo=SIGSEGV: si_errno=0, si_code=1 (SEGV_MAPERR), si_addr=0x0000000000000000
+
+Registers:
+RAX=0x0000000000000000, RBX=0x00007f5b5d69f86a, RCX=0x0000000000000000, RDX=0x0000000000000014
+RSP=0x00007f5c443ab5f0, RBP=0x00007f5c443ab6c0, RSI=0x0000000000000000, RDI=0x00007f5b6800cf60
+R8 =0x0000000000000000, R9 =0x0000000000000fff, R10=0x00007f5c443ab370, R11=0x00007f5c3641b832
+R12=0x0000000000000000, R13=0x0000000743aec730, R14=0x00007f5c443abfa8, R15=0x00007f5ba4006800
+RIP=0x00007f5b5d69faa5, EFLAGS=0x0000000000010246, CSGSFS=0x0000000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007f5c443ab5f0)
+0x00007f5c443ab5f0:   00007f5c443ab620 00007f5c369b971a
+0x00007f5c443ab600:   000000006800c980 00007f5b68029c90
+0x00007f5c443ab610:   00007f5b68036280 00007f5b680115a0
+0x00007f5c443ab620:   00007f5c443ab670 00007f5c369b9a3e
+0x00007f5c443ab630:   0000000000000000 00007f5b680283b0
+0x00007f5c443ab640:   00000000443ab670 00007f5b6809d7e0
+0x00007f5c443ab650:   00007f5b680296a0 00007f5b6800c980
+0x00007f5c443ab660:   00000000443ab730 00007f5c369b9980
+0x00007f5c443ab670:   00007f5c443ab6a0 00007f5c369a49b9
+0x00007f5c443ab680:   0000000000000000 00007f5b680115a0
+0x00007f5c443ab690:   0000000068029c70 0000000000000000
+0x00007f5c443ab6a0:   00007f5c443ab6c0 00007f5c37be2b67
+0x00007f5c443ab6b0:   00007f5b5d69f86a 0000000000000000
+0x00007f5c443ab6c0:   00007f5c443ab730 00007f5c37d26a19
+0x00007f5c443ab6d0:   0000000000000000 0000000000000000
+0x00007f5c443ab6e0:   00007f5b68036280 00007f5b68029c90
+0x00007f5c443ab6f0:   0000000000000000 0000000000000000
+0x00007f5c443ab700:   0000000000000000 0000000000000000
+0x00007f5c443ab710:   0000000000000000 0000000000000000
+0x00007f5c443ab720:   0000000000000000 0000000000000000
+0x00007f5c443ab730:   00007f5c443ab790 00007f5c37ce5309
+0x00007f5c443ab740:   0000000000000000 00007f5b68036280
+0x00007f5c443ab750:   0000000000000000 00007f5b6848dbe0
+0x00007f5c443ab760:   0000000000000000 4001000000000000
+0x00007f5c443ab770:   000000013f800000 0000000000000000
+0x00007f5c443ab780:   0000000743aec730 0000000000000000
+0x00007f5c443ab790:   00007f5c443aba20 00007f5c27673927
+0x00007f5c443ab7a0:   00007f5c443ab9a0 00007f5b68036280
+0x00007f5c443ab7b0:   0000000743aec730 00007f5c443abfa8
+0x00007f5c443ab7c0:   00007f5ba4006800 00007f5c37c475f3
+0x00007f5c443ab7d0:   3ff0000000000000 3fe89e05d7a6b546
+0x00007f5c443ab7e0:   3ff3988e1409212e 00007f5c443ab9e4 
+
+Instructions: (pc=0x00007f5b5d69faa5)
+0x00007f5b5d69fa85:   d2 48 8b 85 58 ff ff ff 48 89 c7 e8 13 a2 c1 ff
+0x00007f5b5d69fa95:   48 89 c7 e8 e5 4c c2 ff 48 89 c7 e8 b3 93 c1 ff
+0x00007f5b5d69faa5:   48 8b 10 48 81 c2 b0 00 00 00 48 8b 12 48 89 c7
+0x00007f5b5d69fab5:   ff d2 89 45 8c 83 7d 8c 05 0f 84 24 03 00 00 83 
+
+Register to memory mapping:
+
+RAX=0x0000000000000000 is an unknown value
+RBX=0x00007f5b5d69f86a: _ZN22vtkVolumeRayCastMapper6RenderEP11vtkRendererP9vtkVolume+0 in /opt/vtk/lib/libvtkRenderingVolume-6.2.so.1 at 0x00007f5b5d27b000
+RCX=0x0000000000000000 is an unknown value
+RDX=0x0000000000000014 is an unknown value
+RSP=0x00007f5c443ab5f0 is pointing into the stack for thread: 0x00007f5ba4006800
+RBP=0x00007f5c443ab6c0 is pointing into the stack for thread: 0x00007f5ba4006800
+RSI=0x0000000000000000 is an unknown value
+RDI=0x00007f5b6800cf60 is an unknown value
+R8 =0x0000000000000000 is an unknown value
+R9 =0x0000000000000fff is an unknown value
+R10=0x00007f5c443ab370 is pointing into the stack for thread: 0x00007f5ba4006800
+R11=0x00007f5c3641b832: _ZN20vtkDataSetAttributes10GetScalarsEv+0 in /opt/vtk/lib/libvtkCommonDataModel-6.2.so.1 at 0x00007f5c36242000
+R12=0x0000000000000000 is an unknown value
+R13=0x0000000743aec730 is an oop
+{method} 
+ - klass: {other class}
+R14=0x00007f5c443abfa8 is pointing into the stack for thread: 0x00007f5ba4006800
+R15=0x00007f5ba4006800 is a thread
+
+
+Stack: [0x00007f5c442ae000,0x00007f5c443af000],  sp=0x00007f5c443ab5f0,  free space=1013k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libvtkRenderingVolume-6.2.so.1+0x424aa5]  vtkVolumeRayCastMapper::Render(vtkRenderer*, vtkVolume*)+0x23b
+C  [libvtkRenderingCore-6.2.so.1+0x216a19]  vtkVolume::RenderVolumetricGeometry(vtkViewport*)+0x387
+C  [libvtkRenderingCore-6.2.so.1+0x1d5309]  vtkRenderer::UpdateGeometry()+0x373
+C  [libvtkRenderingOpenGL-6.2.so.1+0x126927]  vtkOpenGLRenderer::DeviceRender()+0x1bb
+C  [libvtkRenderingCore-6.2.so.1+0x1d45a9]  vtkRenderer::Render()+0x9ad
+C  [libvtkRenderingCore-6.2.so.1+0x1d2c02]  vtkRendererCollection::Render()+0xca
+C  [libvtkRenderingCore-6.2.so.1+0x1e82a6]  vtkRenderWindow::DoStereoRender()+0xee
+C  [libvtkRenderingCore-6.2.so.1+0x1e81ad]  vtkRenderWindow::DoFDRender()+0x5b5
+C  [libvtkRenderingCore-6.2.so.1+0x1e7bed]  vtkRenderWindow::DoAARender()+0x7c3
+C  [libvtkRenderingCore-6.2.so.1+0x1e71ca]  vtkRenderWindow::Render()+0x868
+C  [libvtkRenderingOpenGL-6.2.so.1+0x1d1141]  vtkXOpenGLRenderWindow::Render()+0x7d
+C  [libvtkRenderingCoreJava.so+0x893e1]  Java_vtk_vtkRenderWindow_Render_19+0x40
+j  vtk.vtkRenderWindow.Render_9()V+0
+j  vtk.vtkRenderWindow.Render()V+1
+j  org.openvisko.module.VTKVolume.transform(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;+706
+j  org.openvisko.module.ModuleService.vtkVolume(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;+26
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x5f8405]  JavaCalls::call_helper(JavaValue*, methodHandle*, JavaCallArguments*, Thread*)+0x365
+V  [libjvm.so+0x5f6e68]  JavaCalls::call(JavaValue*, methodHandle, JavaCallArguments*, Thread*)+0x28
+V  [libjvm.so+0x88873f]  Reflection::invoke(instanceKlassHandle, methodHandle, Handle, bool, objArrayHandle, BasicType, objArrayHandle, bool, Thread*)+0x47f
+V  [libjvm.so+0x8894f0]  Reflection::invoke_method(oopDesc*, Handle, objArrayHandle, Thread*)+0x160
+V  [libjvm.so+0x67f314]  JVM_InvokeMethod+0x224
+j  sun.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0
+j  sun.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+87
+j  sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+57
+j  org.apache.axis2.rpc.receivers.RPCUtil.invokeServiceClass(Lorg/apache/axis2/description/AxisMessage;Ljava/lang/reflect/Method;Ljava/lang/Object;Ljava/lang/String;Lorg/apache/axiom/om/OMElement;Lorg/apache/axis2/context/MessageContext;)Ljava/lang/Object;+251
+j  org.apache.axis2.rpc.receivers.RPCMessageReceiver.invokeBusinessLogic(Lorg/apache/axis2/context/MessageContext;Lorg/apache/axis2/context/MessageContext;)V+242
+j  org.apache.axis2.receivers.AbstractInOutMessageReceiver.invokeBusinessLogic(Lorg/apache/axis2/context/MessageContext;)V+16
+j  org.apache.axis2.receivers.AbstractMessageReceiver.receive(Lorg/apache/axis2/context/MessageContext;)V+107
+j  org.apache.axis2.engine.AxisEngine.receive(Lorg/apache/axis2/context/MessageContext;)Lorg/apache/axis2/engine/Handler$InvocationResponse;+192
+j  org.apache.axis2.transport.http.HTTPTransportUtils.processHTTPPostRequest(Lorg/apache/axis2/context/MessageContext;Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/apache/axis2/engine/Handler$InvocationResponse;+36
+j  org.apache.axis2.transport.http.AxisServlet.doPost(Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V+103
+j  javax.servlet.http.HttpServlet.service(Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V+149
+j  javax.servlet.http.HttpServlet.service(Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V+30
+j  org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V+446
+j  org.apache.catalina.core.ApplicationFilterChain.doFilter(Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V+101
+j  org.apache.tomcat.websocket.server.WsFilter.doFilter(Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;Ljavax/servlet/FilterChain;)V+21
+j  org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V+151
+j  org.apache.catalina.core.ApplicationFilterChain.doFilter(Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V+101
+j  org.apache.catalina.core.StandardWrapperValve.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+781
+j  org.apache.catalina.core.StandardContextValve.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+166
+j  org.apache.catalina.authenticator.AuthenticatorBase.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+428
+j  org.apache.catalina.core.StandardHostValve.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+100
+j  org.apache.catalina.valves.ErrorReportValve.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+6
+j  org.apache.catalina.valves.AbstractAccessLogValve.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+6
+j  org.apache.catalina.core.StandardEngineValve.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+71
+j  org.apache.catalina.connector.CoyoteAdapter.service(Lorg/apache/coyote/Request;Lorg/apache/coyote/Response;)V+199
+j  org.apache.coyote.http11.AbstractHttp11Processor.process(Lorg/apache/tomcat/util/net/SocketWrapper;)Lorg/apache/tomcat/util/net/AbstractEndpoint$Handler$SocketState;+632
+j  org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(Lorg/apache/tomcat/util/net/SocketWrapper;Lorg/apache/tomcat/util/net/SocketStatus;)Lorg/apache/tomcat/util/net/AbstractEndpoint$Handler$SocketState;+270
+j  org.apache.coyote.http11.Http11NioProtocol$Http11ConnectionHandler.process(Lorg/apache/tomcat/util/net/SocketWrapper;Lorg/apache/tomcat/util/net/SocketStatus;)Lorg/apache/tomcat/util/net/AbstractEndpoint$Handler$SocketState;+37
+j  org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(Ljava/nio/channels/SelectionKey;Lorg/apache/tomcat/util/net/NioEndpoint$KeyAttachment;)V+148
+j  org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run()V+94
+j  java.util.concurrent.ThreadPoolExecutor.runWorker(Ljava/util/concurrent/ThreadPoolExecutor$Worker;)V+95
+j  java.util.concurrent.ThreadPoolExecutor$Worker.run()V+5
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x5f8405]  JavaCalls::call_helper(JavaValue*, methodHandle*, JavaCallArguments*, Thread*)+0x365
+V  [libjvm.so+0x5f6e68]  JavaCalls::call(JavaValue*, methodHandle, JavaCallArguments*, Thread*)+0x28
+V  [libjvm.so+0x5f7137]  JavaCalls::call_virtual(JavaValue*, KlassHandle, Symbol*, Symbol*, JavaCallArguments*, Thread*)+0x197
+V  [libjvm.so+0x5f7257]  JavaCalls::call_virtual(JavaValue*, Handle, KlassHandle, Symbol*, Symbol*, Thread*)+0x47
+V  [libjvm.so+0x6729e5]  thread_entry(JavaThread*, Thread*)+0xe5
+V  [libjvm.so+0x94cb2f]  JavaThread::thread_main_inner()+0xdf
+V  [libjvm.so+0x94cc35]  JavaThread::run()+0xf5
+V  [libjvm.so+0x814a58]  java_start(Thread*)+0x108
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  vtk.vtkRenderWindow.Render_9()V+0
+j  vtk.vtkRenderWindow.Render()V+1
+j  org.openvisko.module.VTKVolume.transform(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;+706
+j  org.openvisko.module.ModuleService.vtkVolume(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;+26
+v  ~StubRoutines::call_stub
+j  sun.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0
+j  sun.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+87
+j  sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+57
+j  org.apache.axis2.rpc.receivers.RPCUtil.invokeServiceClass(Lorg/apache/axis2/description/AxisMessage;Ljava/lang/reflect/Method;Ljava/lang/Object;Ljava/lang/String;Lorg/apache/axiom/om/OMElement;Lorg/apache/axis2/context/MessageContext;)Ljava/lang/Object;+251
+j  org.apache.axis2.rpc.receivers.RPCMessageReceiver.invokeBusinessLogic(Lorg/apache/axis2/context/MessageContext;Lorg/apache/axis2/context/MessageContext;)V+242
+j  org.apache.axis2.receivers.AbstractInOutMessageReceiver.invokeBusinessLogic(Lorg/apache/axis2/context/MessageContext;)V+16
+j  org.apache.axis2.receivers.AbstractMessageReceiver.receive(Lorg/apache/axis2/context/MessageContext;)V+107
+j  org.apache.axis2.engine.AxisEngine.receive(Lorg/apache/axis2/context/MessageContext;)Lorg/apache/axis2/engine/Handler$InvocationResponse;+192
+j  org.apache.axis2.transport.http.HTTPTransportUtils.processHTTPPostRequest(Lorg/apache/axis2/context/MessageContext;Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/apache/axis2/engine/Handler$InvocationResponse;+36
+j  org.apache.axis2.transport.http.AxisServlet.doPost(Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V+103
+j  javax.servlet.http.HttpServlet.service(Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V+149
+j  javax.servlet.http.HttpServlet.service(Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V+30
+j  org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V+446
+j  org.apache.catalina.core.ApplicationFilterChain.doFilter(Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V+101
+j  org.apache.tomcat.websocket.server.WsFilter.doFilter(Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;Ljavax/servlet/FilterChain;)V+21
+j  org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V+151
+j  org.apache.catalina.core.ApplicationFilterChain.doFilter(Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V+101
+j  org.apache.catalina.core.StandardWrapperValve.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+781
+j  org.apache.catalina.core.StandardContextValve.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+166
+j  org.apache.catalina.authenticator.AuthenticatorBase.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+428
+j  org.apache.catalina.core.StandardHostValve.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+100
+j  org.apache.catalina.valves.ErrorReportValve.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+6
+j  org.apache.catalina.valves.AbstractAccessLogValve.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+6
+j  org.apache.catalina.core.StandardEngineValve.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+71
+j  org.apache.catalina.connector.CoyoteAdapter.service(Lorg/apache/coyote/Request;Lorg/apache/coyote/Response;)V+199
+j  org.apache.coyote.http11.AbstractHttp11Processor.process(Lorg/apache/tomcat/util/net/SocketWrapper;)Lorg/apache/tomcat/util/net/AbstractEndpoint$Handler$SocketState;+632
+j  org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(Lorg/apache/tomcat/util/net/SocketWrapper;Lorg/apache/tomcat/util/net/SocketStatus;)Lorg/apache/tomcat/util/net/AbstractEndpoint$Handler$SocketState;+270
+j  org.apache.coyote.http11.Http11NioProtocol$Http11ConnectionHandler.process(Lorg/apache/tomcat/util/net/SocketWrapper;Lorg/apache/tomcat/util/net/SocketStatus;)Lorg/apache/tomcat/util/net/AbstractEndpoint$Handler$SocketState;+37
+j  org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(Ljava/nio/channels/SelectionKey;Lorg/apache/tomcat/util/net/NioEndpoint$KeyAttachment;)V+148
+j  org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run()V+94
+j  java.util.concurrent.ThreadPoolExecutor.runWorker(Ljava/util/concurrent/ThreadPoolExecutor$Worker;)V+95
+j  java.util.concurrent.ThreadPoolExecutor$Worker.run()V+5
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007f5b6c066800 JavaThread "Keep-Alive-Timer" daemon [_thread_blocked, id=65151, stack(0x00007f5c440a6000,0x00007f5c441a7000)]
+  0x00007f5b7001b800 JavaThread "Thread-32" daemon [_thread_in_native, id=65150, stack(0x00007f5c441ab000,0x00007f5c442ac000)]
+=>0x00007f5ba4006800 JavaThread "http-nio-5080-exec-10" daemon [_thread_in_native, id=65090, stack(0x00007f5c442ae000,0x00007f5c443af000)]
+  0x00007f5ba4004800 JavaThread "http-nio-5080-exec-9" daemon [_thread_blocked, id=65089, stack(0x00007f5c443af000,0x00007f5c444b0000)]
+  0x00007f5b98008000 JavaThread "http-nio-5080-exec-8" daemon [_thread_blocked, id=65085, stack(0x00007f5c444b0000,0x00007f5c445b1000)]
+  0x00007f5ba4002800 JavaThread "http-nio-5080-exec-7" daemon [_thread_blocked, id=65084, stack(0x00007f5c445b1000,0x00007f5c446b2000)]
+  0x00007f5b98006000 JavaThread "http-nio-5080-exec-6" daemon [_thread_blocked, id=65083, stack(0x00007f5c446b2000,0x00007f5c447b3000)]
+  0x00007f5ba4001000 JavaThread "http-nio-5080-exec-5" daemon [_thread_blocked, id=65082, stack(0x00007f5c447b3000,0x00007f5c448b4000)]
+  0x00007f5b98004800 JavaThread "http-nio-5080-exec-4" daemon [_thread_blocked, id=65081, stack(0x00007f5c448b4000,0x00007f5c449b5000)]
+  0x00007f5b98003000 JavaThread "http-nio-5080-exec-3" daemon [_thread_blocked, id=65080, stack(0x00007f5c449b5000,0x00007f5c44ab6000)]
+  0x00007f5b98002000 JavaThread "http-nio-5080-exec-2" daemon [_thread_blocked, id=65079, stack(0x00007f5c47cfd000,0x00007f5c47dfe000)]
+  0x00007f5b98001800 JavaThread "http-nio-5080-exec-1" daemon [_thread_blocked, id=65077, stack(0x00007f5c47bfc000,0x00007f5c47cfd000)]
+  0x00007f5c54399000 JavaThread "ajp-nio-5009-Acceptor-0" daemon [_thread_in_native, id=65014, stack(0x00007f5c44aca000,0x00007f5c44bcb000)]
+  0x00007f5c54398000 JavaThread "ajp-nio-5009-ClientPoller-1" daemon [_thread_in_native, id=65013, stack(0x00007f5c44bcb000,0x00007f5c44ccc000)]
+  0x00007f5c5423a000 JavaThread "ajp-nio-5009-ClientPoller-0" daemon [_thread_in_native, id=65012, stack(0x00007f5c44ccc000,0x00007f5c44dcd000)]
+  0x00007f5c54239800 JavaThread "http-nio-5080-Acceptor-0" daemon [_thread_in_native, id=65011, stack(0x00007f5c44dcd000,0x00007f5c44ece000)]
+  0x00007f5c54102000 JavaThread "http-nio-5080-ClientPoller-1" daemon [_thread_in_native, id=65010, stack(0x00007f5c44ece000,0x00007f5c44fcf000)]
+  0x00007f5c54101000 JavaThread "http-nio-5080-ClientPoller-0" daemon [_thread_in_native, id=65009, stack(0x00007f5c44fcf000,0x00007f5c450d0000)]
+  0x00007f5c54124000 JavaThread "ContainerBackgroundProcessor[StandardEngine[Catalina]]" daemon [_thread_blocked, id=65008, stack(0x00007f5c450d0000,0x00007f5c451d1000)]
+  0x00007f5bc8324000 JavaThread "Timer-7" daemon [_thread_blocked, id=65007, stack(0x00007f5c451d1000,0x00007f5c452d2000)]
+  0x00007f5bc86c3800 JavaThread "Timer-6" daemon [_thread_blocked, id=65006, stack(0x00007f5c452d2000,0x00007f5c453d3000)]
+  0x00007f5bc86c2800 JavaThread "Timer-5" daemon [_thread_blocked, id=65005, stack(0x00007f5c453d3000,0x00007f5c454d4000)]
+  0x00007f5bc8679000 JavaThread "Timer-4" daemon [_thread_blocked, id=65004, stack(0x00007f5c454d4000,0x00007f5c455d5000)]
+  0x00007f5bc86ca800 JavaThread "Timer-3" daemon [_thread_blocked, id=65003, stack(0x00007f5c455d5000,0x00007f5c456d6000)]
+  0x00007f5bc84b7000 JavaThread "Timer-2" daemon [_thread_blocked, id=65002, stack(0x00007f5c476d6000,0x00007f5c477d7000)]
+  0x00007f5bc83d3000 JavaThread "Timer-1" daemon [_thread_blocked, id=65001, stack(0x00007f5c477d7000,0x00007f5c478d8000)]
+  0x00007f5bc842e000 JavaThread "Timer-0" daemon [_thread_blocked, id=65000, stack(0x00007f5c478d8000,0x00007f5c479d9000)]
+  0x00007f5bc832f800 JavaThread "Thread-5" daemon [_thread_in_native, id=64999, stack(0x00007f5c479d9000,0x00007f5c47ada000)]
+  0x00007f5c54363800 JavaThread "NioBlockingSelector.BlockPoller-2" daemon [_thread_in_native, id=64996, stack(0x00007f5c47dfe000,0x00007f5c47eff000)]
+  0x00007f5c54355800 JavaThread "NioBlockingSelector.BlockPoller-1" daemon [_thread_in_native, id=64995, stack(0x00007f5c47eff000,0x00007f5c48000000)]
+  0x00007f5c54289800 JavaThread "GC Daemon" daemon [_thread_blocked, id=64994, stack(0x00007f5c4c32e000,0x00007f5c4c42f000)]
+  0x00007f5c540f1000 JavaThread "AsyncFileHandlerWriter-356406356" daemon [_thread_blocked, id=64993, stack(0x00007f5c4caee000,0x00007f5c4cbef000)]
+  0x00007f5c5409e000 JavaThread "Service Thread" daemon [_thread_blocked, id=64991, stack(0x00007f5c4ccf0000,0x00007f5c4cdf1000)]
+  0x00007f5c5409b800 JavaThread "C2 CompilerThread1" daemon [_thread_in_vm, id=64990, stack(0x00007f5c4cdf1000,0x00007f5c4cef2000)]
+  0x00007f5c54099000 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=64989, stack(0x00007f5c4cef2000,0x00007f5c4cff3000)]
+  0x00007f5c5408e800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=64988, stack(0x00007f5c4cff3000,0x00007f5c4d0f4000)]
+  0x00007f5c54077800 JavaThread "Finalizer" daemon [_thread_blocked, id=64987, stack(0x00007f5c4d0f4000,0x00007f5c4d1f5000)]
+  0x00007f5c54073800 JavaThread "Reference Handler" daemon [_thread_blocked, id=64986, stack(0x00007f5c4d1f5000,0x00007f5c4d2f6000)]
+  0x00007f5c54009000 JavaThread "main" [_thread_in_native, id=64976, stack(0x00007f5c584af000,0x00007f5c585b0000)]
+
+Other Threads:
+  0x00007f5c54071000 VMThread [stack: 0x00007f5c4d2f6000,0x00007f5c4d3f7000] [id=64985]
+  0x00007f5c540a9000 WatcherThread [stack: 0x00007f5c4cbef000,0x00007f5c4ccf0000] [id=64992]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 814592K, used 263831K [0x00000007c2000000, 0x00000007ffa80000, 0x0000000800000000)
+  eden space 621056K, 41% used [0x00000007c2000000,0x00000007d1d8de38,0x00000007e7e80000)
+  from space 193536K, 2% used [0x00000007e7e80000,0x00000007e8298050,0x00000007f3b80000)
+  to   space 188928K, 0% used [0x00000007f4200000,0x00000007f4200000,0x00000007ffa80000)
+ ParOldGen       total 322048K, used 219485K [0x0000000746000000, 0x0000000759a80000, 0x00000007c2000000)
+  object space 322048K, 68% used [0x0000000746000000,0x0000000753657700,0x0000000759a80000)
+ PSPermGen       total 47104K, used 46854K [0x0000000740e00000, 0x0000000743c00000, 0x0000000746000000)
+  object space 47104K, 99% used [0x0000000740e00000,0x0000000743bc1bb0,0x0000000743c00000)
+
+Card table byte_map: [0x00007f5c5051d000,0x00007f5c50b17000] byte_map_base: 0x00007f5c4cb16000
+
+Polling page: 0x00007f5c59643000
+
+Code Cache  [0x00007f5c50bd7000, 0x00007f5c51337000, 0x00007f5c53bd7000)
+ total_blobs=2902 nmethods=2506 adapters=349 free_code_cache=41740Kb largest_free_block=42602176
+
+Compilation events (10 events):
+Event: 334.780 Thread 0x00007f5c5409b800 nmethod 2704 0x00007f5c5131e410 code [0x00007f5c5131e560, 0x00007f5c5131e668]
+Event: 334.780 Thread 0x00007f5c5409b800 2706             com.sun.org.apache.xml.internal.dtm.ref.ExtendedType::getNamespace (5 bytes)
+Event: 334.781 Thread 0x00007f5c5409b800 nmethod 2706 0x00007f5c51319090 code [0x00007f5c513191c0, 0x00007f5c51319238]
+Event: 334.781 Thread 0x00007f5c5409b800 2707             org.apache.xerces.parsers.AbstractDOMParser::startElement (876 bytes)
+Event: 334.797 Thread 0x00007f5c54099000 nmethod 2705 0x00007f5c512a4b10 code [0x00007f5c512a4e80, 0x00007f5c512a5f80]
+Event: 334.797 Thread 0x00007f5c54099000 2708             com.ibm.wsdl.util.xml.XPathUtils::getXPathFromVector (326 bytes)
+Event: 334.854 Thread 0x00007f5c5409b800 nmethod 2707 0x00007f5c5132cf90 code [0x00007f5c5132d440, 0x00007f5c513305c8]
+Event: 334.855 Thread 0x00007f5c5409b800 2709             org.apache.xerces.dom.NamedNodeMapImpl::findNamePoint (131 bytes)
+Event: 334.863 Thread 0x00007f5c5409b800 nmethod 2709 0x00007f5c51295a90 code [0x00007f5c51295c20, 0x00007f5c512960b8]
+Event: 334.863 Thread 0x00007f5c5409b800 2710             com.ibm.wsdl.util.xml.XPathUtils::getValue (69 bytes)
+
+GC Heap History (10 events):
+Event: 81.875 GC heap before
+{Heap before GC invocations=23 (full 4):
+ PSYoungGen      total 800256K, used 607792K [0x00000007c2000000, 0x0000000800000000, 0x0000000800000000)
+  eden space 604672K, 100% used [0x00000007c2000000,0x00000007e6e80000,0x00000007e6e80000)
+  from space 195584K, 1% used [0x00000007f3200000,0x00000007f350c020,0x00000007ff100000)
+  to   space 200192K, 0% used [0x00000007e6e80000,0x00000007e6e80000,0x00000007f3200000)
+ ParOldGen       total 322048K, used 209053K [0x0000000746000000, 0x0000000759a80000, 0x00000007c2000000)
+  object space 322048K, 64% used [0x0000000746000000,0x0000000752c274a0,0x0000000759a80000)
+ PSPermGen       total 44032K, used 34815K [0x0000000740e00000, 0x0000000743900000, 0x0000000746000000)
+  object space 44032K, 79% used [0x0000000740e00000,0x0000000742ffffa8,0x0000000743900000)
+Event: 81.884 GC heap after
+Heap after GC invocations=23 (full 4):
+ PSYoungGen      total 804864K, used 3757K [0x00000007c2000000, 0x0000000800000000, 0x0000000800000000)
+  eden space 604672K, 0% used [0x00000007c2000000,0x00000007c2000000,0x00000007e6e80000)
+  from space 200192K, 1% used [0x00000007e6e80000,0x00000007e722b510,0x00000007f3200000)
+  to   space 202240K, 0% used [0x00000007f3a80000,0x00000007f3a80000,0x0000000800000000)
+ ParOldGen       total 322048K, used 209197K [0x0000000746000000, 0x0000000759a80000, 0x00000007c2000000)
+  object space 322048K, 64% used [0x0000000746000000,0x0000000752c4b4a0,0x0000000759a80000)
+ PSPermGen       total 44032K, used 34815K [0x0000000740e00000, 0x0000000743900000, 0x0000000746000000)
+  object space 44032K, 79% used [0x0000000740e00000,0x0000000742ffffa8,0x0000000743900000)
+}
+Event: 91.102 GC heap before
+{Heap before GC invocations=24 (full 4):
+ PSYoungGen      total 804864K, used 608429K [0x00000007c2000000, 0x0000000800000000, 0x0000000800000000)
+  eden space 604672K, 100% used [0x00000007c2000000,0x00000007e6e80000,0x00000007e6e80000)
+  from space 200192K, 1% used [0x00000007e6e80000,0x00000007e722b510,0x00000007f3200000)
+  to   space 202240K, 0% used [0x00000007f3a80000,0x00000007f3a80000,0x0000000800000000)
+ ParOldGen       total 322048K, used 209197K [0x0000000746000000, 0x0000000759a80000, 0x00000007c2000000)
+  object space 322048K, 64% used [0x0000000746000000,0x0000000752c4b4a0,0x0000000759a80000)
+ PSPermGen       total 46080K, used 45799K [0x0000000740e00000, 0x0000000743b00000, 0x0000000746000000)
+  object space 46080K, 99% used [0x0000000740e00000,0x0000000743ab9f68,0x0000000743b00000)
+Event: 91.122 GC heap after
+Heap after GC invocations=24 (full 4):
+ PSYoungGen      total 809472K, used 24706K [0x00000007c2000000, 0x00000007ffa00000, 0x0000000800000000)
+  eden space 613376K, 0% used [0x00000007c2000000,0x00000007c2000000,0x00000007e7700000)
+  from space 196096K, 12% used [0x00000007f3a80000,0x00000007f52a0b80,0x00000007ffa00000)
+  to   space 198144K, 0% used [0x00000007e7700000,0x00000007e7700000,0x00000007f3880000)
+ ParOldGen       total 322048K, used 211069K [0x0000000746000000, 0x0000000759a80000, 0x00000007c2000000)
+  object space 322048K, 65% used [0x0000000746000000,0x0000000752e1f5b0,0x0000000759a80000)
+ PSPermGen       total 46080K, used 45799K [0x0000000740e00000, 0x0000000743b00000, 0x0000000746000000)
+  object space 46080K, 99% used [0x0000000740e00000,0x0000000743ab9f68,0x0000000743b00000)
+}
+Event: 205.701 GC heap before
+{Heap before GC invocations=25 (full 4):
+ PSYoungGen      total 809472K, used 638082K [0x00000007c2000000, 0x00000007ffa00000, 0x0000000800000000)
+  eden space 613376K, 100% used [0x00000007c2000000,0x00000007e7700000,0x00000007e7700000)
+  from space 196096K, 12% used [0x00000007f3a80000,0x00000007f52a0b80,0x00000007ffa00000)
+  to   space 198144K, 0% used [0x00000007e7700000,0x00000007e7700000,0x00000007f3880000)
+ ParOldGen       total 322048K, used 211069K [0x0000000746000000, 0x0000000759a80000, 0x00000007c2000000)
+  object space 322048K, 65% used [0x0000000746000000,0x0000000752e1f5b0,0x0000000759a80000)
+ PSPermGen       total 46592K, used 46261K [0x0000000740e00000, 0x0000000743b80000, 0x0000000746000000)
+  object space 46592K, 99% used [0x0000000740e00000,0x0000000743b2d700,0x0000000743b80000)
+Event: 205.718 GC heap after
+Heap after GC invocations=25 (full 4):
+ PSYoungGen      total 811520K, used 3104K [0x00000007c2000000, 0x00000007fff00000, 0x0000000800000000)
+  eden space 613376K, 0% used [0x00000007c2000000,0x00000007c2000000,0x00000007e7700000)
+  from space 198144K, 1% used [0x00000007e7700000,0x00000007e7a08120,0x00000007f3880000)
+  to   space 196608K, 0% used [0x00000007f3f00000,0x00000007f3f00000,0x00000007fff00000)
+ ParOldGen       total 322048K, used 219485K [0x0000000746000000, 0x0000000759a80000, 0x00000007c2000000)
+  object space 322048K, 68% used [0x0000000746000000,0x0000000753657700,0x0000000759a80000)
+ PSPermGen       total 46592K, used 46261K [0x0000000740e00000, 0x0000000743b80000, 0x0000000746000000)
+  object space 46592K, 99% used [0x0000000740e00000,0x0000000743b2d700,0x0000000743b80000)
+}
+Event: 208.604 GC heap before
+{Heap before GC invocations=26 (full 4):
+ PSYoungGen      total 811520K, used 616480K [0x00000007c2000000, 0x00000007fff00000, 0x0000000800000000)
+  eden space 613376K, 100% used [0x00000007c2000000,0x00000007e7700000,0x00000007e7700000)
+  from space 198144K, 1% used [0x00000007e7700000,0x00000007e7a08120,0x00000007f3880000)
+  to   space 196608K, 0% used [0x00000007f3f00000,0x00000007f3f00000,0x00000007fff00000)
+ ParOldGen       total 322048K, used 219485K [0x0000000746000000, 0x0000000759a80000, 0x00000007c2000000)
+  object space 322048K, 68% used [0x0000000746000000,0x0000000753657700,0x0000000759a80000)
+ PSPermGen       total 46592K, used 46268K [0x0000000740e00000, 0x0000000743b80000, 0x0000000746000000)
+  object space 46592K, 99% used [0x0000000740e00000,0x0000000743b2f070,0x0000000743b80000)
+Event: 208.616 GC heap after
+Heap after GC invocations=26 (full 4):
+ PSYoungGen      total 811008K, used 3552K [0x00000007c2000000, 0x00000007ff880000, 0x0000000800000000)
+  eden space 621056K, 0% used [0x00000007c2000000,0x00000007c2000000,0x00000007e7e80000)
+  from space 189952K, 1% used [0x00000007f3f00000,0x00000007f4278140,0x00000007ff880000)
+  to   space 193536K, 0% used [0x00000007e7e80000,0x00000007e7e80000,0x00000007f3b80000)
+ ParOldGen       total 322048K, used 219485K [0x0000000746000000, 0x0000000759a80000, 0x00000007c2000000)
+  object space 322048K, 68% used [0x0000000746000000,0x0000000753657700,0x0000000759a80000)
+ PSPermGen       total 46592K, used 46268K [0x0000000740e00000, 0x0000000743b80000, 0x0000000746000000)
+  object space 46592K, 99% used [0x0000000740e00000,0x0000000743b2f070,0x0000000743b80000)
+}
+Event: 219.611 GC heap before
+{Heap before GC invocations=27 (full 4):
+ PSYoungGen      total 811008K, used 624608K [0x00000007c2000000, 0x00000007ff880000, 0x0000000800000000)
+  eden space 621056K, 100% used [0x00000007c2000000,0x00000007e7e80000,0x00000007e7e80000)
+  from space 189952K, 1% used [0x00000007f3f00000,0x00000007f4278140,0x00000007ff880000)
+  to   space 193536K, 0% used [0x00000007e7e80000,0x00000007e7e80000,0x00000007f3b80000)
+ ParOldGen       total 322048K, used 219485K [0x0000000746000000, 0x0000000759a80000, 0x00000007c2000000)
+  object space 322048K, 68% used [0x0000000746000000,0x0000000753657700,0x0000000759a80000)
+ PSPermGen       total 46592K, used 46305K [0x0000000740e00000, 0x0000000743b80000, 0x0000000746000000)
+  object space 46592K, 99% used [0x0000000740e00000,0x0000000743b38730,0x0000000743b80000)
+Event: 219.619 GC heap after
+Heap after GC invocations=27 (full 4):
+ PSYoungGen      total 814592K, used 4192K [0x00000007c2000000, 0x00000007ffa80000, 0x0000000800000000)
+  eden space 621056K, 0% used [0x00000007c2000000,0x00000007c2000000,0x00000007e7e80000)
+  from space 193536K, 2% used [0x00000007e7e80000,0x00000007e8298050,0x00000007f3b80000)
+  to   space 188928K, 0% used [0x00000007f4200000,0x00000007f4200000,0x00000007ffa80000)
+ ParOldGen       total 322048K, used 219485K [0x0000000746000000, 0x0000000759a80000, 0x00000007c2000000)
+  object space 322048K, 68% used [0x0000000746000000,0x0000000753657700,0x0000000759a80000)
+ PSPermGen       total 46592K, used 46305K [0x0000000740e00000, 0x0000000743b80000, 0x0000000746000000)
+  object space 46592K, 99% used [0x0000000740e00000,0x0000000743b38730,0x0000000743b80000)
+}
+
+Deoptimization events (10 events):
+Event: 221.022 Thread 0x00007f5ba4001000 Uncommon trap: reason=null_check action=make_not_entrant pc=0x00007f5c5129f790 method=org.apache.axiom.om.impl.util.OMSerializerUtil.isAssociated(Ljava/lang/String;Ljava/lang/String;Ljavax/xml/stream/XMLStreamWriter;)Z @ 50
+Event: 221.022 Thread 0x00007f5ba4001000 Uncommon trap: reason=null_check action=make_not_entrant pc=0x00007f5c51295ab4 method=org.apache.axiom.om.impl.util.OMSerializerUtil.isAssociated(Ljava/lang/String;Ljava/lang/String;Ljavax/xml/stream/XMLStreamWriter;)Z @ 50
+Event: 221.114 Thread 0x00007f5bc88e3800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00007f5c5120644c method=java.lang.StringCoding$StringDecoder.charsetName()Ljava/lang/String; @ 17
+Event: 328.521 Thread 0x00007f5ba4001000 Uncommon trap: reason=unreached action=reinterpret pc=0x00007f5c51030ec4 method=shared.SharedObjectFactory.build(Lshared/SharedObject;)Lshared/SharedObject; @ 58
+Event: 334.296 Thread 0x00007f5ba4006800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f5c511f40dc method=sun.misc.URLClassPath.getLoader(I)Lsun/misc/URLClassPath$Loader; @ 94
+Event: 334.308 Thread 0x00007f5ba4006800 Uncommon trap: reason=null_check action=make_not_entrant pc=0x00007f5c512e7608 method=org.apache.axiom.om.impl.util.OMSerializerUtil.serializeStartpart(Lorg/apache/axiom/om/OMElement;Ljava/lang/String;Ljavax/xml/stream/XMLStreamWriter;)V @ 835
+Event: 334.342 Thread 0x00007f5b6c06f000 Uncommon trap: reason=null_check action=make_not_entrant pc=0x00007f5c512d75a8 method=org.apache.axis.wsdl.symbolTable.Utils.findQName(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/namespace/QName; @ 68
+Event: 334.414 Thread 0x00007f5b98006000 Uncommon trap: reason=unloaded action=reinterpret pc=0x00007f5c50de60e8 method=org.openvisko.module.Float2ShortThr.transform(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; @ 161
+Event: 334.527 Thread 0x00007f5b6c202800 Uncommon trap: reason=null_check action=make_not_entrant pc=0x00007f5c512e08a4 method=org.apache.xerces.dom.NamedNodeMapImpl.findNamePoint(Ljava/lang/String;Ljava/lang/String;)I @ 102
+Event: 334.547 Thread 0x00007f5b7001b800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00007f5c511f5974 method=java.lang.StringCoding$StringDecoder.charsetName()Ljava/lang/String; @ 17
+
+Internal exceptions (10 events):
+Event: 334.800 Thread 0x00007f5b7001b800 Threw 0x00000007d1bf70d0 at /HUDSON/workspace/jdk7u40-2-build-linux-amd64-product/jdk7u40/hotspot/src/share/vm/prims/jni.cpp:743
+Event: 334.801 Thread 0x00007f5b7001b800 Threw 0x00000007d1c12630 at /HUDSON/workspace/jdk7u40-2-build-linux-amd64-product/jdk7u40/hotspot/src/share/vm/prims/jni.cpp:743
+Event: 334.801 Thread 0x00007f5b7001b800 Threw 0x00000007d1c12780 at /HUDSON/workspace/jdk7u40-2-build-linux-amd64-product/jdk7u40/hotspot/src/share/vm/prims/jni.cpp:743
+Event: 334.801 Thread 0x00007f5b7001b800 Threw 0x00000007d1c128d0 at /HUDSON/workspace/jdk7u40-2-build-linux-amd64-product/jdk7u40/hotspot/src/share/vm/prims/jni.cpp:743
+Event: 334.801 Thread 0x00007f5b7001b800 Threw 0x00000007d1c17558 at /HUDSON/workspace/jdk7u40-2-build-linux-amd64-product/jdk7u40/hotspot/src/share/vm/prims/jni.cpp:743
+Event: 334.801 Thread 0x00007f5b7001b800 Threw 0x00000007d1c1e7e0 at /HUDSON/workspace/jdk7u40-2-build-linux-amd64-product/jdk7u40/hotspot/src/share/vm/prims/jni.cpp:743
+Event: 334.801 Thread 0x00007f5b7001b800 Threw 0x00000007d1c1e930 at /HUDSON/workspace/jdk7u40-2-build-linux-amd64-product/jdk7u40/hotspot/src/share/vm/prims/jni.cpp:743
+Event: 334.801 Thread 0x00007f5b7001b800 Threw 0x00000007d1c1ea80 at /HUDSON/workspace/jdk7u40-2-build-linux-amd64-product/jdk7u40/hotspot/src/share/vm/prims/jni.cpp:743
+Event: 334.801 Thread 0x00007f5b7001b800 Threw 0x00000007d1c23708 at /HUDSON/workspace/jdk7u40-2-build-linux-amd64-product/jdk7u40/hotspot/src/share/vm/prims/jni.cpp:743
+Event: 334.804 Thread 0x00007f5b7001b800 Threw 0x00000007d1c54090 at /HUDSON/workspace/jdk7u40-2-build-linux-amd64-product/jdk7u40/hotspot/src/share/vm/classfile/systemDictionary.cpp:185
+
+Events (10 events):
+Event: 334.763 Thread 0x00007f5c54099000 flushing nmethod 0x00007f5c5129c0d0
+Event: 334.794 Thread 0x00007f5b6c202800 Thread exited: 0x00007f5b6c202800
+Event: 334.804 loading class 0x00007f5b6c1d9860
+Event: 334.804 loading class 0x00007f5b6c1d9860 done
+Event: 334.811 loading class 0x00007f5c5400ef70
+Event: 334.811 loading class 0x00007f5c5400ef70 done
+Event: 334.811 loading class 0x00007f5c4f2c8d80
+Event: 334.811 loading class 0x00007f5c4f2c8d80 done
+Event: 334.850 Executing VM operation: BulkRevokeBias
+Event: 334.851 Executing VM operation: BulkRevokeBias done
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 fd:00 920419                             /opt/java/jdk1.7.0_40/jre/bin/java
+00600000-00601000 rw-p 00000000 fd:00 920419                             /opt/java/jdk1.7.0_40/jre/bin/java
+01702000-01723000 rw-p 00000000 00:00 0                                  [heap]
+40ab1000-40ab3000 r-xs 00000000 fd:00 30380                              /tmp/glMqN5dO (deleted)
+410b8000-41156000 rw-p 00000000 00:00 0 
+740e00000-743c00000 rw-p 00000000 00:00 0 
+743c00000-746000000 rw-p 00000000 00:00 0 
+746000000-759a80000 rw-p 00000000 00:00 0 
+759a80000-7c2000000 rw-p 00000000 00:00 0 
+7c2000000-7ffa80000 rw-p 00000000 00:00 0 
+7ffa80000-800000000 ---p 00000000 00:00 0 
+3073e00000-3073edd000 r-xp 00000000 fd:00 75466                          /usr/lib64/libGL.so.331.67
+3073edd000-30740dc000 ---p 000dd000 fd:00 75466                          /usr/lib64/libGL.so.331.67
+30740dc000-307411c000 rwxp 000dc000 fd:00 75466                          /usr/lib64/libGL.so.331.67
+307411c000-3074133000 rwxp 00000000 00:00 0 
+3074200000-3074203000 r-xp 00000000 fd:00 15384                          /usr/lib64/tls/libnvidia-tls.so.331.67
+3074203000-3074402000 ---p 00003000 fd:00 15384                          /usr/lib64/tls/libnvidia-tls.so.331.67
+3074402000-3074403000 rw-p 00002000 fd:00 15384                          /usr/lib64/tls/libnvidia-tls.so.331.67
+3074a00000-3074a04000 r-xp 00000000 fd:00 35432                          /lib64/libuuid.so.1.3.0
+3074a04000-3074c03000 ---p 00004000 fd:00 35432                          /lib64/libuuid.so.1.3.0
+3074c03000-3074c04000 rw-p 00003000 fd:00 35432                          /lib64/libuuid.so.1.3.0
+3075a00000-3075a07000 r-xp 00000000 fd:00 67999                          /usr/lib64/libSM.so.6.0.1
+3075a07000-3075c07000 ---p 00007000 fd:00 67999                          /usr/lib64/libSM.so.6.0.1
+3075c07000-3075c08000 rw-p 00007000 fd:00 67999                          /usr/lib64/libSM.so.6.0.1
+3077000000-307707e000 r-xp 00000000 fd:00 36203                          /usr/lib64/libGLU.so.1.3.1
+307707e000-307727e000 ---p 0007e000 fd:00 36203                          /usr/lib64/libGLU.so.1.3.1
+307727e000-3077280000 rw-p 0007e000 fd:00 36203                          /usr/lib64/libGLU.so.1.3.1
+307b200000-307b25f000 r-xp 00000000 fd:00 53570                          /usr/lib64/libXt.so.6.0.0
+307b25f000-307b45e000 ---p 0005f000 fd:00 53570                          /usr/lib64/libXt.so.6.0.0
+307b45e000-307b464000 rw-p 0005e000 fd:00 53570                          /usr/lib64/libXt.so.6.0.0
+307b464000-307b465000 rw-p 00000000 00:00 0 
+3955800000-3955820000 r-xp 00000000 fd:00 26316                          /lib64/ld-2.12.so
+3955a1f000-3955a20000 r--p 0001f000 fd:00 26316                          /lib64/ld-2.12.so
+3955a20000-3955a21000 rw-p 00020000 fd:00 26316                          /lib64/ld-2.12.so
+3955a21000-3955a22000 rw-p 00000000 00:00 0 
+3955c00000-3955d8b000 r-xp 00000000 fd:00 26317                          /lib64/libc-2.12.so
+3955d8b000-3955f8a000 ---p 0018b000 fd:00 26317                          /lib64/libc-2.12.so
+3955f8a000-3955f8e000 r--p 0018a000 fd:00 26317                          /lib64/libc-2.12.so
+3955f8e000-3955f8f000 rw-p 0018e000 fd:00 26317                          /lib64/libc-2.12.so
+3955f8f000-3955f94000 rw-p 00000000 00:00 0 
+3956000000-3956002000 r-xp 00000000 fd:00 26563                          /lib64/libdl-2.12.so
+3956002000-3956202000 ---p 00002000 fd:00 26563                          /lib64/libdl-2.12.so
+3956202000-3956203000 r--p 00002000 fd:00 26563                          /lib64/libdl-2.12.so
+3956203000-3956204000 rw-p 00003000 fd:00 26563                          /lib64/libdl-2.12.so
+3956400000-3956417000 r-xp 00000000 fd:00 26542                          /lib64/libpthread-2.12.so
+3956417000-3956617000 ---p 00017000 fd:00 26542                          /lib64/libpthread-2.12.so
+3956617000-3956618000 r--p 00017000 fd:00 26542                          /lib64/libpthread-2.12.so
+3956618000-3956619000 rw-p 00018000 fd:00 26542                          /lib64/libpthread-2.12.so
+3956619000-395661d000 rw-p 00000000 00:00 0 
+3956800000-3956807000 r-xp 00000000 fd:00 26780                          /lib64/librt-2.12.so
+3956807000-3956a06000 ---p 00007000 fd:00 26780                          /lib64/librt-2.12.so
+3956a06000-3956a07000 r--p 00006000 fd:00 26780                          /lib64/librt-2.12.so
+3956a07000-3956a08000 rw-p 00007000 fd:00 26780                          /lib64/librt-2.12.so
+3956c00000-3956c83000 r-xp 00000000 fd:00 26584                          /lib64/libm-2.12.so
+3956c83000-3956e82000 ---p 00083000 fd:00 26584                          /lib64/libm-2.12.so
+3956e82000-3956e83000 r--p 00082000 fd:00 26584                          /lib64/libm-2.12.so
+3956e83000-3956e84000 rw-p 00083000 fd:00 26584                          /lib64/libm-2.12.so
+3958400000-3958416000 r-xp 00000000 fd:00 26801                          /lib64/libresolv-2.12.so
+3958416000-3958616000 ---p 00016000 fd:00 26801                          /lib64/libresolv-2.12.so
+3958616000-3958617000 r--p 00016000 fd:00 26801                          /lib64/libresolv-2.12.so
+3958617000-3958618000 rw-p 00017000 fd:00 26801                          /lib64/libresolv-2.12.so
+3958618000-395861a000 rw-p 00000000 00:00 0 
+3959000000-395901d000 r-xp 00000000 fd:00 26560                          /usr/lib64/libxcb.so.1.1.0
+395901d000-395921d000 ---p 0001d000 fd:00 26560                          /usr/lib64/libxcb.so.1.1.0
+395921d000-395921e000 rw-p 0001d000 fd:00 26560                          /usr/lib64/libxcb.so.1.1.0
+3959400000-3959537000 r-xp 00000000 fd:00 26564                          /usr/lib64/libX11.so.6.3.0
+3959537000-3959737000 ---p 00137000 fd:00 26564                          /usr/lib64/libX11.so.6.3.0
+3959737000-395973d000 rw-p 00137000 fd:00 26564                          /usr/lib64/libX11.so.6.3.0
+3959c00000-3959c02000 r-xp 00000000 fd:00 26558                          /usr/lib64/libXau.so.6.0.0
+3959c02000-3959e02000 ---p 00002000 fd:00 26558                          /usr/lib64/libXau.so.6.0.0
+3959e02000-3959e03000 rw-p 00002000 fd:00 26558                          /usr/lib64/libXau.so.6.0.0
+395a400000-395a412000 r-xp 00000000 fd:00 26565                          /usr/lib64/libXext.so.6.4.0
+395a412000-395a612000 ---p 00012000 fd:00 26565                          /usr/lib64/libXext.so.6.4.0
+395a612000-395a613000 rw-p 00012000 fd:00 26565                          /usr/lib64/libXext.so.6.4.0
+395ac00000-395ac0e000 r-xp 00000000 fd:00 31717                          /usr/lib64/libXi.so.6.1.0
+395ac0e000-395ae0e000 ---p 0000e000 fd:00 31717                          /usr/lib64/libXi.so.6.1.0
+395ae0e000-395ae0f000 rw-p 0000e000 fd:00 31717                          /usr/lib64/libXi.so.6.1.0
+395bc00000-395bc09000 r-xp 00000000 fd:00 31574                          /usr/lib64/libXrender.so.1.3.0
+395bc09000-395be09000 ---p 00009000 fd:00 31574                          /usr/lib64/libXrender.so.1.3.0
+395be09000-395be0a000 rw-p 00009000 fd:00 31574                          /usr/lib64/libXrender.so.1.3.0
+395f000000-395f016000 r-xp 00000000 fd:00 26629                          /lib64/libgcc_s-4.4.7-20120601.so.1
+395f016000-395f215000 ---p 00016000 fd:00 26629                          /lib64/libgcc_s-4.4.7-20120601.so.1
+395f215000-395f216000 rw-p 00015000 fd:00 26629                          /lib64/libgcc_s-4.4.7-20120601.so.1
+3961400000-39614e8000 r-xp 00000000 fd:00 26661                          /usr/lib64/libstdc++.so.6.0.13
+39614e8000-39616e8000 ---p 000e8000 fd:00 26661                          /usr/lib64/libstdc++.so.6.0.13
+39616e8000-39616ef000 r--p 000e8000 fd:00 26661                          /usr/lib64/libstdc++.so.6.0.13
+39616ef000-39616f1000 rw-p 000ef000 fd:00 26661                          /usr/lib64/libstdc++.so.6.0.13
+39616f1000-3961706000 rw-p 00000000 00:00 0 
+3961c00000-3961c17000 r-xp 00000000 fd:00 32345                          /usr/lib64/libICE.so.6.3.0
+3961c17000-3961e17000 ---p 00017000 fd:00 32345                          /usr/lib64/libICE.so.6.3.0
+3961e17000-3961e18000 rw-p 00017000 fd:00 32345                          /usr/lib64/libICE.so.6.3.0
+3961e18000-3961e1c000 rw-p 00000000 00:00 0 
+3969800000-3969805000 r-xp 00000000 fd:00 26777                          /usr/lib64/libXtst.so.6.1.0
+3969805000-3969a05000 ---p 00005000 fd:00 26777                          /usr/lib64/libXtst.so.6.1.0
+3969a05000-3969a06000 rw-p 00005000 fd:00 26777                          /usr/lib64/libXtst.so.6.1.0
+7f5b500cd000-7f5b501cd000 rw-s 162f51000 00:05 16954                     /dev/nvidia0
+7f5b501cd000-7f5b505cd000 rw-s 117656000 00:05 16954                     /dev/nvidia0
+7f5b505cd000-7f5b506cd000 rw-s 241496000 00:05 16954                     /dev/nvidia0
+7f5b506cd000-7f5b50acd000 rw-s 15a7f0000 00:05 16954                     /dev/nvidia0
+7f5b50acd000-7f5b50ecd000 rw-s 1136cf000 00:05 16954                     /dev/nvidia0
+7f5b50ecd000-7f5b512cd000 rw-s 13dbfa000 00:05 16954                     /dev/nvidia0
+7f5b512cd000-7f5b514cd000 rw-s 29de70000 00:05 16954                     /dev/nvidia0
+7f5b514cd000-7f5b518cd000 rw-s 1584d2000 00:05 16954                     /dev/nvidia0
+7f5b518cd000-7f5b51ccd000 rw-s 1149ce000 00:05 16954                     /dev/nvidia0
+7f5b51ccd000-7f5b520cd000 rw-s 11fb82000 00:05 16954                     /dev/nvidia0
+7f5b520ce000-7f5b524ce000 rw-s 18a216000 00:05 16954                     /dev/nvidia0
+7f5b524ce000-7f5b524ea000 r-xp 00000000 fd:00 1317842                    /opt/vtk/lib/libvtkRenderingImage-6.2.so.1
+7f5b524ea000-7f5b526e9000 ---p 0001c000 fd:00 1317842                    /opt/vtk/lib/libvtkRenderingImage-6.2.so.1
+7f5b526e9000-7f5b526eb000 rw-p 0001b000 fd:00 1317842                    /opt/vtk/lib/libvtkRenderingImage-6.2.so.1
+7f5b526eb000-7f5b526f1000 r-xp 00000000 fd:00 1317844                    /opt/vtk/lib/libvtkRenderingImageJava.so
+7f5b526f1000-7f5b528f1000 ---p 00006000 fd:00 1317844                    /opt/vtk/lib/libvtkRenderingImageJava.so
+7f5b528f1000-7f5b528f2000 rw-p 00006000 fd:00 1317844                    /opt/vtk/lib/libvtkRenderingImageJava.so
+7f5b528f2000-7f5b5299f000 r-xp 00000000 fd:00 1317669                    /opt/vtk/lib/libvtkRenderingVolumeOpenGL-6.2.so.1
+7f5b5299f000-7f5b52b9e000 ---p 000ad000 fd:00 1317669                    /opt/vtk/lib/libvtkRenderingVolumeOpenGL-6.2.so.1
+7f5b52b9e000-7f5b52ba2000 rw-p 000ac000 fd:00 1317669                    /opt/vtk/lib/libvtkRenderingVolumeOpenGL-6.2.so.1
+7f5b52ba2000-7f5b52ba7000 r-xp 00000000 fd:00 1317671                    /opt/vtk/lib/libvtkRenderingVolumeOpenGLJava.so
+7f5b52ba7000-7f5b52da7000 ---p 00005000 fd:00 1317671                    /opt/vtk/lib/libvtkRenderingVolumeOpenGLJava.so
+7f5b52da7000-7f5b52da8000 rw-p 00005000 fd:00 1317671                    /opt/vtk/lib/libvtkRenderingVolumeOpenGLJava.so
+7f5b52da8000-7f5b52e6b000 r-xp 00000000 fd:00 1317875                    /opt/vtk/lib/libvtkRenderingLIC-6.2.so.1
+7f5b52e6b000-7f5b5306a000 ---p 000c3000 fd:00 1317875                    /opt/vtk/lib/libvtkRenderingLIC-6.2.so.1
+7f5b5306a000-7f5b5306e000 rw-p 000c2000 fd:00 1317875                    /opt/vtk/lib/libvtkRenderingLIC-6.2.so.1
+7f5b5306e000-7f5b53077000 r-xp 00000000 fd:00 1317877                    /opt/vtk/lib/libvtkRenderingLICJava.so
+7f5b53077000-7f5b53276000 ---p 00009000 fd:00 1317877                    /opt/vtk/lib/libvtkRenderingLICJava.so
+7f5b53276000-7f5b53277000 rw-p 00008000 fd:00 1317877                    /opt/vtk/lib/libvtkRenderingLICJava.so
+7f5b53277000-7f5b53284000 r-xp 00000000 fd:00 1324772                    /opt/vtk/lib/libvtkRenderingVolumeAMR-6.2.so.1
+7f5b53284000-7f5b53484000 ---p 0000d000 fd:00 1324772                    /opt/vtk/lib/libvtkRenderingVolumeAMR-6.2.so.1
+7f5b53484000-7f5b53485000 rw-p 0000d000 fd:00 1324772                    /opt/vtk/lib/libvtkRenderingVolumeAMR-6.2.so.1
+7f5b53485000-7f5b5348a000 r-xp 00000000 fd:00 1324774                    /opt/vtk/lib/libvtkRenderingVolumeAMRJava.so
+7f5b5348a000-7f5b5368a000 ---p 00005000 fd:00 1324774                    /opt/vtk/lib/libvtkRenderingVolumeAMRJava.so
+7f5b5368a000-7f5b5368b000 rw-p 00005000 fd:00 1324774                    /opt/vtk/lib/libvtkRenderingVolumeAMRJava.so
+7f5b5368b000-7f5b5369c000 r-xp 00000000 fd:00 1317867                    /opt/vtk/lib/libvtkRenderingLOD-6.2.so.1
+7f5b5369c000-7f5b5389c000 ---p 00011000 fd:00 1317867                    /opt/vtk/lib/libvtkRenderingLOD-6.2.so.1
+7f5b5389c000-7f5b5389d000 rw-p 00011000 fd:00 1317867                    /opt/vtk/lib/libvtkRenderingLOD-6.2.so.1
+7f5b5389d000-7f5b538a2000 r-xp 00000000 fd:00 1317869                    /opt/vtk/lib/libvtkRenderingLODJava.so
+7f5b538a2000-7f5b53aa1000 ---p 00005000 fd:00 1317869                    /opt/vtk/lib/libvtkRenderingLODJava.so
+7f5b53aa1000-7f5b53aa2000 rw-p 00004000 fd:00 1317869                    /opt/vtk/lib/libvtkRenderingLODJava.so
+7f5b53aa2000-7f5b53ab1000 r-xp 00000000 fd:00 1317287                    /opt/vtk/lib/libvtkRenderingFreeTypeOpenGL-6.2.so.1
+7f5b53ab1000-7f5b53cb1000 ---p 0000f000 fd:00 1317287                    /opt/vtk/lib/libvtkRenderingFreeTypeOpenGL-6.2.so.1
+7f5b53cb1000-7f5b53cb2000 rw-p 0000f000 fd:00 1317287                    /opt/vtk/lib/libvtkRenderingFreeTypeOpenGL-6.2.so.1
+7f5b53cb2000-7f5b53cb4000 r-xp 00000000 fd:00 1317289                    /opt/vtk/lib/libvtkRenderingFreeTypeOpenGLJava.so
+7f5b53cb4000-7f5b53eb4000 ---p 00002000 fd:00 1317289                    /opt/vtk/lib/libvtkRenderingFreeTypeOpenGLJava.so
+7f5b53eb4000-7f5b53eb5000 rw-p 00002000 fd:00 1317289                    /opt/vtk/lib/libvtkRenderingFreeTypeOpenGLJava.so
+7f5b53eb5000-7f5b53ee8000 r-xp 00000000 fd:00 1317328                    /opt/vtk/lib/libvtkImagingStencil-6.2.so.1
+7f5b53ee8000-7f5b540e8000 ---p 00033000 fd:00 1317328                    /opt/vtk/lib/libvtkImagingStencil-6.2.so.1
+7f5b540e8000-7f5b540eb000 rw-p 00033000 fd:00 1317328                    /opt/vtk/lib/libvtkImagingStencil-6.2.so.1
+7f5b540eb000-7f5b540f3000 r-xp 00000000 fd:00 1317330                    /opt/vtk/lib/libvtkImagingStencilJava.so
+7f5b540f3000-7f5b542f3000 ---p 00008000 fd:00 1317330                    /opt/vtk/lib/libvtkImagingStencilJava.so
+7f5b542f3000-7f5b542f4000 rw-p 00008000 fd:00 1317330                    /opt/vtk/lib/libvtkImagingStencilJava.so
+7f5b542f4000-7f5b54371000 r-xp 00000000 fd:00 1317851                    /opt/vtk/lib/libvtkImagingMorphological-6.2.so.1
+7f5b54371000-7f5b54571000 ---p 0007d000 fd:00 1317851                    /opt/vtk/lib/libvtkImagingMorphological-6.2.so.1
+7f5b54571000-7f5b54574000 rw-p 0007d000 fd:00 1317851                    /opt/vtk/lib/libvtkImagingMorphological-6.2.so.1
+7f5b54574000-7f5b5457e000 r-xp 00000000 fd:00 1317853                    /opt/vtk/lib/libvtkImagingMorphologicalJava.so
+7f5b5457e000-7f5b5477d000 ---p 0000a000 fd:00 1317853                    /opt/vtk/lib/libvtkImagingMorphologicalJava.so
+7f5b5477d000-7f5b5477e000 rw-p 00009000 fd:00 1317853                    /opt/vtk/lib/libvtkImagingMorphologicalJava.so
+7f5b5477e000-7f5b547a4000 r-xp 00000000 fd:00 1317833                    /opt/vtk/lib/libvtkImagingStatistics-6.2.so.1
+7f5b547a4000-7f5b549a3000 ---p 00026000 fd:00 1317833                    /opt/vtk/lib/libvtkImagingStatistics-6.2.so.1
+7f5b549a3000-7f5b549a5000 rw-p 00025000 fd:00 1317833                    /opt/vtk/lib/libvtkImagingStatistics-6.2.so.1
+7f5b549a5000-7f5b549ac000 r-xp 00000000 fd:00 1317835                    /opt/vtk/lib/libvtkImagingStatisticsJava.so
+7f5b549ac000-7f5b54bab000 ---p 00007000 fd:00 1317835                    /opt/vtk/lib/libvtkImagingStatisticsJava.so
+7f5b54bab000-7f5b54bac000 rw-p 00006000 fd:00 1317835                    /opt/vtk/lib/libvtkImagingStatisticsJava.so
+7f5b54bac000-7f5b54bec000 r-xp 00000000 fd:00 1317273                    /opt/vtk/lib/libvtkImagingMath-6.2.so.1
+7f5b54bec000-7f5b54deb000 ---p 00040000 fd:00 1317273                    /opt/vtk/lib/libvtkImagingMath-6.2.so.1
+7f5b54deb000-7f5b54dee000 rw-p 0003f000 fd:00 1317273                    /opt/vtk/lib/libvtkImagingMath-6.2.so.1
+7f5b54dee000-7f5b54df6000 r-xp 00000000 fd:00 1317275                    /opt/vtk/lib/libvtkImagingMathJava.so
+7f5b54df6000-7f5b54ff5000 ---p 00008000 fd:00 1317275                    /opt/vtk/lib/libvtkImagingMathJava.so
+7f5b54ff5000-7f5b54ff6000 rw-p 00007000 fd:00 1317275                    /opt/vtk/lib/libvtkImagingMathJava.so
+7f5b54ff6000-7f5b55013000 r-xp 00000000 fd:00 1316742                    /opt/vtk/lib/libvtkTestingRendering-6.2.so.1
+7f5b55013000-7f5b55212000 ---p 0001d000 fd:00 1316742                    /opt/vtk/lib/libvtkTestingRendering-6.2.so.1
+7f5b55212000-7f5b55214000 rw-p 0001c000 fd:00 1316742                    /opt/vtk/lib/libvtkTestingRendering-6.2.so.1
+7f5b55214000-7f5b55218000 r-xp 00000000 fd:00 1316744                    /opt/vtk/lib/libvtkTestingRenderingJava.so
+7f5b55218000-7f5b55417000 ---p 00004000 fd:00 1316744                    /opt/vtk/lib/libvtkTestingRenderingJava.so
+7f5b55417000-7f5b55418000 rw-p 00003000 fd:00 1316744                    /opt/vtk/lib/libvtkTestingRenderingJava.so
+7f5b55418000-7f5b5542e000 r-xp 00000000 fd:00 1317659                    /opt/vtk/lib/libvtkInteractionImage-6.2.so.1
+7f5b5542e000-7f5b5562e000 ---p 00016000 fd:00 1317659                    /opt/vtk/lib/libvtkInteractionImage-6.2.so.1
+7f5b5562e000-7f5b55630000 rw-p 00016000 fd:00 1317659                    /opt/vtk/lib/libvtkInteractionImage-6.2.so.1
+7f5b55630000-7f5b55639000 r-xp 00000000 fd:00 1317661                    /opt/vtk/lib/libvtkInteractionImageJava.so
+7f5b55639000-7f5b55838000 ---p 00009000 fd:00 1317661                    /opt/vtk/lib/libvtkInteractionImageJava.so
+7f5b55838000-7f5b55839000 rw-p 00008000 fd:00 1317661                    /opt/vtk/lib/libvtkInteractionImageJava.so
+7f5b55839000-7f5b55853000 r-xp 00000000 fd:00 1316433                    /opt/vtk/lib/libvtkgl2ps-6.2.so.1
+7f5b55853000-7f5b55a52000 ---p 0001a000 fd:00 1316433                    /opt/vtk/lib/libvtkgl2ps-6.2.so.1
+7f5b55a52000-7f5b55a53000 rw-p 00019000 fd:00 1316433                    /opt/vtk/lib/libvtkgl2ps-6.2.so.1
+7f5b55a53000-7f5b55a65000 r-xp 00000000 fd:00 1316438                    /opt/vtk/lib/libvtkRenderingGL2PS-6.2.so.1
+7f5b55a65000-7f5b55c65000 ---p 00012000 fd:00 1316438                    /opt/vtk/lib/libvtkRenderingGL2PS-6.2.so.1
+7f5b55c65000-7f5b55c66000 rw-p 00012000 fd:00 1316438                    /opt/vtk/lib/libvtkRenderingGL2PS-6.2.so.1
+7f5b55c66000-7f5b55c68000 r-xp 00000000 fd:00 1316440                    /opt/vtk/lib/libvtkRenderingGL2PSJava.so
+7f5b55c68000-7f5b55e68000 ---p 00002000 fd:00 1316440                    /opt/vtk/lib/libvtkRenderingGL2PSJava.so
+7f5b55e68000-7f5b55e69000 rw-p 00002000 fd:00 1316440                    /opt/vtk/lib/libvtkRenderingGL2PSJava.so
+7f5b55e69000-7f5b55ee4000 r-xp 00000000 fd:00 1316465                    /opt/vtk/lib/libvtkIOExport-6.2.so.1
+7f5b55ee4000-7f5b560e4000 ---p 0007b000 fd:00 1316465                    /opt/vtk/lib/libvtkIOExport-6.2.so.1
+7f5b560e4000-7f5b560e9000 rw-p 0007b000 fd:00 1316465                    /opt/vtk/lib/libvtkIOExport-6.2.so.1
+7f5b560e9000-7f5b560eb000 rw-p 00000000 00:00 0 
+7f5b560eb000-7f5b560f8000 r-xp 00000000 fd:00 1316467                    /opt/vtk/lib/libvtkIOExportJava.so
+7f5b560f8000-7f5b562f7000 ---p 0000d000 fd:00 1316467                    /opt/vtk/lib/libvtkIOExportJava.so
+7f5b562f7000-7f5b562f8000 rw-p 0000c000 fd:00 1316467                    /opt/vtk/lib/libvtkIOExportJava.so
+7f5b562f8000-7f5b563b2000 r-xp 00000000 fd:00 1317610                    /opt/vtk/lib/libvtkIOEnSight-6.2.so.1
+7f5b563b2000-7f5b565b2000 ---p 000ba000 fd:00 1317610                    /opt/vtk/lib/libvtkIOEnSight-6.2.so.1
+7f5b565b2000-7f5b565b6000 rw-p 000ba000 fd:00 1317610                    /opt/vtk/lib/libvtkIOEnSight-6.2.so.1
+7f5b565b6000-7f5b565bd000 r-xp 00000000 fd:00 1317612                    /opt/vtk/lib/libvtkIOEnSightJava.so
+7f5b565bd000-7f5b567bc000 ---p 00007000 fd:00 1317612                    /opt/vtk/lib/libvtkIOEnSightJava.so
+7f5b567bc000-7f5b567bd000 rw-p 00006000 fd:00 1317612                    /opt/vtk/lib/libvtkIOEnSightJava.so
+7f5b567bd000-7f5b56909000 r-xp 00000000 fd:00 1317641                    /opt/vtk/lib/libvtkIOExodus-6.2.so.1
+7f5b56909000-7f5b56b08000 ---p 0014c000 fd:00 1317641                    /opt/vtk/lib/libvtkIOExodus-6.2.so.1
+7f5b56b08000-7f5b56b13000 rw-p 0014b000 fd:00 1317641                    /opt/vtk/lib/libvtkIOExodus-6.2.so.1
+7f5b56b13000-7f5b56b31000 r-xp 00000000 fd:00 1317643                    /opt/vtk/lib/libvtkIOExodusJava.so
+7f5b56b31000-7f5b56d31000 ---p 0001e000 fd:00 1317643                    /opt/vtk/lib/libvtkIOExodusJava.so
+7f5b56d31000-7f5b56d32000 rw-p 0001e000 fd:00 1317643                    /opt/vtk/lib/libvtkIOExodusJava.so
+7f5b56d32000-7f5b56dc4000 r-xp 00000000 fd:00 1317692                    /opt/vtk/lib/libvtkIOLSDyna-6.2.so.1
+7f5b56dc4000-7f5b56fc3000 ---p 00092000 fd:00 1317692                    /opt/vtk/lib/libvtkIOLSDyna-6.2.so.1
+7f5b56fc3000-7f5b56fc7000 rw-p 00091000 fd:00 1317692                    /opt/vtk/lib/libvtkIOLSDyna-6.2.so.1
+7f5b56fc7000-7f5b56fd2000 r-xp 00000000 fd:00 1317694                    /opt/vtk/lib/libvtkIOLSDynaJava.so
+7f5b56fd2000-7f5b571d2000 ---p 0000b000 fd:00 1317694                    /opt/vtk/lib/libvtkIOLSDynaJava.so
+7f5b571d2000-7f5b571d3000 rw-p 0000b000 fd:00 1317694                    /opt/vtk/lib/libvtkIOLSDynaJava.so
+7f5b571d3000-7f5b57201000 r-xp 00000000 fd:00 1317683                    /opt/vtk/lib/libvtkIOImport-6.2.so.1
+7f5b57201000-7f5b57401000 ---p 0002e000 fd:00 1317683                    /opt/vtk/lib/libvtkIOImport-6.2.so.1
+7f5b57401000-7f5b57403000 rw-p 0002e000 fd:00 1317683                    /opt/vtk/lib/libvtkIOImport-6.2.so.1
+7f5b57403000-7f5b57406000 r-xp 00000000 fd:00 1317685                    /opt/vtk/lib/libvtkIOImportJava.so
+7f5b57406000-7f5b57605000 ---p 00003000 fd:00 1317685                    /opt/vtk/lib/libvtkIOImportJava.so
+7f5b57605000-7f5b57606000 rw-p 00002000 fd:00 1317685                    /opt/vtk/lib/libvtkIOImportJava.so
+7f5b57606000-7f5b5769a000 r-xp 00000000 fd:00 1317799                    /opt/vtk/lib/libvtksqlite-6.2.so.1
+7f5b5769a000-7f5b57899000 ---p 00094000 fd:00 1317799                    /opt/vtk/lib/libvtksqlite-6.2.so.1
+7f5b57899000-7f5b5789c000 rw-p 00093000 fd:00 1317799                    /opt/vtk/lib/libvtksqlite-6.2.so.1
+7f5b5789c000-7f5b57905000 r-xp 00000000 fd:00 1317803                    /opt/vtk/lib/libvtkIOSQL-6.2.so.1
+7f5b57905000-7f5b57b05000 ---p 00069000 fd:00 1317803                    /opt/vtk/lib/libvtkIOSQL-6.2.so.1
+7f5b57b05000-7f5b57b09000 rw-p 00069000 fd:00 1317803                    /opt/vtk/lib/libvtkIOSQL-6.2.so.1
+7f5b57b09000-7f5b57b17000 r-xp 00000000 fd:00 1317805                    /opt/vtk/lib/libvtkIOSQLJava.so
+7f5b57b17000-7f5b57d17000 ---p 0000e000 fd:00 1317805                    /opt/vtk/lib/libvtkIOSQLJava.so
+7f5b57d17000-7f5b57d18000 rw-p 0000e000 fd:00 1317805                    /opt/vtk/lib/libvtkIOSQLJava.so
+7f5b57d18000-7f5b57d58000 r-xp 00000000 fd:00 1317722                    /opt/vtk/lib/libvtkoggtheora-6.2.so.1
+7f5b57d58000-7f5b57f58000 ---p 00040000 fd:00 1317722                    /opt/vtk/lib/libvtkoggtheora-6.2.so.1
+7f5b57f58000-7f5b57f59000 rw-p 00040000 fd:00 1317722                    /opt/vtk/lib/libvtkoggtheora-6.2.so.1
+7f5b57f59000-7f5b57f65000 r-xp 00000000 fd:00 1317736                    /opt/vtk/lib/libvtkIOMovie-6.2.so.1
+7f5b57f65000-7f5b58165000 ---p 0000c000 fd:00 1317736                    /opt/vtk/lib/libvtkIOMovie-6.2.so.1
+7f5b58165000-7f5b58166000 rw-p 0000c000 fd:00 1317736                    /opt/vtk/lib/libvtkIOMovie-6.2.so.1
+7f5b58166000-7f5b58169000 r-xp 00000000 fd:00 1317738                    /opt/vtk/lib/libvtkIOMovieJava.so
+7f5b58169000-7f5b58368000 ---p 00003000 fd:00 1317738                    /opt/vtk/lib/libvtkIOMovieJava.so
+7f5b58368000-7f5b58369000 rw-p 00002000 fd:00 1317738                    /opt/vtk/lib/libvtkIOMovieJava.so
+7f5b58369000-7f5b583de000 r-xp 00000000 fd:00 1317704                    /opt/vtk/lib/libvtkIOMINC-6.2.so.1
+7f5b583de000-7f5b585de000 ---p 00075000 fd:00 1317704                    /opt/vtk/lib/libvtkIOMINC-6.2.so.1
+7f5b585de000-7f5b585e2000 rw-p 00075000 fd:00 1317704                    /opt/vtk/lib/libvtkIOMINC-6.2.so.1
+7f5b585e2000-7f5b585ee000 r-xp 00000000 fd:00 1317706                    /opt/vtk/lib/libvtkIOMINCJava.so
+7f5b585ee000-7f5b587ed000 ---p 0000c000 fd:00 1317706                    /opt/vtk/lib/libvtkIOMINCJava.so
+7f5b587ed000-7f5b587ee000 rw-p 0000b000 fd:00 1317706                    /opt/vtk/lib/libvtkIOMINCJava.so
+7f5b587ee000-7f5b58822000 r-xp 00000000 fd:00 1317780                    /opt/vtk/lib/libvtkIOParallelXML-6.2.so.1
+7f5b58822000-7f5b58a21000 ---p 00034000 fd:00 1317780                    /opt/vtk/lib/libvtkIOParallelXML-6.2.so.1
+7f5b58a21000-7f5b58a26000 rw-p 00033000 fd:00 1317780                    /opt/vtk/lib/libvtkIOParallelXML-6.2.so.1
+7f5b58a26000-7f5b58a2c000 r-xp 00000000 fd:00 1317782                    /opt/vtk/lib/libvtkIOParallelXMLJava.so
+7f5b58a2c000-7f5b58c2b000 ---p 00006000 fd:00 1317782                    /opt/vtk/lib/libvtkIOParallelXMLJava.so
+7f5b58c2b000-7f5b58c2c000 rw-p 00005000 fd:00 1317782                    /opt/vtk/lib/libvtkIOParallelXMLJava.so
+7f5b58c2c000-7f5b58c49000 r-xp 00000000 fd:00 1317628                    /opt/vtk/lib/libvtkNetCDF_cxx-6.2.so.1
+7f5b58c49000-7f5b58e48000 ---p 0001d000 fd:00 1317628                    /opt/vtk/lib/libvtkNetCDF_cxx-6.2.so.1
+7f5b58e48000-7f5b58e4a000 rw-p 0001c000 fd:00 1317628                    /opt/vtk/lib/libvtkNetCDF_cxx-6.2.so.1
+7f5b58e4a000-7f5b58f04000 r-xp 00000000 fd:00 1317626                    /opt/vtk/lib/libvtkNetCDF-6.2.so.1
+7f5b58f04000-7f5b59103000 ---p 000ba000 fd:00 1317626                    /opt/vtk/lib/libvtkNetCDF-6.2.so.1
+7f5b59103000-7f5b59154000 rw-p 000b9000 fd:00 1317626                    /opt/vtk/lib/libvtkNetCDF-6.2.so.1
+7f5b59154000-7f5b59158000 rw-p 00000000 00:00 0 
+7f5b59158000-7f5b591c0000 r-xp 00000000 fd:00 1317639                    /opt/vtk/lib/libvtkexoIIc-6.2.so.1
+7f5b591c0000-7f5b593bf000 ---p 00068000 fd:00 1317639                    /opt/vtk/lib/libvtkexoIIc-6.2.so.1
+7f5b593bf000-7f5b593c1000 rw-p 00067000 fd:00 1317639                    /opt/vtk/lib/libvtkexoIIc-6.2.so.1
+7f5b593c1000-7f5b59469000 r-xp 00000000 fd:00 1317745                    /opt/vtk/lib/libvtkIONetCDF-6.2.so.1
+7f5b59469000-7f5b59668000 ---p 000a8000 fd:00 1317745                    /opt/vtk/lib/libvtkIONetCDF-6.2.so.1
+7f5b59668000-7f5b5966d000 rw-p 000a7000 fd:00 1317745                    /opt/vtk/lib/libvtkIONetCDF-6.2.so.1
+7f5b5966d000-7f5b59678000 r-xp 00000000 fd:00 1317747                    /opt/vtk/lib/libvtkIONetCDFJava.so
+7f5b59678000-7f5b59877000 ---p 0000b000 fd:00 1317747                    /opt/vtk/lib/libvtkIONetCDFJava.so
+7f5b59877000-7f5b59878000 rw-p 0000a000 fd:00 1317747                    /opt/vtk/lib/libvtkIONetCDFJava.so
+7f5b59878000-7f5b59901000 r-xp 00000000 fd:00 1317767                    /opt/vtk/lib/libvtkIOParallel-6.2.so.1
+7f5b59901000-7f5b59b00000 ---p 00089000 fd:00 1317767                    /opt/vtk/lib/libvtkIOParallel-6.2.so.1
+7f5b59b00000-7f5b59b05000 rw-p 00088000 fd:00 1317767                    /opt/vtk/lib/libvtkIOParallel-6.2.so.1
+7f5b59b05000-7f5b59b0b000 r-xp 00000000 fd:00 1317769                    /opt/vtk/lib/libvtkIOParallelJava.so
+7f5b59b0b000-7f5b59d0a000 ---p 00006000 fd:00 1317769                    /opt/vtk/lib/libvtkIOParallelJava.so
+7f5b59d0a000-7f5b59d0b000 rw-p 00005000 fd:00 1317769                    /opt/vtk/lib/libvtkIOParallelJava.so
+7f5b59d0b000-7f5b59d1a000 r-xp 00000000 fd:00 1317826                    /opt/vtk/lib/libvtkIOVideo-6.2.so.1
+7f5b59d1a000-7f5b59f1a000 ---p 0000f000 fd:00 1317826                    /opt/vtk/lib/libvtkIOVideo-6.2.so.1
+7f5b59f1a000-7f5b59f1b000 rw-p 0000f000 fd:00 1317826                    /opt/vtk/lib/libvtkIOVideo-6.2.so.1
+7f5b59f1b000-7f5b59f20000 r-xp 00000000 fd:00 1317828                    /opt/vtk/lib/libvtkIOVideoJava.so
+7f5b59f20000-7f5b5a11f000 ---p 00005000 fd:00 1317828                    /opt/vtk/lib/libvtkIOVideoJava.so
+7f5b5a11f000-7f5b5a120000 rw-p 00004000 fd:00 1317828                    /opt/vtk/lib/libvtkIOVideoJava.so
+7f5b5a120000-7f5b5a5bb000 r-xp 00000000 fd:00 1317213                    /opt/vtk/lib/libvtkhdf5-6.2.so.1
+7f5b5a5bb000-7f5b5a7bb000 ---p 0049b000 fd:00 1317213                    /opt/vtk/lib/libvtkhdf5-6.2.so.1
+7f5b5a7bb000-7f5b5a7c5000 rw-p 0049b000 fd:00 1317213                    /opt/vtk/lib/libvtkhdf5-6.2.so.1
+7f5b5a7c5000-7f5b5a7c9000 rw-p 00000000 00:00 0 
+7f5b5a7c9000-7f5b5a7e9000 r-xp 00000000 fd:00 1317223                    /opt/vtk/lib/libvtkhdf5_hl-6.2.so.1
+7f5b5a7e9000-7f5b5a9e9000 ---p 00020000 fd:00 1317223                    /opt/vtk/lib/libvtkhdf5_hl-6.2.so.1
+7f5b5a9e9000-7f5b5a9ea000 rw-p 00020000 fd:00 1317223                    /opt/vtk/lib/libvtkhdf5_hl-6.2.so.1
+7f5b5a9ea000-7f5b5a9fb000 rw-p 00000000 00:00 0 
+7f5b5a9fb000-7f5b5aa51000 r-xp 00000000 fd:00 1317225                    /opt/vtk/lib/libvtkIOAMR-6.2.so.1
+7f5b5aa51000-7f5b5ac50000 ---p 00056000 fd:00 1317225                    /opt/vtk/lib/libvtkIOAMR-6.2.so.1
+7f5b5ac50000-7f5b5ac54000 rw-p 00055000 fd:00 1317225                    /opt/vtk/lib/libvtkIOAMR-6.2.so.1
+7f5b5ac54000-7f5b5ac5b000 r-xp 00000000 fd:00 1317227                    /opt/vtk/lib/libvtkIOAMRJava.so
+7f5b5ac5b000-7f5b5ae5a000 ---p 00007000 fd:00 1317227                    /opt/vtk/lib/libvtkIOAMRJava.so
+7f5b5ae5a000-7f5b5ae5b000 rw-p 00006000 fd:00 1317227                    /opt/vtk/lib/libvtkIOAMRJava.so
+7f5b5ae5b000-7f5b5ae72000 r-xp 00000000 fd:00 1317758                    /opt/vtk/lib/libvtkIOPLY-6.2.so.1
+7f5b5ae72000-7f5b5b071000 ---p 00017000 fd:00 1317758                    /opt/vtk/lib/libvtkIOPLY-6.2.so.1
+7f5b5b071000-7f5b5b073000 rw-p 00016000 fd:00 1317758                    /opt/vtk/lib/libvtkIOPLY-6.2.so.1
+7f5b5b073000-7f5b5b075000 rw-p 00000000 00:00 0 
+7f5b5b075000-7f5b5b079000 r-xp 00000000 fd:00 1317760                    /opt/vtk/lib/libvtkIOPLYJava.so
+7f5b5b079000-7f5b5b278000 ---p 00004000 fd:00 1317760                    /opt/vtk/lib/libvtkIOPLYJava.so
+7f5b5b278000-7f5b5b279000 rw-p 00003000 fd:00 1317760                    /opt/vtk/lib/libvtkIOPLYJava.so
+7f5b5b279000-7f5b5b41c000 r-xp 00000000 fd:00 1316663                    /opt/vtk/lib/libvtklibxml2-6.2.so.1
+7f5b5b41c000-7f5b5b61c000 ---p 001a3000 fd:00 1316663                    /opt/vtk/lib/libvtklibxml2-6.2.so.1
+7f5b5b61c000-7f5b5b627000 rw-p 001a3000 fd:00 1316663                    /opt/vtk/lib/libvtklibxml2-6.2.so.1
+7f5b5b627000-7f5b5b628000 rw-p 00000000 00:00 0 
+7f5b5b628000-7f5b5b6ba000 r-xp 00000000 fd:00 1316715                    /opt/vtk/lib/libvtkIOInfovis-6.2.so.1
+7f5b5b6ba000-7f5b5b8b9000 ---p 00092000 fd:00 1316715                    /opt/vtk/lib/libvtkIOInfovis-6.2.so.1
+7f5b5b8b9000-7f5b5b8bf000 rw-p 00091000 fd:00 1316715                    /opt/vtk/lib/libvtkIOInfovis-6.2.so.1
+7f5b5b8bf000-7f5b5b8cd000 r-xp 00000000 fd:00 1316717                    /opt/vtk/lib/libvtkIOInfovisJava.so
+7f5b5b8cd000-7f5b5bacd000 ---p 0000e000 fd:00 1316717                    /opt/vtk/lib/libvtkIOInfovisJava.so
+7f5b5bacd000-7f5b5bace000 rw-p 0000e000 fd:00 1316717                    /opt/vtk/lib/libvtkIOInfovisJava.so
+7f5b5bace000-7f5b5badc000 r-xp 00000000 fd:00 1317072                    /opt/vtk/lib/libvtkViewsContext2D-6.2.so.1
+7f5b5badc000-7f5b5bcdc000 ---p 0000e000 fd:00 1317072                    /opt/vtk/lib/libvtkViewsContext2D-6.2.so.1
+7f5b5bcdc000-7f5b5bcdd000 rw-p 0000e000 fd:00 1317072                    /opt/vtk/lib/libvtkViewsContext2D-6.2.so.1
+7f5b5bcdd000-7f5b5bce0000 r-xp 00000000 fd:00 1317074                    /opt/vtk/lib/libvtkViewsContext2DJava.so
+7f5b5bce0000-7f5b5bedf000 ---p 00003000 fd:00 1317074                    /opt/vtk/lib/libvtkViewsContext2DJava.so
+7f5b5bedf000-7f5b5bee0000 rw-p 00002000 fd:00 1317074                    /opt/vtk/lib/libvtkViewsContext2DJava.so
+7f5b5bee0000-7f5b5bf0f000 r-xp 00000000 fd:00 1316237                    /opt/vtk/lib/libvtkRenderingOpenGLJava.so
+7f5b5bf0f000-7f5b5c10f000 ---p 0002f000 fd:00 1316237                    /opt/vtk/lib/libvtkRenderingOpenGLJava.so
+7f5b5c10f000-7f5b5c110000 rw-p 0002f000 fd:00 1316237                    /opt/vtk/lib/libvtkRenderingOpenGLJava.so
+7f5b5c110000-7f5b5c114000 r-xp 00000000 fd:00 1316605                    /opt/vtk/lib/libvtkIOXMLParserJava.so
+7f5b5c114000-7f5b5c313000 ---p 00004000 fd:00 1316605                    /opt/vtk/lib/libvtkIOXMLParserJava.so
+7f5b5c313000-7f5b5c314000 rw-p 00003000 fd:00 1316605                    /opt/vtk/lib/libvtkIOXMLParserJava.so
+7f5b5c314000-7f5b5c335000 r-xp 00000000 fd:00 1316564                    /opt/vtk/lib/libvtkIOGeometryJava.so
+7f5b5c335000-7f5b5c535000 ---p 00021000 fd:00 1316564                    /opt/vtk/lib/libvtkIOGeometryJava.so
+7f5b5c535000-7f5b5c536000 rw-p 00021000 fd:00 1316564                    /opt/vtk/lib/libvtkIOGeometryJava.so
+7f5b5c536000-7f5b5c54d000 r-xp 00000000 fd:00 1316614                    /opt/vtk/lib/libvtkIOXMLJava.so
+7f5b5c54d000-7f5b5c74c000 ---p 00017000 fd:00 1316614                    /opt/vtk/lib/libvtkIOXMLJava.so
+7f5b5c74c000-7f5b5c74d000 rw-p 00016000 fd:00 1316614                    /opt/vtk/lib/libvtkIOXMLJava.so
+7f5b5c74d000-7f5b5c79e000 r-xp 00000000 fd:00 1317530                    /opt/vtk/lib/libvtkproj4-6.2.so.1
+7f5b5c79e000-7f5b5c99d000 ---p 00051000 fd:00 1317530                    /opt/vtk/lib/libvtkproj4-6.2.so.1
+7f5b5c99d000-7f5b5c9a1000 rw-p 00050000 fd:00 1317530                    /opt/vtk/lib/libvtkproj4-6.2.so.1
+7f5b5c9a1000-7f5b5ca48000 r-xp 00000000 fd:00 1317536                    /opt/vtk/lib/libvtkGeovisCore-6.2.so.1
+7f5b5ca48000-7f5b5cc47000 ---p 000a7000 fd:00 1317536                    /opt/vtk/lib/libvtkGeovisCore-6.2.so.1
+7f5b5cc47000-7f5b5cc4e000 rw-p 000a6000 fd:00 1317536                    /opt/vtk/lib/libvtkGeovisCore-6.2.so.1
+7f5b5cc4e000-7f5b5cc6a000 r-xp 00000000 fd:00 1317538                    /opt/vtk/lib/libvtkGeovisCoreJava.so
+7f5b5cc6a000-7f5b5ce6a000 ---p 0001c000 fd:00 1317538                    /opt/vtk/lib/libvtkGeovisCoreJava.so
+7f5b5ce6a000-7f5b5ce6b000 rw-p 0001c000 fd:00 1317538                    /opt/vtk/lib/libvtkGeovisCoreJava.so
+7f5b5ce6b000-7f5b5ce76000 r-xp 00000000 fd:00 1317602                    /opt/vtk/lib/libvtkViewsGeovis-6.2.so.1
+7f5b5ce76000-7f5b5d076000 ---p 0000b000 fd:00 1317602                    /opt/vtk/lib/libvtkViewsGeovis-6.2.so.1
+7f5b5d076000-7f5b5d077000 rw-p 0000b000 fd:00 1317602                    /opt/vtk/lib/libvtkViewsGeovis-6.2.so.1
+7f5b5d077000-7f5b5d07a000 r-xp 00000000 fd:00 1317604                    /opt/vtk/lib/libvtkViewsGeovisJava.so
+7f5b5d07a000-7f5b5d27a000 ---p 00003000 fd:00 1317604                    /opt/vtk/lib/libvtkViewsGeovisJava.so
+7f5b5d27a000-7f5b5d27b000 rw-p 00003000 fd:00 1317604                    /opt/vtk/lib/libvtkViewsGeovisJava.so
+7f5b5d27b000-7f5b5d741000 r-xp 00000000 fd:00 1316876                    /opt/vtk/lib/libvtkRenderingVolume-6.2.so.1
+7f5b5d741000-7f5b5d940000 ---p 004c6000 fd:00 1316876                    /opt/vtk/lib/libvtkRenderingVolume-6.2.so.1
+7f5b5d940000-7f5b5d949000 rw-p 004c5000 fd:00 1316876                    /opt/vtk/lib/libvtkRenderingVolume-6.2.so.1
+7f5b5d949000-7f5b5db09000 rw-p 00000000 00:00 0 
+7f5b5db09000-7f5b5db3c000 r-xp 00000000 fd:00 1316878                    /opt/vtk/lib/libvtkRenderingVolumeJava.so
+7f5b5db3c000-7f5b5dd3c000 ---p 00033000 fd:00 1316878                    /opt/vtk/lib/libvtkRenderingVolumeJava.so
+7f5b5dd3c000-7f5b5dd3d000 rw-p 00033000 fd:00 1316878                    /opt/vtk/lib/libvtkRenderingVolumeJava.so
+7f5b5dd3d000-7f5b5dd7e000 r-xp 00000000 fd:00 1316390                    /opt/vtk/lib/libvtkImagingColor-6.2.so.1
+7f5b5dd7e000-7f5b5df7d000 ---p 00041000 fd:00 1316390                    /opt/vtk/lib/libvtkImagingColor-6.2.so.1
+7f5b5df7d000-7f5b5df80000 rw-p 00040000 fd:00 1316390                    /opt/vtk/lib/libvtkImagingColor-6.2.so.1
+7f5b5df80000-7f5b5df84000 r-xp 00000000 fd:00 1316392                    /opt/vtk/lib/libvtkImagingColorJava.so
+7f5b5df84000-7f5b5e183000 ---p 00004000 fd:00 1316392                    /opt/vtk/lib/libvtkImagingColorJava.so
+7f5b5e183000-7f5b5e184000 rw-p 00003000 fd:00 1316392                    /opt/vtk/lib/libvtkImagingColorJava.so
+7f5b5e184000-7f5b5e2d5000 r-xp 00000000 fd:00 1316404                    /opt/vtk/lib/libvtkRenderingAnnotation-6.2.so.1
+7f5b5e2d5000-7f5b5e4d4000 ---p 00151000 fd:00 1316404                    /opt/vtk/lib/libvtkRenderingAnnotation-6.2.so.1
+7f5b5e4d4000-7f5b5e4de000 rw-p 00150000 fd:00 1316404                    /opt/vtk/lib/libvtkRenderingAnnotation-6.2.so.1
+7f5b5e4de000-7f5b5e4e7000 r-xp 00000000 fd:00 1316050                    /opt/vtk/lib/libvtkRenderingFreeTypeJava.so
+7f5b5e4e7000-7f5b5e6e7000 ---p 00009000 fd:00 1316050                    /opt/vtk/lib/libvtkRenderingFreeTypeJava.so
+7f5b5e6e7000-7f5b5e6e8000 rw-p 00009000 fd:00 1316050                    /opt/vtk/lib/libvtkRenderingFreeTypeJava.so
+7f5b5e6e8000-7f5b5e747000 r-xp 00000000 fd:00 1316406                    /opt/vtk/lib/libvtkRenderingAnnotationJava.so
+7f5b5e747000-7f5b5e947000 ---p 0005f000 fd:00 1316406                    /opt/vtk/lib/libvtkRenderingAnnotationJava.so
+7f5b5e947000-7f5b5e948000 rw-p 0005f000 fd:00 1316406                    /opt/vtk/lib/libvtkRenderingAnnotationJava.so
+7f5b5e948000-7f5b5e99c000 r-xp 00000000 fd:00 1316852                    /opt/vtk/lib/libvtkInteractionStyle-6.2.so.1
+7f5b5e99c000-7f5b5eb9c000 ---p 00054000 fd:00 1316852                    /opt/vtk/lib/libvtkInteractionStyle-6.2.so.1
+7f5b5eb9c000-7f5b5eba2000 rw-p 00054000 fd:00 1316852                    /opt/vtk/lib/libvtkInteractionStyle-6.2.so.1
+7f5b5eba2000-7f5b5ee6e000 r-xp 00000000 fd:00 1316925                    /opt/vtk/lib/libvtkInteractionWidgets-6.2.so.1
+7f5b5ee6e000-7f5b5f06e000 ---p 002cc000 fd:00 1316925                    /opt/vtk/lib/libvtkInteractionWidgets-6.2.so.1
+7f5b5f06e000-7f5b5f08f000 rw-p 002cc000 fd:00 1316925                    /opt/vtk/lib/libvtkInteractionWidgets-6.2.so.1
+7f5b5f08f000-7f5b5f15d000 r-xp 00000000 fd:00 1316927                    /opt/vtk/lib/libvtkInteractionWidgetsJava.so
+7f5b5f15d000-7f5b5f35d000 ---p 000ce000 fd:00 1316927                    /opt/vtk/lib/libvtkInteractionWidgetsJava.so
+7f5b5f35d000-7f5b5f35f000 rw-p 000ce000 fd:00 1316927                    /opt/vtk/lib/libvtkInteractionWidgetsJava.so
+7f5b5f35f000-7f5b5f3a0000 r-xp 00000000 fd:00 1317060                    /opt/vtk/lib/libvtkViewsCore-6.2.so.1
+7f5b5f3a0000-7f5b5f59f000 ---p 00041000 fd:00 1317060                    /opt/vtk/lib/libvtkViewsCore-6.2.so.1
+7f5b5f59f000-7f5b5f5a2000 rw-p 00040000 fd:00 1317060                    /opt/vtk/lib/libvtkViewsCore-6.2.so.1
+7f5b5f5a2000-7f5b5f69f000 r-xp 00000000 fd:00 1316446                    /opt/vtk/lib/libvtkRenderingLabel-6.2.so.1
+7f5b5f69f000-7f5b5f89f000 ---p 000fd000 fd:00 1316446                    /opt/vtk/lib/libvtkRenderingLabel-6.2.so.1
+7f5b5f89f000-7f5b5f8a6000 rw-p 000fd000 fd:00 1316446                    /opt/vtk/lib/libvtkRenderingLabel-6.2.so.1
+7f5b5f8a6000-7f5b5f8b2000 r-xp 00000000 fd:00 1317062                    /opt/vtk/lib/libvtkViewsCoreJava.so
+7f5b5f8b2000-7f5b5fab2000 ---p 0000c000 fd:00 1317062                    /opt/vtk/lib/libvtkViewsCoreJava.so
+7f5b5fab2000-7f5b5fab3000 rw-p 0000c000 fd:00 1317062                    /opt/vtk/lib/libvtkViewsCoreJava.so
+7f5b5fab3000-7f5b5fac8000 r-xp 00000000 fd:00 1316448                    /opt/vtk/lib/libvtkRenderingLabelJava.so
+7f5b5fac8000-7f5b5fcc8000 ---p 00015000 fd:00 1316448                    /opt/vtk/lib/libvtkRenderingLabelJava.so
+7f5b5fcc8000-7f5b5fcc9000 rw-p 00015000 fd:00 1316448                    /opt/vtk/lib/libvtkRenderingLabelJava.so
+7f5b5fcc9000-7f5b5fdf5000 r-xp 00000000 fd:00 1317569                    /opt/vtk/lib/libvtkViewsInfovis-6.2.so.1
+7f5b5fdf5000-7f5b5fff5000 ---p 0012c000 fd:00 1317569                    /opt/vtk/lib/libvtkViewsInfovis-6.2.so.1
+7f5b5fff5000-7f5b60000000 rw-p 0012c000 fd:00 1317569                    /opt/vtk/lib/libvtkViewsInfovis-6.2.so.1
+7f5b60000000-7f5b60021000 rw-p 00000000 00:00 0 
+7f5b60021000-7f5b64000000 ---p 00000000 00:00 0 
+7f5b64000000-7f5b6406b000 rw-p 00000000 00:00 0 
+7f5b6406b000-7f5b68000000 ---p 00000000 00:00 0 
+7f5b68000000-7f5b68a41000 rw-p 00000000 00:00 0 
+7f5b68a41000-7f5b6c000000 ---p 00000000 00:00 0 
+7f5b6c000000-7f5b6c22e000 rw-p 00000000 00:00 0 
+7f5b6c22e000-7f5b70000000 ---p 00000000 00:00 0 
+7f5b70000000-7f5b7084c000 rw-p 00000000 00:00 0 
+7f5b7084c000-7f5b74000000 ---p 00000000 00:00 0 
+7f5b74000000-7f5b77591000 rw-p 00000000 00:00 0 
+7f5b77591000-7f5b78000000 ---p 00000000 00:00 0 
+7f5b78000000-7f5b7810b000 rw-p 00000000 00:00 0 
+7f5b7810b000-7f5b7c000000 ---p 00000000 00:00 0 
+7f5b7c000000-7f5b7c038000 rw-p 00000000 00:00 0 
+7f5b7c038000-7f5b80000000 ---p 00000000 00:00 0 
+7f5b80000000-7f5b8002f000 rw-p 00000000 00:00 0 
+7f5b8002f000-7f5b84000000 ---p 00000000 00:00 0 
+7f5b84000000-7f5b84d23000 rw-p 00000000 00:00 0 
+7f5b84d23000-7f5b88000000 ---p 00000000 00:00 0 
+7f5b88000000-7f5b88021000 rw-p 00000000 00:00 0 
+7f5b88021000-7f5b8c000000 ---p 00000000 00:00 0 
+7f5b8c000000-7f5b8c0a6000 rw-p 00000000 00:00 0 
+7f5b8c0a6000-7f5b90000000 ---p 00000000 00:00 0 
+7f5b90000000-7f5b90021000 rw-p 00000000 00:00 0 
+7f5b90021000-7f5b94000000 ---p 00000000 00:00 0 
+7f5b94000000-7f5b94021000 rw-p 00000000 00:00 0 
+7f5b94021000-7f5b98000000 ---p 00000000 00:00 0 
+7f5b98000000-7f5b98021000 rw-p 00000000 00:00 0 
+7f5b98021000-7f5b9c000000 ---p 00000000 00:00 0 
+7f5b9c000000-7f5b9c021000 rw-p 00000000 00:00 0 
+7f5b9c021000-7f5ba0000000 ---p 00000000 00:00 0 
+7f5ba0000000-7f5ba0021000 rw-p 00000000 00:00 0 
+7f5ba0021000-7f5ba4000000 ---p 00000000 00:00 0 
+7f5ba4000000-7f5ba4021000 rw-p 00000000 00:00 0 
+7f5ba4021000-7f5ba8000000 ---p 00000000 00:00 0 
+7f5ba8000000-7f5ba8021000 rw-p 00000000 00:00 0 
+7f5ba8021000-7f5bac000000 ---p 00000000 00:00 0 
+7f5bac000000-7f5bac021000 rw-p 00000000 00:00 0 
+7f5bac021000-7f5bb0000000 ---p 00000000 00:00 0 
+7f5bb0000000-7f5bb0021000 rw-p 00000000 00:00 0 
+7f5bb0021000-7f5bb4000000 ---p 00000000 00:00 0 
+7f5bb4000000-7f5bb4021000 rw-p 00000000 00:00 0 
+7f5bb4021000-7f5bb8000000 ---p 00000000 00:00 0 
+7f5bb8000000-7f5bb8021000 rw-p 00000000 00:00 0 
+7f5bb8021000-7f5bbc000000 ---p 00000000 00:00 0 
+7f5bbc000000-7f5bbc021000 rw-p 00000000 00:00 0 
+7f5bbc021000-7f5bc0000000 ---p 00000000 00:00 0 
+7f5bc0000000-7f5bc0021000 rw-p 00000000 00:00 0 
+7f5bc0021000-7f5bc4000000 ---p 00000000 00:00 0 
+7f5bc4000000-7f5bc4021000 rw-p 00000000 00:00 0 
+7f5bc4021000-7f5bc8000000 ---p 00000000 00:00 0 
+7f5bc8000000-7f5bcb89e000 rw-p 00000000 00:00 0 
+7f5bcb89e000-7f5bcc000000 ---p 00000000 00:00 0 
+7f5bcc000000-7f5bcc021000 rw-p 00000000 00:00 0 
+7f5bcc021000-7f5bd0000000 ---p 00000000 00:00 0 
+7f5bd0000000-7f5bd0021000 rw-p 00000000 00:00 0 
+7f5bd0021000-7f5bd4000000 ---p 00000000 00:00 0 
+7f5bd4000000-7f5bd4034000 rw-p 00000000 00:00 0 
+7f5bd4034000-7f5bd8000000 ---p 00000000 00:00 0 
+7f5bd8000000-7f5bd8021000 rw-p 00000000 00:00 0 
+7f5bd8021000-7f5bdc000000 ---p 00000000 00:00 0 
+7f5bdc000000-7f5bdc021000 rw-p 00000000 00:00 0 
+7f5bdc021000-7f5be0000000 ---p 00000000 00:00 0 
+7f5be0000000-7f5be0021000 rw-p 00000000 00:00 0 
+7f5be0021000-7f5be4000000 ---p 00000000 00:00 0 
+7f5be4000000-7f5be4021000 rw-p 00000000 00:00 0 
+7f5be4021000-7f5be8000000 ---p 00000000 00:00 0 
+7f5be8000000-7f5beb5f1000 rw-p 00000000 00:00 0 
+7f5beb5f1000-7f5bec000000 ---p 00000000 00:00 0 
+7f5bec000000-7f5bec021000 rw-p 00000000 00:00 0 
+7f5bec021000-7f5bf0000000 ---p 00000000 00:00 0 
+7f5bf0000000-7f5bf3b58000 rw-p 00000000 00:00 0 
+7f5bf3b58000-7f5bf4000000 ---p 00000000 00:00 0 
+7f5bf407a000-7f5bf408f000 r-xp 00000000 fd:00 1316854                    /opt/vtk/lib/libvtkInteractionStyleJava.so
+7f5bf408f000-7f5bf428e000 ---p 00015000 fd:00 1316854                    /opt/vtk/lib/libvtkInteractionStyleJava.so
+7f5bf428e000-7f5bf428f000 rw-p 00014000 fd:00 1316854                    /opt/vtk/lib/libvtkInteractionStyleJava.so
+7f5bf428f000-7f5bf42cc000 r-xp 00000000 fd:00 1317571                    /opt/vtk/lib/libvtkViewsInfovisJava.so
+7f5bf42cc000-7f5bf44cb000 ---p 0003d000 fd:00 1317571                    /opt/vtk/lib/libvtkViewsInfovisJava.so
+7f5bf44cb000-7f5bf44cd000 rw-p 0003c000 fd:00 1317571                    /opt/vtk/lib/libvtkViewsInfovisJava.so
+7f5bf44cd000-7f5bf44d1000 r-xp 00000000 fd:00 1315311                    /opt/vtk/lib/libvtkCommonColorJava.so
+7f5bf44d1000-7f5bf46d0000 ---p 00004000 fd:00 1315311                    /opt/vtk/lib/libvtkCommonColorJava.so
+7f5bf46d0000-7f5bf46d1000 rw-p 00003000 fd:00 1315311                    /opt/vtk/lib/libvtkCommonColorJava.so
+7f5bf46d1000-7f5bf46fc000 r-xp 00000000 fd:00 1316175                    /opt/vtk/lib/libvtkIOImageJava.so
+7f5bf46fc000-7f5bf48fc000 ---p 0002b000 fd:00 1316175                    /opt/vtk/lib/libvtkIOImageJava.so
+7f5bf48fc000-7f5bf48fd000 rw-p 0002b000 fd:00 1316175                    /opt/vtk/lib/libvtkIOImageJava.so
+7f5bf48fd000-7f5bf4918000 r-xp 00000000 fd:00 1315725                    /opt/vtk/lib/libvtkInfovisCoreJava.so
+7f5bf4918000-7f5bf4b18000 ---p 0001b000 fd:00 1315725                    /opt/vtk/lib/libvtkInfovisCoreJava.so
+7f5bf4b18000-7f5bf4b19000 rw-p 0001b000 fd:00 1315725                    /opt/vtk/lib/libvtkInfovisCoreJava.so
+7f5bf4b19000-7f5bf4b2c000 r-xp 00000000 fd:00 1316215                    /opt/vtk/lib/libvtkImagingHybridJava.so
+7f5bf4b2c000-7f5bf4d2b000 ---p 00013000 fd:00 1316215                    /opt/vtk/lib/libvtkImagingHybridJava.so
+7f5bf4d2b000-7f5bf4d2c000 rw-p 00012000 fd:00 1316215                    /opt/vtk/lib/libvtkImagingHybridJava.so
+7f5bf4d2c000-7f5bf4de8000 r-xp 00000000 fd:00 1317478                    /opt/vtk/lib/libvtkInfovisLayout-6.2.so.1
+7f5bf4de8000-7f5bf4fe8000 ---p 000bc000 fd:00 1317478                    /opt/vtk/lib/libvtkInfovisLayout-6.2.so.1
+7f5bf4fe8000-7f5bf4fef000 rw-p 000bc000 fd:00 1317478                    /opt/vtk/lib/libvtkInfovisLayout-6.2.so.1
+7f5bf4fef000-7f5bf5015000 r-xp 00000000 fd:00 1317480                    /opt/vtk/lib/libvtkInfovisLayoutJava.so
+7f5bf5015000-7f5bf5214000 ---p 00026000 fd:00 1317480                    /opt/vtk/lib/libvtkInfovisLayoutJava.so
+7f5bf5214000-7f5bf5215000 rw-p 00025000 fd:00 1317480                    /opt/vtk/lib/libvtkInfovisLayoutJava.so
+7f5bf5215000-7f5bf525a000 r-xp 00000000 fd:00 1317341                    /opt/vtk/lib/libvtkFiltersHyperTree-6.2.so.1
+7f5bf525a000-7f5bf5459000 ---p 00045000 fd:00 1317341                    /opt/vtk/lib/libvtkFiltersHyperTree-6.2.so.1
+7f5bf5459000-7f5bf545d000 rw-p 00044000 fd:00 1317341                    /opt/vtk/lib/libvtkFiltersHyperTree-6.2.so.1
+7f5bf545d000-7f5bf546b000 r-xp 00000000 fd:00 1317343                    /opt/vtk/lib/libvtkFiltersHyperTreeJava.so
+7f5bf546b000-7f5bf566a000 ---p 0000e000 fd:00 1317343                    /opt/vtk/lib/libvtkFiltersHyperTreeJava.so
+7f5bf566a000-7f5bf566b000 rw-p 0000d000 fd:00 1317343                    /opt/vtk/lib/libvtkFiltersHyperTreeJava.so
+7f5bf566b000-7f5bf56a3000 r-xp 00000000 fd:00 1317467                    /opt/vtk/lib/libvtkverdict-6.2.so.1
+7f5bf56a3000-7f5bf58a2000 ---p 00038000 fd:00 1317467                    /opt/vtk/lib/libvtkverdict-6.2.so.1
+7f5bf58a2000-7f5bf58a3000 rw-p 00037000 fd:00 1317467                    /opt/vtk/lib/libvtkverdict-6.2.so.1
+7f5bf58a3000-7f5bf58a7000 rw-p 00000000 00:00 0 
+7f5bf58a7000-7f5bf58c1000 r-xp 00000000 fd:00 1317469                    /opt/vtk/lib/libvtkFiltersVerdict-6.2.so.1
+7f5bf58c1000-7f5bf5ac0000 ---p 0001a000 fd:00 1317469                    /opt/vtk/lib/libvtkFiltersVerdict-6.2.so.1
+7f5bf5ac0000-7f5bf5ac2000 rw-p 00019000 fd:00 1317469                    /opt/vtk/lib/libvtkFiltersVerdict-6.2.so.1
+7f5bf5ac2000-7f5bf5ad6000 r-xp 00000000 fd:00 1317471                    /opt/vtk/lib/libvtkFiltersVerdictJava.so
+7f5bf5ad6000-7f5bf5cd5000 ---p 00014000 fd:00 1317471                    /opt/vtk/lib/libvtkFiltersVerdictJava.so
+7f5bf5cd5000-7f5bf5cd6000 rw-p 00013000 fd:00 1317471                    /opt/vtk/lib/libvtkFiltersVerdictJava.so
+7f5bf5cd6000-7f5bf5d67000 r-xp 00000000 fd:00 1317422                    /opt/vtk/lib/libvtkFiltersSMP-6.2.so.1
+7f5bf5d67000-7f5bf5f67000 ---p 00091000 fd:00 1317422                    /opt/vtk/lib/libvtkFiltersSMP-6.2.so.1
+7f5bf5f67000-7f5bf5f6b000 rw-p 00091000 fd:00 1317422                    /opt/vtk/lib/libvtkFiltersSMP-6.2.so.1
+7f5bf5f6b000-7f5bf5f6f000 r-xp 00000000 fd:00 1317424                    /opt/vtk/lib/libvtkFiltersSMPJava.so
+7f5bf5f6f000-7f5bf616e000 ---p 00004000 fd:00 1317424                    /opt/vtk/lib/libvtkFiltersSMPJava.so
+7f5bf616e000-7f5bf616f000 rw-p 00003000 fd:00 1317424                    /opt/vtk/lib/libvtkFiltersSMPJava.so
+7f5bf616f000-7f5bfc000000 r--p 00000000 fd:00 81846                      /usr/lib/locale/locale-archive
+7f5bfc000000-7f5bfc021000 rw-p 00000000 00:00 0 
+7f5bfc021000-7f5c00000000 ---p 00000000 00:00 0 
+7f5c00000000-7f5c00021000 rw-p 00000000 00:00 0 
+7f5c00021000-7f5c04000000 ---p 00000000 00:00 0 
+7f5c04000000-7f5c04021000 rw-p 00000000 00:00 0 
+7f5c04021000-7f5c08000000 ---p 00000000 00:00 0 
+7f5c08003000-7f5c080c0000 r-xp 00000000 fd:00 1317240                    /opt/vtk/lib/libvtkFiltersFlowPaths-6.2.so.1
+7f5c080c0000-7f5c082c0000 ---p 000bd000 fd:00 1317240                    /opt/vtk/lib/libvtkFiltersFlowPaths-6.2.so.1
+7f5c082c0000-7f5c082c7000 rw-p 000bd000 fd:00 1317240                    /opt/vtk/lib/libvtkFiltersFlowPaths-6.2.so.1
+7f5c082c7000-7f5c082dc000 r-xp 00000000 fd:00 1317242                    /opt/vtk/lib/libvtkFiltersFlowPathsJava.so
+7f5c082dc000-7f5c084db000 ---p 00015000 fd:00 1317242                    /opt/vtk/lib/libvtkFiltersFlowPathsJava.so
+7f5c084db000-7f5c084dc000 rw-p 00014000 fd:00 1317242                    /opt/vtk/lib/libvtkFiltersFlowPathsJava.so
+7f5c084dc000-7f5c084fb000 r-xp 00000000 fd:00 1317434                    /opt/vtk/lib/libvtkFiltersSelection-6.2.so.1
+7f5c084fb000-7f5c086fb000 ---p 0001f000 fd:00 1317434                    /opt/vtk/lib/libvtkFiltersSelection-6.2.so.1
+7f5c086fb000-7f5c086fd000 rw-p 0001f000 fd:00 1317434                    /opt/vtk/lib/libvtkFiltersSelection-6.2.so.1
+7f5c086fd000-7f5c08702000 r-xp 00000000 fd:00 1317436                    /opt/vtk/lib/libvtkFiltersSelectionJava.so
+7f5c08702000-7f5c08901000 ---p 00005000 fd:00 1317436                    /opt/vtk/lib/libvtkFiltersSelectionJava.so
+7f5c08901000-7f5c08902000 rw-p 00004000 fd:00 1317436                    /opt/vtk/lib/libvtkFiltersSelectionJava.so
+7f5c08902000-7f5c08910000 r-xp 00000000 fd:00 1317413                    /opt/vtk/lib/libvtkFiltersProgrammable-6.2.so.1
+7f5c08910000-7f5c08b10000 ---p 0000e000 fd:00 1317413                    /opt/vtk/lib/libvtkFiltersProgrammable-6.2.so.1
+7f5c08b10000-7f5c08b11000 rw-p 0000e000 fd:00 1317413                    /opt/vtk/lib/libvtkFiltersProgrammable-6.2.so.1
+7f5c08b11000-7f5c08b15000 r-xp 00000000 fd:00 1317415                    /opt/vtk/lib/libvtkFiltersProgrammableJava.so
+7f5c08b15000-7f5c08d15000 ---p 00004000 fd:00 1317415                    /opt/vtk/lib/libvtkFiltersProgrammableJava.so
+7f5c08d15000-7f5c08d16000 rw-p 00004000 fd:00 1317415                    /opt/vtk/lib/libvtkFiltersProgrammableJava.so
+7f5c08d16000-7f5c08d51000 r-xp 00000000 fd:00 1317295                    /opt/vtk/lib/libvtkFiltersGeneric-6.2.so.1
+7f5c08d51000-7f5c08f51000 ---p 0003b000 fd:00 1317295                    /opt/vtk/lib/libvtkFiltersGeneric-6.2.so.1
+7f5c08f51000-7f5c08f54000 rw-p 0003b000 fd:00 1317295                    /opt/vtk/lib/libvtkFiltersGeneric-6.2.so.1
+7f5c08f54000-7f5c08f68000 r-xp 00000000 fd:00 1317297                    /opt/vtk/lib/libvtkFiltersGenericJava.so
+7f5c08f68000-7f5c09168000 ---p 00014000 fd:00 1317297                    /opt/vtk/lib/libvtkFiltersGenericJava.so
+7f5c09168000-7f5c09169000 rw-p 00014000 fd:00 1317297                    /opt/vtk/lib/libvtkFiltersGenericJava.so
+7f5c09169000-7f5c09171000 r-xp 00000000 fd:00 1316543                    /opt/vtk/lib/libvtkFiltersAMRJava.so
+7f5c09171000-7f5c09371000 ---p 00008000 fd:00 1316543                    /opt/vtk/lib/libvtkFiltersAMRJava.so
+7f5c09371000-7f5c09372000 rw-p 00008000 fd:00 1316543                    /opt/vtk/lib/libvtkFiltersAMRJava.so
+7f5c09372000-7f5c093a1000 r-xp 00000000 fd:00 1315799                    /opt/vtk/lib/libvtkFiltersSourcesJava.so
+7f5c093a1000-7f5c095a1000 ---p 0002f000 fd:00 1315799                    /opt/vtk/lib/libvtkFiltersSourcesJava.so
+7f5c095a1000-7f5c095a2000 rw-p 0002f000 fd:00 1315799                    /opt/vtk/lib/libvtkFiltersSourcesJava.so
+7f5c095a2000-7f5c09625000 r-xp 00000000 fd:00 1316793                    /opt/vtk/lib/libvtkFiltersModeling-6.2.so.1
+7f5c09625000-7f5c09825000 ---p 00083000 fd:00 1316793                    /opt/vtk/lib/libvtkFiltersModeling-6.2.so.1
+7f5c09825000-7f5c0982b000 rw-p 00083000 fd:00 1316793                    /opt/vtk/lib/libvtkFiltersModeling-6.2.so.1
+7f5c0982b000-7f5c09845000 r-xp 00000000 fd:00 1316795                    /opt/vtk/lib/libvtkFiltersModelingJava.so
+7f5c09845000-7f5c09a44000 ---p 0001a000 fd:00 1316795                    /opt/vtk/lib/libvtkFiltersModelingJava.so
+7f5c09a44000-7f5c09a45000 rw-p 00019000 fd:00 1316795                    /opt/vtk/lib/libvtkFiltersModelingJava.so
+7f5c09a45000-7f5c09a5a000 r-xp 00000000 fd:00 1315772                    /opt/vtk/lib/libvtkFiltersGeometryJava.so
+7f5c09a5a000-7f5c09c59000 ---p 00015000 fd:00 1315772                    /opt/vtk/lib/libvtkFiltersGeometryJava.so
+7f5c09c59000-7f5c09c5a000 rw-p 00014000 fd:00 1315772                    /opt/vtk/lib/libvtkFiltersGeometryJava.so
+7f5c09c5a000-7f5c09c61000 r-xp 00000000 fd:00 1315639                    /opt/vtk/lib/libvtkImagingFourierJava.so
+7f5c09c61000-7f5c09e60000 ---p 00007000 fd:00 1315639                    /opt/vtk/lib/libvtkImagingFourierJava.so
+7f5c09e60000-7f5c09e61000 rw-p 00006000 fd:00 1315639                    /opt/vtk/lib/libvtkImagingFourierJava.so
+7f5c09e61000-7f5c09e6f000 r-xp 00000000 fd:00 1315668                    /opt/vtk/lib/libvtkFiltersStatisticsJava.so
+7f5c09e6f000-7f5c0a06f000 ---p 0000e000 fd:00 1315668                    /opt/vtk/lib/libvtkFiltersStatisticsJava.so
+7f5c0a06f000-7f5c0a070000 rw-p 0000e000 fd:00 1315668                    /opt/vtk/lib/libvtkFiltersStatisticsJava.so
+7f5c0a070000-7f5c10000000 rw-p 00000000 00:00 0 
+7f5c10000000-7f5c10021000 rw-p 00000000 00:00 0 
+7f5c10021000-7f5c14000000 ---p 00000000 00:00 0 
+7f5c14000000-7f5c14082000 rw-p 00000000 00:00 0 
+7f5c14082000-7f5c18000000 ---p 00000000 00:00 0 
+7f5c18000000-7f5c18021000 rw-p 00000000 00:00 0 
+7f5c18021000-7f5c1c000000 ---p 00000000 00:00 0 
+7f5c1c078000-7f5c1c098000 rw-s e0160000 00:05 16954                      /dev/nvidia0
+7f5c1c098000-7f5c1c099000 rw-s e7eeb000 00:05 16954                      /dev/nvidia0
+7f5c1c099000-7f5c1c0d9000 rw-s 119216000 00:05 16954                     /dev/nvidia0
+7f5c1c0d9000-7f5c1c0f9000 rw-s 12955d000 00:05 16954                     /dev/nvidia0
+7f5c1c0f9000-7f5c1c139000 rw-s 16142b000 00:05 16954                     /dev/nvidia0
+7f5c1c139000-7f5c1c159000 rw-s 1583ea000 00:05 16954                     /dev/nvidia0
+7f5c1c159000-7f5c1c170000 r-xp 00000000 fd:00 1315691                    /opt/vtk/lib/libvtkFiltersExtractionJava.so
+7f5c1c170000-7f5c1c370000 ---p 00017000 fd:00 1315691                    /opt/vtk/lib/libvtkFiltersExtractionJava.so
+7f5c1c370000-7f5c1c371000 rw-p 00017000 fd:00 1315691                    /opt/vtk/lib/libvtkFiltersExtractionJava.so
+7f5c1c371000-7f5c1c430000 r-xp 00000000 fd:00 1317360                    /opt/vtk/lib/libvtkFiltersParallel-6.2.so.1
+7f5c1c430000-7f5c1c630000 ---p 000bf000 fd:00 1317360                    /opt/vtk/lib/libvtkFiltersParallel-6.2.so.1
+7f5c1c630000-7f5c1c639000 rw-p 000bf000 fd:00 1317360                    /opt/vtk/lib/libvtkFiltersParallel-6.2.so.1
+7f5c1c639000-7f5c1c648000 r-xp 00000000 fd:00 1316078                    /opt/vtk/lib/libvtkIOCoreJava.so
+7f5c1c648000-7f5c1c847000 ---p 0000f000 fd:00 1316078                    /opt/vtk/lib/libvtkIOCoreJava.so
+7f5c1c847000-7f5c1c848000 rw-p 0000e000 fd:00 1316078                    /opt/vtk/lib/libvtkIOCoreJava.so
+7f5c1c848000-7f5c1c95a000 r-xp 00000000 fd:00 1316822                    /opt/vtk/lib/libvtkImagingGeneral-6.2.so.1
+7f5c1c95a000-7f5c1cb5a000 ---p 00112000 fd:00 1316822                    /opt/vtk/lib/libvtkImagingGeneral-6.2.so.1
+7f5c1cb5a000-7f5c1cb62000 rw-p 00112000 fd:00 1316822                    /opt/vtk/lib/libvtkImagingGeneral-6.2.so.1
+7f5c1cb62000-7f5c1cb7f000 r-xp 00000000 fd:00 1316824                    /opt/vtk/lib/libvtkImagingGeneralJava.so
+7f5c1cb7f000-7f5c1cd7e000 ---p 0001d000 fd:00 1316824                    /opt/vtk/lib/libvtkImagingGeneralJava.so
+7f5c1cd7e000-7f5c1cd7f000 rw-p 0001c000 fd:00 1316824                    /opt/vtk/lib/libvtkImagingGeneralJava.so
+7f5c1cd7f000-7f5c1cdac000 r-xp 00000000 fd:00 1317264                    /opt/vtk/lib/libvtkFiltersImaging-6.2.so.1
+7f5c1cdac000-7f5c1cfab000 ---p 0002d000 fd:00 1317264                    /opt/vtk/lib/libvtkFiltersImaging-6.2.so.1
+7f5c1cfab000-7f5c1cfad000 rw-p 0002c000 fd:00 1317264                    /opt/vtk/lib/libvtkFiltersImaging-6.2.so.1
+7f5c1cfad000-7f5c1cfbd000 r-xp 00000000 fd:00 1316525                    /opt/vtk/lib/libvtkParallelCoreJava.so
+7f5c1cfbd000-7f5c1d1bc000 ---p 00010000 fd:00 1316525                    /opt/vtk/lib/libvtkParallelCoreJava.so
+7f5c1d1bc000-7f5c1d1bd000 rw-p 0000f000 fd:00 1316525                    /opt/vtk/lib/libvtkParallelCoreJava.so
+7f5c1d1bd000-7f5c1d1d4000 r-xp 00000000 fd:00 1316488                    /opt/vtk/lib/libvtkIOLegacyJava.so
+7f5c1d1d4000-7f5c1d3d3000 ---p 00017000 fd:00 1316488                    /opt/vtk/lib/libvtkIOLegacyJava.so
+7f5c1d3d3000-7f5c1d3d4000 rw-p 00016000 fd:00 1316488                    /opt/vtk/lib/libvtkIOLegacyJava.so
+7f5c1d3d4000-7f5c1d3ea000 r-xp 00000000 fd:00 1317362                    /opt/vtk/lib/libvtkFiltersParallelJava.so
+7f5c1d3ea000-7f5c1d5e9000 ---p 00016000 fd:00 1317362                    /opt/vtk/lib/libvtkFiltersParallelJava.so
+7f5c1d5e9000-7f5c1d5ea000 rw-p 00015000 fd:00 1317362                    /opt/vtk/lib/libvtkFiltersParallelJava.so
+7f5c1d5ea000-7f5c1d5f1000 r-xp 00000000 fd:00 1317266                    /opt/vtk/lib/libvtkFiltersImagingJava.so
+7f5c1d5f1000-7f5c1d7f0000 ---p 00007000 fd:00 1317266                    /opt/vtk/lib/libvtkFiltersImagingJava.so
+7f5c1d7f0000-7f5c1d7f1000 rw-p 00006000 fd:00 1317266                    /opt/vtk/lib/libvtkFiltersImagingJava.so
+7f5c1d7f1000-7f5c1f359000 r-xp 00000000 fd:00 75465                      /usr/lib64/libnvidia-glcore.so.331.67
+7f5c1f359000-7f5c1f558000 ---p 01b68000 fd:00 75465                      /usr/lib64/libnvidia-glcore.so.331.67
+7f5c1f558000-7f5c1ffe3000 rwxp 01b67000 fd:00 75465                      /usr/lib64/libnvidia-glcore.so.331.67
+7f5c1ffe3000-7f5c20000000 rwxp 00000000 00:00 0 
+7f5c20000000-7f5c20021000 rw-p 00000000 00:00 0 
+7f5c20021000-7f5c24000000 ---p 00000000 00:00 0 
+7f5c24000000-7f5c24001000 rw-s e7ee9000 00:05 16954                      /dev/nvidia0
+7f5c24001000-7f5c24041000 rw-s 164a48000 00:05 16954                     /dev/nvidia0
+7f5c24041000-7f5c24081000 rw-s 163061000 00:05 16954                     /dev/nvidia0
+7f5c24081000-7f5c2409e000 r-xp 00000000 fd:00 1317401                    /opt/vtk/lib/libvtkFiltersParallelImaging-6.2.so.1
+7f5c2409e000-7f5c2429e000 ---p 0001d000 fd:00 1317401                    /opt/vtk/lib/libvtkFiltersParallelImaging-6.2.so.1
+7f5c2429e000-7f5c242a0000 rw-p 0001d000 fd:00 1317401                    /opt/vtk/lib/libvtkFiltersParallelImaging-6.2.so.1
+7f5c242a0000-7f5c242a3000 r-xp 00000000 fd:00 1317403                    /opt/vtk/lib/libvtkFiltersParallelImagingJava.so
+7f5c242a3000-7f5c244a3000 ---p 00003000 fd:00 1317403                    /opt/vtk/lib/libvtkFiltersParallelImagingJava.so
+7f5c244a3000-7f5c244a4000 rw-p 00003000 fd:00 1317403                    /opt/vtk/lib/libvtkFiltersParallelImagingJava.so
+7f5c244a4000-7f5c244d7000 r-xp 00000000 fd:00 1315593                    /opt/vtk/lib/libvtkImagingCoreJava.so
+7f5c244d7000-7f5c246d7000 ---p 00033000 fd:00 1315593                    /opt/vtk/lib/libvtkImagingCoreJava.so
+7f5c246d7000-7f5c246d8000 rw-p 00033000 fd:00 1315593                    /opt/vtk/lib/libvtkImagingCoreJava.so
+7f5c246d8000-7f5c24720000 r-xp 00000000 fd:00 1316752                    /opt/vtk/lib/libvtkImagingSources-6.2.so.1
+7f5c24720000-7f5c24920000 ---p 00048000 fd:00 1316752                    /opt/vtk/lib/libvtkImagingSources-6.2.so.1
+7f5c24920000-7f5c24922000 rw-p 00048000 fd:00 1316752                    /opt/vtk/lib/libvtkImagingSources-6.2.so.1
+7f5c24922000-7f5c24930000 r-xp 00000000 fd:00 1316754                    /opt/vtk/lib/libvtkImagingSourcesJava.so
+7f5c24930000-7f5c24b2f000 ---p 0000e000 fd:00 1316754                    /opt/vtk/lib/libvtkImagingSourcesJava.so
+7f5c24b2f000-7f5c24b30000 rw-p 0000d000 fd:00 1316754                    /opt/vtk/lib/libvtkImagingSourcesJava.so
+7f5c24b30000-7f5c24c47000 r-xp 00000000 fd:00 1316765                    /opt/vtk/lib/libvtkFiltersHybrid-6.2.so.1
+7f5c24c47000-7f5c24e47000 ---p 00117000 fd:00 1316765                    /opt/vtk/lib/libvtkFiltersHybrid-6.2.so.1
+7f5c24e47000-7f5c24e4f000 rw-p 00117000 fd:00 1316765                    /opt/vtk/lib/libvtkFiltersHybrid-6.2.so.1
+7f5c24e4f000-7f5c24e6e000 r-xp 00000000 fd:00 1316767                    /opt/vtk/lib/libvtkFiltersHybridJava.so
+7f5c24e6e000-7f5c2506d000 ---p 0001f000 fd:00 1316767                    /opt/vtk/lib/libvtkFiltersHybridJava.so
+7f5c2506d000-7f5c2506e000 rw-p 0001e000 fd:00 1316767                    /opt/vtk/lib/libvtkFiltersHybridJava.so
+7f5c2506e000-7f5c250de000 r-xp 00000000 fd:00 1315381                    /opt/vtk/lib/libvtkFiltersCoreJava.so
+7f5c250de000-7f5c252dd000 ---p 00070000 fd:00 1315381                    /opt/vtk/lib/libvtkFiltersCoreJava.so
+7f5c252dd000-7f5c252df000 rw-p 0006f000 fd:00 1315381                    /opt/vtk/lib/libvtkFiltersCoreJava.so
+7f5c252df000-7f5c252f4000 r-xp 00000000 fd:00 1315463                    /opt/vtk/lib/libvtkCommonComputationalGeometryJava.so
+7f5c252f4000-7f5c254f3000 ---p 00015000 fd:00 1315463                    /opt/vtk/lib/libvtkCommonComputationalGeometryJava.so
+7f5c254f3000-7f5c254f4000 rw-p 00014000 fd:00 1315463                    /opt/vtk/lib/libvtkCommonComputationalGeometryJava.so
+7f5c254f4000-7f5c25553000 r-xp 00000000 fd:00 1315487                    /opt/vtk/lib/libvtkFiltersGeneralJava.so
+7f5c25553000-7f5c25752000 ---p 0005f000 fd:00 1315487                    /opt/vtk/lib/libvtkFiltersGeneralJava.so
+7f5c25752000-7f5c25753000 rw-p 0005e000 fd:00 1315487                    /opt/vtk/lib/libvtkFiltersGeneralJava.so
+7f5c25753000-7f5c25773000 r-xp 00000000 fd:00 1317443                    /opt/vtk/lib/libvtkFiltersTexture-6.2.so.1
+7f5c25773000-7f5c25972000 ---p 00020000 fd:00 1317443                    /opt/vtk/lib/libvtkFiltersTexture-6.2.so.1
+7f5c25972000-7f5c25974000 rw-p 0001f000 fd:00 1317443                    /opt/vtk/lib/libvtkFiltersTexture-6.2.so.1
+7f5c25974000-7f5c2597d000 r-xp 00000000 fd:00 1317445                    /opt/vtk/lib/libvtkFiltersTextureJava.so
+7f5c2597d000-7f5c25b7c000 ---p 00009000 fd:00 1317445                    /opt/vtk/lib/libvtkFiltersTextureJava.so
+7f5c25b7c000-7f5c25b7d000 rw-p 00008000 fd:00 1317445                    /opt/vtk/lib/libvtkFiltersTextureJava.so
+7f5c25b7d000-7f5c25bc0000 r-xp 00000000 fd:00 1316066                    /opt/vtk/lib/libvtkDICOMParser-6.2.so.1
+7f5c25bc0000-7f5c25dbf000 ---p 00043000 fd:00 1316066                    /opt/vtk/lib/libvtkDICOMParser-6.2.so.1
+7f5c25dbf000-7f5c25dc2000 rw-p 00042000 fd:00 1316066                    /opt/vtk/lib/libvtkDICOMParser-6.2.so.1
+7f5c25dc2000-7f5c25ec9000 r-xp 00000000 fd:00 1316105                    /opt/vtk/lib/libvtkmetaio-6.2.so.1
+7f5c25ec9000-7f5c260c8000 ---p 00107000 fd:00 1316105                    /opt/vtk/lib/libvtkmetaio-6.2.so.1
+7f5c260c8000-7f5c260cf000 rw-p 00106000 fd:00 1316105                    /opt/vtk/lib/libvtkmetaio-6.2.so.1
+7f5c260cf000-7f5c2613a000 r-xp 00000000 fd:00 1316163                    /opt/vtk/lib/libvtktiff-6.2.so.1
+7f5c2613a000-7f5c2633a000 ---p 0006b000 fd:00 1316163                    /opt/vtk/lib/libvtktiff-6.2.so.1
+7f5c2633a000-7f5c2633d000 rw-p 0006b000 fd:00 1316163                    /opt/vtk/lib/libvtktiff-6.2.so.1
+7f5c2633d000-7f5c2636f000 r-xp 00000000 fd:00 1316152                    /opt/vtk/lib/libvtkpng-6.2.so.1
+7f5c2636f000-7f5c2656f000 ---p 00032000 fd:00 1316152                    /opt/vtk/lib/libvtkpng-6.2.so.1
+7f5c2656f000-7f5c26570000 rw-p 00032000 fd:00 1316152                    /opt/vtk/lib/libvtkpng-6.2.so.1
+7f5c26570000-7f5c2659c000 r-xp 00000000 fd:00 1316141                    /opt/vtk/lib/libvtkjpeg-6.2.so.1
+7f5c2659c000-7f5c2679b000 ---p 0002c000 fd:00 1316141                    /opt/vtk/lib/libvtkjpeg-6.2.so.1
+7f5c2679b000-7f5c2679c000 rw-p 0002b000 fd:00 1316141                    /opt/vtk/lib/libvtkjpeg-6.2.so.1
+7f5c2679c000-7f5c26951000 r-xp 00000000 fd:00 1316173                    /opt/vtk/lib/libvtkIOImage-6.2.so.1
+7f5c26951000-7f5c26b50000 ---p 001b5000 fd:00 1316173                    /opt/vtk/lib/libvtkIOImage-6.2.so.1
+7f5c26b50000-7f5c26b5c000 rw-p 001b4000 fd:00 1316173                    /opt/vtk/lib/libvtkIOImage-6.2.so.1
+7f5c26b5c000-7f5c26bc3000 r-xp 00000000 fd:00 1316213                    /opt/vtk/lib/libvtkImagingHybrid-6.2.so.1
+7f5c26bc3000-7f5c26dc3000 ---p 00067000 fd:00 1316213                    /opt/vtk/lib/libvtkImagingHybrid-6.2.so.1
+7f5c26dc3000-7f5c26dc7000 rw-p 00067000 fd:00 1316213                    /opt/vtk/lib/libvtkImagingHybrid-6.2.so.1
+7f5c26dc7000-7f5c26e69000 r-xp 00000000 fd:00 1315988                    /opt/vtk/lib/libvtkfreetype-6.2.so.1
+7f5c26e69000-7f5c27068000 ---p 000a2000 fd:00 1315988                    /opt/vtk/lib/libvtkfreetype-6.2.so.1
+7f5c27068000-7f5c2706e000 rw-p 000a1000 fd:00 1315988                    /opt/vtk/lib/libvtkfreetype-6.2.so.1
+7f5c2706e000-7f5c2707b000 r-xp 00000000 fd:00 1316046                    /opt/vtk/lib/libvtkftgl-6.2.so.1
+7f5c2707b000-7f5c2727a000 ---p 0000d000 fd:00 1316046                    /opt/vtk/lib/libvtkftgl-6.2.so.1
+7f5c2727a000-7f5c2727b000 rw-p 0000c000 fd:00 1316046                    /opt/vtk/lib/libvtkftgl-6.2.so.1
+7f5c2727b000-7f5c272dd000 r-xp 00000000 fd:00 1316048                    /opt/vtk/lib/libvtkRenderingFreeType-6.2.so.1
+7f5c272dd000-7f5c274dd000 ---p 00062000 fd:00 1316048                    /opt/vtk/lib/libvtkRenderingFreeType-6.2.so.1
+7f5c274dd000-7f5c2754d000 rw-p 00062000 fd:00 1316048                    /opt/vtk/lib/libvtkRenderingFreeType-6.2.so.1
+7f5c2754d000-7f5c27827000 r-xp 00000000 fd:00 1316235                    /opt/vtk/lib/libvtkRenderingOpenGL-6.2.so.1
+7f5c27827000-7f5c27a26000 ---p 002da000 fd:00 1316235                    /opt/vtk/lib/libvtkRenderingOpenGL-6.2.so.1
+7f5c27a26000-7f5c27a38000 rw-p 002d9000 fd:00 1316235                    /opt/vtk/lib/libvtkRenderingOpenGL-6.2.so.1
+7f5c27a38000-7f5c27a3c000 rw-p 00000000 00:00 0 
+7f5c27a3c000-7f5c27bb9000 r-xp 00000000 fd:00 1315723                    /opt/vtk/lib/libvtkInfovisCore-6.2.so.1
+7f5c27bb9000-7f5c27db9000 ---p 0017d000 fd:00 1315723                    /opt/vtk/lib/libvtkInfovisCore-6.2.so.1
+7f5c27db9000-7f5c27dc8000 rw-p 0017d000 fd:00 1315723                    /opt/vtk/lib/libvtkInfovisCore-6.2.so.1
+7f5c27dc8000-7f5c27dfe000 r-xp 00000000 fd:00 1315309                    /opt/vtk/lib/libvtkCommonColor-6.2.so.1
+7f5c27dfe000-7f5c27ffd000 ---p 00036000 fd:00 1315309                    /opt/vtk/lib/libvtkCommonColor-6.2.so.1
+7f5c27ffd000-7f5c28000000 rw-p 00035000 fd:00 1315309                    /opt/vtk/lib/libvtkCommonColor-6.2.so.1
+7f5c28000000-7f5c28021000 rw-p 00000000 00:00 0 
+7f5c28021000-7f5c2c000000 ---p 00000000 00:00 0 
+7f5c2c005000-7f5c2c025000 rw-s e0100000 00:05 16954                      /dev/nvidia0
+7f5c2c025000-7f5c2c045000 rw-s 241465000 00:05 16954                     /dev/nvidia0
+7f5c2c045000-7f5c2c085000 rw-s 1630fd000 00:05 16954                     /dev/nvidia0
+7f5c2c085000-7f5c2c0a5000 rw-s 2c41cd000 00:05 16954                     /dev/nvidia0
+7f5c2c0a5000-7f5c2c0e5000 rw-s 1b73c9000 00:05 16954                     /dev/nvidia0
+7f5c2c0e5000-7f5c2c105000 rw-s 1bed46000 00:05 16954                     /dev/nvidia0
+7f5c2c105000-7f5c2c125000 rw-s e00a0000 00:05 16954                      /dev/nvidia0
+7f5c2c125000-7f5c2c1e9000 rw-s 319626000 00:05 16954                     /dev/nvidia0
+7f5c2c1e9000-7f5c2c264000 r-xp 00000000 fd:00 1316312                    /opt/vtk/lib/libvtkRenderingContext2D-6.2.so.1
+7f5c2c264000-7f5c2c464000 ---p 0007b000 fd:00 1316312                    /opt/vtk/lib/libvtkRenderingContext2D-6.2.so.1
+7f5c2c464000-7f5c2c468000 rw-p 0007b000 fd:00 1316312                    /opt/vtk/lib/libvtkRenderingContext2D-6.2.so.1
+7f5c2c468000-7f5c2c47b000 r-xp 00000000 fd:00 1316314                    /opt/vtk/lib/libvtkRenderingContext2DJava.so
+7f5c2c47b000-7f5c2c67b000 ---p 00013000 fd:00 1316314                    /opt/vtk/lib/libvtkRenderingContext2DJava.so
+7f5c2c67b000-7f5c2c67c000 rw-p 00013000 fd:00 1316314                    /opt/vtk/lib/libvtkRenderingContext2DJava.so
+7f5c2c67c000-7f5c2c83d000 r-xp 00000000 fd:00 1316343                    /opt/vtk/lib/libvtkChartsCore-6.2.so.1
+7f5c2c83d000-7f5c2ca3d000 ---p 001c1000 fd:00 1316343                    /opt/vtk/lib/libvtkChartsCore-6.2.so.1
+7f5c2ca3d000-7f5c2ca4a000 rw-p 001c1000 fd:00 1316343                    /opt/vtk/lib/libvtkChartsCore-6.2.so.1
+7f5c2ca4a000-7f5c2ca7b000 r-xp 00000000 fd:00 1316345                    /opt/vtk/lib/libvtkChartsCoreJava.so
+7f5c2ca7b000-7f5c2cc7b000 ---p 00031000 fd:00 1316345                    /opt/vtk/lib/libvtkChartsCoreJava.so
+7f5c2cc7b000-7f5c2cc7c000 rw-p 00031000 fd:00 1316345                    /opt/vtk/lib/libvtkChartsCoreJava.so
+7f5c2cc7c000-7f5c2ccaa000 r-xp 00000000 fd:00 1316597                    /opt/vtk/lib/libvtkexpat-6.2.so.1
+7f5c2ccaa000-7f5c2ceaa000 ---p 0002e000 fd:00 1316597                    /opt/vtk/lib/libvtkexpat-6.2.so.1
+7f5c2ceaa000-7f5c2ceac000 rw-p 0002e000 fd:00 1316597                    /opt/vtk/lib/libvtkexpat-6.2.so.1
+7f5c2ceac000-7f5c2ceed000 r-xp 00000000 fd:00 1316556                    /opt/vtk/lib/libvtkjsoncpp-6.2.so.1
+7f5c2ceed000-7f5c2d0ed000 ---p 00041000 fd:00 1316556                    /opt/vtk/lib/libvtkjsoncpp-6.2.so.1
+7f5c2d0ed000-7f5c2d0ef000 rw-p 00041000 fd:00 1316556                    /opt/vtk/lib/libvtkjsoncpp-6.2.so.1
+7f5c2d0ef000-7f5c2d108000 r-xp 00000000 fd:00 1315979                    /opt/vtk/lib/libvtkzlib-6.2.so.1
+7f5c2d108000-7f5c2d307000 ---p 00019000 fd:00 1315979                    /opt/vtk/lib/libvtkzlib-6.2.so.1
+7f5c2d307000-7f5c2d308000 rw-p 00018000 fd:00 1315979                    /opt/vtk/lib/libvtkzlib-6.2.so.1
+7f5c2d308000-7f5c2d358000 r-xp 00000000 fd:00 920158                     /opt/java/jdk1.7.0_40/jre/lib/amd64/xawt/libmawt.so
+7f5c2d358000-7f5c2d558000 ---p 00050000 fd:00 920158                     /opt/java/jdk1.7.0_40/jre/lib/amd64/xawt/libmawt.so
+7f5c2d558000-7f5c2d55c000 rw-p 00050000 fd:00 920158                     /opt/java/jdk1.7.0_40/jre/lib/amd64/xawt/libmawt.so
+7f5c2d55c000-7f5c2d55d000 rw-p 00000000 00:00 0 
+7f5c2d55d000-7f5c2d600000 r-xp 00000000 fd:00 920138                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libawt.so
+7f5c2d600000-7f5c2d800000 ---p 000a3000 fd:00 920138                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libawt.so
+7f5c2d800000-7f5c2d80c000 rw-p 000a3000 fd:00 920138                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libawt.so
+7f5c2d80c000-7f5c2d830000 rw-p 00000000 00:00 0 
+7f5c2d830000-7f5c2d84e000 r-xp 00000000 fd:00 1315653                    /opt/vtk/lib/libvtkalglib-6.2.so.1
+7f5c2d84e000-7f5c2da4d000 ---p 0001e000 fd:00 1315653                    /opt/vtk/lib/libvtkalglib-6.2.so.1
+7f5c2da4d000-7f5c2da4e000 rw-p 0001d000 fd:00 1315653                    /opt/vtk/lib/libvtkalglib-6.2.so.1
+7f5c2da4e000-7f5c2dc41000 r-xp 00000000 fd:00 1315591                    /opt/vtk/lib/libvtkImagingCore-6.2.so.1
+7f5c2dc41000-7f5c2de40000 ---p 001f3000 fd:00 1315591                    /opt/vtk/lib/libvtkImagingCore-6.2.so.1
+7f5c2de40000-7f5c2de4a000 rw-p 001f2000 fd:00 1315591                    /opt/vtk/lib/libvtkImagingCore-6.2.so.1
+7f5c2de4a000-7f5c2de72000 r-xp 00000000 fd:00 1315637                    /opt/vtk/lib/libvtkImagingFourier-6.2.so.1
+7f5c2de72000-7f5c2e071000 ---p 00028000 fd:00 1315637                    /opt/vtk/lib/libvtkImagingFourier-6.2.so.1
+7f5c2e071000-7f5c2e074000 rw-p 00027000 fd:00 1315637                    /opt/vtk/lib/libvtkImagingFourier-6.2.so.1
+7f5c2e074000-7f5c2e15b000 r-xp 00000000 fd:00 1315666                    /opt/vtk/lib/libvtkFiltersStatistics-6.2.so.1
+7f5c2e15b000-7f5c2e35b000 ---p 000e7000 fd:00 1315666                    /opt/vtk/lib/libvtkFiltersStatistics-6.2.so.1
+7f5c2e35b000-7f5c2e363000 rw-p 000e7000 fd:00 1315666                    /opt/vtk/lib/libvtkFiltersStatistics-6.2.so.1
+7f5c2e363000-7f5c2e3d3000 r-xp 00000000 fd:00 1314848                    /opt/vtk/lib/libvtksys-6.2.so.1
+7f5c2e3d3000-7f5c2e5d3000 ---p 00070000 fd:00 1314848                    /opt/vtk/lib/libvtksys-6.2.so.1
+7f5c2e5d3000-7f5c2e5d6000 rw-p 00070000 fd:00 1314848                    /opt/vtk/lib/libvtksys-6.2.so.1
+7f5c2e5d6000-7f5c2e6f0000 r-xp 00000000 fd:00 1315689                    /opt/vtk/lib/libvtkFiltersExtraction-6.2.so.1
+7f5c2e6f0000-7f5c2e8ef000 ---p 0011a000 fd:00 1315689                    /opt/vtk/lib/libvtkFiltersExtraction-6.2.so.1
+7f5c2e8ef000-7f5c2e8f7000 rw-p 00119000 fd:00 1315689                    /opt/vtk/lib/libvtkFiltersExtraction-6.2.so.1
+7f5c2e8f7000-7f5c2e9cc000 r-xp 00000000 fd:00 1315770                    /opt/vtk/lib/libvtkFiltersGeometry-6.2.so.1
+7f5c2e9cc000-7f5c2ebcc000 ---p 000d5000 fd:00 1315770                    /opt/vtk/lib/libvtkFiltersGeometry-6.2.so.1
+7f5c2ebcc000-7f5c2ebd3000 rw-p 000d5000 fd:00 1315770                    /opt/vtk/lib/libvtkFiltersGeometry-6.2.so.1
+7f5c2ebd3000-7f5c2ec76000 r-xp 00000000 fd:00 1316076                    /opt/vtk/lib/libvtkIOCore-6.2.so.1
+7f5c2ec76000-7f5c2ee76000 ---p 000a3000 fd:00 1316076                    /opt/vtk/lib/libvtkIOCore-6.2.so.1
+7f5c2ee76000-7f5c2ee7e000 rw-p 000a3000 fd:00 1316076                    /opt/vtk/lib/libvtkIOCore-6.2.so.1
+7f5c2ee7e000-7f5c2ee9f000 r-xp 00000000 fd:00 1316603                    /opt/vtk/lib/libvtkIOXMLParser-6.2.so.1
+7f5c2ee9f000-7f5c2f09f000 ---p 00021000 fd:00 1316603                    /opt/vtk/lib/libvtkIOXMLParser-6.2.so.1
+7f5c2f09f000-7f5c2f0a1000 rw-p 00021000 fd:00 1316603                    /opt/vtk/lib/libvtkIOXMLParser-6.2.so.1
+7f5c2f0a1000-7f5c2f22f000 r-xp 00000000 fd:00 1316562                    /opt/vtk/lib/libvtkIOGeometry-6.2.so.1
+7f5c2f22f000-7f5c2f42e000 ---p 0018e000 fd:00 1316562                    /opt/vtk/lib/libvtkIOGeometry-6.2.so.1
+7f5c2f42e000-7f5c2f439000 rw-p 0018d000 fd:00 1316562                    /opt/vtk/lib/libvtkIOGeometry-6.2.so.1
+7f5c2f439000-7f5c2f4e7000 r-xp 00000000 fd:00 1316486                    /opt/vtk/lib/libvtkIOLegacy-6.2.so.1
+7f5c2f4e7000-7f5c2f6e6000 ---p 000ae000 fd:00 1316486                    /opt/vtk/lib/libvtkIOLegacy-6.2.so.1
+7f5c2f6e6000-7f5c2f6ef000 rw-p 000ad000 fd:00 1316486                    /opt/vtk/lib/libvtkIOLegacy-6.2.so.1
+7f5c2f6ef000-7f5c2f77e000 r-xp 00000000 fd:00 1316523                    /opt/vtk/lib/libvtkParallelCore-6.2.so.1
+7f5c2f77e000-7f5c2f97e000 ---p 0008f000 fd:00 1316523                    /opt/vtk/lib/libvtkParallelCore-6.2.so.1
+7f5c2f97e000-7f5c2f982000 rw-p 0008f000 fd:00 1316523                    /opt/vtk/lib/libvtkParallelCore-6.2.so.1
+7f5c2f982000-7f5c2fde0000 r-xp 00000000 fd:00 1315379                    /opt/vtk/lib/libvtkFiltersCore-6.2.so.1
+7f5c2fde0000-7f5c2ffe0000 ---p 0045e000 fd:00 1315379                    /opt/vtk/lib/libvtkFiltersCore-6.2.so.1
+7f5c2ffe0000-7f5c30000000 rw-p 0045e000 fd:00 1315379                    /opt/vtk/lib/libvtkFiltersCore-6.2.so.1
+7f5c30000000-7f5c30021000 rw-p 00000000 00:00 0 
+7f5c30021000-7f5c34000000 ---p 00000000 00:00 0 
+7f5c34018000-7f5c34058000 rw-s 242229000 00:05 16954                     /dev/nvidia0
+7f5c34058000-7f5c34078000 rw-s 115c26000 00:05 16954                     /dev/nvidia0
+7f5c34078000-7f5c340ad000 r-xp 00000000 fd:00 1315461                    /opt/vtk/lib/libvtkCommonComputationalGeometry-6.2.so.1
+7f5c340ad000-7f5c342ac000 ---p 00035000 fd:00 1315461                    /opt/vtk/lib/libvtkCommonComputationalGeometry-6.2.so.1
+7f5c342ac000-7f5c342b0000 rw-p 00034000 fd:00 1315461                    /opt/vtk/lib/libvtkCommonComputationalGeometry-6.2.so.1
+7f5c342b0000-7f5c346d8000 r-xp 00000000 fd:00 1315485                    /opt/vtk/lib/libvtkFiltersGeneral-6.2.so.1
+7f5c346d8000-7f5c348d7000 ---p 00428000 fd:00 1315485                    /opt/vtk/lib/libvtkFiltersGeneral-6.2.so.1
+7f5c348d7000-7f5c34903000 rw-p 00427000 fd:00 1315485                    /opt/vtk/lib/libvtkFiltersGeneral-6.2.so.1
+7f5c34903000-7f5c3494f000 r-xp 00000000 fd:00 1316541                    /opt/vtk/lib/libvtkFiltersAMR-6.2.so.1
+7f5c3494f000-7f5c34b4f000 ---p 0004c000 fd:00 1316541                    /opt/vtk/lib/libvtkFiltersAMR-6.2.so.1
+7f5c34b4f000-7f5c34b52000 rw-p 0004c000 fd:00 1316541                    /opt/vtk/lib/libvtkFiltersAMR-6.2.so.1
+7f5c34b52000-7f5c34c2e000 r-xp 00000000 fd:00 1315797                    /opt/vtk/lib/libvtkFiltersSources-6.2.so.1
+7f5c34c2e000-7f5c34e2e000 ---p 000dc000 fd:00 1315797                    /opt/vtk/lib/libvtkFiltersSources-6.2.so.1
+7f5c34e2e000-7f5c34e39000 rw-p 000dc000 fd:00 1315797                    /opt/vtk/lib/libvtkFiltersSources-6.2.so.1
+7f5c34e39000-7f5c34f52000 r-xp 00000000 fd:00 1316612                    /opt/vtk/lib/libvtkIOXML-6.2.so.1
+7f5c34f52000-7f5c35152000 ---p 00119000 fd:00 1316612                    /opt/vtk/lib/libvtkIOXML-6.2.so.1
+7f5c35152000-7f5c35161000 rw-p 00119000 fd:00 1316612                    /opt/vtk/lib/libvtkIOXML-6.2.so.1
+7f5c35161000-7f5c35779000 r-xp 00000000 fd:00 1314850                    /opt/vtk/lib/libvtkCommonCore-6.2.so.1
+7f5c35779000-7f5c35979000 ---p 00618000 fd:00 1314850                    /opt/vtk/lib/libvtkCommonCore-6.2.so.1
+7f5c35979000-7f5c359b6000 rw-p 00618000 fd:00 1314850                    /opt/vtk/lib/libvtkCommonCore-6.2.so.1
+7f5c359b6000-7f5c359b7000 rw-p 00000000 00:00 0 
+7f5c359b7000-7f5c359dd000 r-xp 00000000 fd:00 1315032                    /opt/vtk/lib/libvtkCommonMath-6.2.so.1
+7f5c359dd000-7f5c35bdd000 ---p 00026000 fd:00 1315032                    /opt/vtk/lib/libvtkCommonMath-6.2.so.1
+7f5c35bdd000-7f5c35bdf000 rw-p 00026000 fd:00 1315032                    /opt/vtk/lib/libvtkCommonMath-6.2.so.1
+7f5c35bdf000-7f5c35c11000 r-xp 00000000 fd:00 1315076                    /opt/vtk/lib/libvtkCommonTransforms-6.2.so.1
+7f5c35c11000-7f5c35e10000 ---p 00032000 fd:00 1315076                    /opt/vtk/lib/libvtkCommonTransforms-6.2.so.1
+7f5c35e10000-7f5c35e13000 rw-p 00031000 fd:00 1315076                    /opt/vtk/lib/libvtkCommonTransforms-6.2.so.1
+7f5c35e13000-7f5c35e25000 r-xp 00000000 fd:00 1315063                    /opt/vtk/lib/libvtkCommonSystem-6.2.so.1
+7f5c35e25000-7f5c36025000 ---p 00012000 fd:00 1315063                    /opt/vtk/lib/libvtkCommonSystem-6.2.so.1
+7f5c36025000-7f5c36026000 rw-p 00012000 fd:00 1315063                    /opt/vtk/lib/libvtkCommonSystem-6.2.so.1
+7f5c36026000-7f5c36027000 rw-p 00000000 00:00 0 
+7f5c36027000-7f5c36041000 r-xp 00000000 fd:00 1315052                    /opt/vtk/lib/libvtkCommonMisc-6.2.so.1
+7f5c36041000-7f5c36241000 ---p 0001a000 fd:00 1315052                    /opt/vtk/lib/libvtkCommonMisc-6.2.so.1
+7f5c36241000-7f5c36242000 rw-p 0001a000 fd:00 1315052                    /opt/vtk/lib/libvtkCommonMisc-6.2.so.1
+7f5c36242000-7f5c3670d000 r-xp 00000000 fd:00 1315098                    /opt/vtk/lib/libvtkCommonDataModel-6.2.so.1
+7f5c3670d000-7f5c3690d000 ---p 004cb000 fd:00 1315098                    /opt/vtk/lib/libvtkCommonDataModel-6.2.so.1
+7f5c3690d000-7f5c3693d000 rw-p 004cb000 fd:00 1315098                    /opt/vtk/lib/libvtkCommonDataModel-6.2.so.1
+7f5c3693d000-7f5c36a21000 r-xp 00000000 fd:00 1315317                    /opt/vtk/lib/libvtkCommonExecutionModel-6.2.so.1
+7f5c36a21000-7f5c36c20000 ---p 000e4000 fd:00 1315317                    /opt/vtk/lib/libvtkCommonExecutionModel-6.2.so.1
+7f5c36c20000-7f5c36c2c000 rw-p 000e3000 fd:00 1315317                    /opt/vtk/lib/libvtkCommonExecutionModel-6.2.so.1
+7f5c36c2c000-7f5c36c9d000 r-xp 00000000 fd:00 1314852                    /opt/vtk/lib/libvtkCommonCoreJava.so
+7f5c36c9d000-7f5c36e9d000 ---p 00071000 fd:00 1314852                    /opt/vtk/lib/libvtkCommonCoreJava.so
+7f5c36e9d000-7f5c36e9f000 rw-p 00071000 fd:00 1314852                    /opt/vtk/lib/libvtkCommonCoreJava.so
+7f5c36e9f000-7f5c36eb2000 r-xp 00000000 fd:00 1315034                    /opt/vtk/lib/libvtkCommonMathJava.so
+7f5c36eb2000-7f5c370b1000 ---p 00013000 fd:00 1315034                    /opt/vtk/lib/libvtkCommonMathJava.so
+7f5c370b1000-7f5c370b2000 rw-p 00012000 fd:00 1315034                    /opt/vtk/lib/libvtkCommonMathJava.so
+7f5c370b2000-7f5c370d0000 r-xp 00000000 fd:00 1315078                    /opt/vtk/lib/libvtkCommonTransformsJava.so
+7f5c370d0000-7f5c372cf000 ---p 0001e000 fd:00 1315078                    /opt/vtk/lib/libvtkCommonTransformsJava.so
+7f5c372cf000-7f5c372d0000 rw-p 0001d000 fd:00 1315078                    /opt/vtk/lib/libvtkCommonTransformsJava.so
+7f5c372d0000-7f5c372d6000 r-xp 00000000 fd:00 1315065                    /opt/vtk/lib/libvtkCommonSystemJava.so
+7f5c372d6000-7f5c374d6000 ---p 00006000 fd:00 1315065                    /opt/vtk/lib/libvtkCommonSystemJava.so
+7f5c374d6000-7f5c374d7000 rw-p 00006000 fd:00 1315065                    /opt/vtk/lib/libvtkCommonSystemJava.so
+7f5c374d7000-7f5c374dc000 r-xp 00000000 fd:00 1315054                    /opt/vtk/lib/libvtkCommonMiscJava.so
+7f5c374dc000-7f5c376dc000 ---p 00005000 fd:00 1315054                    /opt/vtk/lib/libvtkCommonMiscJava.so
+7f5c376dc000-7f5c376dd000 rw-p 00005000 fd:00 1315054                    /opt/vtk/lib/libvtkCommonMiscJava.so
+7f5c376dd000-7f5c3770e000 r-xp 00000000 fd:00 1315319                    /opt/vtk/lib/libvtkCommonExecutionModelJava.so
+7f5c3770e000-7f5c3790d000 ---p 00031000 fd:00 1315319                    /opt/vtk/lib/libvtkCommonExecutionModelJava.so
+7f5c3790d000-7f5c3790f000 rw-p 00030000 fd:00 1315319                    /opt/vtk/lib/libvtkCommonExecutionModelJava.so
+7f5c3790f000-7f5c37910000 r-xp 00000000 fd:00 920153                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libjawt.so
+7f5c37910000-7f5c37b0f000 ---p 00001000 fd:00 920153                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libjawt.so
+7f5c37b0f000-7f5c37b10000 rw-p 00000000 fd:00 920153                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libjawt.so
+7f5c37b10000-7f5c37de5000 r-xp 00000000 fd:00 1315835                    /opt/vtk/lib/libvtkRenderingCore-6.2.so.1
+7f5c37de5000-7f5c37fe5000 ---p 002d5000 fd:00 1315835                    /opt/vtk/lib/libvtkRenderingCore-6.2.so.1
+7f5c37fe5000-7f5c38000000 rw-p 002d5000 fd:00 1315835                    /opt/vtk/lib/libvtkRenderingCore-6.2.so.1
+7f5c38000000-7f5c38021000 rw-p 00000000 00:00 0 
+7f5c38021000-7f5c3c000000 ---p 00000000 00:00 0 
+7f5c3c00c000-7f5c3c04c000 rw-s 131771000 00:05 16954                     /dev/nvidia0
+7f5c3c04c000-7f5c3c06c000 rw-s 2423ea000 00:05 16954                     /dev/nvidia0
+7f5c3c06c000-7f5c3c0ac000 rw-s 112918000 00:05 16954                     /dev/nvidia0
+7f5c3c0ac000-7f5c3c173000 r-xp 00000000 fd:00 1315837                    /opt/vtk/lib/libvtkRenderingCoreJava.so
+7f5c3c173000-7f5c3c372000 ---p 000c7000 fd:00 1315837                    /opt/vtk/lib/libvtkRenderingCoreJava.so
+7f5c3c372000-7f5c3c375000 rw-p 000c6000 fd:00 1315837                    /opt/vtk/lib/libvtkRenderingCoreJava.so
+7f5c3c375000-7f5c3c488000 r-xp 00000000 fd:00 1315100                    /opt/vtk/lib/libvtkCommonDataModelJava.so
+7f5c3c488000-7f5c3c688000 ---p 00113000 fd:00 1315100                    /opt/vtk/lib/libvtkCommonDataModelJava.so
+7f5c3c688000-7f5c3c68c000 rw-p 00113000 fd:00 1315100                    /opt/vtk/lib/libvtkCommonDataModelJava.so
+7f5c3c68c000-7f5c3c691000 r-xp 00000000 fd:00 1324799                    /opt/vtk/lib/libvtkWrappingJava-6.2.so.1
+7f5c3c691000-7f5c3c890000 ---p 00005000 fd:00 1324799                    /opt/vtk/lib/libvtkWrappingJava-6.2.so.1
+7f5c3c890000-7f5c3c891000 rw-p 00004000 fd:00 1324799                    /opt/vtk/lib/libvtkWrappingJava-6.2.so.1
+7f5c3c891000-7f5c3c8eb000 r-xp 00000000 fd:00 1317080                    /opt/vtk/lib/libvtkDomainsChemistry-6.2.so.1
+7f5c3c8eb000-7f5c3caeb000 ---p 0005a000 fd:00 1317080                    /opt/vtk/lib/libvtkDomainsChemistry-6.2.so.1
+7f5c3caeb000-7f5c3caef000 rw-p 0005a000 fd:00 1317080                    /opt/vtk/lib/libvtkDomainsChemistry-6.2.so.1
+7f5c3caef000-7f5c3caf9000 r-xp 00000000 fd:00 1317082                    /opt/vtk/lib/libvtkDomainsChemistryJava.so
+7f5c3caf9000-7f5c3ccf8000 ---p 0000a000 fd:00 1317082                    /opt/vtk/lib/libvtkDomainsChemistryJava.so
+7f5c3ccf8000-7f5c3ccf9000 rw-p 00009000 fd:00 1317082                    /opt/vtk/lib/libvtkDomainsChemistryJava.so
+7f5c3ccf9000-7f5c3ccfc000 ---p 00000000 00:00 0 
+7f5c3ccfc000-7f5c3cdfa000 rw-p 00000000 00:00 0 
+7f5c3cdfa000-7f5c3cdff000 r-xp 00000000 fd:00 30928                      /lib64/libnss_dns-2.12.so
+7f5c3cdff000-7f5c3cffe000 ---p 00005000 fd:00 30928                      /lib64/libnss_dns-2.12.so
+7f5c3cffe000-7f5c3cfff000 r--p 00004000 fd:00 30928                      /lib64/libnss_dns-2.12.so
+7f5c3cfff000-7f5c3d000000 rw-p 00005000 fd:00 30928                      /lib64/libnss_dns-2.12.so
+7f5c3d000000-7f5c3d800000 rw-s 00000000 fd:02 52036599                   /home/tomcat/git-repos/visko/visko/visko-web/WebContent/registry-tdb/SPO.dat
+7f5c3d800000-7f5c3e000000 rw-s 00000000 fd:02 52036598                   /home/tomcat/git-repos/visko/visko/visko-web/WebContent/registry-tdb/SPO.idn
+7f5c3e000000-7f5c3e800000 rw-s 00000000 fd:02 52036601                   /home/tomcat/git-repos/visko/visko/visko-web/WebContent/registry-tdb/POS.dat
+7f5c3e800000-7f5c3f000000 rw-s 00000000 fd:02 52036600                   /home/tomcat/git-repos/visko/visko/visko-web/WebContent/registry-tdb/POS.idn
+7f5c3f000000-7f5c3f800000 rw-s 00000000 fd:02 52036596                   /home/tomcat/git-repos/visko/visko/visko-web/WebContent/registry-tdb/node2id.dat
+7f5c3f800000-7f5c40000000 rw-s 00000000 fd:02 52036595                   /home/tomcat/git-repos/visko/visko/visko-web/WebContent/registry-tdb/node2id.idn
+7f5c40000000-7f5c40021000 rw-p 00000000 00:00 0 
+7f5c40021000-7f5c44000000 ---p 00000000 00:00 0 
+7f5c44008000-7f5c44009000 rw-p 00000000 00:00 0 
+7f5c44009000-7f5c4400b000 rw-s 00000000 fd:00 30380                      /tmp/glMqN5dO (deleted)
+7f5c4400b000-7f5c44012000 rw-s 164289000 00:05 16954                     /dev/nvidia0
+7f5c44012000-7f5c44013000 rw-s 11c97e000 00:05 16954                     /dev/nvidia0
+7f5c44013000-7f5c44014000 rw-s e7eea000 00:05 16954                      /dev/nvidia0
+7f5c44014000-7f5c44034000 rw-s 241445000 00:05 16954                     /dev/nvidia0
+7f5c44034000-7f5c44035000 rw-s f4641000 00:05 16954                      /dev/nvidia0
+7f5c44035000-7f5c44036000 rw-s e0140000 00:05 16954                      /dev/nvidia0
+7f5c44036000-7f5c44037000 rw-s 191383000 00:05 16954                     /dev/nvidia0
+7f5c44037000-7f5c44039000 r--s 00011000 fd:00 1715963                    /opt/tomcat/instances/tomcat-visko/webapps/module_custom/WEB-INF/lib/module_custom.jar
+7f5c44039000-7f5c4403a000 r--s 00001000 fd:00 1715962                    /opt/tomcat/instances/tomcat-visko/webapps/module_custom/WEB-INF/lib/dataset.jar
+7f5c4403a000-7f5c4403c000 r--s 00012000 fd:00 1716159                    /opt/tomcat/instances/tomcat-visko/webapps/module_vtk/WEB-INF/lib/module_vtk.jar
+7f5c4403c000-7f5c4403d000 r--s 00001000 fd:00 1716158                    /opt/tomcat/instances/tomcat-visko/webapps/module_vtk/WEB-INF/lib/dataset.jar
+7f5c4403d000-7f5c44085000 r--s 00314000 fd:00 1716160                    /opt/tomcat/instances/tomcat-visko/webapps/module_vtk/WEB-INF/lib/vtk.jar
+7f5c44085000-7f5c4408c000 rw-s 114603000 00:05 16954                     /dev/nvidia0
+7f5c4408c000-7f5c4408d000 rw-s 114601000 00:05 16954                     /dev/nvidia0
+7f5c4408d000-7f5c4408e000 rw-s e7ee8000 00:05 16954                      /dev/nvidia0
+7f5c4408e000-7f5c4408f000 rw-s e7ee7000 00:05 16954                      /dev/nvidia0
+7f5c4408f000-7f5c44090000 rw-s e7ee6000 00:05 16954                      /dev/nvidia0
+7f5c44090000-7f5c44091000 rw-s f4641000 00:05 16954                      /dev/nvidia0
+7f5c44091000-7f5c44092000 rw-s e00e0000 00:05 16954                      /dev/nvidia0
+7f5c44092000-7f5c44093000 rw-s 1ba1c3000 00:05 16954                     /dev/nvidia0
+7f5c44093000-7f5c4409a000 rw-s 164bb4000 00:05 16954                     /dev/nvidia0
+7f5c4409a000-7f5c4409b000 rw-s 164ae9000 00:05 16954                     /dev/nvidia0
+7f5c4409b000-7f5c4409f000 rw-s 11f1fb000 00:05 16954                     /dev/nvidia0
+7f5c4409f000-7f5c440a0000 rw-s e7ee5000 00:05 16954                      /dev/nvidia0
+7f5c440a0000-7f5c440a1000 rw-s e7ee4000 00:05 16954                      /dev/nvidia0
+7f5c440a1000-7f5c440a2000 rw-s e7ee3000 00:05 16954                      /dev/nvidia0
+7f5c440a2000-7f5c440a3000 rw-s f4641000 00:05 16954                      /dev/nvidia0
+7f5c440a3000-7f5c440a4000 rw-s e0080000 00:05 16954                      /dev/nvidia0
+7f5c440a4000-7f5c440a5000 rw-s 1ca9e3000 00:05 16954                     /dev/nvidia0
+7f5c440a5000-7f5c440a6000 rw-s f4060000 00:05 16954                      /dev/nvidia0
+7f5c440a6000-7f5c440a9000 ---p 00000000 00:00 0 
+7f5c440a9000-7f5c441a7000 rw-p 00000000 00:00 0 
+7f5c441a7000-7f5c441ab000 r--s 000f7000 fd:00 919624                     /opt/java/jdk1.7.0_40/jre/lib/ext/localedata.jar
+7f5c441ab000-7f5c441ae000 ---p 00000000 00:00 0 
+7f5c441ae000-7f5c442ac000 rw-p 00000000 00:00 0 
+7f5c442ac000-7f5c442ae000 r--s 00001000 fd:00 919626                     /opt/java/jdk1.7.0_40/jre/lib/ext/dnsns.jar
+7f5c442ae000-7f5c442b1000 ---p 00000000 00:00 0 
+7f5c442b1000-7f5c443af000 rw-p 00000000 00:00 0 
+7f5c443af000-7f5c443b2000 ---p 00000000 00:00 0 
+7f5c443b2000-7f5c444b0000 rw-p 00000000 00:00 0 
+7f5c444b0000-7f5c444b3000 ---p 00000000 00:00 0 
+7f5c444b3000-7f5c445b1000 rw-p 00000000 00:00 0 
+7f5c445b1000-7f5c445b4000 ---p 00000000 00:00 0 
+7f5c445b4000-7f5c446b2000 rw-p 00000000 00:00 0 
+7f5c446b2000-7f5c446b5000 ---p 00000000 00:00 0 
+7f5c446b5000-7f5c447b3000 rw-p 00000000 00:00 0 
+7f5c447b3000-7f5c447b6000 ---p 00000000 00:00 0 
+7f5c447b6000-7f5c448b4000 rw-p 00000000 00:00 0 
+7f5c448b4000-7f5c448b7000 ---p 00000000 00:00 0 
+7f5c448b7000-7f5c449b5000 rw-p 00000000 00:00 0 
+7f5c449b5000-7f5c449b8000 ---p 00000000 00:00 0 
+7f5c449b8000-7f5c44ab6000 rw-p 00000000 00:00 0 
+7f5c44ab6000-7f5c44ac0000 r--s 00371000 fd:00 919634                     /opt/java/jdk1.7.0_40/jre/lib/charsets.jar
+7f5c44ac0000-7f5c44aca000 r--s 00371000 fd:00 919634                     /opt/java/jdk1.7.0_40/jre/lib/charsets.jar
+7f5c44aca000-7f5c44acd000 ---p 00000000 00:00 0 
+7f5c44acd000-7f5c44bcb000 rw-p 00000000 00:00 0 
+7f5c44bcb000-7f5c44bce000 ---p 00000000 00:00 0 
+7f5c44bce000-7f5c44ccc000 rw-p 00000000 00:00 0 
+7f5c44ccc000-7f5c44ccf000 ---p 00000000 00:00 0 
+7f5c44ccf000-7f5c44dcd000 rw-p 00000000 00:00 0 
+7f5c44dcd000-7f5c44dd0000 ---p 00000000 00:00 0 
+7f5c44dd0000-7f5c44ece000 rw-p 00000000 00:00 0 
+7f5c44ece000-7f5c44ed1000 ---p 00000000 00:00 0 
+7f5c44ed1000-7f5c44fcf000 rw-p 00000000 00:00 0 
+7f5c44fcf000-7f5c44fd2000 ---p 00000000 00:00 0 
+7f5c44fd2000-7f5c450d0000 rw-p 00000000 00:00 0 
+7f5c450d0000-7f5c450d3000 ---p 00000000 00:00 0 
+7f5c450d3000-7f5c451d1000 rw-p 00000000 00:00 0 
+7f5c451d1000-7f5c451d4000 ---p 00000000 00:00 0 
+7f5c451d4000-7f5c452d2000 rw-p 00000000 00:00 0 
+7f5c452d2000-7f5c452d5000 ---p 00000000 00:00 0 
+7f5c452d5000-7f5c453d3000 rw-p 00000000 00:00 0 
+7f5c453d3000-7f5c453d6000 ---p 00000000 00:00 0 
+7f5c453d6000-7f5c454d4000 rw-p 00000000 00:00 0 
+7f5c454d4000-7f5c454d7000 ---p 00000000 00:00 0 
+7f5c454d7000-7f5c455d5000 rw-p 00000000 00:00 0 
+7f5c455d5000-7f5c455d8000 ---p 00000000 00:00 0 
+7f5c455d8000-7f5c456d6000 rw-p 00000000 00:00 0 
+7f5c456d6000-7f5c45ed6000 rw-s 00000000 fd:02 52036617                   /home/tomcat/git-repos/visko/visko/visko-web/WebContent/registry-tdb/prefixIdx.dat
+7f5c45ed6000-7f5c466d6000 rw-s 00000000 fd:02 52036616                   /home/tomcat/git-repos/visko/visko/visko-web/WebContent/registry-tdb/prefixIdx.idn
+7f5c466d6000-7f5c46ed6000 rw-s 00000000 fd:02 52036619                   /home/tomcat/git-repos/visko/visko/visko-web/WebContent/registry-tdb/prefix2id.dat
+7f5c46ed6000-7f5c476d6000 rw-s 00000000 fd:02 52036618                   /home/tomcat/git-repos/visko/visko/visko-web/WebContent/registry-tdb/prefix2id.idn
+7f5c476d6000-7f5c476d9000 ---p 00000000 00:00 0 
+7f5c476d9000-7f5c477d7000 rw-p 00000000 00:00 0 
+7f5c477d7000-7f5c477da000 ---p 00000000 00:00 0 
+7f5c477da000-7f5c478d8000 rw-p 00000000 00:00 0 
+7f5c478d8000-7f5c478db000 ---p 00000000 00:00 0 
+7f5c478db000-7f5c479d9000 rw-p 00000000 00:00 0 
+7f5c479d9000-7f5c479dc000 ---p 00000000 00:00 0 
+7f5c479dc000-7f5c47ada000 rw-p 00000000 00:00 0 
+7f5c47ada000-7f5c47adc000 r--s 00002000 fd:00 1324024                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-mtompolicy-1.6.0.jar
+7f5c47adc000-7f5c47adf000 r--s 00022000 fd:00 1324068                    /opt/tomcat/instances/tomcat-visko/shared/lib/pml.jar
+7f5c47adf000-7f5c47ae7000 r--s 0004e000 fd:00 1324042                    /opt/tomcat/instances/tomcat-visko/shared/lib/httpclient-4.1.2.jar
+7f5c47ae7000-7f5c47aec000 r--s 00020000 fd:00 1324074                    /opt/tomcat/instances/tomcat-visko/shared/lib/woden-api-1.0M9.jar
+7f5c47aec000-7f5c47af5000 r--s 000a0000 fd:00 1324010                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-adb-1.6.0.jar
+7f5c47af5000-7f5c47afb000 r--s 00059000 fd:00 1324052                    /opt/tomcat/instances/tomcat-visko/shared/lib/mail-1.4.jar
+7f5c47afb000-7f5c47afd000 r--s 00006000 fd:00 1324045                    /opt/tomcat/instances/tomcat-visko/shared/lib/jaxrpc.jar
+7f5c47afd000-7f5c47b0b000 r--s 000f1000 fd:00 1324022                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-kernel-1.6.0.jar
+7f5c47b0b000-7f5c47b10000 r--s 0003a000 fd:00 1324014                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-codegen-1.6.0.jar
+7f5c47b10000-7f5c47b13000 r--s 0001b000 fd:00 1324007                    /opt/tomcat/instances/tomcat-visko/shared/lib/axiom-impl-1.2.11.jar
+7f5c47b13000-7f5c47b16000 r--s 00023000 fd:00 1324028                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-transport-http-1.6.0.jar
+7f5c47b16000-7f5c47b29000 r--s 00147000 fd:00 1324056                    /opt/tomcat/instances/tomcat-visko/shared/lib/owls-api-3.0.jar
+7f5c47b29000-7f5c47b2b000 r--s 0000c000 fd:00 1324002                    /opt/tomcat/instances/tomcat-visko/shared/lib/activation.jar
+7f5c47b2b000-7f5c47b2c000 r--s 0000b000 fd:00 1324076                    /opt/tomcat/instances/tomcat-visko/shared/lib/woden-impl-dom-1.0M9.jar
+7f5c47b2c000-7f5c47b2e000 r--s 00007000 fd:00 1324055                    /opt/tomcat/instances/tomcat-visko/shared/lib/neethi-2.0.5.jar
+7f5c47b2e000-7f5c47b31000 r--s 0001c000 fd:00 1324078                    /opt/tomcat/instances/tomcat-visko/shared/lib/wsdl4j-1.5.1.jar
+7f5c47b31000-7f5c47b38000 r--s 00051000 fd:00 1324053                    /opt/tomcat/instances/tomcat-visko/shared/lib/mail.jar
+7f5c47b38000-7f5c47b3c000 r--s 0001d000 fd:00 1324073                    /opt/tomcat/instances/tomcat-visko/shared/lib/visko-api.jar
+7f5c47b3c000-7f5c47b3f000 r--s 0001f000 fd:00 1324048                    /opt/tomcat/instances/tomcat-visko/shared/lib/jena-iri-0.9.3.jar
+7f5c47b3f000-7f5c47b4b000 r--s 0008d000 fd:00 1324049                    /opt/tomcat/instances/tomcat-visko/shared/lib/jena-tdb-0.9.3.jar
+7f5c47b4b000-7f5c47b4d000 r--s 0000c000 fd:00 1324084                    /opt/tomcat/instances/tomcat-visko/shared/lib/xmlrpc-client-3.1.2.jar
+7f5c47b4d000-7f5c47b4f000 r--s 00007000 fd:00 1324026                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-soapmonitor-servlet-1.6.0.jar
+7f5c47b4f000-7f5c47b5c000 r--s 000a8000 fd:00 1324019                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-jaxws-1.6.0.jar
+7f5c47b5c000-7f5c47b5e000 r--s 0000b000 fd:00 1324035                    /opt/tomcat/instances/tomcat-visko/shared/lib/commons-fileupload-1.2.jar
+7f5c47b5e000-7f5c47b61000 r--s 0004d000 fd:00 1324031                    /opt/tomcat/instances/tomcat-visko/shared/lib/ciclient.jar
+7f5c47b61000-7f5c47b64000 r--s 00018000 fd:00 1324037                    /opt/tomcat/instances/tomcat-visko/shared/lib/commons-io-1.4.jar
+7f5c47b64000-7f5c47b6d000 r--s 0006d000 fd:00 1324051                    /opt/tomcat/instances/tomcat-visko/shared/lib/log4j-1.2.16.jar
+7f5c47b6d000-7f5c47b6e000 r--s 00006000 fd:00 1324030                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-xmlbeans-1.6.0.jar
+7f5c47b6e000-7f5c47b6f000 r--s 00002000 fd:00 1324027                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-spring-1.6.0.jar
+7f5c47b6f000-7f5c47b70000 r--s 00002000 fd:00 1324040                    /opt/tomcat/instances/tomcat-visko/shared/lib/content-management-clients.jar
+7f5c47b70000-7f5c47b71000 r--s 00003000 fd:00 1324029                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-transport-local-1.6.0.jar
+7f5c47b71000-7f5c47b73000 r--s 0000e000 fd:00 1324001                    /opt/tomcat/instances/tomcat-visko/shared/lib/activation-1.1.jar
+7f5c47b73000-7f5c47b74000 r--s 00004000 fd:00 1324070                    /opt/tomcat/instances/tomcat-visko/shared/lib/saaj.jar
+7f5c47b74000-7f5c47b7b000 r--s 00059000 fd:00 1324050                    /opt/tomcat/instances/tomcat-visko/shared/lib/log4j-1.2.15.jar
+7f5c47b7b000-7f5c47b7d000 r--s 00006000 fd:00 1324018                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-jaxbri-1.6.0.jar
+7f5c47b7d000-7f5c47b7e000 r--s 00006000 fd:00 1324017                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-java2wsdl-1.6.0.jar
+7f5c47b7e000-7f5c47b83000 r--s 00068000 fd:00 1324003                    /opt/tomcat/instances/tomcat-visko/shared/lib/antlr-2.7.7.jar
+7f5c47b83000-7f5c47b97000 r--s 00173000 fd:00 1324009                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis.jar
+7f5c47b97000-7f5c47b98000 r--s 00001000 fd:00 1324054                    /opt/tomcat/instances/tomcat-visko/shared/lib/mrj.jar
+7f5c47b98000-7f5c47b9c000 r--s 00021000 fd:00 1324000                    /opt/tomcat/instances/tomcat-visko/shared/lib/XmlSchema-1.4.7.jar
+7f5c47b9c000-7f5c47b9d000 r--s 0000c000 fd:00 1324039                    /opt/tomcat/instances/tomcat-visko/shared/lib/commons-logging-1.1.jar
+7f5c47b9d000-7f5c47ba3000 r--s 0007a000 fd:00 1324080                    /opt/tomcat/instances/tomcat-visko/shared/lib/wstx-asl-3.2.9.jar
+7f5c47ba3000-7f5c47ba5000 r--s 00010000 fd:00 1324033                    /opt/tomcat/instances/tomcat-visko/shared/lib/commons-codec-1.5.jar
+7f5c47ba5000-7f5c47ba7000 r--s 00005000 fd:00 1324071                    /opt/tomcat/instances/tomcat-visko/shared/lib/slf4j-api-1.6.4.jar
+7f5c47ba7000-7f5c47ba9000 r--s 00009000 fd:00 1324032                    /opt/tomcat/instances/tomcat-visko/shared/lib/commons-cli-1.2.jar
+7f5c47ba9000-7f5c47bab000 r--s 00007000 fd:00 1324077                    /opt/tomcat/instances/tomcat-visko/shared/lib/ws-commons-util-1.0.2.jar
+7f5c47bab000-7f5c47baf000 r--s 0002a000 fd:00 1324075                    /opt/tomcat/instances/tomcat-visko/shared/lib/woden-impl-commons-1.0M9.jar
+7f5c47baf000-7f5c47bb8000 r--s 0002d000 fd:00 1324082                    /opt/tomcat/instances/tomcat-visko/shared/lib/xml-apis-1.4.01.jar
+7f5c47bb8000-7f5c47bc1000 r--s 00061000 fd:00 1324023                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-metadata-1.6.0.jar
+7f5c47bc1000-7f5c47bc5000 r--s 00017000 fd:00 1324085                    /opt/tomcat/instances/tomcat-visko/shared/lib/xmlrpc-common-3.1.2.jar
+7f5c47bc5000-7f5c47bc7000 r--s 0000d000 fd:00 1324038                    /opt/tomcat/instances/tomcat-visko/shared/lib/commons-logging-1.1.1.jar
+7f5c47bc7000-7f5c47bc9000 r--s 00007000 fd:00 1324008                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis-ant.jar
+7f5c47bc9000-7f5c47bcc000 r--s 0000f000 fd:00 1324034                    /opt/tomcat/instances/tomcat-visko/shared/lib/commons-discovery-0.2.jar
+7f5c47bcc000-7f5c47bf7000 r--s 00212000 fd:00 1324046                    /opt/tomcat/instances/tomcat-visko/shared/lib/jena-arq-2.9.3.jar
+7f5c47bf7000-7f5c47bfc000 r--s 00076000 fd:00 1324086                    /opt/tomcat/instances/tomcat-visko/shared/lib/xsdlib.jar
+7f5c47bfc000-7f5c47bff000 ---p 00000000 00:00 0 
+7f5c47bff000-7f5c47cfd000 rw-p 00000000 00:00 0 
+7f5c47cfd000-7f5c47d00000 ---p 00000000 00:00 0 
+7f5c47d00000-7f5c47dfe000 rw-p 00000000 00:00 0 
+7f5c47dfe000-7f5c47e01000 ---p 00000000 00:00 0 
+7f5c47e01000-7f5c47eff000 rw-p 00000000 00:00 0 
+7f5c47eff000-7f5c47f02000 ---p 00000000 00:00 0 
+7f5c47f02000-7f5c48000000 rw-p 00000000 00:00 0 
+7f5c48000000-7f5c48021000 rw-p 00000000 00:00 0 
+7f5c48021000-7f5c4c000000 ---p 00000000 00:00 0 
+7f5c4c000000-7f5c4c002000 r--s 00014000 fd:00 1324025                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-saaj-1.6.0.jar
+7f5c4c002000-7f5c4c007000 r--s 00028000 fd:00 1324044                    /opt/tomcat/instances/tomcat-visko/shared/lib/httpcore-4.1.3.jar
+7f5c4c007000-7f5c4c00e000 r--s 0005c000 fd:00 1324066                    /opt/tomcat/instances/tomcat-visko/shared/lib/pellet-query.jar
+7f5c4c00e000-7f5c4c010000 r--s 00010000 fd:00 1324065                    /opt/tomcat/instances/tomcat-visko/shared/lib/pellet-pellint.jar
+7f5c4c010000-7f5c4c015000 r--s 00029000 fd:00 1324063                    /opt/tomcat/instances/tomcat-visko/shared/lib/pellet-jena.jar
+7f5c4c015000-7f5c4c017000 r--s 00006000 fd:00 1324062                    /opt/tomcat/instances/tomcat-visko/shared/lib/pellet-explanation.jar
+7f5c4c017000-7f5c4c018000 r--s 0000c000 fd:00 1324061                    /opt/tomcat/instances/tomcat-visko/shared/lib/pellet-el.jar
+7f5c4c018000-7f5c4c019000 r--s 00006000 fd:00 1324060                    /opt/tomcat/instances/tomcat-visko/shared/lib/pellet-dig.jar
+7f5c4c019000-7f5c4c01e000 r--s 0003c000 fd:00 1324059                    /opt/tomcat/instances/tomcat-visko/shared/lib/pellet-datatypes.jar
+7f5c4c01e000-7f5c4c027000 r--s 00090000 fd:00 1324058                    /opt/tomcat/instances/tomcat-visko/shared/lib/pellet-core.jar
+7f5c4c027000-7f5c4c02b000 r--s 0001e000 fd:00 1324004                    /opt/tomcat/instances/tomcat-visko/shared/lib/aterm-java-1.6.jar
+7f5c4c02b000-7f5c4c02d000 r--s 00011000 fd:00 1324057                    /opt/tomcat/instances/tomcat-visko/shared/lib/pellet-cli.jar
+7f5c4c02d000-7f5c4c02e000 r--s 00004000 fd:00 1324021                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-json-1.6.0.jar
+7f5c4c02e000-7f5c4c02f000 r--s 0000d000 fd:00 1324064                    /opt/tomcat/instances/tomcat-visko/shared/lib/pellet-modularity.jar
+7f5c4c02f000-7f5c4c030000 r--s 00002000 fd:00 1324072                    /opt/tomcat/instances/tomcat-visko/shared/lib/slf4j-log4j12-1.6.4.jar
+7f5c4c030000-7f5c4c033000 r--s 00024000 fd:00 1324006                    /opt/tomcat/instances/tomcat-visko/shared/lib/axiom-dom-1.2.11.jar
+7f5c4c033000-7f5c4c070000 r--s 0024f000 fd:00 1324083                    /opt/tomcat/instances/tomcat-visko/shared/lib/xmlbeans-2.3.0.jar
+7f5c4c070000-7f5c4c07a000 r--s 0005f000 fd:00 1324005                    /opt/tomcat/instances/tomcat-visko/shared/lib/axiom-api-1.2.11.jar
+7f5c4c07a000-7f5c4c09b000 r--s 00184000 fd:00 1324047                    /opt/tomcat/instances/tomcat-visko/shared/lib/jena-core-2.7.3.jar
+7f5c4c09b000-7f5c4c09d000 r--s 00006000 fd:00 1324041                    /opt/tomcat/instances/tomcat-visko/shared/lib/geronimo-stax-api_1.0_spec-1.0.1.jar
+7f5c4c09d000-7f5c4c0b6000 r--s 00134000 fd:00 1324081                    /opt/tomcat/instances/tomcat-visko/shared/lib/xercesImpl-2.10.0.jar
+7f5c4c0b6000-7f5c4c0b7000 r--s 00008000 fd:00 1324020                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-jibx-1.6.0.jar
+7f5c4c0b7000-7f5c4c0b8000 r--s 00004000 fd:00 1324012                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-ant-plugin-1.6.0.jar
+7f5c4c0b8000-7f5c4c0bd000 r--s 00026000 fd:00 1324043                    /opt/tomcat/instances/tomcat-visko/shared/lib/httpcore-4.0.jar
+7f5c4c0bd000-7f5c4c0bf000 r--s 00022000 fd:00 1324015                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-corba-1.6.0.jar
+7f5c4c0bf000-7f5c4c0c1000 r--s 00003000 fd:00 1324016                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-fastinfoset-1.6.0.jar
+7f5c4c0c1000-7f5c4c0c6000 r--s 00020000 fd:00 1324079                    /opt/tomcat/instances/tomcat-visko/shared/lib/wsdl4j-1.6.2.jar
+7f5c4c0c6000-7f5c4c0cc000 r--s 00045000 fd:00 1324036                    /opt/tomcat/instances/tomcat-visko/shared/lib/commons-httpclient-3.1.jar
+7f5c4c0cc000-7f5c4c0cf000 r--s 00015000 fd:00 1324013                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-clustering-1.6.0.jar
+7f5c4c0cf000-7f5c4c0d5000 r--s 0002d000 fd:00 1324067                    /opt/tomcat/instances/tomcat-visko/shared/lib/pellet-rules.jar
+7f5c4c0d5000-7f5c4c0d7000 r--s 000fc000 fd:00 1323999                    /opt/tomcat/instances/tomcat-visko/shared/lib/VeloJavaClient.jar
+7f5c4c0d7000-7f5c4c0d9000 r--s 0002a000 fd:00 1324011                    /opt/tomcat/instances/tomcat-visko/shared/lib/axis2-adb-codegen-1.6.0.jar
+7f5c4c0d9000-7f5c4c0dd000 r--s 0002d000 fd:00 919629                     /opt/java/jdk1.7.0_40/jre/lib/ext/sunjce_provider.jar
+7f5c4c0dd000-7f5c4c10f000 r-xp 00000000 fd:00 920151                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libsunec.so
+7f5c4c10f000-7f5c4c30e000 ---p 00032000 fd:00 920151                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libsunec.so
+7f5c4c30e000-7f5c4c314000 rw-p 00031000 fd:00 920151                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libsunec.so
+7f5c4c314000-7f5c4c324000 rw-p 00000000 00:00 0 
+7f5c4c324000-7f5c4c328000 r--s 00037000 fd:00 919625                     /opt/java/jdk1.7.0_40/jre/lib/ext/sunpkcs11.jar
+7f5c4c328000-7f5c4c32a000 r--s 00019000 fd:00 919636                     /opt/java/jdk1.7.0_40/jre/lib/jce.jar
+7f5c4c32a000-7f5c4c32e000 r--s 0008a000 fd:00 920316                     /opt/java/jdk1.7.0_40/jre/lib/jsse.jar
+7f5c4c32e000-7f5c4c331000 ---p 00000000 00:00 0 
+7f5c4c331000-7f5c4c42f000 rw-p 00000000 00:00 0 
+7f5c4c42f000-7f5c4c437000 r-xp 00000000 fd:00 920187                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libmanagement.so
+7f5c4c437000-7f5c4c636000 ---p 00008000 fd:00 920187                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libmanagement.so
+7f5c4c636000-7f5c4c637000 rw-p 00007000 fd:00 920187                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libmanagement.so
+7f5c4c637000-7f5c4c640000 r--s 00250000 fd:00 920246                     /opt/java/jdk1.7.0_40/jre/lib/resources.jar
+7f5c4c640000-7f5c4c642000 r--s 00017000 fd:00 1580195                    /opt/tomcat/instances/tomcat-visko/lib/tomcat-util.jar
+7f5c4c642000-7f5c4c644000 r--s 00010000 fd:00 1580194                    /opt/tomcat/instances/tomcat-visko/lib/catalina-storeconfig.jar
+7f5c4c644000-7f5c4c64e000 r--s 00086000 fd:00 1580193                    /opt/tomcat/instances/tomcat-visko/lib/tomcat-coyote.jar
+7f5c4c64e000-7f5c4c651000 r--s 0001c000 fd:00 1580192                    /opt/tomcat/instances/tomcat-visko/lib/catalina-ha.jar
+7f5c4c651000-7f5c4c653000 r--s 00007000 fd:00 1580191                    /opt/tomcat/instances/tomcat-visko/lib/websocket-api.jar
+7f5c4c653000-7f5c4c657000 r--s 00034000 fd:00 1580190                    /opt/tomcat/instances/tomcat-visko/lib/tomcat-dbcp.jar
+7f5c4c657000-7f5c4c659000 r--s 0000c000 fd:00 1580189                    /opt/tomcat/instances/tomcat-visko/lib/tomcat-spdy.jar
+7f5c4c659000-7f5c4c661000 r--s 00087000 fd:00 1580188                    /opt/tomcat/instances/tomcat-visko/lib/jasper.jar
+7f5c4c661000-7f5c4c663000 r--s 0000e000 fd:00 1580187                    /opt/tomcat/instances/tomcat-visko/lib/tomcat-jni.jar
+7f5c4c663000-7f5c4c667000 r--s 0002d000 fd:00 1580186                    /opt/tomcat/instances/tomcat-visko/lib/tomcat-util-scan.jar
+7f5c4c667000-7f5c4c66a000 r--s 00008000 fd:00 1580185                    /opt/tomcat/instances/tomcat-visko/lib/tomcat-i18n-fr.jar
+7f5c4c66a000-7f5c4c679000 r--s 001b0000 fd:00 1580184                    /opt/tomcat/instances/tomcat-visko/lib/ecj-4.3.1.jar
+7f5c4c679000-7f5c4c67b000 r--s 0000b000 fd:00 1580183                    /opt/tomcat/instances/tomcat-visko/lib/catalina-ant.jar
+7f5c4c67b000-7f5c4c67d000 r--s 00009000 fd:00 1580182                    /opt/tomcat/instances/tomcat-visko/lib/tomcat-i18n-ja.jar
+7f5c4c67d000-7f5c4c68f000 r--s 00156000 fd:00 1580181                    /opt/tomcat/instances/tomcat-visko/lib/catalina.jar
+7f5c4c68f000-7f5c4c692000 r--s 00024000 fd:00 1580180                    /opt/tomcat/instances/tomcat-visko/lib/jasper-el.jar
+7f5c4c692000-7f5c4c694000 r--s 00001000 fd:00 1580179                    /opt/tomcat/instances/tomcat-visko/lib/tomcat-api.jar
+7f5c4c694000-7f5c4c696000 r--s 0001e000 fd:00 1580178                    /opt/tomcat/instances/tomcat-visko/lib/tomcat-jdbc.jar
+7f5c4c696000-7f5c4c6c7000 rw-p 00000000 00:00 0 
+7f5c4c6c7000-7f5c4c6dc000 r-xp 00000000 fd:00 920134                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libnet.so
+7f5c4c6dc000-7f5c4c8dc000 ---p 00015000 fd:00 920134                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libnet.so
+7f5c4c8dc000-7f5c4c8dd000 rw-p 00015000 fd:00 920134                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libnet.so
+7f5c4c8dd000-7f5c4c8ed000 r-xp 00000000 fd:00 920174                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libnio.so
+7f5c4c8ed000-7f5c4caed000 ---p 00010000 fd:00 920174                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libnio.so
+7f5c4caed000-7f5c4caee000 rw-p 00010000 fd:00 920174                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libnio.so
+7f5c4caee000-7f5c4caf1000 ---p 00000000 00:00 0 
+7f5c4caf1000-7f5c4cbef000 rw-p 00000000 00:00 0 
+7f5c4cbef000-7f5c4cbf0000 ---p 00000000 00:00 0 
+7f5c4cbf0000-7f5c4ccf0000 rw-p 00000000 00:00 0 
+7f5c4ccf0000-7f5c4ccf3000 ---p 00000000 00:00 0 
+7f5c4ccf3000-7f5c4cdf1000 rw-p 00000000 00:00 0 
+7f5c4cdf1000-7f5c4cdf4000 ---p 00000000 00:00 0 
+7f5c4cdf4000-7f5c4cef2000 rw-p 00000000 00:00 0 
+7f5c4cef2000-7f5c4cef5000 ---p 00000000 00:00 0 
+7f5c4cef5000-7f5c4cff3000 rw-p 00000000 00:00 0 
+7f5c4cff3000-7f5c4cff6000 ---p 00000000 00:00 0 
+7f5c4cff6000-7f5c4d0f4000 rw-p 00000000 00:00 0 
+7f5c4d0f4000-7f5c4d0f7000 ---p 00000000 00:00 0 
+7f5c4d0f7000-7f5c4d1f5000 rw-p 00000000 00:00 0 
+7f5c4d1f5000-7f5c4d1f8000 ---p 00000000 00:00 0 
+7f5c4d1f8000-7f5c4d2f6000 rw-p 00000000 00:00 0 
+7f5c4d2f6000-7f5c4d2f7000 ---p 00000000 00:00 0 
+7f5c4d2f7000-7f5c4f086000 rw-p 00000000 00:00 0 
+7f5c4f086000-7f5c4f243000 r--s 039d3000 fd:00 920303                     /opt/java/jdk1.7.0_40/jre/lib/rt.jar
+7f5c4f243000-7f5c4f935000 rw-p 00000000 00:00 0 
+7f5c4f935000-7f5c4f936000 ---p 00000000 00:00 0 
+7f5c4f936000-7f5c4fa36000 rw-p 00000000 00:00 0 
+7f5c4fa36000-7f5c4fa37000 ---p 00000000 00:00 0 
+7f5c4fa37000-7f5c4fb37000 rw-p 00000000 00:00 0 
+7f5c4fb37000-7f5c4fb38000 ---p 00000000 00:00 0 
+7f5c4fb38000-7f5c4fc38000 rw-p 00000000 00:00 0 
+7f5c4fc38000-7f5c4fc39000 ---p 00000000 00:00 0 
+7f5c4fc39000-7f5c4fd39000 rw-p 00000000 00:00 0 
+7f5c4fd39000-7f5c4fd3a000 ---p 00000000 00:00 0 
+7f5c4fd3a000-7f5c4fe3a000 rw-p 00000000 00:00 0 
+7f5c4fe3a000-7f5c4fe3b000 ---p 00000000 00:00 0 
+7f5c4fe3b000-7f5c4ff3b000 rw-p 00000000 00:00 0 
+7f5c4ff3b000-7f5c4ff3c000 ---p 00000000 00:00 0 
+7f5c4ff3c000-7f5c5003c000 rw-p 00000000 00:00 0 
+7f5c5003c000-7f5c5003d000 ---p 00000000 00:00 0 
+7f5c5003d000-7f5c501db000 rw-p 00000000 00:00 0 
+7f5c501db000-7f5c5051d000 rw-p 00000000 00:00 0 
+7f5c5051d000-7f5c50534000 rw-p 00000000 00:00 0 
+7f5c50534000-7f5c50546000 rw-p 00000000 00:00 0 
+7f5c50546000-7f5c505e4000 rw-p 00000000 00:00 0 
+7f5c505e4000-7f5c50926000 rw-p 00000000 00:00 0 
+7f5c50926000-7f5c50b14000 rw-p 00000000 00:00 0 
+7f5c50b14000-7f5c50b16000 ---p 00000000 00:00 0 
+7f5c50b16000-7f5c50b35000 rw-p 00000000 00:00 0 
+7f5c50b35000-7f5c50bd7000 rw-p 00000000 00:00 0 
+7f5c50bd7000-7f5c51337000 rwxp 00000000 00:00 0 
+7f5c51337000-7f5c53bd7000 rw-p 00000000 00:00 0 
+7f5c53bd7000-7f5c53bf1000 r-xp 00000000 fd:00 920188                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libzip.so
+7f5c53bf1000-7f5c53df1000 ---p 0001a000 fd:00 920188                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libzip.so
+7f5c53df1000-7f5c53df2000 rw-p 0001a000 fd:00 920188                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libzip.so
+7f5c53df2000-7f5c53dfe000 r-xp 00000000 fd:00 30930                      /lib64/libnss_files-2.12.so
+7f5c53dfe000-7f5c53ffe000 ---p 0000c000 fd:00 30930                      /lib64/libnss_files-2.12.so
+7f5c53ffe000-7f5c53fff000 r--p 0000c000 fd:00 30930                      /lib64/libnss_files-2.12.so
+7f5c53fff000-7f5c54000000 rw-p 0000d000 fd:00 30930                      /lib64/libnss_files-2.12.so
+7f5c54000000-7f5c543a7000 rw-p 00000000 00:00 0 
+7f5c543a7000-7f5c58000000 ---p 00000000 00:00 0 
+7f5c58000000-7f5c58001000 r--s 00004000 fd:00 1324069                    /opt/tomcat/instances/tomcat-visko/shared/lib/relaxngDatatype.jar
+7f5c58001000-7f5c58003000 r--s 00003000 fd:00 1580177                    /opt/tomcat/instances/tomcat-visko/lib/annotations-api.jar
+7f5c58003000-7f5c58005000 r--s 0000f000 fd:00 1580176                    /opt/tomcat/instances/tomcat-visko/lib/tomcat-i18n-es.jar
+7f5c58005000-7f5c58009000 r--s 00038000 fd:00 1580175                    /opt/tomcat/instances/tomcat-visko/lib/servlet-api.jar
+7f5c58009000-7f5c5800d000 r--s 00028000 fd:00 1580174                    /opt/tomcat/instances/tomcat-visko/lib/tomcat-websocket.jar
+7f5c5800d000-7f5c58011000 r--s 0003a000 fd:00 1580173                    /opt/tomcat/instances/tomcat-visko/lib/catalina-tribes.jar
+7f5c58011000-7f5c58064000 rw-p 00000000 00:00 0 
+7f5c58064000-7f5c58076000 rw-p 00000000 00:00 0 
+7f5c58076000-7f5c5809f000 r-xp 00000000 fd:00 920171                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libjava.so
+7f5c5809f000-7f5c5829f000 ---p 00029000 fd:00 920171                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libjava.so
+7f5c5829f000-7f5c582a1000 rw-p 00029000 fd:00 920171                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libjava.so
+7f5c582a1000-7f5c582ae000 r-xp 00000000 fd:00 920133                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libverify.so
+7f5c582ae000-7f5c584ad000 ---p 0000d000 fd:00 920133                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libverify.so
+7f5c584ad000-7f5c584af000 rw-p 0000c000 fd:00 920133                     /opt/java/jdk1.7.0_40/jre/lib/amd64/libverify.so
+7f5c584af000-7f5c584b2000 ---p 00000000 00:00 0 
+7f5c584b2000-7f5c585b0000 rw-p 00000000 00:00 0 
+7f5c585b0000-7f5c59112000 r-xp 00000000 fd:00 920147                     /opt/java/jdk1.7.0_40/jre/lib/amd64/server/libjvm.so
+7f5c59112000-7f5c59312000 ---p 00b62000 fd:00 920147                     /opt/java/jdk1.7.0_40/jre/lib/amd64/server/libjvm.so
+7f5c59312000-7f5c593d5000 rw-p 00b62000 fd:00 920147                     /opt/java/jdk1.7.0_40/jre/lib/amd64/server/libjvm.so
+7f5c593d5000-7f5c59419000 rw-p 00000000 00:00 0 
+7f5c59419000-7f5c5942f000 r-xp 00000000 fd:00 920162                     /opt/java/jdk1.7.0_40/jre/lib/amd64/jli/libjli.so
+7f5c5942f000-7f5c5962f000 ---p 00016000 fd:00 920162                     /opt/java/jdk1.7.0_40/jre/lib/amd64/jli/libjli.so
+7f5c5962f000-7f5c59630000 rw-p 00016000 fd:00 920162                     /opt/java/jdk1.7.0_40/jre/lib/amd64/jli/libjli.so
+7f5c59630000-7f5c59631000 rw-p 00000000 00:00 0 
+7f5c59631000-7f5c59632000 r--s 00003000 fd:00 919628                     /opt/java/jdk1.7.0_40/jre/lib/ext/sunec.jar
+7f5c59632000-7f5c59634000 r--s 0000d000 fd:00 1580172                    /opt/tomcat/instances/tomcat-visko/lib/jsp-api.jar
+7f5c59634000-7f5c59637000 r--s 00011000 fd:00 1580171                    /opt/tomcat/instances/tomcat-visko/lib/el-api.jar
+7f5c59637000-7f5c59638000 r--s 00009000 fd:00 1447417                    /opt/tomcat/instances/tomcat-visko/bin/tomcat-juli.jar
+7f5c59638000-7f5c59639000 r--s 00005000 fd:00 1447414                    /opt/tomcat/instances/tomcat-visko/bin/commons-daemon.jar
+7f5c59639000-7f5c5963a000 r--s 00006000 fd:00 1447418                    /opt/tomcat/instances/tomcat-visko/bin/bootstrap.jar
+7f5c5963a000-7f5c59642000 rw-s 00000000 fd:00 400254                     /tmp/hsperfdata_root/64975
+7f5c59642000-7f5c59643000 rw-p 00000000 00:00 0 
+7f5c59643000-7f5c59644000 r--p 00000000 00:00 0 
+7f5c59644000-7f5c59645000 rw-p 00000000 00:00 0 
+7fff1e817000-7fff1e82c000 rw-p 00000000 00:00 0                          [stack]
+7fff1e8d6000-7fff1e8d7000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Djava.util.logging.config.file=/opt/tomcat/instances/tomcat-visko/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djava.endorsed.dirs=/opt/tomcat/instances/tomcat-visko/endorsed -Dcatalina.base=/opt/tomcat/instances/tomcat-visko -Dcatalina.home=/opt/tomcat/instances/tomcat-visko -Djava.io.tmpdir=/opt/tomcat/instances/tomcat-visko/temp 
+java_command: org.apache.catalina.startup.Bootstrap start
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+USERNAME=nick
+LD_LIBRARY_PATH=/opt/vtk/lib:/opt/java/jdk1.7.0_40/jre/lib/amd64:/opt/java/jdk1.7.0_40/jre/lib/amd64/xawt
+SHELL=/bin/bash
+DISPLAY=:0.0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x992d50], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x992d50], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x80fb00], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x80fb00], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x80fb00], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x80fb00], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x810ff0], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x811f60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: SIG_IGN, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGTERM: [libjvm.so+0x811f60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x811f60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:CentOS release 6.5 (Final)
+
+uname:Linux 2.6.32-431.11.2.el6.x86_64 #1 SMP Tue Mar 25 19:59:55 UTC 2014 x86_64
+libc:glibc 2.12 NPTL 2.12 
+rlimit: STACK 10240k, CORE 0k, NPROC 95055, NOFILE 4096, AS infinity
+load average:0.13 0.26 0.32
+
+/proc/meminfo:
+MemTotal:       12187864 kB
+MemFree:         2660708 kB
+Buffers:          539384 kB
+Cached:          5113396 kB
+SwapCached:            0 kB
+Active:          6581820 kB
+Inactive:        1984456 kB
+Active(anon):    2914184 kB
+Inactive(anon):     5152 kB
+Active(file):    3667636 kB
+Inactive(file):  1979304 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:       6160376 kB
+SwapFree:        6160376 kB
+Dirty:              2296 kB
+Writeback:             0 kB
+AnonPages:       2913988 kB
+Mapped:           208352 kB
+Shmem:              5476 kB
+Slab:             739268 kB
+SReclaimable:     609544 kB
+SUnreclaim:       129724 kB
+KernelStack:        4288 kB
+PageTables:        35904 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    12254308 kB
+Committed_AS:    4028964 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      154280 kB
+VmallocChunk:   34359570940 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:   2471936 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      753636 kB
+DirectMap2M:     9730048 kB
+DirectMap1G:     2097152 kB
+
+
+CPU:total 8 (4 cores per cpu, 2 threads per core) family 6 model 44 stepping 2, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, aes, ht, tsc, tscinvbit, tscinv
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 44
+model name	: Intel(R) Xeon(R) CPU           E5620  @ 2.40GHz
+stepping	: 2
+cpu MHz		: 2393.857
+cache size	: 12288 KB
+physical id	: 1
+siblings	: 4
+core id		: 0
+cpu cores	: 4
+apicid		: 32
+initial apicid	: 32
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 popcnt aes lahf_lm ida arat epb dts tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 4787.71
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 44
+model name	: Intel(R) Xeon(R) CPU           E5620  @ 2.40GHz
+stepping	: 2
+cpu MHz		: 2393.857
+cache size	: 12288 KB
+physical id	: 1
+siblings	: 4
+core id		: 1
+cpu cores	: 4
+apicid		: 34
+initial apicid	: 34
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 popcnt aes lahf_lm ida arat epb dts tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 4787.71
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 44
+model name	: Intel(R) Xeon(R) CPU           E5620  @ 2.40GHz
+stepping	: 2
+cpu MHz		: 2393.857
+cache size	: 12288 KB
+physical id	: 1
+siblings	: 4
+core id		: 9
+cpu cores	: 4
+apicid		: 50
+initial apicid	: 50
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 popcnt aes lahf_lm ida arat epb dts tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 4787.71
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 44
+model name	: Intel(R) Xeon(R) CPU           E5620  @ 2.40GHz
+stepping	: 2
+cpu MHz		: 2393.857
+cache size	: 12288 KB
+physical id	: 1
+siblings	: 4
+core id		: 10
+cpu cores	: 4
+apicid		: 52
+initial apicid	: 52
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 popcnt aes lahf_lm ida arat epb dts tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 4787.71
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 44
+model name	: Intel(R) Xeon(R) CPU           E5620  @ 2.40GHz
+stepping	: 2
+cpu MHz		: 2393.857
+cache size	: 12288 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 popcnt aes lahf_lm ida arat epb dts tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 4787.78
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 44
+model name	: Intel(R) Xeon(R) CPU           E5620  @ 2.40GHz
+stepping	: 2
+cpu MHz		: 2393.857
+cache size	: 12288 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 popcnt aes lahf_lm ida arat epb dts tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 4787.78
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 44
+model name	: Intel(R) Xeon(R) CPU           E5620  @ 2.40GHz
+stepping	: 2
+cpu MHz		: 2393.857
+cache size	: 12288 KB
+physical id	: 0
+siblings	: 4
+core id		: 9
+cpu cores	: 4
+apicid		: 18
+initial apicid	: 18
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 popcnt aes lahf_lm ida arat epb dts tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 4787.78
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 44
+model name	: Intel(R) Xeon(R) CPU           E5620  @ 2.40GHz
+stepping	: 2
+cpu MHz		: 2393.857
+cache size	: 12288 KB
+physical id	: 0
+siblings	: 4
+core id		: 10
+cpu cores	: 4
+apicid		: 20
+initial apicid	: 20
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 popcnt aes lahf_lm ida arat epb dts tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 4787.78
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 12187864k(2660708k free), swap 6160376k(6160376k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (24.0-b56) for linux-amd64 JRE (1.7.0_40-b43), built on Aug 26 2013 23:53:33 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Wed May 28 00:31:32 2014
+elapsed time: 334 seconds
+
